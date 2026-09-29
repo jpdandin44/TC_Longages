@@ -14,6 +14,10 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Revue et dépôt
 
+La [PR initiale no 1](https://github.com/jpdandin44/TC_Longages/pull/1) a été fusionnée par l’utilisateur le 29 septembre à 10 h 25 UTC ; le commit de fusion observé est `d4e0fdbaf9c05ca510202dad9233d944771118d1`. Les contrôles technique et de checklist ont réussi avant fusion. Cela intègre le socle local dans `main`, sans installation hébergée ni validation de phase déduite.
+
+Le refus **« Requête extérieure refusée »** à l’ouverture du suivi depuis un lien externe a été reproduit : la garde locale bloquait aussi une navigation volontaire. Le correctif permet uniquement l’ouverture de l’accueil par un clic de premier niveau et maintient les refus sur les API, écritures et pages incorporées. La branche `fix/navigation-revue` porte ce correctif ; ses références de revue et résultats sont dans le reçu technique ci-dessous.
+
 L’utilisateur demande de finaliser les PR et les contrôles de phases. Ses deux notes de revue sont conservées dans le [registre canonique](suivi-chantier/suivi-chantier.json). La saisie était déjà possible ; la remise et la validation étaient bloquées faute de PR, version source et preuves rattachées. L’interface explique désormais chaque étape, les causes de blocage et les critères enregistrés ; elle conserve le commentaire après enregistrement des critères et redemande une confirmation personnelle pour une décision.
 
 Git local est raccordé au dépôt, avec préservation du commit initial. L’utilisateur a rendu le dépôt **public**. Les détails internes d’hébergement et chemins personnels ont été séparés des sources publiables, avec originaux privés conservés sur le poste. La protection de `main` a été enregistrée : PR obligatoire, checks `technical-ci` et `policy`, application aux administrateurs, discussions résolues et refus des envois forcés et suppressions. Voir [le fonctionnement du dépôt](preparer-depot.md).

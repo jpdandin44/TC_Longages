@@ -23,6 +23,8 @@ Le [profil](framework/profil-projet.json) décrit les environnements ; le [suivi
 
 Le [manifeste du candidat](docs/candidat-revue.md) rattache la revue à un commit source. Les modifications des sources rendent les preuves périmées ; les écritures de suivi et reçus sont exclues selon une liste fermée. Les workflows `technical-ci` et `policy` exécutent respectivement les tests et la vérification stricte de la description de PR. Ils ne disposent d’aucun accès d’hébergement.
 
+La garde Fetch Metadata autorise une navigation humaine de premier niveau (`GET /`, mode `navigate`, destination `document`, activation `?1`) depuis une page externe pour ouvrir le suivi. Cette exception ne s’applique ni aux API ni aux écritures ; les vérifications Host/Origin restent préalables et les pages ne peuvent pas être incorporées dans une iframe.
+
 ## Drupal dédié local
 
 Le socle `drupal/` utilise Drupal 11.4.8, Drush 13.8.0 et son verrou Composer. La racine publique est `drupal/web/`. Le module propre `tcl_site` lit les sept pages dérivées dans `drupal/site-pages/`, hors racine publique, et les sert via Drupal : aucun HTML autonome ne contourne la maintenance. `system.maintenance_mode` commande la fermeture native ; le message se configure depuis l'administration. Les anciens ZIP statiques gardent leur mécanisme historique.
