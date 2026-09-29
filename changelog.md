@@ -14,14 +14,9 @@ tags:
 
 # Journal des évolutions
 
-## 2026-09-29 — Accès direct au tableau des quatre étapes
-
-- Un clic volontaire depuis un autre site ouvre maintenant `/parcours` dans le navigateur local, comme il ouvrait déjà l'accueil.
-- Les API, les écritures, les pages incorporées et l'historique appelé directement depuis l'extérieur restent refusés ; contrôle HTTP et test ciblé ajoutés.
-
 ## 2026-09-29 — Parcours de livraison V1 simplifié, candidat Drupal préparé
 
-- Tableau local de quatre étapes alimenté par un registre JSON distinct ; lien depuis l'ancien suivi, historique des validations conservé.
+- Parcours de quatre étapes décrit dans un registre JSON et un guide ; interface historique conservée sans nouvelle page de suivi.
 - Génération locale des sept pages publiques Drupal à partir de la V1, avec manifeste SHA-256 et refus de source inattendue.
 - Indexation toujours refusée par défaut ; retrait limité aux réponses publiques autorisées avec drapeau explicite. Modèle hébergé différenciant préproduction et production.
 - Aucune installation, modification DNS/HTTPS ni ouverture distante exécutée.

@@ -13,8 +13,6 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
  const root=await mkdtemp(resolve(tmpdir(),'tcl-framework-test-'));
  assert.ok(root.startsWith(resolve(tmpdir())+sep));
  await mkdir(resolve(root,'framework'));await mkdir(resolve(root,'docs/suivi-chantier'),{recursive:true});
- await mkdir(resolve(root,'data'));
- await writeFile(resolve(root,'data/parcours-mise-en-ligne.json'),await readFile(resolve(projectRoot,'data/parcours-mise-en-ligne.json')));
  const profile=JSON.parse(await readFile(resolve(projectRoot,'framework/profil-projet.json'),'utf8'));
  const tracker=JSON.parse(await readFile(resolve(projectRoot,'docs/suivi-chantier/suivi-chantier.json'),'utf8'));
  tracker.reviewEvents=[];tracker.reviewCommentResponses=[];tracker.history=[];tracker.decisions=tracker.decisions.filter(d=>d.id===profile.project.initialAuthorizationRef);tracker.evidence=[];tracker.testRuns=[];
@@ -41,7 +39,6 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
 }
 test('Le serveur reste local, permet la lecture déclarée et refuse les routes privées',async t=>{
  const f=await fixture(t);assert.equal(f.app.server.address().address,'127.0.0.1');assert.equal((await f.state()).tracker.phases.length,8);
- const dashboard=await(await fetch(f.app.origin+'/parcours')).text();assert.match(dashboard,/Mise en ligne de la V1/);assert.equal((dashboard.match(/class="step"/g)||[]).length,4);assert.match(dashboard,/Aucune livraison en production exécutée/);
  assert.equal((await fetch(f.app.origin+'/documents/0/0')).status,200);
  for(const path of ['/framework/profil-projet.json','/.local/framework-runtime.lock','/api/deploy','/documents/0/99','/api/state?x=1'])assert.equal((await fetch(f.app.origin+path)).status,404);
  assert.equal((await fetch(f.app.origin+'/api/state')).status,403);
@@ -65,18 +62,16 @@ test('Host, origine, jeton, type de contenu et méthode sont contrôlés avant m
  assert.equal((await f.post({}, {'Content-Type':'text/plain'})).status,415);
  assert.equal((await f.state()).revision,before);
 });
-test('Un clic externe ouvre les vues publiques de suivi, sans autoriser API, iframe ou écriture externe',async t=>{
+test('Un clic externe ouvre seulement l’accueil, sans autoriser lecture API, iframe ou écriture externe',async t=>{
  const f=await fixture(t),before=(await f.state()).revision;
  const navigation={'Sec-Fetch-Site':'cross-site','Sec-Fetch-Mode':'navigate','Sec-Fetch-Dest':'document','Sec-Fetch-User':'?1'};
  const probe=(path='/',overrides={},method='GET')=>new Promise((resolve,reject)=>{
    const req=request(f.app.origin+path,{method,headers:{...navigation,...overrides}},res=>{let body='';res.setEncoding('utf8');res.on('data',chunk=>body+=chunk);res.on('end',()=>resolve({status:res.statusCode,headers:res.headers,body}));});req.on('error',reject);req.end();
  });
  const page=await probe();assert.equal(page.status,200);assert.match(page.headers['content-type'],/^text\/html/);assert.match(page.body,/name="review-token"/);assert.equal(page.headers['x-frame-options'],'DENY');
- const parcours=await probe('/parcours');assert.equal(parcours.status,200);assert.match(parcours.body,/Mise en ligne de la V1/);assert.equal(parcours.headers['x-frame-options'],'DENY');
  assert.equal((await probe('/',{'Sec-Fetch-Site':'same-site'})).status,200);
- for(const path of ['/api/state','/api/action','/app.js','/app.css','/documents/0/0','/historique'])assert.equal((await probe(path,f.headers)).status,403);
+ for(const path of ['/api/state','/api/action','/app.js','/app.css','/documents/0/0'])assert.equal((await probe(path,f.headers)).status,403);
  for(const headers of [{'Sec-Fetch-Mode':'cors'},{'Sec-Fetch-Mode':'no-cors'},{'Sec-Fetch-Dest':'iframe'},{'Sec-Fetch-User':'?0'},{'Sec-Fetch-User':''},{Host:'evil.example'},{Origin:'https://github.com'}])assert.equal((await probe('/',headers)).status,403);
- for(const headers of [{'Sec-Fetch-Mode':'cors'},{'Sec-Fetch-Dest':'iframe'},{'Sec-Fetch-User':'?0'},{Host:'evil.example'},{Origin:'https://github.com'}])assert.equal((await probe('/parcours',headers)).status,403);
  assert.equal((await probe('/',{},'POST')).status,403);
  assert.equal((await probe('/api/action',{...f.headers,Origin:f.app.origin,'Content-Type':'application/json'},'POST')).status,403);
  assert.equal((await f.state()).revision,before);

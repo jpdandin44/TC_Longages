@@ -5,7 +5,6 @@ import {fileURLToPath} from 'node:url';
 import {createReviewStore,ReviewError} from './framework-store.mjs';
 import {renderShell,styles,clientScript,documentPage} from './framework-ui.mjs';
 import {createPullRequestFeed} from './framework-prs.mjs';
-import {renderParcours} from './parcours-ui.mjs';
 
 export const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const safeToken=(given,expected)=>typeof given==='string'&&Buffer.byteLength(given)===Buffer.byteLength(expected)&&timingSafeEqual(Buffer.from(given),Buffer.from(expected));
@@ -15,18 +14,16 @@ export async function startFrameworkServer({root=projectRoot,port=4181,regenerat
   try {await store.read();}catch(error){await store.close();throw error;}
   const token=randomBytes(32).toString('hex');let origin,closing=false;
   const server=createServer(async(req,res)=>{
-    const send=(status,body,type='application/json; charset=utf-8')=>{res.writeHead(status,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'no-referrer','Cross-Origin-Resource-Policy':'same-origin','Content-Security-Policy':"default-src 'none'; script-src 'self'; style-src "+(req.url==='/parcours'?"'unsafe-inline'":"'self'")+"; connect-src 'self'; img-src 'none'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'"});res.end(typeof body==='string'?body:JSON.stringify(body));};
+    const send=(status,body,type='application/json; charset=utf-8')=>{res.writeHead(status,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'no-referrer','Cross-Origin-Resource-Policy':'same-origin','Content-Security-Policy':"default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'none'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'"});res.end(typeof body==='string'?body:JSON.stringify(body));};
     try {
       if(req.headers.host!==new URL(origin).host||!['127.0.0.1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress)) throw new ReviewError('Adresse locale attendue.',403);
       if(req.headers.origin&&req.headers.origin!==origin) throw new ReviewError('Origine refusée.',403);
-      // Un clic humain peut ouvrir les vues d'accueil et de parcours depuis un autre site ; il ne donne aucun accès externe aux API.
-      const userNavigation=req.method==='GET'&&['/','/parcours'].includes(req.url)&&req.headers['sec-fetch-mode']==='navigate'&&req.headers['sec-fetch-dest']==='document'&&req.headers['sec-fetch-user']==='?1';
+      // Un clic humain peut ouvrir l'accueil depuis une PR ; il ne donne aucun accès externe aux API.
+      const userNavigation=req.method==='GET'&&req.url==='/'&&req.headers['sec-fetch-mode']==='navigate'&&req.headers['sec-fetch-dest']==='document'&&req.headers['sec-fetch-user']==='?1';
       if(req.headers['sec-fetch-site']&&!['none','same-origin'].includes(req.headers['sec-fetch-site'])&&!userNavigation) throw new ReviewError('Requête extérieure refusée.',403);
       if(!['GET','POST'].includes(req.method)) {res.setHeader('Allow','GET, POST');throw new ReviewError('Méthode refusée.',405);}
       const path=req.url;
-      if(req.method==='GET'&&path==='/') return send(200,renderShell(token).replace('</header>','<p><a href="/parcours" style="color:white;font-weight:700">Voir le parcours simplifié en quatre étapes →</a></p></header>'),'text/html; charset=utf-8');
-      if(req.method==='GET'&&path==='/parcours') return send(200,await renderParcours(root),'text/html; charset=utf-8');
-      if(req.method==='GET'&&path==='/historique') return send(200,renderShell(token),'text/html; charset=utf-8');
+      if(req.method==='GET'&&path==='/') return send(200,renderShell(token),'text/html; charset=utf-8');
       if(req.method==='GET'&&path==='/app.js') return send(200,clientScript,'text/javascript; charset=utf-8');
       if(req.method==='GET'&&path==='/app.css') return send(200,styles,'text/css; charset=utf-8');
       if(req.method==='GET'&&/^\/documents\/[0-7]\/\d+$/.test(path)) {

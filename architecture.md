@@ -17,7 +17,7 @@ tags:
 
 ## Parcours de livraison V1
 
-Le [registre des quatre étapes](data/parcours-mise-en-ligne.json) est distinct du suivi historique à huit phases. `scripts/parcours-ui.mjs` le rend en lecture seule sur `/parcours` dans le serveur local ; il ne peut ni approuver ni déployer. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
+Le [registre des quatre étapes](data/parcours-mise-en-ligne.json) est distinct du suivi historique à huit phases. Il documente cette livraison sans ajouter de page au serveur local de suivi. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
 
 Le module Drupal sert les pages hors webroot. Son abonné de réponse bloque l'indexation par défaut ; un drapeau explicite ne retire ce blocage que sur les chemins publics et réponses 200. La maintenance, les erreurs et la connexion restent non indexables. Les installations préproduction et production nécessitent bases, répertoires privés, paramètres et contrôles distincts ; aucune de ces installations n'est créée par le dépôt.
 
@@ -31,7 +31,7 @@ Le [manifeste du candidat](docs/candidat-revue.md) rattache la revue à un commi
 
 Le tableau interactif affiche les PR explicitement associées à chaque phase dans le suivi JSON. Son service local lit en lecture seule leurs états publics sur l’API GitHub, met le résultat en cache et indique si la lecture est indisponible. Cette lecture n’alimente ni les critères, ni les décisions de phase. L’[intégration GitHub du suivi](api/github-suivi.md) décrit cette frontière.
 
-La garde Fetch Metadata autorise une navigation humaine de premier niveau (`GET /` ou `GET /parcours`, mode `navigate`, destination `document`, activation `?1`) depuis une page externe pour ouvrir les deux vues de suivi. Cette exception ne s’applique ni aux API, ni aux écritures, ni à l’historique ; les vérifications Host/Origin restent préalables et les pages ne peuvent pas être incorporées dans une iframe.
+La garde Fetch Metadata autorise une navigation humaine de premier niveau vers `GET /` (mode `navigate`, destination `document`, activation `?1`) depuis une page externe pour ouvrir le suivi existant. Cette exception ne s’applique ni aux API, ni aux écritures, ni à l’historique ; les vérifications Host/Origin restent préalables et les pages ne peuvent pas être incorporées dans une iframe.
 
 ## Drupal dédié local
 

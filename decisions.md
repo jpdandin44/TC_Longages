@@ -21,7 +21,7 @@ tags:
 
 **Décision.** Piloter cette livraison par initialisation, recette locale, recette en préproduction, puis mise en production. Conserver sans les réécrire les décisions du suivi historique à huit phases. Les pages Bureau, Google et envois automatiques restent fermés. La livraison distante et l'ouverture publique sont soumises à des accords explicites sur des actions concrètes.
 
-**Raisons et conséquences.** Le suivi court rend la progression visible tout en préservant les preuves humaines déjà enregistrées. Un registre JSON distinct alimente l'interface HTML ; les deux suivis ont des rôles différents. La préproduction, sa sécurité et son retour arrière doivent être qualifiés avant la production. Aucun accord de publication n'est déduit de cette décision d'architecture.
+**Raisons et conséquences.** Le plan court clarifie les étapes de livraison tout en préservant les preuves humaines déjà enregistrées. Son registre JSON et son guide ne redéveloppent pas l'interface HTML du suivi existant. La préproduction, sa sécurité et son retour arrière doivent être qualifiés avant la production. Aucun accord de publication n'est déduit de cette décision d'architecture.
 
 ## 2026-09-29 — PR, contrôles de phases et dépôt public
 

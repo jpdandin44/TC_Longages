@@ -12,7 +12,7 @@ tags: [drupal, recette, preproduction, production]
 
 # Parcours simplifié de mise en ligne V1
 
-Le [registre JSON](../data/parcours-mise-en-ligne.json) porte les quatre étapes et leurs états ; le [tableau HTML local](http://127.0.0.1:4181/parcours) en est une vue de lecture. Le registre historique des huit phases et ses décisions humaines restent intacts dans [suivi-chantier.json](suivi-chantier/suivi-chantier.json). Cette simplification du pilotage de la V1 publique ne réécrit pas une validation et n'autorise pas une intervention distante.
+Le [registre JSON](../data/parcours-mise-en-ligne.json) porte les quatre étapes et leurs états. Le registre historique des huit phases et ses décisions humaines restent intacts dans [suivi-chantier.json](suivi-chantier/suivi-chantier.json). Cette simplification du pilotage de la V1 publique ne réécrit pas une validation et n'autorise pas une intervention distante.
 
 | Étape | Critère de sortie concret | État au 29 septembre |
 |---|---|---|
@@ -23,7 +23,7 @@ Le [registre JSON](../data/parcours-mise-en-ligne.json) porte les quatre étapes
 
 La première V1 comprend les sept pages publiques sous Drupal. La page « Espace » reste un écran d'attente ; aucun compte Bureau, formulaire Google, publication sociale ou collecte de contact n'est activé. Le contact public affiché est `tclongages@gmail.com` ; `support@tclongages.fr` reste prévu, sans boîte attestée.
 
-Le tableau `/parcours` peut être ouvert par un clic direct depuis un autre site ou une autre application. Cette exception locale concerne uniquement une navigation volontaire vers cette vue de lecture ; elle ne donne pas accès aux API ni aux décisions de l'ancien suivi. En cas d'ancienne réponse « Requête extérieure refusée » restée affichée, actualiser l'onglet après le redémarrage du serveur local.
+Le [suivi HTML existant](http://127.0.0.1:4181/) reste consacré aux revues historiques. Ce guide décrit le parcours de livraison sans créer de nouvelle interface.
 
 ## Candidat de pages
 
