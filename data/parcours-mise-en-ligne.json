@@ -21,11 +21,13 @@
         "Dépôt public et contrôles PR actifs ; historique des huit phases préservé.",
         "Drupal dédié installé uniquement sur le poste local.",
         "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
-        "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. Le manifeste consigne l'état des sources au moment de l'assemblage."
+        "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. Le manifeste consigne l'état des sources au moment de l'assemblage.",
+        "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base MySQL ni utilisateur. Une sauvegarde JetBackup est visible, sans preuve de restauration."
       ],
       "remaining": [
         "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
-        "Version PHP, base SQL, racines et sauvegardes distantes à confirmer."
+        "Choisir une méthode PHP compatible sans effet non désiré sur les autres domaines ; vérifier les extensions, la version SQL et la possibilité d'une racine web Drupal distincte.",
+        "Obtenir une sauvegarde restaurable avant écriture distante ; qualifier HTTPS et une base dédiée."
       ]
     },
     {
@@ -39,7 +41,7 @@
         "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite."
       ],
       "remaining": [
-        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact.",
+        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact ; le contrôle CI du manifeste de candidat historique doit être réaligné.",
         "Vérifier l'absence d'envoi réel, d'accès Bureau et de données privées sur le paquet final après commit."
       ]
     },
@@ -48,9 +50,12 @@
       "title": "Recette en préproduction",
       "status": "blocked",
       "action": "Installer le même candidat sous maintenance sur preprod.tclongages.fr, puis tester HTTPS et les parcours anonymes et administrateur.",
-      "evidence": [],
+      "evidence": [
+        "Lecture seule du 29 septembre : preprod.tclongages.fr est absent de cPanel et ne résout pas ; aucun certificat ni dossier cible n'a donc été qualifié."
+      ],
       "remaining": [
-        "Sous-domaine actuellement non résolu ; DNS, certificat, dossier et base dédiés à préparer avec accord ciblé.",
+        "Créer le sous-domaine, son dossier isolé et un certificat reconnu après décision explicite sur leurs effets et leur retour arrière.",
+        "Établir une stratégie PHP compatible, puis créer une base dédiée et préparer la configuration privée.",
         "Sauvegarde et restauration privée à qualifier avant toute copie distante."
       ]
     },
