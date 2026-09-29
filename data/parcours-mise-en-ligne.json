@@ -21,7 +21,7 @@
         "Dépôt public et contrôles PR actifs ; historique des huit phases préservé.",
         "Drupal dédié installé uniquement sur le poste local.",
         "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
-        "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. Le manifeste consigne l'état des sources au moment de l'assemblage.",
+        "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. CRC vérifié sur toutes les entrées ; aucun chemin de traversée ni lien symbolique. Le code Drupal empaqueté n'a pas changé depuis le commit source du ZIP.",
         "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base ni utilisateur SQL. MariaDB 11.4.13 est indiqué par phpMyAdmin ; une sauvegarde JetBackup est visible, sans preuve de restauration."
       ],
       "remaining": [
