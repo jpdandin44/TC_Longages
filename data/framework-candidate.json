@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "f487a445ebec440f7ec485a19cbc8f4ae623e774",
+  "sourceCommit": "ec65d1705fde92546f8c3dd591dd0028f6e2ecd4",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -279,9 +279,9 @@
     {
       "path": "data/parcours-mise-en-ligne.json",
       "mode": "100644",
-      "gitBlob": "006f95cff1de19bae904dcf6e7f32a898c127305",
-      "size": 4794,
-      "sha256": "f2090d9b0637624dd4b47648548b246a464875d2403f413353ad2fc1d805dfa5"
+      "gitBlob": "2afb7eb13f340c43bdb06231928db2f71d7c6cc7",
+      "size": 5052,
+      "sha256": "7c4744cc80c480ae13545548d7c76287ab36a09fc97d2db51dd1836119abf559"
     },
     {
       "path": "data/source-provenance.json",
@@ -391,9 +391,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "aec0335566fe5e547f89ed95db0fdda67f97440c",
-      "size": 9571,
-      "sha256": "21c67280ab135eaea3f2fe836608d2af13b5ab9d7fa30c470d1dea2141c47dc9"
+      "gitBlob": "1b3edc0186c0e553da183554949282e5a2060a02",
+      "size": 10187,
+      "sha256": "b412fff1fa597d6f73b3bee621bff64bf91a039c6833ba7ee4947198e7499130"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2671,5 +2671,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "53d043df58fdd837ce926a13948d344b51cdf06f0c00febcaba8f042619db7b2"
+  "artifactDigest": "75f848a8dc517738d55f61651c71e820e630ca2e2ecdfbb2fdc8d2cb0d6507ae"
 }
