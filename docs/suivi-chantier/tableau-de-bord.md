@@ -22,7 +22,7 @@ Ces adresses nécessitent le démarrage des services locaux ; cette vue ne certi
 
 Domaine : **tclongages.fr**, obtenu selon confirmation utilisateur ; DNS/HTTPS non vérifiés par ce générateur. Dépôt : [TC_Longages](https://github.com/jpdandin44/TC_Longages).
 
-Git local raccordé, dépôt public confirmé et protection main enregistrée : PR, checks technical-ci et policy, administrateurs inclus, refus force/delete et discussions résolues. La checklist doit être confirmée personnellement ; aucune fusion ni mise en production. La protection ne remplace pas la revue de phase.
+PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa version finale. Le responsable indique avoir effectué la revue. Le contrôle Files Changed est déclaratif dans la checklist ; GitHub ne requiert pas le marquage Viewed des fichiers. Aucune mise en production. La phase 0 reste en revue dans cet outil et demande sa propre validation.
 
 **Installation :** Installation clôturée : les autorisations normales de progression sont réactivées.
 
@@ -32,7 +32,7 @@ Git local raccordé, dépôt public confirmé et protection main enregistrée : 
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage et audit | En revue | [Dossier](00-phase.md) | Consulter la PR et le dossier, enregistrer personnellement les quatre critères, puis valider la phase. L’autorisation de la phase 1 reste une décision distincte. |
+| 0 — Cadrage et audit | En revue | [Dossier](00-phase.md) | PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte. |
 | 1 — Socle et environnements | Non démarrée | [Dossier](01-phase.md) | Après validation de la phase 0 et autorisation distincte : qualifier dépôt, runtime, préproduction, secrets et sauvegardes ; aucun raccordement Git distant présumé. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `d49968f23002a2caa0b5b53a226dfb485bf51487a4232f864fa7b15344be659c`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `b8f4f87bfafa6c1cb3b3b6469d3109070a69dd12c6ff57c34b5ce29b60378d87`.
