@@ -22,11 +22,11 @@
         "Drupal dédié installé uniquement sur le poste local.",
         "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
         "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. Le manifeste consigne l'état des sources au moment de l'assemblage.",
-        "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base MySQL ni utilisateur. Une sauvegarde JetBackup est visible, sans preuve de restauration."
+        "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base ni utilisateur SQL. MariaDB 11.4.13 est indiqué par phpMyAdmin ; une sauvegarde JetBackup est visible, sans preuve de restauration."
       ],
       "remaining": [
         "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
-        "Choisir une méthode PHP compatible sans effet non désiré sur les autres domaines ; vérifier les extensions, la version SQL et la possibilité d'une racine web Drupal distincte.",
+        "Choisir une méthode PHP compatible sans effet non désiré sur les autres domaines ; vérifier les extensions et la possibilité d'une racine web Drupal distincte.",
         "Obtenir une sauvegarde restaurable avant écriture distante ; qualifier HTTPS et une base dédiée."
       ]
     },

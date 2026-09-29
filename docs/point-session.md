@@ -20,6 +20,8 @@ La lecture cPanel du 29 septembre a confirmé que `preprod.tclongages.fr` n'est 
 
 Une recette navigateur supplémentaire a ouvert les sept pages de l'instance Drupal isolée à 390 et 1 280 pixels : chaque page possède son titre principal et aucune n'a présenté de débordement horizontal selon la largeur du document. Les sept fichiers servis correspondent aux empreintes de l'archive locale. Le formulaire de contact reste un aperçu sans `action` d'envoi ni appel `fetch` dans le HTML vérifié. La maintenance Drupal a été rétablie ; un accès anonyme à l'accueil a de nouveau répondu 503. Cette recette technique ne vaut pas validation de la présentation par le responsable du club.
 
+Une lecture supplémentaire de phpMyAdmin indique MariaDB 11.4.13 : la version du serveur SQL convient au minimum exigé par Drupal 11. Le PHP 8.4 de phpMyAdmin ne prouve pas que les domaines du club l'utilisent ; leur sélecteur reste en 8.1. Aucune extension alternative n'a été activée et aucune base n'a été créée. Le jeu de caractères de la future base reste à vérifier.
+
 ## Revue et dépôt
 
 La [PR initiale no 1](https://github.com/jpdandin44/TC_Longages/pull/1) a été fusionnée par l’utilisateur le 29 septembre à 10 h 25 UTC ; le commit de fusion observé est `d4e0fdbaf9c05ca510202dad9233d944771118d1`. Les contrôles technique et de checklist ont réussi avant fusion. Cela intègre le socle local dans `main`, sans installation hébergée ni validation de phase déduite.

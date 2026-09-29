@@ -1,6 +1,6 @@
 {
   "project": "tclongages",
-  "checkedAt": "2026-09-29T16:01:06Z",
+  "checkedAt": "2026-09-29T16:45:01Z",
   "scope": "read-only",
   "source": "cPanel authenticated UI + local DNS resolution",
   "cpanel": {
@@ -61,7 +61,9 @@
   "database": {
     "mysqlDatabases": 0,
     "mysqlUsers": 0,
-    "serverVersion": null
+    "serverVersion": "11.4.13-MariaDB",
+    "serverVersionSource": "phpMyAdmin server information, read-only",
+    "utf8mb4ForFutureDatabaseVerified": false
   },
   "backup": {
     "product": "JetBackup5",
@@ -94,7 +96,7 @@
     "Create preprod.tclongages.fr with its own document root only after reviewing the exact target and DNS effect",
     "Prepare trusted certificates for preproduction and production; Let's Encrypt currently offers the main domain",
     "Complete hidden file inventory and fresh backup with restore before write",
-    "Prepare dedicated database credentials via user handoff, no secret in chat",
+    "Prepare dedicated database with utf8mb4 and credentials via user handoff, no secret in chat",
     "Prepare clean Drupal public root; local configuration is not a hosting package"
   ],
   "publication": {
