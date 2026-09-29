@@ -38,10 +38,11 @@
       "evidence": [
         "Le 29 septembre, npm.cmd run check : 132 tests réussis sur 132, avec l'interpréteur Python du framework configuré.",
         "Syntaxe PHP du contrôleur, du filtre de réponses et du modèle d'hébergement vérifiée ; 19 tests ciblés du suivi et des pages publiques réussis.",
-        "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite."
+        "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite.",
+        "Le manifeste de candidat historique a été réaligné et le contrôle technical-ci de la PR a réussi sur le commit précédent ; sa réexécution sur le commit courant reste à observer."
       ],
       "remaining": [
-        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact ; le contrôle CI du manifeste de candidat historique doit être réaligné.",
+        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact.",
         "Vérifier l'absence d'envoi réel, d'accès Bureau et de données privées sur le paquet final après commit."
       ]
     },
