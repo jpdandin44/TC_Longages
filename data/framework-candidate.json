@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "1c75121f83e89262f1dd4d3fc504aefc56e0315b",
+  "sourceCommit": "1ebdda70141cbf46a33092b05a1774a8ffc19077",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -188,9 +188,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "334fc32bd5a68e75cc57cdec7fe9daca7b4e7428",
-      "size": 24316,
-      "sha256": "532484b5d697a27a97e47c6f8de8280f703467a59fb2bcd52dfee81edecf19f2"
+      "gitBlob": "fc748328aa6e40cb853a045cadcb881d0ade9ea7",
+      "size": 24702,
+      "sha256": "0de129cb6389373aa05764987c4162aa1bad4e0b2166f0a8f93576ff48ba75b1"
     },
     {
       "path": "config/officiel.json",
@@ -237,9 +237,9 @@
     {
       "path": "data/hebergement-inventaire.json",
       "mode": "100644",
-      "gitBlob": "7d42af5c4e34cf8614952c53488af61f218b2720",
-      "size": 3694,
-      "sha256": "6d9bc1764282742ae79a0610ef797d64f37340e86259d3f491b252a2b1f7218f"
+      "gitBlob": "e33a99ad8bae1289628a449a2021edfdeaa0859d",
+      "size": 3758,
+      "sha256": "a6c57b715fdadfbcec5379a84a922157c81a2d40e3ce3afed142df71f91dc7ed"
     },
     {
       "path": "data/hosted-demo-manifest.json",
@@ -279,9 +279,9 @@
     {
       "path": "data/parcours-mise-en-ligne.json",
       "mode": "100644",
-      "gitBlob": "2734baaa5a42a9f539fe117d4ce1d10dec9e7f24",
-      "size": 5172,
-      "sha256": "edc6cbf574d9fc7d5456745c16673ccd17c5f25ff1e76ce3b8b957a338183c65"
+      "gitBlob": "dfb10bba3c3e13bcf51981e472294c1637490045",
+      "size": 5220,
+      "sha256": "8ec22bdaf8518a9fd15bfdb3468a3a6b794238cde29697530b93b6db172fee85"
     },
     {
       "path": "data/source-provenance.json",
@@ -300,9 +300,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "f1d6ed6307cf005701f222c5d367e51638645c41",
-      "size": 30221,
-      "sha256": "9cb7d90aa65a07a2c3640dabde03184b5c05959ab6191c1951170943c48cc37d"
+      "gitBlob": "c6ce24e60f11271306889d2b2e18b077ae5758ba",
+      "size": 31396,
+      "sha256": "3e654dae277f0c8dcf9873e6c69139b1addd7355ac581dff6524e6e043d19eee"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -356,9 +356,9 @@
     {
       "path": "docs/installation-drupal.md",
       "mode": "100644",
-      "gitBlob": "e12e04e8dff6e48c2ac9be976acb6006008173d8",
-      "size": 19695,
-      "sha256": "4eba8ae9f08331ec1b4a0461dc2034b6539af49b76246d2ebba66c856a5da751"
+      "gitBlob": "847975b2aee4a0286f696b18fa622a034b22d579",
+      "size": 19802,
+      "sha256": "70066e6756e6032db70cb43d1f8e05bdd1325050a983500ded7624197b72c513"
     },
     {
       "path": "docs/installation-framework.md",
@@ -391,9 +391,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "e5244fa5cfece85865e1284185bf5a20b9953090",
-      "size": 12810,
-      "sha256": "41fc154da2a7a2d968bc90c4858ec22adc092645798794113029752445803f75"
+      "gitBlob": "65d5337aa209285bffe713994e7884f52cb75ff2",
+      "size": 13305,
+      "sha256": "93fd6674eb7527cc3b57b06186d582ab947df15dbc1e25763d51cc11f3f1c7ab"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2664,5 +2664,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "96d41023f088a6ada50f14e9e3b4c32eed5b4a28539f3e4acafe6b310e23f33f"
+  "artifactDigest": "1a6e1a135bbbff34258a37730b49b0d964ccac3cb0bc7a982224f3f5412efcc7"
 }
