@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "3f7cba971c62312dff382d9acab31cb138a12157",
+  "sourceCommit": "18605e1152fd9ec08516a12351946c4985be1696",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -90,9 +90,9 @@
     {
       "path": "AGENTS.md",
       "mode": "100644",
-      "gitBlob": "ca548a6eecb40553370e43b59f0ea9837911770b",
-      "size": 22695,
-      "sha256": "01edb51af71bce903dccd98272bab03db2758021d0e5404d232cc104676091a9"
+      "gitBlob": "5059142e915b20d8b921a75d9e8ac0ca84096adb",
+      "size": 22726,
+      "sha256": "8ec98e8759131c04f7a935187ee486c0a8c1d61061f363f456527d3c1474b198"
     },
     {
       "path": "Affiche.jpeg",
@@ -125,9 +125,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "ddfd14add15c06b36688c4aa39ff0d3c421b7cfe",
-      "size": 36747,
-      "sha256": "f7ff92e86982cf3ec7a3b5563d35a0aaf382fd06bd9add70e1f4f8e6d3c29060"
+      "gitBlob": "57a5501d32fa3ee242f775b884a75852076197f5",
+      "size": 36668,
+      "sha256": "72431e0c07b09049627bfc374f7876676a81cbdbd2ca0d57076d24ce1761d3e1"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -181,16 +181,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "e15f59b1704fb237a0c9253ebde81164c056623e",
-      "size": 38096,
-      "sha256": "26fd367b71a2939a08bf4353b6e6127d127accad4735965dd486b55eec0a6ee5"
+      "gitBlob": "5bc51bf976dae56ac9490bbc76ca0e2d6b7c01df",
+      "size": 38024,
+      "sha256": "acbbc4774b5753a8f31e1c27267f4a09f31a14f7313fee4879ba984175950fc3"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "7b125e5b970827bc5687eb49e737fd8c5e0ffad0",
-      "size": 24685,
-      "sha256": "86d7940ce6b82ecded8db521ab8981d7a7d7be7954b36af6637b261de9cda132"
+      "gitBlob": "334fc32bd5a68e75cc57cdec7fe9daca7b4e7428",
+      "size": 24316,
+      "sha256": "532484b5d697a27a97e47c6f8de8280f703467a59fb2bcd52dfee81edecf19f2"
     },
     {
       "path": "config/officiel.json",
@@ -300,9 +300,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "0cf35cdede8e92b41eb602453f2274ae2180f568",
-      "size": 30225,
-      "sha256": "1dd9bf391b656803de65af2efa8dfc772eed8e8fd51906ca8500d94f10da9b8d"
+      "gitBlob": "f1d6ed6307cf005701f222c5d367e51638645c41",
+      "size": 30221,
+      "sha256": "9cb7d90aa65a07a2c3640dabde03184b5c05959ab6191c1951170943c48cc37d"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -384,16 +384,16 @@
     {
       "path": "docs/parcours-mise-en-ligne.md",
       "mode": "100644",
-      "gitBlob": "2272fce7f898a1c49180a5f23c22e96b29a87851",
-      "size": 6177,
-      "sha256": "1ff9ea08a14c705141ee73bf22f49c1f92962cdca9b56467846524548c844f20"
+      "gitBlob": "1094a2aa4869af5a489df487ca8d44da204af531",
+      "size": 5842,
+      "sha256": "8e5f762e269ee791bfe0f77a7a8af18826274173af99b6091cd0ef89864daaad"
     },
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "0f0772f18937223fc7d13d093782380abe3793dc",
-      "size": 11931,
-      "sha256": "ee43051cc4382ccaea84491a8ce562573cc90265cadbde403418701a3ef6d101"
+      "gitBlob": "6068cc1d78b44e6c8573097f1879285ccfcfb6b9",
+      "size": 12058,
+      "sha256": "6f7fae957eee0c2384222764ccdd5ef1336e91d79a26f6fc87061c589d4d2d43"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1987,9 +1987,9 @@
     {
       "path": "scripts/framework-server.mjs",
       "mode": "100644",
-      "gitBlob": "734ec631cddb3ca75c145de79fac2383ff4c7fcd",
-      "size": 6787,
-      "sha256": "ebbf58b0e8d799e3ff1afc973358db14ac15dc27458063c6d37edc71ec9fc85d"
+      "gitBlob": "8a6b3f5482e12cfb1cd7f734dd2f48908fcf6b9f",
+      "size": 6251,
+      "sha256": "c89ae03ebce8cd62c0c072947d50882e1986786d4cfec7b4fde09df045f4e086"
     },
     {
       "path": "scripts/framework-store.mjs",
@@ -2074,13 +2074,6 @@
       "gitBlob": "fd38f114211c8e2a6f1a7e63f3a932307c8ebd81",
       "size": 2595,
       "sha256": "5a577064b8c0f6f3b060417c6b722683f58f5085cbd04451ada0456555ed6046"
-    },
-    {
-      "path": "scripts/parcours-ui.mjs",
-      "mode": "100644",
-      "gitBlob": "3c49218ae7bab1933d3896309533420e3a6332e5",
-      "size": 3785,
-      "sha256": "32047011cc279235c87b41c4ed00e3fa3b3a87af853fe6d76a146d63cd54e795"
     },
     {
       "path": "scripts/preview-server.mjs",
@@ -2582,9 +2575,9 @@
     {
       "path": "tests/framework-server.test.mjs",
       "mode": "100644",
-      "gitBlob": "59e2aa101365759f8b91d67816507505d6dc2f52",
-      "size": 18518,
-      "sha256": "fbfbe9e3ea8b100fa35ab9dcf3d922586b8034b89670a3ca6740c57500a04532"
+      "gitBlob": "c300509cc34f2ac73753a970f5d7d410e9106f83",
+      "size": 17680,
+      "sha256": "9092a168944b3f6ea441ed0d049d78be3638b3b00a66bd0ff4c17919108c804f"
     },
     {
       "path": "tests/framework.test.mjs",
@@ -2671,5 +2664,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "a14f54ccf263dcb267d902baf83ad07f7ab792c19603b8ae140c4f578b67e389"
+  "artifactDigest": "2f564c6b86fefb8e65c27aca205574a3a79dc01192ba15af57ec21c1cba35ff9"
 }
