@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "ec65d1705fde92546f8c3dd591dd0028f6e2ecd4",
+  "sourceCommit": "6fbed618d1b27a12cd7770992166601f1eb5f3f5",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -237,9 +237,9 @@
     {
       "path": "data/hebergement-inventaire.json",
       "mode": "100644",
-      "gitBlob": "b81440b6bb079d9845b834bfab4225b3bae4312a",
-      "size": 3546,
-      "sha256": "6e61ad45974ef9d6924e20c43944de4aa554c0b97c2767476c44a413cf22d56e"
+      "gitBlob": "7d42af5c4e34cf8614952c53488af61f218b2720",
+      "size": 3694,
+      "sha256": "6d9bc1764282742ae79a0610ef797d64f37340e86259d3f491b252a2b1f7218f"
     },
     {
       "path": "data/hosted-demo-manifest.json",
@@ -279,9 +279,9 @@
     {
       "path": "data/parcours-mise-en-ligne.json",
       "mode": "100644",
-      "gitBlob": "2afb7eb13f340c43bdb06231928db2f71d7c6cc7",
-      "size": 5052,
-      "sha256": "7c4744cc80c480ae13545548d7c76287ab36a09fc97d2db51dd1836119abf559"
+      "gitBlob": "438156029d789474bcc30fc6a115413a09e73ca2",
+      "size": 5080,
+      "sha256": "c9804600952ac6c35edd0ae2acc82da0f540196da8f45301ceef618242708e60"
     },
     {
       "path": "data/source-provenance.json",
@@ -356,9 +356,9 @@
     {
       "path": "docs/installation-drupal.md",
       "mode": "100644",
-      "gitBlob": "24cb2655841e1e11202543bc8c03beb7534ea478",
-      "size": 17426,
-      "sha256": "e6c8873627e1145ce086954848d68489864d6433c66ba4661c758ffb06fd378c"
+      "gitBlob": "c821a21fee8126f93283310c9b730f01e27153f4",
+      "size": 18030,
+      "sha256": "94c3b3d521290caab8a59bf76e3372b955edea68346f4fffc3e11ce6cad7fda7"
     },
     {
       "path": "docs/installation-framework.md",
@@ -391,9 +391,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "1b3edc0186c0e553da183554949282e5a2060a02",
-      "size": 10187,
-      "sha256": "b412fff1fa597d6f73b3bee621bff64bf91a039c6833ba7ee4947198e7499130"
+      "gitBlob": "aef43ce29679156e67245f44418eb5df7fb92531",
+      "size": 10574,
+      "sha256": "7167f8b64417d6f46d018578367e82472b695ff982054b5ffc219373f782ae99"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2671,5 +2671,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "75f848a8dc517738d55f61651c71e820e630ca2e2ecdfbb2fdc8d2cb0d6507ae"
+  "artifactDigest": "152d94e6f296c8efb792f6213376947d1aa08c9c9c8e745e5d9c4c764a11478c"
 }
