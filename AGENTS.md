@@ -19,6 +19,8 @@ Ces consignes complètent la politique documentaire globale pour `Site_Internet/
 
 ## Développement piloté depuis le 29 septembre
 
+- Pour la première livraison V1 publique, le responsable a demandé un [parcours opérationnel de quatre étapes](docs/parcours-mise-en-ligne.md). Le registre `data/parcours-mise-en-ligne.json` et sa vue `/parcours` suivent cette livraison. Le suivi des huit phases reste un historique protégé ; ne pas convertir ses décisions en autorisations distantes.
+
 - La demande reprend le projet et autorise l'adoption locale du framework. Lire [le guide adapté](docs/framework-developpement.md), [le profil](framework/profil-projet.json), [le suivi canonique](docs/suivi-chantier/suivi-chantier.json) et [le point de session](docs/point-session.md). Les modèles reçus sous `docs/references/` restent des sources à adapter, sans autorisation héritée.
 - `tclongages.fr` est obtenu et sa racine a été observée dans cPanel ; consulter l'inventaire actuel dans [le guide Drupal](docs/installation-drupal.md). Le dépôt `https://github.com/jpdandin44/TC_Longages` est public depuis le choix utilisateur du 29 septembre. Git local est raccordé à son historique initial. La demande explicite de finaliser les PR autorise le premier lot et ses tests ; elle ne donne aucun accord de merge ou de déploiement.
 - Le suivi JSON est canonique ; `npm.cmd run framework` sert l'interface locale sur 4181. Respecter révision, sauvegardes, historique et actions humaines distinctes. Le générateur fournit des vues de lecture. L'identité déclarée locale ne permet aucune exposition distante.

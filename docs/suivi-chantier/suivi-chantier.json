@@ -7,7 +7,7 @@
   "updated": "2026-09-29",
   "owner": "jpdandin",
   "scope": "Développement local du suivi interactif et Drupal dédié, avec inventaire hébergement en lecture seule. P0 V1 préservé ; aucune publication ou activation distante.",
-  "currentPhase": 0,
+  "currentPhase": 1,
   "state": "in_progress",
   "baseline": {
     "status": "existing_local_references_unversioned",
@@ -58,17 +58,19 @@
       "title": "Cadrage et audit",
       "shortTitle": "Cadrage et audit",
       "objective": "Définir le besoin, les sources, les limites et les critères vérifiables.",
-      "status": "awaiting_review",
+      "status": "validated",
       "dependsOn": [],
       "startedOn": "2026-09-29",
       "authorizedOn": "2026-09-29",
       "deliveredOn": "2026-09-29",
-      "validatedOn": null,
+      "validatedOn": "2026-09-29",
       "startEvidence": {
         "decisionId": "TCL-D01",
         "sourceRef": "chat-utilisateur-2026-09-29-adoption-framework"
       },
-      "validationEvidence": null,
+      "validationEvidence": {
+        "decisionId": "TCL-UI-513886dc-bb81-44dd-bccb-3c97e8b6c90b"
+      },
       "deliverables": [
         {
           "path": "00-phase.md",
@@ -118,15 +120,17 @@
       "title": "Socle et environnements",
       "shortTitle": "Socle et environnements",
       "objective": "Préparer Git, le local, la préproduction, les accès et la stratégie de sauvegarde.",
-      "status": "not_started",
+      "status": "in_progress",
       "dependsOn": [
         0
       ],
-      "startedOn": null,
-      "authorizedOn": null,
+      "startedOn": "2026-09-29",
+      "authorizedOn": "2026-09-29",
       "deliveredOn": null,
       "validatedOn": null,
-      "startEvidence": null,
+      "startEvidence": {
+        "decisionId": "TCL-UI-b02d064c-b84b-4569-ac2d-3e702af773f0"
+      },
       "validationEvidence": null,
       "deliverables": [
         {
@@ -485,6 +489,50 @@
       "sourceRef": "chat-utilisateur-2026-09-29-finaliser-pr-controles",
       "scope": "Finaliser les PR et activer les contrôles des phases ; dépôt public choisi et rendu public par l’utilisateur.",
       "comment": "Demande explicite : peux-tu finaliser la mise en place des PR et l’activation du contrôle des phases. Aucun accord de validation, merge ou déploiement déduit."
+    },
+    {
+      "id": "TCL-UI-513886dc-bb81-44dd-bccb-3c97e8b6c90b",
+      "type": "validation",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:19:58.524Z",
+      "comment": "Go pour la phase suivante",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "project": "tclongages",
+      "environment": "local",
+      "scope": "Développement local du suivi interactif et Drupal dédié, avec inventaire hébergement en lecture seule. P0 V1 préservé ; aucune publication ou activation distante.",
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+      "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+      "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+      "status": "approved",
+      "checkedCriteria": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "TCL-UI-b02d064c-b84b-4569-ac2d-3e702af773f0",
+      "type": "authorization",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:32:27.006Z",
+      "comment": "Go pour phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "project": "tclongages",
+      "environment": "local",
+      "scope": "Développement local du suivi interactif et Drupal dédié, avec inventaire hébergement en lecture seule. P0 V1 préservé ; aucune publication ou activation distante.",
+      "criteriaDigest": "b5ab43a5576134f060716402823ba2d34faefababf9e1891cad14d579f570c32",
+      "documentDigest": "33111616f3fbd21a1fdebf842d8a5d0b0bf681ccf43625ee72c7f4ae8dfad9b1",
+      "sourceCommit": null,
+      "artifactDigest": null,
+      "authorizationKind": "next_phase",
+      "status": "approved",
+      "previousValidationId": "TCL-UI-513886dc-bb81-44dd-bccb-3c97e8b6c90b"
     }
   ],
   "history": [
@@ -616,6 +664,94 @@
       "recordedAt": "2026-09-29T12:22:05.283Z",
       "description": "PR #4 brouillon préparée pour la liste par phase ; candidat et recette locale rattachés. Aucune décision humaine enregistrée.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4"
+    },
+    {
+      "id": "TCL-UI-af160ed7-f5b7-4225-9aa7-962a1f9f521f",
+      "type": "ui_criteria",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:18:35.845Z",
+      "comment": "OK pour la phase 0",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "OK pour la phase 0"
+    },
+    {
+      "id": "TCL-UI-7f21c94c-04bd-4c89-a30f-7acc34716be9",
+      "type": "ui_note",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:18:47.862Z",
+      "comment": "OK pour la phase 0",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "OK pour la phase 0"
+    },
+    {
+      "id": "TCL-UI-513886dc-bb81-44dd-bccb-3c97e8b6c90b",
+      "type": "ui_approve",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:19:58.524Z",
+      "comment": "Go pour la phase suivante",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Go pour la phase suivante"
+    },
+    {
+      "id": "TCL-UI-00dbdc8c-0ff2-466f-b912-17f375988e85",
+      "type": "ui_note",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:20:18.310Z",
+      "comment": "Go pour la phase suivante",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Go pour la phase suivante"
+    },
+    {
+      "id": "TCL-UI-a5b5a27b-0a28-4ff9-a0fe-de8520c56aba",
+      "type": "ui_criteria",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:22:53.554Z",
+      "comment": "Démarrer la Phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Démarrer la Phase 1"
+    },
+    {
+      "id": "TCL-UI-a9901706-915e-4d88-a739-03f25dfb5794",
+      "type": "ui_note",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:23:17.168Z",
+      "comment": "Démarrer la Phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Démarrer la Phase 1"
+    },
+    {
+      "id": "TCL-UI-b02d064c-b84b-4569-ac2d-3e702af773f0",
+      "type": "ui_authorize_next",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:32:27.006Z",
+      "comment": "Go pour phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Go pour phase 1"
+    },
+    {
+      "id": "TCL-UI-29bf3fe4-df34-4dad-91c7-52a1ab2726b0",
+      "type": "ui_start",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:32:58.056Z",
+      "comment": "On démarre la phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "On démarre la phase 1"
     }
   ],
   "reviewEvents": [
@@ -684,6 +820,70 @@
       "testRunRefs": [
         "TCL-TEST-NAVIGATION-02"
       ]
+    },
+    {
+      "id": "TCL-UI-af160ed7-f5b7-4225-9aa7-962a1f9f521f",
+      "type": "criteria_checked",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:18:35.845Z",
+      "comment": "OK pour la phase 0",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "checkedCriteria": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc"
+    },
+    {
+      "id": "TCL-UI-7f21c94c-04bd-4c89-a30f-7acc34716be9",
+      "type": "comment",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:18:47.862Z",
+      "comment": "OK pour la phase 0",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "status": "recorded"
+    },
+    {
+      "id": "TCL-UI-00dbdc8c-0ff2-466f-b912-17f375988e85",
+      "type": "comment",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:20:18.310Z",
+      "comment": "Go pour la phase suivante",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "status": "recorded"
+    },
+    {
+      "id": "TCL-UI-a5b5a27b-0a28-4ff9-a0fe-de8520c56aba",
+      "type": "criteria_checked",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:22:53.554Z",
+      "comment": "Démarrer la Phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "checkedCriteria": [],
+      "criteriaDigest": "b5ab43a5576134f060716402823ba2d34faefababf9e1891cad14d579f570c32",
+      "documentDigest": "33111616f3fbd21a1fdebf842d8a5d0b0bf681ccf43625ee72c7f4ae8dfad9b1"
+    },
+    {
+      "id": "TCL-UI-a9901706-915e-4d88-a739-03f25dfb5794",
+      "type": "comment",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-09-29T14:23:17.168Z",
+      "comment": "Démarrer la Phase 1",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "status": "recorded"
     }
   ],
   "reviewFollowUps": [],

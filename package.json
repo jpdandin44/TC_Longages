@@ -20,6 +20,8 @@
     "demo:hosting:build": "node scripts/build-demo.mjs && node scripts/build-hosted-demo.mjs",
     "demo:hosting:package": "node scripts/build-demo.mjs && node scripts/build-hosted-demo.mjs && node scripts/package-hosted-demo.mjs",
     "officiel:build": "node scripts/build-officiel.mjs",
+    "drupal:public:build": "node scripts/build-officiel.mjs && node scripts/build-drupal-public-pages.mjs",
+    "drupal:package": "node scripts/build-officiel.mjs && node scripts/package-drupal-candidate.mjs",
     "officiel": "node scripts/build-officiel.mjs && node scripts/official-server.mjs",
     "officiel:package": "node scripts/build-officiel.mjs && node scripts/package-officiel.mjs",
     "officiel:demo:build": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs",

@@ -15,6 +15,12 @@ tags:
 
 # Architecture
 
+## Parcours de livraison V1
+
+Le [registre des quatre étapes](data/parcours-mise-en-ligne.json) est distinct du suivi historique à huit phases. `scripts/parcours-ui.mjs` le rend en lecture seule sur `/parcours` dans le serveur local ; il ne peut ni approuver ni déployer. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
+
+Le module Drupal sert les pages hors webroot. Son abonné de réponse bloque l'indexation par défaut ; un drapeau explicite ne retire ce blocage que sur les chemins publics et réponses 200. La maintenance, les erreurs et la connexion restent non indexables. Les installations préproduction et production nécessitent bases, répertoires privés, paramètres et contrôles distincts ; aucune de ces installations n'est créée par le dépôt.
+
 ## Couche de pilotage locale — 29 septembre
 
 Le [profil](framework/profil-projet.json) décrit les environnements ; le [suivi JSON](docs/suivi-chantier/suivi-chantier.json) porte phases, commentaires et décisions. `framework-server.mjs` sert l'interface sur 127.0.0.1:4181 ; `framework-store.mjs` contrôle les transitions et écrit atomiquement le suivi avec sauvegarde et historique. La révision couvre profil, suivi, documents et configuration d'installation. Une requête obsolète reçoit 409 ; son brouillon reste disponible dans l'interface. Host, Origin, jeton temporaire et boucle locale limitent les accès. L'identité est déclarée, sans authentification distante.

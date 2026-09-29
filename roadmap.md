@@ -16,6 +16,12 @@ tags:
 
 # Feuille de route
 
+## Priorité actuelle — première V1 publique
+
+Le [parcours en quatre étapes](docs/parcours-mise-en-ligne.md) remplace les huit phases comme vue opérationnelle de cette livraison, sans effacer leur historique. Initialisation et recette locale sont en cours ; la préproduction `preprod.tclongages.fr` attend sa qualification ; la production n'est pas démarrée. La première ouverture ne comprend que les pages publiques Drupal. Les comptes Bureau, formulaires Google et envois automatiques suivent leurs recettes propres après cette V1.
+
+Prochaine séquence : achever la recette du candidat Drupal local, qualifier et sauvegarder la cible de préproduction avec accord sur les changements distants, y installer le candidat sous maintenance, puis présenter la livraison de production et l'ouverture comme décisions distinctes. Le responsable souhaite conserver une réserve de 800 crédits pour les corrections.
+
 ## Avancement au 29 septembre
 
 L'interface de suivi locale et le socle Drupal dédié sont réalisés dans le périmètre d'installation autorisé. Les phases 0–7 du framework restent distinctes des lots métier G0–G8 ; aucune approbation humaine n'est créée pour rattraper le travail technique. Voir le [point de session](docs/point-session.md) et le [suivi canonique](docs/suivi-chantier/suivi-chantier.json).

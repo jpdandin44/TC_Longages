@@ -13,6 +13,8 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
  const root=await mkdtemp(resolve(tmpdir(),'tcl-framework-test-'));
  assert.ok(root.startsWith(resolve(tmpdir())+sep));
  await mkdir(resolve(root,'framework'));await mkdir(resolve(root,'docs/suivi-chantier'),{recursive:true});
+ await mkdir(resolve(root,'data'));
+ await writeFile(resolve(root,'data/parcours-mise-en-ligne.json'),await readFile(resolve(projectRoot,'data/parcours-mise-en-ligne.json')));
  const profile=JSON.parse(await readFile(resolve(projectRoot,'framework/profil-projet.json'),'utf8'));
  const tracker=JSON.parse(await readFile(resolve(projectRoot,'docs/suivi-chantier/suivi-chantier.json'),'utf8'));
  tracker.reviewEvents=[];tracker.reviewCommentResponses=[];tracker.history=[];tracker.decisions=tracker.decisions.filter(d=>d.id===profile.project.initialAuthorizationRef);tracker.evidence=[];tracker.testRuns=[];
@@ -39,6 +41,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
 }
 test('Le serveur reste local, permet la lecture déclarée et refuse les routes privées',async t=>{
  const f=await fixture(t);assert.equal(f.app.server.address().address,'127.0.0.1');assert.equal((await f.state()).tracker.phases.length,8);
+ const dashboard=await(await fetch(f.app.origin+'/parcours')).text();assert.match(dashboard,/Mise en ligne de la V1/);assert.equal((dashboard.match(/class="step"/g)||[]).length,4);assert.match(dashboard,/Aucune livraison en production exécutée/);
  assert.equal((await fetch(f.app.origin+'/documents/0/0')).status,200);
  for(const path of ['/framework/profil-projet.json','/.local/framework-runtime.lock','/api/deploy','/documents/0/99','/api/state?x=1'])assert.equal((await fetch(f.app.origin+path)).status,404);
  assert.equal((await fetch(f.app.origin+'/api/state')).status,403);

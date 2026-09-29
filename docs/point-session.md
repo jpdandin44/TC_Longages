@@ -12,6 +12,10 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — 29 septembre 2026
 
+## Reprise accélérée de la V1
+
+Le responsable a simplifié le pilotage en quatre étapes et choisi `preprod.tclongages.fr`. La première V1 vise les sept pages publiques Drupal ; Bureau, services Google et publications automatiques restent fermés. Le [parcours](parcours-mise-en-ligne.md) et son [registre](../data/parcours-mise-en-ligne.json) sont distincts du suivi historique des huit phases, dont la validation de phase 0 et l'autorisation/démarrage de phase 1 ont été reprises sans réécriture. Le tableau local `/parcours` est en lecture seule. Le candidat de pages publiques est généré localement ; `npm.cmd run check` a réussi 132 tests sur 132, la syntaxe PHP modifiée a été vérifiée et une instance Drupal isolée a confirmé maintenance 503, connexion 200, sept pages 200 lors de l'ouverture locale et indexation restreinte. La maintenance a été réactivée. Un ZIP candidat local a été inventorié (34 017 entrées) ; son manifeste précise l'empreinte des pages et l'état de la source lors de chaque assemblage. Aucune préproduction, production ou ouverture publique n'a été exécutée. Le sous-domaine de préproduction ne résolvait pas lors de la lecture DNS du 29 septembre ; son état doit être revérifié avant intervention.
+
 ## Revue et dépôt
 
 La [PR initiale no 1](https://github.com/jpdandin44/TC_Longages/pull/1) a été fusionnée par l’utilisateur le 29 septembre à 10 h 25 UTC ; le commit de fusion observé est `d4e0fdbaf9c05ca510202dad9233d944771118d1`. Les contrôles technique et de checklist ont réussi avant fusion. Cela intègre le socle local dans `main`, sans installation hébergée ni validation de phase déduite.
@@ -44,7 +48,7 @@ Les [115 tests Node et 45 contrôles Drupal de l’installation](../data/framewo
 
 L’[inventaire public expurgé](../data/hebergement-inventaire.json) conserve les constats utiles : domaine et racine observés, PHP natif 8.1, certificat autosigné, absence de base et un enregistrement JetBackup visible. La sauvegarde n’est ni téléchargée ni restaurée, les fichiers cachés et versions CLI/SQL restent à inventorier. L’original détaillé est conservé hors dépôt. Aucun changement PHP/SSL/DNS, création de base, transfert de site ou ouverture n’a été exécuté.
 
-Terminer d’abord la revue de phase 0 depuis le suivi, puis décider séparément d’autoriser la phase 1. Pour l’hébergement, l’accord sur PHP 8.4 et un certificat reconnu reste à recueillir. Ensuite : sauvegarde restaurable, base dédiée, secrets saisis dans un canal adapté, racine Drupal propre, installation fermée et recette avant ouverture explicite. Le modèle `settings.hosting.example.php` est inactif. Rétention, restauration, droits métier, ressources Google et support restent à qualifier.
+La phrase historique qui demandait de terminer la revue de phase 0 est dépassée : l'utilisateur a depuis validé cette phase et autorisé/démarré la phase 1. Pour la V1 actuelle, suivre le parcours simplifié. Sur l’hébergement, la version PHP compatible, la base SQL et un certificat reconnu restent à confirmer. Ensuite : sauvegarde restaurable, base dédiée, secrets saisis dans un canal adapté, racine Drupal propre, installation fermée et recette avant ouverture explicite. Le modèle `settings.hosting.example.php` est inactif. Rétention, restauration, droits métier, ressources Google et support restent à qualifier.
 
 ## Bilan documentaire
 

@@ -1,6 +1,6 @@
 {
     "name": "tclongages/drupal-site",
-    "description": "Drupal dédié au TC Longages, évaluation locale avec maintenance native",
+    "description": "Drupal dédié au TC Longages avec maintenance native et candidat V1 public",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",

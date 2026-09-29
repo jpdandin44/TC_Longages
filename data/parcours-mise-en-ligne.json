@@ -1,0 +1,70 @@
+{
+  "project": "tclongages",
+  "documentType": "release-pipeline",
+  "version": "git",
+  "created": "2026-09-29",
+  "updated": "2026-09-29",
+  "owner": "jpdandin",
+  "scope": "Première V1 publique sous Drupal ; espaces Bureau, Google et envois automatiques fermés jusqu'à leur propre recette.",
+  "productionHost": "tclongages.fr",
+  "preproductionHost": "preprod.tclongages.fr",
+  "historicalTracker": "docs/suivi-chantier/suivi-chantier.json",
+  "productionDeploymentExecuted": false,
+  "publicOpeningExecuted": false,
+  "stages": [
+    {
+      "id": "initialisation",
+      "title": "Initialisation",
+      "status": "in_progress",
+      "action": "Préparer le paquet Drupal dédié et vérifier les prérequis de la cible, sans écriture distante.",
+      "evidence": [
+        "Dépôt public et contrôles PR actifs ; historique des huit phases préservé.",
+        "Drupal dédié installé uniquement sur le poste local.",
+        "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
+        "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. Le manifeste consigne l'état des sources au moment de l'assemblage."
+      ],
+      "remaining": [
+        "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
+        "Version PHP, base SQL, racines et sauvegardes distantes à confirmer."
+      ]
+    },
+    {
+      "id": "recette-locale",
+      "title": "Recette locale",
+      "status": "in_progress",
+      "action": "Construire la V1 et rejouer les contrôles Node, navigateur et Drupal sur un commit identifié.",
+      "evidence": [
+        "Le 29 septembre, npm.cmd run check : 132 tests réussis sur 132, avec l'interpréteur Python du framework configuré.",
+        "Syntaxe PHP du contrôleur, du filtre de réponses et du modèle d'hébergement vérifiée ; 19 tests ciblés du suivi et des pages publiques réussis.",
+        "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite."
+      ],
+      "remaining": [
+        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact.",
+        "Vérifier l'absence d'envoi réel, d'accès Bureau et de données privées sur le paquet final après commit."
+      ]
+    },
+    {
+      "id": "recette-preproduction",
+      "title": "Recette en préproduction",
+      "status": "blocked",
+      "action": "Installer le même candidat sous maintenance sur preprod.tclongages.fr, puis tester HTTPS et les parcours anonymes et administrateur.",
+      "evidence": [],
+      "remaining": [
+        "Sous-domaine actuellement non résolu ; DNS, certificat, dossier et base dédiés à préparer avec accord ciblé.",
+        "Sauvegarde et restauration privée à qualifier avant toute copie distante."
+      ]
+    },
+    {
+      "id": "mise-en-production",
+      "title": "Mise en production",
+      "status": "blocked",
+      "action": "Après recette de préproduction, sauvegarder la cible, livrer le candidat exact sous maintenance, vérifier, puis ouvrir Drupal sur accord explicite.",
+      "evidence": [],
+      "remaining": [
+        "Recette de préproduction et candidat identique à confirmer.",
+        "Sauvegarde restaurable et retour arrière à vérifier.",
+        "Accord explicite distinct pour la livraison et l'ouverture publique."
+      ]
+    }
+  ]
+}

@@ -15,7 +15,15 @@ tags:
 
 # Tennis Club de Longages
 
-## Suivi interactif et Drupal dédié — 29 septembre
+## Mise en ligne V1 — parcours actuel
+
+Le parcours opérationnel demandé est maintenant ramené à quatre étapes : initialisation, recette locale, recette sur `preprod.tclongages.fr`, puis mise en production sur `tclongages.fr` après accord explicite. Le [tableau HTML local](http://127.0.0.1:4181/parcours) montre l'état observé ; son [registre](data/parcours-mise-en-ligne.json) est la source structurée et le [guide](docs/parcours-mise-en-ligne.md) donne les critères et les décisions sensibles. Le tableau des huit phases ci-dessous demeure l'historique des revues déjà saisies, accessible depuis l'interface locale. Aucune livraison distante n'a été exécutée.
+
+`npm.cmd run drupal:public:build` prépare localement les sept pages du candidat Drupal dans `.local/drupal-public-candidate/`, sans inclure de compte ni de configuration privée. Le mode maintenance du futur site reste géré par Drupal. La préproduction, son certificat, ses ressources et sa sauvegarde doivent encore être qualifiés.
+
+`npm.cmd run drupal:package` assemble aussi un ZIP local du code Drupal, des dépendances verrouillées et de ces pages dans `.local/tc-longages-drupal-v1-candidat.zip`. Ce paquet ne contient volontairement ni base, ni identifiants, ni `settings.php` actif ; il ne doit pas être déposé tel quel comme site fonctionnel. Le manifeste inclus précise le commit et indique si les sources étaient encore modifiées lors de l'assemblage. La procédure de configuration et la recette hébergée restent à établir sur la cible réelle.
+
+## Suivi historique interactif et Drupal dédié — 29 septembre
 
 Le suivi possède désormais une interface utilisable : lancer `npm.cmd run framework`, puis ouvrir [le suivi local](http://127.0.0.1:4181/). Les huit phases, documents, critères et commentaires sont visibles ; les notes sont enregistrées sur le poste. Soumettre, valider, autoriser la suite et démarrer sont des actes distincts. L'identité y est déclarée localement : ce service n'est pas à exposer sur Internet. Voir [le fonctionnement](docs/installation-framework.md) et [le point de session](docs/point-session.md).
 

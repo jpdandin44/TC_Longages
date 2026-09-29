@@ -15,6 +15,14 @@ tags:
 
 # Décisions
 
+## 2026-09-29 — Livraison V1 en quatre étapes et Drupal public d'abord
+
+**Contexte.** Le responsable demande d'accélérer la mise en ligne et de simplifier le suivi après validation de la phase 0 du cadre initial. Il choisit `preprod.tclongages.fr` et confirme une première V1 limitée aux pages publiques sous Drupal.
+
+**Décision.** Piloter cette livraison par initialisation, recette locale, recette en préproduction, puis mise en production. Conserver sans les réécrire les décisions du suivi historique à huit phases. Les pages Bureau, Google et envois automatiques restent fermés. La livraison distante et l'ouverture publique sont soumises à des accords explicites sur des actions concrètes.
+
+**Raisons et conséquences.** Le suivi court rend la progression visible tout en préservant les preuves humaines déjà enregistrées. Un registre JSON distinct alimente l'interface HTML ; les deux suivis ont des rôles différents. La préproduction, sa sécurité et son retour arrière doivent être qualifiés avant la production. Aucun accord de publication n'est déduit de cette décision d'architecture.
+
 ## 2026-09-29 — PR, contrôles de phases et dépôt public
 
 **Contexte.** L’utilisateur demande de finaliser les PR et d’activer les contrôles de phases, puis rend lui-même le dépôt public afin d’utiliser les protections GitHub.

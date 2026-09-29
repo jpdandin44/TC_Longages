@@ -15,6 +15,14 @@ tags:
 
 # Exigences
 
+## Parcours de mise en ligne simplifié
+
+- Suivre la V1 publique dans quatre étapes opérationnelles, avec état et preuves séparés des décisions historiques des huit phases ; afficher ce parcours en HTML local.
+- Déployer d'abord les sept pages publiques sous Drupal. Garder fermés Bureau, formulaires Google, automatisations de communication et collecte tant que leurs propres recettes ne sont pas terminées.
+- Utiliser `preprod.tclongages.fr` comme cible de recette envisagée ; vérifier DNS, HTTPS, racine, PHP, SQL, sauvegarde et restauration avant écriture distante.
+- Préparer un candidat reproductible depuis les sources V1 et `composer.lock` ; garder les pages hors webroot, la maintenance native et l'absence d'indexation par défaut.
+- Exiger une décision explicite sur la livraison en production puis sur l'ouverture publique du site exact, avec retour arrière vérifiable.
+
 ## Pilotage adopté le 29 septembre
 
 - suivre le projet dans un profil JSON et un registre de phases/événements distincts des lots métier G0–G8 ; conserver les acquis et les sources.

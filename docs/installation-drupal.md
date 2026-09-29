@@ -12,6 +12,12 @@ tags: [drupal, maintenance, installation, hebergement, securite]
 
 # Drupal dédié au TC Longages
 
+## Candidat public et préproduction — préparation locale
+
+La [procédure de mise en ligne V1](parcours-mise-en-ligne.md) définit quatre étapes. `npm.cmd run drupal:public:build` produit les sept pages publiques candidates dans `.local/drupal-public-candidate/site-pages/`, hors Git et hors racine publique. La V1 de revue `officiel/` reste marquée `noindex` et ne doit pas être copiée telle quelle en production. Le modèle hébergé exige désormais `TCL_ENVIRONMENT=preproduction` ou `production` et applique les hôtes de confiance correspondants. Le module conserve `noindex` par défaut ; `TCL_PUBLIC_INDEXING=1` est réservé à une ouverture de production décidée et vérifiée. Ceci n'installe ni ne configure encore o2switch.
+
+Le paquet produit par `npm.cmd run drupal:package` est un candidat de code avec dépendances et manifeste sous `.local/` ; il exclut `settings.php`, base, comptes et secrets. Un dépôt de ce ZIP seul ne crée pas un site utilisable. Le filtre d'indexation refuse explicitement son activation lorsque `TCL_ENVIRONMENT=preproduction` dans le modèle hébergé.
+
 ## État et périmètre
 
 L’utilisateur a confirmé une installation Drupal **dédiée au club**. Une installation réelle fonctionne localement sur `http://127.0.0.1:4182`, avec la maintenance native activée à la fin de la recette. Elle ne constitue pas une installation sur o2switch ni une autorisation de publication. Le compte administrateur de recette est fictif ; aucun compte personnel, compte Bureau réel ou raccordement CONNECT n’est configuré ici.
