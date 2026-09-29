@@ -14,6 +14,11 @@ tags:
 
 # Journal des évolutions
 
+## 2026-09-29 — PR propres à chaque phase dans le suivi local
+
+- La phase 0 référence explicitement les PR #1, #2 et #3 ; les autres phases n’affichent aucune PR non rattachée.
+- L’interface présente la liste avant les dossiers, lit les états publics GitHub avec cache et signale une lecture indisponible. Aucun état de PR ne valide une phase.
+
 ## 2026-09-29 — Ouverture du suivi depuis une PR
 
 - Correction du refus d’un clic externe vers l’accueil local ; contrôles d’origine, de jeton et des routes privées conservés.

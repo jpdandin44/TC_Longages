@@ -24,6 +24,8 @@ Git local est raccordé au dépôt, avec préservation du commit initial. L’ut
 
 Le [reçu technique](../data/framework-revue-verification.json) est la source des références effectives de PR, commit testé, tests et observation des protections. Le registre est la source des remises et décisions. Lire ces deux fichiers avant de conclure à un succès distant ou à une validation ; une description de procédure ne remplace pas un résultat. Le [candidat de revue](candidat-revue.md) distingue le commit source testé des reçus et vues ajoutés ensuite.
 
+Les PR #1, #2 et #3 ont été fusionnées par l’utilisateur et concernent la phase 0. La #3 synchronise le suivi après la #2 ; elle n’a pas clos la phase. Le suivi interactif doit présenter les seules PR rattachées à la phase sélectionnée, avant les dossiers, et lire leur état public sur GitHub. La phase 0 demeure en revue tant que ses quatre critères et sa validation personnelle ne sont pas enregistrés ; le passage à la phase 1 demande une autorisation distincte.
+
 Les contrôles GitHub exécutent les tests et la politique stricte de PR, sans accès de production. Les quatre cases humaines restent à renseigner par le responsable : `policy` échoue tant qu’elles ne sont pas confirmées. Ce contrôle porte sur les déclarations écrites, pas sur l’authenticité d’une signature ; aucune seconde revue GitHub impossible à obtenir avec un compte unique n’est imposée. Ni phase, ni merge ne sont acceptés à la place de l’utilisateur.
 
 ## Services locaux et sécurité

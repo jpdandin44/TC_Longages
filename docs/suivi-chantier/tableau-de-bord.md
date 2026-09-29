@@ -32,7 +32,7 @@ PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa v
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage et audit | En revue | [Dossier](00-phase.md) | PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte. |
+| 0 — Cadrage et audit | En revue | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
 | 1 — Socle et environnements | Non démarrée | [Dossier](01-phase.md) | Après validation de la phase 0 et autorisation distincte : qualifier dépôt, runtime, préproduction, secrets et sauvegardes ; aucun raccordement Git distant présumé. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `b8f4f87bfafa6c1cb3b3b6469d3109070a69dd12c6ff57c34b5ce29b60378d87`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `70fbdb04cf5104370e734c9c3b311797bbc1e24c04648f53dedb4ea4d47c9896`.

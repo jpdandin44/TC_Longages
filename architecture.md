@@ -23,6 +23,8 @@ Le [profil](framework/profil-projet.json) décrit les environnements ; le [suivi
 
 Le [manifeste du candidat](docs/candidat-revue.md) rattache la revue à un commit source. Les modifications des sources rendent les preuves périmées ; les écritures de suivi et reçus sont exclues selon une liste fermée. Les workflows `technical-ci` et `policy` exécutent respectivement les tests et la vérification stricte de la description de PR. Ils ne disposent d’aucun accès d’hébergement.
 
+Le tableau interactif affiche les PR explicitement associées à chaque phase dans le suivi JSON. Son service local lit en lecture seule leurs états publics sur l’API GitHub, met le résultat en cache et indique si la lecture est indisponible. Cette lecture n’alimente ni les critères, ni les décisions de phase. L’[intégration GitHub du suivi](api/github-suivi.md) décrit cette frontière.
+
 La garde Fetch Metadata autorise une navigation humaine de premier niveau (`GET /`, mode `navigate`, destination `document`, activation `?1`) depuis une page externe pour ouvrir le suivi. Cette exception ne s’applique ni aux API ni aux écritures ; les vérifications Host/Origin restent préalables et les pages ne peuvent pas être incorporées dans une iframe.
 
 ## Drupal dédié local

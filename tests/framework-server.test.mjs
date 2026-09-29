@@ -9,7 +9,7 @@ import {hash,validateInteractiveState} from '../scripts/framework-store.mjs';
 import {safeProjectUrl,reviewGuidance,retainedReviewDraft,clientScript} from '../scripts/framework-ui.mjs';
 import {Script} from 'node:vm';
 
-async function fixture(t,{bootstrap=false,qualified=false,regenerate}={}) {
+async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequests}={}) {
  const root=await mkdtemp(resolve(tmpdir(),'tcl-framework-test-'));
  assert.ok(root.startsWith(resolve(tmpdir())+sep));
  await mkdir(resolve(root,'framework'));await mkdir(resolve(root,'docs/suivi-chantier'),{recursive:true});
@@ -28,7 +28,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate}={}) {
  await writeFile(resolve(root,'framework/profil-projet.json'),JSON.stringify(profile));
  if(bootstrap){const expiresAt=new Date(Date.now()+60000).toISOString(),authorization={id:'test-authorized',actor:'jpdandin',sourceRef:'test-only',scope:'Installation locale fictive'};tracker.decisions.push({...authorization,type:'installation_authorization',status:'approved',project:'tclongages',environment:'local',expiresAt});await writeFile(resolve(root,'framework/installation.json'),JSON.stringify({project:'tclongages',status:'active',environment:'local',allowedPhaseIds:[0,1,2,3],activatedAt:new Date().toISOString(),expiresAt,authorization,protections:{remoteExposureAllowed:false,deployAllowed:false,csrfRequired:true,revisionCheckRequired:true,secretProtectionRequired:true}}));}
  await writeFile(resolve(root,'docs/suivi-chantier/suivi-chantier.json'),JSON.stringify(tracker));
- const app=await startFrameworkServer({root,port:0,regenerate});
+ const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests});
  t.after(async()=>{await app.close();assert.ok(root.startsWith(resolve(tmpdir())+sep));await rm(root,{recursive:true,force:true});});
  const html=await(await fetch(app.origin)).text(),token=html.match(/name="review-token" content="([a-f0-9]+)"/)[1];
  const headers={'X-Review-Token':token};
@@ -43,6 +43,17 @@ test('Le serveur reste local, permet la lecture déclarée et refuse les routes 
  for(const path of ['/framework/profil-projet.json','/.local/framework-runtime.lock','/api/deploy','/documents/0/99','/api/state?x=1'])assert.equal((await fetch(f.app.origin+path)).status,404);
  assert.equal((await fetch(f.app.origin+'/api/state')).status,403);
  assert.equal((await fetch(f.app.origin+'/api/state',{headers:{...f.headers,Origin:'https://evil.example'}})).status,403);
+});
+test('La liste GitHub est en lecture seule, locale et protégée par le jeton',async t=>{
+ const requests=[];const f=await fixture(t,{getPullRequests:async options=>{requests.push(options);return {items:[{number:3,url:'https://github.com/jpdandin44/TC_Longages/pull/3',status:'merged'}],checkedAt:'2026-09-29T12:00:00Z',source:'github'};}});
+ const before=(await f.state()).revision;
+ assert.equal((await fetch(f.app.origin+'/api/pull-requests')).status,403);
+ const result=await fetch(f.app.origin+'/api/pull-requests',{headers:f.headers});assert.equal(result.status,200);assert.equal((await result.json()).items[0].number,3);
+ assert.equal((await fetch(f.app.origin+'/api/pull-requests?refresh=1',{headers:f.headers})).status,200);
+ assert.deepEqual(requests,[{force:false},{force:true}]);
+ assert.equal((await fetch(f.app.origin+'/api/pull-requests',{method:'POST',headers:{...f.headers,Origin:f.app.origin}})).status,405);
+ assert.equal((await fetch(f.app.origin+'/api/pull-requests',{headers:{...f.headers,Origin:'https://evil.example'}})).status,403);
+ assert.equal((await f.state()).revision,before);
 });
 test('Host, origine, jeton, type de contenu et méthode sont contrôlés avant mutation',async t=>{
  const f=await fixture(t),before=(await f.state()).revision;

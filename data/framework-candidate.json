@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+  "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -151,6 +151,13 @@
       "sha256": "b340f16e8d1d7d6fb058d4b0afcea5368802f6096fa4287c3708edac99d7cee8"
     },
     {
+      "path": "api/github-suivi.md",
+      "mode": "100644",
+      "gitBlob": "a0638ced4088e041dfa48ddc60f7fa4ef11d06f8",
+      "size": 1389,
+      "sha256": "ccfa418e5bfebf8737e65663c08e97e27ecd9e59fff61ebd4bcc680e772dabba"
+    },
+    {
       "path": "api/inscription-exemple.json",
       "mode": "100644",
       "gitBlob": "1b2caae07ad4a8c59adeabc481f708b2a192e332",
@@ -174,16 +181,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "d10c5897024096f25ad698719adc89d1732ceece",
-      "size": 36670,
-      "sha256": "c9df949eaf8dda2086d938bc090222ea188453e2d64dea2d7bcc2d7f890ab989"
+      "gitBlob": "040264fcc7341164fe26a1ffda0d123cb2633531",
+      "size": 37073,
+      "sha256": "bd456bd2304851351ab5f3c1d4e7819a3208069bbebab7f91be6ae27a825c0cf"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "7232d48d992df0f4c8a1f8f5f118106ccc715e35",
-      "size": 23349,
-      "sha256": "760188bc017f8a3eb7ef5e4ab33ba141321a49729c6bbc505dca6d3f6afeda5d"
+      "gitBlob": "7d4c40db1d12a239105303e397192bb3fb5fc76e",
+      "size": 23707,
+      "sha256": "b6e4afb4fa184302c25ece3b289f3b94f8628afd7f50f2c6f4e2157eca0d3079"
     },
     {
       "path": "config/officiel.json",
@@ -349,9 +356,9 @@
     {
       "path": "docs/installation-framework.md",
       "mode": "100644",
-      "gitBlob": "915ffedc469eba6f24085dcad715c923995e719f",
-      "size": 12101,
-      "sha256": "e2ce77f26c267d33f895b1c3a832d106343042ab31178555b2e2ca279cfd71a6"
+      "gitBlob": "6cd165fb08516204d017e081038075f11ec5f74d",
+      "size": 12498,
+      "sha256": "f14e9f5f60a4a02bc7c2a35320e9ff09293740c2da5ab33ea3c1373381e79540"
     },
     {
       "path": "docs/integration-officiel.md",
@@ -370,9 +377,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "38d023d25de9ec818b74dba7694059134957ba85",
-      "size": 6645,
-      "sha256": "39c939576677e68cecaf06cd4d256381fba0c0161c02f29ee5fa55395fcbfb87"
+      "gitBlob": "6b31ea58fbf62f8ca927441c3080a8f608c0d93d",
+      "size": 7129,
+      "sha256": "d3b869b753e8e1a218a7fb3f2b950050905c67c667d6c50c4f1a2de473ea8ae2"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1875,9 +1882,9 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "aa7bfe72d7288a21ac1fcd1173592e8fbbc60d96",
-      "size": 33679,
-      "sha256": "bdce8b72dee0e18cc32170ab689137682986909fa7f32dcdf4ef8bfb997c9ef4"
+      "gitBlob": "bb343d8383e031e97d8aeb13f9184adb49365633",
+      "size": 33854,
+      "sha256": "df355bcc06707cca64b615354d2f1ea3355fc3bbf7d21678cb0d49900a71a47b"
     },
     {
       "path": "roadmap.md",
@@ -1950,11 +1957,18 @@
       "sha256": "e5cd0096119635b78fd720e6edc5fbe91fe12e51d9ca1515fa89ccbc0a530a4f"
     },
     {
+      "path": "scripts/framework-prs.mjs",
+      "mode": "100644",
+      "gitBlob": "556eb5fa93f50dc6b9c6c7d36353ab90597c7eba",
+      "size": 2558,
+      "sha256": "3260a0ce69e0909e09bc27b7b04180fb868354053c8f80e6568e4c5fbec4b342"
+    },
+    {
       "path": "scripts/framework-server.mjs",
       "mode": "100644",
-      "gitBlob": "bbebacc292002f19c4060498a475accf6e3d21d9",
-      "size": 5733,
-      "sha256": "5cd96bd4a132156df649becc78f26ad9eac36617c352df4ae0eeda861419c928"
+      "gitBlob": "8a6b3f5482e12cfb1cd7f734dd2f48908fcf6b9f",
+      "size": 6251,
+      "sha256": "c89ae03ebce8cd62c0c072947d50882e1986786d4cfec7b4fde09df045f4e086"
     },
     {
       "path": "scripts/framework-store.mjs",
@@ -1966,9 +1980,9 @@
     {
       "path": "scripts/framework-ui.mjs",
       "mode": "100644",
-      "gitBlob": "2b8d1ec8afe6aafd0b0a275f5af910d39775a400",
-      "size": 25099,
-      "sha256": "e88ee43a4f259c4c6f2f2abd5eb698fee4b84ed8ace4bec2b728368f6c9f2fe8"
+      "gitBlob": "0b0fc6555a063c181379691238e4e170cd2d6e30",
+      "size": 26953,
+      "sha256": "ffd94ad33b5f30f80800937ad7292d1d7d34dbe3e54984562ebc9b37c452e465"
     },
     {
       "path": "scripts/framework.mjs",
@@ -2517,11 +2531,18 @@
       "sha256": "6c864cf397042c2d274f06db3cd02d260aa0427caa70b26f2636d8bb1e050a55"
     },
     {
+      "path": "tests/framework-prs.test.mjs",
+      "mode": "100644",
+      "gitBlob": "aa7b4278dc0b58349d4a9bb7061e4b180a1bec3b",
+      "size": 1960,
+      "sha256": "ce40f04f091015de27f94988fc3fe3fb1c4948588bd827cc595b5cdf21b07da3"
+    },
+    {
       "path": "tests/framework-server.test.mjs",
       "mode": "100644",
-      "gitBlob": "ed581772884051ed8f7a754e862da13f6e4df51d",
-      "size": 16536,
-      "sha256": "abee3977faf6ad3ba551e30be68814099b3ae6a259b8fd39d3fd38b15f9a96c1"
+      "gitBlob": "c300509cc34f2ac73753a970f5d7d410e9106f83",
+      "size": 17680,
+      "sha256": "9092a168944b3f6ea441ed0d049d78be3638b3b00a66bd0ff4c17919108c804f"
     },
     {
       "path": "tests/framework.test.mjs",
@@ -2608,5 +2629,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd"
+  "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11"
 }
