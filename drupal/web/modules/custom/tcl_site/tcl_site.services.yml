@@ -1,0 +1,5 @@
+services:
+  tcl_site.response_headers:
+    class: Drupal\tcl_site\EventSubscriber\LocalResponseSubscriber
+    tags:
+      - { name: event_subscriber }

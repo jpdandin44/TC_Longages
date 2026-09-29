@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "issuer": "https://FOURNISSEUR-A-CONFIRMER.invalid",
+  "accounts": [
+    { "label": "Administrateur", "role": "admin", "subject": "", "enabled": false },
+    { "label": "Bureau du club", "role": "bureau", "subject": "", "enabled": false }
+  ]
+}

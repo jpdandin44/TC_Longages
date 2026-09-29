@@ -1,0 +1,314 @@
+{
+  "date": "2026-09-16T14:48:38.252Z",
+  "status": "passed",
+  "environment": "Apache 2.4 local, mod_rewrite et mod_headers, AllowOverride All",
+  "remoteDeployment": false,
+  "results": [
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/adherer.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/adherer.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/parcours.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/parcours.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/bureau.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/bureau.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/inscriptions.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/inscriptions.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/communication.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/communication.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "GET",
+      "path": "/actualites-bureau.html",
+      "status": 503
+    },
+    {
+      "state": "fermee-initialement",
+      "method": "HEAD",
+      "path": "/actualites-bureau.html",
+      "status": 503
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/adherer.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/adherer.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/parcours.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/parcours.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/bureau.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/bureau.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/inscriptions.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/inscriptions.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/communication.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/communication.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/actualites-bureau.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "HEAD",
+      "path": "/actualites-bureau.html",
+      "status": 200
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/.htaccess",
+      "status": 403
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/maintenance.inactive",
+      "status": 403
+    },
+    {
+      "state": "ouverte",
+      "method": "GET",
+      "path": "/maintenance.active",
+      "status": 403
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/adherer.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/adherer.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/parcours.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/parcours.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/bureau.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/bureau.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/inscriptions.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/inscriptions.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/communication.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/communication.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "GET",
+      "path": "/actualites-bureau.html",
+      "status": 503
+    },
+    {
+      "state": "refermee",
+      "method": "HEAD",
+      "path": "/actualites-bureau.html",
+      "status": 503
+    }
+  ]
+}

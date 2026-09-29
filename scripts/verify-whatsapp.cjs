@@ -1,0 +1,85 @@
+// WhatsApp is stubbed before clicks: this test never contacts the service.
+const { chromium } = require('playwright');
+const { mkdir, writeFile } = require('node:fs/promises');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+
+(async () => {
+  const { startBrowserServer } = await import('../tests/browser-server.mjs');
+  const local = await startBrowserServer();
+  const origin = local.origin;
+  const browser = await chromium.launch({ channel: process.env.TCL_BROWSER_CHANNEL || 'chrome', headless: true });
+  const page = await browser.newPage({ httpCredentials: local.httpCredentials, viewport: { width: 1440, height: 1000 } });
+  const errors = [], external = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.route('**/*', route => {
+    if (route.request().url().startsWith(origin + '/' )) return route.continue();
+    external.push(route.request().url()); return route.abort();
+  });
+  await page.addInitScript(() => {
+    window.testOpened = [];
+    window.open = (...args) => { window.testOpened.push(args); return null; };
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async text => { window.testCopied = text; } } });
+  });
+  const output = path.resolve(__dirname, '../docs/recette');
+  await mkdir(output, { recursive: true });
+  try {
+    await page.goto(origin + '/communication.html');
+    assert.equal(await page.locator('#share-whatsapp').isDisabled(), true);
+    assert.equal(await page.locator('#copy-whatsapp').isDisabled(), true);
+    await page.locator('#post-title').fill('Exemple de message 🎾');
+    await page.locator('#post-body').fill('Ce texte sert à vérifier le partage WhatsApp.\nAucun message ne sera envoyé pendant ce test.');
+    await page.locator('#save-post').click();
+    assert.equal(await page.locator('#share-whatsapp').isDisabled(), true);
+    await page.locator('#preview-whatsapp').click();
+    assert.match(await page.locator('#whatsapp-preview-text').textContent(), /Tennis Club de Longages\n\nExemple/);
+    await page.locator('#review-post').click();
+    await page.locator('#confirm-approval').click();
+    assert.equal(await page.locator('#share-whatsapp').isDisabled(), false);
+    assert.deepEqual(await page.evaluate(() => window.testOpened), []);
+    const saved = await page.evaluate(() => localStorage.getItem(window.TCLCommunication.key));
+    await page.locator('#copy-whatsapp').click();
+    await page.waitForFunction(() => typeof window.testCopied === 'string');
+    const text = await page.evaluate(() => window.testCopied);
+    assert.equal(text, await page.locator('#whatsapp-preview-text').textContent());
+    await page.locator('#share-whatsapp').click();
+    const opened = await page.evaluate(() => window.testOpened);
+    assert.equal(opened.length, 1);
+    assert.equal(new URL(opened[0][0]).searchParams.get('text'), text);
+    assert.equal(opened[0][1], '_blank');
+    assert.equal(opened[0][2], 'noopener,noreferrer');
+    assert.equal(await page.evaluate(() => localStorage.getItem(window.TCLCommunication.key)), saved);
+    await page.locator('.preview-section').screenshot({ path: path.join(output, 'whatsapp-bureau.png') });
+    await page.setViewportSize({ width: 390, height: 844 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    await page.locator('.preview-section').screenshot({ path: path.join(output, 'whatsapp-mobile.png') });
+    await page.setViewportSize({ width: 320, height: 700 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    await page.evaluate(() => { navigator.clipboard.writeText = async () => { throw new Error('NotAllowed'); }; });
+    await page.locator('#copy-whatsapp').click();
+    await page.waitForFunction(() => !document.getElementById('whatsapp-copy-fallback').hidden);
+    assert.equal(await page.locator('#whatsapp-copy-text').inputValue(), text);
+    await page.locator('#post-title').fill('Modification non validée');
+    assert.equal(await page.locator('#share-whatsapp').isDisabled(), true);
+    assert.equal(await page.locator('#copy-whatsapp').isDisabled(), true);
+    await page.locator('#post-body').fill('Un message long '.repeat(300));
+    await page.locator('#save-post').click();
+    await page.locator('#review-post').click();
+    await page.locator('#confirm-approval').click();
+    assert.equal(await page.locator('#share-whatsapp').isDisabled(), true);
+    assert.equal(await page.locator('#copy-whatsapp').isDisabled(), false);
+    await page.locator('#post-body').fill('Révision courte avant contrôle de concurrence.');
+    await page.locator('#save-post').click();
+    await page.locator('#review-post').click();
+    await page.locator('#confirm-approval').click();
+    await page.evaluate(() => { const post = window.TCLCommunication.read()[0]; window.TCLCommunication.save({ ...post, title: 'Révision périmée' }); });
+    await page.locator('#share-whatsapp').click();
+    assert.equal((await page.evaluate(() => window.testOpened)).length, 1);
+    assert.match(await page.locator('#feedback').textContent(), /plus validée/);
+    assert.deepEqual(errors, []);
+    assert.deepEqual(external, []);
+    const result = { date: new Date().toISOString(), status: 'passed', scope: 'Prototype local ; window.open et presse-papiers simulés, aucune connexion WhatsApp', checks: ['Aperçu exact', 'Brouillon non partageable', 'Validation sans ouverture automatique', 'Copie de la révision validée', 'URL encodée sans destinataire imposé', 'Aucun statut de livraison inventé', 'Repli si presse-papiers refusé', 'Modification désactive le partage', 'Révision périmée bloquée', 'Texte long copiable', 'Vues 1440, 390 et 320 px', 'Aucune erreur JS ni requête externe'] };
+    await writeFile(path.join(output, 'whatsapp-results.json'), JSON.stringify(result, null, 2) + '\n');
+    console.log(JSON.stringify(result, null, 2));
+  } finally { await browser.close(); await local.stop(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

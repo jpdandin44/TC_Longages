@@ -1,0 +1,31 @@
+{
+  "name": "tc-longages-prototype",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "framework": "node scripts/framework-server.mjs",
+    "framework:build": "node scripts/framework.mjs build",
+    "framework:check": "node scripts/framework.mjs check && node --test tests/framework.test.mjs tests/framework-server.test.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs && node scripts/build-demo.mjs && node scripts/build-hosted-demo.mjs && node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs && node --test --test-concurrency=1 tests/*.test.mjs",
+    "preview": "node scripts/preview.mjs",
+    "demo:build": "node scripts/build-demo.mjs",
+    "demo": "node scripts/build-demo.mjs && node scripts/demo-server.mjs",
+    "demo:package": "node scripts/build-demo.mjs && node scripts/package-demo.mjs",
+    "release:package": "node scripts/build.mjs && node scripts/package-public.mjs",
+    "bureau": "node scripts/build.mjs && node --env-file-if-exists=.env app.cjs",
+    "demo:hosting:build": "node scripts/build-demo.mjs && node scripts/build-hosted-demo.mjs",
+    "demo:hosting:package": "node scripts/build-demo.mjs && node scripts/build-hosted-demo.mjs && node scripts/package-hosted-demo.mjs",
+    "officiel:build": "node scripts/build-officiel.mjs",
+    "officiel": "node scripts/build-officiel.mjs && node scripts/official-server.mjs",
+    "officiel:package": "node scripts/build-officiel.mjs && node scripts/package-officiel.mjs",
+    "officiel:demo:build": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs",
+    "officiel:demo:package": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs && node scripts/package-officiel-hosted-demo.mjs"
+  },
+  "dependencies": {
+    "openid-client": "6.8.8"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-16T10:38:10.155Z",
+  "browser": "Chromium / chrome",
+  "access": "Compte bureau éphémère en mémoire sur serveur de recette isolé",
+  "checks": [
+    "Vitrine sans lecteur de brouillons",
+    "Photos décodées",
+    "Sept contacts FFT",
+    "Menu mobile et Échap",
+    "Espace bureau et inscriptions sans formulaire",
+    "Pas de débordement mobile 390 et 320 px",
+    "Brouillon invisible dans aperçu",
+    "Annulation de validation",
+    "Validation simulée",
+    "Aperçu réservé au bureau",
+    "Révision retirée en temps réel",
+    "Texte utilisateur non interprété en HTML",
+    "Export et réimport JSON",
+    "Aucun appel externe",
+    "Aucune erreur JavaScript"
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,101 @@
+{
+  "provider": "simulated-in-memory",
+  "checks": [
+    {
+      "route": "/bureau.html",
+      "width": 1440,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/communication.html",
+      "width": 1440,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/inscriptions.html",
+      "width": 1440,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/actualites-bureau.html",
+      "width": 1440,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/admin/acces",
+      "width": 1440,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/bureau.html",
+      "width": 390,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/communication.html",
+      "width": 390,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/inscriptions.html",
+      "width": 390,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/actualites-bureau.html",
+      "width": 390,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/admin/acces",
+      "width": 390,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/bureau.html",
+      "width": 320,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/communication.html",
+      "width": 320,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/inscriptions.html",
+      "width": 320,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/actualites-bureau.html",
+      "width": 320,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "route": "/admin/acces",
+      "width": 320,
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "admin": true,
+  "bureauAdminDenied": true,
+  "logout": true,
+  "revocation": true,
+  "errors": [],
+  "externalRequests": []
+}

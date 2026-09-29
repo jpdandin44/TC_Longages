@@ -1,0 +1,60 @@
+name: Préparation au déploiement — NOM_PROJET
+on:
+  workflow_dispatch:
+    inputs:
+      approved_sha:
+        description: Commit complet examiné sur main
+        required: true
+        type: string
+      candidate_id:
+        description: Candidat identifié
+        required: true
+        type: string
+      manifest_sha256:
+        description: Empreinte complète du manifeste qualifié
+        required: true
+        type: string
+      authorization_ref:
+        description: Référence de l'accord de préparation et des accès
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: NOM_PROJET-production-delivery
+  cancel-in-progress: false
+jobs:
+  preparation:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    environment: production-preparation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Exiger la version demandée
+        env:
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$APPROVED_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$APPROVED_SHA" = "$GITHUB_SHA"
+      - uses: actions/checkout@REMPLACER_PAR_SHA_COMPLET_VERIFIE
+        with:
+          ref: ${{ inputs.approved_sha }}
+      - name: Contrôler les règles avant les accès
+        env:
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+        run: python3 scripts/run-delivery.py validate-prepare
+      - name: Préparer, sauvegarder et restaurer en copie privée
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+        run: python3 scripts/run-delivery.py prepare
+      - name: Nettoyer les accès temporaires de ce run
+        if: ${{ always() }}
+        run: python3 scripts/run-delivery.py cleanup

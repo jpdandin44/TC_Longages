@@ -1,0 +1,734 @@
+{
+  "date": "2026-09-24T16:00:09.291Z",
+  "status": "passed",
+  "environment": "Apache 2.4 local en conteneur, mod_rewrite/mod_headers, AllowOverride All",
+  "remoteDeployment": false,
+  "results": [
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "GET",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "fermeture-initiale",
+      "method": "HEAD",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/competitions.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/competitions.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/calendrier.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/calendrier.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/disponibilites.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/disponibilites.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/equipes.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/equipes.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/espace.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/espace.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/contact.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/contact.html",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "GET",
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "state": "ouverture",
+      "method": "HEAD",
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/bureau.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/bureau.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/communication.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/communication.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/inscriptions.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/inscriptions.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/adherer.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/adherer.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/parcours.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/parcours.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/actualites-bureau.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/actualites-bureau.html",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/index.php",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/index.php",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/app.cjs",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/app.cjs",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/.env",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/.env",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/reste.txt",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/reste.txt",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/assets/",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/assets/",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "GET",
+      "path": "/contact.html/extra",
+      "status": 404
+    },
+    {
+      "state": "ancien-chemin-bloque",
+      "method": "HEAD",
+      "path": "/contact.html/extra",
+      "status": 404
+    },
+    {
+      "state": "methode-refusee",
+      "method": "POST",
+      "path": "/contact.html",
+      "status": 405
+    },
+    {
+      "state": "methode-refusee",
+      "method": "PUT",
+      "path": "/contact.html",
+      "status": 405
+    },
+    {
+      "state": "methode-refusee",
+      "method": "DELETE",
+      "path": "/contact.html",
+      "status": 405
+    },
+    {
+      "state": "methode-refusee",
+      "method": "OPTIONS",
+      "path": "/contact.html",
+      "status": 405
+    },
+    {
+      "state": "controle-non-expose",
+      "method": "GET",
+      "path": "/.htaccess",
+      "status": 403
+    },
+    {
+      "state": "controle-non-expose",
+      "method": "GET",
+      "path": "/maintenance.active",
+      "status": 403
+    },
+    {
+      "state": "controle-non-expose",
+      "method": "GET",
+      "path": "/maintenance.inactive",
+      "status": 403
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "GET",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "aucun-temoin",
+      "method": "HEAD",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "GET",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "deux-temoins",
+      "method": "HEAD",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/index.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/competitions.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/calendrier.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/disponibilites.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/equipes.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/espace.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/contact.html",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "GET",
+      "path": "/robots.txt",
+      "status": 503
+    },
+    {
+      "state": "refermeture",
+      "method": "HEAD",
+      "path": "/robots.txt",
+      "status": 503
+    }
+  ]
+}

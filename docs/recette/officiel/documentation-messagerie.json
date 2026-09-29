@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "documents": [
+    "README.md",
+    "architecture.md",
+    "requirements.md",
+    "roadmap.md",
+    "decisions.md",
+    "changelog.md",
+    "AGENTS.md",
+    "docs/integration-officiel.md",
+    "docs/deployer-vitrine-o2switch.md",
+    "docs/authentification-oidc.md",
+    "docs/commandes-sensibles.md",
+    "docs/recette-officiel.md",
+    "docs/recette-prototype.md",
+    "docs/recette-vitrine-o2switch.md"
+  ],
+  "localLinks": 233,
+  "coreElements": 12,
+  "metadata": "present owner jpdandin version git updated 2026-09-24",
+  "browserHashesMatchFinalBuild": true
+}

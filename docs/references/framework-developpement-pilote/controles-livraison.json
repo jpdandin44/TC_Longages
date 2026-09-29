@@ -1,0 +1,212 @@
+{
+  "documentType": "delivery-verification",
+  "checkedAt": "2026-09-29T07:40:26.750055+00:00",
+  "status": "passed",
+  "errors": [],
+  "schema": {
+    "draft": "2020-12",
+    "schemaValid": true,
+    "profileValid": true,
+    "library": "jsonschema 4.25.1"
+  },
+  "modelTests": [
+    {
+      "name": "Modèle vierge accepté",
+      "passed": true,
+      "expected": "accepted"
+    },
+    {
+      "name": "Déploiement automatique au merge refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Sauvegarde fraîche désactivée refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Restauration désactivée refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Ouverture automatique refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Champ contenant une valeur de secret refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Validation de phase sans décision refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Journal hérité refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Dépendance cyclique refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Mauvais projet refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Livrable hors dossier refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Production déjà livrée dans un modèle refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Date invalide refusée",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Démarrage hérité sans accord refusé",
+      "passed": true,
+      "expected": "rejected"
+    },
+    {
+      "name": "Protection de l’hôte désactivée refusée",
+      "passed": true,
+      "expected": "rejected"
+    }
+  ],
+  "pullRequestTests": [
+    {
+      "name": "Prépublication : cases humaines intactes",
+      "passed": true
+    },
+    {
+      "name": "Strict : cases non cochées refusées",
+      "passed": true
+    },
+    {
+      "name": "Strict : exemple fictif formellement complet",
+      "passed": true
+    },
+    {
+      "name": "Liens provisoires refusés",
+      "passed": true
+    },
+    {
+      "name": "Libellé humain modifié refusé",
+      "passed": true
+    },
+    {
+      "name": "Titre hors convention refusé",
+      "passed": true
+    },
+    {
+      "name": "Section obligatoire absente refusée",
+      "passed": true
+    }
+  ],
+  "trackerReadCompatibility": {
+    "passed": true,
+    "phases": 8,
+    "documents": 8,
+    "issues": [],
+    "actions": {
+      "0": [
+        "comment"
+      ],
+      "1": [
+        "comment"
+      ],
+      "2": [
+        "comment"
+      ],
+      "3": [
+        "comment"
+      ],
+      "4": [
+        "comment"
+      ],
+      "5": [
+        "comment"
+      ],
+      "6": [
+        "comment"
+      ],
+      "7": [
+        "comment"
+      ]
+    },
+    "mutationExecuted": false
+  },
+  "documentation": {
+    "filesWithMetadata": 14,
+    "files": [
+      "framework-developpement-pilote.md",
+      "README.md",
+      "modeles/AGENTS.md",
+      "modeles/.github/PULL_REQUEST_TEMPLATE.md",
+      "modeles/docs/point-session.md",
+      "modeles/prompts/reprise-projet.md",
+      "modeles/docs/suivi-chantier/00-phase.md",
+      "modeles/docs/suivi-chantier/01-phase.md",
+      "modeles/docs/suivi-chantier/02-phase.md",
+      "modeles/docs/suivi-chantier/03-phase.md",
+      "modeles/docs/suivi-chantier/04-phase.md",
+      "modeles/docs/suivi-chantier/05-phase.md",
+      "modeles/docs/suivi-chantier/06-phase.md",
+      "modeles/docs/suivi-chantier/07-phase.md"
+    ],
+    "internalAnchors": 19,
+    "intentionalPrTemplatePlaceholders": [
+      "URL_ENVIRONNEMENT_VALIDATION",
+      "URL_DIFF_PULL_REQUEST",
+      "URL_VALIDATION_SECURITE_DONNEES",
+      "URL_DOCUMENTATION"
+    ],
+    "jsonExamplesParsed": 2,
+    "yamlExamplesParsed": 5,
+    "extractedTemplatesMatched": 10,
+    "mermaidDiagrams": {
+      "count": 2,
+      "method": "Relecture de syntaxe et de cohérence du modèle; aucun rendu graphique automatisé revendiqué."
+    }
+  },
+  "workflows": {
+    "parsedExamples": [
+      "ci.yml.example",
+      "deployer.yml.example",
+      "pr-policy.yml.example",
+      "preparation-deploiement.yml.example",
+      "preproduction.yml.example"
+    ],
+    "activated": false,
+    "adaptersExecuted": false
+  },
+  "sourcePreservation": {
+    "hashedFilesUnchanged": 99,
+    "gitStatusCompared": true,
+    "originalProjectsMutated": false
+  },
+  "sensitiveDataScan": {
+    "patternsOnly": true,
+    "matches": [],
+    "privateDataCopied": false
+  },
+  "limitations": [
+    "Les contrôles concernent les modèles livrés; aucun test de production AVEREO n’est rejoué.",
+    "La conformité JSON ne prouve pas l’identité d’un approbateur.",
+    "Lecture du suivi par le magasin existant uniquement; ni interface démarrée ni intégration distante qualifiée.",
+    "Les modèles d’Actions restent non exécutables sans adaptation et implémentation de leurs contrôleurs."
+  ]
+}

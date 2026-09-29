@@ -1,0 +1,47 @@
+{
+  "mode": "local-review-only",
+  "domain": "tclongages.fr",
+  "domainStatus": "obtained-user-confirmed",
+  "files": {
+    "index.html": {
+      "bytes": 567298,
+      "sha256": "da6217c7141cca04b4252fb2c866ec9aa21981252041220d7f1be47ef83faf87"
+    },
+    "competitions.html": {
+      "bytes": 155017,
+      "sha256": "f2da9bb371948bb801ec5e4251c2ce807008d82ccc5a300c76f5215a9c2ae2e5"
+    },
+    "calendrier.html": {
+      "bytes": 154424,
+      "sha256": "ade4edc3c057295fd5bbd6c51a155d1cfeee001680c3707b3eace67507b1066a"
+    },
+    "disponibilites.html": {
+      "bytes": 154908,
+      "sha256": "6e8b8fd6c42d95a2baad08f09f7eca9191001fe7144387e1d4d5d8d272dfa2fe"
+    },
+    "equipes.html": {
+      "bytes": 154473,
+      "sha256": "df1b2262bd34e00147688078868bcb4c5a740b9013cfa383d7ad80b8cd0b357d"
+    },
+    "espace.html": {
+      "bytes": 154814,
+      "sha256": "dfc48677100a12ae65e2bac4ada1e7aa8aef13d46a8242df656443c1dad0bf6c"
+    },
+    "contact.html": {
+      "bytes": 156032,
+      "sha256": "8e10254f275038bee9f6636576b8307c04e46782172c1922119f6e0622a1c2fa"
+    },
+    "robots.txt": {
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    "maintenance.active": {
+      "bytes": 66,
+      "sha256": "1a542fc65b9724b783b52104c6d342c41fa936a42694ee081820f05b6789b968"
+    },
+    ".htaccess": {
+      "bytes": 567,
+      "sha256": "c2351be0f9695480eb796488e05449a1cb972a86b499f38bf1e8231390a23c30"
+    }
+  }
+}

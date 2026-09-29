@@ -1,0 +1,150 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "publicEmail": "tclongages@gmail.com",
+  "testSupport": {
+    "email": "support@tclongages.fr",
+    "status": "planned"
+  },
+  "outputPages": [
+    {
+      "file": "dist/actualites-bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "dist/bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "dist/communication.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "dist/index.html",
+      "mailLinks": 7
+    },
+    {
+      "file": "dist/inscriptions.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "release/index.html",
+      "mailLinks": 7
+    },
+    {
+      "file": "prototype/actualites-bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "prototype/adherer.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "prototype/bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "prototype/communication.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "prototype/index.html",
+      "mailLinks": 7
+    },
+    {
+      "file": "prototype/inscriptions.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "prototype/parcours.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/actualites-bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/adherer.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/bureau.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/communication.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/index.html",
+      "mailLinks": 7
+    },
+    {
+      "file": "demo-o2switch/inscriptions.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "demo-o2switch/parcours.html",
+      "mailLinks": 0
+    },
+    {
+      "file": "officiel/calendrier.html",
+      "mailLinks": 1
+    },
+    {
+      "file": "officiel/competitions.html",
+      "mailLinks": 1
+    },
+    {
+      "file": "officiel/contact.html",
+      "mailLinks": 3
+    },
+    {
+      "file": "officiel/disponibilites.html",
+      "mailLinks": 1
+    },
+    {
+      "file": "officiel/equipes.html",
+      "mailLinks": 1
+    },
+    {
+      "file": "officiel/espace.html",
+      "mailLinks": 1
+    },
+    {
+      "file": "officiel/index.html",
+      "mailLinks": 7
+    }
+  ],
+  "totalMailtoLinks": 43,
+  "archives": [
+    {
+      "file": "tc-longages-officiel-apercu.zip",
+      "entries": 10,
+      "bytes": 777449,
+      "sha256": "124c36cec9e104089bd1d7f3bde83176005150cc5fd6dfc0487a34e51b2309f2"
+    },
+    {
+      "file": "tc-longages-prototype.zip",
+      "entries": 11,
+      "bytes": 848131,
+      "sha256": "32180ea2827b8f479bb3c84a97caa65399f03b36acbe33380a7f45763aa2d232"
+    },
+    {
+      "file": "tc-longages-demo-o2switch.zip",
+      "entries": 10,
+      "bytes": 842919,
+      "sha256": "01a28355126a2069e9aaac5c3be45e08a661479bf365d566bc31d2d049f1c8db"
+    },
+    {
+      "file": "tc-longages-vitrine-o2switch.zip",
+      "entries": 1,
+      "bytes": 365142,
+      "sha256": "a5f9dbebe6d3ae9a7c09e6e890166173621846cb056dbd00205e975f7b789d8c"
+    }
+  ],
+  "originalSourceFilesUnchanged": 5,
+  "baselineUnchanged": true,
+  "scope": "Sources et sorties courantes. Pieces recues, archives historiques, anciens rapports et copies temporaires exclus du remplacement.",
+  "browserHashesMatchFinalBuild": true
+}

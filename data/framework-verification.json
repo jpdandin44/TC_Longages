@@ -1,0 +1,86 @@
+{
+  "project": "tclongages",
+  "recordedAt": "2026-09-29T08:29:56.867752+00:00",
+  "recordType": "local-adoption-observation-not-release-approval",
+  "sourceCommit": null,
+  "environment": "Windows local; Node 24.18.0; Python 3.14.6; isolated jsonschema 4.25.1 / PyYAML 6.0.3",
+  "checks": {
+    "sourceManifestFiles": 28,
+    "sourceSelfTestsPassed": 15,
+    "profileSchema": "passed",
+    "frameworkTestsPassed": 8,
+    "siteTestsPassed": 101,
+    "siteTestsFailed": 0,
+    "siteTestsSkipped": 0,
+    "documentation": {
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "architecture.md",
+        "requirements.md",
+        "roadmap.md",
+        "decisions.md",
+        "changelog.md",
+        "docs/integration-officiel.md",
+        "docs/commandes-sensibles.md",
+        "docs/framework-developpement.md",
+        "docs/preparer-depot.md",
+        "docs/point-session.md",
+        "prompts/reprise-projet.md",
+        "workflows/developpement-pilote.md",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        "docs/suivi-chantier/00-phase.md",
+        "docs/suivi-chantier/01-phase.md",
+        "docs/suivi-chantier/02-phase.md",
+        "docs/suivi-chantier/03-phase.md",
+        "docs/suivi-chantier/04-phase.md",
+        "docs/suivi-chantier/05-phase.md",
+        "docs/suivi-chantier/06-phase.md",
+        "docs/suivi-chantier/07-phase.md",
+        "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
+        "docs/suivi-chantier/tableau-de-bord.md"
+      ],
+      "localLinksChecked": 300,
+      "coreElementsChecked": 12,
+      "errors": []
+    },
+    "yamlExamplesParsed": 5,
+    "activeWorkflows": 0,
+    "prPolicyFictionalFixtures": {
+      "draft_without_human_checks": true,
+      "strict_rejects_unchecked": true,
+      "rejects_placeholder_links": true,
+      "rejects_missing_section": true
+    },
+    "dashboardBrowser": "docs/recette/framework/browser-results.json"
+  },
+  "preservedArchive": {
+    "path": "livrables/tc-longages-v1-demo-o2switch.zip",
+    "bytes": 778108,
+    "sha256": "2ffafa4113c24731e49f7b3bc660ea5361894ffd62fd27fe301cbecce1feaa38"
+  },
+  "localSourceDigests": {
+    "scripts/framework.mjs": "138503d725932ef7af90282fb6fde8a77d119206dbce32aef8c078fa62b372e9",
+    "tests/framework.test.mjs": "f14d7f56732bc72325a1219f7dd7ec0c66d48f13ac56cf2ea1fb2ef8a1b843cf",
+    "framework/profil-projet.json": "263c1b238f191da95656a5f58995098e137b318822e0a6bb5f21596111638ba8",
+    "docs/suivi-chantier/suivi-chantier.json": "1c48a24cb92b841be535a3ddfaed2ec8f1abceb8045478ebfa560645c1e0af20",
+    "config/officiel.json": "ca4ebc0d310e019bee2928530d0812a23b7aa6d5caed11f871400e7356431ea3",
+    "package.json": "17dd2b68f37404eff5668c18bb6548480206c17365993540843546a5f6f38b27",
+    ".gitignore": "9bf4397d08debe1509fb2e2a1b5d3f3bf28acbf8d30a2a22467648f5fbffba34",
+    ".gitattributes": "d6d26f453c1c3d5925f49d27bdf915233bd91e3f635968c54f853d28da3a3a2d"
+  },
+  "remote": {
+    "repository": "https://github.com/jpdandin44/TC_Longages",
+    "inspection": "authentication_failed",
+    "repositoryVisibility": null,
+    "gitPush": false,
+    "deployment": false,
+    "domainDnsHttpsChecked": false
+  },
+  "limits": [
+    "No Git source commit; local observations only, not qualified release evidence.",
+    "No authenticated approval or interactive tracker installed.",
+    "Two tariff PDFs remain outside repository; fresh clone CI not qualified.",
+    "No hosted test or new Apache qualification."
+  ]
+}

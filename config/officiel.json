@@ -1,0 +1,53 @@
+{
+  "project": "TC_Longages",
+  "mode": "local-review-only",
+  "betaMode": true,
+  "noindex": true,
+  "domain": "tclongages.fr",
+  "domainStatus": "obtained-user-confirmed",
+  "club": {
+    "name": "Tennis Club de Longages",
+    "wordmark": "LONGAGES",
+    "email": "tclongages@gmail.com",
+    "address": "35, chemin de Muret",
+    "postalCity": "31410 Longages"
+  },
+  "theme": {
+    "primary": "#a6192e",
+    "dark": "#741323",
+    "accent": "#c8102e",
+    "soft": "#f7e7ea",
+    "ink": "#202124",
+    "muted": "#666b70",
+    "background": "#ffffff",
+    "surface": "#f7f7f7",
+    "border": "#e3e5e8"
+  },
+  "links": {
+    "tenup": "https://tenup.fft.fr/club/60310230",
+    "offers": "https://tenup.fft.fr/club/60310230/offres",
+    "facebook": "https://www.facebook.com/tc.longages.31",
+    "map": "https://www.google.com/maps/search/?api=1&query=Tennis%20Club%20de%20Longages%2035%2C%20chemin%20de%20Muret%2031410"
+  },
+  "google": {
+    "ownerAccount": "tclongages@gmail.com",
+    "calendarUrl": null,
+    "calendarSharingReviewed": false,
+    "forms": []
+  },
+  "teams": [],
+  "contact": {
+    "mode": "preview-only",
+    "retentionDays": null,
+    "testSupport": { "email": "support@tclongages.fr", "status": "planned" }
+  },
+  "authentication": { "status": "decision-pending", "technology": null },
+  "quickAccess": [
+    { "id": "club", "label": "Découvrir le club", "description": "Notre esprit, nos courts et le plaisir de jouer ensemble.", "href": "./index.html#le-club" },
+    { "id": "competitions", "label": "Compétitions", "description": "Les rendez-vous des équipes et les informations pour participer.", "href": "./competitions.html" },
+    { "id": "calendrier", "label": "Calendrier", "description": "Retrouver les rencontres et les rendez-vous du club.", "href": "./calendrier.html" },
+    { "id": "disponibilites", "label": "Mes disponibilités", "description": "Accéder au formulaire transmis pour votre équipe.", "href": "./disponibilites.html" },
+    { "id": "equipes", "label": "Équipes", "description": "Découvrir les équipes et leur catégorie.", "href": "./equipes.html" },
+    { "id": "espace", "label": "Bureau / Capitaine", "description": "L’accès réservé aux responsables du club et des équipes.", "href": "./espace.html" }
+  ]
+}

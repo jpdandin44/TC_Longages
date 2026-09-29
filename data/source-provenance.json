@@ -1,0 +1,37 @@
+{
+  "inspectedOn": "2026-09-16",
+  "historicalHandoff": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
+  "correctedHandoffHtmlAvailable": false,
+  "reconstruction": "Nouvelle source reconstruite depuis le pack historique présent ; correction adresse FFT et génération autonome avec les mêmes images. Ne pas assimiler à une récupération du dernier HTML absent.",
+  "historicalInputs": {
+    "TCL_Longages_Migration_o2switch/site-a-deposer/index.html": "ddea5b09c8b65668df5cc74600d56e0c264d587c72db2b422f33b5f9eb75e216",
+    "TCL_Longages_Migration_o2switch/site-a-deposer/assets/tennis-hero.webp": "b366e13ab66fe22f241ad1907ff78662d806e95a2a160c71503af088ce52c6d1",
+    "TCL_Longages_Migration_o2switch/site-a-deposer/assets/tennis-life.webp": "af1d7ac46b533fe7f2fb734f0afe921bf86e46a542cd4b7a000e95d618d7772c"
+  },
+  "canonicalEditableSource": "src/",
+  "prototypeOutput": "dist/",
+  "publicCandidateOutput": "release/index.html",
+  "deploymentPerformed": false,
+  "facebookConnected": false,
+  "currentPublicState": "Non vérifié : outil web en échec et sondes HTTP/HTTPS refusées EACCES par cet environnement. Ceci ne prouve pas une panne du site.",
+  "userSuppliedVisuals": {
+    "Affiche.jpeg": {
+      "receivedOn": "2026-09-16",
+      "bytes": 181388,
+      "sha256": "79b96c8b937fdb0b8da9a48d141deebefbfbd306c848231c21ef9b813318a195",
+      "purpose": "Affiche fournie comme exemple pour la communication ; disponible par action volontaire dans la démonstration, jamais prévalidée ni envoyée."
+    },
+    "Images_Photos/Image_terrain.jpg": {
+      "receivedOn": "2026-09-17",
+      "bytes": 229035,
+      "sha256": "15365b079af22f20588a59e7a89b7497c3952a7348964e0dfdab098c56231662",
+      "purpose": "Photo réelle du court fournie par utilisateur ; intégrée sans réencodage dans le visuel principal de la vitrine."
+    },
+    "Images_Photos/Logo.jpeg": {
+      "receivedOn": "2026-09-16",
+      "bytes": 42618,
+      "sha256": "f349812906a7352c82fc0130f9d42d9c934d581eba72c789f4b56bb3e29520de",
+      "purpose": "Logo fourni par utilisateur, provisoire avant réception du vectoriel ; octets préservés, cadrage CSS."
+    }
+  }
+}

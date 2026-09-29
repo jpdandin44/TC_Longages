@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Prototype local de l’espace communication du Tennis Club de Longages.">
+  <title>Communication du club — Tennis Club de Longages</title>
+  <link rel="stylesheet" href="./communication.css">
+  <script defer src="./communication-store.js"></script>
+  <script defer src="./communication-whatsapp.js"></script>
+  <script defer src="./communication-images.js"></script>
+  <script defer src="./communication-adoc.js"></script>
+  <script defer src="./communication.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="prototype-banner"><div class="container"><span class="signal" aria-hidden="true"></span><strong>Prototype local — aucun envoi automatique</strong><span>Vous gardez la main.</span></div></div>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="Tennis Club de Longages — accueil"><span class="brand-mark" aria-hidden="true">TC<span>L</span></span><span class="brand-name">LONGAGES<small>TENNIS CLUB</small></span></a>
+    <nav class="bureau-links" aria-label="Navigation du bureau"><a class="back-link" href="./bureau.html">Espace bureau</a><a class="back-link" href="./inscriptions.html">Inscriptions</a><a class="back-link" href="./index.html">Voir le site ↗</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <section class="intro" aria-labelledby="page-title"><div><p class="eyebrow">L’ESPACE COMMUNICATION</p><h1>La vie du club,<br><em>à votre rythme.</em></h1></div><p>Préparez une actualité, relisez son aperçu, puis validez-la. Chaque envoi passe par votre accord.</p></section>
+    <ol class="flow" aria-label="Les étapes de préparation"><li><span>01</span> Rédiger un brouillon</li><li><span>02</span> Relire et valider</li><li><span>03</span> Préparer la diffusion</li></ol>
+    <p class="storage-note">Cet espace de démonstration est réservé au bureau par le serveur local. Les données restent dans ce navigateur, sur cet appareil ; elles ne sont ni synchronisées ni séparées par compte bureau. Utilisez un profil navigateur personnel ; aucun dossier d’adhérent réel dans ce prototype. Le partage WhatsApp est une action manuelle distincte. Exportez vos brouillons pour les conserver. Effacer les données du navigateur les supprime.</p>
+    <noscript><p class="notice error">JavaScript est nécessaire à la gestion des brouillons et aux aperçus.</p></noscript>
+    <div id="feedback" class="notice" role="status" aria-live="polite" hidden></div>
+    <div id="storage-error" class="notice error" role="alert" hidden><p id="storage-error-text"></p><button type="button" class="text-button" id="raw-export">Télécharger une copie brute du stockage</button></div>
+    <div class="workspace">
+      <aside class="library" aria-labelledby="library-title">
+        <div class="library-heading"><div><p class="eyebrow">VOS ACTUALITÉS</p><h2 id="library-title">Le carnet du club</h2></div><span id="post-count" class="count">0</span></div>
+        <button type="button" class="button button-dark new-post" id="new-post">Nouvelle actualité <span aria-hidden="true">+</span></button>
+        <p id="empty-library" class="empty-library">Tout commence par une nouvelle.<br>Créez votre premier brouillon.</p>
+        <ul id="post-list" class="post-list" aria-label="Actualités enregistrées"></ul>
+        <details class="backup"><summary>Sauvegarde et transfert</summary><p>Un export contient toutes vos actualités. À l’import, les contenus sont ajoutés en brouillon pour être relus. Un conflit crée une copie ; aucun texte existant n’est remplacé.</p><div class="backup-actions"><button class="text-button" id="export-posts" type="button">Exporter en JSON ↓</button><label class="import-label" for="import-posts">Importer un fichier ↑</label><input id="import-posts" type="file" accept="application/json,.json"></div></details>
+      </aside>
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="editor-heading"><div><p class="eyebrow" id="editor-kicker">NOUVELLE ACTUALITÉ</p><h2 id="editor-title">Quoi de neuf <em>au club ?</em></h2></div><span class="badge" id="editor-status">Non enregistré</span></div>
+        <form id="post-form">
+          <label for="post-title">Titre <span>obligatoire</span></label><input id="post-title" name="title" type="text" required maxlength="120" placeholder="Le titre de votre actualité" autocomplete="off">
+          <label for="post-category">Catégorie</label><select id="post-category" name="category"><option>Vie du club</option><option>Événement</option><option>Compétition</option><option>Informations pratiques</option></select>
+          <section class="post-image-editor" aria-labelledby="post-image-heading">
+            <h3 id="post-image-heading">Une affiche, une image.</h3>
+            <p class="field-help">Ajoutez une affiche ou une photo, puis relisez-la en entier avant de valider. Une seule image par actualité, conservée dans ce navigateur.</p>
+            <label for="post-image">Ajouter ou remplacer l’image <span>facultatif</span></label>
+            <input id="post-image" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" aria-describedby="post-image-help image-status">
+            <p id="post-image-help" class="field-help">JPEG, PNG ou WebP, 8 Mo maximum. L’image est optimisée localement, sans recadrage, jusqu’à 1 600 pixels et 500 Ko. Les transparences sont posées sur fond blanc ; les animations deviennent une image fixe. Réserve totale : 2 Mo d’images. N’utilisez que des images autorisées pour cette démonstration.</p>
+            <div id="demo-image-example-slot"></div>
+            <p id="image-status" class="field-help" role="status" aria-live="polite">Aucune image ajoutée.</p>
+            <div id="post-image-details" hidden>
+              <img id="post-image-preview" class="post-image-display" alt="" hidden>
+              <label for="post-image-alt">Description de l’image <span>obligatoire avec une image</span></label>
+              <input id="post-image-alt" type="text" maxlength="240" disabled aria-describedby="image-alt-help" placeholder="Exemple : affiche des séances d’essai de tennis à Longages">
+              <p id="image-alt-help" class="field-help">Une courte description pour les personnes qui ne voient pas l’image. Reprenez les informations essentielles de l’affiche dans le message si nécessaire.</p>
+              <button id="remove-post-image" class="text-button delete-button" type="button">Retirer l’image</button>
+            </div>
+          </section>
+          <label for="post-body">Votre message <span id="body-requirement">obligatoire sans affiche</span></label><textarea id="post-body" name="body" required maxlength="5000" rows="8" placeholder="Les informations utiles, avec vos mots : quoi, pour qui, où et quand…" aria-describedby="body-help"></textarea><p id="body-help" class="field-help">Facultatif si une affiche est jointe ; sinon, ajoutez un texte. Jusqu’à 5 000 caractères. N’insérez pas de donnée confidentielle.</p>
+          <label for="post-link">Lien utile <span>facultatif</span></label><input id="post-link" name="link" type="url" maxlength="1000" placeholder="https://…" aria-describedby="link-help"><p id="link-help" class="field-help">Une adresse HTTPS complète, par exemple vers une inscription.</p>
+          <fieldset class="adoc-options"><legend>ADOC · Visible sur Ten’Up</legend><p class="field-help" id="adoc-tenup-help">Choix prévu pour la saisie finale dans ADOC. Non par défaut ; changer ce choix nécessite une nouvelle validation. Rien n’est publié depuis cette démonstration.</p><div class="adoc-radio-options"><label for="post-adoc-tenup-yes"><input type="radio" name="adocVisibleOnTenup" id="post-adoc-tenup-yes" value="yes" aria-describedby="adoc-tenup-help"> Oui</label><label for="post-adoc-tenup-no"><input type="radio" name="adocVisibleOnTenup" id="post-adoc-tenup-no" value="no" checked aria-describedby="adoc-tenup-help"> Non</label></div></fieldset>
+          <p id="edit-warning" class="edit-warning" hidden>Enregistrer une modification retire cette actualité de la vitrine locale. Une nouvelle validation sera nécessaire.</p>
+          <div class="form-actions"><button class="button button-dark" type="submit" id="save-post">Enregistrer le brouillon</button><span id="save-state" class="save-state">Aucune sauvegarde automatique</span></div>
+        </form>
+        <section class="preview-section" aria-labelledby="preview-heading"><div class="preview-heading"><p class="eyebrow" id="preview-heading">AVANT DE VALIDER</p><div class="preview-tabs" role="group" aria-label="Choisir un aperçu"><button type="button" aria-pressed="true" id="preview-site">Site</button><button type="button" aria-pressed="false" id="preview-facebook">Facebook</button><button type="button" aria-pressed="false" id="preview-whatsapp">WhatsApp</button><button type="button" aria-pressed="false" id="preview-adoc">ADOC</button></div></div>
+          <article class="preview-card" id="preview-card"><div id="whatsapp-header" class="whatsapp-header" hidden><span class="avatar" aria-hidden="true">TCL</span><div><strong>Message pour vos groupes</strong><small>Le groupe et l’envoi se choisissent dans WhatsApp</small></div></div><p id="whatsapp-preview-text" class="preview-body" hidden></p><div id="facebook-header" class="facebook-header" hidden><span class="avatar" aria-hidden="true">TCL</span><div><strong>Tennis Club de Longages</strong><small>Aperçu du message · aucune publication</small></div></div><p class="preview-category" id="preview-category">Vie du club</p><h3 id="preview-title">Le titre de votre actualité</h3><img id="preview-image" class="post-image-display" alt="" hidden><p class="preview-body" id="preview-body">Votre message prendra place ici. L’aperçu se met à jour pendant votre rédaction.</p><a id="preview-link" target="_blank" rel="noopener noreferrer" hidden>Consulter le lien ↗</a><span class="preview-label">APERÇU LOCAL</span></article>
+          <article class="adoc-card" id="adoc-preview" aria-labelledby="adoc-card-title" hidden>
+            <div class="adoc-card-header"><p class="eyebrow">APERÇU · ADOC</p><h3 id="adoc-card-title">Créer un article</h3><p>Préparation locale, aucun article enregistré dans ADOC.</p></div>
+            <p class="adoc-field-name">Titre</p><h4 id="adoc-preview-title"></h4>
+            <p class="adoc-field-name">Contenu</p><p id="adoc-preview-body" class="adoc-content"></p><p id="adoc-empty-body" class="field-help">Aucun texte supplémentaire ; l’affiche est présentée ci-dessous.</p>
+            <p id="adoc-preview-count" class="adoc-count">0 / 2 000 caractères</p>
+            <p class="adoc-field-name">Photo</p><img id="adoc-preview-image" class="post-image-display" alt="" hidden><p id="adoc-no-image" class="field-help">Aucune photo jointe.</p>
+            <p class="adoc-field-name">Visible sur Ten’Up</p><p id="adoc-preview-tenup"></p>
+            <p id="adoc-preview-warning" class="notice error" hidden></p>
+          </article>
+          <p class="preview-disclaimer" id="preview-disclaimer">L’actualité n’apparaîtra dans la vitrine locale qu’après votre validation.</p>
+          <div class="approval-actions"><button type="button" class="button button-lime" id="review-post" disabled>Valider pour la démonstration <span aria-hidden="true">→</span></button><button type="button" class="text-button delete-button" id="delete-post" hidden>Supprimer</button></div>
+          <p class="field-help" id="approval-help">Enregistrez votre brouillon pour pouvoir le valider.</p>
+          <section class="whatsapp-sharing" aria-labelledby="whatsapp-sharing-title">
+            <p class="eyebrow">WHATSAPP · PARTAGE MANUEL</p>
+            <h3 id="whatsapp-sharing-title">Retrouver vos groupes.</h3>
+            <p>Après validation, ouvrez WhatsApp avec votre message, choisissez le groupe puis appuyez sur <strong>Envoyer</strong>. Recommencez pour les autres groupes souhaités. L’application ne choisit aucun destinataire et ne confirme pas la livraison.</p>
+            <div class="whatsapp-actions"><button type="button" class="button button-dark" id="share-whatsapp" disabled>Ouvrir WhatsApp ↗</button><button type="button" class="text-button" id="copy-whatsapp" disabled>Copier le message</button></div>
+            <p id="whatsapp-help" class="field-help" aria-live="polite">Enregistrez et validez l’actualité pour préparer son partage.</p>
+            <div id="whatsapp-copy-fallback" hidden><label for="whatsapp-copy-text">Message validé à copier</label><textarea id="whatsapp-copy-text" readonly rows="7" aria-describedby="whatsapp-copy-help"></textarea><p id="whatsapp-copy-help" class="field-help">La copie automatique est indisponible. Sélectionnez ce texte, copiez-le puis collez-le dans votre groupe WhatsApp.</p></div>
+          </section>
+          <section class="adoc-sharing" aria-labelledby="adoc-sharing-title">
+            <p class="eyebrow">ADOC · PRÉPARATION SIMULÉE</p>
+            <h3 id="adoc-sharing-title">Préparer l’article du club.</h3>
+            <p>Retrouvez le titre, le contenu, l’affiche et le choix de visibilité sur Ten’Up dans l’aperçu ADOC. Après votre validation, essayez la préparation simulée. La saisie finale restera à effectuer dans ADOC par une personne autorisée.</p>
+            <p class="field-help">L’écran fourni indique un contenu de 2 000 caractères et une photo JPEG, JPG ou PNG de 5 Mo maximum. Le lien utile est ajouté au contenu et compte dans cette limite. L’image ajoutée ici est déjà préparée en JPEG de 500 Ko maximum.</p>
+            <button type="button" class="button button-dark" id="prepare-adoc" disabled>Simuler la préparation ADOC</button>
+            <p id="adoc-help" class="field-help" aria-live="polite">Enregistrez puis validez cette actualité avant de simuler sa préparation pour ADOC.</p>
+          </section>
+        </section>
+      </section>
+    </div>
+    <section class="next-step"><span class="next-icon" aria-hidden="true">↗</span><div><h2>Une actualité. Quatre aperçus.</h2><p>Après votre accord, l’actualité apparaît dans l’aperçu réservé au bureau et son relais Facebook est simulé. Le message WhatsApp est prêt pour un partage manuel dans vos groupes. ADOC dispose aussi de son aperçu et d’une préparation simulée, avec le choix de visibilité sur Ten’Up. La connexion Facebook et la mise en ligne restent à préparer et à autoriser séparément.</p></div><a class="text-link" href="./actualites-bureau.html">Voir l’aperçu des actualités <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer class="container footer"><span>Tennis Club de Longages</span><span>Prototype de l’espace communication · stockage local</span></footer>
+  <dialog id="approval-dialog" aria-labelledby="approval-title" aria-describedby="approval-description"><form method="dialog"><button class="dialog-close" aria-label="Fermer l’aperçu" value="cancel">×</button></form><p class="eyebrow">VOTRE ACCORD AVANT CHAQUE RELAIS</p><h2 id="approval-title">Prêt à partager <em>cette nouvelle ?</em></h2><p id="approval-description">Cette action rend l’actualité visible dans l’aperçu réservé au bureau de ce navigateur et simule automatiquement son relais Facebook. Elle prépare aussi le partage WhatsApp, que vous déclencherez séparément en choisissant votre groupe. Cette validation seule n’envoie aucun message.</p><article class="confirmation-preview"><p class="preview-category" id="confirm-category"></p><h3 id="confirm-title"></h3><img id="confirm-image" class="post-image-display" alt="" hidden><p id="confirm-body" class="preview-body"></p><p id="confirm-link" class="confirm-link"></p><p id="confirm-adoc" class="field-help"></p></article><div class="dialog-actions"><button class="button button-dark" type="button" id="confirm-approval">Confirmer la validation simulée</button><button class="text-button" type="button" id="cancel-approval">Revenir au brouillon</button></div><p id="dialog-error" class="notice error" role="alert" hidden></p></dialog>
+</body>
+</html>

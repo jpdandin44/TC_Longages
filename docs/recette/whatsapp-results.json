@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-16T10:39:31.687Z",
+  "status": "passed",
+  "scope": "Prototype local ; window.open et presse-papiers simulés, aucune connexion WhatsApp",
+  "checks": [
+    "Aperçu exact",
+    "Brouillon non partageable",
+    "Validation sans ouverture automatique",
+    "Copie de la révision validée",
+    "URL encodée sans destinataire imposé",
+    "Aucun statut de livraison inventé",
+    "Repli si presse-papiers refusé",
+    "Modification désactive le partage",
+    "Révision périmée bloquée",
+    "Texte long copiable",
+    "Vues 1440, 390 et 320 px",
+    "Aucune erreur JS ni requête externe"
+  ]
+}

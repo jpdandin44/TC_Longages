@@ -1,0 +1,788 @@
+{
+  "documentType": "source-index-and-audit-snapshot",
+  "created": "2026-09-29",
+  "observedAt": "2026-09-29T07:15:32.853735+00:00",
+  "method": "Lecture des sources locales, index et empreintes; examen ciblé des procédures, mécanismes et preuves de chaque phase. Aucun contrôle distant réexécuté.",
+  "repositories": [
+    {
+      "id": "site",
+      "url": "https://github.com/jpdandin44/avereo-site-drupal",
+      "checkout": {
+        "head": "426328cf837fbed7dd757b26ea6fc22e78f50da3",
+        "branch": "feat/site-reprise-homepage",
+        "hasLocalChanges": true,
+        "statusSha256": "b354f4db7865444276b1ec5c719043518023fb8d3388a63dd26b61fb6ca2b011"
+      }
+    },
+    {
+      "id": "projet",
+      "url": "https://github.com/jpdandin44/AVEREO",
+      "checkout": {
+        "head": "0b00f5b8dc7022a1a19484db53ece6c613bd67de",
+        "branch": "feat/projet-revue-phases",
+        "hasLocalChanges": true,
+        "statusSha256": "f4e3987a63414abd44da69af0a9dd606ff0f9f4aeb5607026d6f31b556d8729d"
+      }
+    }
+  ],
+  "releaseCheckout": {
+    "head": "577f4fa52d5cc971fecc72145f3ecaa348118a54",
+    "branch": "fix/site-deploy-ssh",
+    "hasLocalChanges": true,
+    "statusSha256": "d34b16abdc1c29853a6a450859a27615f92e73008d3efe4c0d55a20da840622c"
+  },
+  "sourceFiles": [
+    {
+      "repository": "site",
+      "path": ".github/CODEOWNERS",
+      "sha256": "f87154ebbdad538e65b1742173c46c3dd63eae07b1802f5a38aaacfa32d9e0d7",
+      "bytes": 38,
+      "lines": 1
+    },
+    {
+      "repository": "site",
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "2276843f628ecf174be7734ca9583175985f554cab3b715caaf671a8de23b23d",
+      "bytes": 827,
+      "lines": 21
+    },
+    {
+      "repository": "site",
+      "path": ".github/scripts/check-pr-policy.py",
+      "sha256": "ccdf027a5018bb73516766ccc8a6ba078bcb6264e476b965bf5f115ec4c16f42",
+      "bytes": 5181,
+      "lines": 169
+    },
+    {
+      "repository": "site",
+      "path": ".github/scripts/tests/test_check_pr_policy.py",
+      "sha256": "7addaaa746e00a49b1a43dfd134ef4dbe51e00202339b0cd06ae5f5bf7b6c2b7",
+      "bytes": 3314,
+      "lines": 94
+    },
+    {
+      "repository": "site",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "b78ff431a16d5b8836611552a165b5a8468507e4fff1a88d0d8c75a864ea5952",
+      "bytes": 3960,
+      "lines": 126
+    },
+    {
+      "repository": "site",
+      "path": ".github/workflows/deploy-avereo.yml",
+      "sha256": "8da190fc453ece3ecdf1169491ac985763b8bc820364b1830df17c66390b8edf",
+      "bytes": 5790,
+      "lines": 141
+    },
+    {
+      "repository": "site",
+      "path": ".github/workflows/pr-policy.yml",
+      "sha256": "a76ecdf6e6332636e351dc70af040da452e2a162ad781e8e26023581263f595c",
+      "bytes": 660,
+      "lines": 22
+    },
+    {
+      "repository": "site",
+      "path": "AGENTS.md",
+      "sha256": "e6fe2e385a5b5fb195a6d9f5d983f5e39e17d252fe206c94d02435e2bb88eddd",
+      "bytes": 6563,
+      "lines": 160
+    },
+    {
+      "repository": "site",
+      "path": "architecture.md",
+      "sha256": "6b746b2923c075386ad263904b713face04b488daa7591e044a82838dad51622",
+      "bytes": 28076,
+      "lines": 400
+    },
+    {
+      "repository": "site",
+      "path": "changelog.md",
+      "sha256": "345f6f28cbd9356ae7ec34535fc181f35d1770477a83e6d4bce43a551a5532c3",
+      "bytes": 30550,
+      "lines": 448
+    },
+    {
+      "repository": "site",
+      "path": "composer.json",
+      "sha256": "c126867b78963e0c6a313d6d3a25667df03dd584a6f151ae18b8cd277887aa5e",
+      "bytes": 5544,
+      "lines": 144
+    },
+    {
+      "repository": "site",
+      "path": "data/outillage-revue.json",
+      "sha256": "6300ca029db54882ad3e2b1487b3a3840852bf17dfa44d733690fc4770dfaf88",
+      "bytes": 2463,
+      "lines": 44
+    },
+    {
+      "repository": "site",
+      "path": "data/recette-contact-destinataire.json",
+      "sha256": "404bc3aae9279f0aa20844c9029105ff2d2d15d581d6669419c7c96d8dac8574",
+      "bytes": 13031,
+      "lines": 500
+    },
+    {
+      "repository": "site",
+      "path": "data/recette-drupal-preproduction.json",
+      "sha256": "ba4507c30d188a6a0412919fe6daa341c769665b278574fbfa174e80e3414fbc",
+      "bytes": 37914,
+      "lines": 1092
+    },
+    {
+      "repository": "site",
+      "path": "data/recette-livraison.json",
+      "sha256": "cba159b0a5782ba3850ea3b8d46e83660e60ca7489c582e8635bf8e0b41cfe91",
+      "bytes": 17542,
+      "lines": 447
+    },
+    {
+      "repository": "site",
+      "path": "decisions.md",
+      "sha256": "e05daea9c54bc48b6c256ec19afe2a16fd1c7c3ca3abd6f8242ef5c5330d1db0",
+      "bytes": 15251,
+      "lines": 242
+    },
+    {
+      "repository": "site",
+      "path": "docs/handoff/2026-09-24/audit-ecarts.md",
+      "sha256": "e01eceb69491b7ac98815c5b90c2d9e3f3bb6cd991f44817255c6773097e25be",
+      "bytes": 622,
+      "lines": 19
+    },
+    {
+      "repository": "site",
+      "path": "docs/handoff/2026-09-24/AVEREO_Backlog_Recette_V1.3_2026-09-24.md",
+      "sha256": "b71316102927e481f9789acbe63f52d4db1f2c9cba67d537824b45b2810e7a23",
+      "bytes": 14995,
+      "lines": 135
+    },
+    {
+      "repository": "site",
+      "path": "docs/handoff/2026-09-24/AVEREO_Etat_Reprise_Codex_V1.3_2026-09-24.md",
+      "sha256": "c216fd0dce90ac6fd3d1fd39bb679a943f4e18531cdb2d9f61d425e6e9d3d7b9",
+      "bytes": 29710,
+      "lines": 340
+    },
+    {
+      "repository": "site",
+      "path": "docs/handoff/2026-09-24/AVEREO_Prompt_Codex_V1.3_2026-09-24.md",
+      "sha256": "d9fa167a0108373f54d4dbe5d0d52daae060db8fbe16f5263c36b51673ec2e09",
+      "bytes": 8235,
+      "lines": 87
+    },
+    {
+      "repository": "site",
+      "path": "docs/handoff/2026-09-24/README.md",
+      "sha256": "09ab7135d6fce7e1bc18527b4b4509b964c277720cc1a9bf719f8418fa23f909",
+      "bytes": 2845,
+      "lines": 35
+    },
+    {
+      "repository": "site",
+      "path": "docs/security-data.md",
+      "sha256": "b5e1e9adab61823819c17549a5c016c67f23596522776a6a854f1b3d2056fb60",
+      "bytes": 12114,
+      "lines": 211
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/01-securite-webform.md",
+      "sha256": "7d2f681acc18ddfad9f929c58b14a3332abee615f9eb8be1363fd638a328fef1",
+      "bytes": 9000,
+      "lines": 144
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/02-homepage.md",
+      "sha256": "6a03b1874ba015b359e78778baa80f250b9f5f3d6e6c57c1d33260c45298d949",
+      "bytes": 16893,
+      "lines": 271
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/02-temoignages-satisfaction.md",
+      "sha256": "63af9a280da86fb1559d0bac1600b25840d53d643ba50c88595c897c15fa40a6",
+      "bytes": 6029,
+      "lines": 111
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-comparatif-presentation.md",
+      "sha256": "93f78033bb212addbe2f816f29ff0f5cd977b5b50f0072991aed48f71be05050",
+      "bytes": 12036,
+      "lines": 140
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-services-contenus-detail.md",
+      "sha256": "249de389e6e8df0a03525c5ae9c89674f291c890aece13ab9d6762011a9eeb3c",
+      "bytes": 9930,
+      "lines": 167
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-services-correction-presentation.md",
+      "sha256": "687157ec61612118fdb875e0696997977d8bae4718536d24f921ad4b861510f6",
+      "bytes": 9427,
+      "lines": 136
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-services-descriptions-synthetiques.md",
+      "sha256": "fb64c60ece85e42df2d0f4f5ae8bb9484ef183e0df83df90ed301abb157c138b",
+      "bytes": 4139,
+      "lines": 79
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-services-enrichissement-descriptions.md",
+      "sha256": "64fd9f7fdb1fa9e93f5079d439743f1399132ce4ad43b0b6224943315fe35526",
+      "bytes": 8915,
+      "lines": 127
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/03-services.md",
+      "sha256": "4b8609d301c2c2c88cccd0f1fd2ba921b850681a1d1c8825d34756c2ca4f791d",
+      "bytes": 8223,
+      "lines": 128
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/04-formulaire.md",
+      "sha256": "56adfff6740c967aeb62eb8af577b8ddffe0ef33a3a5d23a641e83c1290c7cd6",
+      "bytes": 7715,
+      "lines": 118
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/05-preproduction.md",
+      "sha256": "2023be7d8e55c12d6bae08b65fa804febb87ee56a11e6ac4ef7f2e56a5dab900",
+      "bytes": 49737,
+      "lines": 690
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/05-recette-etapes.md",
+      "sha256": "a7d4e9af3fb659b4c0956bf376faded6fd1b76e8de6edd1f4060ae2f7bc71451",
+      "bytes": 3215,
+      "lines": 57
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/05-retours-preproduction.md",
+      "sha256": "ba30ed1bd8199184aa4bbb2e87a98c74766ea678b90501b941ccf2b3842351a9",
+      "bytes": 9009,
+      "lines": 132
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/06-execution-livraison.md",
+      "sha256": "df0d38d7531f945bcf713cb6df0e6f25923e78898a3ad0b65707c2e0ba657ba6",
+      "bytes": 7126,
+      "lines": 123
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/06-livraison.md",
+      "sha256": "9f9b0d66230dc71a09d0cef9950690f1774e757f79890487ae703a8b5d9139fa",
+      "bytes": 6083,
+      "lines": 94
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/application-remarques-validees.md",
+      "sha256": "85eb4cb013bea41ec7b240d1eb409b5a3496d802d611f65cc8426e906006d49e",
+      "bytes": 19725,
+      "lines": 127
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/archives/2026-09-28-123311-257029-point-session.md",
+      "sha256": "e62154e4d514bbd711ad15b6a27ecfa31546535033e39bb726f9381a407fbe49",
+      "bytes": 25253,
+      "lines": 281
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/audit-ecarts.md",
+      "sha256": "eb360bb2bcca62e32c2b5f9944b27078be5f146270b0941d52d6e7b0b4e48378",
+      "bytes": 11673,
+      "lines": 126
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/comptes-rendus-audits.md",
+      "sha256": "dc56c566823d4987ce88daa55c5c7bdc8974152c46bee146bc4ce98b959cfdf5",
+      "bytes": 15936,
+      "lines": 223
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/plan-de-reprise.md",
+      "sha256": "291bd27a581d684ead791e38f85dfce3bc899ee8ac3d41f92af7d693094537ce",
+      "bytes": 5548,
+      "lines": 77
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/preparer-contenus.md",
+      "sha256": "3e8e98bff633139039d972fbaadda35ebbfc325c7a0861af97860ecdd67077d5",
+      "bytes": 5148,
+      "lines": 85
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/recadrage-homepage.md",
+      "sha256": "4294bf2b076564096e00782ed38fb6ddb22b54a2b85a42654361a021ea8964bc",
+      "bytes": 7752,
+      "lines": 122
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/suivi-chantier.json",
+      "sha256": "034e0d0e2bc32c605f9dd46987a8416662c8a39dc2ed23dab802a46caa06ba3f",
+      "bytes": 211051,
+      "lines": 4337
+    },
+    {
+      "repository": "site",
+      "path": "docs/suivi-refonte/tableau-de-bord.md",
+      "sha256": "1c708fbf991e0e4b1f5512aac00376733c2efd18d80679003bb7f0ee44b1ffaa",
+      "bytes": 15272,
+      "lines": 254
+    },
+    {
+      "repository": "site",
+      "path": "README.md",
+      "sha256": "8983bd58e1d9502cc84f304b2379e50bd188d0e69119b8db0d7f8e803144c04a",
+      "bytes": 21670,
+      "lines": 374
+    },
+    {
+      "repository": "site",
+      "path": "requirements.md",
+      "sha256": "3859c70391a8b5e1600a353707246d60b34d971da73db344bd747bc7c279f560",
+      "bytes": 17036,
+      "lines": 248
+    },
+    {
+      "repository": "site",
+      "path": "roadmap.md",
+      "sha256": "1bcf65153fb270dd9b2654e223795cd0aa460e0cbbb0e8dd17f88fc939a39b8d",
+      "bytes": 13116,
+      "lines": 192
+    },
+    {
+      "repository": "site",
+      "path": "scripts/apply-drupal-editorial-release.php",
+      "sha256": "702685dfaef797bdfbbbc4e0a6e4b9e7e92a06ce736fc1bb23f22ac1507a0782",
+      "bytes": 11943,
+      "lines": 188
+    },
+    {
+      "repository": "site",
+      "path": "scripts/archive-session.py",
+      "sha256": "5ccd3189bc1b38e61d3d883d1693844913f6c352f1bb1f17663860b84f84e319",
+      "bytes": 8577,
+      "lines": 126
+    },
+    {
+      "repository": "site",
+      "path": "scripts/backup-production.py",
+      "sha256": "276ba61f02b04b4906c075a8215fc01fdf75acdba205409f34f7c90e4e03b392",
+      "bytes": 8046,
+      "lines": 165
+    },
+    {
+      "repository": "site",
+      "path": "scripts/build-visual-preproduction.py",
+      "sha256": "7b8ac074c157be62ee5a7c3daee724f9fad56b1e97f3a4454813d49a0c74f551",
+      "bytes": 20008,
+      "lines": 314
+    },
+    {
+      "repository": "site",
+      "path": "scripts/check-delivery-inputs.py",
+      "sha256": "65e778a5d1e7a927417c674082c8e063edfd04897765c46f354f100a23ccd342",
+      "bytes": 1148,
+      "lines": 26
+    },
+    {
+      "repository": "site",
+      "path": "scripts/delivery-content.php",
+      "sha256": "0ed944a63720c610c4fb5aa1b82bee69feb9271097523e03b2e90c54c0543ecb",
+      "bytes": 13840,
+      "lines": 236
+    },
+    {
+      "repository": "site",
+      "path": "scripts/delivery-run.py",
+      "sha256": "cf85b586d49cf42e8b991a3009e13dd69fff70671597caf801d64b087d62b113",
+      "bytes": 17288,
+      "lines": 348
+    },
+    {
+      "repository": "site",
+      "path": "scripts/extract-homepage-backup.py",
+      "sha256": "050f3a96f933a1602fe9f5b7f6b487811f92d224eaa2fc00860df7d1d371ec79",
+      "bytes": 9778,
+      "lines": 140
+    },
+    {
+      "repository": "site",
+      "path": "scripts/extract-homepage-content.py",
+      "sha256": "9184a1a0fbd6c720e8500956497517a63f33a0449a59811d518208e3aaa2176f",
+      "bytes": 6823,
+      "lines": 178
+    },
+    {
+      "repository": "site",
+      "path": "scripts/extract-services-content.py",
+      "sha256": "c0f9e3232982c313c4b4bca3c782f3fc3bc6e47b43ce48ea3c39a94fb7a94f6c",
+      "bytes": 8058,
+      "lines": 183
+    },
+    {
+      "repository": "site",
+      "path": "scripts/extract-services-descriptions.py",
+      "sha256": "e68dc7f9f0119fb6a70a3da57e2bf4847229b05d6d66a556480857ec93a76801",
+      "bytes": 3878,
+      "lines": 92
+    },
+    {
+      "repository": "site",
+      "path": "scripts/homepage-change.php",
+      "sha256": "1b8daed7c45202b71c1b220181c2c25812f34646a11ebf153f3d69d029494f66",
+      "bytes": 17704,
+      "lines": 286
+    },
+    {
+      "repository": "site",
+      "path": "scripts/homepage-preview-router.php",
+      "sha256": "a4ac2d555e9bc8eaba03e1c549eda7b92eb5af52b095a29e4fc0c862ef4852ae",
+      "bytes": 1465,
+      "lines": 31
+    },
+    {
+      "repository": "site",
+      "path": "scripts/inventory-homepage.php",
+      "sha256": "ad92124186197df70203e5fd8006330afe541588d57d58d9b87e0076c3503a23",
+      "bytes": 12180,
+      "lines": 263
+    },
+    {
+      "repository": "site",
+      "path": "scripts/inventory-preproduction-pages.py",
+      "sha256": "e98c568794c6156e9dd012c7b623c3a0c8ad8cc527294624b93d38a0bd662765",
+      "bytes": 5782,
+      "lines": 112
+    },
+    {
+      "repository": "site",
+      "path": "scripts/prepare-drupal-editorial-release.py",
+      "sha256": "5c56e680f2a8a192fc4bfeea0f41f9f041db3f1f3dae0a878bd706d7309e4917",
+      "bytes": 9168,
+      "lines": 163
+    },
+    {
+      "repository": "site",
+      "path": "scripts/prepare-homepage-preview.py",
+      "sha256": "bd8d36fb95dfb811901f0990f3ee67e492debc5eb9488744387f570354438c8c",
+      "bytes": 7031,
+      "lines": 102
+    },
+    {
+      "repository": "site",
+      "path": "scripts/record-pr-review.py",
+      "sha256": "cc73a29e7bc103d5607be1dc1af8049f57cb30c1de43d68b27d14a82ad5ebb5f",
+      "bytes": 19936,
+      "lines": 328
+    },
+    {
+      "repository": "site",
+      "path": "scripts/refresh-prior-approvals.py",
+      "sha256": "94db1095117dbf95849bac54ae0a19a4936f1eb563d4dfb65076dfa009b30b84",
+      "bytes": 5200,
+      "lines": 93
+    },
+    {
+      "repository": "site",
+      "path": "scripts/rehearse-backup.py",
+      "sha256": "cf6c34d0673a901287c1d266a27c0377f7729dc5d408ac4ae199c6f0cda84f5e",
+      "bytes": 9361,
+      "lines": 178
+    },
+    {
+      "repository": "site",
+      "path": "scripts/services-descriptions.php",
+      "sha256": "5c0fa1afea78a8a40231fbef66102dbca2306a22288095711286457e2f50985d",
+      "bytes": 2670,
+      "lines": 43
+    },
+    {
+      "repository": "site",
+      "path": "scripts/services-hub.php",
+      "sha256": "5bd78386d2267cfad43b14bdf5f7b1c334737e582bed439a2a8fbf0f35ae2525",
+      "bytes": 15845,
+      "lines": 222
+    },
+    {
+      "repository": "site",
+      "path": "scripts/services-presentation.php",
+      "sha256": "67d58a665b98fd8ac0d811383347dddccc5f5373d70ba01831f12135d155fcdb",
+      "bytes": 2972,
+      "lines": 47
+    },
+    {
+      "repository": "site",
+      "path": "scripts/start-homepage-preview.py",
+      "sha256": "0fb6f8512d30c93ae278359d0887a28a681425f713bf2420c95e9513698f50c3",
+      "bytes": 2669,
+      "lines": 54
+    },
+    {
+      "repository": "site",
+      "path": "scripts/start-review.mjs",
+      "sha256": "ffd7d9240685a66df0fce6339f31f52167877f4aa88c1c1b80053b76ced5cc84",
+      "bytes": 5893,
+      "lines": 137
+    },
+    {
+      "repository": "site",
+      "path": "scripts/start-visual-preproduction.py",
+      "sha256": "2d89dd843dcbb65b6a0fcf50627661e46605d4c2d986a9c850d2444d063600fb",
+      "bytes": 2821,
+      "lines": 66
+    },
+    {
+      "repository": "site",
+      "path": "scripts/update-contact-preview.php",
+      "sha256": "caf117252af005472f038dce58949b049183b631b4cdddede622317c32fbd6a0",
+      "bytes": 18433,
+      "lines": 231
+    },
+    {
+      "repository": "site",
+      "path": "scripts/update-services-descriptions.php",
+      "sha256": "d7cbbfcf5bbe0f764db65704fa37c37df6f84f59950778471e5775521e32ba93",
+      "bytes": 10521,
+      "lines": 139
+    },
+    {
+      "repository": "site",
+      "path": "scripts/update-services-presentation.php",
+      "sha256": "528db52b74468bbe51ef7847fbe46176299f59a4e143a59d6f7e1d9cf0203471",
+      "bytes": 10236,
+      "lines": 137
+    },
+    {
+      "repository": "site",
+      "path": "tests/README.md",
+      "sha256": "d321bfe7d3dd206d7f753ef8a9cb7b4abd88e4f8c3b510d7af0830e998ab755e",
+      "bytes": 29258,
+      "lines": 513
+    },
+    {
+      "repository": "site",
+      "path": "tests/review-adapter.test.mjs",
+      "sha256": "a17463958e852829f4f5717ad00d4ff507a59a9bc1ce570290e331471c0ff5ad",
+      "bytes": 4027,
+      "lines": 65
+    },
+    {
+      "repository": "site",
+      "path": "tests/test_delivery.py",
+      "sha256": "998a097657b12048936adad2de11aa9d4202819cf3ebcb6b04d6d67e8bc91b6e",
+      "bytes": 9341,
+      "lines": 163
+    },
+    {
+      "repository": "site",
+      "path": "workflows/audit-hebdomadaire-site.md",
+      "sha256": "aa3bc775410ec06d75830a08d6ca81fc7adb9436d831932eedf01bf469aa26fb",
+      "bytes": 3441,
+      "lines": 64
+    },
+    {
+      "repository": "site",
+      "path": "workflows/deploy-avereo.md",
+      "sha256": "2b5ab49f8723883225bce07dd3d50ed6007b3c3220b5b8a63bfb1ab89c3cbf1d",
+      "bytes": 12849,
+      "lines": 213
+    },
+    {
+      "repository": "site",
+      "path": "workflows/fin-session.md",
+      "sha256": "f1c86c9a26ecde4bc30fbdd01dd70a4c02cbcc9cc02ae43cbeca19eb74183189",
+      "bytes": 4258,
+      "lines": 77
+    },
+    {
+      "repository": "site",
+      "path": "workflows/preproduction-drupal.md",
+      "sha256": "6692cd68981dec9725f12ab3f9052db70b57e232f0d1c14db34e5cc97cbee7cf",
+      "bytes": 14332,
+      "lines": 228
+    },
+    {
+      "repository": "site",
+      "path": "workflows/preproduction-visuelle.md",
+      "sha256": "07ef52cddff5a39daff841b8cdc38ef3edc168d2d47542b0a830502663215704",
+      "bytes": 13694,
+      "lines": 243
+    },
+    {
+      "repository": "site",
+      "path": "workflows/preview-homepage.md",
+      "sha256": "73131711eb1a1f2f66ae824196374f2a3212f3359d2d27dd1879762f5ee305e4",
+      "bytes": 14608,
+      "lines": 274
+    },
+    {
+      "repository": "site",
+      "path": "workflows/recueil-satisfaction.md",
+      "sha256": "e2de31b86a18d30fe6c7b8adac486d834f47343c3162c521f6d9bd72427dbc90",
+      "bytes": 6500,
+      "lines": 136
+    },
+    {
+      "repository": "site",
+      "path": "workflows/revue-refonte.md",
+      "sha256": "3c4a300c66e64b2237219ebecac85c42d6146f8a9d28879b58ca587bc1459535",
+      "bytes": 14408,
+      "lines": 255
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/workflows/review-store.mjs",
+      "sha256": "a11ec6c1527b5468d07fc8ae2ddf3bd1448b42cfec81a002b00a8a9ff9cffe19",
+      "bytes": 14534,
+      "lines": 221
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/workflows/review-http.mjs",
+      "sha256": "5e5d42791cfe553e54e84a5de3c97d262f538c316fa54190626d6bbcf8b71ec2",
+      "bytes": 3268,
+      "lines": 47
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/workflows/review-plugin.mjs",
+      "sha256": "19d02efc3bc0ff38af90f782c90436d7c23831454c361b084b519137bfd2126e",
+      "bytes": 1063,
+      "lines": 27
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/frontend/src/review/ReviewWorkspace.jsx",
+      "sha256": "428233ef56e537b2ec2376cf1c6ea8c14d14b8bb28d5618450c8e5576eace75f",
+      "bytes": 18920,
+      "lines": 158
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/frontend/src/review/review-progress.mjs",
+      "sha256": "db41cfa24f897fde701c2568c4fb69293257bd5e118abd1855efe1897c4894df",
+      "bytes": 4907,
+      "lines": 74
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/frontend/src/review/review-refresh.mjs",
+      "sha256": "30b8089de513b7e1f842c3f67fd68ff5f85afa3e08d9ba1cb69ceb69470c5e31",
+      "bytes": 2173,
+      "lines": 50
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/frontend/src/review/review-pull-request.mjs",
+      "sha256": "9e74b399511fbe7f218e71267a305fa00213235a16d644e3754f25c457031319",
+      "bytes": 3111,
+      "lines": 50
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/tests/review-workflow.test.mjs",
+      "sha256": "d5f40ebeba344fcc89ea8d2e49dc51d648a87ebf42133fb7b442508227053153",
+      "bytes": 10547,
+      "lines": 171
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/tests/review-http.test.mjs",
+      "sha256": "fd48229b0dae9d8ecaca580fb3e3fab18e7754b46e0eb7ad1c323c8d74ae0802",
+      "bytes": 4617,
+      "lines": 73
+    },
+    {
+      "repository": "projet",
+      "path": "architecture-v1/avereo-app-projet/tests/review-progress.test.mjs",
+      "sha256": "8853e30f31be46dbdd00ee886f2cbea36c28ccec2c425fb272c6aa9f7cc28444",
+      "bytes": 9240,
+      "lines": 172
+    }
+  ],
+  "recordedProjectState": {
+    "currentPhase": 6,
+    "state": "in_progress",
+    "phases": [
+      {
+        "id": 0,
+        "title": "Établir les écarts, les prérequis et le suivi du site",
+        "status": "validated",
+        "validatedOn": "2026-09-24"
+      },
+      {
+        "id": 1,
+        "title": "Qualifier la correction ciblée de Webform",
+        "status": "validated",
+        "validatedOn": "2026-09-24"
+      },
+      {
+        "id": 2,
+        "title": "Appliquer les arbitrages de la homepage",
+        "status": "validated",
+        "validatedOn": "2026-09-25"
+      },
+      {
+        "id": 3,
+        "title": "Structurer le hub des quatre offres",
+        "status": "validated",
+        "validatedOn": "2026-09-25"
+      },
+      {
+        "id": 4,
+        "title": "Unifier le parcours de besoin",
+        "status": "validated",
+        "validatedOn": "2026-09-25"
+      },
+      {
+        "id": 5,
+        "title": "Préparer et recetter l'environnement isolé",
+        "status": "validated",
+        "validatedOn": "2026-09-28"
+      },
+      {
+        "id": 6,
+        "title": "Préparer la PR et la publication sous contrôle humain",
+        "status": "in_progress",
+        "validatedOn": null
+      }
+    ],
+    "decisionCount": 12,
+    "reviewEventCount": 25,
+    "githubBackupRunExecuted": true,
+    "productionDeploymentExecuted": false,
+    "evidenceDate": "2026-09-28"
+  },
+  "boundaries": [
+    "Les fichiers locaux modifiés/non suivis font partie de la source observée; leurs octets ne sont pas nécessairement publiés sur GitHub.",
+    "Les dates et succès distants sont ceux des reçus du 28 septembre; hébergement et GitHub non réinterrogés pour cet audit.",
+    "Aucun secret, dump de base, soumission client ni archive de sauvegarde n’est inclus.",
+    "Index de provenance, pas copie intégrale du code et pas signature d’authenticité."
+  ]
+}

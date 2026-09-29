@@ -1,0 +1,72 @@
+name: Déployer — TC Longages
+on:
+  workflow_dispatch:
+    inputs:
+      approved_sha:
+        description: Commit complet accepté
+        required: true
+        type: string
+      candidate_id:
+        description: Candidat accepté en préproduction
+        required: true
+        type: string
+      manifest_sha256:
+        description: Empreinte du manifeste accepté
+        required: true
+        type: string
+      preparation_receipt:
+        description: Référence du reçu de préparation encore valable
+        required: true
+        type: string
+      authorization_ref:
+        description: Accord explicite de livraison sur cette cible
+        required: true
+        type: string
+      confirmation:
+        description: Saisir DEPLOY TC Longages
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: TC Longages-production-delivery
+  cancel-in-progress: false
+jobs:
+  delivery:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    environment: production-deployment
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Contrôler version et intention
+        env:
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$APPROVED_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$APPROVED_SHA" = "$GITHUB_SHA"
+          test "$CONFIRMATION" = "DEPLOY TC Longages"
+      - uses: actions/checkout@REMPLACER_PAR_SHA_COMPLET_VERIFIE
+        with:
+          ref: ${{ inputs.approved_sha }}
+      - name: Valider accord, candidat et préparation
+        env:
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          PREPARATION_RECEIPT: ${{ inputs.preparation_receipt }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+        run: python3 scripts/run-delivery.py validate-deploy
+      - name: Sauvegarde fraîche, restauration, application et contrôles
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          PREPARATION_RECEIPT: ${{ inputs.preparation_receipt }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+        run: python3 scripts/run-delivery.py deploy --keep-closed
+      - name: Nettoyer les accès temporaires de ce run
+        if: ${{ always() }}
+        run: python3 scripts/run-delivery.py cleanup

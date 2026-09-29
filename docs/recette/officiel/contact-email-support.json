@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-24T15:32:45.464Z",
+  "status": "passed",
+  "scope": "Contact desktop/mobile, lecture seulement; aucune connexion messagerie ni envoi",
+  "checks": [
+    {
+      "width": 1440,
+      "mailtos": [
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com"
+      ],
+      "support": "planned, visible, no mailto",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "mailtos": [
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com"
+      ],
+      "support": "planned, visible, no mailto",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 320,
+      "mailtos": [
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com",
+        "mailto:tclongages@gmail.com"
+      ],
+      "support": "planned, visible, no mailto",
+      "horizontalOverflow": false
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-29T08:51:18+00:00",
+  "drupalVersion": "11.4.8",
+  "phpVersion": "8.4.23",
+  "maintenanceEnabled": true,
+  "mailPlugin": "Drupal\\tcl_site\\Plugin\\Mail\\NullMail",
+  "registration": "admin_only",
+  "scope": "local-loopback-only",
+  "deployed": false
+}

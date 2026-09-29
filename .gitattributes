@@ -1,0 +1,9 @@
+*.md text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+*.py text eol=lf
+*.example text eol=lf
+# Les builds historiques embarquent les octets des sources et images tels quels.
+src/** -text
+# Les empreintes de ce paquet reçu portent sur les octets exacts.
+docs/references/framework-developpement-pilote/** -text

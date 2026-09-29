@@ -1,0 +1,270 @@
+{
+  "$schema": "./schema-projet.json",
+  "schemaVersion": "1.0.0",
+  "documentType": "framework-project-template",
+  "template": true,
+  "created": "2026-09-29",
+  "updated": "2026-09-29",
+  "owner": "jpdandin",
+  "project": {
+    "id": "a-personnaliser",
+    "title": "À compléter",
+    "domain": null,
+    "repository": null,
+    "defaultBranch": "main",
+    "maintainers": [],
+    "humanApprovers": [],
+    "initialAuthorizationRef": null
+  },
+  "implementationStatus": "specification_to_adapt",
+  "sources": {
+    "documentation": "Markdown versionné",
+    "configuration": "JSON/YAML versionnés",
+    "businessData": "À déterminer selon le projet",
+    "tracker": "modeles/docs/suivi-chantier/suivi-chantier.json",
+    "derivedViews": [
+      "tableau-de-bord.md",
+      "tableau-de-bord.html"
+    ],
+    "runtimeRecords": "Suivi canonique : decisions, reviewEvents, evidence, testRuns, exceptions, requirementChanges, release, session."
+  },
+  "profile": {
+    "kind": "web",
+    "runtimeAdapter": null,
+    "hostingAdapter": null,
+    "databaseAdapter": null,
+    "identityAdapter": null,
+    "docker": "to_decide",
+    "trackerEngine": {
+      "sourceRepository": "https://github.com/jpdandin44/AVEREO",
+      "sourcePath": "architecture-v1/avereo-app-projet",
+      "pinnedCommit": null,
+      "distribution": "local_source_to_qualify",
+      "identityMode": "local_declared_not_authenticated",
+      "remoteExposureAllowed": false
+    }
+  },
+  "environments": {
+    "local": {
+      "kind": "local",
+      "required": true,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "synthetic_or_sanitized",
+      "outboundPolicy": "disabled",
+      "evidenceRefs": []
+    },
+    "ci": {
+      "kind": "ci",
+      "required": true,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "synthetic_or_sanitized",
+      "outboundPolicy": "disabled",
+      "evidenceRefs": []
+    },
+    "visual_preview": {
+      "kind": "visual_preview",
+      "required": false,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "synthetic_or_sanitized",
+      "outboundPolicy": "disabled",
+      "evidenceRefs": []
+    },
+    "preproduction": {
+      "kind": "preproduction",
+      "required": true,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "synthetic_or_sanitized",
+      "outboundPolicy": "disabled",
+      "evidenceRefs": []
+    },
+    "restore_rehearsal": {
+      "kind": "restore_rehearsal",
+      "required": true,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "synthetic_or_sanitized",
+      "outboundPolicy": "disabled",
+      "evidenceRefs": []
+    },
+    "production": {
+      "kind": "production",
+      "required": true,
+      "status": "not_configured",
+      "url": null,
+      "runtime": null,
+      "database": null,
+      "storage": null,
+      "secretScope": null,
+      "dataPolicy": "real_private",
+      "outboundPolicy": "requires_authorization",
+      "evidenceRefs": []
+    }
+  },
+  "governance": {
+    "reviewPerLot": true,
+    "humanMergeRequired": true,
+    "separatePhaseValidationAndAuthorization": true,
+    "deployOnPush": false,
+    "deployOnMerge": false,
+    "reuseSourceProjectApprovals": false,
+    "approvalBinding": [
+      "project",
+      "scope",
+      "environment",
+      "sourceCommit",
+      "artifactDigest",
+      "criteriaDigest"
+    ],
+    "requiredAuthorizations": [
+      "initial_scope",
+      "next_phase",
+      "merge",
+      "preproduction_mutation",
+      "production_deployment",
+      "public_opening",
+      "secret_change",
+      "destructive_change"
+    ],
+    "notes": "Les accords déjà acquis restent valables dans leur portée exacte. Les dérogations sont explicites et sourcées."
+  },
+  "git": {
+    "branchStrategy": "main_plus_short_lived_scoped_branches",
+    "pullRequestTemplate": ".github/PULL_REQUEST_TEMPLATE.md",
+    "requiredChecks": [
+      "technical-ci",
+      "policy"
+    ],
+    "branchProtectionVerified": false,
+    "environmentProtectionVerified": false,
+    "CODEOWNERSVerified": false
+  },
+  "delivery": {
+    "separatePreparationAndDeployment": true,
+    "manualTriggerOnly": true,
+    "sameQualifiedArtifact": true,
+    "freshBackupBeforeWrite": true,
+    "restoreExactBackupBeforeWrite": true,
+    "failClosed": true,
+    "concurrencyLimit": 1,
+    "openPublicAutomatically": false,
+    "workflows": [
+      {
+        "id": "ci",
+        "name": "CI — projet",
+        "purpose": "Contrôles sans secret de production"
+      },
+      {
+        "id": "preproduction",
+        "name": "Préproduction — projet",
+        "purpose": "Installation autorisée du candidat puis recette"
+      },
+      {
+        "id": "prepare",
+        "name": "Préparation au déploiement — projet",
+        "purpose": "Préflight, sauvegarde vérifiée et restauration ; aucune livraison"
+      },
+      {
+        "id": "deploy",
+        "name": "Déployer — projet",
+        "purpose": "Accord lié au candidat, sauvegarde fraîche, restauration, livraison et contrôles"
+      }
+    ]
+  },
+  "security": {
+    "secretsInGit": false,
+    "secretsInLogs": false,
+    "separateEnvironmentCredentials": true,
+    "strictHostVerification": true,
+    "outboundDisabledInRehearsal": true,
+    "temporaryNetworkExceptionsOnly": true,
+    "secretInventory": [],
+    "pendingAccessDecisions": []
+  },
+  "backup": {
+    "scope": [],
+    "offHostCopyRequired": true,
+    "retentionDays": null,
+    "targetRpoMinutes": null,
+    "targetRtoMinutes": null,
+    "postOpeningDataReconciliationRequired": true
+  },
+  "quality": {
+    "requirementTraceability": true,
+    "requiredFamilies": [
+      "unit",
+      "integration",
+      "local-functional",
+      "preproduction-functional",
+      "permissions",
+      "restore",
+      "post-deployment"
+    ],
+    "notApplicableRequiresReasonAndDecision": true
+  },
+  "tracking": {
+    "phaseValidationUsesEvidence": true,
+    "optimisticConcurrencyRequired": true,
+    "atomicWritesRequired": true,
+    "eventHistoryPreserved": true,
+    "hashesBindReviewedDocuments": true,
+    "automaticGithubSync": "not_implemented",
+    "commentStates": [
+      "recorded",
+      "read",
+      "in_progress",
+      "resolved",
+      "needs_decision"
+    ],
+    "approvalAuthenticity": "Declared local identity is insufficient for an exposed multi-user service."
+  },
+  "openItems": [
+    {
+      "id": "TBD-01",
+      "topic": "Périmètre, responsables et dépôt",
+      "impact": "Aucun démarrage autorisé",
+      "nextAction": "Compléter le projet et recueillir l’accord de cadrage"
+    },
+    {
+      "id": "TBD-02",
+      "topic": "Adaptateurs et parité des environnements",
+      "impact": "Aucun runtime configuré",
+      "nextAction": "Choisir et qualifier les adaptateurs"
+    },
+    {
+      "id": "TBD-03",
+      "topic": "Protection Git et accès hébergeur",
+      "impact": "Aucun déploiement sûr attesté",
+      "nextAction": "Configurer après autorisation et vérifier les protections réelles"
+    },
+    {
+      "id": "TBD-04",
+      "topic": "Sauvegardes et exploitation",
+      "impact": "RPO/RTO et rétention inconnus",
+      "nextAction": "Fixer les objectifs et éprouver la restauration"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "mode": "local-only",
+  "outputs": {
+    "dist/index.html": {
+      "bytes": 553936,
+      "sha256": "6a48e77ca37fd9dbc6f885d31660d4a7de77db320df015f398debcb5246c97b3"
+    },
+    "dist/communication.html": {
+      "bytes": 249162,
+      "sha256": "3b735883c994c0820af86388f9e712ce488f833a1c754c886d319cda2251727b"
+    },
+    "release/index.html": {
+      "bytes": 551926,
+      "sha256": "4359bf0b0c5676e607b7f9a47a7eb09766bda21f87f9999383fe887670ef3255"
+    },
+    "dist/bureau.html": {
+      "bytes": 70168,
+      "sha256": "d2e5bc85b33d83726264d5bea39be3030be8625de1e4602f12c7e53d6bbfeda4"
+    },
+    "dist/inscriptions.html": {
+      "bytes": 69675,
+      "sha256": "30bdd84f8959428772794d9f8043d5dfb89cb4e88086a7ae256805617af2830b"
+    },
+    "dist/actualites-bureau.html": {
+      "bytes": 87226,
+      "sha256": "d628b063cc92ebedd9af93fe4fe8fcddd3cd1803c364578371f5a0363fa3df77"
+    }
+  }
+}
