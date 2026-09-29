@@ -1,6 +1,6 @@
 {
   "project": "tclongages",
-  "status": "local_passed_remote_running",
+  "status": "local_and_github_passed_pr_merged_phase_awaiting_review",
   "recordedAt": "2026-09-29T10:36:07.350Z",
   "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
   "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
@@ -46,16 +46,31 @@
   "candidateVerification": {
     "passed": true,
     "issues": [],
-    "head": "ee23cd639a8bebdf5812a21035a96bfe9d792f68",
+    "head": "031b08c89d0121895a2b40607efc1936342ff9e2",
     "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
     "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
     "manifestDigest": "7341881ad5004638de9914977055a72006727f144f41f5f3f144406ac36018fd"
   },
-  "githubChecks": [],
+  "githubChecks": [
+    {
+      "name": "technical-ci",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36556552790/job/109366970013",
+      "observedHead": "0849075a7651312be05f495b7fbadceecd231477"
+    },
+    {
+      "name": "policy",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36557006433/job/109368463488",
+      "observedHead": "0849075a7651312be05f495b7fbadceecd231477"
+    }
+  ],
   "humanReview": {
     "phaseValidated": false,
     "nextPhaseAuthorized": false,
-    "mergeAuthorized": false,
+    "mergeAuthorized": true,
     "checklistCheckedByAgent": false
   },
   "previousPullRequest": {
@@ -240,9 +255,9 @@
   ],
   "limits": [
     "La suite complète et la recette Drupal historiques ne sont pas réattribuées au nouveau candidat.",
-    "La CI complète du correctif est à consulter sur sa PR.",
     "La fusion de la PR initiale ne vaut ni validation de phase ni déploiement.",
-    "Le contrôle policy attend les confirmations personnelles du responsable."
+    "La revue de la PR a été indiquée par l’utilisateur ; GitHub ne conditionne pas la fusion au marquage Viewed de chaque fichier.",
+    "Les quatre critères de la phase 0 ne sont pas cochés dans le suivi local ; la fusion ne vaut pas validation de phase ni autorisation de la phase 1."
   ],
   "localService": {
     "checkedAt": "2026-09-29T10:36:53.560Z",
@@ -255,5 +270,17 @@
     "notes": 2,
     "checkedCriteria": 0,
     "scope": "Contrôle HTTP du processus redémarré ; aucune action de validation enregistrée. Pas de nouvelle recette visuelle."
+  },
+  "githubObservedAt": "2026-09-29T10:47:04.602Z",
+  "pullRequestOutcome": {
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/2",
+    "state": "MERGED",
+    "mergedAt": "2026-09-29T10:41:37Z",
+    "mergeCommit": "031b08c89d0121895a2b40607efc1936342ff9e2",
+    "mergedBy": "jpdandinavereo-design",
+    "headCommit": "0849075a7651312be05f495b7fbadceecd231477",
+    "approvalObserved": true,
+    "userReportedReview": true,
+    "phaseValidationInLocalTool": false
   }
 }

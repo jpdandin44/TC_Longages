@@ -91,7 +91,7 @@
         "Responsables et règles de décision identifiés"
       ],
       "blockers": [],
-      "nextAction": "Consulter la PR et le dossier, enregistrer personnellement les quatre critères, puis valider la phase. L’autorisation de la phase 1 reste une décision distincte.",
+      "nextAction": "PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/2",
       "reviewContext": {
         "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
@@ -592,6 +592,15 @@
         "TCL-TEST-NAVIGATION-02"
       ],
       "description": "Justificatifs actualisés après correction de la navigation externe. Notes et décisions personnelles conservées ; aucune validation humaine ajoutée."
+    },
+    {
+      "id": "TCL-PR2-MERGE-OBS",
+      "type": "external_pr_merged",
+      "phaseId": 0,
+      "actor": "Codex",
+      "recordedAt": "2026-09-29T10:47:04.602Z",
+      "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/2",
+      "description": "Fusion de la PR #2 constatée sur GitHub le 29 septembre 2026 à 10:41 UTC ; commit 031b08c89d0121895a2b40607efc1936342ff9e2. technical-ci et policy réussis. L’utilisateur indique avoir réalisé la revue de la PR. Aucun critère local ni validation de phase ajoutés."
     }
   ],
   "reviewEvents": [
@@ -770,7 +779,7 @@
   "session": {
     "status": "awaiting_user",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Recharger le suivi, vérifier la correction de navigation (PR #2) et réaliser personnellement la revue de phase 0. La PR #1 est fusionnée ; aucune installation hébergée exécutée."
+    "nextAction": "PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte."
   },
   "observations": [
     {
@@ -828,6 +837,14 @@
       "sourceRef": "github-api-repository-and-main-protection",
       "statement": "Git local raccordé, dépôt public confirmé et protection main enregistrée : PR, checks technical-ci et policy, administrateurs inclus, refus force/delete et discussions résolues.",
       "limits": "La checklist doit être confirmée personnellement ; aucune fusion ni mise en production. La protection ne remplace pas la revue de phase."
+    },
+    {
+      "id": "TCL-OBS-PR2-MERGE",
+      "kind": "repository",
+      "recordedAt": "2026-09-29T10:47:55.607Z",
+      "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/2",
+      "statement": "PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa version finale. Le responsable indique avoir effectué la revue.",
+      "limits": "Le contrôle Files Changed est déclaratif dans la checklist ; GitHub ne requiert pas le marquage Viewed des fichiers. Aucune mise en production. La phase 0 reste en revue dans cet outil et demande sa propre validation."
     }
   ]
 }
