@@ -1,0 +1,43 @@
+{
+  "inspectedOn": "2026-09-24",
+  "sources": [
+    {
+      "path": "Site_tclongages_V1_Officiel.zip",
+      "sha256": "e6f8b0328d2a8eb712a82f7d0e2029d070d86591818a3a54abcf5f93bc3379ce",
+      "bytes": 1050967
+    },
+    {
+      "path": "Site_tclongages_V1_Officiel/TC_Longages_Arbitrages_Etape1_V1_complétée(1).xlsx",
+      "sha256": "922908fed8db018c11560075e15d3d4941d2a2b24905ed06b20aa048738dd566",
+      "bytes": 25753
+    },
+    {
+      "path": "Site_tclongages_V1_Officiel/TC_Longages_Etape2_Backlog_Plan_Execution_V1 (1).xlsx",
+      "sha256": "4360578d776f4da75f98fb40f4db312ea9c9957e92404e274a168fb6835e2458",
+      "bytes": 29609
+    },
+    {
+      "path": "Site_tclongages_V1_Officiel/TC_Longages_G1_Prototype_V1.zip",
+      "sha256": "ee1952069f711fdd6cb53bb4067f9c683f2004ba235e6d4ade30dd73f32f389c",
+      "bytes": 981575
+    },
+    {
+      "path": "Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md",
+      "sha256": "371cdc0cd07c3ce665e61ebf6a1f85e5cd64396a948a5f97b831ff1110a62b25",
+      "bytes": 63640
+    }
+  ],
+  "authority": "Demande utilisateur du 24 septembre ; décisions finales de la colonne Q des arbitrages et tableau 5 de la spécification cohérents. Documents joints conservés comme sources, sans autorisation de publication.",
+  "integration": "Apports G1 repris dans une variante officiel dédiée depuis les sources actuelles, sans écraser les photo, logo et tarifs récents.",
+  "confirmedByUser": {
+    "date": "2026-09-24",
+    "plannedDomain": "tclongages.fr",
+    "googleOwnerAccount": "tclongages@gmail.com",
+    "publicEmailInitiallyConfirmed": "23310230@fft.fr"
+  },
+  "currentContacts": {
+    "source": "config/officiel.json",
+    "updatedOn": "2026-09-24",
+    "reason": "Confirmation utilisateur : contact public Gmail et adresse supplémentaire de test prévue ; remplace le contact FFT initial, sans activation de messagerie."
+  }
+}

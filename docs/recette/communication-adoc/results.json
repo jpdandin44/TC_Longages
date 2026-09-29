@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-17T08:44:17.803Z",
+  "status": "passed",
+  "browser": "153.0.8010.36",
+  "checks": [
+    "Ten’Up est Non par défaut. Préparation ADOC bloquée avant validation, disponible ensuite, sans requête, presse-papiers, ouverture externe ni modification du stockage.",
+    "Quatre aperçus contrôlés à 1 440, 390 et 320 pixels : affiche conservée entière, onglet actif cohérent et absence de débordement horizontal.",
+    "Le choix Ten’Up Oui invalide l’accord précédent, se conserve après sauvegarde et rechargement, puis exige une nouvelle validation individuelle.",
+    "2 000 caractères autorisés ; 2 001 conservés sans troncature et bloqués pour ADOC uniquement. L’actualité reste validée pour les autres aperçus.",
+    "Actualité composée d’un titre et d’une affiche, sans message supplémentaire : préparation ADOC simulée possible après validation."
+  ],
+  "errors": [],
+  "external": [],
+  "externalEffects": {
+    "clipboard": 0,
+    "opened": 0
+  }
+}

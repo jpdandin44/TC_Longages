@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "scope": "Ajout du numero 35 confirme par utilisateur",
+  "sourceFilesUnchanged": 5,
+  "baselineUnchanged": true,
+  "legacyAssetsSourcesDeliverablesUnchanged": 40,
+  "authorizedSourceChanges": [
+    "src/index.html"
+  ],
+  "archiveFilesVerified": 10,
+  "archiveBytes": 777305,
+  "archiveSha256": "a61eafc9e4c87fe281fcb602dbab0b3f7483ad8546da8985f24599ce5cc02d18",
+  "addressChecks": [
+    "accueil",
+    "FAQ acces",
+    "page contact",
+    "meta des sept pages",
+    "itineraire Google Maps"
+  ],
+  "browserHashesMatchFinalBuild": true
+}

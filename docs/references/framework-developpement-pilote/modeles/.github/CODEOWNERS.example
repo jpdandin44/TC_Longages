@@ -1,0 +1,5 @@
+# Remplacer par les comptes ou équipes réellement habilités avant activation.
+* @REMPLACER_RESPONSABLE
+/.github/ @REMPLACER_RESPONSABLE_SECURITE
+/scripts/ @REMPLACER_RESPONSABLE_EXPLOITATION
+/docs/suivi-chantier/ @REMPLACER_RESPONSABLE

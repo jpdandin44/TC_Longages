@@ -1,0 +1,57 @@
+{
+  "nature": "exemple_fictif_de_conception_non_importable",
+  "schema_version": 1,
+  "demande": {
+    "saison_ref": "2026-2027",
+    "type_deposant": "adulte_pour_soi",
+    "personne": {
+      "nom": "Exemple",
+      "prenom": "Camille",
+      "date_naissance": "1990-05-12",
+      "adresse": {
+        "voie": "Adresse fictive de démonstration",
+        "code_postal": "31410",
+        "ville": "Longages"
+      }
+    },
+    "contact_principal": {
+      "email": "camille@example.invalid",
+      "telephone": null
+    },
+    "responsables_legaux": [],
+    "contact_urgence": {
+      "nom": "Exemple",
+      "prenom": "Alex",
+      "telephone": null
+    },
+    "pratique": {
+      "deja_licencie": false,
+      "derniere_annee_licence": null,
+      "annees_pratique": 0,
+      "niveau_declare": null
+    },
+    "formule_souhaitee_ref": "adulte-loisirs",
+    "entrainement_demande": false,
+    "disponibilites": [],
+    "aucune_plage_compatible": false,
+    "souplesse": null,
+    "contraintes": null,
+    "autorisations": []
+  },
+  "enregistrement_serveur": {
+    "id_exemple": "inscription-fictive-001",
+    "source_inscription": "web",
+    "mode_saisie": "formulaire",
+    "statut_dossier": "recu",
+    "etat_entrainement": "sans_entrainement",
+    "revision": 1,
+    "recu_le": "2026-09-16T12:00:00Z",
+    "modifie_le": "2026-09-16T12:00:00Z"
+  },
+  "limites_exemple": [
+    "Données fictives : les téléphones sont laissés nuls pour ne désigner personne.",
+    "Exemple structurel incomplet : une future validation réelle exigerait les contacts décidés par le club.",
+    "Le bloc enregistrement_serveur est calculé par le serveur et exclu des entrées publiques ou OCR.",
+    "Aucun groupe, tarif confirmé, règlement reçu, secret ou commentaire interne n'est fourni par le déposant."
+  ]
+}

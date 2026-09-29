@@ -1,0 +1,256 @@
+{
+  "date": "2026-09-24T15:32:16.199Z",
+  "status": "passed",
+  "scope": "Sept HTML officiel/ servis sur 127.0.0.1 à port éphémère par createOfficialServer. Aucune publication. .htaccess non interprété dans cette recette navigateur.",
+  "files": {
+    "index.html": "da6217c7141cca04b4252fb2c866ec9aa21981252041220d7f1be47ef83faf87",
+    "competitions.html": "f2da9bb371948bb801ec5e4251c2ce807008d82ccc5a300c76f5215a9c2ae2e5",
+    "calendrier.html": "ade4edc3c057295fd5bbd6c51a155d1cfeee001680c3707b3eace67507b1066a",
+    "disponibilites.html": "6e8b8fd6c42d95a2baad08f09f7eca9191001fe7144387e1d4d5d8d272dfa2fe",
+    "equipes.html": "df1b2262bd34e00147688078868bcb4c5a740b9013cfa383d7ad80b8cd0b357d",
+    "espace.html": "dfc48677100a12ae65e2bac4ada1e7aa8aef13d46a8242df656443c1dad0bf6c",
+    "contact.html": "8e10254f275038bee9f6636576b8307c04e46782172c1922119f6e0622a1c2fa"
+  },
+  "checks": [
+    "Six raccourcis de l’accueil vérifiés par un clic chacun vers les destinations configurées ; ancre club existante.",
+    "Logo original exact chargé sur les sept pages ; photo du court et illustration secondaire exactes ; neuf tarifs et saison identiques au JSON canonique.",
+    "Sept pages contrôlées à 1440, 390 et 320 px : aucun débordement horizontal, un titre principal, images chargées et bandeau de préparation.",
+    "Navigation à 1060 px : six liens, ouverture, Échap et focus, clic de destination ; passage à 1101 px ferme le menu mobile puis retour replié.",
+    "Contact : champs vides/blancs, e-mail et téléphones invalides refusés ; téléphone et e-mail valides acceptés ; HTML affiché comme texte inerte ; modification masque l’aperçu ; effacement et rechargement vident les champs.",
+    "Aucune erreur JavaScript/console, tentative de requête externe, requête d’écriture, ouverture de fenêtre, transmission mailto ou utilisation de Storage pendant cette recette. Aucun lien Google Calendar/Forms inventé."
+  ],
+  "layouts": [
+    {
+      "page": "index.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": 3,
+      "outside": []
+    },
+    {
+      "page": "competitions.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "calendrier.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "equipes.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "espace.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "pageWidth": 1440,
+      "menuToggle": "none",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": 1,
+      "outside": []
+    },
+    {
+      "page": "competitions.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "calendrier.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "equipes.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "espace.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": 1,
+      "outside": []
+    },
+    {
+      "page": "competitions.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "calendrier.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "equipes.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "espace.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "index.html",
+      "width": 1060,
+      "pageWidth": 1060,
+      "menuToggle": "flex",
+      "quickColumns": 2,
+      "outside": []
+    },
+    {
+      "page": "index.html",
+      "width": 1101,
+      "pageWidth": 1101,
+      "menuToggle": "none",
+      "quickColumns": 3,
+      "outside": []
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "pageWidth": 390,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "pageWidth": 320,
+      "menuToggle": "flex",
+      "quickColumns": null,
+      "outside": []
+    }
+  ],
+  "captures": [
+    "captures/tarifs-1440.png",
+    "captures/index-1440.png",
+    "captures/competitions-1440.png",
+    "captures/calendrier-1440.png",
+    "captures/disponibilites-1440.png",
+    "captures/equipes-1440.png",
+    "captures/espace-1440.png",
+    "captures/contact-1440.png",
+    "captures/index-390.png",
+    "captures/competitions-390.png",
+    "captures/calendrier-390.png",
+    "captures/disponibilites-390.png",
+    "captures/equipes-390.png",
+    "captures/espace-390.png",
+    "captures/contact-390.png",
+    "captures/index-320.png",
+    "captures/competitions-320.png",
+    "captures/calendrier-320.png",
+    "captures/disponibilites-320.png",
+    "captures/equipes-320.png",
+    "captures/espace-320.png",
+    "captures/contact-320.png",
+    "captures/navigation-1060.png",
+    "captures/contact-apercu-390.png",
+    "captures/contact-apercu-320.png"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "writes": [],
+  "sideEffects": []
+}

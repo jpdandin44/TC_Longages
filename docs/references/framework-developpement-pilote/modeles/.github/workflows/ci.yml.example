@@ -1,0 +1,22 @@
+name: CI — NOM_PROJET
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  technical-ci:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@REMPLACER_PAR_SHA_COMPLET_VERIFIE
+      - name: Préparer le runtime verrouillé
+        run: python3 scripts/project-checks.py setup-ci
+      - name: Vérifier code et dépendances
+        run: python3 scripts/project-checks.py static
+      - name: Tester les changements
+        run: python3 scripts/project-checks.py test
+      - name: Vérifier documentation et suivi
+        run: python3 scripts/project-checks.py documentation
+      - name: Vérifier hygiène et absence de données privées
+        run: python3 scripts/project-checks.py hygiene

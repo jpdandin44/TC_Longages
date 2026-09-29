@@ -1,0 +1,357 @@
+{
+  "project": "TC_Longages",
+  "document_type": "releve-tarifaire-des-sources",
+  "title": "Tarifs transcrits des fiches d'inscription 2026-2027",
+  "status": "releve-documentaire-a-confirmer-avant-campagne",
+  "version": "git",
+  "created": "2026-09-17",
+  "updated": "2026-09-17",
+  "owner": "jpdandin",
+  "currency": "EUR",
+  "season": "2026-2027",
+  "scope": "Transcription factuelle des PDF fournis ; aucune règle de calcul, inclusion ou condition absente des fiches n'est ajoutée. Ce relevé ne constitue pas une activation des tarifs ni une validation du catalogue par le club.",
+  "verification": {
+    "method": "Extraction pypdf puis rendu Poppler à 140 dpi et lecture visuelle complète des trois pages.",
+    "text_layer": "Aucun texte extractible dans les deux PDF : les pages sont des images. Les libellés et montants ci-dessous sont transcrits visuellement.",
+    "visually_reviewed_pages": [
+      {
+        "source_id": "ecole",
+        "pages": [
+          1,
+          2
+        ]
+      },
+      {
+        "source_id": "adultes",
+        "pages": [
+          1
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ecole",
+      "title_from_document": "Fiche d'inscription Ecole de tennis",
+      "season_from_document": "Saison 2026-2027",
+      "other_pages": "Page 2 : autorisations d'urgence, de prise de photographies et de diffusion ; aucun montant tarifaire.",
+      "sha256": "ae74a0006f7884b281fc4a76c55654312fb072302ee8ae4c949c32052b815a78",
+      "file": "../tests/fixtures/tarifs/fiche-ecole-tennis.pdf",
+      "pageCount": 2,
+      "tariffPage": 1
+    },
+    {
+      "id": "adultes",
+      "title_from_document": "Fiche d'inscription Adultes",
+      "season_from_document": "Saison 2026 - 2027",
+      "sha256": "584206efc9599b95fce93c784c82dbfb219f8b954e37049a4512b83059ec1cef",
+      "file": "../tests/fixtures/tarifs/fiche-adultes.pdf",
+      "pageCount": 1,
+      "tariffPage": 1
+    }
+  ],
+  "discounts": {
+    "label_from_documents": "Remise « Forfait famille »",
+    "source_refs": [
+      {
+        "source_id": "ecole",
+        "page": 1
+      },
+      {
+        "source_id": "adultes",
+        "page": 1
+      }
+    ],
+    "amount_cents": null,
+    "percentage": null,
+    "eligibility_rule": null,
+    "calculation_rule": null,
+    "observations": "Les cases sont vides ; la case du Pass été est noire. Aucune réduction chiffrée ni règle d'éligibilité ou de calcul n'est donnée. Ne pas appliquer automatiquement de remise."
+  },
+  "payment_information": [
+    {
+      "source_id": "ecole",
+      "page": 1,
+      "methods_from_document": [
+        "Chèque",
+        "Espèces",
+        "Autres (CE)"
+      ],
+      "tracking_fields": [
+        "Règlement effectué le",
+        "N° de chèque",
+        "Banque",
+        "Saisie sur internet le",
+        "N° de Licences"
+      ]
+    },
+    {
+      "source_id": "adultes",
+      "page": 1,
+      "methods_from_document": [
+        "Chèque",
+        "Espèces",
+        "Autres"
+      ],
+      "tracking_fields": [
+        "Règlement effectué le",
+        "N° de chèque",
+        "Banque",
+        "Saisie sur internet le",
+        "N° de Licences"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "cours-adultes-125-150",
+      "description": "Condition permettant de choisir 125 € ou 150 € ; aucun choix automatique ni association loisir/compétition déduite.",
+      "source_refs": [
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "licence",
+      "description": "Les fiches interrogent sur une licence antérieure et prévoient son numéro. Aucun prix distinct ni indication que la licence est incluse ou exclue des tarifs.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "cours-et-adhesion",
+      "description": "Durée, nombre et fréquence des cours, taille des groupes et éventuel cumul des montants cours/adhésion non précisés.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "terrains",
+      "description": "Aucun tarif de réservation, location, accès aux terrains, droit d'invité ou éclairage n'est indiqué dans les trois pages.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "ecole",
+          "page": 2
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "frais",
+      "description": "Aucun frais annexe, droit d'entrée ou caution n'est indiqué ; cette absence ne prouve pas la gratuité de ces éléments.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "famille",
+      "description": "Montant, calcul, membres éligibles et cumul de la remise Forfait famille non précisés ; case Pass été noire sans explication.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "age-et-niveau",
+      "description": "Date de référence des âges, articulation des plages qui se chevauchent et différence entre Perfectionnement et Perfectionnement + non précisées.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "pass-ete-dates",
+      "description": "Dates exactes et année d'application de juin-août non précisées sur la ligne Pass été.",
+      "source_refs": [
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "paiement",
+      "description": "Échéances, éventuels paiements fractionnés et contenu des modes Autres/Autres (CE) non précisés.",
+      "source_refs": [
+        {
+          "source_id": "ecole",
+          "page": 1
+        },
+        {
+          "source_id": "adultes",
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "ecole",
+      "label": "École de tennis et adhésion jeunes",
+      "sourceId": "ecole",
+      "page": 1,
+      "rows": [
+        {
+          "id": "mini-tennis",
+          "label": "Mini-Tennis (5-7 ans)",
+          "priceLabel": "110,00 €",
+          "amountCents": 11000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": "5-7 ans",
+          "notes": []
+        },
+        {
+          "id": "initiation",
+          "label": "Initiation (7-15 ans)",
+          "priceLabel": "130,00 €",
+          "amountCents": 13000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": "7-15 ans",
+          "notes": []
+        },
+        {
+          "id": "perfectionnement",
+          "label": "Perfectionnement (8-18 ans)",
+          "priceLabel": "130,00 €",
+          "amountCents": 13000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": "8-18 ans",
+          "notes": [
+            "La fiche ne précise pas les critères de niveau."
+          ]
+        },
+        {
+          "id": "perfectionnement-plus",
+          "label": "Perfectionnement + (8-18 ans)",
+          "priceLabel": "130,00 €",
+          "amountCents": 13000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": "8-18 ans",
+          "notes": [
+            "La différence avec Perfectionnement n'est pas décrite."
+          ]
+        },
+        {
+          "id": "adhesion-jeunes",
+          "label": "Adhésion Jeunes (-18 ans hors école de tennis)",
+          "priceLabel": "40,00 €",
+          "amountCents": 4000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": "-18 ans",
+          "notes": [
+            "La mention hors école de tennis figure dans le libellé."
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "adultes",
+      "label": "Adultes",
+      "sourceId": "adultes",
+      "page": 1,
+      "rows": [
+        {
+          "id": "cours-adultes",
+          "label": "Cours Adultes ou adultes competition",
+          "priceLabel": "125,00 € ou 150 €",
+          "amountCents": null,
+          "priceStatus": "deux-montants-sans-regle-de-choix",
+          "ageText": null,
+          "notes": [
+            "Aucune correspondance explicite entre les deux montants et les publics, niveaux, créneaux ou conditions.",
+            "Ne pas déduire un forfait additionnant ces cours à une adhésion adulte : le cumul n'est pas précisé."
+          ],
+          "alternativeAmountsCents": [
+            12500,
+            15000
+          ]
+        },
+        {
+          "id": "adulte-competition",
+          "label": "Adhésion Adulte compétition",
+          "priceLabel": "100,00 €",
+          "amountCents": 10000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": null,
+          "notes": []
+        },
+        {
+          "id": "adulte-loisirs",
+          "label": "Adhésion Adulte loisirs",
+          "priceLabel": "70,00 €",
+          "amountCents": 7000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": null,
+          "notes": []
+        },
+        {
+          "id": "pass-ete",
+          "label": "Pass été (Juin-Août)",
+          "priceLabel": "50,00 €",
+          "amountCents": 5000,
+          "priceStatus": "montant-unique-dans-la-fiche",
+          "ageText": null,
+          "notes": [
+            "L'année propre à cette période n'est pas inscrite sur la ligne ; seule la saison 2026-2027 figure en tête de fiche.",
+            "La case de remise famille est remplie en noir ; aucun texte n'en explique le sens."
+          ],
+          "periodText": "Juin-Août",
+          "exactStartDate": null,
+          "exactEndDate": null
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "notes": [
+    "Tarifs relevés sur les fiches de la saison 2026-2027 ; les conditions restent à confirmer par le club.",
+    "Cours adultes : la fiche indique 125 € ou 150 €, sans préciser la règle de choix.",
+    "La remise « Forfait famille » est mentionnée, mais aucun montant ni calcul n’est fourni.",
+    "L’inclusion et le prix de la licence, la durée et la fréquence des cours ne sont pas précisés. Horaires à confirmer auprès du club.",
+    "Aucun tarif de réservation ou de location de terrain n’est indiqué dans ces fiches."
+  ],
+  "publicNoteIndexes": [
+    1,
+    2,
+    3
+  ]
+}

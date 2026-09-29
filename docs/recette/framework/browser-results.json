@@ -1,0 +1,28 @@
+{
+  "recordedAt": "2026-09-29T08:29:56.516Z",
+  "environment": "local-file-headless-chrome",
+  "results": [
+    {
+      "width": 1440,
+      "title": "Le projet, étape par étape",
+      "rows": 8,
+      "cards": 7,
+      "overflow": false,
+      "forms": 0,
+      "scripts": 0,
+      "errors": [],
+      "remoteRequests": []
+    },
+    {
+      "width": 390,
+      "title": "Le projet, étape par étape",
+      "rows": 8,
+      "cards": 7,
+      "overflow": false,
+      "forms": 0,
+      "scripts": 0,
+      "errors": [],
+      "remoteRequests": []
+    }
+  ]
+}

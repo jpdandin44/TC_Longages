@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "date": "2026-09-17T08:52:40.315943+00:00",
+  "archives": [
+    {
+      "archive": "tc-longages-demo-o2switch.zip",
+      "bytes": 842891,
+      "entries": 10,
+      "sha256": "ef27e01a2975fc6948f8bcf6cd573746ebdaa47d0c73f1d4786bb7f4e7088c43",
+      "crc": "passed",
+      "matchesGeneratedFiles": true
+    },
+    {
+      "archive": "tc-longages-prototype.zip",
+      "bytes": 848103,
+      "entries": 11,
+      "sha256": "6f0ccdd91e0d81686d9150c998e7753770946e10a49b0098043a514f06e78c36",
+      "crc": "passed",
+      "matchesGeneratedFiles": true
+    },
+    {
+      "archive": "tc-longages-vitrine-o2switch.zip",
+      "bytes": 365116,
+      "entries": 1,
+      "sha256": "45777dcf37e642995b96ce85460c79fcd82b25742103137978cbabc18b6780b9",
+      "crc": "passed",
+      "matchesGeneratedFiles": true
+    }
+  ],
+  "originalVisualsUnchanged": true
+}

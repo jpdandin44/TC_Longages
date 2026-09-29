@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-16T12:34:55.175Z",
+  "status": "passed",
+  "scope": "Démonstration isolée, données fictives et serveur éphémère",
+  "checks": [
+    "Visite guidée et liens vers toutes les pages",
+    "Adulte sans cours : dépôt fictif, continuité bureau et finalisation confirmée",
+    "Mineur : responsable, disponibilités et affectation manuelle compatible",
+    "Import simulé sans lecture de fichier : aperçu, confirmation, doublon refusé ; CSV fictif téléchargé",
+    "Communication isolée : validation et aperçu ; WhatsApp et copie sans effet externe",
+    "Sept pages sans débordement horizontal à 390 et 320 px",
+    "Aucune erreur JavaScript et aucun appel réseau externe"
+  ]
+}

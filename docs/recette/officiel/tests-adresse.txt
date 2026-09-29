@@ -1,0 +1,18 @@
+✔ Aperçu officiel : sept pages et robots disponibles, racine sur accueil, HEAD sans contenu (92.235ms)
+✔ Aperçu officiel : chemins privés, anciens écrans, encodage et fichiers techniques refusés (29.6974ms)
+✔ Aperçu officiel : méthodes d’écriture et hôte externe refusés, erreur sans fuite de chemin (24.3499ms)
+✔ Archive officielle : liste exacte, taille, hash, mode et maintenance active obligatoires (68.6644ms)
+✔ Archive officielle : ZIP de dix fichiers sans helper et manifeste séparé (1364.5055ms)
+✔ La V1 conserve les visuels exacts et les tarifs actuels tout en appliquant six accès et la charte reçue (27.6877ms)
+✔ Le paquet officiel reste autonome, non indexable, sans effet de démonstration métier ni référence Google privée (37.1521ms)
+✔ Liens Google absents : aucune date, équipe, formulaire ou connexion inventés (9.1703ms)
+✔ La configuration refuse activation involontaire, URLs dangereuses et effectifs publics (4.5207ms)
+✔ Une ressource Google renseignée doit être revue, liée à son équipe et ne révèle ni joueurs ni feuille de réponses (3.3278ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2302.7195

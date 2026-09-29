@@ -1,0 +1,18 @@
+name: PR Policy
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+jobs:
+  policy:
+    if: ${{ github.event.pull_request.draft == false }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Lire la version de politique
+        uses: actions/checkout@REMPLACER_PAR_SHA_COMPLET_VERIFIE
+      - name: Contrôler la description
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: python3 .github/scripts/check-pr-policy.py

@@ -1,0 +1,28 @@
+{
+  "artifact": "tc-longages-vitrine-o2switch.zip",
+  "checks": [
+    {
+      "width": 1440,
+      "images": true,
+      "count": 2,
+      "overflow": false,
+      "forms": 0
+    },
+    {
+      "width": 390,
+      "images": true,
+      "count": 2,
+      "overflow": false,
+      "forms": 0
+    },
+    {
+      "width": 320,
+      "images": true,
+      "count": 2,
+      "overflow": false,
+      "forms": 0
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

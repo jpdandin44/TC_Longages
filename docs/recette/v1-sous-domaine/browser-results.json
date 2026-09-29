@@ -1,0 +1,115 @@
+{
+  "date": "2026-09-24T16:04:59.109Z",
+  "status": "passed",
+  "origin": "http://127.0.0.1:62140",
+  "checks": [
+    {
+      "page": "index.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "competitions.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "calendrier.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "equipes.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "espace.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "competitions.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "calendrier.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "equipes.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "espace.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "competitions.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "calendrier.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "disponibilites.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "equipes.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "espace.html",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "writes": []
+}

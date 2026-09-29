@@ -1,0 +1,8 @@
+/* Logo.jpeg original : 1131 × 1600 px, sans retouche ni réencodage.
+   Fenêtre carrée de 708 px à partir de x=188, y=488 : elle exclut le trait
+   horizontal extérieur et les grandes marges sans redessiner le logo. */
+.club-logo{display:block;position:relative;flex:none;overflow:hidden;width:68px;height:68px;border:0;border-radius:50%;background:#fff;isolation:isolate}
+.club-logo>.club-logo-image{display:block;position:absolute;width:159.745763%;max-width:none;height:auto;left:-26.553672%;top:-68.926554%;margin:0;border:0;transform:none;object-fit:initial}
+.club-logo.club-logo-avatar{width:44px;height:44px}
+@media(max-width:760px){.club-logo{width:54px;height:54px}}
+@media(max-width:380px){.club-logo{width:46px;height:46px}.club-logo.club-logo-avatar{width:40px;height:40px}}

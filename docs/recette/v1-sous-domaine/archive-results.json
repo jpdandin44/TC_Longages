@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "archive": {
+    "file": "tc-longages-v1-demo-o2switch.zip",
+    "bytes": 778108,
+    "sha256": "2ffafa4113c24731e49f7b3bc660ea5361894ffd62fd27fe301cbecce1feaa38"
+  },
+  "entries": 10,
+  "crc": "passed",
+  "matchesGeneratedFiles": true,
+  "matchesApacheFixture": true,
+  "maintenanceActiveInArchive": true,
+  "remoteDeployment": false
+}

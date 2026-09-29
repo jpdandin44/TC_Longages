@@ -1,0 +1,1488 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "documentType": {
+      "type": "string"
+    },
+    "template": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "repository": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "defaultBranch": {
+          "type": "string"
+        },
+        "maintainers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "humanApprovers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "initialAuthorizationRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "domain",
+        "repository",
+        "defaultBranch",
+        "maintainers",
+        "humanApprovers",
+        "initialAuthorizationRef"
+      ],
+      "additionalProperties": false
+    },
+    "implementationStatus": {
+      "enum": [
+        "specification_to_adapt",
+        "configured_unqualified",
+        "qualified"
+      ]
+    },
+    "sources": {
+      "type": "object",
+      "properties": {
+        "documentation": {
+          "type": "string"
+        },
+        "configuration": {
+          "type": "string"
+        },
+        "businessData": {
+          "type": "string"
+        },
+        "tracker": {
+          "type": "string"
+        },
+        "derivedViews": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "runtimeRecords": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentation",
+        "configuration",
+        "businessData",
+        "tracker",
+        "derivedViews",
+        "runtimeRecords"
+      ],
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "web",
+            "static",
+            "api",
+            "saas",
+            "mobile",
+            "data",
+            "cli",
+            "other"
+          ]
+        },
+        "runtimeAdapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hostingAdapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "databaseAdapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identityAdapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "docker": {
+          "enum": [
+            "to_decide",
+            "enabled",
+            "not_applicable"
+          ]
+        },
+        "trackerEngine": {
+          "type": "object",
+          "properties": {
+            "sourceRepository": {
+              "type": "string"
+            },
+            "sourcePath": {
+              "type": "string"
+            },
+            "pinnedCommit": {
+              "$ref": "#/$defs/nullableSha"
+            },
+            "distribution": {
+              "type": "string"
+            },
+            "identityMode": {
+              "type": "string"
+            },
+            "remoteExposureAllowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "sourceRepository",
+            "sourcePath",
+            "pinnedCommit",
+            "distribution",
+            "identityMode",
+            "remoteExposureAllowed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "runtimeAdapter",
+        "hostingAdapter",
+        "databaseAdapter",
+        "identityAdapter",
+        "docker",
+        "trackerEngine"
+      ],
+      "additionalProperties": false
+    },
+    "environments": {
+      "type": "object",
+      "properties": {
+        "local": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "local"
+            },
+            "required": {
+              "const": true
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        },
+        "ci": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "ci"
+            },
+            "required": {
+              "const": true
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        },
+        "visual_preview": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "visual_preview"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        },
+        "preproduction": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "preproduction"
+            },
+            "required": {
+              "const": true
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        },
+        "restore_rehearsal": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "restore_rehearsal"
+            },
+            "required": {
+              "const": true
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        },
+        "production": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "production"
+            },
+            "required": {
+              "const": true
+            },
+            "status": {
+              "enum": [
+                "not_configured",
+                "configured_unverified",
+                "qualified",
+                "unavailable",
+                "not_applicable"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "runtime": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "storage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secretScope": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataPolicy": {
+              "type": "string"
+            },
+            "outboundPolicy": {
+              "type": "string"
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "required",
+            "status",
+            "url",
+            "runtime",
+            "database",
+            "storage",
+            "secretScope",
+            "dataPolicy",
+            "outboundPolicy",
+            "evidenceRefs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "local",
+        "ci",
+        "visual_preview",
+        "preproduction",
+        "restore_rehearsal",
+        "production"
+      ],
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "reviewPerLot": {
+          "const": true
+        },
+        "humanMergeRequired": {
+          "const": true
+        },
+        "separatePhaseValidationAndAuthorization": {
+          "const": true
+        },
+        "deployOnPush": {
+          "const": false
+        },
+        "deployOnMerge": {
+          "const": false
+        },
+        "reuseSourceProjectApprovals": {
+          "const": false
+        },
+        "approvalBinding": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requiredAuthorizations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reviewPerLot",
+        "humanMergeRequired",
+        "separatePhaseValidationAndAuthorization",
+        "deployOnPush",
+        "deployOnMerge",
+        "reuseSourceProjectApprovals",
+        "approvalBinding",
+        "requiredAuthorizations",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "git": {
+      "type": "object",
+      "properties": {
+        "branchStrategy": {
+          "type": "string"
+        },
+        "pullRequestTemplate": {
+          "type": "string"
+        },
+        "requiredChecks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "branchProtectionVerified": {
+          "type": "boolean"
+        },
+        "environmentProtectionVerified": {
+          "type": "boolean"
+        },
+        "CODEOWNERSVerified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "branchStrategy",
+        "pullRequestTemplate",
+        "requiredChecks",
+        "branchProtectionVerified",
+        "environmentProtectionVerified",
+        "CODEOWNERSVerified"
+      ],
+      "additionalProperties": false
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "separatePreparationAndDeployment": {
+          "const": true
+        },
+        "manualTriggerOnly": {
+          "const": true
+        },
+        "sameQualifiedArtifact": {
+          "const": true
+        },
+        "freshBackupBeforeWrite": {
+          "const": true
+        },
+        "restoreExactBackupBeforeWrite": {
+          "const": true
+        },
+        "failClosed": {
+          "const": true
+        },
+        "concurrencyLimit": {
+          "const": 1
+        },
+        "openPublicAutomatically": {
+          "const": false
+        },
+        "workflows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "purpose": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "purpose"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "separatePreparationAndDeployment",
+        "manualTriggerOnly",
+        "sameQualifiedArtifact",
+        "freshBackupBeforeWrite",
+        "restoreExactBackupBeforeWrite",
+        "failClosed",
+        "concurrencyLimit",
+        "openPublicAutomatically",
+        "workflows"
+      ],
+      "additionalProperties": false
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "secretsInGit": {
+          "const": false
+        },
+        "secretsInLogs": {
+          "const": false
+        },
+        "separateEnvironmentCredentials": {
+          "const": true
+        },
+        "strictHostVerification": {
+          "const": true
+        },
+        "outboundDisabledInRehearsal": {
+          "const": true
+        },
+        "temporaryNetworkExceptionsOnly": {
+          "const": true
+        },
+        "secretInventory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/secret"
+          }
+        },
+        "pendingAccessDecisions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "secretsInGit",
+        "secretsInLogs",
+        "separateEnvironmentCredentials",
+        "strictHostVerification",
+        "outboundDisabledInRehearsal",
+        "temporaryNetworkExceptionsOnly",
+        "secretInventory",
+        "pendingAccessDecisions"
+      ],
+      "additionalProperties": false
+    },
+    "backup": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "offHostCopyRequired": {
+          "const": true
+        },
+        "retentionDays": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "targetRpoMinutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "targetRtoMinutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "postOpeningDataReconciliationRequired": {
+          "const": true
+        }
+      },
+      "required": [
+        "scope",
+        "offHostCopyRequired",
+        "retentionDays",
+        "targetRpoMinutes",
+        "targetRtoMinutes",
+        "postOpeningDataReconciliationRequired"
+      ],
+      "additionalProperties": false
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "requirementTraceability": {
+          "const": true
+        },
+        "requiredFamilies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notApplicableRequiresReasonAndDecision": {
+          "const": true
+        }
+      },
+      "required": [
+        "requirementTraceability",
+        "requiredFamilies",
+        "notApplicableRequiresReasonAndDecision"
+      ],
+      "additionalProperties": false
+    },
+    "tracking": {
+      "type": "object",
+      "properties": {
+        "phaseValidationUsesEvidence": {
+          "const": true
+        },
+        "optimisticConcurrencyRequired": {
+          "const": true
+        },
+        "atomicWritesRequired": {
+          "const": true
+        },
+        "eventHistoryPreserved": {
+          "const": true
+        },
+        "hashesBindReviewedDocuments": {
+          "const": true
+        },
+        "automaticGithubSync": {
+          "type": "string"
+        },
+        "commentStates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approvalAuthenticity": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "phaseValidationUsesEvidence",
+        "optimisticConcurrencyRequired",
+        "atomicWritesRequired",
+        "eventHistoryPreserved",
+        "hashesBindReviewedDocuments",
+        "automaticGithubSync",
+        "commentStates",
+        "approvalAuthenticity"
+      ],
+      "additionalProperties": false
+    },
+    "openItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "impact": {
+            "type": "string"
+          },
+          "nextAction": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "topic",
+          "impact",
+          "nextAction"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "documentType",
+    "template",
+    "created",
+    "updated",
+    "owner",
+    "project",
+    "implementationStatus",
+    "sources",
+    "profile",
+    "environments",
+    "governance",
+    "git",
+    "delivery",
+    "security",
+    "backup",
+    "quality",
+    "tracking",
+    "openItems"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:framework-developpement-pilote:project-schema:1",
+  "title": "Profil de développement piloté",
+  "description": "Contrat proposé. La conformité de structure ne prouve pas les accès ni les autorisations humaines.",
+  "$defs": {
+    "nullableSha": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^([a-f0-9]{40}|[a-f0-9]{64})$"
+        }
+      ]
+    },
+    "nullableDigest": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      ]
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "initial_scope",
+            "phase_validation",
+            "next_phase",
+            "merge",
+            "preproduction_mutation",
+            "production_deployment",
+            "public_opening",
+            "secret_change",
+            "destructive_change"
+          ]
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "superseded"
+          ]
+        },
+        "project": {
+          "type": "string"
+        },
+        "phaseId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "environment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recordedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sourceRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceCommit": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "candidateId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifactDigest": {
+          "$ref": "#/$defs/nullableDigest"
+        },
+        "criteriaDigest": {
+          "$ref": "#/$defs/nullableDigest"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expiresAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "supersedes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "status",
+        "project",
+        "phaseId",
+        "environment",
+        "actor",
+        "recordedAt",
+        "sourceRef",
+        "sourceCommit",
+        "candidateId",
+        "artifactDigest",
+        "criteriaDigest",
+        "scope",
+        "exclusions",
+        "reservations",
+        "expiresAt",
+        "supersedes"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "not_run",
+            "passed",
+            "failed",
+            "not_applicable",
+            "obsolete"
+          ]
+        },
+        "project": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "sourceCommit": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "candidateId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifactDigest": {
+          "$ref": "#/$defs/nullableDigest"
+        },
+        "recordedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "actor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "testIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expectedResult": {
+          "type": "string"
+        },
+        "actualResult": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifactRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "status",
+        "project",
+        "environment",
+        "sourceCommit",
+        "candidateId",
+        "artifactDigest",
+        "recordedAt",
+        "actor",
+        "testIds",
+        "expectedResult",
+        "actualResult",
+        "artifactRef",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "exception": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "impact": {
+          "type": "string"
+        },
+        "decisionRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expiresAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "nextAction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "scope",
+        "reason",
+        "impact",
+        "decisionRef",
+        "owner",
+        "expiresAt",
+        "nextAction"
+      ],
+      "additionalProperties": false
+    },
+    "changeRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceRef": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
+        },
+        "affectedPhaseIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "impact": {
+          "type": "string"
+        },
+        "decisionRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "implemented"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "sourceRef",
+        "before",
+        "after",
+        "affectedPhaseIds",
+        "impact",
+        "decisionRef",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "storageRef": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rotationPolicy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authorizationRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "purpose",
+        "storageRef",
+        "scope",
+        "owner",
+        "rotationPolicy",
+        "authorizationRef"
+      ],
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceCommit": {
+          "type": "string",
+          "pattern": "^([a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "manifestSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "qualifiedEnvironment": {
+          "type": "string"
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approvalRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "sourceCommit",
+        "manifestSha256",
+        "qualifiedEnvironment",
+        "evidenceRefs",
+        "approvalRef"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

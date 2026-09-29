@@ -1,0 +1,257 @@
+{
+  "checkedAt": "2026-09-29T08:54:42.747Z",
+  "scope": "local-loopback-only",
+  "origin": "http://127.0.0.1:4182",
+  "deployed": false,
+  "checks": [
+    {
+      "label": "Closed index",
+      "route": "/index.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed competitions",
+      "route": "/competitions.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed calendrier",
+      "route": "/calendrier.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed disponibilites",
+      "route": "/disponibilites.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed equipes",
+      "route": "/equipes.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed espace",
+      "route": "/espace.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed contact",
+      "route": "/contact.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Closed home",
+      "route": "/",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Login accessible during maintenance",
+      "route": "/user/login",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Local administrator password login",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption index",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption competitions",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption calendrier",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption disponibilites",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption equipes",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption espace",
+      "passed": true
+    },
+    {
+      "label": "Administrator maintenance exemption contact",
+      "passed": true
+    },
+    {
+      "label": "Native administrative form: maintenance disabled",
+      "passed": true
+    },
+    {
+      "label": "Open index",
+      "route": "/index.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open competitions",
+      "route": "/competitions.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open calendrier",
+      "route": "/calendrier.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open disponibilites",
+      "route": "/disponibilites.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open equipes",
+      "route": "/equipes.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open espace",
+      "route": "/espace.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open contact",
+      "route": "/contact.html",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Open home",
+      "route": "/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "Anonymous access to maintenance settings denied",
+      "passed": true
+    },
+    {
+      "label": "Public static form POST not accepted by page route",
+      "passed": true
+    },
+    {
+      "label": "No direct access /site-pages/index.html",
+      "route": "/site-pages/index.html",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /sites/default/settings.php",
+      "route": "/sites/default/settings.php",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /composer.json",
+      "route": "/composer.json",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /vendor/autoload.php",
+      "route": "/vendor/autoload.php",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /local-router.php",
+      "route": "/local-router.php",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /.local/drupal-admin.json",
+      "route": "/.local/drupal-admin.json",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /bureau.html",
+      "route": "/bureau.html",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /communication.html",
+      "route": "/communication.html",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "No direct access /inscriptions.html",
+      "route": "/inscriptions.html",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "Native administrative form: maintenance enabled",
+      "passed": true
+    },
+    {
+      "label": "Reclosed index",
+      "route": "/index.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed competitions",
+      "route": "/competitions.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed calendrier",
+      "route": "/calendrier.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed disponibilites",
+      "route": "/disponibilites.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed equipes",
+      "route": "/equipes.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed espace",
+      "route": "/espace.html",
+      "status": 503,
+      "passed": true
+    },
+    {
+      "label": "Reclosed contact",
+      "route": "/contact.html",
+      "status": 503,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "maintenanceRestored": true,
+  "checkCount": 45
+}

@@ -1,0 +1,54 @@
+name: CI — TC Longages
+
+"on":
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  technical-ci:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Lire le candidat sans conserver de droit Git
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Préparer Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.18.0'
+          cache: npm
+      - name: Préparer Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.14.6'
+      - name: Installer les dépendances de contrôle
+        run: |
+          npm.cmd ci --ignore-scripts
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m venv .local/framework-venv
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          ./.local/framework-venv/Scripts/python.exe -m pip install -r docs/references/framework-developpement-pilote/requirements-verification.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Construire et tester toutes les variantes du site
+        run: npm.cmd run check
+      - name: Régénérer les vues de lecture dans le seul checkout de CI
+        run: npm.cmd run framework:build
+      - name: Vérifier le framework sans accorder de validation humaine
+        run: npm.cmd run framework:check
+      - name: Vérifier les sources du candidat après construction
+        run: |
+          if (Test-Path -LiteralPath 'data/framework-candidate.json') {
+            node scripts/framework-candidate.mjs verify
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          } else {
+            Write-Output '::notice::Manifeste absent : preuve du candidat à préparer. Aucune vérification du candidat attestée pour ce premier bootstrap.'
+          }

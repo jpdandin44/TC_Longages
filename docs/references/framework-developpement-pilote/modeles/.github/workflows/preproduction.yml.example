@@ -1,0 +1,53 @@
+name: Préproduction — NOM_PROJET
+on:
+  workflow_dispatch:
+    inputs:
+      approved_sha:
+        description: Commit complet relu
+        required: true
+        type: string
+      candidate_id:
+        description: Candidat et manifeste à vérifier
+        required: true
+        type: string
+      manifest_sha256:
+        description: Empreinte du manifeste
+        required: true
+        type: string
+      authorization_ref:
+        description: Accord de mutation de la préproduction
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: NOM_PROJET-preproduction-delivery
+  cancel-in-progress: false
+jobs:
+  preproduction:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    environment: preproduction
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Exiger la version relue
+        env:
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$APPROVED_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$APPROVED_SHA" = "$GITHUB_SHA"
+      - uses: actions/checkout@REMPLACER_PAR_SHA_COMPLET_VERIFIE
+        with:
+          ref: ${{ inputs.approved_sha }}
+      - name: Installer et qualifier sur le moteur natif isolé
+        env:
+          PREPROD_DEPLOY_KEY: ${{ secrets.PREPROD_DEPLOY_KEY }}
+          PREPROD_KNOWN_HOSTS: ${{ secrets.PREPROD_KNOWN_HOSTS }}
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+        run: python3 scripts/run-delivery.py preproduction
+      - name: Nettoyer les accès temporaires de ce run
+        if: ${{ always() }}
+        run: python3 scripts/run-delivery.py cleanup

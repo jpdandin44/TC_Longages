@@ -1,0 +1,102 @@
+{
+  "project": "tclongages",
+  "recordedAt": "2026-09-29T09:04:06.697Z",
+  "recordType": "local-installation-verification-not-release-approval",
+  "sourceCommit": null,
+  "checks": {
+    "node": {
+      "passed": 115,
+      "failed": 0,
+      "skipped": 0,
+      "report": "docs/recette/framework-interactif/tests-node.txt"
+    },
+    "framework": {
+      "generatorTests": 10,
+      "serverTests": 12,
+      "sourceManifestFiles": 28,
+      "profileSchema": "passed"
+    },
+    "drupal": {
+      "checks": 45,
+      "report": "docs/recette/framework-interactif/drupal-http-results.json",
+      "maintenanceRestored": true,
+      "syntax": "PHP custom and PowerShell parsed",
+      "composer": "locked dependencies validated; no known advisories reported"
+    },
+    "browser": {
+      "tool": "Codex in-app browser",
+      "origin": "http://127.0.0.1:4181",
+      "widths": [
+        1440,
+        390
+      ],
+      "horizontalOverflow": false,
+      "phaseNavigation": "passed",
+      "draftRetainedOnRefresh": true,
+      "personalConfirmationAfterRefresh": false,
+      "consoleErrors": 0,
+      "realDecisionsWritten": false,
+      "securedBannerVerified": true,
+      "startDeniedAfterSecuring": true
+    },
+    "documentation": {
+      "status": "passed",
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "architecture.md",
+        "requirements.md",
+        "roadmap.md",
+        "decisions.md",
+        "changelog.md",
+        "docs/framework-developpement.md",
+        "docs/installation-framework.md",
+        "docs/installation-drupal.md",
+        "docs/preparer-depot.md",
+        "docs/point-session.md",
+        "prompts/reprise-projet.md",
+        "workflows/developpement-pilote.md",
+        "docs/suivi-chantier/00-phase.md",
+        "docs/suivi-chantier/01-phase.md",
+        "docs/suivi-chantier/02-phase.md",
+        "docs/suivi-chantier/03-phase.md",
+        "docs/suivi-chantier/04-phase.md",
+        "docs/suivi-chantier/05-phase.md",
+        "docs/suivi-chantier/06-phase.md",
+        "docs/suivi-chantier/07-phase.md",
+        "docs/suivi-chantier/tableau-de-bord.md"
+      ],
+      "localLinksChecked": 309,
+      "coreElementsChecked": 12,
+      "errors": []
+    }
+  },
+  "installationException": {
+    "status": "secured",
+    "closedAt": "2026-09-29T09:04:06.697Z",
+    "scope": "local-only",
+    "retainedProtections": [
+      "loopback",
+      "Host",
+      "Origin",
+      "CSRF token",
+      "optimistic revision",
+      "no external deployment"
+    ],
+    "humanPhaseApprovalCreated": false
+  },
+  "remote": {
+    "inventory": "data/hebergement-inventaire.json",
+    "deployment": false,
+    "phpChanged": false,
+    "tlsChanged": false,
+    "databaseCreated": false,
+    "publicOpening": false
+  },
+  "limitations": [
+    "No local source commit or PR yet; observations are not qualified release evidence.",
+    "Identity in framework is local declaration, not shared Drupal login.",
+    "Drupal roles Bureau/Capitaine and hosting remain unqualified.",
+    "Backup restore and hidden file inventory not completed remotely."
+  ]
+}

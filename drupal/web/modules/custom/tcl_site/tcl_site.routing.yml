@@ -1,0 +1,87 @@
+tcl_site.front:
+  path: '/club'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::front'
+    _title: 'Tennis Club de Longages'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.index:
+  path: '/index.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Tennis Club de Longages'
+    page: index
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.competitions:
+  path: '/competitions.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Compétitions'
+    page: competitions
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.calendrier:
+  path: '/calendrier.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Calendrier'
+    page: calendrier
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.disponibilites:
+  path: '/disponibilites.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Disponibilités'
+    page: disponibilites
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.equipes:
+  path: '/equipes.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Équipes'
+    page: equipes
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.espace:
+  path: '/espace.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Espace club'
+    page: espace
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+tcl_site.contact:
+  path: '/contact.html'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
+    _title: 'Contact'
+    page: contact
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE

@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-17T08:51:09.380Z",
+  "status": "passed",
+  "checks": [
+    "Affiche exemple sans texte obligatoire : édition, trois aperçus, annulation de validation, validation puis aperçu bureau avec image entière.",
+    "Image conservée après rechargement ; modification de sa description remet le contenu en brouillon et demande une nouvelle validation.",
+    "Choix du fichier Affiche.jpeg réussi ; faux JPEG et SVG refusés sans perdre l’image précédente.",
+    "Quota simulé : dernière sauvegarde intacte et saisie conservée ; sauvegarde possible après rétablissement.",
+    "PNG et WebP décodés ; résultat d’un ajout encore en cours ignoré après changement d’actualité.",
+    "Logo et page de communication avec affiche vérifiés à 1440, 390 et 320 pixels, sans débordement horizontal.",
+    "Retrait volontaire de l’image enregistré."
+  ],
+  "errors": [],
+  "external": []
+}

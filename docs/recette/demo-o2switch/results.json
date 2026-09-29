@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-17T08:44:19.259Z",
+  "status": "passed",
+  "scope": "HTML statiques hébergeables servis uniquement sur 127.0.0.1 à port éphémère ; .htaccess non interprété dans cette recette navigateur.",
+  "checks": [
+    "Vitrine : bouton formulaire présent ; aucun lien interne de gestion sur les deux pages publiques avant ou après dépôt fictif.",
+    "Adresse directe inscriptions.html : le dossier adulte déposé est retrouvé puis finalisé après confirmation, sans authentification ni transmission.",
+    "Mineur : responsable et disponibilités conservés ; finalisation bloquée sans groupe, affectation compatible confirmée.",
+    "Communication : aperçu Facebook et validation locale ; WhatsApp/copie interceptés, aucun nouvel onglet ni accès au presse-papiers, import réel désactivé.",
+    "Clés hébergées présentes ; données privées et données de la visite locale inchangées.",
+    "Sept pages sans débordement horizontal à 390 et 320 px ; cinq étapes du formulaire et confirmations également vérifiées.",
+    "Aucune erreur JavaScript et aucune tentative de requête externe pendant les parcours testés."
+  ],
+  "captures": [
+    "vitrine-1440.png",
+    "vitrine-adherer-1440.png",
+    "formulaire-1440.png",
+    "formulaire-depose-1440.png",
+    "inscriptions-1440.png",
+    "communication-simulee-1440.png",
+    "index-390.png",
+    "adherer-390.png",
+    "inscriptions-390.png",
+    "formulaire-depose-390.png",
+    "index-320.png",
+    "adherer-320.png",
+    "inscriptions-320.png",
+    "formulaire-depose-320.png"
+  ],
+  "errors": [],
+  "external": []
+}

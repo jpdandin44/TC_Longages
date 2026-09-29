@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-17T08:51:15.882Z",
+  "status": "passed",
+  "scope": "Démo o2switch servie sur boucle locale uniquement ; photo et FAQ à 1440/390/320 px.",
+  "checks": [
+    "Photo réelle décodée et FAQ ouverte : deux tableaux, neuf tarifs, conditions et horaires explicites ; sans débordement à 1440px.",
+    "Photo réelle décodée et FAQ ouverte : deux tableaux, neuf tarifs, conditions et horaires explicites ; sans débordement à 390px.",
+    "Photo réelle décodée et FAQ ouverte : deux tableaux, neuf tarifs, conditions et horaires explicites ; sans débordement à 320px."
+  ],
+  "captures": [
+    "court-1440.png",
+    "tarifs-1440.png",
+    "court-390.png",
+    "tarifs-390.png",
+    "court-320.png",
+    "tarifs-320.png"
+  ],
+  "errors": [],
+  "external": []
+}

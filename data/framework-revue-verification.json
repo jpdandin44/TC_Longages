@@ -1,0 +1,97 @@
+{
+  "project": "tclongages",
+  "status": "technical_passed_awaiting_human_review",
+  "recordedAt": "2026-09-29T10:03:25.779Z",
+  "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+  "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+  "candidateManifest": "data/framework-candidate.json",
+  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/1",
+  "branch": "codex/suivi-revue-phases",
+  "repositoryVisibility": "public",
+  "branchProtection": {
+    "checkedAt": "2026-09-29T10:03:25.779Z",
+    "admins": true,
+    "approvals": 0,
+    "checks": [
+      "technical-ci",
+      "policy"
+    ],
+    "conversations": true,
+    "delete": false,
+    "force": false,
+    "strict": true
+  },
+  "localTests": {
+    "command": "npm.cmd run check",
+    "tests": 126,
+    "passed": 126,
+    "failed": 0,
+    "skipped": 0,
+    "logPath": ".local/revue-node-candidat.txt",
+    "logSha256": "8fe78b90155ff3f498c1f9fcc99102755462893bfcc240ed2bb453ea634ceb64"
+  },
+  "frameworkCheck": {
+    "command": "npm.cmd run framework:check",
+    "tests": 25,
+    "passed": 25,
+    "logSha256": "12bf25ce8847488b1f44dd51136825040dbe979a57b1040bfa48874b1cf6bd12"
+  },
+  "documentation": {
+    "checkedAt": "2026-09-29T10:00:46.138Z",
+    "documents": 27,
+    "relativeLinks": 329,
+    "scope": "Socle, documents modifiés et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
+    "passed": true,
+    "errors": []
+  },
+  "candidateVerification": {
+    "passed": true,
+    "issues": [],
+    "head": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+    "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+    "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+    "manifestDigest": "b3b9cee248556358886d9401aa6896ccf5665b4060eef7dc21a10e87109d8a73"
+  },
+  "githubChecks": [
+    {
+      "name": "policy",
+      "status": "COMPLETED",
+      "conclusion": "FAILURE",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823358/job/109354845468",
+      "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
+    },
+    {
+      "name": "technical-ci",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823355/job/109354845826",
+      "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
+    }
+  ],
+  "humanReview": {
+    "phaseValidated": false,
+    "nextPhaseAuthorized": false,
+    "mergeAuthorized": false,
+    "checklistCheckedByAgent": false
+  },
+  "limits": [
+    "Les 25 contrôles dédiés sont également couverts dans les 126 tests ; ne pas les additionner.",
+    "Les résultats Drupal/Apache antérieurs ne sont pas réattribués à ce commit.",
+    "policy attend les quatre confirmations humaines ; son échec ne constitue pas une erreur technique.",
+    "La qualification distante du site et les réglages hébergés restent à réaliser."
+  ],
+  "githubObservedAt": "2026-09-29T10:04:31.109Z",
+  "browser": {
+    "checkedAt": "2026-09-29T10:06:11.197Z",
+    "url": "http://127.0.0.1:4181/",
+    "phase0": "awaiting_review",
+    "technicalIssues": [],
+    "commentEnabled": true,
+    "checkedCriteria": 0,
+    "confirmationChecked": false,
+    "horizontalOverflow": false,
+    "consoleErrors": [],
+    "screenshot": ".local/revue-phase0.png",
+    "limits": "Aucune action humaine enregistrée pendant ce contrôle ; mutations vérifiées sur fixtures isolées."
+  }
+}

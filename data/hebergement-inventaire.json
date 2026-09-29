@@ -1,0 +1,97 @@
+{
+  "project": "tclongages",
+  "checkedAt": "2026-09-29T09:00:29.282Z",
+  "scope": "read-only",
+  "source": "cPanel authenticated UI + local DNS resolution",
+  "cpanel": {
+    "host": null,
+    "account": null,
+    "home": null,
+    "version": "134.0.60"
+  },
+  "domain": {
+    "name": "tclongages.fr",
+    "currentDocumentRoot": null,
+    "redirect": "none",
+    "address": null,
+    "wwwResolvesToSameAddress": true
+  },
+  "files": {
+    "visibleEntries": [
+      "cgi-bin"
+    ],
+    "hiddenFilesInventoried": false,
+    "contentBackupDownloaded": false
+  },
+  "php": {
+    "selectorVersion": "native (8.1)",
+    "scope": "account default, three domain aliases",
+    "cliVersion": null,
+    "extensionsVerified": false,
+    "availableForSelection": [
+      "8.3",
+      "8.4",
+      "8.5"
+    ]
+  },
+  "tls": {
+    "names": [
+      "tclongages.fr",
+      "www.tclongages.fr"
+    ],
+    "certificate": "self-signed",
+    "expiresOn": "2027-09-28",
+    "trustedCertificateQualified": false,
+    "letsEncryptToolAvailable": true,
+    "letsEncryptCertificatesExisting": 0
+  },
+  "database": {
+    "mysqlDatabases": 0,
+    "mysqlUsers": 0,
+    "serverVersion": null
+  },
+  "backup": {
+    "product": "JetBackup5",
+    "recordsVisible": 1,
+    "displayedCreatedAt": "29 sept. 2026 07:33 AM",
+    "displayTimezone": "unknown",
+    "schedule": "Quotidien",
+    "structure": "Incrémental",
+    "destinationLabel": "Journalier-Externe",
+    "downloaded": false,
+    "restoreTested": false,
+    "retentionDays": null
+  },
+  "terminal": {
+    "availableInUi": true,
+    "commandsExecuted": false,
+    "limitation": "Terminal input did not dispatch command input in the browser; no CLI facts inferred."
+  },
+  "changes": {
+    "filesUploaded": false,
+    "phpChanged": false,
+    "tlsChanged": false,
+    "databaseCreated": false,
+    "documentRootChanged": false,
+    "siteOpened": false
+  },
+  "nextSteps": [
+    "Qualify PHP8.4 and extensions then applicable approval",
+    "Prepare trusted certificate",
+    "Complete hidden file inventory and fresh backup with restore before write",
+    "Prepare dedicated database credentials via user handoff, no secret in chat",
+    "Prepare clean Drupal public root; local configuration is not a hosting package"
+  ],
+  "publication": {
+    "visibility": "public_sanitized",
+    "redactedFields": [
+      "cpanel.host",
+      "cpanel.account",
+      "cpanel.home",
+      "domain.currentDocumentRoot",
+      "domain.address"
+    ],
+    "privateOriginal": ".local/publication-backup/hebergement-inventaire.json",
+    "reason": "Dépôt rendu public par l’utilisateur le 29 septembre ; les détails d’exploitation restent sur le poste."
+  }
+}

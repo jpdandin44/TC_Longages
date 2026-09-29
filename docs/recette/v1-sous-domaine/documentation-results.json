@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "documents": [
+    "README.md",
+    "architecture.md",
+    "requirements.md",
+    "roadmap.md",
+    "decisions.md",
+    "changelog.md",
+    "AGENTS.md",
+    "docs/integration-officiel.md",
+    "docs/commandes-sensibles.md",
+    "docs/authentification-oidc.md",
+    "docs/publier-v1-sous-domaine.md",
+    "docs/recette-v1-sous-domaine.md",
+    "docs/mutualisation-connect.md"
+  ],
+  "localLinks": 235,
+  "coreElements": 12,
+  "metadata": "checked",
+  "remoteDeployment": false
+}

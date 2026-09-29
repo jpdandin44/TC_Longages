@@ -1,0 +1,370 @@
+{
+  "project": "a-personnaliser",
+  "document_type": "project-tracking",
+  "title": "Nouveau projet — modèle vierge",
+  "version": "git",
+  "created": "2026-09-29",
+  "updated": "2026-09-29",
+  "owner": "jpdandin",
+  "scope": "À compléter avant activation.",
+  "currentPhase": 0,
+  "state": "awaiting_initial_authorization",
+  "baseline": {
+    "status": "not_established"
+  },
+  "statusLabels": {
+    "not_started": "Non démarrée",
+    "in_progress": "En cours",
+    "awaiting_review": "En revue",
+    "validated": "Validée",
+    "blocked": "Bloquée"
+  },
+  "measurementRules": {
+    "delivered": "Date de remise renseignée",
+    "validated": "Décision humaine et preuve correspondante ; jamais déduite des tests."
+  },
+  "phases": [
+    {
+      "id": 0,
+      "title": "Cadrage et audit",
+      "shortTitle": "Cadrage et audit",
+      "objective": "Définir le besoin, les sources, les limites et les critères vérifiables.",
+      "status": "not_started",
+      "dependsOn": [],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "00-phase.md",
+          "kind": "file",
+          "title": "Dossier — Cadrage et audit",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Périmètre et exclusions confirmés",
+            "État existant et risques inventoriés",
+            "Exigences reliées à des tests",
+            "Responsables et règles de décision identifiés"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Périmètre et exclusions confirmés",
+        "État existant et risques inventoriés",
+        "Exigences reliées à des tests",
+        "Responsables et règles de décision identifiés"
+      ],
+      "blockers": [],
+      "nextAction": "Obtenir l’autorisation initiale explicite du projet.",
+      "pullRequest": null
+    },
+    {
+      "id": 1,
+      "title": "Socle et environnements",
+      "shortTitle": "Socle et environnements",
+      "objective": "Préparer Git, le local, la préproduction, les accès et la stratégie de sauvegarde.",
+      "status": "not_started",
+      "dependsOn": [
+        0
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "01-phase.md",
+          "kind": "file",
+          "title": "Dossier — Socle et environnements",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Dépôt et documentation prêts",
+            "Local reproductible et données de test isolées",
+            "Préproduction cible identifiée et séparée",
+            "Gestion des secrets et restauration documentées"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Dépôt et documentation prêts",
+        "Local reproductible et données de test isolées",
+        "Préproduction cible identifiée et séparée",
+        "Gestion des secrets et restauration documentées"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 2,
+      "title": "Réalisation par lots",
+      "shortTitle": "Réalisation par lots",
+      "objective": "Réaliser les changements autorisés, avec tests et PR pour chaque lot.",
+      "status": "not_started",
+      "dependsOn": [
+        1
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "02-phase.md",
+          "kind": "file",
+          "title": "Dossier — Réalisation par lots",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Changements conformes au périmètre",
+            "Tests ciblés réussis sur la version présentée",
+            "Documentation et impacts à jour",
+            "PR de chaque lot référencée"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Changements conformes au périmètre",
+        "Tests ciblés réussis sur la version présentée",
+        "Documentation et impacts à jour",
+        "PR de chaque lot référencée"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 3,
+      "title": "Recette locale et revue",
+      "shortTitle": "Recette locale et revue",
+      "objective": "Qualifier les parcours locaux et présenter une version candidate cohérente.",
+      "status": "not_started",
+      "dependsOn": [
+        2
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "03-phase.md",
+          "kind": "file",
+          "title": "Dossier — Recette locale et revue",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Parcours représentatifs vérifiés",
+            "Régression et données préservées",
+            "Revue visuelle ou métier disponible",
+            "Version candidate et réserves identifiées"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Parcours représentatifs vérifiés",
+        "Régression et données préservées",
+        "Revue visuelle ou métier disponible",
+        "Version candidate et réserves identifiées"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 4,
+      "title": "Préproduction réelle",
+      "shortTitle": "Préproduction réelle",
+      "objective": "Vérifier le candidat sur le moteur et les intégrations représentatifs de la production.",
+      "status": "not_started",
+      "dependsOn": [
+        3
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "04-phase.md",
+          "kind": "file",
+          "title": "Dossier — Préproduction réelle",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Candidat exact identifié dans le vrai runtime",
+            "Comptes, droits et édition vérifiés si applicables",
+            "Intégrations réelles vérifiées dans leur périmètre autorisé",
+            "Réserves traitées ou dérogations explicites compatibles avec la livraison"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Candidat exact identifié dans le vrai runtime",
+        "Comptes, droits et édition vérifiés si applicables",
+        "Intégrations réelles vérifiées dans leur périmètre autorisé",
+        "Réserves traitées ou dérogations explicites compatibles avec la livraison"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 5,
+      "title": "Préparation au déploiement",
+      "shortTitle": "Préparation au déploiement",
+      "objective": "Qualifier les prérequis, la sauvegarde, la restauration et le retour arrière.",
+      "status": "not_started",
+      "dependsOn": [
+        4
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "05-phase.md",
+          "kind": "file",
+          "title": "Dossier — Préparation au déploiement",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Version et manifeste acceptés",
+            "Sauvegarde intègre effectivement restaurée",
+            "Application et retour arrière répétés hors production",
+            "Accès réseau, exploitation et dossier de livraison qualifiés"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Version et manifeste acceptés",
+        "Sauvegarde intègre effectivement restaurée",
+        "Application et retour arrière répétés hors production",
+        "Accès réseau, exploitation et dossier de livraison qualifiés"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 6,
+      "title": "Déploiement et ouverture",
+      "shortTitle": "Déploiement et ouverture",
+      "objective": "Livrer la version acceptée, contrôler la cible puis ouvrir sur décision explicite.",
+      "status": "not_started",
+      "dependsOn": [
+        5
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "06-phase.md",
+          "kind": "file",
+          "title": "Dossier — Déploiement et ouverture",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Accord de déploiement lié au candidat et à la cible",
+            "Nouvelle sauvegarde restaurée avant écriture",
+            "Recette sur domaine ou cible officielle réalisée",
+            "Ouverture explicitement autorisée et contrôlée"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Accord de déploiement lié au candidat et à la cible",
+        "Nouvelle sauvegarde restaurée avant écriture",
+        "Recette sur domaine ou cible officielle réalisée",
+        "Ouverture explicitement autorisée et contrôlée"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    },
+    {
+      "id": 7,
+      "title": "Observation et transfert",
+      "shortTitle": "Observation et transfert",
+      "objective": "Observer le fonctionnement, organiser le support et clore la livraison.",
+      "status": "not_started",
+      "dependsOn": [
+        6
+      ],
+      "startedOn": null,
+      "authorizedOn": null,
+      "deliveredOn": null,
+      "validatedOn": null,
+      "startEvidence": null,
+      "validationEvidence": null,
+      "deliverables": [
+        {
+          "path": "07-phase.md",
+          "kind": "file",
+          "title": "Dossier — Observation et transfert",
+          "availability": "planned",
+          "description": "Modèle vide à compléter ; aucune preuve acquise.",
+          "expectedEvidence": [
+            "Surveillance et responsabilités définies",
+            "Réserves et incidents tracés",
+            "Procédures de reprise et sauvegardes transmises",
+            "Bilan et état de session archivés"
+          ]
+        }
+      ],
+      "exitCriteria": [
+        "Surveillance et responsabilités définies",
+        "Réserves et incidents tracés",
+        "Procédures de reprise et sauvegardes transmises",
+        "Bilan et état de session archivés"
+      ],
+      "blockers": [],
+      "nextAction": "Attendre la validation précédente et l’autorisation distincte de démarrage.",
+      "pullRequest": null
+    }
+  ],
+  "decisions": [],
+  "history": [],
+  "reviewEvents": [],
+  "reviewFollowUps": [],
+  "requirementChanges": [],
+  "reviewCommentResponses": [],
+  "publication": {
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false
+  },
+  "template": true,
+  "evidence": [],
+  "testRuns": [],
+  "exceptions": [],
+  "release": {
+    "approvedCandidate": null,
+    "lastPreparationEvidence": null,
+    "lastDeploymentEvidence": null
+  },
+  "session": {
+    "status": "not_started",
+    "lastArchive": null,
+    "nextAction": "Obtenir l’accord initial du nouveau projet."
+  }
+}

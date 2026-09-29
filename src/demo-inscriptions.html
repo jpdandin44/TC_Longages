@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Inscriptions · Démonstration — Tennis Club de Longages</title>
+  <link rel="stylesheet" href="./bureau.css">
+  <link rel="stylesheet" href="./demo-inscriptions.css">
+  <script defer src="./demo-data.js"></script>
+  <script defer src="./demo-inscriptions.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="prototype-banner"><div class="container"><span class="signal" aria-hidden="true"></span><span>Démonstration · Données fictives · Aucun compte réel · Ne saisissez aucune vraie donnée personnelle</span></div></div>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="Tennis Club de Longages — accueil"><span class="brand-mark" aria-hidden="true">TC<span>L</span></span><span class="brand-name">LONGAGES<small>TENNIS CLUB</small></span></a>
+    <a class="back-link" href="./parcours.html">Voir le parcours <span aria-hidden="true">↗</span></a>
+  </div></header>
+  <nav class="bureau-nav container" aria-label="Navigation de la démonstration">
+    <a href="./bureau.html">Espace bureau</a><a href="./inscriptions.html" aria-current="page">Inscriptions</a><a href="./communication.html">Communication</a><a href="./adherer.html">Formulaire adhérent</a>
+  </nav>
+  <main id="main" class="container dashboard">
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">GESTION DU BUREAU <span id="season-label"></span></p><h1 id="page-title">Chaque dossier,<br><em>une place au club.</em></h1></div>
+      <p>Examinez une demande, consultez les disponibilités et constituez les groupes. Les actions ci-dessous modifient uniquement cette démonstration.</p>
+    </section>
+    <div class="flow-note"><span class="flow-number">1</span> Demande reçue <span aria-hidden="true">→</span><span class="flow-number">2</span> Vérification du bureau <span aria-hidden="true">→</span><span class="flow-number">3</span> Groupe et finalisation</div>
+    <div class="metrics" id="metrics" aria-label="Résumé des inscriptions fictives"></div>
+    <p class="feedback" id="feedback" role="status" aria-live="polite" hidden></p>
+    <div class="view-tabs" role="tablist" aria-label="Gestion des inscriptions">
+      <button id="tab-dossiers" role="tab" type="button" aria-selected="true" aria-controls="view-dossiers" data-view="dossiers">Dossiers <span id="dossier-count"></span></button>
+      <button id="tab-disponibilites" role="tab" type="button" aria-selected="false" tabindex="-1" aria-controls="view-disponibilites" data-view="disponibilites">Disponibilités</button>
+      <button id="tab-groupes" role="tab" type="button" aria-selected="false" tabindex="-1" aria-controls="view-groupes" data-view="groupes">Groupes</button>
+      <button id="tab-echanges" role="tab" type="button" aria-selected="false" tabindex="-1" aria-controls="view-echanges" data-view="echanges">Import / export</button>
+    </div>
+    <section id="view-dossiers" role="tabpanel" aria-labelledby="tab-dossiers" class="view-panel">
+      <div class="section-heading"><div><p class="eyebrow">01 — PRENDRE CONNAISSANCE</p><h2>Les demandes <em>du club</em></h2></div><a href="./adherer.html" class="small-link">Tester une nouvelle demande <span aria-hidden="true">↗</span></a></div>
+      <div class="filters">
+        <label>Rechercher<input id="filter-search" type="search" placeholder="Nom ou référence fictive" autocomplete="off"></label>
+        <label>Public<select id="filter-kind"><option value="">Tous les publics</option><option value="adulte">Adultes</option><option value="mineur">Mineurs</option></select></label>
+        <label>État du dossier<select id="filter-status"><option value="">Tous les états</option><option value="recu">Reçu</option><option value="a_completer">À compléter</option><option value="finalise">Finalisé</option><option value="annule">Annulé</option></select></label>
+        <label>Entraînement<select id="filter-training"><option value="">Avec ou sans</option><option value="yes">Avec entraînement</option><option value="no">Sans entraînement</option></select></label>
+      </div>
+      <div class="dossiers-layout"><div><p class="list-caption" id="list-caption"></p><div id="dossier-list" class="dossier-list"></div></div><aside class="detail-panel" id="dossier-detail" aria-label="Détail du dossier" aria-live="polite"></aside></div>
+    </section>
+    <section id="view-disponibilites" role="tabpanel" aria-labelledby="tab-disponibilites" class="view-panel" hidden>
+      <div class="section-heading"><div><p class="eyebrow">02 — CROISER LES SOUHAITS</p><h2>Des horaires <em>compatibles</em></h2></div><span class="pill">Créneaux d’exemple</span></div>
+      <p class="section-description">Seules les demandes avec entraînement et non annulées apparaissent ici. Une préférence exprime un souhait : elle ne réserve aucun cours.</p>
+      <div class="legend"><span><i class="key preferred"></i>Préféré</span><span><i class="key yes"></i>Disponible</span><span><i class="key no"></i>Indisponible</span><span><i class="key unknown"></i>Non renseigné</span></div>
+      <div class="table-scroll" id="availability-table" tabindex="0" role="region" aria-label="Tableau des disponibilités, défilement horizontal possible"></div>
+      <p class="context-note">Les horaires, la date limite de modification et les règles de constitution des groupes restent à valider par le club.</p>
+    </section>
+    <section id="view-groupes" role="tabpanel" aria-labelledby="tab-groupes" class="view-panel" hidden>
+      <div class="section-heading"><div><p class="eyebrow">03 — ORGANISER LES COURS</p><h2>Des groupes <em>à composer</em></h2></div><span class="pill">Affectation manuelle</span></div>
+      <p class="section-description">Les groupes ci-dessous servent à essayer le parcours. Ouvrez un dossier pour choisir un groupe et confirmer son affectation. Aucun message n’est envoyé.</p>
+      <div class="group-grid" id="group-list"></div>
+      <p class="context-note">Les capacités sont fictives. Le niveau, les âges et les choix pédagogiques restent appréciés par le bureau et l’équipe enseignante.</p>
+    </section>
+    <section id="view-echanges" role="tabpanel" aria-labelledby="tab-echanges" class="view-panel" hidden>
+      <div class="section-heading"><div><p class="eyebrow">04 — ÉCHANGER LES DOSSIERS</p><h2>Des fichiers, <em>sous contrôle.</em></h2></div><span class="pill">Réservé au bureau à terme</span></div>
+      <div class="exchange-grid">
+        <article class="exchange-card"><span class="card-index">IMPORTER</span><h3>Vérifier avant d’ajouter</h3><p>Essayez un lot fictif de trois lignes : une demande exploitable, un doublon et une ligne invalide. L’aperçu précède toujours la confirmation.</p><button type="button" class="action primary" id="simulate-import">Simuler un import XLS / CSV</button><p class="micro-copy">Aucun fichier réel n’est lu. L’importeur XLS / CSV, le modèle téléchargeable et la correspondance des colonnes restent à développer.</p></article>
+        <article class="exchange-card"><span class="card-index">EXPORTER</span><h3>Retrouver les dossiers sélectionnés</h3><p>Le CSV contient les dossiers fictifs correspondant aux filtres de la vue Dossiers. Il s’ouvre dans un tableur.</p><p id="export-summary" class="export-summary"></p><div class="actions"><button type="button" class="action primary" id="export-csv">Exporter le CSV fictif</button><button type="button" class="action secondary" id="export-xls">XLS prévu</button></div><p class="micro-copy">L’export XLS et le choix des colonnes seront disponibles dans la version développée. Aucun faux fichier .xls n’est généré.</p></article>
+      </div>
+      <section class="import-preview" id="import-preview" aria-labelledby="import-title" hidden><div class="section-heading"><div><p class="eyebrow">APERÇU DU LOT FICTIF</p><h3 id="import-title">3 lignes à examiner</h3></div><span id="import-summary" class="pill"></span></div><div id="import-rows"></div><p class="context-note">Les doublons et les erreurs sont exclus. Aucun dossier existant ne sera écrasé.</p><button type="button" class="action primary" id="confirm-import">Confirmer l’ajout fictif</button></section>
+    </section>
+    <aside class="demo-limit"><strong>Ce que vous validez ici : le fonctionnement proposé.</strong><p>Les données et modifications restent dans ce navigateur. Cette copie de démonstration ne constitue pas l’espace privé de production. Les comptes du bureau, les tarifs, les autorisations et les paramètres de saison restent à configurer avant une utilisation réelle.</p></aside>
+  </main>
+  <footer class="container footer"><span>Tennis Club de Longages · Démonstration</span><a href="./parcours.html">Revoir le parcours proposé →</a></footer>
+  <dialog id="action-dialog" aria-labelledby="dialog-title"><form method="dialog"><p class="eyebrow">ACTION DANS LA DÉMONSTRATION</p><h2 id="dialog-title"></h2><p id="dialog-text"></p><div class="actions"><button class="action secondary" value="cancel">Annuler</button><button class="action primary" value="confirm" id="dialog-confirm">Confirmer</button></div></form></dialog>
+</body>
+</html>

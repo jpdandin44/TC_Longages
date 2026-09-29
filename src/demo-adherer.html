@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Essayer une inscription — Tennis Club de Longages</title>
+  <link rel="stylesheet" href="./bureau.css">
+  <link rel="stylesheet" href="./demo-adherer.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="prototype-banner"><div class="container"><span class="signal" aria-hidden="true"></span><span>Démonstration · Données fictives uniquement · Aucune transmission au club</span></div></div>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="Tennis Club de Longages — accueil"><span class="brand-mark" aria-hidden="true">TC<span>L</span></span><span class="brand-name">LONGAGES<small>TENNIS CLUB</small></span></a>
+    <a class="back-link" href="./parcours.html">Voir le processus <span aria-hidden="true">↗</span></a>
+  </div></header>
+  <nav class="bureau-nav container" aria-label="Parcours de démonstration"><a href="./index.html">Le club</a><a href="./parcours.html">Le processus</a><a href="./adherer.html" aria-current="page">Formulaire adhérent</a><a href="./bureau.html">Vue bureau</a></nav>
+  <main id="main" class="container application-main">
+    <section class="application-intro" aria-labelledby="page-title"><div><p class="eyebrow">SAISON <span id="season-label">2026-2027</span> · PARCOURS ADHÉRENT</p><h1 id="page-title">Une envie de tennis.<br><em>Une demande à préparer.</em></h1></div><p>Voici comment un adhérent pourrait s’inscrire. Le club vérifie ensuite son dossier et organise les groupes.</p></section>
+    <div id="demo-warning" class="try-note"><span class="try-note-icon" aria-hidden="true">i</span><div><strong>Essayez avec une identité inventée.</strong><p>Cette maquette ne prend aucune inscription réelle. Les exemples et les horaires servent seulement à parcourir les écrans.</p></div></div>
+    <div id="form-workspace" class="application-grid">
+      <aside class="steps-side" aria-label="Progression de la demande">
+        <ol class="step-list"><li class="is-current" aria-current="step"><span>01</span><div>La personne<small>Identité et contacts</small></div></li><li><span>02</span><div>La pratique<small>Expérience et formule</small></div></li><li><span>03</span><div>Les entraînements<small>Envies et disponibilités</small></div></li><li><span>04</span><div>Les autorisations<small>Des réponses distinctes</small></div></li><li><span>05</span><div>La vérification<small>Relire avant de déposer</small></div></li></ol>
+        <div class="side-note"><strong>Vous indiquez vos possibilités.</strong><p>Le choix d’une plage ne réserve pas un cours. Les groupes sont constitués par le club.</p></div>
+      </aside>
+      <section class="form-card" aria-label="Formulaire de démonstration">
+        <div class="form-heading"><p class="eyebrow" id="step-count">ÉTAPE 1 SUR 5</p><p class="demo-tag">SIMULATION</p></div>
+        <form id="registration-form" novalidate autocomplete="off" aria-describedby="demo-warning">
+          <section class="form-step" data-step="0" aria-labelledby="identity-title">
+            <h2 id="identity-title" tabindex="-1">Faisons <em>connaissance.</em></h2><p class="step-lead">Pour découvrir le parcours, commencez par un exemple fictif.</p>
+            <div class="example-actions"><button type="button" id="example-adult" class="small-button">Remplir un exemple adulte</button><button type="button" id="example-child" class="small-button">Remplir un exemple mineur</button></div>
+            <p id="example-feedback" class="field-hint" role="status"></p>
+            <fieldset class="choice-field"><legend>La demande concerne</legend><div class="choice-row"><label class="choice-card"><input type="radio" name="kind" value="adulte" checked><span>Un adulte</span></label><label class="choice-card"><input type="radio" name="kind" value="mineur"><span>Un mineur</span></label></div></fieldset>
+            <div class="field-grid"><label>Prénom <span class="required-label">requis</span><input id="firstName" name="firstName" type="text" maxlength="80" required placeholder="Ex. Camille"></label><label>Nom <span class="required-label">requis</span><input id="lastName" name="lastName" type="text" maxlength="80" required placeholder="Ex. Exemple"></label><label>Date de naissance <span class="required-label">requise</span><input id="birthDate" name="birthDate" type="date" required></label></div>
+            <div id="adult-contact" class="field-grid contact-block"><label>Adresse e-mail fictive <span class="required-label">requise</span><input id="email" name="email" type="email" maxlength="180" required placeholder="camille@example.invalid" spellcheck="false"></label><label>Téléphone fictif <span class="optional-label">facultatif</span><input id="phone" name="phone" type="tel" maxlength="30" placeholder="Laisser vide pour la démonstration"></label></div>
+            <fieldset id="guardian-fields" class="guardian-fields" hidden disabled><legend>Le responsable légal</legend><p class="field-hint">Un seul responsable suffit pour tester ce parcours. Les modalités définitives seront validées par le club.</p><div class="field-grid"><label>Nom et prénom du responsable <span class="required-label">requis</span><input id="guardianName" name="guardianName" type="text" maxlength="160" required placeholder="Alex Exemple"></label><label>E-mail fictif du responsable <span class="required-label">requis</span><input id="guardianEmail" name="guardianEmail" type="email" maxlength="180" required placeholder="alex@example.invalid" spellcheck="false"></label></div></fieldset>
+          </section>
+          <section class="form-step" data-step="1" aria-labelledby="practice-title" hidden>
+            <h2 id="practice-title" tabindex="-1">À chacun <em>sa pratique.</em></h2><p class="step-lead">Une première idée pour le club. Le bureau confirmera la formule et le tarif applicables.</p>
+            <label class="full-field">Votre expérience du tennis<select id="experience" name="experience"><option value="debutant">Je découvre le tennis</option><option value="occasionnel">Je joue occasionnellement</option><option value="regulier">Je pratique régulièrement</option><option value="competition">Je pratique en compétition</option></select></label>
+            <label class="full-field">La formule souhaitée <span class="required-label">requise</span><select id="formulaId" name="formulaId" required><option value="">Choisir une formule</option></select></label>
+            <div id="formula-detail" class="formula-detail" aria-live="polite"><span class="eyebrow">TARIF DE RÉFÉRENCE</span><strong id="formula-price">Choisissez une formule</strong><p>Tarifs issus des fiches du club, à confirmer avant ouverture de la campagne.</p></div>
+            <p id="formula-uncertainty" class="inline-notice" hidden>La fiche mentionne 125 € ou 150 € pour les cours adultes. La règle doit être précisée par le club : aucun des deux montants n’est choisi automatiquement.</p>
+            <p class="field-hint closing-hint">Cette simulation n’encaisse aucun règlement. Les conditions des formules et les éventuelles remises restent à valider.</p>
+          </section>
+          <section class="form-step" data-step="2" aria-labelledby="training-title" hidden>
+            <h2 id="training-title" tabindex="-1">Trouvons <em>le bon rythme.</em></h2><p class="step-lead">Les possibilités de chacun aideront le club à composer ses groupes.</p>
+            <fieldset class="choice-field"><legend>Souhaitez-vous participer aux entraînements ?</legend><div class="choice-row"><label class="choice-card"><input type="radio" name="training" value="yes" checked><span>Oui, avec des cours</span></label><label class="choice-card"><input type="radio" name="training" value="no"><span>Non, sans cours</span></label></div></fieldset>
+            <div id="training-grid"><div class="slots-intro"><strong>Horaires d’exemple</strong><p>Ces plages ne sont pas le planning du club. Indiquez plusieurs possibilités, avec vos préférences si vous le souhaitez.</p></div><div id="availability-slots" class="availability-slots"></div><p id="availability-feedback" class="inline-notice" aria-live="polite"></p><label class="full-field">Une contrainte à signaler ? <span class="optional-label">facultatif</span><textarea id="constraints" name="constraints" maxlength="500" rows="3" placeholder="Exemple fictif : disponible seulement une semaine sur deux."></textarea></label></div>
+            <div id="no-training-note" class="no-training-note" hidden><span aria-hidden="true">✓</span><div><strong>Le parcours se simplifie.</strong><p>Aucun horaire n’est demandé. Vous passez directement aux autorisations.</p></div></div>
+            <p id="training-formula-warning" class="inline-notice" hidden>La formule souhaitée évoque des cours, mais vous avez choisi « sans cours ». Ce point devra être éclairci avec le bureau.</p>
+          </section>
+          <section class="form-step" data-step="3" aria-labelledby="permissions-title" hidden>
+            <h2 id="permissions-title" tabindex="-1">Des choix <em>bien distincts.</em></h2><p class="step-lead">Cette étape illustre la séparation des autorisations. Les textes définitifs et les modalités de signature restent à valider.</p>
+            <div class="permission-list"><label class="permission-card"><span><strong>Urgence</strong><small>Réponse illustrative concernant l’autorisation d’intervention en urgence.</small></span><select id="permission-emergency" aria-label="Autorisation d'urgence"><option value="pending">À préciser</option><option value="yes">Oui</option><option value="no">Non</option></select></label><label class="permission-card"><span><strong>Prise de photographies</strong><small>Une réponse séparée de l’autorisation de diffusion.</small></span><select id="permission-photo" aria-label="Prise de photographies"><option value="pending">À préciser</option><option value="yes">Oui</option><option value="no">Non</option></select></label><label class="permission-card"><span><strong>Diffusion des photographies</strong><small>Les supports autorisés devront être précisés. Aucun accord Facebook ou WhatsApp n’est déduit ici.</small></span><select id="permission-publish" aria-label="Diffusion des photographies"><option value="pending">À préciser</option><option value="yes">Oui</option><option value="no">Non</option></select></label></div>
+            <p class="inline-notice">Aucune de ces réponses ne constitue une autorisation réelle ou une signature. Un refus de diffusion n’empêche pas le dépôt fictif.</p>
+          </section>
+          <section class="form-step" data-step="4" aria-labelledby="summary-title" hidden>
+            <h2 id="summary-title" tabindex="-1">Un dernier <em>coup d’œil.</em></h2><p class="step-lead">Relisez votre demande fictive avant de la retrouver du côté du bureau.</p><div id="registration-summary" class="registration-summary"></div><div class="deposit-note"><strong>Demande reçue ≠ inscription validée.</strong><p>Le club doit encore vérifier le dossier. Les disponibilités ne réservent pas un cours ; aucun paiement ni message n’est envoyé.</p></div>
+            <label class="confirm-demo"><input type="checkbox" id="confirm-fiction"><span>Je confirme que les informations saisies sont fictives et que je teste seulement le parcours.</span></label>
+          </section>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <div class="form-actions"><button type="button" id="previous-step" class="form-button form-button-secondary" hidden>← Retour</button><span id="autosave-note">Brouillon conservé pendant ce parcours</span><button type="submit" id="next-step" class="form-button form-button-primary">Continuer <span aria-hidden="true">→</span></button></div>
+        </form>
+      </section>
+    </div>
+    <section id="registration-success" class="registration-success" aria-labelledby="success-title" hidden tabindex="-1"><span class="success-check" aria-hidden="true">✓</span><p class="eyebrow">DÉPÔT SIMULÉ</p><h2 id="success-title">La demande fictive<br><em>est arrivée au bureau.</em></h2><p>Elle attend maintenant le contrôle du club. Aucune inscription réelle n’a été créée et aucun message n’a été envoyé.</p><div class="reference-box"><small>RÉFÉRENCE DE DÉMONSTRATION</small><strong id="success-reference"></strong></div><p class="success-next">Passez côté bureau pour examiner ce dossier, comparer les disponibilités et comprendre la suite.</p><p id="storage-warning" class="inline-notice" hidden></p><a id="success-bureau-link" class="form-button form-button-primary" href="./inscriptions.html">Voir ce dossier côté bureau <span aria-hidden="true">→</span></a><a class="success-process-link" href="./parcours.html">Revoir l’ensemble du processus</a><p class="field-hint">Reprise sécurisée prévue dans la version finale. Cette maquette ne crée aucun code d’accès adhérent.</p></section>
+    <noscript><p class="inline-notice">Activez JavaScript pour essayer ce parcours interactif. Vous pouvez aussi consulter <a href="./parcours.html">la présentation du processus</a>.</p></noscript>
+  </main>
+  <footer class="container footer"><span>Tennis Club de Longages · Démonstration locale</span><span>Formulaire proposé · Aucune collecte réelle</span></footer>
+  <script src="./demo-data.js"></script>
+  <script src="./demo-adherer.js"></script>
+</body>
+</html>
