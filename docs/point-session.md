@@ -22,6 +22,8 @@ Une recette navigateur supplémentaire a ouvert les sept pages de l'instance Dru
 
 Une lecture supplémentaire de phpMyAdmin indique MariaDB 11.4.13 : la version du serveur SQL convient au minimum exigé par Drupal 11. Le PHP 8.4 de phpMyAdmin ne prouve pas que les domaines du club l'utilisent ; leur sélecteur reste en 8.1. Aucune extension alternative n'a été activée et aucune base n'a été créée. Le jeu de caractères de la future base reste à vérifier.
 
+La capture utilisateur d'un navigateur externe a révélé que `/parcours` répondait 403 « Requête extérieure refusée » lors d'un clic de navigation, alors que `/` avait déjà son exception. La garde locale accepte désormais uniquement le même clic humain de premier niveau vers `/parcours` ; les API, l'historique par lien externe, les incorporations et les écritures restent refusés. Le serveur local sur 4183 a été redémarré après vérification de son ancien processus et retrait de son verrou devenu orphelin. Une requête reproduisant la navigation externe répond 200 sur `/parcours` et 403 sur `/api/state` ; les tests ciblés réussissent. Actualiser l'onglet externe qui affiche encore l'ancienne erreur.
+
 ## Revue et dépôt
 
 La [PR initiale no 1](https://github.com/jpdandin44/TC_Longages/pull/1) a été fusionnée par l’utilisateur le 29 septembre à 10 h 25 UTC ; le commit de fusion observé est `d4e0fdbaf9c05ca510202dad9233d944771118d1`. Les contrôles technique et de checklist ont réussi avant fusion. Cela intègre le socle local dans `main`, sans installation hébergée ni validation de phase déduite.

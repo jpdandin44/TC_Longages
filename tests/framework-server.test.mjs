@@ -65,16 +65,18 @@ test('Host, origine, jeton, type de contenu et méthode sont contrôlés avant m
  assert.equal((await f.post({}, {'Content-Type':'text/plain'})).status,415);
  assert.equal((await f.state()).revision,before);
 });
-test('Un clic externe ouvre seulement l’accueil, sans autoriser lecture API, iframe ou écriture externe',async t=>{
+test('Un clic externe ouvre les vues publiques de suivi, sans autoriser API, iframe ou écriture externe',async t=>{
  const f=await fixture(t),before=(await f.state()).revision;
  const navigation={'Sec-Fetch-Site':'cross-site','Sec-Fetch-Mode':'navigate','Sec-Fetch-Dest':'document','Sec-Fetch-User':'?1'};
  const probe=(path='/',overrides={},method='GET')=>new Promise((resolve,reject)=>{
    const req=request(f.app.origin+path,{method,headers:{...navigation,...overrides}},res=>{let body='';res.setEncoding('utf8');res.on('data',chunk=>body+=chunk);res.on('end',()=>resolve({status:res.statusCode,headers:res.headers,body}));});req.on('error',reject);req.end();
  });
  const page=await probe();assert.equal(page.status,200);assert.match(page.headers['content-type'],/^text\/html/);assert.match(page.body,/name="review-token"/);assert.equal(page.headers['x-frame-options'],'DENY');
+ const parcours=await probe('/parcours');assert.equal(parcours.status,200);assert.match(parcours.body,/Mise en ligne de la V1/);assert.equal(parcours.headers['x-frame-options'],'DENY');
  assert.equal((await probe('/',{'Sec-Fetch-Site':'same-site'})).status,200);
- for(const path of ['/api/state','/api/action','/app.js','/app.css','/documents/0/0'])assert.equal((await probe(path,f.headers)).status,403);
+ for(const path of ['/api/state','/api/action','/app.js','/app.css','/documents/0/0','/historique'])assert.equal((await probe(path,f.headers)).status,403);
  for(const headers of [{'Sec-Fetch-Mode':'cors'},{'Sec-Fetch-Mode':'no-cors'},{'Sec-Fetch-Dest':'iframe'},{'Sec-Fetch-User':'?0'},{'Sec-Fetch-User':''},{Host:'evil.example'},{Origin:'https://github.com'}])assert.equal((await probe('/',headers)).status,403);
+ for(const headers of [{'Sec-Fetch-Mode':'cors'},{'Sec-Fetch-Dest':'iframe'},{'Sec-Fetch-User':'?0'},{Host:'evil.example'},{Origin:'https://github.com'}])assert.equal((await probe('/parcours',headers)).status,403);
  assert.equal((await probe('/',{},'POST')).status,403);
  assert.equal((await probe('/api/action',{...f.headers,Origin:f.app.origin,'Content-Type':'application/json'},'POST')).status,403);
  assert.equal((await f.state()).revision,before);

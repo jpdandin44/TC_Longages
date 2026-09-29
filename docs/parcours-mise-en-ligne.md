@@ -17,11 +17,13 @@ Le [registre JSON](../data/parcours-mise-en-ligne.json) porte les quatre étapes
 | Étape | Critère de sortie concret | État au 29 septembre |
 |---|---|---|
 | Initialisation | Candidat Drupal identifiable, prérequis PHP/SQL/racines/HTTPS et sauvegarde qualifiés. | En cours : sources, installation locale et candidat de pages préparés ; hébergement à confirmer. |
-| Recette locale | Tests automatisés et parcours public/admin sur la version exacte ; maintenance et courriels vérifiés. | En cours : tests ciblés passés ; recette Drupal du nouveau candidat à terminer. |
+| Recette locale | Tests automatisés et parcours public/admin sur la version exacte ; maintenance et courriels vérifiés. | En cours : sept pages contrôlées localement sur mobile et ordinateur ; validation de la présentation par le responsable encore attendue. |
 | Recette en préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | En attente : sous-domaine non résolu lors de la vérification du 29 septembre ; cible et base non qualifiées. |
 | Mise en production | Après recette et accord explicite sur l'action, sauvegarde restaurable, livraison du candidat exact sous maintenance, contrôle, puis accord distinct pour l'ouverture Drupal. | Non exécutée. |
 
 La première V1 comprend les sept pages publiques sous Drupal. La page « Espace » reste un écran d'attente ; aucun compte Bureau, formulaire Google, publication sociale ou collecte de contact n'est activé. Le contact public affiché est `tclongages@gmail.com` ; `support@tclongages.fr` reste prévu, sans boîte attestée.
+
+Le tableau `/parcours` peut être ouvert par un clic direct depuis un autre site ou une autre application. Cette exception locale concerne uniquement une navigation volontaire vers cette vue de lecture ; elle ne donne pas accès aux API ni aux décisions de l'ancien suivi. En cas d'ancienne réponse « Requête extérieure refusée » restée affichée, actualiser l'onglet après le redémarrage du serveur local.
 
 ## Candidat de pages
 
