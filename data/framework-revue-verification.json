@@ -1,12 +1,12 @@
 {
   "project": "tclongages",
-  "status": "technical_passed_awaiting_human_review",
-  "recordedAt": "2026-09-29T10:03:25.779Z",
-  "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
-  "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+  "status": "local_passed_remote_running",
+  "recordedAt": "2026-09-29T10:36:07.350Z",
+  "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+  "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
   "candidateManifest": "data/framework-candidate.json",
-  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/1",
-  "branch": "codex/suivi-revue-phases",
+  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/2",
+  "branch": "fix/navigation-revue",
   "repositoryVisibility": "public",
   "branchProtection": {
     "checkedAt": "2026-09-29T10:03:25.779Z",
@@ -22,22 +22,21 @@
     "strict": true
   },
   "localTests": {
-    "command": "npm.cmd run check",
-    "tests": 126,
-    "passed": 126,
+    "command": "node --test tests/framework-server.test.mjs",
+    "tests": 16,
+    "passed": 16,
     "failed": 0,
     "skipped": 0,
-    "logPath": ".local/revue-node-candidat.txt",
-    "logSha256": "8fe78b90155ff3f498c1f9fcc99102755462893bfcc240ed2bb453ea634ceb64"
+    "logPath": ".local/navigation-tests.txt",
+    "logSha256": "1fe286a2cea51f1bbaa6d446d3dbca49b6bfe178c42c16746c69da14f9d67009"
   },
   "frameworkCheck": {
-    "command": "npm.cmd run framework:check",
-    "tests": 25,
-    "passed": 25,
-    "logSha256": "12bf25ce8847488b1f44dd51136825040dbe979a57b1040bfa48874b1cf6bd12"
+    "command": "node scripts/framework.mjs check",
+    "passed": true,
+    "scope": "Profil, suivi, 28 références, vues dérivées et workflows autorisés"
   },
   "documentation": {
-    "checkedAt": "2026-09-29T10:00:46.138Z",
+    "checkedAt": "2026-09-29T10:32:17.512Z",
     "documents": 27,
     "relativeLinks": 329,
     "scope": "Socle, documents modifiés et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
@@ -47,51 +46,214 @@
   "candidateVerification": {
     "passed": true,
     "issues": [],
-    "head": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
-    "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
-    "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
-    "manifestDigest": "b3b9cee248556358886d9401aa6896ccf5665b4060eef7dc21a10e87109d8a73"
+    "head": "ee23cd639a8bebdf5812a21035a96bfe9d792f68",
+    "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+    "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+    "manifestDigest": "7341881ad5004638de9914977055a72006727f144f41f5f3f144406ac36018fd"
   },
-  "githubChecks": [
-    {
-      "name": "policy",
-      "status": "COMPLETED",
-      "conclusion": "FAILURE",
-      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823358/job/109354845468",
-      "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
-    },
-    {
-      "name": "technical-ci",
-      "status": "COMPLETED",
-      "conclusion": "SUCCESS",
-      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823355/job/109354845826",
-      "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
-    }
-  ],
+  "githubChecks": [],
   "humanReview": {
     "phaseValidated": false,
     "nextPhaseAuthorized": false,
     "mergeAuthorized": false,
     "checklistCheckedByAgent": false
   },
-  "limits": [
-    "Les 25 contrôles dédiés sont également couverts dans les 126 tests ; ne pas les additionner.",
-    "Les résultats Drupal/Apache antérieurs ne sont pas réattribués à ce commit.",
-    "policy attend les quatre confirmations humaines ; son échec ne constitue pas une erreur technique.",
-    "La qualification distante du site et les réglages hébergés restent à réaliser."
+  "previousPullRequest": {
+    "headRefOid": "34dc94736891909cf3114e27073b70fa1fae848a",
+    "mergeCommit": {
+      "oid": "d4e0fdbaf9c05ca510202dad9233d944771118d1"
+    },
+    "mergedAt": "2026-09-29T10:25:05Z",
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:05:27Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36553341595/job/109356519411",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:05:15Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:05:56Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36553395745/job/109356692672",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:05:44Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:21:15Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36555011037/job/109361954915",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:21:04Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:21:20Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36555013135/job/109361961266",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:21:05Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:21:18Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36555014528/job/109361965655",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:21:06Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:08:35Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36553341602/job/109356519283",
+        "name": "technical-ci",
+        "startedAt": "2026-09-29T10:05:15Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-29T10:21:23Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/36555016880/job/109361974242",
+        "name": "policy",
+        "startedAt": "2026-09-29T10:21:08Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      }
+    ],
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/1"
+  },
+  "previousReceipts": [
+    {
+      "project": "tclongages",
+      "status": "technical_passed_awaiting_human_review",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+      "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+      "candidateManifest": "data/framework-candidate.json",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/1",
+      "branch": "codex/suivi-revue-phases",
+      "repositoryVisibility": "public",
+      "branchProtection": {
+        "checkedAt": "2026-09-29T10:03:25.779Z",
+        "admins": true,
+        "approvals": 0,
+        "checks": [
+          "technical-ci",
+          "policy"
+        ],
+        "conversations": true,
+        "delete": false,
+        "force": false,
+        "strict": true
+      },
+      "localTests": {
+        "command": "npm.cmd run check",
+        "tests": 126,
+        "passed": 126,
+        "failed": 0,
+        "skipped": 0,
+        "logPath": ".local/revue-node-candidat.txt",
+        "logSha256": "8fe78b90155ff3f498c1f9fcc99102755462893bfcc240ed2bb453ea634ceb64"
+      },
+      "frameworkCheck": {
+        "command": "npm.cmd run framework:check",
+        "tests": 25,
+        "passed": 25,
+        "logSha256": "12bf25ce8847488b1f44dd51136825040dbe979a57b1040bfa48874b1cf6bd12"
+      },
+      "documentation": {
+        "checkedAt": "2026-09-29T10:00:46.138Z",
+        "documents": 27,
+        "relativeLinks": 329,
+        "scope": "Socle, documents modifiés et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
+        "passed": true,
+        "errors": []
+      },
+      "candidateVerification": {
+        "passed": true,
+        "issues": [],
+        "head": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+        "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+        "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+        "manifestDigest": "b3b9cee248556358886d9401aa6896ccf5665b4060eef7dc21a10e87109d8a73"
+      },
+      "githubChecks": [
+        {
+          "name": "policy",
+          "status": "COMPLETED",
+          "conclusion": "FAILURE",
+          "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823358/job/109354845468",
+          "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
+        },
+        {
+          "name": "technical-ci",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36552823355/job/109354845826",
+          "observedHead": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198"
+        }
+      ],
+      "humanReview": {
+        "phaseValidated": false,
+        "nextPhaseAuthorized": false,
+        "mergeAuthorized": false,
+        "checklistCheckedByAgent": false
+      },
+      "limits": [
+        "Les 25 contrôles dédiés sont également couverts dans les 126 tests ; ne pas les additionner.",
+        "Les résultats Drupal/Apache antérieurs ne sont pas réattribués à ce commit.",
+        "policy attend les quatre confirmations humaines ; son échec ne constitue pas une erreur technique.",
+        "La qualification distante du site et les réglages hébergés restent à réaliser."
+      ],
+      "githubObservedAt": "2026-09-29T10:04:31.109Z",
+      "browser": {
+        "checkedAt": "2026-09-29T10:06:11.197Z",
+        "url": "http://127.0.0.1:4181/",
+        "phase0": "awaiting_review",
+        "technicalIssues": [],
+        "commentEnabled": true,
+        "checkedCriteria": 0,
+        "confirmationChecked": false,
+        "horizontalOverflow": false,
+        "consoleErrors": [],
+        "screenshot": ".local/revue-phase0.png",
+        "limits": "Aucune action humaine enregistrée pendant ce contrôle ; mutations vérifiées sur fixtures isolées."
+      }
+    }
   ],
-  "githubObservedAt": "2026-09-29T10:04:31.109Z",
-  "browser": {
-    "checkedAt": "2026-09-29T10:06:11.197Z",
-    "url": "http://127.0.0.1:4181/",
+  "limits": [
+    "La suite complète et la recette Drupal historiques ne sont pas réattribuées au nouveau candidat.",
+    "La CI complète du correctif est à consulter sur sa PR.",
+    "La fusion de la PR initiale ne vaut ni validation de phase ni déploiement.",
+    "Le contrôle policy attend les confirmations personnelles du responsable."
+  ],
+  "localService": {
+    "checkedAt": "2026-09-29T10:36:53.560Z",
+    "url": "http://127.0.0.1:4181",
+    "externalNavigation": 200,
+    "externalApiRead": 403,
+    "externalWrite": 403,
     "phase0": "awaiting_review",
     "technicalIssues": [],
-    "commentEnabled": true,
+    "notes": 2,
     "checkedCriteria": 0,
-    "confirmationChecked": false,
-    "horizontalOverflow": false,
-    "consoleErrors": [],
-    "screenshot": ".local/revue-phase0.png",
-    "limits": "Aucune action humaine enregistrée pendant ce contrôle ; mutations vérifiées sur fixtures isolées."
+    "scope": "Contrôle HTTP du processus redémarré ; aucune action de validation enregistrée. Pas de nouvelle recette visuelle."
   }
 }
