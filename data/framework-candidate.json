@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "18605e1152fd9ec08516a12351946c4985be1696",
+  "sourceCommit": "1c75121f83e89262f1dd4d3fc504aefc56e0315b",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -356,9 +356,9 @@
     {
       "path": "docs/installation-drupal.md",
       "mode": "100644",
-      "gitBlob": "c821a21fee8126f93283310c9b730f01e27153f4",
-      "size": 18030,
-      "sha256": "94c3b3d521290caab8a59bf76e3372b955edea68346f4fffc3e11ce6cad7fda7"
+      "gitBlob": "e12e04e8dff6e48c2ac9be976acb6006008173d8",
+      "size": 19695,
+      "sha256": "4eba8ae9f08331ec1b4a0461dc2034b6539af49b76246d2ebba66c856a5da751"
     },
     {
       "path": "docs/installation-framework.md",
@@ -391,9 +391,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "6068cc1d78b44e6c8573097f1879285ccfcfb6b9",
-      "size": 12058,
-      "sha256": "6f7fae957eee0c2384222764ccdd5ef1336e91d79a26f6fc87061c589d4d2d43"
+      "gitBlob": "e5244fa5cfece85865e1284185bf5a20b9953090",
+      "size": 12810,
+      "sha256": "41fc154da2a7a2d968bc90c4858ec22adc092645798794113029752445803f75"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2664,5 +2664,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "2f564c6b86fefb8e65c27aca205574a3a79dc01192ba15af57ec21c1cba35ff9"
+  "artifactDigest": "96d41023f088a6ada50f14e9e3b4c32eed5b4a28539f3e4acafe6b310e23f33f"
 }
