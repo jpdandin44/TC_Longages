@@ -17,7 +17,9 @@ export async function startFrameworkServer({root=projectRoot,port=4181,regenerat
     try {
       if(req.headers.host!==new URL(origin).host||!['127.0.0.1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress)) throw new ReviewError('Adresse locale attendue.',403);
       if(req.headers.origin&&req.headers.origin!==origin) throw new ReviewError('Origine refusée.',403);
-      if(req.headers['sec-fetch-site']&&!['none','same-origin'].includes(req.headers['sec-fetch-site'])) throw new ReviewError('Requête extérieure refusée.',403);
+      // Un clic humain peut ouvrir l'accueil depuis une PR ; il ne donne aucun accès externe aux API.
+      const userNavigation=req.method==='GET'&&req.url==='/'&&req.headers['sec-fetch-mode']==='navigate'&&req.headers['sec-fetch-dest']==='document'&&req.headers['sec-fetch-user']==='?1';
+      if(req.headers['sec-fetch-site']&&!['none','same-origin'].includes(req.headers['sec-fetch-site'])&&!userNavigation) throw new ReviewError('Requête extérieure refusée.',403);
       if(!['GET','POST'].includes(req.method)) {res.setHeader('Allow','GET, POST');throw new ReviewError('Méthode refusée.',405);}
       const path=req.url;
       if(req.method==='GET'&&path==='/') return send(200,renderShell(token),'text/html; charset=utf-8');

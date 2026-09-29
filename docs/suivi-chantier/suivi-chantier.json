@@ -92,18 +92,18 @@
       ],
       "blockers": [],
       "nextAction": "Consulter la PR et le dossier, enregistrer personnellement les quatre critères, puis valider la phase. L’autorisation de la phase 1 reste une décision distincte.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/1",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/2",
       "reviewContext": {
-        "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
-        "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+        "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+        "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
         "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
         "evidenceRefs": [
-          "TCL-EVIDENCE-CANDIDAT-01"
+          "TCL-EVIDENCE-NAVIGATION-02"
         ],
         "testRunRefs": [
-          "TCL-TEST-CANDIDAT-01"
+          "TCL-TEST-NAVIGATION-02"
         ]
       }
     },
@@ -569,6 +569,29 @@
         "TCL-TEST-CANDIDAT-01"
       ],
       "description": "Remise technique du candidat testé et de la PR pour revue humaine ; aucune case ou décision de validation ajoutée."
+    },
+    {
+      "id": "TCL-REMISE-NAVIGATION-02",
+      "type": "technical_submission",
+      "phaseId": 0,
+      "project": "tclongages",
+      "environment": "local",
+      "actor": "Codex",
+      "identityMode": "agent_technical_report",
+      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "comment": "Justificatifs actualisés après correction de la navigation externe. Notes et décisions personnelles conservées ; aucune validation humaine ajoutée.",
+      "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+      "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+      "candidateManifest": "data/framework-candidate.json",
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+      "evidenceRefs": [
+        "TCL-EVIDENCE-NAVIGATION-02"
+      ],
+      "testRunRefs": [
+        "TCL-TEST-NAVIGATION-02"
+      ],
+      "description": "Justificatifs actualisés après correction de la navigation externe. Notes et décisions personnelles conservées ; aucune validation humaine ajoutée."
     }
   ],
   "reviewEvents": [
@@ -615,6 +638,28 @@
       "testRunRefs": [
         "TCL-TEST-CANDIDAT-01"
       ]
+    },
+    {
+      "id": "TCL-REMISE-NAVIGATION-02",
+      "type": "submitted",
+      "phaseId": 0,
+      "project": "tclongages",
+      "environment": "local",
+      "actor": "Codex",
+      "identityMode": "agent_technical_report",
+      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "comment": "Justificatifs actualisés après correction de la navigation externe. Notes et décisions personnelles conservées ; aucune validation humaine ajoutée.",
+      "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+      "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+      "candidateManifest": "data/framework-candidate.json",
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+      "evidenceRefs": [
+        "TCL-EVIDENCE-NAVIGATION-02"
+      ],
+      "testRunRefs": [
+        "TCL-TEST-NAVIGATION-02"
+      ]
     }
   ],
   "reviewFollowUps": [],
@@ -650,6 +695,18 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-EVIDENCE-CANDIDAT-01",
       "actualResult": "Manifeste Git conforme ; 27 documents et 329 liens locaux vérifiés ; protection main observée. Aucun accord humain déduit."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+      "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-EVIDENCE-NAVIGATION-02",
+      "actualResult": "Candidat vérifié ; 27 documents et 329 liens locaux contrôlés ; PR initiale fusionnée par le responsable. Aucun accord de phase déduit."
     }
   ],
   "testRuns": [
@@ -664,6 +721,18 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-TEST-CANDIDAT-01",
       "actualResult": "126 tests Node réussis, 0 échec, 0 ignoré ; contrôle dédié framework : 25 réussis. Recette Drupal antérieure distincte."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
+      "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-TEST-NAVIGATION-02",
+      "actualResult": "16 tests du serveur local réussis, 0 échec et 0 ignoré, dont la navigation externe et les refus de lecture/écriture externes. Vérificateur framework réussi ; suite complète exécutée séparément par la CI."
     }
   ],
   "exceptions": [
@@ -701,7 +770,7 @@
   "session": {
     "status": "awaiting_user",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Réaliser la revue de phase 0 dans le suivi ; les critères et accords GitHub restent à confirmer personnellement. Aucun merge ou déploiement réalisé."
+    "nextAction": "Recharger le suivi, vérifier la correction de navigation (PR #2) et réaliser personnellement la revue de phase 0. La PR #1 est fusionnée ; aucune installation hébergée exécutée."
   },
   "observations": [
     {

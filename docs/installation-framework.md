@@ -28,6 +28,8 @@ Ouvrir ensuite `http://127.0.0.1:4181/`. Le processus reste dans le terminal ; `
 
 Un seul moteur peut écrire. Si un arrêt brutal laisse `.local/framework-runtime.lock`, vérifier d’abord que le processus indiqué dans ce fichier est arrêté, puis retirer uniquement ce verrou local périmé. Ne jamais retirer le verrou d’un moteur encore actif.
 
+Un clic volontaire depuis GitHub peut ouvrir l’accueil du suivi. Seule cette navigation de premier niveau vers `/` bénéficie de l’exception : les lectures API, écritures, ressources et incorporations dans une autre page restent refusées depuis une origine externe. Si une ancienne version affiche **« Requête extérieure refusée »**, saisir directement `http://127.0.0.1:4181/` dans la barre d’adresse, puis redémarrer le serveur avec la version corrigée. Cette erreur locale est indépendante de l’installation de Drupal sur l’hébergement.
+
 La recette automatisée dédiée utilise des dossiers temporaires fictifs, indépendants du vrai suivi :
 
 ```powershell

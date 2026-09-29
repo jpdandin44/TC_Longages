@@ -14,6 +14,12 @@ tags:
 
 # Journal des évolutions
 
+## 2026-09-29 — Ouverture du suivi depuis une PR
+
+- Correction du refus d’un clic externe vers l’accueil local ; contrôles d’origine, de jeton et des routes privées conservés.
+- Régression HTTP couvrant la navigation autorisée et les lectures, écritures et incorporations externes refusées.
+- Fusion humaine de la PR initiale constatée ; aucun déploiement ni accord de phase déduit de cette fusion.
+
 ## 2026-09-29 — Revue utilisable et raccordement des PR
 
 - Interface : accès direct à la revue, motifs précis des boutons indisponibles, commentaire conservé après enregistrement des critères.
