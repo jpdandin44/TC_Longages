@@ -92,8 +92,8 @@
   },
   "nextSteps": [
     "Qualify PHP8.4 and extensions then applicable approval",
-    "Decide how to enable compatible PHP without affecting other domains unexpectedly; per-domain isolation is disabled in the current selector",
-    "Create preprod.tclongages.fr with its own document root only after reviewing the exact target and DNS effect",
+    "Verify an available dedicated o2switch subaccount chosen by the owner; create only after exact action approval, then qualify compatible PHP there without changing the main account",
+    "Create preprod.tclongages.fr in the dedicated subaccount with its own web root only after reviewing the exact target and DNS effect",
     "Prepare trusted certificates for preproduction and production; Let's Encrypt currently offers the main domain",
     "Complete hidden file inventory and fresh backup with restore before write",
     "Prepare dedicated database with utf8mb4 and credentials via user handoff, no secret in chat",

@@ -15,6 +15,14 @@ tags:
 
 # Décisions
 
+## 2026-09-29 — Préproduction sur un sous-compte o2switch dédié
+
+**Contexte.** Le sélecteur PHP du compte actuel applique PHP 8.1 aux trois domaines affichés et l'isolation par domaine est désactivée. Drupal 11.4 exige PHP 8.3 au minimum. Un réglage global toucherait donc potentiellement d'autres sites.
+
+**Décision.** Le responsable choisit un sous-compte o2switch « lune » dédié au club pour préparer `preprod.tclongages.fr`. Ce choix d'architecture n'autorise pas à créer le sous-compte, saisir ses identifiants, modifier DNS/SSL ou transférer le domaine principal sans action précise présentée au responsable.
+
+**Raisons et conséquences.** Le compte dédié sépare PHP et les fichiers du club. Il faut vérifier la disponibilité d'une lune, créer son accès sous le contrôle du responsable, puis qualifier le sous-domaine, le certificat, la base et la sauvegarde dans ce compte. La migration ultérieure de `tclongages.fr` demandera une décision séparée : o2switch indique qu'un domaine déjà rattaché au compte principal doit être retiré de celui-ci avant son rattachement au sous-compte, avec vérification des courriels concernés.
+
 ## 2026-09-29 — Livraison V1 en quatre étapes et Drupal public d'abord
 
 **Contexte.** Le responsable demande d'accélérer la mise en ligne et de simplifier le suivi après validation de la phase 0 du cadre initial. Il choisit `preprod.tclongages.fr` et confirme une première V1 limitée aux pages publiques sous Drupal.

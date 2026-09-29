@@ -14,6 +14,11 @@ tags:
 
 # Journal des évolutions
 
+## 2026-09-29 — Cible de préproduction isolée retenue
+
+- Le responsable retient un sous-compte o2switch dédié au club pour préparer `preprod.tclongages.fr`, sans basculer le PHP commun aux autres domaines.
+- Les deux options et les risques de migration ultérieure du domaine principal sont documentés ; aucun sous-compte, domaine, certificat ou site distant n'a été créé.
+
 ## 2026-09-29 — Parcours de livraison V1 simplifié, candidat Drupal préparé
 
 - Parcours de quatre étapes décrit dans un registre JSON et un guide ; interface historique conservée sans nouvelle page de suivi.
