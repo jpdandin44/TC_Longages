@@ -39,11 +39,12 @@
         "Le 29 septembre, npm.cmd run check : 132 tests réussis sur 132, avec l'interpréteur Python du framework configuré.",
         "Syntaxe PHP du contrôleur, du filtre de réponses et du modèle d'hébergement vérifiée ; 19 tests ciblés du suivi et des pages publiques réussis.",
         "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite.",
-        "Le manifeste de candidat historique a été réaligné et le contrôle technical-ci de la PR a réussi sur le commit précédent ; sa réexécution sur le commit courant reste à observer."
+        "Le manifeste de candidat historique a été réaligné et le contrôle technical-ci de la PR a réussi sur le commit testé.",
+        "Les sept pages ont été ouvertes dans Drupal local à 390 et 1 280 pixels : titre principal présent, aucune largeur de document supérieure à la fenêtre. Les sept empreintes correspondent aux fichiers de l'archive candidate. Maintenance remise en place, accueil anonyme revérifié en 503."
       ],
       "remaining": [
-        "Contrôler visuellement le candidat sur plusieurs tailles d'écran et rattacher la recette au commit de PR exact.",
-        "Vérifier l'absence d'envoi réel, d'accès Bureau et de données privées sur le paquet final après commit."
+        "Faire valider la présentation par le responsable du club ; la vérification technique ne remplace pas son appréciation.",
+        "Finaliser la qualification de l'archive hébergeable et vérifier les dépendances propres à l'environnement distant."
       ]
     },
     {
