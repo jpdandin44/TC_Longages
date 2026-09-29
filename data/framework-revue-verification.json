@@ -1,7 +1,7 @@
 {
   "project": "tclongages",
-  "status": "local_passed_pr_draft_phase_awaiting_review",
-  "recordedAt": "2026-09-29T12:22:05.283Z",
+  "status": "local_and_technical_ci_passed_policy_waits_human_review_phase_awaiting_review",
+  "recordedAt": "2026-09-29T12:41:31.200Z",
   "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
   "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
   "candidateManifest": "data/framework-candidate.json",
@@ -46,7 +46,23 @@
     "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
     "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11"
   },
-  "githubChecks": [],
+  "githubChecks": [
+    {
+      "name": "technical-ci",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36568258265/job/109405488470",
+      "observedHead": "7fadae4d95f1b8deedbf42872eab4bbdd7a73a49"
+    },
+    {
+      "name": "policy",
+      "status": "COMPLETED",
+      "conclusion": "FAILURE",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36568258301/job/109405488699",
+      "observedHead": "7fadae4d95f1b8deedbf42872eab4bbdd7a73a49",
+      "reason": "Quatre confirmations de revue humaine encore décochées."
+    }
+  ],
   "humanReview": {
     "phaseValidated": false,
     "nextPhaseAuthorized": false,
@@ -237,11 +253,11 @@
     "La suite complète et la recette Drupal historiques ne sont pas réattribuées au nouveau candidat.",
     "La fusion de la PR initiale ne vaut ni validation de phase ni déploiement.",
     "La revue de la PR a été indiquée par l’utilisateur ; GitHub ne conditionne pas la fusion au marquage Viewed de chaque fichier.",
-    "PR #4 en brouillon : contrôles GitHub et revue humaine à confirmer avant fusion.",
+    "PR #4 ouverte : contrôle technique réussi ; contrôle Policy rouge tant que les confirmations humaines ne sont pas cochées.",
     "Les quatre critères de la phase 0 restent à enregistrer par le responsable ; ni PR fusionnée ni tests ne valident la phase."
   ],
   "localService": {
-    "checkedAt": "2026-09-29T12:28:29.578Z",
+    "checkedAt": "2026-09-29T12:41:31.200Z",
     "url": "http://127.0.0.1:4181",
     "phase0": "awaiting_review",
     "technicalIssues": [],
@@ -257,12 +273,12 @@
       "1": "merged",
       "2": "merged",
       "3": "merged",
-      "4": "draft"
+      "4": "open"
     },
     "phase1PullRequests": [],
     "scope": "Lecture HTTP locale après redémarrage et API publique GitHub ; aucune action humaine enregistrée."
   },
-  "githubObservedAt": "2026-09-29T12:28:29.578Z",
+  "githubObservedAt": "2026-09-29T12:41:31.200Z",
   "pullRequestOutcome": {
     "url": "https://github.com/jpdandin44/TC_Longages/pull/2",
     "state": "MERGED",
@@ -276,9 +292,9 @@
   },
   "currentPullRequest": {
     "url": "https://github.com/jpdandin44/TC_Longages/pull/4",
-    "state": "DRAFT",
+    "state": "OPEN",
     "mergedAt": null,
     "phaseValidationInLocalTool": false,
-    "observedAt": "2026-09-29T12:28:29.578Z"
+    "observedAt": "2026-09-29T12:41:31.200Z"
   }
 }

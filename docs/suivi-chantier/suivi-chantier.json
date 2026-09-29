@@ -91,7 +91,7 @@
         "Responsables et règles de décision identifiés"
       ],
       "blockers": [],
-      "nextAction": "PR #4 en brouillon pour afficher les PR de la phase. Après revue et fusion par le responsable, enregistrer personnellement les quatre critères, puis valider la phase 0. Autoriser la phase 1 séparément.",
+      "nextAction": "PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
