@@ -32,7 +32,7 @@ Git local raccordé, dépôt public confirmé et protection main enregistrée : 
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage et audit | En cours | [Dossier](00-phase.md) | Préparer la PR et rattacher les preuves puis présenter les quatre critères au responsable pour validation distincte de la phase suivante. |
+| 0 — Cadrage et audit | En revue | [Dossier](00-phase.md) | Consulter la PR et le dossier, enregistrer personnellement les quatre critères, puis valider la phase. L’autorisation de la phase 1 reste une décision distincte. |
 | 1 — Socle et environnements | Non démarrée | [Dossier](01-phase.md) | Après validation de la phase 0 et autorisation distincte : qualifier dépôt, runtime, préproduction, secrets et sauvegardes ; aucun raccordement Git distant présumé. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `64d5a8aabbb2b959455982b9d6ce56465a90e43b640db65c60a0a40093e62aa4`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `8d3e5e64f1bba330d4f8902556e6c9d7b8737bcbcce9e168f8e0a528aeea1815`.

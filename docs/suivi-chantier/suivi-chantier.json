@@ -58,11 +58,11 @@
       "title": "Cadrage et audit",
       "shortTitle": "Cadrage et audit",
       "objective": "Définir le besoin, les sources, les limites et les critères vérifiables.",
-      "status": "in_progress",
+      "status": "awaiting_review",
       "dependsOn": [],
       "startedOn": "2026-09-29",
       "authorizedOn": "2026-09-29",
-      "deliveredOn": null,
+      "deliveredOn": "2026-09-29",
       "validatedOn": null,
       "startEvidence": {
         "decisionId": "TCL-D01",
@@ -90,11 +90,22 @@
         "Exigences reliées à des tests",
         "Responsables et règles de décision identifiés"
       ],
-      "blockers": [
-        "PR et résultats du candidat à rattacher avant remise."
-      ],
-      "nextAction": "Préparer la PR et rattacher les preuves puis présenter les quatre critères au responsable pour validation distincte de la phase suivante.",
-      "pullRequest": null
+      "blockers": [],
+      "nextAction": "Consulter la PR et le dossier, enregistrer personnellement les quatre critères, puis valider la phase. L’autorisation de la phase 1 reste une décision distincte.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/1",
+      "reviewContext": {
+        "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+        "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+        "candidateManifest": "data/framework-candidate.json",
+        "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+        "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+        "evidenceRefs": [
+          "TCL-EVIDENCE-CANDIDAT-01"
+        ],
+        "testRunRefs": [
+          "TCL-TEST-CANDIDAT-01"
+        ]
+      }
     },
     {
       "id": 1,
@@ -535,6 +546,29 @@
       "phaseId": 0,
       "decisionId": "TCL-D04",
       "description": "Git raccordé et contrôles GitHub préparés ; notes humaines préservées. Pré-requis d’hébergement déplacés vers la préproduction, sans les déclarer résolus."
+    },
+    {
+      "id": "TCL-REMISE-01",
+      "type": "technical_submission",
+      "phaseId": 0,
+      "project": "tclongages",
+      "environment": "local",
+      "actor": "Codex",
+      "identityMode": "agent_technical_report",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "comment": "Remise technique du candidat testé et de la PR pour revue humaine ; aucune case ou décision de validation ajoutée.",
+      "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+      "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+      "candidateManifest": "data/framework-candidate.json",
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+      "evidenceRefs": [
+        "TCL-EVIDENCE-CANDIDAT-01"
+      ],
+      "testRunRefs": [
+        "TCL-TEST-CANDIDAT-01"
+      ],
+      "description": "Remise technique du candidat testé et de la PR pour revue humaine ; aucune case ou décision de validation ajoutée."
     }
   ],
   "reviewEvents": [
@@ -559,18 +593,79 @@
       "identityMode": "local_declared_not_authenticated",
       "sourceRef": "interface-locale-4181",
       "status": "recorded"
+    },
+    {
+      "id": "TCL-REMISE-01",
+      "type": "submitted",
+      "phaseId": 0,
+      "project": "tclongages",
+      "environment": "local",
+      "actor": "Codex",
+      "identityMode": "agent_technical_report",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "comment": "Remise technique du candidat testé et de la PR pour revue humaine ; aucune case ou décision de validation ajoutée.",
+      "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+      "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+      "candidateManifest": "data/framework-candidate.json",
+      "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+      "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+      "evidenceRefs": [
+        "TCL-EVIDENCE-CANDIDAT-01"
+      ],
+      "testRunRefs": [
+        "TCL-TEST-CANDIDAT-01"
+      ]
     }
   ],
   "reviewFollowUps": [],
   "requirementChanges": [],
-  "reviewCommentResponses": [],
+  "reviewCommentResponses": [
+    {
+      "id": "TCL-REPONSE-PR-01",
+      "type": "follow_up",
+      "phaseId": 0,
+      "actor": "Codex",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "identityMode": "agent_technical_report",
+      "commentId": "TCL-UI-dfe8073a-ee8e-45a3-8ae5-dbd9d77cc6c6",
+      "status": "resolved",
+      "comment": "PR créée et contrôles activés ; la revue personnelle reste à réaliser.",
+      "resolutionEvidence": "https://github.com/jpdandin44/TC_Longages/pull/1"
+    }
+  ],
   "publication": {
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false
   },
   "template": false,
-  "evidence": [],
-  "testRuns": [],
+  "evidence": [
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+      "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-EVIDENCE-CANDIDAT-01",
+      "actualResult": "Manifeste Git conforme ; 27 documents et 329 liens locaux vérifiés ; protection main observée. Aucun accord humain déduit."
+    }
+  ],
+  "testRuns": [
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "7dec8ab9ae855e76a05e62ba8b3b26ed48b9d198",
+      "artifactDigest": "96e64e5d31b6812dfb6ab46b1caa6c6040b8b7b81159f82fbdd1989f79ff847c",
+      "recordedAt": "2026-09-29T10:03:25.779Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-TEST-CANDIDAT-01",
+      "actualResult": "126 tests Node réussis, 0 échec, 0 ignoré ; contrôle dédié framework : 25 réussis. Recette Drupal antérieure distincte."
+    }
+  ],
   "exceptions": [
     {
       "id": "TCL-EX01",
@@ -604,9 +699,9 @@
     "lastDeploymentEvidence": null
   },
   "session": {
-    "status": "in_progress",
+    "status": "awaiting_user",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Remettre la phase 0 avec PR et version testée ; attendre la revue humaine, sans merge ou déploiement."
+    "nextAction": "Réaliser la revue de phase 0 dans le suivi ; les critères et accords GitHub restent à confirmer personnellement. Aucun merge ou déploiement réalisé."
   },
   "observations": [
     {
