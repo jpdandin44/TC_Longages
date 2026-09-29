@@ -1,12 +1,12 @@
 {
   "project": "tclongages",
-  "status": "local_and_github_passed_pr_merged_phase_awaiting_review",
-  "recordedAt": "2026-09-29T10:36:07.350Z",
-  "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
-  "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+  "status": "local_passed_pr_draft_phase_awaiting_review",
+  "recordedAt": "2026-09-29T12:22:05.283Z",
+  "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+  "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
   "candidateManifest": "data/framework-candidate.json",
-  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/2",
-  "branch": "fix/navigation-revue",
+  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4",
+  "branch": "feat/prs-par-phase",
   "repositoryVisibility": "public",
   "branchProtection": {
     "checkedAt": "2026-09-29T10:03:25.779Z",
@@ -22,13 +22,12 @@
     "strict": true
   },
   "localTests": {
-    "command": "node --test tests/framework-server.test.mjs",
-    "tests": 16,
-    "passed": 16,
+    "command": "npm.cmd run check",
+    "tests": 130,
+    "passed": 130,
     "failed": 0,
     "skipped": 0,
-    "logPath": ".local/navigation-tests.txt",
-    "logSha256": "1fe286a2cea51f1bbaa6d446d3dbca49b6bfe178c42c16746c69da14f9d67009"
+    "scope": "Constructions locales et suite Node complète. Aucun test Drupal ou hébergement nouveau."
   },
   "frameworkCheck": {
     "command": "node scripts/framework.mjs check",
@@ -36,41 +35,22 @@
     "scope": "Profil, suivi, 28 références, vues dérivées et workflows autorisés"
   },
   "documentation": {
-    "checkedAt": "2026-09-29T10:32:17.512Z",
-    "documents": 27,
-    "relativeLinks": 329,
-    "scope": "Socle, documents modifiés et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
+    "checkedAt": "2026-09-29T12:22:05.283Z",
+    "scope": "Documents modifiés, intégration GitHub, suivi JSON et vues dérivées par contrôle framework ; vérification exhaustive des liens non réexécutée.",
     "passed": true,
     "errors": []
   },
   "candidateVerification": {
     "passed": true,
     "issues": [],
-    "head": "031b08c89d0121895a2b40607efc1936342ff9e2",
-    "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
-    "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
-    "manifestDigest": "7341881ad5004638de9914977055a72006727f144f41f5f3f144406ac36018fd"
+    "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+    "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11"
   },
-  "githubChecks": [
-    {
-      "name": "technical-ci",
-      "status": "COMPLETED",
-      "conclusion": "SUCCESS",
-      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36556552790/job/109366970013",
-      "observedHead": "0849075a7651312be05f495b7fbadceecd231477"
-    },
-    {
-      "name": "policy",
-      "status": "COMPLETED",
-      "conclusion": "SUCCESS",
-      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36557006433/job/109368463488",
-      "observedHead": "0849075a7651312be05f495b7fbadceecd231477"
-    }
-  ],
+  "githubChecks": [],
   "humanReview": {
     "phaseValidated": false,
     "nextPhaseAuthorized": false,
-    "mergeAuthorized": true,
+    "mergeAuthorized": false,
     "checklistCheckedByAgent": false
   },
   "previousPullRequest": {
@@ -257,21 +237,32 @@
     "La suite complète et la recette Drupal historiques ne sont pas réattribuées au nouveau candidat.",
     "La fusion de la PR initiale ne vaut ni validation de phase ni déploiement.",
     "La revue de la PR a été indiquée par l’utilisateur ; GitHub ne conditionne pas la fusion au marquage Viewed de chaque fichier.",
-    "Les quatre critères de la phase 0 ne sont pas cochés dans le suivi local ; la fusion ne vaut pas validation de phase ni autorisation de la phase 1."
+    "PR #4 en brouillon : contrôles GitHub et revue humaine à confirmer avant fusion.",
+    "Les quatre critères de la phase 0 restent à enregistrer par le responsable ; ni PR fusionnée ni tests ne valident la phase."
   ],
   "localService": {
-    "checkedAt": "2026-09-29T10:36:53.560Z",
+    "checkedAt": "2026-09-29T12:28:29.578Z",
     "url": "http://127.0.0.1:4181",
-    "externalNavigation": 200,
-    "externalApiRead": 403,
-    "externalWrite": 403,
     "phase0": "awaiting_review",
     "technicalIssues": [],
     "notes": 2,
     "checkedCriteria": 0,
-    "scope": "Contrôle HTTP du processus redémarré ; aucune action de validation enregistrée. Pas de nouvelle recette visuelle."
+    "listedPullRequests": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "githubStatuses": {
+      "1": "merged",
+      "2": "merged",
+      "3": "merged",
+      "4": "draft"
+    },
+    "phase1PullRequests": [],
+    "scope": "Lecture HTTP locale après redémarrage et API publique GitHub ; aucune action humaine enregistrée."
   },
-  "githubObservedAt": "2026-09-29T10:47:04.602Z",
+  "githubObservedAt": "2026-09-29T12:28:29.578Z",
   "pullRequestOutcome": {
     "url": "https://github.com/jpdandin44/TC_Longages/pull/2",
     "state": "MERGED",
@@ -282,5 +273,12 @@
     "approvalObserved": true,
     "userReportedReview": true,
     "phaseValidationInLocalTool": false
+  },
+  "currentPullRequest": {
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/4",
+    "state": "DRAFT",
+    "mergedAt": null,
+    "phaseValidationInLocalTool": false,
+    "observedAt": "2026-09-29T12:28:29.578Z"
   }
 }

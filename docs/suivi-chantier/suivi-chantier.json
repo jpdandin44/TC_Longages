@@ -91,19 +91,25 @@
         "Responsables et règles de décision identifiés"
       ],
       "blockers": [],
-      "nextAction": "PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/2",
+      "nextAction": "PR #4 en brouillon pour afficher les PR de la phase. Après revue et fusion par le responsable, enregistrer personnellement les quatre critères, puis valider la phase 0. Autoriser la phase 1 séparément.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4",
+      "pullRequests": [
+        "https://github.com/jpdandin44/TC_Longages/pull/1",
+        "https://github.com/jpdandin44/TC_Longages/pull/2",
+        "https://github.com/jpdandin44/TC_Longages/pull/3",
+        "https://github.com/jpdandin44/TC_Longages/pull/4"
+      ],
       "reviewContext": {
-        "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
-        "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
+        "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+        "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
         "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
         "evidenceRefs": [
-          "TCL-EVIDENCE-NAVIGATION-02"
+          "TCL-EVIDENCE-PRS-04"
         ],
         "testRunRefs": [
-          "TCL-TEST-NAVIGATION-02"
+          "TCL-TEST-PRS-04"
         ]
       }
     },
@@ -601,6 +607,15 @@
       "recordedAt": "2026-09-29T10:47:04.602Z",
       "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/2",
       "description": "Fusion de la PR #2 constatée sur GitHub le 29 septembre 2026 à 10:41 UTC ; commit 031b08c89d0121895a2b40607efc1936342ff9e2. technical-ci et policy réussis. L’utilisateur indique avoir réalisé la revue de la PR. Aucun critère local ni validation de phase ajoutés."
+    },
+    {
+      "id": "TCL-EVT-PRS-04",
+      "type": "technical_candidate_prepared",
+      "phaseId": 0,
+      "actor": "Codex",
+      "recordedAt": "2026-09-29T12:22:05.283Z",
+      "description": "PR #4 brouillon préparée pour la liste par phase ; candidat et recette locale rattachés. Aucune décision humaine enregistrée.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4"
     }
   ],
   "reviewEvents": [
@@ -716,6 +731,18 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-EVIDENCE-NAVIGATION-02",
       "actualResult": "Candidat vérifié ; 27 documents et 329 liens locaux contrôlés ; PR initiale fusionnée par le responsable. Aucun accord de phase déduit."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+      "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+      "recordedAt": "2026-09-29T12:22:05.283Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-EVIDENCE-PRS-04",
+      "actualResult": "Manifeste Git conforme au commit source ; API locale de lecture des PR testée ; aucune validation de phase ou publication réalisée."
     }
   ],
   "testRuns": [
@@ -742,6 +769,18 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-TEST-NAVIGATION-02",
       "actualResult": "16 tests du serveur local réussis, 0 échec et 0 ignoré, dont la navigation externe et les refus de lecture/écriture externes. Vérificateur framework réussi ; suite complète exécutée séparément par la CI."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+      "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+      "recordedAt": "2026-09-29T12:22:05.283Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json",
+      "id": "TCL-TEST-PRS-04",
+      "actualResult": "130 tests Node réussis par npm.cmd run check ; contrôle du suivi réussi ; états publics des PR #1 à #3 lus sur GitHub."
     }
   ],
   "exceptions": [
