@@ -4,10 +4,11 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createReviewStore,ReviewError} from './framework-store.mjs';
 import {renderShell,styles,clientScript,documentPage} from './framework-ui.mjs';
+import {createPullRequestFeed} from './framework-prs.mjs';
 
 export const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const safeToken=(given,expected)=>typeof given==='string'&&Buffer.byteLength(given)===Buffer.byteLength(expected)&&timingSafeEqual(Buffer.from(given),Buffer.from(expected));
-export async function startFrameworkServer({root=projectRoot,port=4181,regenerate}={}) {
+export async function startFrameworkServer({root=projectRoot,port=4181,regenerate,getPullRequests=createPullRequestFeed()}={}) {
   if(!Number.isInteger(port)||port<0||port>65535) throw new Error('Port incorrect.');
   const store=await createReviewStore(root,{regenerate});
   try {await store.read();}catch(error){await store.close();throw error;}
@@ -28,6 +29,11 @@ export async function startFrameworkServer({root=projectRoot,port=4181,regenerat
       if(req.method==='GET'&&/^\/documents\/[0-7]\/\d+$/.test(path)) {
         const [, ,phase,index]=path.split('/'),state=await store.read(),doc=state.documents.find(d=>d.phaseId===Number(phase)&&d.index===Number(index));
         if(!doc)throw new ReviewError('Document inconnu.',404);return send(200,documentPage(doc),'text/html; charset=utf-8');
+      }
+      if(path==='/api/pull-requests'||path==='/api/pull-requests?refresh=1') {
+        if(req.method!=='GET')throw new ReviewError('Méthode refusée pour cette route.',405);
+        if(!safeToken(req.headers['x-review-token'],token))throw new ReviewError('Jeton de session locale invalide. Rouvrez le tableau de bord.',403);
+        return send(200,await getPullRequests({force:path.endsWith('?refresh=1')}));
       }
       if(!['/api/state','/api/action'].includes(path)) throw new ReviewError('Page inconnue.',404);
       if((path==='/api/state'&&req.method!=='GET')||(path==='/api/action'&&req.method!=='POST'))throw new ReviewError('Méthode refusée pour cette route.',405);

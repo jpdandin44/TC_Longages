@@ -22,6 +22,7 @@ tags:
 - préparer la revue dans le dépôt dédié communiqué, sans publication au push/merge, sans cocher les confirmations humaines. Git local est raccordé au dépôt public ; les protections et exécutions effectives se vérifient dans le reçu de revue.
 - qualifier la préproduction, le candidat, la sauvegarde fraîche et sa restauration avant écriture de production ; autoriser séparément livraison et ouverture.
 - interface HTML avec commentaires persistants, critères, revue et autorisation suivante distincte ; révision concurrente et historique ; identité déclarée uniquement en boucle locale, authentification à qualifier avant partage.
+- présenter dans chaque phase uniquement les PR qui lui sont rattachées, avec leur état public vérifié sur GitHub ; une PR fusionnée ne vaut pas validation de la phase.
 - installation Drupal dédiée au club et maintenance par le moteur natif sur toutes les pages, sans renommage de fichier pour cette nouvelle variante.
 - exception d’installation bornée et tracée, puis retour aux contrôles normaux ; ni secret, ni contrôle des requêtes, ni autorisation de production désactivés.
 

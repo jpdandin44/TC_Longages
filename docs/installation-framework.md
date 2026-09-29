@@ -40,7 +40,7 @@ Ces tests couvrent les routes locales, les refus d’origine et de jeton, les é
 
 ## Préparer une revue
 
-1. Choisir une phase et consulter ses dossiers. Les fichiers Markdown déclarés s’ouvrent en lecture seule. Le lien **Renseigner ma revue** mène directement à la zone de saisie.
+1. Choisir une phase et consulter ses PR puis ses dossiers. La liste placée avant **Les dossiers à consulter** contient uniquement les PR explicitement rattachées à cette phase dans le suivi JSON ; leurs états sont lus sur GitHub, avec date de contrôle et actualisation manuelle. Si GitHub est indisponible, un état non vérifié est signalé. Les fichiers Markdown déclarés s’ouvrent en lecture seule. Le lien **Renseigner ma revue** mène directement à la zone de saisie.
 2. Cocher les critères effectivement vérifiés, puis écrire un commentaire d’au moins **trois caractères** pour expliquer son retour ou sa décision. Le compteur distingue les cases cochées dans la saisie des critères déjà enregistrés.
 3. Cocher la confirmation personnelle puis utiliser **Enregistrer les critères**. Les cases enregistrées sont liées à l’empreinte des critères et des documents ; leur modification demande une nouvelle revue. Le commentaire reste dans la zone de saisie pour faciliter l’étape suivante, mais la confirmation personnelle est décochée.
 4. Si le dossier est remis et complet, relire les justificatifs, confirmer personnellement la nouvelle action, puis utiliser **Valider cette phase**. La validation ne démarre pas la phase suivante.
@@ -64,7 +64,7 @@ Les états d’une note sont : enregistrée, lue, en cours, décision nécessair
 
 Les notes et critères peuvent être enregistrés avant la remise d’une PR. La validation de phase exige un contexte technique explicite : commit source, empreinte du candidat, empreintes des documents et critères, PR du dépôt TC_Longages, références de preuves et résultats de tests locaux correspondants. La section **Justificatifs et version présentés** affiche les résultats, leurs auteurs, dates et références. Les liens de PR et de commit sont cliquables lorsqu’ils visent le dépôt du club.
 
-L’interface explique les éléments manquants. Elle ne contacte pas GitHub ou une CI pour vérifier ces déclarations : les références techniques doivent être qualifiées lors du travail sur le lot, puis rattachées à la bonne version. Un résultat de CI réussi, une PR créée ou une remise technique n’ajoutent aucune validation personnelle. Consulter le [suivi canonique](suivi-chantier/suivi-chantier.json) et le [point de session](point-session.md) pour les références réellement enregistrées ; ne pas supposer qu’une PR ou une preuve est prête à partir de sa seule préparation.
+L’interface explique les éléments manquants. Elle lit l’état public des PR sur GitHub pour l’affichage, mais ne contacte pas la CI et n’utilise pas ce résultat pour valider les déclarations techniques. Les références doivent être qualifiées lors du travail sur le lot, puis rattachées à la bonne version. Un résultat de CI réussi, une PR créée, fusionnée ou une remise technique n’ajoutent aucune validation personnelle. Consulter le [suivi canonique](suivi-chantier/suivi-chantier.json) et le [point de session](point-session.md) pour les références réellement enregistrées ; ne pas supposer qu’une PR ou une preuve est prête à partir de sa seule préparation.
 
 ## Installation temporaire et retour aux gardes normales
 
