@@ -3,7 +3,7 @@
   "documentType": "release-pipeline",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-09-29",
+  "updated": "2026-10-01",
   "owner": "jpdandin",
   "scope": "Première V1 publique sous Drupal ; espaces Bureau, Google et envois automatiques fermés jusqu'à leur propre recette.",
   "productionHost": "tclongages.fr",
@@ -22,11 +22,12 @@
         "Drupal dédié installé uniquement sur le poste local.",
         "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
         "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. CRC vérifié sur toutes les entrées ; aucun chemin de traversée ni lien symbolique. Le code Drupal empaqueté n'a pas changé depuis le commit source du ZIP.",
-        "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base ni utilisateur SQL. MariaDB 11.4.13 est indiqué par phpMyAdmin ; une sauvegarde JetBackup est visible, sans preuve de restauration."
+        "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base ni utilisateur SQL. MariaDB 11.4.13 est indiqué par phpMyAdmin ; une sauvegarde JetBackup est visible, sans preuve de restauration.",
+        "Le 30 septembre, sonde PHP isolée préparée localement depuis composer.lock ; résultats et limites dans data/reprise-deploiement-verification.json. Aucun transfert distant."
       ],
       "remaining": [
         "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
-        "Vérifier la disponibilité du sous-compte o2switch dédié choisi par le responsable ; après création contrôlée, qualifier PHP 8.3+ et ses extensions dans ce compte, ainsi que la racine web Drupal distincte.",
+        "Lune gratuite visible le 1er octobre après correction de largeur du navigateur ; sauvegarde/restauration et activation à autoriser selon docs/preparer-lune-tc.md. Aucune lune active ni PHP compatible hébergé qualifié.",
         "Obtenir une sauvegarde restaurable avant écriture distante ; qualifier HTTPS et une base dédiée."
       ]
     },
@@ -73,5 +74,17 @@
         "Accord explicite distinct pour la livraison et l'ouverture publique."
       ]
     }
-  ]
+  ],
+  "preparation": {
+    "checkedAt": "2026-10-01",
+    "receipt": "data/reprise-deploiement-verification.json",
+    "guide": "docs/qualification-preproduction.md",
+    "probeGenerator": "scripts/build-hosting-probe.mjs",
+    "remoteWriteExecuted": false,
+    "claudeReviewReceived": true,
+    "sessionStatus": "resumed",
+    "sharedActionsReceipt": "data/actions-mutualisees-verification.json",
+    "preparationWorkflow": ".github/workflows/preparer-deploiement.yml",
+    "deploymentAdapterImplemented": false
+  }
 }

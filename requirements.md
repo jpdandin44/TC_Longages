@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,10 @@ tags:
 ---
 
 # Exigences
+
+## Exigence de reprise — Actions GitHub, 1er octobre
+
+La demande du 1er octobre exige la réutilisation des fonctionnalités des Actions du site Drupal AVEREO et une consommation de modèles limitée. Les comptes, secrets et cibles TC doivent rester distincts ; la préparation doit identifier le commit et le candidat exacts sans valoir autorisation de mise en production. La réalisation et ses limites sont dans le [workflow de référence](workflows/preparer-livraison.md).
 
 ## Parcours de mise en ligne simplifié
 

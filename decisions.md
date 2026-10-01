@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - decisions
@@ -15,6 +15,14 @@ tags:
 
 # Décisions
 
+## 2026-10-01 — Composants de préparation réutilisables
+
+**Contexte.** Le responsable demande de réutiliser les Actions du site Drupal AVEREO et de limiter la consommation des modèles.
+
+**Mise en œuvre locale.** Une bibliothèque générique et une Action SSH paramétrée sont préparées dans le dépôt TC, à partir de la chaîne AVEREO figée et relue. La [procédure](workflows/preparer-livraison.md) porte le contrat et les limites. AVEREO conserve sa chaîne actuelle ; sa migration vers le composant partagé reste proposée. Les secrets et adaptateurs de livraison restent propres au site.
+
+**Conséquences.** Revue du lot et qualification hébergée distinctes ; aucune autorisation de merge, d'accès ou d'ouverture déduite. La [lecture du 1er octobre](docs/preparer-lune-tc.md) résout le blocage d'affichage des lunes, sans modifier la décision historique ci-dessous ni activer de compte.
+
 ## 2026-09-29 — Préproduction sur un sous-compte o2switch dédié
 
 **Contexte.** Le sélecteur PHP du compte actuel applique PHP 8.1 aux trois domaines affichés et l'isolation par domaine est désactivée. Drupal 11.4 exige PHP 8.3 au minimum. Un réglage global toucherait donc potentiellement d'autres sites.
@@ -22,6 +30,8 @@ tags:
 **Décision.** Le responsable choisit un sous-compte o2switch « lune » dédié au club pour préparer `preprod.tclongages.fr`. Ce choix d'architecture n'autorise pas à créer le sous-compte, saisir ses identifiants, modifier DNS/SSL ou transférer le domaine principal sans action précise présentée au responsable.
 
 **Raisons et conséquences.** Le compte dédié sépare PHP et les fichiers du club. Il faut vérifier la disponibilité d'une lune, créer son accès sous le contrôle du responsable, puis qualifier le sous-domaine, le certificat, la base et la sauvegarde dans ce compte. La migration ultérieure de `tclongages.fr` demandera une décision séparée : o2switch indique qu'un domaine déjà rattaché au compte principal doit être retiré de celui-ci avant son rattachement au sous-compte, avec vérification des courriels concernés.
+
+**État au 29 septembre.** Le responsable indique ne pas avoir accès aux lunes sur ce compte. La lecture cPanel confirme que « Mon Univers Web » s'ouvre sur une page vide après une erreur de l'outil ; elle ne permet pas de conclure si une lune est incluse ou activable. La décision demeure historique, mais son exécution est suspendue. La voie de remplacement à qualifier est un sous-domaine dans le compte actuel avec PHP limité à son dossier ; elle ne vaut pas encore décision d'installation ou de publication.
 
 ## 2026-09-29 — Livraison V1 en quatre étapes et Drupal public d'abord
 

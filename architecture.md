@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - architecture
@@ -15,7 +15,13 @@ tags:
 
 # Architecture
 
+## Composants de préparation partagés — 1er octobre
+
+La demande de réutiliser les Actions du site Drupal AVEREO est traitée par une [bibliothèque générique et une Action SSH paramétrée](workflows/preparer-livraison.md), sans modifier AVEREO ni hériter de ses secrets. Le constructeur produit un candidat Drupal non configuré et vérifie son inventaire exhaustif. La qualification SSH exige un environnement TC distinct et n'effectue aucun transfert. Sauvegarde initiale, restauration réelle, configuration privée, recette hébergée, livraison et ouverture restent à qualifier séparément ; l'adaptateur de première installation n'est pas implémenté. Aucune réussite de préparation ne vaut mise en production.
+
 ## Parcours de livraison V1
+
+`scripts/build-hosting-probe.mjs` dérive une sonde PHP de `drupal/composer.lock`, avec le pilote SQL de la cible. Son dossier local de qualification reste distinct du candidat Drupal ; seul le sous-dossier `web/` serait déposé lors d'un test autorisé, avec refus Apache par défaut. Le [guide de qualification](docs/qualification-preproduction.md) précise cette frontière et le retour à la fermeture.
 
 Le [registre des quatre étapes](data/parcours-mise-en-ligne.json) est distinct du suivi historique à huit phases. Il documente cette livraison sans ajouter de page au serveur local de suivi. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
 

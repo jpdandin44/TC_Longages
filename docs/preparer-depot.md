@@ -5,7 +5,7 @@ title: Dépôt, pull requests et contrôles de fusion
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags: [git, revue, perimetre, confidentialite]
 ---
@@ -32,11 +32,11 @@ La limite GitHub Pro rencontrée lorsque le dépôt était privé est historique
 
 ## Ce que font les contrôles
 
-Le [guide CI](../workflows/ci-et-revue.md) documente les deux workflows actifs. `technical-ci` construit et teste les variantes sur Windows, puis contrôle le framework. Les deux PDF vierges de tarifs sont conservés dans [les fixtures](../tests/fixtures/tarifs/README.md), avec les empreintes des originaux, pour permettre une recette autonome après clone. Les recettes navigateur, Apache et Drupal local restent distinctes de cette CI et ne sont pas déclarées exécutées par elle.
+Le [guide CI](../workflows/ci-et-revue.md) documente CI et politique, ainsi que la préparation manuelle ajoutée au candidat. `technical-ci` construit et teste les variantes sur Windows, puis contrôle le framework. Les deux PDF vierges de tarifs sont conservés dans [les fixtures](../tests/fixtures/tarifs/README.md), avec les empreintes des originaux, pour permettre une recette autonome après clone. Les recettes navigateur, Apache et Drupal local restent distinctes de cette CI et ne sont pas déclarées exécutées par elle.
 
 `policy` contrôle strictement la description et ses confirmations humaines. Tant que les quatre cases restent décochées, un échec de ce contrôle est attendu et empêche la fusion ; il ne signale pas une panne du site. La commande locale avec `--allow-unchecked` sert uniquement à vérifier la structure avant remise. Aucun succès structurel n’accorde de validation.
 
-Les workflows de livraison restent des modèles `.example`, non exécutables. Aucun push ou merge ne livre le site, ne change sa maintenance ou n’utilise un secret de production. `CODEOWNERS.example` demeure un exemple ; aucune revue indépendante fictive n’est annoncée.
+Le workflow [Préparer la livraison](../.github/workflows/preparer-deploiement.yml) est ajouté au candidat le 1er octobre : lancement manuel après intégration humaine, construction sans accès par défaut ou qualification SSH seule dans un environnement TC distinct. Il ne livre pas le site. Les workflows de livraison restent des modèles `.example`, non exécutables. Aucun push ou merge ne livre le site, ne change sa maintenance ou n’utilise un secret de production. `CODEOWNERS.example` demeure un exemple ; aucune revue indépendante fictive n’est annoncée.
 
 ## Périmètre public et retour
 

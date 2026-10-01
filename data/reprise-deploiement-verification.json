@@ -1,0 +1,141 @@
+{
+  "project": "TC_Longages",
+  "documentType": "deployment-preparation-receipt",
+  "owner": "jpdandin",
+  "version": "git",
+  "checkedOn": "2026-09-30",
+  "source": {
+    "branch": "feat/release-four-stages",
+    "commit": "6935a7da4507b16da7cdb6c9aa312a4ba8857e13",
+    "workingTreeClean": false,
+    "scope": "Modifications locales du candidat, sans commit ni push ; décisions, guide Drupal et roadmap antérieurs préservés."
+  },
+  "claude": {
+    "requestedByUser": true,
+    "connector": "Computer Use",
+    "conversationTitle": "Redéploiement site TC Longages",
+    "conversationUrl": "https://claude.ai/chat/e0b49a7d-2d1b-472b-ac0d-375974c29cc0",
+    "modelObserved": "Sonnet 5.5",
+    "effortObserved": "Moyen",
+    "exchanges": 1,
+    "reviewReceived": true,
+    "privateFilesTransmitted": false,
+    "credentialsTransmitted": false,
+    "remoteActionExecuted": false,
+    "prompt": "prompts/revue-deploiement-claude.md",
+    "limitation": "Avis fondé sur le résumé fourni ; Claude précise ne pas avoir rouvert les guides. Les points utilisés ont été vérifiés dans le dépôt et les sources officielles."
+  },
+  "credits": {
+    "balanceAtStart": 737.34452,
+    "lastObservedBalance": 712.7985875,
+    "accountScope": true,
+    "historicalReserve": 800,
+    "proposedReplacementReserve": 200,
+    "replacementReserveConfirmed": false,
+    "note": "La demande actuelle vise l'optimisation avec une marge ; le montant proposé reste une préférence à confirmer. Les soldes sont des observations du compte, pas une facture attribuée à cette seule conversation."
+  },
+  "publicObservations": {
+    "mainDomainDnsResolved": true,
+    "preproductionDnsResolved": false,
+    "preproductionDnsError": "Le nom DNS n'existe pas.",
+    "mainDomainHttpsValidated": false,
+    "mainDomainHttpsError": "The SSL connection could not be established, see inner exception.",
+    "mainDomainHttpStatus": null,
+    "limitation": "L'échec TLS ne prouve pas une panne du site ; la réponse publique et le certificat courant n'ont pas été qualifiés."
+  },
+  "github": {
+    "authenticatedRead": "HTTP 401 Bad credentials",
+    "publicReadSucceeded": true,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/5",
+    "state": "open",
+    "draft": true,
+    "headCommit": "6935a7da4507b16da7cdb6c9aa312a4ba8857e13",
+    "technicalCi": "success",
+    "policy": "failure",
+    "note": "Les checks concernent le commit de la PR, pas les modifications locales de cette reprise. Aucune checklist, validation ou fusion humaine n'est modifiée."
+  },
+  "hostingAccess": {
+    "loginPageOpened": true,
+    "loginPageObservation": "Le jeton de sécurité est manquant dans votre demande.",
+    "userLoginRequested": true,
+    "credentialsRequestedInChat": false,
+    "cpanelInventoryRefreshed": false,
+    "historicalInventory": "data/hebergement-inventaire.json",
+    "authenticatedSessionAvailableAtLastRead": false,
+    "loginTabClosed": true,
+    "authenticatedSessionStateAtClose": "not_verified",
+    "serverLogoutConfirmed": false
+  },
+  "localChecks": {
+    "documentationBasePresent": true,
+    "fullNodeSuite": {
+      "command": "npm.cmd run check",
+      "passed": 134,
+      "failed": 0,
+      "skipped": 0
+    },
+    "targetedSuite": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Pages publiques dérivées, refus de plateforme incomplète, absence de fuite de variables privées, réponse JSON/en-têtes, HEAD et refus POST."
+    },
+    "phpLint": "passed",
+    "phpRuntimeObserved": "8.4.23 CLI local",
+    "localConfiguredProbeCompatible": true,
+    "requiredExtensionCount": 18,
+    "apacheHandlerQualified": false,
+    "remotePhpQualified": false,
+    "drupalBrowserRetested": false,
+    "limitation": "Les tests HTTP de la sonde utilisent le serveur PHP local, qui ne charge pas .htaccess. Fermeture Apache, version web distante, TLS, SQL et restauration restent à vérifier sur la cible.",
+    "documentation": {
+      "markdownDocuments": 10,
+      "localLinks": 223,
+      "structuredFiles": 3,
+      "metadataChecked": true,
+      "documentationBaseChecked": true,
+      "status": "partially_up_to_date",
+      "remaining": [
+        "Six références historiques non résolues dans le checkout isolé : quatre archives ZIP, CREDITS_IMAGES.md et spécification officielle du dossier parent. Vérifier leur localisation et expliciter leur disponibilité avant publication documentaire."
+      ]
+    }
+  },
+  "qualificationPackage": {
+    "generatedDirectory": ".local/qualification-preproduction",
+    "archive": ".local/qualification-preproduction.zip",
+    "manifest": ".local/qualification-preproduction/manifest.json",
+    "entries": 4,
+    "bytes": 1896,
+    "sha256": "de72dd41e4d33ca5cf7b418abeddacfbd5ffad87761dc9abaa66a13d2cd82f0a",
+    "entryHashesVerifiedAgainstManifest": true,
+    "defaultAccess": "Require all denied",
+    "phpTestConfigurationActive": false,
+    "remoteDeployment": false
+  },
+  "remaining": [
+    "Connexion utilisateur dans l'onglet cPanel ouvert, sans secret dans le chat.",
+    "Chemin exact et vide hors public_html, fichiers cachés et effets DNS à confirmer en lecture.",
+    "Sauvegarde fraîche et restauration éprouvée avant toute écriture distante.",
+    "Accords applicables sur domaine, certificat, configuration PHP par dossier et accès de test au moment de leur exécution.",
+    "Qualification PHP web/CLI, HTTPS reconnu, ressources privées et base dédiée avant installation Drupal.",
+    "Recette de préproduction, livraison de production et ouverture publique comme décisions distinctes."
+  ],
+  "remoteChanges": {
+    "domainCreated": false,
+    "dnsChanged": false,
+    "filesUploaded": false,
+    "phpChanged": false,
+    "certificateCreated": false,
+    "databaseCreated": false,
+    "drupalInstalled": false,
+    "preproductionOpened": false,
+    "productionOpened": false
+  },
+  "session": {
+    "status": "closed_by_user",
+    "closedOn": "2026-09-30",
+    "reason": "Changement urgent de projet demandé par le responsable.",
+    "nextAction": "Reprendre depuis docs/qualification-preproduction.md ; vérifier accès cPanel, racine exacte et sauvegarde restaurable avant toute écriture.",
+    "localServicesStartedByThisSessionStillRunning": false
+  }
+}

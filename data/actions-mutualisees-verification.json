@@ -1,0 +1,130 @@
+{
+  "project": "tclongages",
+  "documentType": "shared-actions-verification",
+  "created": "2026-10-01",
+  "updated": "2026-10-01",
+  "owner": "jpdandin",
+  "version": "git",
+  "reference": {
+    "repository": "jpdandin44/avereo-site-drupal",
+    "commit": "38ff4b1f67b0bfc09158a08ba193c5584b22585c",
+    "checkedOnGitHub": true,
+    "filesSha256": {
+      ".github/workflows/deploy-avereo.yml": "fa341ff050f6d85ba4badb014b816e8197bceda3ba942b90f00af08f3598514d",
+      "scripts/check-delivery-inputs.py": "41fbfe7bafad8e34d909d9d84cd8c0d033bc1849bd3d54117cf4f19893851b71",
+      "scripts/backup-production.py": "276ba61f02b04b4906c075a8215fc01fdf75acdba205409f34f7c90e4e03b392",
+      "scripts/rehearse-backup.py": "cf6c34d0673a901287c1d266a27c0377f7729dc5d408ac4ae199c6f0cda84f5e"
+    },
+    "avereoFilesModified": false,
+    "avereoMigrationExecuted": false
+  },
+  "claude": {
+    "connector": "Computer Use",
+    "conversationTitle": "Revue technique Drupal TC Longages",
+    "model": "Sonnet 5.5",
+    "effort": "Moyen",
+    "exchanges": 1,
+    "scope": "Review of supplied technical description only; no repository or remote execution",
+    "secretTransmitted": false,
+    "prompt": "prompts/revue-actions-mutualisees-claude.md"
+  },
+  "cost": {
+    "codexBalanceAtStart": "419.6791500000",
+    "codexBalanceAtCheck": "419.6791500000",
+    "claudeCostMeasured": false,
+    "reserveAmountApproved": null,
+    "policy": "One targeted Sonnet exchange; local checks; bounded manual runner jobs"
+  },
+  "gitHub": {
+    "authenticatedAccountUsable": true,
+    "credentialValuesStored": false,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/5",
+    "status": "draft_observed_before_update",
+    "mergeExecuted": false,
+    "workflowDispatched": false,
+    "currentCandidateReceipt": "data/framework-revue-verification.json#deliveryPreparation"
+  },
+  "localChecks": {
+    "pythonTests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "targetedNodeTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "composerValidate": {
+      "passed": true,
+      "warnings": [
+        "Exact Drush constraint retained intentionally"
+      ]
+    },
+    "composerAudit": {
+      "passed": true,
+      "securityAdvisories": 0
+    },
+    "fullNodeTests": {
+      "passed": 136,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Full suite passed before generated-pages path correction; six targeted Node tests including sixteen Python gates passed after correction. Final commit CI is recorded separately."
+    },
+    "candidateBuild": {
+      "sourceCommit": "6935a7da4507b16da7cdb6c9aa312a4ba8857e13",
+      "sourceClean": false,
+      "archiveSha256": "db27b27bce2f58137be111246387596e9de777153ba31cca32e102a31e50e4c2",
+      "manifestSha256": "270ed99a7c1a1d3830666a543ca849f6f9ee79b09b5d14a9156b99a3c000e996",
+      "regularFiles": 26692,
+      "status": "candidate_verified_unconfigured",
+      "deploymentExecuted": false,
+      "scope": "Historical local assembly before clean-checkout page-path correction; subsequent candidate receipts are recorded in framework-revue-verification.json deliveryPreparation."
+    },
+    "documentary": {
+      "mandatoryScaffoldPresent": true,
+      "documentsChecked": 15,
+      "localLinksChecked": 267,
+      "metadataIssues": 0,
+      "historicalMissingLinks": 6,
+      "structuredFilesParsed": 4
+    }
+  },
+  "remote": {
+    "cpanel": "authenticated_read_only_inventory_completed",
+    "sshQualificationExecuted": false,
+    "backupCreated": false,
+    "backupRestored": false,
+    "preproductionInstalled": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "inventory": {
+      "perDomainIsolationAllowed": false,
+      "rootNotEmpty": true,
+      "moonActivated": false,
+      "sqlDatabasesDisplayed": 0,
+      "preproductionSubdomainExists": false,
+      "hiddenFilesVerified": false,
+      "nativePhp": "8.1",
+      "activeMoonsDisplayed": 0,
+      "moonInterfaceRequiresDesktopViewport": true,
+      "jetBackupRestorationTested": false,
+      "visibleRootEntries": [
+        "cgi-bin",
+        "index.php"
+      ],
+      "officialRoot": "public_html",
+      "latestBackupDisplayed": "2026-10-01 07:57 AM server display",
+      "jetBackupRecords": 3,
+      "freeMoonsDisplayed": 8,
+      "officialCertificate": "self_signed"
+    }
+  },
+  "remaining": [
+    "Preserve observed current account and establish isolated preproduction roots",
+    "Initial backup and real private restoration",
+    "Isolated compatible PHP and recognized TLS",
+    "Dedicated SQL resources and private settings",
+    "Initial delivery adapter and hosted preproduction acceptance",
+    "Explicit delivery and public opening decisions"
+  ],
+  "documentaryLimit": "Six historical artifact/source links remain absent from the isolated checkout at the 1 October check; affected document metadata and new references verified; no global compliance asserted."
+}

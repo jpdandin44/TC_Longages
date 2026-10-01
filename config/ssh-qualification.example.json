@@ -1,0 +1,9 @@
+{
+  "project": "tclongages",
+  "environment": "preproduction",
+  "targetHost": "preprod.tclongages.fr",
+  "sshHost": "TBD",
+  "sshUser": "TBD",
+  "sshPort": "TBD",
+  "authorizationRef": ""
+}

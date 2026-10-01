@@ -5,14 +5,20 @@ title: Drupal dédié — installation locale et préparation de l’hébergemen
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags: [drupal, maintenance, installation, hebergement, securite]
 ---
 
 # Drupal dédié au TC Longages
 
+## Préparation GitHub du 1er octobre
+
+Le [workflow de préparation](../workflows/preparer-livraison.md) reprend les composants génériques de la chaîne AVEREO. Il produit un candidat non configuré ou vérifie SSH seul. Il ne réalise ni première installation, ni import SQL, ni ouverture. Les prérequis et l'adaptateur de première livraison restent à qualifier ; le modèle de déploiement demeure inactif.
+
 ## Candidat public et préproduction — préparation locale
+
+La [qualification PHP isolée](qualification-preproduction.md) prépare le test sans secret à réaliser avant tout code Drupal. Elle décrit son livrable fermé, ses préalables et le retour à la fermeture ; aucun test hébergé n'est déduit de sa préparation locale.
 
 La [procédure de mise en ligne V1](parcours-mise-en-ligne.md) définit quatre étapes. `npm.cmd run drupal:public:build` produit les sept pages publiques candidates dans `.local/drupal-public-candidate/site-pages/`, hors Git et hors racine publique. La V1 de revue `officiel/` reste marquée `noindex` et ne doit pas être copiée telle quelle en production. Le modèle hébergé exige désormais `TCL_ENVIRONMENT=preproduction` ou `production` et applique les hôtes de confiance correspondants. Le module conserve `noindex` par défaut ; `TCL_PUBLIC_INDEXING=1` est réservé à une ouverture de production décidée et vérifiée. Ceci n'installe ni ne configure encore o2switch.
 
@@ -136,7 +142,7 @@ Arborescence **proposée**, sans création distante :
 
 La racine publique proposée est donc `<repertoire-compte>/apps/tclongages-drupal/web`, à la place de la cible actuelle `public_html`. La possibilité de changer la racine du domaine principal doit être confirmée dans cPanel ou auprès de l’hébergeur. Cette proposition ne prouve ni l’existence des répertoires, ni la disponibilité d’une commande de bascule. Aucun changement n’a été exécuté.
 
-La sélection PHP actuellement visible est globale pour le compte. Le [guide officiel o2switch du sélecteur PHP](https://faq.o2switch.fr/cpanel/logiciels/hebergement-php-multi-version/) confirme cet effet global. Le [guide officiel de sélection par dossier](https://faq.o2switch.fr/guides/php/changer-version-php-et-php-ini/) décrit une autre piste, via un gestionnaire `.htaccess`, mais sa syntaxe doit être confirmée pour cet hébergement et un essai incorrect peut exposer le code PHP. Ne modifier ni le réglage global ni le gestionnaire `.htaccess` sans inventaire des autres sites, sauvegarde et vérification sur un dossier isolé. Le responsable a retenu le sous-compte dédié pour la préproduction ; il reste à vérifier sa disponibilité et à créer sa configuration après accord sur l'action exacte.
+La sélection PHP actuellement visible est globale pour le compte. Le [guide officiel o2switch du sélecteur PHP](https://faq.o2switch.fr/cpanel/logiciels/hebergement-php-multi-version/) confirme cet effet global. Le [guide officiel de sélection par dossier](https://faq.o2switch.fr/guides/php/changer-version-php-et-php-ini/) décrit une autre piste, via un gestionnaire `.htaccess`, mais sa syntaxe doit être confirmée pour cet hébergement et un essai incorrect peut exposer le code PHP. Ne modifier ni le réglage global ni le gestionnaire `.htaccess` sans inventaire des autres sites, sauvegarde et vérification sur un dossier isolé. Le responsable indique désormais ne pas avoir accès aux lunes sur ce compte ; la page cPanel « Mon Univers Web » reste vide après une erreur de l'outil, sans permettre de qualifier le quota ou l'activation. La voie dédiée choisie précédemment est suspendue. La lecture des « Sous-domaines » confirme que `preprod.tclongages.fr` n'est pas créé et qu'un champ de racine documentaire distincte est proposé. Ce sous-domaine dans le compte actuel est une solution de remplacement à qualifier, sans changement exécuté à ce stade.
 
 Une nouvelle lecture du sélecteur cPanel confirme trois domaines sur le PHP natif 8.1 du compte et l'isolation par domaine désactivée par l'administrateur. Pour choisir la cible de préproduction, deux voies restent à décider :
 

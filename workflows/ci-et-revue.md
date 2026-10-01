@@ -5,14 +5,14 @@ title: Contrôles automatiques et revue humaine
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags: [ci, github, revue, framework]
 ---
 
 # Contrôles automatiques et revue humaine
 
-Deux workflows exécutables sont préparés dans `.github/workflows/` : [CI](../.github/workflows/ci.yml) construit et teste le candidat ; [PR Policy](../.github/workflows/pr-policy.yml) contrôle sa description et la présence des déclarations de revue humaine. Leur présence dans le code ne prouve ni une exécution GitHub réussie ni l’activation d’une protection de branche. Les résultats distants se lisent sur la PR concernée.
+Les deux contrôles de PR existants sont préparés dans `.github/workflows/` : [CI](../.github/workflows/ci.yml) construit et teste le candidat ; [PR Policy](../.github/workflows/pr-policy.yml) contrôle sa description et la présence des déclarations de revue humaine. Leur présence dans le code ne prouve ni une exécution GitHub réussie ni l’activation d’une protection de branche. Les résultats distants se lisent sur la PR concernée.
 
 ## Entrées, sorties et dépendances
 
@@ -36,6 +36,6 @@ Le dépôt est désormais public après décision utilisateur ; la restriction d
 
 Les recettes nécessitant des navigateurs, le Drupal local vivant ou un serveur Apache ne sont pas exécutées par ces workflows. Une CI verte ne confirme ni DNS, certificat, comptes, hébergement, intégrations Google/FFT ni ouverture publique.
 
-Le contrôle du framework autorise uniquement les deux noms de workflows et leurs empreintes de contenu normalisé. Une modification de leur logique ou l’ajout d’un autre workflow échoue tant que cette liste contrôlée n’est pas revue dans [le script](../scripts/framework.mjs), avec ses tests. Cette barrière protège contre une activation involontaire ; elle ne remplace pas la revue humaine d’une PR capable de modifier le code de contrôle.
+Le contrôle du framework autorise uniquement les trois noms de workflows examinés et leurs empreintes de contenu normalisé. Une modification de leur logique ou l’ajout d’un autre workflow échoue tant que cette liste contrôlée n’est pas revue dans [le script](../scripts/framework.mjs), avec ses tests. Cette barrière protège contre une activation involontaire ; elle ne remplace pas la revue humaine d’une PR capable de modifier le code de contrôle.
 
-Les autres workflows restent en `.example`, notamment préproduction, préparation et déploiement. Les deux fichiers `.yml` sont les seules sources exécutables des contrôles CI et policy ; les modèles reçus sont conservés intacts dans les références du framework. Aucun push ou merge ne déploie le site. Toute future chaîne de livraison doit être qualifiée et explicitement autorisée séparément.
+Une troisième source exécutable, [Préparer la livraison](preparer-livraison.md), est ajoutée le 1er octobre avec son empreinte contrôlée et ses tests. Elle est manuelle, construit un candidat non configuré ou qualifie SSH seul, sans transfert. Préproduction avec installation et déploiement restent des modèles `.example` inactifs. Les deux fichiers CI et policy restent les seules sources exécutables des contrôles de PR ; les modèles reçus sont conservés intacts dans les références du framework. Aucun push ou merge ne déploie le site. Toute future chaîne de livraison doit être qualifiée et explicitement autorisée séparément.

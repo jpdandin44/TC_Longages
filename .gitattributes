@@ -2,6 +2,7 @@
 *.json text eol=lf
 *.mjs text eol=lf
 *.py text eol=lf
+*.yml text eol=lf
 *.example text eol=lf
 # Les builds historiques embarquent les octets des sources et images tels quels.
 src/** -text

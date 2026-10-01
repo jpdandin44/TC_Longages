@@ -5,12 +5,30 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — 29 septembre 2026
+# Point de session — reprise au 1er octobre 2026
+
+## Reprise du 1er octobre — Actions partagées
+
+La demande de reprise annule l'arrêt de travail du 30 septembre, sans effacer son état historique ci-dessous. La [préparation de livraison](../workflows/preparer-livraison.md) décrit le composant SSH réutilisable, le constructeur de candidat et les limites de première installation. Le [reçu de préparation](../data/actions-mutualisees-verification.json) conserve les tests et constats avant envoi ; le [reçu de revue](../data/framework-revue-verification.json), rubrique `deliveryPreparation`, porte les résultats GitHub du candidat ensuite figé. Aucun merge, secret, domaine, certificat, base, copie distante ou ouverture n'est exécuté par cette reprise. L'utilisateur a reconnecté cPanel directement. L'[intervention suivante](preparer-lune-tc.md) présente les constats récents et la lune gratuite isolée à activer après accord. Aucun mot de passe n'est transmis dans la conversation.
+
+## Clôture immédiate du 30 septembre
+
+Le responsable demande l'arrêt pour changer de projet en urgence. La session est close : aucun déploiement, DNS, certificat, base, PHP distant ou ouverture n'a été exécuté. La revue Claude est terminée, la sonde locale et son archive sont conservées, les tests sont terminés et aucun service local démarré par cette session ne reste actif. L'onglet cPanel créé pour la connexion a été fermé ; l'état d'authentification après l'intervention du responsable et une déconnexion côté serveur ne sont pas vérifiés. Aucune étape humaine n'est validée par cette clôture.
+
+Les modifications restent locales dans le checkout candidat, sans commit ni push ; les modifications antérieures sont préservées. Reprendre par le [reçu](../data/reprise-deploiement-verification.json), puis le [test de qualification](qualification-preproduction.md). Accès cPanel, racine exacte, sauvegarde restaurable, décisions d'écriture et réserve de crédits restent à qualifier. Le contrôle documentaire a identifié six références historiques absentes du checkout isolé ; vérifier leur emplacement et leur disponibilité avant publication documentaire. Cette réserve n'affecte pas l'exécution locale de la sonde, mais interdit de déclarer tous les liens documentaires accessibles.
+
+## Reprise historique du 30 septembre avec le connecteur Claude
+
+La demande du 30 septembre autorise la reprise de préparation avec Claude et l'optimisation des crédits. Une revue ciblée a été obtenue dans sa conversation « Redéploiement site TC Longages » via Computer Use, avec Sonnet 5.5 et effort Moyen, sans transmission de fichiers privés ou d'accès d'hébergement. Le [guide de qualification](qualification-preproduction.md) transforme cet avis en un test PHP sans secret, fermé par défaut et préparé localement. Le [reçu de reprise](../data/reprise-deploiement-verification.json) porte les résultats exacts et leurs limites ; les faits du 29 septembre ci-dessous restent historiques.
+
+Le checkout isolé `feat/release-four-stages` est conservé au commit `6935a7da4507b16da7cdb6c9aa312a4ba8857e13`, avec modifications non commitées antérieures préservées. Aucune décision du suivi n'est créée ou réécrite. Les nouveaux fichiers et changements restent locaux, sans commit, push ou mise à jour de la PR. L'accès GitHub authentifié renvoie encore 401 ; la lecture publique a permis de vérifier la PR et ses checks.
+
+La page de connexion cPanel est ouverte dans le navigateur intégré, sans session authentifiée. Pour poursuivre : s'y connecter directement, rendre l'hébergement accessible en lecture, vérifier racine et sauvegarde restaurable, puis présenter l'action exacte de qualification avant les écritures. Aucun test PHP distant, transfert, certificat, base SQL, ouverture de préproduction ou production n'a été réalisé. La réserve historique de 800 dépasse le solde de reprise ; la marge de remplacement proposée reste à confirmer.
 
 ## Reprise accélérée de la V1
 

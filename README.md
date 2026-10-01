@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - site-internet
@@ -17,6 +17,10 @@ tags:
 
 ## Mise en ligne V1 — parcours actuel
 
+Reprise le 1er octobre à la demande du responsable : [préparation GitHub et composants o2switch réutilisables](workflows/preparer-livraison.md), issus de la chaîne du site Drupal AVEREO. Une seule revue Claude avec Sonnet Moyen ; accès GitHub rétabli sur le compte déjà connecté. Le [reçu daté](data/actions-mutualisees-verification.json) distingue résultats locaux, PR et prérequis distants. Aucun site installé ou ouvert par cette reprise.
+
+La [qualification de préproduction](docs/qualification-preproduction.md) prépare la prochaine intervention après la revue ciblée avec Claude. `npm.cmd run hosting:probe:build` génère une sonde sans secret et fermée par défaut dans `.local/qualification-preproduction/`. Le [reçu de reprise](data/reprise-deploiement-verification.json) distingue vérifications locales, lectures publiques et prérequis distants encore ouverts. Aucun transfert ne découle de cette commande.
+
 Le parcours opérationnel demandé est maintenant ramené à quatre étapes : initialisation, recette locale, recette sur `preprod.tclongages.fr`, puis mise en production sur `tclongages.fr` après accord explicite. Le [registre](data/parcours-mise-en-ligne.json) et le [guide](docs/parcours-mise-en-ligne.md) décrivent les quatre étapes, leurs critères et les décisions sensibles. Le suivi HTML existant conserve l'historique des revues déjà saisies, sans nouvelle interface pour ce parcours. Aucune livraison distante n'a été exécutée.
 
 `npm.cmd run drupal:public:build` prépare localement les sept pages du candidat Drupal dans `.local/drupal-public-candidate/`, sans inclure de compte ni de configuration privée. Le mode maintenance du futur site reste géré par Drupal. La préproduction, son certificat, ses ressources et sa sauvegarde doivent encore être qualifiés.
@@ -27,9 +31,9 @@ Le parcours opérationnel demandé est maintenant ramené à quatre étapes : in
 
 Le suivi possède désormais une interface utilisable : lancer `npm.cmd run framework`, puis ouvrir [le suivi local](http://127.0.0.1:4181/). Les huit phases, documents, critères et commentaires sont visibles ; les notes sont enregistrées sur le poste. Soumettre, valider, autoriser la suite et démarrer sont des actes distincts. L'identité y est déclarée localement : ce service n'est pas à exposer sur Internet. Voir [le fonctionnement](docs/installation-framework.md) et [le point de session](docs/point-session.md).
 
-L'utilisateur a retenu un **Drupal dédié au club**, indépendant d'AVEREO. Le socle local est accessible sur [127.0.0.1:4182](http://127.0.0.1:4182/) avec la maintenance native activée. Les sept pages passent par Drupal ; les anciens fichiers de maintenance ne commandent pas cette variante. La connexion administrative locale existe, mais les rôles métier Bureau/Capitaine et les services Google restent à réaliser. Voir [l'installation Drupal](docs/installation-drupal.md).
+L'utilisateur a retenu un **Drupal dédié au club**, indépendant d'AVEREO. Le socle local peut être lancé sur [127.0.0.1:4182](http://127.0.0.1:4182/) avec la maintenance native activée. Les sept pages passent par Drupal ; les anciens fichiers de maintenance ne commandent pas cette variante. La connexion administrative locale existe, mais les rôles métier Bureau/Capitaine et les services Google restent à réaliser. Voir [l'installation Drupal](docs/installation-drupal.md).
 
-L'exception d'installation est tracée dans [installation.json](framework/installation.json) ; son état et sa clôture font autorité. Elle n'autorise aucun déploiement. Les Actions CI technique et politique de PR sont activées, sans workflow de livraison. Aucune phase humaine n’a été validée par l’agent. `npm.cmd run framework:build` génère les vues de lecture du suivi existant ; `npm.cmd run framework:check` vérifie le générateur et le serveur interactif.
+L'exception d'installation est tracée dans [installation.json](framework/installation.json) ; son état et sa clôture font autorité. Elle n'autorise aucun déploiement. Les Actions CI technique et politique de PR sont activées. Une Action manuelle de préparation est ajoutée au candidat ; les modèles de livraison restent inactifs. La préparation ne livre ni ne retire la maintenance. Aucune phase humaine n’a été validée par l’agent. `npm.cmd run framework:build` génère les vues de lecture du suivi existant ; `npm.cmd run framework:check` vérifie le générateur et le serveur interactif.
 
 Le [dépôt public du club](https://github.com/jpdandin44/TC_Longages) est raccordé au Git local en conservant le commit initial. La demande de finaliser les PR autorise le lot de raccordement. [Préparation du dépôt](docs/preparer-depot.md) décrit les deux contrôles de fusion et leurs limites ; le [suivi](docs/suivi-chantier/suivi-chantier.json) conserve la référence de PR et la remise effective. L’inventaire cPanel reste une lecture, pas une installation distante.
 

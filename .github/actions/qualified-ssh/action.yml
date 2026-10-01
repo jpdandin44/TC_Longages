@@ -1,0 +1,41 @@
+name: Qualified o2switch SSH
+description: Verify a reviewed SSH host and account, without transfer or delivery
+inputs:
+  host:
+    description: Reviewed SSH hostname
+    required: true
+  user:
+    description: Reviewed SSH account
+    required: true
+  port:
+    description: Reviewed SSH port
+    required: true
+  key:
+    description: Environment SSH key
+    required: true
+  known_hosts:
+    description: Independently verified known_hosts entry
+    required: true
+  wait_seconds:
+    description: Bounded wait for operator firewall authorization
+    default: '0'
+runs:
+  using: composite
+  steps:
+    - name: Verify SSH identity
+      shell: bash
+      env:
+        SSH_HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+        SSH_PORT: ${{ inputs.port }}
+        SSH_KEY: ${{ inputs.key }}
+        KNOWN_HOSTS: ${{ inputs.known_hosts }}
+        SSH_WAIT_SECONDS: ${{ inputs.wait_seconds }}
+      run: |
+        set -euo pipefail
+        set +x
+        python3 "$GITHUB_ACTION_PATH/../../../scripts/qualify_ssh.py"
+    - name: Remove ephemeral key even after failure
+      if: ${{ always() }}
+      shell: bash
+      run: python3 "$GITHUB_ACTION_PATH/../../../scripts/qualify_ssh.py" cleanup

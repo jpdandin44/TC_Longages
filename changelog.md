@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,20 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-01 — Préparation GitHub issue de la chaîne Drupal AVEREO
+
+- Nouvelle Action manuelle de préparation sur commit examiné : construction sans secrets ou qualification SSH seule, dans un environnement TC distinct.
+- SSH strict, contrôle des archives et provenance paramétrés ; tests hostiles et pannes d'accès, nettoyage des clés. Construction ZIP portable avec manifeste exhaustif.
+- Source AVEREO figée et revue Claude Sonnet Moyen documentées ; aucun fichier du site AVEREO actif modifié, aucun accès ou déploiement TC effectué.
+- Documentation et suivi de reprise actualisés ; première installation, sauvegarde restaurable et recette hébergée restent ouvertes.
+
+## 2026-09-30 — Reprise avec Claude et qualification PHP préparée
+
+- Revue ciblée obtenue via le connecteur Computer Use ; prompt de référence conservé, recommandations confrontées au code et aux sources officielles.
+- Sonde PHP dérivée du verrou Composer, générée localement et fermée par défaut ; diagnostics sans secret, méthodes GET/HEAD et refus de POST.
+- Lectures DNS et GitHub reprises ; préparation du test distant et retour à la fermeture documentés. Aucun sous-domaine, certificat, base ou site distant créé ou ouvert.
+- Résultats locaux et limites consignés dans le reçu de reprise ; modifications de la session précédente préservées.
 
 ## 2026-09-29 — Cible de préproduction isolée retenue
 

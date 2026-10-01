@@ -1,0 +1,142 @@
+---
+project: TC_Longages
+document_type: workflow-documentation
+title: Préparation de livraison et composants o2switch réutilisables
+status: in_progress
+version: git
+created: 2026-10-01
+updated: 2026-10-01
+owner: jpdandin
+tags: [github-actions, drupal, o2switch, mutualisation]
+---
+
+# Préparation de livraison
+
+Le responsable demande le 1er octobre de reprendre la mise en production en
+réutilisant les Actions du **site Drupal AVEREO**. La chaîne de référence est
+[Deploy AVEREO.fr au commit figé](https://github.com/jpdandin44/avereo-site-drupal/blob/38ff4b1f67b0bfc09158a08ba193c5584b22585c/.github/workflows/deploy-avereo.yml).
+Sa provenance et ses empreintes sont dans le [reçu](../data/actions-mutualisees-verification.json).
+Les scripts du monorepo d'applications statiques AVEREO ne constituent pas
+l'adaptateur de ce Drupal. Aucun fichier du site AVEREO actif n'est modifié.
+
+## Fonctionnement préparé
+
+La nouvelle [Action manuelle](../.github/workflows/preparer-deploiement.yml)
+exige `main` et un `approved_sha` complet égal à la version exécutée. Elle
+n'a aucun déclenchement sur push ou merge et demande seulement `contents: read`.
+Sa présence sur une branche ou une PR ne prouve pas une exécution GitHub ;
+un nouveau workflow manuel doit être intégré à la branche par défaut avant
+son premier lancement. La revue et le merge restent humains.
+
+| Opération | Entrées et effet | Résultat réellement attesté |
+| --- | --- | --- |
+| `build` — défaut | Commit examiné ; tests génériques, sept pages, Composer validate/audit/install depuis le verrou, ZIP intégralement relu. Aucun secret ou connexion serveur. | Candidat **non configuré**, sans base, comptes, paramètres privés ou autorisation d'ouverture ; empreintes ZIP/manifeste et inventaire. |
+| `qualify-ssh` | Même commit ; profil TC explicite, environnement `tcl-preproduction`, confirmation `QUALIFY SSH TC Longages`, clé et hôte vérifié. | SSH et compte attendu seulement. Commande distante fixe `id -un` ; aucun transfert, installation ou changement de maintenance. |
+
+Les deux opérations n'ont pas de matrice. Délais maximaux : 20 et 8 minutes.
+L'attente du pare-feu est limitée à cinq minutes et concerne uniquement SSH.
+Une préparation n'est pas annulée automatiquement par un lancement concurrent.
+La rétention du candidat GitHub est de sept jours. Seuls les deux chemins
+explicitement déclarés sont archivés ; jamais tout `.local/`, une sauvegarde,
+une clé, une base ou un fichier de paramètres actif.
+
+Le [constructeur portable](../scripts/prepare_delivery.py) utilise les sources
+Drupal suivies par Git, les dépendances installées et les sept pages dérivées
+depuis `.local/drupal-public-candidate/site-pages/`, sorties du constructeur
+public. Il n'exige pas une ancienne copie locale dans `drupal/site-pages/`.
+Les bibliothèques sont construites depuis `composer.lock`, sans mise à jour de
+dépendance. Le ZIP comporte un manifeste exhaustif taille/SHA-256 ; tous ses
+fichiers sont relus, CRC compris. Liens, chemins sortants, doublons, données
+privées et limites de volume sont contrôlés. Les modes de fichiers sont fixés.
+Les `settings.php` de fixtures de dépendances restent des fixtures ; le vrai
+`web/sites/default/settings.php` et les fichiers de site actif sont refusés.
+
+Construction locale après `npm.cmd run drupal:public:build` :
+
+```text
+python scripts/prepare_delivery.py build
+python -m unittest discover -s tests -p test_delivery_shared.py
+```
+
+Un assemblage local avec sources modifiées indique `sourceClean: false` et
+ne vaut pas qualification du commit. Sur GitHub, le constructeur exige un
+checkout propre et le SHA demandé ; il s'arrête si une source a changé.
+
+## Ce qui est mutualisé
+
+La [bibliothèque générique](../scripts/delivery_shared.py) reprend et adapte
+les garde-fous observés dans AVEREO : provenance, SSH strict et lecture complète
+des archives SQL gzip/tar. L'[Action composite SSH](../.github/actions/qualified-ssh/action.yml)
+est la source réutilisable ; elle ne contient aucun compte ou domaine de site.
+Elle place les secrets temporairement sous `RUNNER_TEMP`, refuse les entrées
+shell ambiguës, vérifie `known_hosts`, puis efface la clé même après échec.
+Les tests comparent les deux dispositions Drupal, AVEREO avec `sites/` à la
+racine et TC avec `web/sites/`. Le contrôle d'intégrité rend toujours
+`restorationTested: false` : il ne prétend pas avoir restauré une base.
+
+Un autre dépôt pourra appeler
+`jpdandin44/TC_Longages/.github/actions/qualified-ssh@SHA_COMPLET_EXAMINÉ`, en
+fournissant ses propres paramètres et secrets. La migration d'AVEREO vers
+cette source est **proposée**, pas effectuée. Il n'y a pas deux copies locales
+maintenues du nouveau composant ni de nouveau dépôt de composants créé.
+Les adaptateurs Drupal, bases, sauvegardes/restaurations, chemins et contenus
+restent propres au site ; aucun secret ou accord AVEREO n'est hérité.
+
+## Configuration SSH encore nécessaire
+
+Après présentation et accord sur l'accès, configurer l'environnement GitHub
+`tcl-preproduction` avec ces éléments. Aucun n'est enregistré par cette tâche.
+
+| Nom | Type | Contenu attendu |
+| --- | --- | --- |
+| `TCL_SSH_PROFILE` | Variable d'environnement GitHub | JSON conforme au [modèle inactif](../config/ssh-qualification.example.json), avec référence de l'accord réel et serveur/compte/port examinés. |
+| `TCL_SSH_HOST`, `TCL_SSH_USER`, `TCL_SSH_PORT` | Variables | Même cible que le profil ; aucune valeur AVEREO par défaut. |
+| `TCL_SSH_KEY` | Secret | Clé autorisée pour cette intervention, fournie par canal sécurisé. |
+| `TCL_KNOWN_HOSTS` | Secret | Clé publique d'hôte vérifiée indépendamment ; ne pas accepter automatiquement une clé obtenue au premier contact. |
+
+Limiter l'environnement à `main` et configurer une revue humaine si l'offre
+GitHub le permet. Le code n'annonce aucune protection déjà active. Une référence
+d'accord dans le JSON est une trace à examiner, pas une signature authentifiée.
+L'opérateur autorise uniquement l'IPv4 du runner indiquée au résumé du run,
+puis retire uniquement cette exception. Aucun jeton cPanel ni règle générale
+de pare-feu n'est créé. Les autorisations préexistantes sont conservées.
+
+## Livraison et première installation : limites actuelles
+
+Cette Action **ne déploie pas**. Le [modèle de déploiement](../.github/workflows/deployer.yml.example)
+reste inactif : son adaptateur `scripts/run-delivery.py` n'existe pas encore.
+Il ne faut ni le renommer ni annoncer son fonctionnement. Les scripts AVEREO
+ne conviennent pas à la première installation TC : ils supposent un Drupal
+et une base existants, une racine plate et des contenus natifs AVEREO.
+
+Pour préparer l'adaptateur de livraison et le retour arrière du TC, il manque :
+
+1. Compte isolé et racine de préproduction à établir ; la lecture cPanel du
+   1er octobre a confirmé la racine officielle non vide, PHP 8.1, le certificat
+   autosigné et huit lunes gratuites. Le [lot proposé](../docs/preparer-lune-tc.md)
+   définit la suite ; PHP Apache isolé et certificat reconnu restent à qualifier.
+2. Sauvegarde de l'état initial de la cible, intégrité et **restauration réelle**
+   en copie privée. Pour une cible vide, preuve de son état et sauvegarde du
+   périmètre de compte concerné ; ne pas substituer un reçu Drupal inexistant.
+3. Bases et configuration privées dédiées, PHP compatible, installation du
+   candidat sous maintenance et recette sur la préproduction réelle.
+4. Candidat et dépendances qualifiés, copie exacte vers la cible de production,
+   sauvegarde fraîche restaurée avant écriture, contrôle de la maintenance et
+   répétition du retour arrière. Livraison et ouverture restent deux accords.
+
+TBD — les paramètres de la future préproduction ne sont pas encore établis. La demande
+de reprise ne transforme pas ces prérequis en vérifications réussies. Aucune
+phase, décision humaine, livraison ou ouverture n'est créée automatiquement.
+
+## Revue Claude et vérifications
+
+Une seule revue a été demandée via **Computer Use**, dans « Revue technique Drupal
+TC Longages », avec Sonnet 5.5 en effort Moyen. Le [prompt conservé](../prompts/revue-actions-mutualisees-claude.md)
+ne contient aucun secret ou donnée d'adhérent. Il s'agit d'une revue de la
+description technique, sans accès au dépôt ni exécution par Claude.
+
+Les recommandations utiles sur SSH, archives, SHA et secrets distincts sont
+intégrées. L'annulation automatique est écartée pour les opérations distantes ;
+une empreinte publique d'hôte vérifiée n'est pas en elle-même un secret. La
+création d'un dépôt supplémentaire et la migration d'AVEREO sont différées.
+Résultats réellement obtenus, réserves et solde daté : lire le reçu lié au début.
