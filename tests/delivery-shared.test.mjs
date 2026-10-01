@@ -2,10 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
 import {readFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {root} from '../scripts/framework.mjs';
 
-const python=process.env.TCL_FRAMEWORK_PYTHON || (process.platform==='win32'?'python':'python3');
+const python=process.env.TCL_FRAMEWORK_PYTHON || (existsSync(resolve(root,'.local/framework-venv/Scripts/python.exe')) ? resolve(root,'.local/framework-venv/Scripts/python.exe') : process.platform==='win32'?'python':'python3');
 const env={...process.env,PYTHONUTF8:'1',PYTHONDONTWRITEBYTECODE:'1'};
 test('Les garde-fous partagés passent les archives hostiles et les pannes SSH sans réseau réel',()=>{
   const result=spawnSync(python,['-m','unittest','discover','-s','tests','-p','test_delivery_shared.py'],{cwd:root,env,encoding:'utf8',windowsHide:true});
