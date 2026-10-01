@@ -27,16 +27,16 @@
     "passed": 130,
     "failed": 0,
     "skipped": 0,
-    "scope": "Constructions locales et suite Node complète. Aucun test Drupal ou hébergement nouveau."
+    "scope": "Constructions locales et suite Node complÃ¨te. Aucun test Drupal ou hÃ©bergement nouveau."
   },
   "frameworkCheck": {
     "command": "node scripts/framework.mjs check",
     "passed": true,
-    "scope": "Profil, suivi, 28 références, vues dérivées et workflows autorisés"
+    "scope": "Profil, suivi, 28 rÃ©fÃ©rences, vues dÃ©rivÃ©es et workflows autorisÃ©s"
   },
   "documentation": {
     "checkedAt": "2026-09-29T12:22:05.283Z",
-    "scope": "Documents modifiés, intégration GitHub, suivi JSON et vues dérivées par contrôle framework ; vérification exhaustive des liens non réexécutée.",
+    "scope": "Documents modifiÃ©s, intÃ©gration GitHub, suivi JSON et vues dÃ©rivÃ©es par contrÃ´le framework ; vÃ©rification exhaustive des liens non rÃ©exÃ©cutÃ©e.",
     "passed": true,
     "errors": []
   },
@@ -60,7 +60,7 @@
       "conclusion": "FAILURE",
       "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36568258301/job/109405488699",
       "observedHead": "7fadae4d95f1b8deedbf42872eab4bbdd7a73a49",
-      "reason": "Quatre confirmations de revue humaine encore décochées."
+      "reason": "Quatre confirmations de revue humaine encore dÃ©cochÃ©es."
     }
   ],
   "humanReview": {
@@ -135,7 +135,7 @@
         "name": "technical-ci",
         "startedAt": "2026-09-29T10:05:15Z",
         "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
+        "workflowName": "CI â€” TC Longages"
       },
       {
         "__typename": "CheckRun",
@@ -193,7 +193,7 @@
         "checkedAt": "2026-09-29T10:00:46.138Z",
         "documents": 27,
         "relativeLinks": 329,
-        "scope": "Socle, documents modifiés et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
+        "scope": "Socle, documents modifiÃ©s et huit dossiers de phase ; liens locaux sur le poste, pas validation des URLs externes.",
         "passed": true,
         "errors": []
       },
@@ -228,10 +228,10 @@
         "checklistCheckedByAgent": false
       },
       "limits": [
-        "Les 25 contrôles dédiés sont également couverts dans les 126 tests ; ne pas les additionner.",
-        "Les résultats Drupal/Apache antérieurs ne sont pas réattribués à ce commit.",
-        "policy attend les quatre confirmations humaines ; son échec ne constitue pas une erreur technique.",
-        "La qualification distante du site et les réglages hébergés restent à réaliser."
+        "Les 25 contrÃ´les dÃ©diÃ©s sont Ã©galement couverts dans les 126 tests ; ne pas les additionner.",
+        "Les rÃ©sultats Drupal/Apache antÃ©rieurs ne sont pas rÃ©attribuÃ©s Ã  ce commit.",
+        "policy attend les quatre confirmations humaines ; son Ã©chec ne constitue pas une erreur technique.",
+        "La qualification distante du site et les rÃ©glages hÃ©bergÃ©s restent Ã  rÃ©aliser."
       ],
       "githubObservedAt": "2026-09-29T10:04:31.109Z",
       "browser": {
@@ -245,16 +245,16 @@
         "horizontalOverflow": false,
         "consoleErrors": [],
         "screenshot": ".local/revue-phase0.png",
-        "limits": "Aucune action humaine enregistrée pendant ce contrôle ; mutations vérifiées sur fixtures isolées."
+        "limits": "Aucune action humaine enregistrÃ©e pendant ce contrÃ´le ; mutations vÃ©rifiÃ©es sur fixtures isolÃ©es."
       }
     }
   ],
   "limits": [
-    "La suite complète et la recette Drupal historiques ne sont pas réattribuées au nouveau candidat.",
-    "La fusion de la PR initiale ne vaut ni validation de phase ni déploiement.",
-    "La revue de la PR a été indiquée par l’utilisateur ; GitHub ne conditionne pas la fusion au marquage Viewed de chaque fichier.",
-    "PR #4 ouverte : contrôle technique réussi ; contrôle Policy rouge tant que les confirmations humaines ne sont pas cochées.",
-    "Les quatre critères de la phase 0 restent à enregistrer par le responsable ; ni PR fusionnée ni tests ne valident la phase."
+    "La suite complÃ¨te et la recette Drupal historiques ne sont pas rÃ©attribuÃ©es au nouveau candidat.",
+    "La fusion de la PR initiale ne vaut ni validation de phase ni dÃ©ploiement.",
+    "La revue de la PR a Ã©tÃ© indiquÃ©e par lâ€™utilisateur ; GitHub ne conditionne pas la fusion au marquage Viewed de chaque fichier.",
+    "PR #4 ouverte : contrÃ´le technique rÃ©ussi ; contrÃ´le Policy rouge tant que les confirmations humaines ne sont pas cochÃ©es.",
+    "Les quatre critÃ¨res de la phase 0 restent Ã  enregistrer par le responsable ; ni PR fusionnÃ©e ni tests ne valident la phase."
   ],
   "localService": {
     "checkedAt": "2026-09-29T12:41:31.200Z",
@@ -276,7 +276,7 @@
       "4": "open"
     },
     "phase1PullRequests": [],
-    "scope": "Lecture HTTP locale après redémarrage et API publique GitHub ; aucune action humaine enregistrée."
+    "scope": "Lecture HTTP locale aprÃ¨s redÃ©marrage et API publique GitHub ; aucune action humaine enregistrÃ©e."
   },
   "githubObservedAt": "2026-09-29T12:41:31.200Z",
   "pullRequestOutcome": {
@@ -296,5 +296,25 @@
     "mergedAt": null,
     "phaseValidationInLocalTool": false,
     "observedAt": "2026-09-29T12:41:31.200Z"
+  },
+  "deliveryPreparation": {
+    "observedAt": "2026-10-01T17:32:43.628172+00:00",
+    "sourceCommit": "7075b22ce33ef205a62d1f75702bcc98b3811367",
+    "artifactDigest": "e209501d717b031cb7a2e232b42e9764b4ab4eaa5f761a63b9a2953f54951bfc",
+    "sourceFiles": 396,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/5",
+    "state": "draft_prepared_for_update",
+    "localChecks": {
+      "fullNodeTestsBeforeFinalPathHardening": 136,
+      "targetedNodeTestsAfterFinalChanges": 6,
+      "pythonGates": 16,
+      "frameworkTests": 27,
+      "candidateManifestVerified": true
+    },
+    "gitHubChecks": "pending_push",
+    "mergeExecuted": false,
+    "workflowDispatched": false,
+    "remoteWriteExecuted": false,
+    "humanDecisionsChanged": false
   }
 }
