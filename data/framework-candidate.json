@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "7075b22ce33ef205a62d1f75702bcc98b3811367",
+  "sourceCommit": "e1dcf6ca3383c4dbe4f575426e565883ab79a280",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -2610,9 +2610,9 @@
     {
       "path": "tests/delivery-shared.test.mjs",
       "mode": "100644",
-      "gitBlob": "55116dc0b07607aaff00cd1b540d8d8970677aff",
-      "size": 2644,
-      "sha256": "584851e41a9326341d549e9628454307cf6ef5af214eb76201e945f81f89777c"
+      "gitBlob": "ac97813b4c3575fdfa7c9572216659fced27d72d",
+      "size": 2810,
+      "sha256": "9508332eccabc51a13f8eadd1204ac76013aa0e4445d16ce7b454d6641006e59"
     },
     {
       "path": "tests/demo.test.mjs",
@@ -2783,5 +2783,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "e209501d717b031cb7a2e232b42e9764b4ab4eaa5f761a63b9a2953f54951bfc"
+  "artifactDigest": "7d9ff537ebbb709cbcad10531f156281be180f517e60c90f80cd35abd9ff452b"
 }
