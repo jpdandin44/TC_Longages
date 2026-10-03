@@ -5,7 +5,7 @@ title: Tableau de bord du développement piloté
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-03
 owner: jpdandin
 tags: [framework, suivi, vue-generee]
 ---
@@ -22,7 +22,7 @@ Ces adresses nécessitent le démarrage des services locaux ; cette vue ne certi
 
 Domaine : **tclongages.fr**, obtenu selon confirmation utilisateur ; DNS/HTTPS non vérifiés par ce générateur. Dépôt : [TC_Longages](https://github.com/jpdandin44/TC_Longages).
 
-PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa version finale. Le responsable indique avoir effectué la revue. Le contrôle Files Changed est déclaratif dans la checklist ; GitHub ne requiert pas le marquage Viewed des fichiers. Aucune mise en production. La phase 0 reste en revue dans cet outil et demande sa propre validation.
+PR #5 fusionnée par le responsable ; Action de construction réussie sur le commit de fusion et candidat ZIP reçu vérifié. La lune isolée est active après sauvegarde privée requalifiée. Aucune validation de phase ou recette hébergée déduite ; l’ancienne prochaine action de session est conservée ci-dessous comme historique.
 
 **Installation :** Installation clôturée : les autorisations normales de progression sont réactivées.
 
@@ -33,7 +33,7 @@ PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa v
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
 | 0 — Cadrage et audit | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
-| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Après validation de la phase 0 et autorisation distincte : qualifier dépôt, runtime, préproduction, secrets et sauvegardes ; aucun raccordement Git distant présumé. |
+| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
 | 4 — Préproduction réelle | Non démarrée | [Dossier](04-phase.md) | Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `d059f45f50d33a8f2b68826b3a904714d5dd9dbe56caa53c319f7e3305a8fe0b`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `c9ae4d3bd219f43358fad75d0584c22074fe7ef932d407c93125303856a3c2ef`.

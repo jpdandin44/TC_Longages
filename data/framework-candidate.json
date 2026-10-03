@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "e1dcf6ca3383c4dbe4f575426e565883ab79a280",
+  "sourceCommit": "635dce9faaa59ded68b477face87c319029e0aae",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -139,9 +139,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "ae1a011c1bd7f2ecbe38364efdd45a3525d2a3a5",
-      "size": 37745,
-      "sha256": "90f9444c13c7317e1a9b5619b23a01b2e126123b3ee8ca6cacf062510ea28e3b"
+      "gitBlob": "1af2895efd2db046e8f29e5a16a5adb0b5645577",
+      "size": 40983,
+      "sha256": "dd94f7ca52f656abdfab3c78f748bb8371084223d90b4fffb58a2520f739776a"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -195,16 +195,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "93e091ffe7a1c5042b2089f52850b2538fccae30",
-      "size": 39166,
-      "sha256": "d8d174015708e46bf04f7a572e089bef5cae96d20ef3d918ba0613eebc051c65"
+      "gitBlob": "e8689c098f503a6f29bbcb6ee0853be883daf02d",
+      "size": 41245,
+      "sha256": "96dea330031a7562babad5928ee749e9e0a72413e540eb64f727900a9ad231e1"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "54484cdabceedb0d62edac798b8c433807c5838e",
-      "size": 26073,
-      "sha256": "ca79aa963157b1dcf75e7194669f7f6b2d8eec683f4c790d89e0e0f6f6568b08"
+      "gitBlob": "5cac01df15739b2e63314ce15b17cd24fd92ebd5",
+      "size": 29299,
+      "sha256": "2cbc9df9b7f092f9db6dc9d01b878a81e9a382dbf1e923ccdbaba74d2a5986cb"
     },
     {
       "path": "config/officiel.json",
@@ -223,9 +223,16 @@
     {
       "path": "data/actions-mutualisees-verification.json",
       "mode": "100644",
-      "gitBlob": "aa1bb848ca57e6b631b49e7259cf93150f50f07e",
-      "size": 4938,
-      "sha256": "683a2590a689950501a40fd64d23c61e12e6d570a54e15c29781eb9807e50eef"
+      "gitBlob": "85ae420004735cf2d3460b45bdf5695926e0d2ce",
+      "size": 6806,
+      "sha256": "8d3a2a2236d1025fbda91fc72848c3a117285217eef5af708354ce9b83d141df"
+    },
+    {
+      "path": "data/activation-lune-verification.json",
+      "mode": "100644",
+      "gitBlob": "88b723978c3d3d164de0a8795dc9b21512be3ecb",
+      "size": 13211,
+      "sha256": "4bba51b01e0f4861e4d05f3ebc5b90631c28c1b7d7d6ec4a75472c92816ad51e"
     },
     {
       "path": "data/baseline-officiel.json",
@@ -307,9 +314,9 @@
     {
       "path": "data/parcours-mise-en-ligne.json",
       "mode": "100644",
-      "gitBlob": "c90cf1ed5479b89b952d9ed3aea6346ba457458b",
-      "size": 5931,
-      "sha256": "88645b63b922740ce82b4419c9bb4182ff4e590afd7bf9e1f8d96d11483ef216"
+      "gitBlob": "deaba3a1186d77cc47912053418018b0e01f5a38",
+      "size": 8357,
+      "sha256": "8fbd027adac0e73327b11ffcb6a483c29ecc65462671dec7c570a8ebfc545850"
     },
     {
       "path": "data/reprise-deploiement-verification.json",
@@ -335,9 +342,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "843bbb5996f1be4db26b4f90f81e5a024819da3c",
-      "size": 32833,
-      "sha256": "e9015dca3ec8bc0f59c04903b5bd3a41b386e0e677518d7c6b1a2ddaf9e71b0d"
+      "gitBlob": "cd8fcd279f1e49835301c08a9f4a89e32c2e0cd1",
+      "size": 35640,
+      "sha256": "beaf908d66b57ab34a931caa6a34226d288ea175e2f3d22521b21a19326c19e0"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -391,9 +398,9 @@
     {
       "path": "docs/installation-drupal.md",
       "mode": "100644",
-      "gitBlob": "fa6e7768193cd27bffe4cd7d4e51b294b5d155a1",
-      "size": 20856,
-      "sha256": "1069b90da82508a280acc4adecd572745714e9eb5828ec7e0de3485d3ad55eeb"
+      "gitBlob": "d7b4289861e149dfc574942da92c9af7b04ea10e",
+      "size": 21867,
+      "sha256": "a402cb0bdd98dff5c204c33e4759b8595450f86093b4cbc5ffc91463e83f6672"
     },
     {
       "path": "docs/installation-framework.md",
@@ -426,9 +433,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "d1157a7175325d3f8efdf0d1f3f3f4108312b061",
-      "size": 17299,
-      "sha256": "3ac7ec0847ffb695415be00a4cd0c7b81d9742fdfdc429bfc1955953bdb9b012"
+      "gitBlob": "d1ed939f2e6352573396ef3e993907728aa3995b",
+      "size": 32032,
+      "sha256": "91395e1663f38782e7caa0ebbc494a2d5877b7be0772f7727ed3d619ad59dd79"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -440,9 +447,9 @@
     {
       "path": "docs/preparer-lune-tc.md",
       "mode": "100644",
-      "gitBlob": "e87fff5a32af6c8273aa693e6544d0131240c413",
-      "size": 4904,
-      "sha256": "cfa4a8c7e08b9e7c98864dd983364c41aa58023f1b4b2b950c9558b921ccde0a"
+      "gitBlob": "05b5245eafd96d6ee9823d30eb8c62a73b1b8b22",
+      "size": 12661,
+      "sha256": "600af1c481183ae0cf556138e85578c9399f329861045487e222d52dfad3f954"
     },
     {
       "path": "docs/processus-inscriptions.md",
@@ -1959,16 +1966,16 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "28569d8f4341bc262376e11e3822e5b6356e5a19",
-      "size": 35234,
-      "sha256": "506a5aa985f7cf89748275a8fe427a680e8d064bc4a3511711384bd1559ef275"
+      "gitBlob": "e3cab5c7089beafb748cb6e259eed37086b9f842",
+      "size": 35817,
+      "sha256": "4cdcf1e947f00d3ae63917cea92c2bf85be353f7afab31f510ac918912598b90"
     },
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "119a0d366d5e31e40e2e28b35a3648a0b6c58682",
-      "size": 17974,
-      "sha256": "f8277638a05f6660431089765cddc86905b67e5a524bf77bcb564f5984daa3d0"
+      "gitBlob": "9ecb3596a8b69ab69f0ff6d1d7e55caa970316a8",
+      "size": 20445,
+      "sha256": "39d3336df5dd52b6a6a99658d42ef86fbedb2353bdc3fc7abbe41033b9d59306"
     },
     {
       "path": "scripts/build-demo.mjs",
@@ -2771,9 +2778,9 @@
     {
       "path": "workflows/preparer-livraison.md",
       "mode": "100644",
-      "gitBlob": "60ffe8fe80c9f529589ac8408835b2fe00050e08",
-      "size": 8886,
-      "sha256": "07ac84ebb4ea127b315a4f0997818c9085246347884e57c474336b70022b96af"
+      "gitBlob": "8cf959468396ae777223be2cb7e56cd469e7a0d0",
+      "size": 10454,
+      "sha256": "b901bd1eff1661843c0d9596d85053d24ed4dfff1a96e4a25b1d9476012b07c2"
     },
     {
       "path": "workflows/publication-controlee.md",
@@ -2783,5 +2790,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "7d9ff537ebbb709cbcad10531f156281be180f517e60c90f80cd35abd9ff452b"
+  "artifactDigest": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7"
 }
