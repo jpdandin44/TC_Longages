@@ -5,12 +5,78 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 1er octobre 2026
+# Point de session — reprise au 3 octobre 2026
+
+## Fin de session du 3 octobre — configuration partielle conservée
+
+Le responsable demande de terminer la tâche en cours puis de fermer la journée. Les interventions d’hébergement sont arrêtées. Le formulaire d’adresse temporaire a été quitté sans soumission et sans accord reçu. La lune a affiché « Vous vous êtes déconnecté. » ; les anciennes pages authentifiées des comptes principal et lune demandent désormais une connexion. Les sept onglets de travail sont fermés, l’affichage temporaire du navigateur est réinitialisé et aucun service n’écoute sur les ports du projet 4173, 4174, 4180, 4181 et 4182 au contrôle de clôture. L’aperçu local est arrêté ; le relancer avec `npm.cmd run officiel` depuis ce checkout si une revue des sept pages est souhaitée.
+
+### Acquis conservés
+
+La PR #5 a été fusionnée personnellement. L’Action partagée a construit le candidat Drupal non configuré sur `49b4ef7` ; son ZIP reçu et ses 26 687 fichiers ont été vérifiés. Sauvegardes du compte et copie fraîche de la racine publique sont conservées et restaurées en copie privée. La lune gratuite est active ; PHP 8.3 y est sélectionné, le dossier Composer isolé existe et la règle de fermeture Apache a été relue à l’identique. La base dédiée est vide, sa collation est `utf8mb4_unicode_ci`, et l’utilisateur créé personnellement possède les dix droits autorisés uniquement sur cette base. Le mot de passe n’a pas été saisi ni lu par l’agent.
+
+### Blocages et suite, dans l’ordre
+
+1. **Choisir une adresse utilisable.** cPanel refuse `preprod.tclongages.fr` sur la lune parce que `tclongages.fr` appartient au compte principal. L’adresse `preprod.<adresse-technique-de-la-lune>` est une proposition non créée et non autorisée. À la reprise, choisir cette adresse ou obtenir une solution d’o2switch ; aucun transfert du domaine officiel n’est autorisé par le lot actuel.
+2. **Qualifier l’hébergement de cette cible.** Créer le routage et le DNS autorisés, obtenir un certificat HTTPS reconnu sans contournement, puis contrôler le PHP réellement servi, ses extensions et la connexion SQL de l’utilisateur dédié. Le réglage PHP de cPanel et les cases SQL ne prouvent pas encore ces tests applicatifs ; aucun script PHP de sonde n’est transféré.
+3. **Préparer la première installation Drupal.** L’adaptateur de première installation manque encore ; `run-delivery.py` n’est pas présent et le modèle de déploiement reste inactif. Préparer une procédure contrôlée pour le même ZIP reçu, puis obtenir l’accord correspondant à son transfert et son installation fermée. Ce transfert est exclu du lot de configuration réalisé aujourd’hui.
+4. **Effectuer la recette de préproduction et le retour arrière.** Tester le Drupal réellement hébergé, ses sept pages, maintenance et droits, sur ordinateur et mobile. Éprouver sauvegarde/restauration et retour arrière sur cette cible. La restauration privée actuelle porte sur les fichiers du compte existant et ne constitue pas un retour arrière du futur Drupal.
+5. **Préparer puis livrer la production.** Après recette et revue humaines, qualifier la cible officielle et la stratégie de migration, figer l’artefact retenu, présenter les effets et obtenir les accords applicables de livraison et d’ouverture. Livrer en maintenance, vérifier, puis ouvrir sur décision humaine distincte.
+
+La phase 1 reste en cours ; aucune phase n’est validée ou clôturée par cette fin de session. Aucun Drupal distant, déploiement de production ou ouverture publique n’a été exécuté. Aucune reprise automatique n’est programmée. Le reçu d’hébergement et le suivi canonique portent l’état courant ; le reçu technique conserve la publication GitHub et le candidat documentaire sans remplacer les preuves historiques. Aucun nouveau appel Claude n’a été lancé pour les contrôles déterministes et la clôture.
+
+## Reprise du 3 octobre — préparation fusionnée, lune active
+
+Le responsable reprend le projet, se reconnecte à cPanel puis fusionne la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5) à 22 h 16, heure de Paris. La fusion observée est `49b4ef7b975b8edff4308373732033630582da6b`. Le checkout isolé est conservé ; la branche `feat/qualify-preproduction` part de cette fusion en préservant les documents locaux de clôture antérieurs.
+
+L'[Action de construction](https://github.com/jpdandin44/TC_Longages/actions/runs/37151085511) a réussi sur ce commit. Le ZIP reçu depuis GitHub est propre et non configuré ; ses 26 687 fichiers et leurs empreintes ont été vérifiés par `prepare_delivery.py verify`. Son identité exacte figure dans le [reçu de préparation](../data/actions-mutualisees-verification.json), rubrique `postMergeBuild`. L'archive reçue est conservée hors Git, sans reconstruction à promouvoir comme identique.
+
+Le lien de validation de la PR était une page documentaire GitHub. Il a été corrigé vers [l'aperçu local](http://127.0.0.1:4180/) après lancement et ouverture du site. Tous les libellés obligatoires et les coches présents avant cette correction ont été conservés. Le responsable a ensuite confirmé la case de test et fusionné la PR. L'aperçu couvre les sept pages publiques ; les comptes, les services connectés et la recette du Drupal hébergé restent hors preuve. L’aperçu a été servi sur 4180 pendant la revue, puis arrêté à la clôture demandée.
+
+La sauvegarde a été renouvelée avant l'activation autorisée : trois exports JetBackup du 3 octobre à 08 h 10, heure affichée par le serveur, restaurés en copie privée, soit 78 fichiers et deux liens. La racine publique fraîche a aussi été archivée hors webroot, téléchargée, restaurée et comparée à l'instantané : un fichier et deux dossiers, aucune différence d'empreinte ni fichier masqué supplémentaire. Une première compression a été interrompue par le renouvellement de la session cPanel ; l'absence d'archive a été constatée, puis la reprise dans la session valide et les contrôles ont réussi. Les archives et preuves détaillées restent privées.
+
+Le responsable a créé et soumis personnellement le mot de passe de la première lune gratuite. Son état est confirmé : une active, sept restantes, coût total affiché de 0 € par mois, accès cPanel séparé. La lecture du sous-compte constate PHP natif 8.1, choix PHP 8.3 disponible, aucun domaine supplémentaire, aucune base ni utilisateur SQL. Le [reçu d'hébergement](../data/activation-lune-verification.json) est la source courante, sans réimport du compte actif ni recette DNS/SSL/SQL déduite des copies privées.
+
+**Configuration du 3 octobre :** Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
+
+**Prochaine action :** décider de la [cible temporaire préparée](preparer-lune-tc.md), puis qualifier DNS/HTTPS et le runtime. L’adaptateur de première installation et la recette hébergée restent à réaliser. La préproduction ne résout pas lors du contrôle public de reprise ; la validation TLS stricte du domaine officiel échoue. Aucun dépôt Drupal, retour arrière de ce candidat, livraison ou ouverture n'a été exécuté.
+
+Le protocole commun GitHub et cockpit est raccordé au bloc `developmentWorkflow` du [suivi canonique](suivi-chantier/suivi-chantier.json). Sa prochaine action de session a été réalignée ; l'ancien texte reste conservé en observation. Les décisions, revues, commentaires, historique humain et phase 0 validée sont inchangés. Le candidat de livraison réellement construit ne vaut pas acceptation humaine de recette hébergée. Les contrôles de passage restent bloquants tant que leurs prérequis ne sont pas prouvés.
+
+### Bilan documentaire de reprise
+
+Politique documentaire globale appliquée ; socle obligatoire présent. Le contrôle final de cette reprise a examiné 13 documents, 287 liens locaux et cinq fichiers structurés, sans erreur de métadonnées ni lien local absent. Les six anciennes références ont été rendues explicites : archives générées non versionnées et sources externes absentes de ce checkout, sans copie concurrente inventée.
+
+Le mapping du protocole a été vérifié dans le cockpit ; son champ historique `release` est réservé à la livraison et reste nul. Les preuves de préparation sont rattachées à `developmentWorkflow`, sans assouplir le garde-fou du moteur local. Les vues ont été régénérées et les 27 tests du framework ont réussi. Le contrôle compare aussi l'historique humain, les décisions, revues et la phase 0 validée avec l'état précédant le raccordement : aucun changement. Les notes et reçus de reprise restent sur la nouvelle branche ; leurs nouvelles preuves ne remplacent pas les anciennes.
+
+**Limites restantes :** source externe des anciens crédits et spécification reçue non incluses dans ce checkout ; restauration de fichiers privée distincte d'un réimport cPanel/SQL ; choix de la cible, fin de configuration et recette hébergée encore à réaliser. Les contrôles documentaires portent sur la reprise locale, sans déclaration de conformité globale de l'hébergement. Les contrôles de passage en préproduction et production refusent la livraison tant que ces prérequis et leurs accords distincts manquent.
+
+Les sections du 1er octobre et précédentes ci-dessous sont l'historique de clôture ; elles ne décrivent plus l'état courant de la lune.
+
+## Clôture de la journée du 1er octobre — 22 h 26, heure de Paris
+
+Le responsable demande la fin de session pour aujourd'hui. Le travail est arrêté : aucune activation, configuration ou livraison supplémentaire ne sera poursuivie sans nouvelle demande de reprise. L'accord borné de sauvegarde et d'activation gratuite reste consigné dans le [reçu d'hébergement](../data/activation-lune-verification.json), sans devenir un accord de configuration ou d'ouverture.
+
+Le formulaire d'activation non soumis a été annulé. cPanel a affiché **« Vous vous êtes déconnecté. »**, puis l'onglet de travail a été fermé ; la preuve reste privée avec les sauvegardes. Aucun service n'écoute sur les ports locaux du projet 4173, 4174, 4180, 4181 et 4182 au contrôle de clôture. La revue Claude est terminée ; aucune nouvelle consultation de modèle ni automatisation de reprise n'a été lancée pour cette clôture.
+
+La lecture GitHub de clôture confirme la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5) ouverte en brouillon au commit `fcc0efa27b01b8b33a641c1626a62d437ad31c51`, avec CI technique réussie et politique de PR en échec. Les documents d'hébergement et de clôture restent locaux et non commités ; les contrôles GitHub du commit précédent ne qualifient pas ces ajouts. Aucun commit, push, merge ou validation humaine n'est effectué lors de la clôture. Les modifications antérieures et les sauvegardes privées sont conservées.
+
+**Reprise exacte :** lire d'abord ce point et le reçu d'hébergement ; reconnecter cPanel directement ; vérifier si une activation a été faite entre-temps, ainsi que la fraîcheur des sauvegardes. Si la lune reste inactive, reprendre uniquement le lot gratuit déjà autorisé et laisser au responsable toute saisie et soumission du nouveau mot de passe. Après confirmation de la lune, présenter son lot PHP, racine Composer, sous-domaine, HTTPS, base et accès TC avant toute configuration. Figer ensuite le candidat incluant les documents locaux, régénérer son manifeste et rattacher les contrôles avant une nouvelle remise. Les six références historiques absentes de ce checkout restent à retrouver ou corriger avant publication documentaire.
+
+**Bilan documentaire de clôture : Partiellement à jour.** Politique globale appliquée sans modification de son fichier. Socle obligatoire présent ; 11 documents contrôlés sans erreur de métadonnées, 246 liens locaux examinés et cinq fichiers structurés analysés, plus cohérence des reçus et états de clôture vérifiée. Les six références historiques manquantes restent la limite documentaire ; les nouvelles références de reprise sont accessibles. Les quatre reçus privés de restauration sont conservés. Le contrôle des différences Git n'a signalé aucune erreur ; les notices de conversion de fins de ligne ne sont pas des échecs. Aucun test fonctionnel n'a été relancé pour cette clôture documentaire.
+
+## Sauvegarde autorisée et activation en attente de saisie personnelle
+
+Le responsable a autorisé la sauvegarde et l'activation de la première lune gratuite, avec arrêt devant un nouveau mot de passe, un contrat ou un coût. Le [reçu courant](../data/activation-lune-verification.json) remplace les réserves historiques de sauvegarde pour ce seul périmètre : trois archives JetBackup restaurées en copie privée, 75 fichiers et deux liens vérifiés, puis archive fraîche de toute la racine publique restaurée et comparée. cPanel confirme zéro base et zéro utilisateur SQL. Aucun réimport sur le compte actif n'a été testé ; DNS, certificats et propriétaires POSIX ne sont pas déclarés réinstallés.
+
+Le dialogue d'activation demande un nouveau mot de passe ; aucun identifiant n'a été saisi par l'agent. Il a ensuite été annulé à la clôture, avant déconnexion et fermeture de cPanel. La lune n'est pas confirmée active. À la reprise, vérifier le résultat puis présenter la configuration de ce compte isolé selon le [plan](preparer-lune-tc.md). Aucun changement PHP/DNS/HTTPS, base, installation Drupal ou ouverture n'a été effectué. Les archives et reçus détaillés restent privés, hors dépôt public. Les sections précédentes de reprise sont conservées ci-dessous comme historique daté.
+
+Ce lot ajoute des documents locaux non commités à la branche `feat/release-four-stages`. Le contrôle technique GitHub réussi sur `fcc0efa` précède ces ajouts ; il reste une preuve du candidat précédent. Avant une nouvelle remise ou livraison, figer ces sources et régénérer le manifeste de candidat, puis rattacher les contrôles à ce nouvel état. L'attente de saisie personnelle n'autorise ni merge ni validation de phase.
 
 ## Reprise du 1er octobre — Actions partagées
 

@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,28 @@ tags:
 ---
 
 # Décisions
+
+## Configuration isolée et maintien du domaine officiel — 3 octobre
+
+Le responsable autorise le lot PHP/racine/domaine/base sur la lune, puis les dix droits SQL de la seule base TC. Le refus du sous-domaine inter-comptes conduit à conserver le domaine officiel en place et à proposer une autre adresse temporaire, sans considérer sa soumission autorisée. Le [plan et ses preuves](docs/preparer-lune-tc.md) portent les effets et limites. Cette décision n’autorise ni transfert Drupal ni migration officielle.
+
+## 2026-10-03 — Reprise du lot autorisé et suivi unique
+
+**Contexte.** Le responsable reprend la mise en production, fusionne la PR #5 et confirme l'activation personnelle de la lune. Les dernières notes de session du cockpit précédaient des décisions de phase déjà enregistrées.
+
+**Application des décisions existantes.** Le lot de sauvegarde et d'activation gratuite du 1er octobre est exécuté après requalification des sauvegardes. Le compteur et l'accès au compte isolé sont vérifiés. Aucun nouvel accord de configuration ou d'ouverture n'est déduit de cette activation.
+
+**Suivi.** Le protocole commun demandé par la politique globale est raccordé au bloc `developmentWorkflow` du [registre existant](docs/suivi-chantier/suivi-chantier.json). L'historique humain et la phase 0 validée sont préservés ; l'ancienne prochaine action de session est gardée comme observation datée. Le candidat réellement construit après fusion est identifié séparément des anciennes preuves.
+
+**Conséquence.** Présenter la configuration isolée, puis qualifier la préproduction réelle et le retour arrière avant livraison. Les confirmations PR gardent exactement les libellés du modèle ; la destination de l'aperçu et la documentation sont distinctes.
+
+## 2026-10-01 — Sauvegarde privée et première lune gratuite autorisées
+
+**Contexte.** Le compte courant utilise un PHP incompatible avec Drupal ; une lune isolée est disponible gratuitement. Le [plan](docs/preparer-lune-tc.md) expose les effets et les limites du lot.
+
+**Décision humaine.** Le responsable autorise la sauvegarde, la restauration en copie privée puis l'activation de la première lune gratuite si les contrôles réussissent. La création d'un mot de passe, un contrat ou une option payante impose un arrêt. Cet accord ne couvre pas la configuration PHP/DNS/HTTPS, une base, des accès SSH, l'installation ou l'ouverture du site.
+
+**Conséquences constatées.** Les restaurations locales des fichiers ont réussi ; les paramètres non couverts et les réimports cPanel restent hors preuve. Le dialogue d'activation exige un nouveau mot de passe : saisie et soumission réservées au responsable, activation encore non confirmée dans le [reçu](data/activation-lune-verification.json).
 
 ## 2026-10-01 — Composants de préparation réutilisables
 

@@ -2,7 +2,7 @@
   "project": "tclongages",
   "documentType": "shared-actions-verification",
   "created": "2026-10-01",
-  "updated": "2026-10-01",
+  "updated": "2026-10-03",
   "owner": "jpdandin",
   "version": "git",
   "reference": {
@@ -126,5 +126,36 @@
     "Initial delivery adapter and hosted preproduction acceptance",
     "Explicit delivery and public opening decisions"
   ],
-  "documentaryLimit": "Six historical artifact/source links remain absent from the isolated checkout at the 1 October check; affected document metadata and new references verified; no global compliance asserted."
+  "documentaryLimit": "Six historical artifact/source links remain absent from the isolated checkout at the 1 October check; affected document metadata and new references verified; no global compliance asserted.",
+  "postMergeBuild": {
+    "observedAt": "2026-10-03T20:34:29.627007+00:00",
+    "preparationPr": "https://github.com/jpdandin44/TC_Longages/pull/5",
+    "mergedAt": "2026-10-03T20:16:23Z",
+    "mergeCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "workflowRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/37151085511",
+    "conclusion": "success",
+    "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "sourceClean": true,
+    "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
+    "regularFiles": 26687,
+    "status": "candidate_verified_unconfigured",
+    "deploymentExecuted": false,
+    "downloadedCandidateVerifiedLocally": true,
+    "privateCandidateLocation": ".local/delivery-from-actions/run-37151085511/delivery/tc-longages-drupal.zip",
+    "artifactRetentionDays": 7,
+    "sshQualificationExecuted": false,
+    "limit": "Candidat non configuré, sans base ni secrets ; aucun Drupal hébergé, retour arrière, déploiement ou ouverture qualifié."
+  },
+  "prValidationLink": {
+    "checkedAt": "2026-10-03T20:34:29.627007+00:00",
+    "url": "http://127.0.0.1:4180/",
+    "scope": "Aperçu local des sept pages, après lancement de npm.cmd run officiel.",
+    "labelsPreserved": true,
+    "humanMarkersPreservedByAgent": true,
+    "humanValidationAfterCorrection": "Le responsable a ensuite coché la première case et fusionné la PR ; aucune coche faite par l’agent.",
+    "documentationIsSeparate": true
+  },
+  "historicalFieldsBasis": "Les rubriques remote, remaining et documentaryLimit initiales restent les observations du 1er octobre. Pour l’état courant, lire postMergeBuild et le reçu d’hébergement courant.",
+  "currentHostingReceipt": "data/activation-lune-verification.json"
 }

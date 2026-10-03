@@ -298,12 +298,12 @@
     "observedAt": "2026-09-29T12:41:31.200Z"
   },
   "deliveryPreparation": {
-    "observedAt": "2026-10-01T17:32:43.628172+00:00",
-    "sourceCommit": "7075b22ce33ef205a62d1f75702bcc98b3811367",
-    "artifactDigest": "e209501d717b031cb7a2e232b42e9764b4ab4eaa5f761a63b9a2953f54951bfc",
+    "observedAt": "2026-10-01T17:42:30.088767+00:00",
+    "sourceCommit": "e1dcf6ca3383c4dbe4f575426e565883ab79a280",
+    "artifactDigest": "7d9ff537ebbb709cbcad10531f156281be180f517e60c90f80cd35abd9ff452b",
     "sourceFiles": 396,
     "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/5",
-    "state": "draft_prepared_for_update",
+    "state": "draft_technical_ci_passed_human_review_pending",
     "localChecks": {
       "fullNodeTestsBeforeFinalPathHardening": 136,
       "targetedNodeTestsAfterFinalChanges": 6,
@@ -311,10 +311,210 @@
       "frameworkTests": 27,
       "candidateManifestVerified": true
     },
-    "gitHubChecks": "pending_push",
+    "gitHubChecks": "technical_success_policy_human_checkboxes_only",
     "mergeExecuted": false,
     "workflowDispatched": false,
     "remoteWriteExecuted": false,
-    "humanDecisionsChanged": false
+    "humanDecisionsChanged": false,
+    "headCommit": "fcc0efa27b01b8b33a641c1626a62d437ad31c51",
+    "firstCiAttempt": {
+      "head": "140b40f6fd54e076c71a773cb7c0a25d35f1f8f3",
+      "run": "https://github.com/jpdandin44/TC_Longages/actions/runs/36900037043",
+      "conclusion": "failure",
+      "cause": "New YAML test used global Python instead of prepared framework venv",
+      "correctionCommit": "e1dcf6ca3383c4dbe4f575426e565883ab79a280"
+    },
+    "localPortableArchive": {
+      "sourceCommit": "6935a7da4507b16da7cdb6c9aa312a4ba8857e13",
+      "sourceClean": false,
+      "archiveSha256": "bdf2b6604aef268b0323392235052a8ca81cee6f57d42e7dc03ec35308e4b7d9",
+      "manifestSha256": "5154c74ceb90df1fc421dcd06e33f259c2fa5a4c11cb3879314af10215f39f6b",
+      "regularFiles": 26692,
+      "status": "candidate_verified_unconfigured",
+      "deploymentExecuted": false,
+      "scope": "Local unconfigured assembly from earlier modified checkout; not the final reviewed GitHub commit"
+    },
+    "proofLocation": "Final remote observations retained locally in excluded proof file; live PR checks remain the GitHub authority",
+    "backupAuthorization": "granted_2026-10-01_bounded_scope_in_hosting_receipt",
+    "finalCi": {
+      "headCommit": "fcc0efa27b01b8b33a641c1626a62d437ad31c51",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36900595467",
+      "conclusion": "success",
+      "nodePassed": 136,
+      "nodeFailed": 0,
+      "frameworkPassed": 27,
+      "frameworkFailed": 0,
+      "candidateVerified": true
+    },
+    "policy": {
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/36900702353",
+      "conclusion": "failure",
+      "uncheckedHumanConfirmations": 4,
+      "structuralIssues": 0,
+      "humanBoxesChanged": false
+    },
+    "documentaryCheck": {
+      "scaffoldMissing": [],
+      "documentsChecked": 15,
+      "metadataIssues": [],
+      "localLinksChecked": 267,
+      "missingLocalLinks": [
+        {
+          "document": "README.md",
+          "target": "livrables/tc-longages-officiel-apercu.zip"
+        },
+        {
+          "document": "README.md",
+          "target": "livrables/tc-longages-v1-demo-o2switch.zip"
+        },
+        {
+          "document": "README.md",
+          "target": "livrables/tc-longages-demo-o2switch.zip"
+        },
+        {
+          "document": "README.md",
+          "target": "livrables/tc-longages-vitrine-o2switch.zip"
+        },
+        {
+          "document": "README.md",
+          "target": "TCL_Longages_Migration_o2switch/CREDITS_IMAGES.md"
+        },
+        {
+          "document": "requirements.md",
+          "target": "../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md"
+        }
+      ],
+      "structuredFilesParsed": 4
+    },
+    "hostingPreparation": {
+      "receipt": "data/activation-lune-verification.json",
+      "checkedAt": "2026-10-01",
+      "privateFileRestorationPassed": true,
+      "moonActivationConfirmed": false,
+      "status": "session_closed_activation_pending",
+      "productionDeploymentExecuted": false,
+      "publicOpeningExecuted": false,
+      "documentaryCheck": {
+        "scaffoldMissing": [],
+        "documentsChecked": 11,
+        "metadataIssues": [],
+        "localLinksChecked": 246,
+        "missingLocalLinks": [
+          {
+            "document": "README.md",
+            "target": "livrables/tc-longages-officiel-apercu.zip"
+          },
+          {
+            "document": "README.md",
+            "target": "livrables/tc-longages-v1-demo-o2switch.zip"
+          },
+          {
+            "document": "README.md",
+            "target": "livrables/tc-longages-demo-o2switch.zip"
+          },
+          {
+            "document": "README.md",
+            "target": "livrables/tc-longages-vitrine-o2switch.zip"
+          },
+          {
+            "document": "README.md",
+            "target": "TCL_Longages_Migration_o2switch/CREDITS_IMAGES.md"
+          },
+          {
+            "document": "requirements.md",
+            "target": "../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md"
+          }
+        ],
+        "structuredFilesParsed": 5
+      },
+      "hostingDocumentsCommitted": false,
+      "candidateRefreshRequiredBeforeDelivery": true,
+      "sessionClosedAt": "2026-10-01T22:26:05+02:00",
+      "cpanelLogoutConfirmed": true,
+      "cpanelTabClosed": true,
+      "closingGitHubSnapshot": {
+        "checkedAt": "2026-10-01T22:26:05+02:00",
+        "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/5",
+        "state": "OPEN",
+        "isDraft": true,
+        "headCommit": "fcc0efa27b01b8b33a641c1626a62d437ad31c51",
+        "technicalCi": "SUCCESS",
+        "latestPolicy": "FAILURE",
+        "latestPolicyJob": "https://github.com/jpdandin44/TC_Longages/actions/runs/36901224953/job/110500603502",
+        "workflowDispatchedAtSessionClose": false
+      }
+    }
+  },
+  "historicalFieldsBasis": "Les champs de revue initiaux et les sections du 1er octobre restent des constats historiques datés. configurationSessionReview porte la reprise et clôture documentaire du 3 octobre ; aucune ancienne preuve ne reçoit le nouveau SHA.",
+  "configurationSessionReview": {
+    "recordedAt": "2026-10-03T21:39:13.653904+00:00",
+    "sourceCommit": "635dce9faaa59ded68b477face87c319029e0aae",
+    "artifactDigest": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7",
+    "candidateManifest": "data/framework-candidate.json",
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+    "draft": true,
+    "scope": "Configuration et clôture documentaires ; distinctes du ZIP Drupal construit sur 49b4ef7.",
+    "localTests": [
+      {
+        "command": "npm.cmd run check",
+        "tests": 136,
+        "passed": 136,
+        "failed": 0
+      },
+      {
+        "command": "npm.cmd run framework:check",
+        "tests": 27,
+        "passed": 27,
+        "failed": 0
+      }
+    ],
+    "views": "Régénérées après préparation du nouveau manifeste.",
+    "resolvedVerificationIssue": "Premier précontrôle framework arrêté sur une vue périmée après changement de manifeste ; régénération puis 27 tests réussis.",
+    "documentaryCheck": {
+      "scaffoldMissing": [],
+      "documentsChecked": 13,
+      "metadataIssues": [],
+      "localLinksChecked": 287,
+      "missingLocalLinks": [],
+      "structuredFilesParsed": 5
+    },
+    "protectedHumanHistoryUnchanged": [
+      "history",
+      "decisions",
+      "reviewEvents",
+      "reviewFollowUps",
+      "requirementChanges",
+      "reviewCommentResponses"
+    ],
+    "validatedPhaseZeroUnchanged": true,
+    "humanChecklistLabelsPreserved": true,
+    "humanBoxesCheckedByAgent": false,
+    "remoteRuntimeQualified": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "sessionGuide": "docs/point-session.md",
+    "hostingReceipt": "data/activation-lune-verification.json",
+    "hostingClosure": "data/activation-lune-verification.json#latestSessionClose",
+    "privateCheckLogs": [
+      ".local/configuration-source-check.log",
+      ".local/configuration-source-framework-check.log"
+    ],
+    "historicalProofsReassigned": false,
+    "deliveryGates": [
+      {
+        "gate": "preproduction",
+        "status": "blocked",
+        "exitCode": 1,
+        "output": "{\n  \"gate\": \"preproduction\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Accord humain exact absent : preproduction.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
+        "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+      },
+      {
+        "gate": "production",
+        "status": "blocked",
+        "exitCode": 1,
+        "output": "{\n  \"gate\": \"production\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Cible de production non prouvée.\",\n    \"Contrôle actuel absent : preproduction sur https://preprod.tclongages.fr/.\",\n    \"Accord humain exact absent : review.\",\n    \"Accord humain exact absent : production.\",\n    \"Acceptation GitHub du candidat non vérifiée.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\",\n    \"Retour arrière de ce candidat non qualifié.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
+        "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+      }
+    ]
   }
 }

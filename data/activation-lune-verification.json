@@ -1,0 +1,322 @@
+{
+  "project": "tclongages",
+  "documentType": "hosting-preparation-receipt",
+  "version": "git",
+  "created": "2026-10-01",
+  "updated": "2026-10-03",
+  "owner": "jpdandin",
+  "status": "session_closed_configuration_partial_domain_blocked",
+  "humanAuthorization": {
+    "answer": "Autoriser sauvegarde et activation gratuite",
+    "scope": "Sauvegarde du compte TC, restauration en copie privée, puis activation de la première lune gratuite après réussite des contrôles.",
+    "stopConditions": [
+      "nouvel identifiant ou mot de passe",
+      "acceptation contractuelle",
+      "option payante"
+    ]
+  },
+  "backup": {
+    "snapshotDateDisplayed": "2026-10-03 08:10",
+    "snapshotTimeBasis": "Affichage du serveur JetBackup ; fuseau non déduit.",
+    "downloadedSnapshotArchives": 3,
+    "snapshotScopes": [
+      "fichiers du compte, y compris fichiers masqués",
+      "deux zones DNS",
+      "certificats de deux domaines"
+    ],
+    "snapshotRegularFilesRestored": 78,
+    "snapshotLinksRestored": 2,
+    "freshPublicRootArchiveCreatedOutsideWebroot": true,
+    "freshPublicRootArchiveDownloaded": true,
+    "freshPublicRootRegularFilesRestored": 1,
+    "freshPublicRootDirectoriesRestored": 2,
+    "freshPublicRootHiddenFilesFound": 0,
+    "currentPublicRootMatchesSnapshot": true,
+    "gzipIntegrityVerified": true,
+    "allRestoredHashesMatched": true,
+    "privateFileCopyRestorationTested": true,
+    "activeAccountRestorationExecuted": false,
+    "databaseImportTested": false,
+    "dnsImportTested": false,
+    "certificateInstallationTested": false,
+    "posixOwnershipAndModesApplied": false,
+    "privateEvidenceLocation": "Hors Git, sous .local/hosting-backups/2026-10-03-pre-moon ; archives et copies restaurées protégées par les permissions locales.",
+    "limit": "Restauration des fichiers dans une copie locale séparée ; aucun réimport dans cPanel, DNS, certificats ou base. Les paramètres non couverts par ces exports ne sont pas déclarés restaurables.",
+    "checkedAt": "2026-10-03T20:28:36.601004+00:00"
+  },
+  "liveInventory": {
+    "checkedAt": "2026-10-01",
+    "mysqlDatabases": 0,
+    "mysqlUsers": 0,
+    "mysqlInventoryBasis": "Tables des bases et utilisateurs dans cPanel, sans création.",
+    "additionalEmailAccountsDisplayed": 0,
+    "additionalFtpAccountsDisplayed": 0,
+    "emailAndFtpInventoryBasis": "Statistiques cPanel ; ne vaut pas recette de service.",
+    "currentSiteFilesModified": false,
+    "resumptionCheckedAt": "2026-10-03T20:34:29.627007+00:00",
+    "resumptionScope": "Racine du compte confirmée ; zéro base indiqué dans les statistiques ; les utilisateurs SQL restent un constat historique du 1er octobre."
+  },
+  "moon": {
+    "target": "Première lune gratuite affichée, réservée à la préproduction TC.",
+    "activeBefore": 0,
+    "freeRemainingBefore": 8,
+    "priceDisplayedMonthlyEur": 0,
+    "activationDialogOpened": true,
+    "dialogRequiresNewPassword": true,
+    "agentEnteredCredential": false,
+    "activationSubmittedByAgent": false,
+    "activationConfirmed": true,
+    "handoffRequested": true,
+    "handoffPending": false,
+    "dialogCancelledAtSessionClose": false,
+    "activeAfter": 1,
+    "freeRemainingAfter": 7,
+    "observedAt": "2026-10-03T20:34:29.627007+00:00",
+    "submittedBy": "responsable",
+    "confirmationBasis": "Réponse personnelle « Lune activée », compteur 1 active / 7 restantes et accès cPanel du sous-compte confirmés."
+  },
+  "remoteBackupArchiveCreated": true,
+  "phpChanged": true,
+  "dnsChanged": false,
+  "databaseCreated": true,
+  "drupalInstalledRemotely": false,
+  "productionDeploymentExecuted": false,
+  "publicOpeningExecuted": false,
+  "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+  "sessionClose": {
+    "requestedBy": "jpdandin",
+    "closedAt": "2026-10-01T22:26:05+02:00",
+    "timezone": "Europe/Paris",
+    "reason": "Fin de session pour aujourd’hui, clôture et documentation demandées.",
+    "cpanelLogoutConfirmed": true,
+    "cpanelTabClosed": true,
+    "localProjectPortsChecked": [
+      4173,
+      4174,
+      4180,
+      4181,
+      4182
+    ],
+    "localProjectListenersFound": 0,
+    "automaticResumptionScheduled": false,
+    "commitExecuted": false,
+    "pushExecuted": false,
+    "mergeExecuted": false,
+    "sourceDocumentsCommitted": false,
+    "candidateRefreshRequiredBeforeDelivery": true,
+    "privateScreenshot": "cloture-cpanel.png — conservée avec les preuves privées hors Git."
+  },
+  "history": [
+    {
+      "recordedAt": "2026-10-01T22:26:05+02:00",
+      "status": "session_closed_activation_pending",
+      "backup": {
+        "snapshotDateDisplayed": "2026-10-01 07:57",
+        "snapshotTimeBasis": "Affichage du serveur JetBackup ; fuseau non déduit.",
+        "downloadedSnapshotArchives": 3,
+        "snapshotScopes": [
+          "fichiers du compte, y compris fichiers masqués",
+          "deux zones DNS",
+          "certificats de deux domaines"
+        ],
+        "snapshotRegularFilesRestored": 75,
+        "snapshotLinksRestored": 2,
+        "freshPublicRootArchiveCreatedOutsideWebroot": true,
+        "freshPublicRootArchiveDownloaded": true,
+        "freshPublicRootRegularFilesRestored": 1,
+        "freshPublicRootDirectoriesRestored": 2,
+        "freshPublicRootHiddenFilesFound": 0,
+        "currentPublicRootMatchesSnapshot": true,
+        "gzipIntegrityVerified": true,
+        "allRestoredHashesMatched": true,
+        "privateFileCopyRestorationTested": true,
+        "activeAccountRestorationExecuted": false,
+        "databaseImportTested": false,
+        "dnsImportTested": false,
+        "certificateInstallationTested": false,
+        "posixOwnershipAndModesApplied": false,
+        "privateEvidenceLocation": "Hors Git, sous .local/hosting-backups/2026-10-01-pre-moon ; archives et copies restaurées protégées par les permissions locales.",
+        "limit": "Restauration des fichiers dans une copie locale séparée ; aucun réimport dans cPanel, DNS, certificats ou base. Les paramètres non couverts par ces exports ne sont pas déclarés restaurables."
+      },
+      "moon": {
+        "target": "Première lune gratuite affichée, réservée à la préproduction TC.",
+        "activeBefore": 0,
+        "freeRemainingBefore": 8,
+        "priceDisplayedMonthlyEur": 0,
+        "activationDialogOpened": true,
+        "dialogRequiresNewPassword": true,
+        "agentEnteredCredential": false,
+        "activationSubmittedByAgent": false,
+        "activationConfirmed": false,
+        "handoffRequested": true,
+        "handoffPending": false,
+        "dialogCancelledAtSessionClose": true
+      }
+    }
+  ],
+  "sessionResume": {
+    "requestedAt": "2026-10-03",
+    "status": "in_progress",
+    "cpanelAuthenticated": true,
+    "credentialEnteredByAgent": false,
+    "backupInterfaceError": "Session cPanel renouvelée pendant la première compression ; archive absente, reprise dans la session valide, puis téléchargement et restauration réussis."
+  },
+  "preproductionAccountInventory": {
+    "checkedAt": "2026-10-03T20:45:45.505075+00:00",
+    "isolatedAccountAccessConfirmed": true,
+    "currentPhp": "native (8.1)",
+    "php83Available": true,
+    "additionalDomains": 0,
+    "mysqlDatabases": 0,
+    "mysqlUsers": 0,
+    "visiblePublicRoot": [
+      "cgi-bin/"
+    ],
+    "hiddenFilesInventoried": false,
+    "targetDocumentRootConfigured": false,
+    "privateEvidenceLocation": ".local/hosting-backups/2026-10-03-pre-moon/moon-inventory.json",
+    "limit": "Lecture du nouveau compte, sans changement PHP, création de domaine ou base ; la vacuité exhaustive de la future racine reste à qualifier."
+  },
+  "configurationAuthorization": {
+    "recordedAt": "2026-10-03T20:52:02.657088+00:00",
+    "actor": "jpdandin",
+    "source": "user_chat",
+    "answer": "Autoriser ce lot de configuration",
+    "target": "Première lune active, pour preprod.tclongages.fr uniquement.",
+    "scope": [
+      "PHP 8.3 et compatibilité",
+      "racine Composer isolée",
+      "domaine, DNS et HTTPS de préproduction",
+      "base et utilisateur SQL dédiés avec saisie personnelle du nouveau mot de passe"
+    ],
+    "excluded": [
+      "transfert Drupal",
+      "nouvel accès SSH",
+      "migration du domaine officiel",
+      "ouverture publique du site"
+    ],
+    "plan": "docs/preparer-lune-tc.md"
+  },
+  "configuration": {
+    "status": "partial_domain_blocked",
+    "startedAt": "2026-10-03T20:52:02.657088+00:00",
+    "changes": [
+      {
+        "component": "php",
+        "before": "native (8.1)",
+        "after": "8.3",
+        "scope": "Lune isolée uniquement",
+        "verified": "Sélecteur rechargé : 8.3 (actuelle)."
+      },
+      {
+        "component": "web-root",
+        "path": "tcl-preproduction/drupal/web",
+        "createdBy": "Tentative cPanel de rattachement du domaine, malgré son rejet",
+        "scope": "Lune isolée",
+        "visibleContentsWithDotfiles": [
+          "cgi-bin/",
+          ".htaccess"
+        ],
+        "denyFileBytes": 36,
+        "denyFileSha256": "dbdf47f62a27badc00789cd9369768de4d210117e6b04d534677154701c19435",
+        "downloadedCopyMatches": true,
+        "httpEnforcementTested": false
+      },
+      {
+        "component": "database",
+        "suffix": "tclpreprod",
+        "created": true,
+        "tablesFound": 0,
+        "collationBefore": "latin1_swedish_ci",
+        "collationAfter": "utf8mb4_unicode_ci",
+        "charset": "utf8mb4",
+        "sqlServer": "11.4.13-MariaDB",
+        "serverBasis": "phpMyAdmin du compte isolé ; son PHP ne qualifie pas le PHP servi par le site."
+      },
+      {
+        "component": "sql-user",
+        "suffix": "tcl",
+        "createdBy": "responsable",
+        "agentEnteredCredential": false,
+        "privileges": [
+          "ALTER",
+          "CREATE",
+          "CREATE TEMPORARY TABLES",
+          "DELETE",
+          "DROP",
+          "INDEX",
+          "INSERT",
+          "LOCK TABLES",
+          "SELECT",
+          "UPDATE"
+        ],
+        "scope": "Uniquement la base dédiée de suffixe tclpreprod",
+        "authorization": {
+          "answer": "Autoriser ces droits SQL",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "recordedAt": "2026-10-03T21:16:51.214996+00:00"
+        },
+        "persistedPrivilegesReread": true,
+        "applicationConnectionTested": false
+      }
+    ],
+    "checks": [
+      {
+        "component": "domain",
+        "host": "preprod.tclongages.fr",
+        "status": "rejected",
+        "reason": "Le domaine parent appartient au compte principal, distinct de la lune.",
+        "dnsWriteExecuted": false,
+        "certificateRequested": false,
+        "officialDomainMoved": false,
+        "publicDns": "NXDOMAIN"
+      },
+      {
+        "component": "runtime",
+        "status": "unqualified",
+        "reason": "PHP 8.3 sélectionné dans cPanel ; sonde PHP non transférée et aucun hôte de recette reconnu."
+      },
+      {
+        "component": "alternative",
+        "status": "proposed_unsubmitted",
+        "hostPattern": "preprod.<adresse-technique-de-la-lune>",
+        "sameRoot": true,
+        "technicalParentStrictTls": "Non qualifié : validation TLS stricte refusée ; aucun contournement.",
+        "privateScreenshot": ".local/hosting-backups/2026-10-03-pre-moon/alternative-address-proposed.png",
+        "formCancelledAtSessionClose": true
+      }
+    ],
+    "recordedAt": "2026-10-03T21:16:51.214996+00:00",
+    "providerConstraintSource": "https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/",
+    "databasePrivilegeSource": "https://www.drupal.org/docs/getting-started/installing-drupal/create-a-database",
+    "privateEvidenceLocation": ".local/hosting-backups/2026-10-03-pre-moon",
+    "rollbackLimit": "État PHP et collation initiaux relevés ; aucune suppression automatique de base, utilisateur ou dossier. Pas de réimport de compte ni de retour arrière Drupal testé."
+  },
+  "latestSessionClose": {
+    "requestedBy": "jpdandin",
+    "closedAt": "2026-10-03T23:32:21.540861+02:00",
+    "timezone": "Europe/Paris",
+    "reason": "Terminer la tâche en cours, documenter les blocages et le reste à faire, puis finir la session pour aujourd’hui.",
+    "hostingMutationsStopped": true,
+    "alternativeDomainFormCancelledWithoutSubmission": true,
+    "temporaryDomainAuthorizationReceived": false,
+    "moonLogoutConfirmed": true,
+    "mainAccountAuthenticatedPagesRequireLogin": true,
+    "workTabsClosed": 7,
+    "viewportOverrideReset": true,
+    "localProjectPortsChecked": [
+      4173,
+      4174,
+      4180,
+      4181,
+      4182
+    ],
+    "localProjectListenersFound": 0,
+    "automaticResumptionScheduled": false,
+    "mergeExecutedByAgent": false,
+    "privateEvidenceLocation": ".local/hosting-backups/2026-10-03-pre-moon",
+    "publicationEvidenceReceipt": "data/framework-revue-verification.json",
+    "configurationStatus": "partial_domain_blocked"
+  }
+}

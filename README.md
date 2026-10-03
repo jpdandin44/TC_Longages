@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags:
   - site-internet
@@ -17,7 +17,22 @@ tags:
 
 ## Mise en ligne V1 — parcours actuel
 
+La reprise du 3 octobre confirme la fusion humaine de la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5). L'Action de construction a réussi sur le commit de fusion ; le ZIP reçu a été vérifié intégralement sur le poste. Le [reçu de préparation](data/actions-mutualisees-verification.json), rubrique `postMergeBuild`, identifie ce candidat non configuré. Aucun déploiement ne découle du merge.
+
+La première lune gratuite est désormais active, après renouvellement des sauvegardes et restauration en copie privée : une lune active, sept restantes. Le responsable a créé et soumis son mot de passe directement dans cPanel. Le [reçu d'hébergement](data/activation-lune-verification.json) conserve ces preuves et la clôture historique ; l’état de configuration est décrit ci-dessous.
+
+Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
+
+Pour revoir les sept pages publiques, lancer `npm.cmd run officiel`, puis ouvrir [l'aperçu local](http://127.0.0.1:4180/). Le lien de validation de la PR #5 y pointe désormais ; les libellés obligatoires et les coches humaines ont été conservés. Cet aperçu ne qualifie pas les comptes, les services connectés ou l'installation distante. Le [point de session courant](docs/point-session.md) et le bloc `developmentWorkflow` du [suivi canonique](docs/suivi-chantier/suivi-chantier.json) portent la prochaine action.
+
+Les paragraphes datés du 1er octobre ci-dessous conservent l'historique de préparation et de clôture ; leur état de lune en attente est remplacé par le reçu courant.
+
+
 Reprise le 1er octobre à la demande du responsable : [préparation GitHub et composants o2switch réutilisables](workflows/preparer-livraison.md), issus de la chaîne du site Drupal AVEREO. Une seule revue Claude avec Sonnet Moyen ; accès GitHub rétabli sur le compte déjà connecté. Le [reçu daté](data/actions-mutualisees-verification.json) distingue résultats locaux, PR et prérequis distants. Aucun site installé ou ouvert par cette reprise.
+
+Le lot de sauvegarde et d'activation gratuite a ensuite été autorisé. Les archives du compte et une copie fraîche de la racine publique ont été restaurées et vérifiées dans un dossier privé ; ce test n'est pas un réimport sur l'hébergement. L'activation attend la saisie personnelle d'un nouveau mot de passe dans cPanel. Le [reçu d'hébergement](data/activation-lune-verification.json) et le [plan de reprise](docs/preparer-lune-tc.md) portent ce résultat et ses limites.
+
+La journée du 1er octobre est close à la demande du responsable : formulaire annulé, déconnexion cPanel confirmée et onglet fermé. Le [point de session](docs/point-session.md) conserve la reprise exacte. Les derniers documents restent locaux, à intégrer au candidat avant une nouvelle remise ; la clôture ne lance aucune installation.
 
 La [qualification de préproduction](docs/qualification-preproduction.md) prépare la prochaine intervention après la revue ciblée avec Claude. `npm.cmd run hosting:probe:build` génère une sonde sans secret et fermée par défaut dans `.local/qualification-preproduction/`. Le [reçu de reprise](data/reprise-deploiement-verification.json) distingue vérifications locales, lectures publiques et prérequis distants encore ouverts. Aucun transfert ne découle de cette commande.
 
@@ -53,15 +68,17 @@ La variante statique officielle reste préparée dans `officiel/`, depuis la vit
 | `npm.cmd run officiel:demo:build` | Produit les sept pages V1 et la fermeture Apache contrôlable dans `officiel-demo-o2switch/`, pour le dépôt manuel sur le sous-domaine. |
 | `npm.cmd run officiel:demo:package` | Reconstruit puis archive cette démonstration V1, fermée par défaut ; aucun dépôt sur o2switch. |
 
-La [baseline locale du 24 septembre](data/baseline-officiel.json) identifie les 182 fichiers sauvegardés avant intégration ; la [provenance V1](data/officiel-sources.json) conserve les empreintes des pièces reçues et les confirmations utilisateur. L'[archive officielle d'aperçu](livrables/tc-longages-officiel-apercu.zip) contient dix fichiers pour la revue locale, distincte de la bêta réelle. **Sa fermeture Apache est inconditionnelle : renommer `maintenance.active` ne permet pas de l'ouvrir.** Cette règle est vérifiée statiquement, sans essai Apache distant de ce paquet. Utiliser le serveur local pour la revue ; une future bêta nécessitera un autre paquet et son autorisation.
+La [baseline locale du 24 septembre](data/baseline-officiel.json) identifie les 182 fichiers sauvegardés avant intégration ; la [provenance V1](data/officiel-sources.json) conserve les empreintes des pièces reçues et les confirmations utilisateur. L'archive officielle d'aperçu `livrables/tc-longages-officiel-apercu.zip` contient dix fichiers pour la revue locale, distincte de la bêta réelle. **Sa fermeture Apache est inconditionnelle : renommer `maintenance.active` ne permet pas de l'ouvrir.** Cette règle est vérifiée statiquement, sans essai Apache distant de ce paquet. Utiliser le serveur local pour la revue ; une future bêta nécessitera un autre paquet et son autorisation.
 
-Pour reproduire la présentation statique historique sur le sous-domaine, utiliser **[tc-longages-v1-demo-o2switch.zip](livrables/tc-longages-v1-demo-o2switch.zip)** avec le [guide de dépôt V1](docs/publier-v1-sous-domaine.md). Cette nouvelle variante conserve les sept pages officielles, sans compte ni envoi de contact, et ajoute une ouverture manuelle : `maintenance.active` vers `maintenance.inactive`, fermeture par l'inverse. Les deux témoins ou leur absence ferment le site. Après sauvegarde de la racine exacte, installer et constater la fermeture avant de copier les pages ; le ZIP seul ne remplace pas le site. Pendant l'ouverture, seules les pages V1 et `robots.txt` sont servis ; les anciennes routes sont refusées. La [recette du paquet V1](docs/recette-v1-sous-domaine.md) distingue les résultats locaux des contrôles que l'utilisateur doit encore réaliser sur o2switch. Aucune intervention distante de l'agent n'est autorisée par cette préparation.
+Pour reproduire la présentation statique historique sur le sous-domaine, utiliser **`livrables/tc-longages-v1-demo-o2switch.zip`** avec le [guide de dépôt V1](docs/publier-v1-sous-domaine.md). Cette nouvelle variante conserve les sept pages officielles, sans compte ni envoi de contact, et ajoute une ouverture manuelle : `maintenance.active` vers `maintenance.inactive`, fermeture par l'inverse. Les deux témoins ou leur absence ferment le site. Après sauvegarde de la racine exacte, installer et constater la fermeture avant de copier les pages ; le ZIP seul ne remplace pas le site. Pendant l'ouverture, seules les pages V1 et `robots.txt` sont servis ; les anciennes routes sont refusées. La [recette du paquet V1](docs/recette-v1-sous-domaine.md) distingue les résultats locaux des contrôles que l'utilisateur doit encore réaliser sur o2switch. Aucune intervention distante de l'agent n'est autorisée par cette préparation.
 
 La [recette officielle](docs/recette-officiel.md) consigne **87 tests Node réussis** et la vérification des sept pages à 1440, 390 et 320 px, avec 25 captures. Les six raccourcis ouvrent chacun leur écran en un clic ; le menu a aussi été contrôlé à 1060 et 1101 px. **G0 est réalisé localement et G1 qualifié pour l'identité et l'accès aux écrans**, sans valoir validation métier par l'utilisateur. G2 reste partiel avec contact simulé ; G3 à G8 ne sont pas acquis. Aucun service Google, accès privé V1 ou déploiement n'est validé par ces résultats.
 
 Les sections suivantes décrivent les **prototypes antérieurs conservés** et leurs outils. Leurs inscriptions fictives, deux comptes expérimentaux et présentation HTTP libre ne définissent plus le P0 officiel. Aucun paquet antérieur n'est à assimiler à la future bêta sécurisée.
 
 ## Prototypes antérieurs conservés
+Les archives `livrables/*.zip` citées ci-dessous sont des sorties locales générées, non versionnées et absentes d'un checkout neuf. Utiliser les commandes de génération de ce README avant de les rechercher ; leurs noms sont conservés sans lien de téléchargement inexistant. Le pack historique externe reste une source à retrouver pour ses anciens crédits.
+
 
 Le projet prépare une vitrine du club et un espace réservé au bureau pour la communication et la gestion des inscriptions. Une **visite complète avec données fictives** permet maintenant d'examiner le formulaire adhérent, la gestion bureau et la communication, sans compte ni collecte réelle. Elle est séparée du prototype bureau protégé et ne remplace pas les services à réaliser pour une utilisation réelle.
 
@@ -71,9 +88,9 @@ Pour découvrir l'ensemble, utiliser le [guide de visite](docs/visiter-prototype
 
 **La mise en ligne reste soumise à l'accord explicite de l'utilisateur.** La création des fichiers locaux ne constitue ni une publication ni une autorisation de publier.
 
-Le [paquet de présentation antérieure](livrables/tc-longages-demo-o2switch.zip), absent lors de la première intégration V1, a été régénéré le 24 septembre pour aligner le contact avec les autres variantes actives. Les copies archivées antérieures restent intactes. Son [guide de dépôt et de fermeture](docs/publier-demo-o2switch.md) reste conservé. Sa structure contient sept pages fictives, `robots.txt`, `.htaccess` et `maintenance.active` : la démonstration est préparée fermée par défaut. Seules la vitrine et l'adhésion figurent dans les menus publics ; les outils restent accessibles par adresse directe, **sans protection ni authentification** pendant l'ouverture. Aucun dépôt n'est effectué par l'agent.
+Le paquet de présentation antérieure `livrables/tc-longages-demo-o2switch.zip`, absent lors de la première intégration V1, a été régénéré le 24 septembre pour aligner le contact avec les autres variantes actives. Les copies archivées antérieures restent intactes. Son [guide de dépôt et de fermeture](docs/publier-demo-o2switch.md) reste conservé. Sa structure contient sept pages fictives, `robots.txt`, `.htaccess` et `maintenance.active` : la démonstration est préparée fermée par défaut. Seules la vitrine et l'adhésion figurent dans les menus publics ; les outils restent accessibles par adresse directe, **sans protection ni authentification** pendant l'ouverture. Aucun dépôt n'est effectué par l'agent.
 
-L'[ancienne archive de vitrine seule](livrables/tc-longages-vitrine-o2switch.zip) reste une option distincte, documentée dans son [guide](docs/deployer-vitrine-o2switch.md). Elle ne remplace pas le nouveau paquet de présentation complète.
+L'ancienne archive de vitrine seule `livrables/tc-longages-vitrine-o2switch.zip` reste une option distincte, documentée dans son [guide](docs/deployer-vitrine-o2switch.md). Elle ne remplace pas le nouveau paquet de présentation complète.
 
 ## État et sources de vérité
 
@@ -248,7 +265,7 @@ Ne pas modifier `dist/`, `prototype/`, `demo-o2switch/` ou `release/` à la main
 - [Partage dans les groupes WhatsApp](api/whatsapp.md)
 - [Préparation ADOC simulée](api/adoc.md)
 - [Consignes pour les interventions suivantes](AGENTS.md)
-- [Crédits des photographies du pack historique](TCL_Longages_Migration_o2switch/CREDITS_IMAGES.md) ; les crédits courants sont intégrés à la vitrine.
+- Crédits des photographies du pack historique : source externe `TCL_Longages_Migration_o2switch/CREDITS_IMAGES.md`, absente de ce checkout ; les crédits courants sont intégrés à la vitrine.
 
 La [recette du prototype protégé](docs/recette-prototype.md) consigne ses contrôles, dont les accès testés avec des identifiants éphémères en mémoire. La [recette de la visite fictive](docs/recette-demo.md) décrit séparément les vérifications effectivement réalisées sur les sept pages et l'archive ; les tests antérieurs ne valent pas validation de cette extension. Aucun compte réel n'est ouvert. Le site public, son HTTPS, la délivrabilité de la messagerie et la réception dans les groupes WhatsApp ne sont pas validés par un contrôle local. Les groupes réels existants ou nouveaux à utiliser restent à préciser avec l'utilisateur.
 

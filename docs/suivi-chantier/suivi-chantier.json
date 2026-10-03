@@ -4,9 +4,9 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-09-29",
+  "updated": "2026-10-03",
   "owner": "jpdandin",
-  "scope": "Développement local du suivi interactif et Drupal dédié, avec inventaire hébergement en lecture seule. P0 V1 préservé ; aucune publication ou activation distante.",
+  "scope": "Développement local du suivi et préparation du Drupal dédié ; configuration isolée partielle autorisée de la lune, sans livraison ni ouverture publique. Les constats historiques et validations humaines sont conservés.",
   "currentPhase": 1,
   "state": "in_progress",
   "baseline": {
@@ -153,9 +153,16 @@
         "Préproduction cible identifiée et séparée",
         "Gestion des secrets et restauration documentées"
       ],
-      "blockers": [],
-      "nextAction": "Après validation de la phase 0 et autorisation distincte : qualifier dépôt, runtime, préproduction, secrets et sauvegardes ; aucun raccordement Git distant présumé.",
-      "pullRequest": null
+      "blockers": [
+        "Le domaine parent tclongages.fr appartient au compte principal : cPanel refuse son sous-domaine sur la lune.",
+        "Adresse temporaire proposée sans accord ni création ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL non qualifiés."
+      ],
+      "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "pullRequests": [
+        "https://github.com/jpdandin44/TC_Longages/pull/5",
+        "https://github.com/jpdandin44/TC_Longages/pull/6"
+      ]
     },
     {
       "id": 2,
@@ -1016,9 +1023,13 @@
     "lastDeploymentEvidence": null
   },
   "session": {
-    "status": "awaiting_user",
+    "status": "closed",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte."
+    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+    "lastResumeAt": "2026-10-03T20:34:29.627007+00:00",
+    "currentGuide": "docs/point-session.md",
+    "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
+    "automaticResumptionScheduled": false
   },
   "observations": [
     {
@@ -1084,6 +1095,222 @@
       "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/2",
       "statement": "PR #2 fusionnée le 29 septembre 2026 ; technical-ci et policy réussis sur sa version finale. Le responsable indique avoir effectué la revue.",
       "limits": "Le contrôle Files Changed est déclaratif dans la checklist ; GitHub ne requiert pas le marquage Viewed des fichiers. Aucune mise en production. La phase 0 reste en revue dans cet outil et demande sa propre validation."
+    },
+    {
+      "id": "TCL-OBS-REPRISE-20261003",
+      "kind": "repository",
+      "recordedAt": "2026-10-03T20:34:29.627007+00:00",
+      "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/5",
+      "statement": "PR #5 fusionnée par le responsable ; Action de construction réussie sur le commit de fusion et candidat ZIP reçu vérifié. La lune isolée est active après sauvegarde privée requalifiée.",
+      "limits": "Aucune validation de phase ou recette hébergée déduite ; l’ancienne prochaine action de session est conservée ci-dessous comme historique.",
+      "previousSession": {
+        "status": "awaiting_user",
+        "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
+        "nextAction": "PR #2 fusionnée et contrôles GitHub réussis. Renseigner personnellement les quatre critères de cette phase dans le suivi, puis décider de sa validation. La phase 1 demande une autorisation distincte."
+      }
+    },
+    {
+      "id": "TCL-OBS-CONFIGURATION-20261003",
+      "recordedAt": "2026-10-03T21:16:51.214996+00:00",
+      "source": "cpanel_and_user_chat",
+      "summary": "Lot isolé partiellement exécuté après accord : PHP 8.3, dossier et fermeture Apache relue, base utf8mb4 vide, utilisateur personnel et dix droits relus. Domaine prévu refusé ; DNS/HTTPS/runtime non qualifiés.",
+      "receipt": "data/activation-lune-verification.json",
+      "humanPhaseValidation": false
     }
-  ]
+  ],
+  "developmentWorkflow": {
+    "protocol": "developpement-github-cockpit",
+    "version": "git",
+    "iterationId": "tcl-preproduction-20261003",
+    "project": "TC_Longages",
+    "owner": "jpdandin",
+    "kind": "site",
+    "stage": "local",
+    "status": "blocked",
+    "objective": "Qualifier la préproduction Drupal dédiée à partir du candidat construit sur main après fusion de la PR #5.",
+    "candidate": {
+      "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+      "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a"
+    },
+    "targets": {
+      "preproduction": {
+        "id": "https://preprod.tclongages.fr/",
+        "ready": false,
+        "isolated": false,
+        "empty": false,
+        "evidence": "data/activation-lune-verification.json",
+        "observedAt": "2026-10-03T20:34:29.627007+00:00",
+        "limit": "Compte isolé, PHP sélectionné, racine et SQL préparés ; domaine prévu refusé. Adresse alternative non soumise, DNS/HTTPS/runtime non qualifiés."
+      },
+      "production": {
+        "id": "https://tclongages.fr/",
+        "ready": false,
+        "evidence": "docs/point-session.md",
+        "observedAt": "2026-10-03T20:34:29.627007+00:00"
+      }
+    },
+    "github": {
+      "repository": "jpdandin44/TC_Longages",
+      "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "acceptedSourceSha": null,
+      "acceptedArtifactSha256": null,
+      "humanAcceptanceVerified": false,
+      "evidence": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "observedAt": "2026-10-03T20:34:29.627007+00:00",
+      "limit": "Merge de la préparation constaté ; le nouvel artefact construit après fusion n’a pas de recette humaine hébergée."
+    },
+    "checks": [
+      {
+        "kind": "ci",
+        "status": "passed",
+        "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+        "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+        "target": "github-build",
+        "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/37151085511",
+        "observedAt": "2026-10-03T20:34:29.627007+00:00"
+      },
+      {
+        "kind": "local",
+        "status": "passed",
+        "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+        "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+        "target": "zip-received",
+        "evidence": "data/actions-mutualisees-verification.json#postMergeBuild",
+        "observedAt": "2026-10-03T20:34:29.627007+00:00",
+        "scope": "Inventaire, empreintes de tous les fichiers et restrictions du candidat reçu ; aucune exécution serveur hébergé."
+      },
+      {
+        "kind": "documentation",
+        "status": "passed",
+        "sourceSha": "635dce9faaa59ded68b477face87c319029e0aae",
+        "artifactSha256": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7",
+        "evidence": "data/framework-revue-verification.json#configurationSessionReview",
+        "observedAt": "2026-10-03T21:39:13.653904+00:00",
+        "scope": "Socle, métadonnées, liens internes et JSON de la revue documentaire C1. Ne qualifie ni le ZIP Drupal 49b4ef7 ni son exécution hébergée.",
+        "target": "configuration-documentation"
+      }
+    ],
+    "approvals": [],
+    "backups": [
+      {
+        "target": "cpanel-current-pre-moon",
+        "id": "backup-pre-moon-20261003",
+        "status": "verified",
+        "restoreStatus": "passed",
+        "evidence": "data/activation-lune-verification.json",
+        "observedAt": "2026-10-03T20:28:36.601004+00:00",
+        "scope": "Restauration de fichiers en copie privée ; aucun réimport DNS, certificat, base ou compte actif."
+      }
+    ],
+    "rollback": {
+      "status": "not_tested",
+      "target": "https://tclongages.fr/",
+      "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "evidence": null,
+      "observedAt": null
+    },
+    "delivery": {
+      "status": "not_delivered",
+      "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+      "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "target": "https://tclongages.fr/",
+      "evidence": null,
+      "observedAt": null
+    },
+    "blockers": [
+      "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Adresse technique temporaire proposée, sans soumission.",
+      "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
+      "Adaptateur de première installation, recette hébergée et retour arrière à réaliser.",
+      "Candidat de production et accords exacts de livraison/ouverture non qualifiés."
+    ],
+    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+    "nextIteration": [
+      "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
+    ],
+    "budget": {
+      "limit": null,
+      "unit": "crédits",
+      "observedUsage": null,
+      "observedAt": null,
+      "instruction": "Économiser les modèles et conserver une marge de corrections ; aucune nouvelle revue Claude pour les contrôles déterministes de cette reprise."
+    },
+    "sessionClose": {
+      "closedAt": "2026-10-03T23:32:21.540861+02:00",
+      "guide": "docs/point-session.md",
+      "hostingReceipt": "data/activation-lune-verification.json",
+      "automaticResumptionScheduled": false,
+      "reason": "Arrêt demandé par le responsable après finalisation documentaire."
+    },
+    "configurationReview": {
+      "recordedAt": "2026-10-03T21:39:13.653904+00:00",
+      "sourceCommit": "635dce9faaa59ded68b477face87c319029e0aae",
+      "artifactDigest": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7",
+      "candidateManifest": "data/framework-candidate.json",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "draft": true,
+      "scope": "Configuration et clôture documentaires ; distinctes du ZIP Drupal construit sur 49b4ef7.",
+      "localTests": [
+        {
+          "command": "npm.cmd run check",
+          "tests": 136,
+          "passed": 136,
+          "failed": 0
+        },
+        {
+          "command": "npm.cmd run framework:check",
+          "tests": 27,
+          "passed": 27,
+          "failed": 0
+        }
+      ],
+      "views": "Régénérées après préparation du nouveau manifeste.",
+      "resolvedVerificationIssue": "Premier précontrôle framework arrêté sur une vue périmée après changement de manifeste ; régénération puis 27 tests réussis.",
+      "documentaryCheck": {
+        "scaffoldMissing": [],
+        "documentsChecked": 13,
+        "metadataIssues": [],
+        "localLinksChecked": 287,
+        "missingLocalLinks": [],
+        "structuredFilesParsed": 5
+      },
+      "protectedHumanHistoryUnchanged": [
+        "history",
+        "decisions",
+        "reviewEvents",
+        "reviewFollowUps",
+        "requirementChanges",
+        "reviewCommentResponses"
+      ],
+      "validatedPhaseZeroUnchanged": true,
+      "humanChecklistLabelsPreserved": true,
+      "humanBoxesCheckedByAgent": false,
+      "remoteRuntimeQualified": false,
+      "productionDeploymentExecuted": false,
+      "publicOpeningExecuted": false,
+      "sessionGuide": "docs/point-session.md",
+      "hostingReceipt": "data/activation-lune-verification.json",
+      "hostingClosure": "data/activation-lune-verification.json#latestSessionClose",
+      "privateCheckLogs": [
+        ".local/configuration-source-check.log",
+        ".local/configuration-source-framework-check.log"
+      ],
+      "historicalProofsReassigned": false,
+      "deliveryGates": [
+        {
+          "gate": "preproduction",
+          "status": "blocked",
+          "exitCode": 1,
+          "output": "{\n  \"gate\": \"preproduction\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Accord humain exact absent : preproduction.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
+          "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+        },
+        {
+          "gate": "production",
+          "status": "blocked",
+          "exitCode": 1,
+          "output": "{\n  \"gate\": \"production\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Cible de production non prouvée.\",\n    \"Contrôle actuel absent : preproduction sur https://preprod.tclongages.fr/.\",\n    \"Accord humain exact absent : review.\",\n    \"Accord humain exact absent : production.\",\n    \"Acceptation GitHub du candidat non vérifiée.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\",\n    \"Retour arrière de ce candidat non qualifié.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
+          "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+        }
+      ]
+    }
+  }
 }
