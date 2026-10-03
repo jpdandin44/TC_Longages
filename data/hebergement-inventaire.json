@@ -1,20 +1,30 @@
 {
   "project": "tclongages",
-  "checkedAt": "2026-09-29T09:00:29.282Z",
+  "checkedAt": "2026-09-29T16:45:01Z",
   "scope": "read-only",
   "source": "cPanel authenticated UI + local DNS resolution",
   "cpanel": {
     "host": null,
     "account": null,
     "home": null,
-    "version": "134.0.60"
+    "version": "134.0.61"
   },
   "domain": {
     "name": "tclongages.fr",
     "currentDocumentRoot": null,
+    "documentRootLabel": "public_html",
     "redirect": "none",
     "address": null,
     "wwwResolvesToSameAddress": true
+  },
+  "preproduction": {
+    "name": "preprod.tclongages.fr",
+    "configuredInCpanel": false,
+    "aRecordResolved": false,
+    "documentRoot": null,
+    "independentDocumentRootFieldOffered": true,
+    "certificate": null,
+    "checkedAt": "2026-09-29T16:01:06Z"
   },
   "files": {
     "visibleEntries": [
@@ -28,6 +38,7 @@
     "scope": "account default, three domain aliases",
     "cliVersion": null,
     "extensionsVerified": false,
+    "perDomainIsolation": "disabled by server administrator in PHP Selector; all three listed domains use account default",
     "availableForSelection": [
       "8.3",
       "8.4",
@@ -43,12 +54,16 @@
     "expiresOn": "2027-09-28",
     "trustedCertificateQualified": false,
     "letsEncryptToolAvailable": true,
-    "letsEncryptCertificatesExisting": 0
+    "letsEncryptCertificatesExisting": 0,
+    "letsEncryptIssueOfferedForMainDomain": true,
+    "preproductionCertificateQualified": false
   },
   "database": {
     "mysqlDatabases": 0,
     "mysqlUsers": 0,
-    "serverVersion": null
+    "serverVersion": "11.4.13-MariaDB",
+    "serverVersionSource": "phpMyAdmin server information, read-only",
+    "utf8mb4ForFutureDatabaseVerified": false
   },
   "backup": {
     "product": "JetBackup5",
@@ -77,9 +92,11 @@
   },
   "nextSteps": [
     "Qualify PHP8.4 and extensions then applicable approval",
-    "Prepare trusted certificate",
+    "Verify an available dedicated o2switch subaccount chosen by the owner; create only after exact action approval, then qualify compatible PHP there without changing the main account",
+    "Create preprod.tclongages.fr in the dedicated subaccount with its own web root only after reviewing the exact target and DNS effect",
+    "Prepare trusted certificates for preproduction and production; Let's Encrypt currently offers the main domain",
     "Complete hidden file inventory and fresh backup with restore before write",
-    "Prepare dedicated database credentials via user handoff, no secret in chat",
+    "Prepare dedicated database with utf8mb4 and credentials via user handoff, no secret in chat",
     "Prepare clean Drupal public root; local configuration is not a hosting package"
   ],
   "publication": {

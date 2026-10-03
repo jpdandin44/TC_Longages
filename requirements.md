@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,18 @@ tags:
 ---
 
 # Exigences
+
+## Exigence de reprise — Actions GitHub, 1er octobre
+
+La demande du 1er octobre exige la réutilisation des fonctionnalités des Actions du site Drupal AVEREO et une consommation de modèles limitée. Les comptes, secrets et cibles TC doivent rester distincts ; la préparation doit identifier le commit et le candidat exacts sans valoir autorisation de mise en production. La réalisation et ses limites sont dans le [workflow de référence](workflows/preparer-livraison.md).
+
+## Parcours de mise en ligne simplifié
+
+- Suivre la V1 publique dans quatre étapes opérationnelles, avec état et preuves séparés des décisions historiques des huit phases ; afficher ce parcours en HTML local.
+- Déployer d'abord les sept pages publiques sous Drupal. Garder fermés Bureau, formulaires Google, automatisations de communication et collecte tant que leurs propres recettes ne sont pas terminées.
+- Utiliser `preprod.tclongages.fr` comme cible de recette envisagée ; vérifier DNS, HTTPS, racine, PHP, SQL, sauvegarde et restauration avant écriture distante.
+- Préparer un candidat reproductible depuis les sources V1 et `composer.lock` ; garder les pages hors webroot, la maintenance native et l'absence d'indexation par défaut.
+- Exiger une décision explicite sur la livraison en production puis sur l'ouverture publique du site exact, avec retour arrière vérifiable.
 
 ## Pilotage adopté le 29 septembre
 

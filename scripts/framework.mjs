@@ -13,7 +13,8 @@ export const digest = value => createHash('sha256').update(value).digest('hex');
 // Ce garde-fou local ne remplace pas la protection de branche ni la revue humaine.
 const approvedWorkflows = Object.freeze({
   'ci.yml': 'de05726107a4da4a068f4deb32c2f072d71f516fcd90e303a5cd7bf13817572f',
-  'pr-policy.yml': '6b4e5856e70a06348187f1344893bafda532861eb446ae24387e3e87f6022c4d'
+  'pr-policy.yml': '6b4e5856e70a06348187f1344893bafda532861eb446ae24387e3e87f6022c4d',
+  'preparer-deploiement.yml': '917ff7b17bfc85ba37b8a874a9134739a0569506ad69c6ea81eccc6097ab298e'
 });
 export function validateActiveWorkflow(name, content) {
   if (!Object.hasOwn(approvedWorkflows, name)) throw new Error('Workflow actif non autorisé : ' + name);

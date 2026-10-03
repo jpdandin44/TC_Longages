@@ -11,9 +11,10 @@ const python = process.env.TCL_FRAMEWORK_PYTHON || (existsSync(resolve(root,'.lo
 const pythonEnv = {...process.env, PYTHONUTF8:'1', PYTHONDONTWRITEBYTECODE:'1'};
 const workflow = name => readFile(resolve(root,'.github/workflows',name),'utf8');
 
-test('Les seuls contrôles actifs sont les contenus CI et politique revus, sans déploiement', async()=>{
-  assert.deepEqual(await checkActiveWorkflows(), ['ci.yml','pr-policy.yml']);
-  for (const name of ['ci.yml','pr-policy.yml']) {
+test('Les seuls workflows actifs sont CI, politique et préparation revue, sans livraison', async()=>{
+  const names=['ci.yml','pr-policy.yml','preparer-deploiement.yml'];
+  assert.deepEqual(await checkActiveWorkflows(), names);
+  for (const name of names) {
     const content = await workflow(name);
     assert.doesNotThrow(()=>validateActiveWorkflow(name,content.replace(/\r?\n/g,'\r\n')));
     assert.throws(()=>validateActiveWorkflow(name,content+'\n# modification non revue\n'), /requalifier/);
@@ -21,7 +22,7 @@ test('Les seuls contrôles actifs sont les contenus CI et politique revus, sans 
   }
   const dir = await mkdtemp(resolve(tmpdir(),'tcl-ci-guard-'));
   try {
-    for (const name of ['ci.yml','pr-policy.yml']) await writeFile(resolve(dir,name),await workflow(name));
+    for (const name of names) await writeFile(resolve(dir,name),await workflow(name));
     await writeFile(resolve(dir,'deployer.yml'),'name: Publication\non: push\n');
     await assert.rejects(checkActiveWorkflows(dir), /non autorisé/);
     await rm(resolve(dir,'deployer.yml'));

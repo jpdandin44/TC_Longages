@@ -27,7 +27,6 @@ final class ClubPageController {
     return new Response(file_get_contents($file), 200, [
       'Content-Type' => 'text/html; charset=UTF-8',
       'Cache-Control' => 'private, no-store, max-age=0',
-      'X-Robots-Tag' => 'noindex, nofollow, noarchive',
     ]);
   }
 

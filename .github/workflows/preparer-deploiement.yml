@@ -1,0 +1,113 @@
+name: Préparer la livraison — TC Longages
+
+"on":
+  workflow_dispatch:
+    inputs:
+      approved_sha:
+        description: SHA complet examiné sur main
+        required: true
+        type: string
+      operation:
+        description: Construire sans accès ou vérifier uniquement SSH
+        required: true
+        type: choice
+        options: [build, qualify-ssh]
+        default: build
+      confirmation:
+        description: QUALIFY SSH TC Longages uniquement pour la qualification SSH
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tcl-preparation
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main' && inputs.operation == 'build'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      APPROVED_SHA: ${{ inputs.approved_sha }}
+      OPERATION: build
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Contrôler le commit avant préparation
+        run: python3 scripts/prepare_delivery.py validate
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.18.0'
+          cache: npm
+      - name: Vérifier les garde-fous mutualisés
+        run: python3 -m unittest discover -s tests -p 'test_delivery_shared.py'
+      - name: Construire les sept pages sans intégration réelle
+        run: |
+          npm ci --ignore-scripts
+          npm run drupal:public:build
+      - name: Installer le runtime depuis le verrou Composer
+        working-directory: drupal
+        run: |
+          php -r 'if (PHP_VERSION_ID < 80300) { exit(1); }'
+          composer validate --no-check-publish --no-interaction
+          composer audit --locked --no-interaction
+          composer install --no-dev --no-scripts --prefer-dist --no-interaction
+      - name: Construire et vérifier intégralement le candidat sans secrets
+        run: python3 scripts/prepare_delivery.py build > .local/delivery-receipt.json
+      - name: Conserver uniquement le candidat non configuré et son reçu
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: tcl-candidate-${{ github.sha }}
+          path: |
+            .local/delivery/tc-longages-drupal.zip
+            .local/delivery-receipt.json
+          include-hidden-files: true
+          retention-days: 7
+          if-no-files-found: error
+
+  qualify-ssh:
+    if: github.ref == 'refs/heads/main' && inputs.operation == 'qualify-ssh'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    environment: tcl-preproduction
+    env:
+      APPROVED_SHA: ${{ inputs.approved_sha }}
+      OPERATION: qualify-ssh
+      CONFIRMATION: ${{ inputs.confirmation }}
+      SSH_PROFILE: ${{ vars.TCL_SSH_PROFILE }}
+      SSH_HOST: ${{ vars.TCL_SSH_HOST }}
+      SSH_USER: ${{ vars.TCL_SSH_USER }}
+      SSH_PORT: ${{ vars.TCL_SSH_PORT }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Exiger le profil TC et l’accord d’accès avant connexion
+        run: python3 scripts/prepare_delivery.py validate
+      - name: Indiquer l’adresse du runner pour l’exception temporaire opérateur
+        run: |
+          set -euo pipefail
+          runner_ip=$(curl --fail --silent --show-error --max-time 15 https://api.ipify.org)
+          python3 - "$runner_ip" <<'PY'
+          import ipaddress,sys
+          ipaddress.IPv4Address(sys.argv[1])
+          PY
+          printf 'Autoriser temporairement cette seule IPv4 pour ce run : %s\n' "$runner_ip" >> "$GITHUB_STEP_SUMMARY"
+      - name: Réutiliser l’accès SSH vérifié issu de la chaîne AVEREO
+        uses: ./.github/actions/qualified-ssh
+        with:
+          host: ${{ vars.TCL_SSH_HOST }}
+          user: ${{ vars.TCL_SSH_USER }}
+          port: ${{ vars.TCL_SSH_PORT }}
+          key: ${{ secrets.TCL_SSH_KEY }}
+          known_hosts: ${{ secrets.TCL_KNOWN_HOSTS }}
+          wait_seconds: '300'
+      - name: Préciser la portée du résultat
+        run: |
+          printf 'SSH seulement : aucun transfert, aucune installation, aucune sauvegarde/restauration ou ouverture réalisée. Retirer uniquement l’exception réseau créée pour ce run.\n' >> "$GITHUB_STEP_SUMMARY"

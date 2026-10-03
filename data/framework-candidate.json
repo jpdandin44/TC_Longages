@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+  "sourceCommit": "e1dcf6ca3383c4dbe4f575426e565883ab79a280",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -20,9 +20,9 @@
     {
       "path": ".gitattributes",
       "mode": "100644",
-      "gitBlob": "3463d9d03cb507cfa556da0d475352d66a7f1620",
-      "size": 310,
-      "sha256": "e52e38288032fb7b9cc5ab6417813d1c5d739b4b64000dc390cfc6c2bb7bab1f"
+      "gitBlob": "f76faacab43823cc81b16eae73d84f38f4875f89",
+      "size": 328,
+      "sha256": "76fb07e01b37e61ec55e3726292a88d02e8e8f0d3b8693b532ae226d5d2d4aeb"
     },
     {
       "path": ".github/CODEOWNERS.example",
@@ -37,6 +37,13 @@
       "gitBlob": "d90f1049875749edc6a6e47438dde4c53b35b908",
       "size": 1432,
       "sha256": "c17aeb8ecd13b1525f3856175ac2da2ae4bdb2810e771f4c59facbc335635d09"
+    },
+    {
+      "path": ".github/actions/qualified-ssh/action.yml",
+      "mode": "100644",
+      "gitBlob": "1a29b63c40688c75956fad90a0f0ac6900d1a6f9",
+      "size": 1208,
+      "sha256": "e68f5c762c75fef552d663dfaaef954ee82f71f33de910486f29022243d30342"
     },
     {
       "path": ".github/scripts/check-pr-policy.py",
@@ -74,6 +81,13 @@
       "sha256": "f1e85f660df5beb43ba12a2906c53ee9176035a3f8fbc12b1d25a6a4a60af323"
     },
     {
+      "path": ".github/workflows/preparer-deploiement.yml",
+      "mode": "100644",
+      "gitBlob": "af418f36fc32a96cac309eb26e2a5e050378d499",
+      "size": 4469,
+      "sha256": "917ff7b17bfc85ba37b8a874a9134739a0569506ad69c6ea81eccc6097ab298e"
+    },
+    {
       "path": ".github/workflows/preproduction.yml.example",
       "mode": "100644",
       "gitBlob": "91ccaae1f38ba9756426ce7f5fdc516e30249f5b",
@@ -90,9 +104,9 @@
     {
       "path": "AGENTS.md",
       "mode": "100644",
-      "gitBlob": "43e91b6dc7258209faa29446f7802433b41a0b0b",
-      "size": 22335,
-      "sha256": "e6ac12b6e31c5128003ace3604cb2d7a58c6309d09183b7807d79567285ffefa"
+      "gitBlob": "5059142e915b20d8b921a75d9e8ac0ca84096adb",
+      "size": 22726,
+      "sha256": "8ec98e8759131c04f7a935187ee486c0a8c1d61061f363f456527d3c1474b198"
     },
     {
       "path": "Affiche.jpeg",
@@ -125,9 +139,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "3f6a1d500dc5eb45b72d00a479429ed4ec1dd542",
-      "size": 35179,
-      "sha256": "db03659f5bacc92112fbbbeec7a68788ef5d0db438c15a647ed7e22cbf421c0e"
+      "gitBlob": "ae1a011c1bd7f2ecbe38364efdd45a3525d2a3a5",
+      "size": 37745,
+      "sha256": "90f9444c13c7317e1a9b5619b23a01b2e126123b3ee8ca6cacf062510ea28e3b"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -181,16 +195,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "040264fcc7341164fe26a1ffda0d123cb2633531",
-      "size": 37073,
-      "sha256": "bd456bd2304851351ab5f3c1d4e7819a3208069bbebab7f91be6ae27a825c0cf"
+      "gitBlob": "93e091ffe7a1c5042b2089f52850b2538fccae30",
+      "size": 39166,
+      "sha256": "d8d174015708e46bf04f7a572e089bef5cae96d20ef3d918ba0613eebc051c65"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "7d4c40db1d12a239105303e397192bb3fb5fc76e",
-      "size": 23707,
-      "sha256": "b6e4afb4fa184302c25ece3b289f3b94f8628afd7f50f2c6f4e2157eca0d3079"
+      "gitBlob": "54484cdabceedb0d62edac798b8c433807c5838e",
+      "size": 26073,
+      "sha256": "ca79aa963157b1dcf75e7194669f7f6b2d8eec683f4c790d89e0e0f6f6568b08"
     },
     {
       "path": "config/officiel.json",
@@ -198,6 +212,20 @@
       "gitBlob": "6d05b5a385c31a4f3effd8e8ff7cc9b3a75ff2b0",
       "size": 2276,
       "sha256": "fa82f97518298ada7e25b6a1745e281031d326d8e5c9ccff41ad86abf4234294"
+    },
+    {
+      "path": "config/ssh-qualification.example.json",
+      "mode": "100644",
+      "gitBlob": "12130874633b52df268a324a05519d8fd35f9c7b",
+      "size": 191,
+      "sha256": "9cb6ce95ea2d75a0c381fc0a48ee4549b0f0d3d35d8cd238da78785ca28b637e"
+    },
+    {
+      "path": "data/actions-mutualisees-verification.json",
+      "mode": "100644",
+      "gitBlob": "aa1bb848ca57e6b631b49e7259cf93150f50f07e",
+      "size": 4938,
+      "sha256": "683a2590a689950501a40fd64d23c61e12e6d570a54e15c29781eb9807e50eef"
     },
     {
       "path": "data/baseline-officiel.json",
@@ -237,9 +265,9 @@
     {
       "path": "data/hebergement-inventaire.json",
       "mode": "100644",
-      "gitBlob": "1daa5e0d4e38cf3e2369b09310996e87afe454a4",
-      "size": 2678,
-      "sha256": "b6466f3f483b22183afa77517167a52c5a7e7fab92640045520679000f7d83ae"
+      "gitBlob": "e33a99ad8bae1289628a449a2021edfdeaa0859d",
+      "size": 3758,
+      "sha256": "a6c57b715fdadfbcec5379a84a922157c81a2d40e3ce3afed142df71f91dc7ed"
     },
     {
       "path": "data/hosted-demo-manifest.json",
@@ -277,6 +305,20 @@
       "sha256": "1ba6f6d703636ca9458a301d8ce340bc64ae80ecb96edd7d770630365455bf71"
     },
     {
+      "path": "data/parcours-mise-en-ligne.json",
+      "mode": "100644",
+      "gitBlob": "c90cf1ed5479b89b952d9ed3aea6346ba457458b",
+      "size": 5931,
+      "sha256": "88645b63b922740ce82b4419c9bb4182ff4e590afd7bf9e1f8d96d11483ef216"
+    },
+    {
+      "path": "data/reprise-deploiement-verification.json",
+      "mode": "100644",
+      "gitBlob": "c334d18ff2e10b2438cd8e707693819b79004474",
+      "size": 6289,
+      "sha256": "257650d7ab2c9476d9784826f1a3bb90cbbcd4d32da448ffc53329809d959bde"
+    },
+    {
       "path": "data/source-provenance.json",
       "mode": "100644",
       "gitBlob": "3676558a18f4c99e81d370f9e022883b9ac9fd36",
@@ -293,9 +335,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "3aeec9e6205313bcce6c6b942a7b605b5b14ed1b",
-      "size": 29097,
-      "sha256": "56208631047e8a6833e2e1c21981941630880834a6aa944e38fa2518a7e1c7cb"
+      "gitBlob": "843bbb5996f1be4db26b4f90f81e5a024819da3c",
+      "size": 32833,
+      "sha256": "e9015dca3ec8bc0f59c04903b5bd3a41b386e0e677518d7c6b1a2ddaf9e71b0d"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -349,9 +391,9 @@
     {
       "path": "docs/installation-drupal.md",
       "mode": "100644",
-      "gitBlob": "d26caf84dc62b4ed501cafa3b6fbef6fbfe58ae3",
-      "size": 14873,
-      "sha256": "a72a2055d125ea3ef233b9b01a39c15b945c5c80e53ef60679cee5a44bbdce6b"
+      "gitBlob": "fa6e7768193cd27bffe4cd7d4e51b294b5d155a1",
+      "size": 20856,
+      "sha256": "1069b90da82508a280acc4adecd572745714e9eb5828ec7e0de3485d3ad55eeb"
     },
     {
       "path": "docs/installation-framework.md",
@@ -375,18 +417,32 @@
       "sha256": "161f30169ac727dd3baa7829b159bcbef8554c3ea4141ab82dd67905373fe52e"
     },
     {
+      "path": "docs/parcours-mise-en-ligne.md",
+      "mode": "100644",
+      "gitBlob": "1094a2aa4869af5a489df487ca8d44da204af531",
+      "size": 5842,
+      "sha256": "8e5f762e269ee791bfe0f77a7a8af18826274173af99b6091cd0ef89864daaad"
+    },
+    {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "6b31ea58fbf62f8ca927441c3080a8f608c0d93d",
-      "size": 7129,
-      "sha256": "d3b869b753e8e1a218a7fb3f2b950050905c67c667d6c50c4f1a2de473ea8ae2"
+      "gitBlob": "d1157a7175325d3f8efdf0d1f3f3f4108312b061",
+      "size": 17299,
+      "sha256": "3ac7ec0847ffb695415be00a4cd0c7b81d9742fdfdc429bfc1955953bdb9b012"
     },
     {
       "path": "docs/preparer-depot.md",
       "mode": "100644",
-      "gitBlob": "f0d6b644242f88b08a260a6e726ed50dda58b274",
-      "size": 4944,
-      "sha256": "d098123a37262b1518c488bd0d6afeef41112cd95b3fa64f106f73221ce7dfee"
+      "gitBlob": "3a3d66ce98f289732ff583945fa50308518216bd",
+      "size": 5286,
+      "sha256": "570782d1cc8fefa51f0d6c7de7c266a882d4e0c102b15332c9f9328afb13a627"
+    },
+    {
+      "path": "docs/preparer-lune-tc.md",
+      "mode": "100644",
+      "gitBlob": "e87fff5a32af6c8273aa693e6544d0131240c413",
+      "size": 4904,
+      "sha256": "cfa4a8c7e08b9e7c98864dd983364c41aa58023f1b4b2b950c9558b921ccde0a"
     },
     {
       "path": "docs/processus-inscriptions.md",
@@ -408,6 +464,13 @@
       "gitBlob": "26ef2b5d4914ba17352709ffa336d0daa43138f8",
       "size": 11947,
       "sha256": "ef936c856358595c3ec7fe23d1513b807277360901bbdef3d6ac99ed59d5a89b"
+    },
+    {
+      "path": "docs/qualification-preproduction.md",
+      "mode": "100644",
+      "gitBlob": "1f870cb27d40b34d1c21336a4c52fa814e6d5df1",
+      "size": 7621,
+      "sha256": "d9911915a17bc53fe66ad846cacead79696a95ec3a033c408d5c4299cbc2c3aa"
     },
     {
       "path": "docs/recette-demo-o2switch.md",
@@ -1588,9 +1651,9 @@
     {
       "path": "drupal/composer.json",
       "mode": "100644",
-      "gitBlob": "681eb94200e0f5cefdd1e35c2aad436b490778ab",
-      "size": 3778,
-      "sha256": "32eee5279509aa315f9503dbc19b669d3fa3dcec3032ebaf4126dc4d2b4223ee"
+      "gitBlob": "87720080e7332d46bf573e913b506e4014df3842",
+      "size": 3780,
+      "sha256": "8d155ae16479974f431c4275dfbd881be3e35cdcdbed819288d2e799746f3f88"
     },
     {
       "path": "drupal/composer.lock",
@@ -1602,9 +1665,9 @@
     {
       "path": "drupal/config/settings.hosting.example.php",
       "mode": "100644",
-      "gitBlob": "cceb2ea373b4cdd59380cd8ddea4719a69a4fa8b",
-      "size": 3491,
-      "sha256": "9fbef8b79fe749fce278cb06251b3d91234fa81da3fafce68820f67225086237"
+      "gitBlob": "1b29535e0a4da9cff3be9e5209bac574f5867b37",
+      "size": 3961,
+      "sha256": "899b0b053e3b6aa05ca96613368c32ecbeab27a0d630c33c7036c5faacb1f264"
     },
     {
       "path": "drupal/config/settings.local.php",
@@ -1714,16 +1777,16 @@
     {
       "path": "drupal/web/modules/custom/tcl_site/src/Controller/ClubPageController.php",
       "mode": "100644",
-      "gitBlob": "4dc0dfcd6093d789e565979fcebd7c08dc8ee6ff",
-      "size": 1073,
-      "sha256": "f1d758aca4f3d47126b33d224bf47c0b421e773cde5490c3c250eece287453c6"
+      "gitBlob": "4c6d8b0dd8a7e3ac11379331cda41d2559d381bb",
+      "size": 1017,
+      "sha256": "e5994284ea37b53a14c6acf056b3fb2a70208be431dc76b83f474a0ee499b9b8"
     },
     {
       "path": "drupal/web/modules/custom/tcl_site/src/EventSubscriber/LocalResponseSubscriber.php",
       "mode": "100644",
-      "gitBlob": "af991eba5842499573c02bb429385ad37140be26",
-      "size": 769,
-      "sha256": "0bc71528e9f2c546e081fa6360bbfa029ed982409728e63f7804c2565bbba4dc"
+      "gitBlob": "2e6f9f26e7c296931e59a051436ee07dee0d3a01",
+      "size": 1263,
+      "sha256": "e07f51fee8eed52ca9b4105e012beed5ae0112dbce863bc2aa37d4860b4812e9"
     },
     {
       "path": "drupal/web/modules/custom/tcl_site/src/Plugin/Mail/NullMail.php",
@@ -1735,9 +1798,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_site/tcl_site.info.yml",
       "mode": "100644",
-      "gitBlob": "5f089beb4be805b4f2446719bee11ffcac9c981f",
-      "size": 245,
-      "sha256": "d595b6e4d8d5b3d33f1b8ebb8b7c510efcb9990e3590dd54bd5ea39a5427592d"
+      "gitBlob": "5465ce18d70b97ba6dcc69eab5c5f41cd97ef87b",
+      "size": 229,
+      "sha256": "6ce049ef2065e83c7b17c0139b47c7fa81a5a629674f6dee3f374dc3af26f3d0"
     },
     {
       "path": "drupal/web/modules/custom/tcl_site/tcl_site.routing.yml",
@@ -1854,9 +1917,9 @@
     {
       "path": "package.json",
       "mode": "100644",
-      "gitBlob": "c0bc070a2b7969531dde78202da6e2302b1f5854",
-      "size": 1877,
-      "sha256": "1d804c284a9cb45e5d3830ec98ecd6502577e2b25688ad1a91ae7e652ab663c4"
+      "gitBlob": "30288ddd1c784cf0c512636e3989b255d28c33a0",
+      "size": 2154,
+      "sha256": "347f586fe4e40afd6035c8dffa718843aada587865a6cc2345d371aed913b27f"
     },
     {
       "path": "prompts/.gitkeep",
@@ -1880,18 +1943,32 @@
       "sha256": "e4b0e2ae38e30131960d44471e39fdecfa9d214452cea5897f468ed9b4fa3459"
     },
     {
+      "path": "prompts/revue-actions-mutualisees-claude.md",
+      "mode": "100644",
+      "gitBlob": "efcdfa0415e84eaa3358d889fc4941f7a8b0ad3f",
+      "size": 2707,
+      "sha256": "3b8cc046a48d6563dabb621ac0229565d3e79b454103a51651026fa516fdb2bb"
+    },
+    {
+      "path": "prompts/revue-deploiement-claude.md",
+      "mode": "100644",
+      "gitBlob": "a646b11413f4f43335c06e23673a5620fb9b2c9b",
+      "size": 5088,
+      "sha256": "048343f222a9b843e3b804e6214d24250667e36252f6e650346b1a69f8d01db6"
+    },
+    {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "bb343d8383e031e97d8aeb13f9184adb49365633",
-      "size": 33854,
-      "sha256": "df355bcc06707cca64b615354d2f1ea3355fc3bbf7d21678cb0d49900a71a47b"
+      "gitBlob": "28569d8f4341bc262376e11e3822e5b6356e5a19",
+      "size": 35234,
+      "sha256": "506a5aa985f7cf89748275a8fe427a680e8d064bc4a3511711384bd1559ef275"
     },
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "c7483fe1c8bcc0a99929cccc5ae34af8a4334f38",
-      "size": 15635,
-      "sha256": "c09479fae523eecb32d05f9d4830110110fa5e1927c6e69ab34aa4fb067ecc05"
+      "gitBlob": "119a0d366d5e31e40e2e28b35a3648a0b6c58682",
+      "size": 17974,
+      "sha256": "f8277638a05f6660431089765cddc86905b67e5a524bf77bcb564f5984daa3d0"
     },
     {
       "path": "scripts/build-demo.mjs",
@@ -1901,11 +1978,25 @@
       "sha256": "6bb9422999b3f3cab3616166bde55b2a9eb7d1342f2c1108865c87b39ac43782"
     },
     {
+      "path": "scripts/build-drupal-public-pages.mjs",
+      "mode": "100644",
+      "gitBlob": "9b9e480ff1ef01f661d768e72909e9e0ce0377ea",
+      "size": 1897,
+      "sha256": "d0b0d2f8348f290ba3719bb892ff80384687dacff639bd715416d1ff248e1e05"
+    },
+    {
       "path": "scripts/build-hosted-demo.mjs",
       "mode": "100644",
       "gitBlob": "9beab9fee9db1f1a11d7ae4f0efc26e5d4dfacbc",
       "size": 7548,
       "sha256": "ed34cffaa2475d08afe3f753a471b0869f78b45c8ce0d4671ddbd31e512f6f5b"
+    },
+    {
+      "path": "scripts/build-hosting-probe.mjs",
+      "mode": "100644",
+      "gitBlob": "3c43e2ccf99a7ed7ae68c64c5b06dda7c0f6a747",
+      "size": 4390,
+      "sha256": "f3ffaf00a164a597a455e475def9235823e763e2876ddbf407e7a5d9dbedef59"
     },
     {
       "path": "scripts/build-officiel-hosted-demo.mjs",
@@ -1934,6 +2025,13 @@
       "gitBlob": "7e5c3eaaddaa0299876a9fd55886d4a2b6945765",
       "size": 2687,
       "sha256": "e49c1e093b24cbcc1676a311128339733a04530ea7cb01142c1aedda8aeff40d"
+    },
+    {
+      "path": "scripts/delivery_shared.py",
+      "mode": "100644",
+      "gitBlob": "74094bc98a2a9b99874cba4ec31b2baa125c1b2c",
+      "size": 9655,
+      "sha256": "89f44532e8b0ffef902f70bda6a8ae4ae82adc75d57266f39dc1891dcfb3f531"
     },
     {
       "path": "scripts/demo-server.mjs",
@@ -1987,9 +2085,9 @@
     {
       "path": "scripts/framework.mjs",
       "mode": "100644",
-      "gitBlob": "37cde7a3b90a093d4049ca0ed74aa8c8ebf64c01",
-      "size": 16370,
-      "sha256": "b8a3c2d95cd8c723ea1d589707eb0998b82f85a76a87aac70cb408e21539b840"
+      "gitBlob": "ce67d330a3aa8d21f1a5392eb3bbf285c9889885",
+      "size": 16468,
+      "sha256": "2813883c3a8339b95e73b6f4771ca9400a81b64dc66b3b7fa1591b67391c1c66"
     },
     {
       "path": "scripts/inline-html.mjs",
@@ -2020,6 +2118,13 @@
       "sha256": "d95a2d7c06e8647e9898665882cab0420c7bed9df182f9af2837940b97837223"
     },
     {
+      "path": "scripts/package-drupal-candidate.mjs",
+      "mode": "100644",
+      "gitBlob": "d2456bc6d618ffc2e52ffa9971238482ebd0b388",
+      "size": 4413,
+      "sha256": "acbd005ef9d0f792942526d2e9fba247db153f87d2922f9acf44afffcbae2a17"
+    },
+    {
       "path": "scripts/package-hosted-demo.mjs",
       "mode": "100644",
       "gitBlob": "e736c861219dee328aef8706592bd117d81262f4",
@@ -2048,6 +2153,13 @@
       "sha256": "5a577064b8c0f6f3b060417c6b722683f58f5085cbd04451ada0456555ed6046"
     },
     {
+      "path": "scripts/prepare_delivery.py",
+      "mode": "100644",
+      "gitBlob": "9cbe703e77377bb96616fcdefd9872176b2b6ce8",
+      "size": 7802,
+      "sha256": "451d47ed67c15cbe983af67b174c88fad6cafd4d418e8688c898667a624d5459"
+    },
+    {
       "path": "scripts/preview-server.mjs",
       "mode": "100644",
       "gitBlob": "88f516921b30b1197b82e7a91bd35b426a35af00",
@@ -2060,6 +2172,13 @@
       "gitBlob": "4f45aa7ace84faf5983471dc475b29e710f8bc73",
       "size": 632,
       "sha256": "3b09c4f7619ca8874ac89e6ad072d5e7140e202b7013f50a464ccd3168a8a2ea"
+    },
+    {
+      "path": "scripts/qualify_ssh.py",
+      "mode": "100644",
+      "gitBlob": "ee3dc5c7c28a4ab667d1a2b9cf0078f912f7414f",
+      "size": 333,
+      "sha256": "24042f074229fd1626278f3960f55b11bf66ec0ccf024aa69ccbe9d8fb2b5131"
     },
     {
       "path": "scripts/tariffs.mjs",
@@ -2463,9 +2582,9 @@
     {
       "path": "tests/ci-workflows.test.mjs",
       "mode": "100644",
-      "gitBlob": "3f88170beceea83097de97c0188e882dc93ffc48",
-      "size": 7315,
-      "sha256": "50ae9d045ef088049bbe65df45da34de4ac3c288200ac80e4330809f9652adc8"
+      "gitBlob": "8b4e5cbc78bec7bbd1b2cf16d1a34eb24bb581be",
+      "size": 7318,
+      "sha256": "ffe26f4e19f3f75643bc7b876675379912cdda3a4d2ce9193cd0963f7db60a26"
     },
     {
       "path": "tests/communication-adoc.test.mjs",
@@ -2489,6 +2608,13 @@
       "sha256": "488db6510f8b40abef0b05bec6d176a6b4caf36b316da7261f143524777ff541"
     },
     {
+      "path": "tests/delivery-shared.test.mjs",
+      "mode": "100644",
+      "gitBlob": "ac97813b4c3575fdfa7c9572216659fced27d72d",
+      "size": 2810,
+      "sha256": "9508332eccabc51a13f8eadd1204ac76013aa0e4445d16ce7b454d6641006e59"
+    },
+    {
       "path": "tests/demo.test.mjs",
       "mode": "100644",
       "gitBlob": "60847d62737cefe7678a9a986b5f7d555d1787ec",
@@ -2501,6 +2627,13 @@
       "gitBlob": "4a956221785c604fe4897d6272ba623aa65b8754",
       "size": 5250,
       "sha256": "7d08e0ab7ebf18d732fafe3b76c103436332e7048ffb65bf4f4575062c7484ce"
+    },
+    {
+      "path": "tests/drupal-public-pages.test.mjs",
+      "mode": "100644",
+      "gitBlob": "b71ed06601bf3ecda82c62312e030bda69d6d616",
+      "size": 790,
+      "sha256": "7d7122ab43d42902dd24e28f71d1942cb0448f2ea287d0dfeb851b567b057db2"
     },
     {
       "path": "tests/fixtures/tarifs/README.md",
@@ -2559,6 +2692,13 @@
       "sha256": "1c4599f2b0b559bb56261c45d3033381f58de56de03921935cc66e9c612fbc8d"
     },
     {
+      "path": "tests/hosting-probe.test.mjs",
+      "mode": "100644",
+      "gitBlob": "42ec4165c46c3228eff7d221c5f68ead7a70e0a3",
+      "size": 3496,
+      "sha256": "e192b1e0fb570450cd57adf8aa63e840d142c9524cc0ab780908651d5b3f8efa"
+    },
+    {
       "path": "tests/logo.test.mjs",
       "mode": "100644",
       "gitBlob": "2fc65d1686adf8cc999815a424184ed5100641d4",
@@ -2601,6 +2741,13 @@
       "sha256": "244b29a0c5aecd0bea8c01eedb53fc434795f9e02f6c754df661b6390b50df2a"
     },
     {
+      "path": "tests/test_delivery_shared.py",
+      "mode": "100644",
+      "gitBlob": "0b901025568ff92f21b3fe712385ee03495caec7",
+      "size": 12894,
+      "sha256": "730bb9ddb39995c4f74e1511307b5ce35a8b7d73e4aec19f1ff7c25e8ccbe48c"
+    },
+    {
       "path": "tests/whatsapp.test.mjs",
       "mode": "100644",
       "gitBlob": "b56eee1477d54e3874fffa9facf5a96f07405132",
@@ -2610,9 +2757,9 @@
     {
       "path": "workflows/ci-et-revue.md",
       "mode": "100644",
-      "gitBlob": "4e3b2ee88eeaf090bc697d945e89af20c1565403",
-      "size": 5911,
-      "sha256": "892cb8a94fc146637f8a4c66edc7c0ab69fe27289c86e61a78f2dfbfdf6d14c7"
+      "gitBlob": "a8e5bcf3497f40e35d14ee69d25e01e5fb12c558",
+      "size": 6174,
+      "sha256": "07eb83dcd6a59092f2f99f8891d501e39d96df687ec763710279dc7e2619b160"
     },
     {
       "path": "workflows/developpement-pilote.md",
@@ -2622,6 +2769,13 @@
       "sha256": "f8e4b3624bda0f491bdb26f6690b7915c83cc2a988d08ec7dc98a8211482b20f"
     },
     {
+      "path": "workflows/preparer-livraison.md",
+      "mode": "100644",
+      "gitBlob": "60ffe8fe80c9f529589ac8408835b2fe00050e08",
+      "size": 8886,
+      "sha256": "07ac84ebb4ea127b315a4f0997818c9085246347884e57c474336b70022b96af"
+    },
+    {
       "path": "workflows/publication-controlee.md",
       "mode": "100644",
       "gitBlob": "5173476ebc247bcbe7a9577c5de090c446320359",
@@ -2629,5 +2783,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11"
+  "artifactDigest": "7d9ff537ebbb709cbcad10531f156281be180f517e60c90f80cd35abd9ff452b"
 }

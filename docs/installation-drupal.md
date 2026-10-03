@@ -5,12 +5,24 @@ title: Drupal dédié — installation locale et préparation de l’hébergemen
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags: [drupal, maintenance, installation, hebergement, securite]
 ---
 
 # Drupal dédié au TC Longages
+
+## Préparation GitHub du 1er octobre
+
+Le [workflow de préparation](../workflows/preparer-livraison.md) reprend les composants génériques de la chaîne AVEREO. Il produit un candidat non configuré ou vérifie SSH seul. Il ne réalise ni première installation, ni import SQL, ni ouverture. Les prérequis et l'adaptateur de première livraison restent à qualifier ; le modèle de déploiement demeure inactif.
+
+## Candidat public et préproduction — préparation locale
+
+La [qualification PHP isolée](qualification-preproduction.md) prépare le test sans secret à réaliser avant tout code Drupal. Elle décrit son livrable fermé, ses préalables et le retour à la fermeture ; aucun test hébergé n'est déduit de sa préparation locale.
+
+La [procédure de mise en ligne V1](parcours-mise-en-ligne.md) définit quatre étapes. `npm.cmd run drupal:public:build` produit les sept pages publiques candidates dans `.local/drupal-public-candidate/site-pages/`, hors Git et hors racine publique. La V1 de revue `officiel/` reste marquée `noindex` et ne doit pas être copiée telle quelle en production. Le modèle hébergé exige désormais `TCL_ENVIRONMENT=preproduction` ou `production` et applique les hôtes de confiance correspondants. Le module conserve `noindex` par défaut ; `TCL_PUBLIC_INDEXING=1` est réservé à une ouverture de production décidée et vérifiée. Ceci n'installe ni ne configure encore o2switch.
+
+Le paquet produit par `npm.cmd run drupal:package` est un candidat de code avec dépendances et manifeste sous `.local/` ; il exclut `settings.php`, base, comptes et secrets. Un dépôt de ce ZIP seul ne crée pas un site utilisable. Le filtre d'indexation refuse explicitement son activation lorsque `TCL_ENVIRONMENT=preproduction` dans le modèle hébergé.
 
 ## État et périmètre
 
@@ -112,7 +124,7 @@ Les tests locaux ne démontrent pas les règles Apache/cPanel, le certificat HTT
 
 ## Préparation de l’hébergement — proposition inactive
 
-L’[inventaire d’hébergement](../data/hebergement-inventaire.json) est la source canonique des constats et de leurs dates ; ne pas déduire l’état distant à partir du serveur local. À ce stade, le dossier affiché dans cPanel est `public_html` avec `cgi-bin` visible, sans inventaire complet des fichiers cachés. PHP natif 8.1 et un certificat autosigné ont été observés ; ils ne constituent pas une cible Drupal 11 avec authentification HTTPS qualifiée. L’absence de base et d’utilisateur SQL impose également une préparation dédiée. Le détail DNS, alias et sauvegarde reste dans l’inventaire.
+L’[inventaire d’hébergement](../data/hebergement-inventaire.json) est la source canonique des constats et de leurs dates ; ne pas déduire l’état distant à partir du serveur local. La lecture cPanel du 29 septembre montre `tclongages.fr` sur `public_html` et aucun `preprod.tclongages.fr` configuré ; le sous-domaine ne résout pas non plus dans la lecture DNS. Les fichiers cachés ne sont pas inventoriés. PHP natif 8.1 est le défaut des trois domaines affichés et l’interface indique que l’isolation par domaine est désactivée par l’administrateur du serveur : une bascule globale pourrait affecter les autres sites du compte. Le certificat de `tclongages.fr` et `www` est autosigné. L’outil Let's Encrypt propose le domaine principal, mais aucun certificat n'est émis ; la préproduction n'a pas encore de certificat à qualifier. Aucune base ni utilisateur MySQL n’existe. JetBackup affiche une sauvegarde quotidienne du 29 septembre à 07 h 33, non téléchargée ni restaurée. Ce n’est pas encore une cible Drupal 11 qualifiée.
 
 Arborescence **proposée**, sans création distante :
 
@@ -130,9 +142,22 @@ Arborescence **proposée**, sans création distante :
 
 La racine publique proposée est donc `<repertoire-compte>/apps/tclongages-drupal/web`, à la place de la cible actuelle `public_html`. La possibilité de changer la racine du domaine principal doit être confirmée dans cPanel ou auprès de l’hébergeur. Cette proposition ne prouve ni l’existence des répertoires, ni la disponibilité d’une commande de bascule. Aucun changement n’a été exécuté.
 
-Le [modèle d’hébergement](../drupal/config/settings.hosting.example.php) est **inactif**, sans secret et non chargé par l’installation locale. Il refuse son activation et les paramètres manquants par défaut. Il prévoit un stockage MySQL/MariaDB dédié, des hôtes de confiance limités à `tclongages.fr` et `www.tclongages.fr`, des dossiers privés hors webroot, aucune inscription libre et un transport de courriels inerte. Il ne qualifie pas la version SQL ni le certificat, et n’est pas un paquet prêt à déployer.
+La sélection PHP actuellement visible est globale pour le compte. Le [guide officiel o2switch du sélecteur PHP](https://faq.o2switch.fr/cpanel/logiciels/hebergement-php-multi-version/) confirme cet effet global. Le [guide officiel de sélection par dossier](https://faq.o2switch.fr/guides/php/changer-version-php-et-php-ini/) décrit une autre piste, via un gestionnaire `.htaccess`, mais sa syntaxe doit être confirmée pour cet hébergement et un essai incorrect peut exposer le code PHP. Ne modifier ni le réglage global ni le gestionnaire `.htaccess` sans inventaire des autres sites, sauvegarde et vérification sur un dossier isolé. Le responsable indique désormais ne pas avoir accès aux lunes sur ce compte ; la page cPanel « Mon Univers Web » reste vide après une erreur de l'outil, sans permettre de qualifier le quota ou l'activation. La voie dédiée choisie précédemment est suspendue. La lecture des « Sous-domaines » confirme que `preprod.tclongages.fr` n'est pas créé et qu'un champ de racine documentaire distincte est proposé. Ce sous-domaine dans le compte actuel est une solution de remplacement à qualifier, sans changement exécuté à ce stade.
 
-Les paramètres à fournir ultérieurement dans un canal privé sont `TCL_HOSTING_ENABLE`, `TCL_DB_HOST`, `TCL_DB_PORT`, `TCL_DB_NAME`, `TCL_DB_USER`, `TCL_DB_PASSWORD`, `TCL_HASH_SALT`, `TCL_PRIVATE_FILES`, `TCL_TEMP_FILES`, `TCL_CONFIG_SYNC`. Leurs valeurs ne sont pas à transmettre dans la conversation. L’activation des courriels, les comptes et la maintenance initiale se préparent séparément ; la maintenance doit rester un état Drupal modifiable depuis son interface.
+Une nouvelle lecture du sélecteur cPanel confirme trois domaines sur le PHP natif 8.1 du compte et l'isolation par domaine désactivée par l'administrateur. Pour choisir la cible de préproduction, deux voies restent à décider :
+
+| Voie | Effet concret | Réserve avant exécution |
+|---|---|---|
+| Sous-domaine dans le compte actuel, avec PHP 8.3 limité à son dossier | Garde la démonstration et les autres domaines sur leur réglage actuel ; permet une préproduction sans déplacer `tclongages.fr`. | Le [gestionnaire par dossier d'o2switch](https://faq.o2switch.fr/guides/php/changer-version-php-et-php-ini/) est moins simple à exploiter. Un nom de gestionnaire erroné peut servir le code PHP en clair : préparer une racine vide, tester la réponse et ses extensions avant d'y placer Drupal ou un secret. |
+| Sous-compte « lune » dédié au club | Isole l'environnement PHP et les fichiers du club du compte principal. [o2switch décrit cette isolation](https://faq.o2switch.fr/cpanel/o2switch/univers-web-sous-comptes/). | Création et identifiants propres, quota à vérifier. La future migration de `tclongages.fr` depuis le compte actuel exige de retirer puis recréer son rattachement et de revoir les éventuels courriels ; ne pas engager cette bascule avec la simple création de préproduction. |
+
+Le PHP 8.1 actuel est inférieur au [minimum PHP 8.3 de Drupal 11.4](https://www.drupal.org/docs/getting-started/system-requirements/php-requirements). Aucun réglage PHP global, gestionnaire de dossier ou sous-compte n'a été changé. Le choix d'un sous-compte dédié est consigné dans les [décisions](../decisions.md) ; il ne crée pas encore la cible exacte et n'autorise pas le dépôt du candidat.
+
+phpMyAdmin affiche **MariaDB 11.4.13** pour le serveur de données du compte, ce qui dépasse le minimum MariaDB 10.6 de Drupal 11. Cette observation qualifie la **version du moteur**, pas une future base : aucune base ni utilisateur SQL du club n'est créé, et son jeu de caractères `utf8mb4` reste à vérifier. Le PHP 8.4 affiché dans phpMyAdmin est celui de cet outil ; il ne remplace pas la version PHP 8.1 actuellement choisie pour les domaines du compte. Le sélecteur ne montre pas les extensions d'une version alternative avant de la sélectionner ; leurs disponibilités restent inconnues.
+
+Le [modèle d’hébergement](../drupal/config/settings.hosting.example.php) est **inactif**, sans secret et non chargé par l’installation locale. Il refuse son activation et les paramètres manquants par défaut. Il prévoit un stockage MySQL/MariaDB dédié, des hôtes de confiance `preprod.tclongages.fr` pour la préproduction ou `tclongages.fr` et `www.tclongages.fr` pour la production, des dossiers privés hors webroot, aucune inscription libre et un transport de courriels inerte. Il refuse l’indexation en préproduction. Il ne qualifie pas la version SQL ni le certificat, et n’est pas un paquet prêt à déployer.
+
+Les paramètres à fournir ultérieurement dans un canal privé sont `TCL_HOSTING_ENABLE`, `TCL_ENVIRONMENT`, `TCL_DB_HOST`, `TCL_DB_PORT`, `TCL_DB_NAME`, `TCL_DB_USER`, `TCL_DB_PASSWORD`, `TCL_HASH_SALT`, `TCL_PRIVATE_FILES`, `TCL_TEMP_FILES`, `TCL_CONFIG_SYNC`. `TCL_PUBLIC_INDEXING` reste absent sur préproduction et avant l’ouverture de production. Les valeurs sensibles ne sont pas à transmettre dans la conversation. L’activation des courriels, les comptes et la maintenance initiale se préparent séparément ; la maintenance doit rester un état Drupal modifiable depuis son interface.
 
 ## Interventions sensibles à présenter avant accord
 

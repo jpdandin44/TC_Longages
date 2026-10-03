@@ -1,6 +1,6 @@
-name: TC Longages — vitrine locale
+name: TC Longages — vitrine
 type: module
-description: Sert la vitrine préparée à travers le moteur Drupal et sa maintenance native.
+description: Sert les pages V1 à travers le moteur Drupal et sa maintenance native.
 package: TC Longages
 core_version_requirement: ^11.4
 dependencies:

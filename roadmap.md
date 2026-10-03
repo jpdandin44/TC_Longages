@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-01
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,18 @@ tags:
 ---
 
 # Feuille de route
+
+## Reprise du 1er octobre — préparation partagée avec AVEREO
+
+La [préparation manuelle](workflows/preparer-livraison.md) construit le candidat sans accès serveur et offre une qualification SSH distincte. Le composant partagé est préparé dans le dépôt TC, utilisable par un futur appel AVEREO épinglé sur un commit ; cette migration reste proposée. Le site AVEREO actif n'est pas modifié. Prochaine action : revue du lot et qualification cPanel récente avant toute configuration d'accès ou première installation. Le solde et les vérifications courantes sont dans le [reçu](data/actions-mutualisees-verification.json). Aucun budget de réserve chiffré n'est considéré approuvé.
+
+## Priorité actuelle — première V1 publique
+
+Le [parcours en quatre étapes](docs/parcours-mise-en-ligne.md) remplace les huit phases comme vue opérationnelle de cette livraison, sans effacer leur historique. Initialisation et recette locale sont en cours ; la préproduction `preprod.tclongages.fr` attend sa qualification ; la production n'est pas démarrée. La première ouverture ne comprend que les pages publiques Drupal. Les comptes Bureau, formulaires Google et envois automatiques suivent leurs recettes propres après cette V1.
+
+Le blocage des lunes signalé le 29 septembre est résolu côté affichage le 1er octobre : l'interface exige une largeur ordinateur. Le [plan de compte isolé](docs/preparer-lune-tc.md) présente la lune gratuite disponible à activer après sauvegarde/restauration et accord. L'isolation PHP par domaine du compte actuel reste désactivée. Aucun réglage distant n'a été modifié.
+
+Prochaine séquence : qualifier et sauvegarder la cible de préproduction, puis réaliser le [test PHP isolé préparé](docs/qualification-preproduction.md) avec accord sur les changements distants ; ensuite installer le candidat sous maintenance, puis présenter la livraison de production et l'ouverture comme décisions distinctes. Le 30 septembre, le responsable demande d'optimiser les crédits restants et de garder une marge pour les corrections. L'ancienne réserve de 800 dépasse le solde observé à la reprise ; une marge de 200 est proposée, sans validation personnelle déduite. Le [reçu de reprise](data/reprise-deploiement-verification.json) conserve les résultats et limites actuels.
 
 ## Avancement au 29 septembre
 

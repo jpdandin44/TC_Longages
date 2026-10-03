@@ -57,7 +57,16 @@ $databases['default']['default'] = [
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 ];
 $settings['hash_salt'] = $tclSalt;
-$settings['trusted_host_patterns'] = ['^tclongages\\.fr$', '^www\\.tclongages\\.fr$'];
+$tclEnvironment = $tclRequired('TCL_ENVIRONMENT');
+if (!in_array($tclEnvironment, ['preproduction', 'production'], TRUE)) {
+  throw new \RuntimeException('Environnement hébergé invalide.');
+}
+if ($tclEnvironment === 'preproduction' && getenv('TCL_PUBLIC_INDEXING') === '1') {
+  throw new \RuntimeException('La préproduction ne peut pas activer l’indexation publique.');
+}
+$settings['trusted_host_patterns'] = $tclEnvironment === 'preproduction'
+  ? ['^preprod\\.tclongages\\.fr$']
+  : ['^tclongages\\.fr$', '^www\\.tclongages\\.fr$'];
 $settings['file_private_path'] = $tclPrivateDirectory('TCL_PRIVATE_FILES');
 $settings['file_temp_path'] = $tclPrivateDirectory('TCL_TEMP_FILES');
 $settings['config_sync_directory'] = $tclPrivateDirectory('TCL_CONFIG_SYNC');
@@ -73,4 +82,4 @@ $config['system.logging']['error_level'] = 'hide';
 // Enable it during installation, then verify anonymous access before opening.
 // HTTPS, secure sessions, server routing, backup and mail activation are separate
 // deployment checks; this example neither enables nor attests to them.
-unset($tclSalt, $tclRequired, $tclPrivateDirectory, $tclRoot, $tclWebRoot, $tclPort);
+unset($tclSalt, $tclRequired, $tclPrivateDirectory, $tclRoot, $tclWebRoot, $tclPort, $tclEnvironment);
