@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,37 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-03 — Clôture avec blocages et reprise conservée
+
+- Session arrêtée à la demande du responsable ; adresse temporaire non soumise, accès cPanel déconnectés, sept onglets fermés et aucun service sur les cinq ports locaux du projet.
+- Acquis PHP/SQL et sauvegardes conservés ; ordre de reprise documenté : cible, DNS/HTTPS/runtime, première installation, recette et retour arrière, puis production autorisée.
+- Phase 1 et validations humaines préservées ; aucune installation Drupal ni ouverture publique déduite de la clôture.
+
+## 3 octobre — préparation isolée partielle
+
+PHP 8.3 appliqué dans la lune ; dossier créé et règle Apache fermée déposée puis relue ; base vide UTF-8 et utilisateur SQL personnel avec dix droits dédiés enregistrés. Refus du rattachement de préproduction consigné, avec adresse temporaire proposée et contrôles DNS/HTTPS/runtime encore ouverts. Le domaine officiel n’a pas été déplacé. Voir le [reçu](data/activation-lune-verification.json).
+
+## 2026-10-03 — Préparation fusionnée et compte de préproduction actif
+
+- Fusion de la PR #5 constatée ; première construction Linux par l'Action manuelle réussie sur le commit de fusion, ZIP reçu vérifié intégralement sur le poste.
+- Lien de validation de la PR corrigé vers l'aperçu local des sept pages ; libellés obligatoires et coches humaines conservés par l'agent.
+- Trois exports récents du compte et archive fraîche de la racine publique restaurés en copie privée, avec intégrité et empreintes vérifiées ; aucun réimport sur le compte actif.
+- Première lune gratuite activée personnellement, compteur 1 active / 7 restantes et accès séparé confirmés. Configuration et recette hébergée restent à réaliser.
+- Protocole GitHub et cockpit raccordé au suivi canonique ; décisions et validations historiques conservées. Point de reprise et liens documentaires actualisés.
+
+## 2026-10-01 — Clôture de journée et reprise conservée
+
+- Arrêt demandé par le responsable ; formulaire d'activation annulé sans soumission, déconnexion cPanel confirmée et onglet fermé.
+- Point de reprise et reçus alignés sur la clôture ; sauvegardes privées et changements locaux préservés. Aucun service observé sur les cinq ports locaux du projet.
+- PR #5 relue en brouillon, CI technique réussie sur le dernier commit distant ; documents locaux à figer avant nouvelle remise. Aucun commit, push, merge, activation ou déploiement lors de la clôture.
+
+## 2026-10-01 — Sauvegarde vérifiée avant activation de la lune
+
+- Accord humain borné enregistré pour sauvegarde, restauration privée et première activation gratuite.
+- Trois archives du compte restaurées dans une copie privée : 75 fichiers et deux liens vérifiés ; archive fraîche de toute la racine publique restaurée et comparée à l'instantané.
+- Zéro base et zéro utilisateur SQL confirmés dans cPanel. Aucun réimport du compte actif ; réinstallation DNS/certificats et modes POSIX non testés.
+- Activation arrêtée devant la demande de nouveau mot de passe, pour saisie et soumission personnelles. Reçu expurgé et point de reprise actualisés ; aucun site installé ou ouvert.
 
 ## 2026-10-01 — Préparation GitHub issue de la chaîne Drupal AVEREO
 

@@ -5,7 +5,7 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
@@ -82,6 +82,30 @@ maintenues du nouveau composant ni de nouveau dépôt de composants créé.
 Les adaptateurs Drupal, bases, sauvegardes/restaurations, chemins et contenus
 restent propres au site ; aucun secret ou accord AVEREO n'est hérité.
 
+## Revue de la PR et aperçu du site
+
+La PR #5 a été fusionnée par le responsable le 3 octobre. Son lien
+« l'environnement de validation » a été corrigé vers
+[l'aperçu local](http://127.0.0.1:4180/), après ouverture et vérification de
+celui-ci. Les quatre libellés obligatoires du modèle de PR et les coches
+humaines ont été conservés ; seuls le lien et une explication adjacente ont
+changé. La page GitHub de ce document sert à la revue documentaire.
+
+Lancer `npm.cmd run officiel` sur le poste avant d'utiliser cet aperçu.
+Il présente les sept pages publiques ; les comptes, les services connectés et
+la recette du Drupal hébergé restent hors de sa qualification. Un lien local
+ne constitue pas une préproduction distante.
+
+L'Action de construction a réussi sur le commit fusionné `49b4ef7b975b8edff4308373732033630582da6b`.
+Le ZIP reçu a été relu intégralement sur le poste et correspond au reçu GitHub.
+Les empreintes et limites sont conservées dans le
+[reçu de préparation](../data/actions-mutualisees-verification.json), rubrique
+`postMergeBuild`. Cette construction ne configure ni ne déploie le site.
+
+Le protocole commun GitHub et cockpit est raccordé au bloc
+`developmentWorkflow` du [suivi canonique](../docs/suivi-chantier/suivi-chantier.json).
+Les décisions historiques de phase restent distinctes des contrôles de livraison.
+
 ## Configuration SSH encore nécessaire
 
 Après présentation et accord sur l'accès, configurer l'environnement GitHub
@@ -111,7 +135,7 @@ et une base existants, une racine plate et des contenus natifs AVEREO.
 
 Pour préparer l'adaptateur de livraison et le retour arrière du TC, il manque :
 
-1. Compte isolé et racine de préproduction à établir ; la lecture cPanel du
+1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. Une adresse temporaire attend son accord et la qualification DNS/HTTPS/runtime ; la lecture cPanel du
    1er octobre a confirmé la racine officielle non vide, PHP 8.1, le certificat
    autosigné et huit lunes gratuites. Le [lot proposé](../docs/preparer-lune-tc.md)
    définit la suite ; PHP Apache isolé et certificat reconnu restent à qualifier.

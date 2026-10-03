@@ -3,7 +3,7 @@
   "documentType": "release-pipeline",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-01",
+  "updated": "2026-10-03",
   "owner": "jpdandin",
   "scope": "Première V1 publique sous Drupal ; espaces Bureau, Google et envois automatiques fermés jusqu'à leur propre recette.",
   "productionHost": "tclongages.fr",
@@ -16,19 +16,22 @@
       "id": "initialisation",
       "title": "Initialisation",
       "status": "in_progress",
-      "action": "Préparer le paquet Drupal dédié et vérifier les prérequis de la cible, sans écriture distante.",
+      "action": "Préparer le paquet Drupal dédié et vérifier les prérequis de la cible ; exécuter uniquement les interventions distantes expressément autorisées.",
       "evidence": [
         "Dépôt public et contrôles PR actifs ; historique des huit phases préservé.",
         "Drupal dédié installé uniquement sur le poste local.",
         "Sept pages publiques candidates générées localement avec manifeste SHA-256 ; dépendances Drupal 11.4.8 installées depuis composer.lock dans le checkout isolé.",
         "Archive candidate locale assemblée et inventoriée : 34 017 entrées, sans settings.php actif, base ni identifiants. CRC vérifié sur toutes les entrées ; aucun chemin de traversée ni lien symbolique. Le code Drupal empaqueté n'a pas changé depuis le commit source du ZIP.",
         "Inventaire cPanel en lecture seule le 29 septembre : domaine principal sur public_html, PHP 8.1 global, certificat autosigné, aucune base ni utilisateur SQL. MariaDB 11.4.13 est indiqué par phpMyAdmin ; une sauvegarde JetBackup est visible, sans preuve de restauration.",
-        "Le 30 septembre, sonde PHP isolée préparée localement depuis composer.lock ; résultats et limites dans data/reprise-deploiement-verification.json. Aucun transfert distant."
+        "Le 30 septembre, sonde PHP isolée préparée localement depuis composer.lock ; résultats et limites dans data/reprise-deploiement-verification.json. Aucun transfert distant.",
+        "Le 1er octobre, sauvegarde et première activation gratuite autorisées : trois archives JetBackup restaurées en copie privée, 75 fichiers et deux liens vérifiés ; archive fraîche de public_html restaurée et comparée. Aucun réimport du compte actif. Le dialogue de la première lune attend le nouveau mot de passe saisi et soumis par le responsable. Résultats dans data/activation-lune-verification.json.",
+        "Le 3 octobre, sauvegardes du compte requalifiées en copie privée et première lune gratuite activée personnellement ; compteur 1 active / 7 restantes et compte isolé vérifiés. Reçu : data/activation-lune-verification.json.",
+        "Le 3 octobre, lot de configuration autorisé : PHP 8.3 appliqué sur la lune, racine isolée créée et règle Apache fermée déposée puis relue ; base vide utf8mb4, utilisateur créé personnellement, dix droits limités à cette base enregistrés et relus. Rattachement de preprod.tclongages.fr refusé pour propriété du domaine parent."
       ],
       "remaining": [
         "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
-        "Lune gratuite visible le 1er octobre après correction de largeur du navigateur ; sauvegarde/restauration et activation à autoriser selon docs/preparer-lune-tc.md. Aucune lune active ni PHP compatible hébergé qualifié.",
-        "Obtenir une sauvegarde restaurable avant écriture distante ; qualifier HTTPS et une base dédiée."
+        "Lever le blocage du nom de préproduction : adresse temporaire de la lune proposée, accord attendu ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL restent à qualifier.",
+        "Sauvegarde des fichiers actuels qualifiée en copie privée ; réimports DNS/certificats et retour arrière de la future cible restent à éprouver. Qualifier HTTPS et la connexion à la base dédiée existante."
       ]
     },
     {
@@ -41,7 +44,8 @@
         "Syntaxe PHP du contrôleur, du filtre de réponses et du modèle d'hébergement vérifiée ; 19 tests ciblés du suivi et des pages publiques réussis.",
         "Drupal isolé : sept pages et accueil 503 sous maintenance ; connexion 200. Maintenance retirée localement : pages 200, sans balise noindex de revue, mais avec en-tête noindex par défaut. Avec le drapeau de recette, seules les réponses 200 des pages publiques perdent cet en-tête ; connexion, erreur 404 et maintenance le conservent. Maintenance réactivée ensuite.",
         "Le manifeste de candidat historique a été réaligné et le contrôle technical-ci de la PR a réussi sur le commit testé.",
-        "Les sept pages ont été ouvertes dans Drupal local à 390 et 1 280 pixels : titre principal présent, aucune largeur de document supérieure à la fenêtre. Les sept empreintes correspondent aux fichiers de l'archive candidate. Maintenance remise en place, accueil anonyme revérifié en 503."
+        "Les sept pages ont été ouvertes dans Drupal local à 390 et 1 280 pixels : titre principal présent, aucune largeur de document supérieure à la fenêtre. Les sept empreintes correspondent aux fichiers de l'archive candidate. Maintenance remise en place, accueil anonyme revérifié en 503.",
+        "PR #5 fusionnée le 3 octobre ; Action de construction Linux réussie sur 49b4ef7b975b8edff4308373732033630582da6b. ZIP non configuré téléchargé puis vérifié intégralement : 26 687 fichiers. Reçu : data/actions-mutualisees-verification.json, postMergeBuild."
       ],
       "remaining": [
         "Faire valider la présentation par le responsable du club ; la vérification technique ne remplace pas son appréciation.",
@@ -57,9 +61,9 @@
         "Lecture seule du 29 septembre : preprod.tclongages.fr est absent de cPanel et ne résout pas ; aucun certificat ni dossier cible n'a donc été qualifié."
       ],
       "remaining": [
-        "Créer le sous-domaine, son dossier isolé et un certificat reconnu après décision explicite sur leurs effets et leur retour arrière.",
-        "Établir une stratégie PHP compatible, puis créer une base dédiée et préparer la configuration privée.",
-        "Sauvegarde et restauration privée à qualifier avant toute copie distante."
+        "Décider d’une cible autorisée compatible avec la restriction inter-comptes o2switch ; qualifier DNS, HTTPS et protections Web avant installation.",
+        "Vérifier PHP 8.3 réellement servi et la connexion à la base dédiée existante, puis préparer la configuration privée.",
+        "Compléter le retour arrière de la future cible avant copie distante ; les essais du 1er octobre ne prouvent que la restauration privée des fichiers du compte actuel."
       ]
     },
     {
@@ -76,15 +80,23 @@
     }
   ],
   "preparation": {
-    "checkedAt": "2026-10-01",
+    "checkedAt": "2026-10-03",
     "receipt": "data/reprise-deploiement-verification.json",
     "guide": "docs/qualification-preproduction.md",
     "probeGenerator": "scripts/build-hosting-probe.mjs",
-    "remoteWriteExecuted": false,
+    "remoteWriteExecuted": true,
     "claudeReviewReceived": true,
-    "sessionStatus": "resumed",
+    "sessionStatus": "closed",
     "sharedActionsReceipt": "data/actions-mutualisees-verification.json",
     "preparationWorkflow": ".github/workflows/preparer-deploiement.yml",
-    "deploymentAdapterImplemented": false
+    "deploymentAdapterImplemented": false,
+    "hostingPreparationReceipt": "data/activation-lune-verification.json",
+    "remoteWriteScope": "Sauvegarde fraîche autorisée, activation gratuite personnelle, PHP 8.3 de la lune, dossier fermé par .htaccess, base vide UTF-8 et utilisateur SQL personnel avec dix droits dédiés. Aucun DNS, certificat ni transfert Drupal.",
+    "moonActivationConfirmed": true,
+    "sessionClosedAt": "2026-10-03T23:32:21.540861+02:00",
+    "sessionCloseGuide": "docs/point-session.md",
+    "lastResumeAt": "2026-10-03T20:34:29.627007+00:00",
+    "hostingReceipt": "data/activation-lune-verification.json",
+    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel."
   }
 }

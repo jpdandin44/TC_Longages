@@ -5,12 +5,18 @@ title: Drupal dédié — installation locale et préparation de l’hébergemen
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-01
+updated: 2026-10-03
 owner: jpdandin
 tags: [drupal, maintenance, installation, hebergement, securite]
 ---
 
 # Drupal dédié au TC Longages
+
+## État hébergé courant — 3 octobre
+
+Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
+
+Le [reçu d’hébergement](../data/activation-lune-verification.json) est la source courante. Les inventaires datés plus bas restent historiques. Les [droits recommandés par Drupal](https://www.drupal.org/docs/getting-started/installing-drupal/create-a-database), plus `LOCK TABLES` pour une restauration Drush, sont limités à la base dédiée. La connexion applicative, InnoDB, le PHP servi et HTTPS restent à qualifier avant installation.
 
 ## Préparation GitHub du 1er octobre
 
