@@ -33,7 +33,7 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
 | 0 — Cadrage et audit | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
-| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance. |
+| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
 | 4 — Préproduction réelle | Non démarrée | [Dossier](04-phase.md) | Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `1a40b26d440606bdb0760f5a704f9f01f89d6b7e69a4bcd68ded1feeb19915b6`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `80ced44231ec445e20a1943592d73cf41a93bd88bfc2c8a6c326b9d83d7af848`.

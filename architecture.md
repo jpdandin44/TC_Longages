@@ -30,6 +30,30 @@ ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
 nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
 restent historiques.
 
+## Compte principal inventorié — 4 octobre
+
+L’organisation retenue utilise des fichiers et données séparés dans le compte
+principal TC. L’inventaire confirme le défaut PHP 8.1 partagé et le refus
+d’isolation par domaine ; la racine actuelle contient seulement la page
+d’attente statique. Les ressources de la lune restent distinctes et conservées.
+Le [lot précis](docs/preparer-lune-tc.md#lot-du-compte-principal)
+propose PHP 8.3, dossier fermé, hôte/DNS/HTTPS et SQL propres au compte principal,
+sans application des réglages ni dépôt Drupal. Les lectures CLI et la copie
+de fichiers restaurée ne qualifient pas encore HTTP, SQL ou restauration
+applicative. L’outil doit être adapté à ce compte avant sa première utilisation.
+
+## Implantation de préproduction — choix humain du 4 octobre
+
+Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
+et distingue l'implantation AVEREO dans un même compte de l'implantation TC
+dans une lune distincte. Qualifier le compte principal TC est le choix humain
+désormais retenu ; le cloisonnement de comptes et les réglages PHP
+potentiellement partagés doivent être qualifiés avant les modifications
+correspondantes. Les ressources
+déjà créées dans la lune et les décisions historiques restent conservées.
+L'adaptateur local demeure limité à cette lune ; aucun changement de cible
+d'écriture ni migration du domaine officiel n'est implémenté par cette étude.
+
 ## Compte isolé actif et chaîne de préparation — 3 octobre
 
 La première lune gratuite dédiée à la préproduction TC est active ; l'accès à son cPanel séparé est confirmé. Le domaine officiel conserve son compte actuel. Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier. Les détails de compte demeurent privés ; le [reçu](data/activation-lune-verification.json) porte l'état vérifié et les limites des restaurations de fichiers.

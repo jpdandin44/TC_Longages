@@ -14,6 +14,37 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Inventaire principal et lot de configuration préparé
+
+- Connexion personnelle au compte TC principal relue ; PHP 8.1 partagé,
+  PHP 8.3 disponible, trois extensions obligatoires manquantes et zéro base/utilisateur SQL.
+- Page d’attente actuelle sans code PHP, comparée à la sauvegarde ; export
+  de fichiers du 4 octobre restauré en copie privée : 69 fichiers et deux liens.
+- Formulaire de préproduction préparé sans soumission ; lot PHP, racine fermée,
+  DNS/HTTPS et SQL dédié présenté dans le plan. Ressources de la lune conservées.
+- Aucun réglage appliqué, nouveau mot de passe saisi par l’agent, transfert
+  Drupal, installation, livraison ou ouverture. Recette et restauration applicatives restent à faire.
+
+## 2026-10-04 — Choix du compte principal confirmé
+
+- Le responsable retient l'organisation AVEREO pour la préproduction TC :
+  dossier et base propres dans le compte principal du domaine.
+- Choix consigné avec sa portée, sans accord de configuration déduit ;
+  reconnexion personnelle et inventaire requis avant le lot correspondant.
+- Champ d'identifiant cPanel corrigé ; mot de passe et connexion non soumis par
+  l'agent. Sources et suivi réalignés, ressources de la lune conservées.
+
+## 2026-10-04 — Correction du plan d'hébergement
+
+- Comparaison AVEREO/TC établie : même compte pour le domaine et la préproduction
+  AVEREO, lune distincte pour la préparation TC ; limites des lectures indiquées.
+- Proposition technique en `universe.wf` retirée après vérification de son
+  exclusion de l'émission Let's Encrypt o2switch ; ancienne demande d'accord
+  devenue sans objet, sans création de domaine.
+- [Plan de déblocage](docs/preparer-lune-tc.md), prochaine action et exigences
+  corrigés ; compte principal recommandé à qualifier, choix humain non acquis.
+  Code, ZIP et ressources d'hébergement conservés ; aucun transfert exécuté.
+
 ## 2026-10-04 — Reprise et première installation préparée
 
 - Connexion cPanel et accès au terminal existant vérifiés ; PHP CLI 8.3.33,

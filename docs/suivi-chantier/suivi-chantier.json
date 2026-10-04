@@ -154,14 +154,16 @@
         "Gestion des secrets et restauration documentées"
       ],
       "blockers": [
-        "Le domaine parent tclongages.fr appartient au compte principal : cPanel refuse son sous-domaine sur la lune.",
-        "Adresse temporaire proposée sans accord ni création ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL non qualifiés."
+        "Accord du lot de configuration du compte principal attendu après inventaire.",
+        "PHP HTTP/CLI avec extensions, DNS/HTTPS et base dédiée du compte principal à qualifier.",
+        "Outil de première installation à adapter au compte principal ; installation, recette et retour arrière réels non exécutés."
       ],
-      "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
-        "https://github.com/jpdandin44/TC_Longages/pull/6"
+        "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "https://github.com/jpdandin44/TC_Longages/pull/7"
       ]
     },
     {
@@ -1025,7 +1027,7 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
     "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1138,15 +1140,16 @@
         "ready": false,
         "isolated": false,
         "empty": false,
-        "evidence": "data/activation-lune-verification.json",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00",
-        "limit": "Compte isolé, PHP sélectionné, racine et SQL préparés ; domaine prévu refusé. Adresse alternative non soumise, DNS/HTTPS/runtime non qualifiés."
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
+        "observedAt": "2026-10-04T15:17:47.205619+00:00",
+        "limit": "Compte principal TC connecté et inventorié ; PHP 8.1 partagé, racine proposée absente, zéro base/utilisateur, DNS préproduction absent. Lot concret préparé, non appliqué ; ressources de la lune conservées."
       },
       "production": {
         "id": "https://tclongages.fr/",
         "ready": false,
-        "evidence": "docs/point-session.md",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00"
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
+        "observedAt": "2026-10-04T15:17:47.205619+00:00",
+        "limit": "Racine de la page d’attente relue et sauvegarde privée requalifiée ; TLS strict rejeté. Aucun Drupal, candidat livré, retour arrière applicatif ou accord d’ouverture."
       }
     },
     "github": {
@@ -1218,12 +1221,12 @@
       "observedAt": null
     },
     "blockers": [
-      "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Adresse technique temporaire proposée, sans soumission.",
-      "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
+      "Inventaire du compte principal TC terminé ; accord du lot PHP/DNS/HTTPS/SQL sur cette cible attendu, distinct de l’ancien accord sur la lune.",
+      "Préproduction absente : PHP natif 8.1, trois modules obligatoires manquants au PHP 8.3 CLI ; PHP HTTP, DNS/HTTPS, base et connexion applicative à qualifier.",
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
-      "Candidat de production et accords exacts de livraison/ouverture non qualifiés."
+      "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1323,7 +1326,48 @@
       "sourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
       "artifactDigest": "826951159f228b2c5bc799d418e1a6728068672a208dd7af3911a44c2a6a305d",
       "technicalReview": "data/framework-revue-verification.json#firstInstallationPreparation",
-      "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f"
+      "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f",
+      "toolMerge": {
+        "evidence": "data/framework-revue-verification.json#hostingContinuation.toolMergeObserved",
+        "mergeCommit": "fc1f2d95472c36b6b4114f7d87a93729d8796b74",
+        "reviewedSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+        "observedAt": "2026-10-04T12:22:47.199241+00:00"
+      }
+    },
+    "latestReadOnlyQualification": {
+      "recordedAt": "2026-10-04T12:08:34.417734+00:00",
+      "evidence": "data/framework-revue-verification.json#hostingContinuation",
+      "remoteWriteExecuted": false,
+      "localMysqlRehearsalExecuted": false,
+      "cpanelSessionExpiredObserved": true
+    },
+    "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
+    "preproductionPlacementReview": {
+      "status": "primary_account_inventory_complete_configuration_pending",
+      "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
+      "plan": "docs/preparer-lune-tc.md",
+      "recordedAt": "2026-10-04T14:04:58.761183+00:00",
+      "oldTechnicalProposalWithdrawn": true,
+      "remoteWriteExecuted": false,
+      "documentaryCandidate": {
+        "sourceCommit": "b063b98d4381cce30d0277cad1e7489f8f12e0e9",
+        "artifactDigest": "ed9272b6d1a26a1732920966d8eb363cbf3f92bee5614216cfc0ceb42ae23bcf",
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification.documentaryReview"
+      },
+      "humanChoice": {
+        "recordedAt": "2026-10-04T14:27:54.237603+00:00",
+        "date": "2026-10-04",
+        "sourceRef": "chat-utilisateur-2026-10-04-organisation-avereo-tc",
+        "answer": "On suit la même organisation que pour AVEREO",
+        "scope": "Choix du compte principal TC pour la préproduction, avec dossier et base séparés.",
+        "hostingConfigurationApproval": false,
+        "phaseValidation": false,
+        "productionDeploymentApproval": false,
+        "publicOpeningApproval": false
+      },
+      "installerAccountGuardAdaptationRequired": true,
+      "accountInventoryObservedAt": "2026-10-04T15:17:47.205619+00:00",
+      "configurationApprovalPending": true
     }
   }
 }

@@ -18,10 +18,14 @@ tags:
 
 ## Reprise de la première installation — 4 octobre
 
-Le terminal cPanel existant répond et l'[adaptateur](docs/installation-drupal.md)
-est désormais préparé localement, avec tests Linux. Prochaine action : obtenir
-la décision sur l'adresse temporaire préparée, qualifier son DNS/HTTPS/PHP
-servi, puis présenter le transfert et l'installation fermée du même ZIP reçu.
+L'[adaptateur](docs/installation-drupal.md) est préparé localement pour la lune,
+avec tests Linux. La proposition d'adresse technique a été retirée ; le
+[plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
+compte principal comme pour AVEREO. La connexion et l’inventaire du compte principal sont terminés, avec
+sauvegarde de fichiers du 4 octobre restaurée en copie privée. Prochaine action :
+accord puis application du [lot de configuration précis](docs/preparer-lune-tc.md#lot-du-compte-principal),
+avant les contrôles HTTP et SQL de cette cible. Adapter et tester l'outil pour ce compte avant de présenter le
+transfert et l'installation fermée du même ZIP reçu.
 La recette réelle, la sauvegarde/restauration Drupal et le retour arrière
 précèdent toujours la qualification et la livraison de production. Le
 [suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve l'historique

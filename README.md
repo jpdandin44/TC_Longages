@@ -17,18 +17,24 @@ tags:
 
 ## Mise en ligne V1 — parcours actuel
 
-Reprise le 4 octobre : cPanel et le terminal de la lune sont accessibles ; PHP
-CLI 8.3.33 et Python 3.6.8 y sont observés. L'[outil de première installation](docs/installation-drupal.md)
-est préparé et testé localement sur Linux, sans exécution MySQL/Drupal distante.
-Le formulaire de l'adresse temporaire est prêt, sans accord ni soumission.
-Le [point courant](docs/point-session.md) et le [reçu d'hébergement](data/activation-lune-verification.json)
-portent les prérequis restants ; le site n'est pas livré ou ouvert.
+Le diagnostic du 4 octobre retire la proposition de préproduction en
+`universe.wf`, exclue de l'émission Let's Encrypt o2switch. Le
+[plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
+compte principal TC pour `preprod.tclongages.fr`, comme l'organisation AVEREO.
+La reconnexion personnelle et l’inventaire de ce compte sont confirmés :
+PHP 8.1 partagé, page d’attente statique sauvegardée, aucune base ni utilisateur
+SQL. Le lot PHP 8.3, domaine/DNS/HTTPS et base dédiée est désormais préparé
+pour accord ; aucun réglage n’est appliqué. L'[outil de première installation](docs/installation-drupal.md)
+est préparé et testé localement pour la lune, sans exécution MySQL/Drupal
+distante ; un changement de compte exigera son adaptation. Le
+[point courant](docs/point-session.md) porte la suite ; le site n'est pas livré
+ou ouvert.
 
 La reprise du 3 octobre confirme la fusion humaine de la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5). L'Action de construction a réussi sur le commit de fusion ; le ZIP reçu a été vérifié intégralement sur le poste. Le [reçu de préparation](data/actions-mutualisees-verification.json), rubrique `postMergeBuild`, identifie ce candidat non configuré. Aucun déploiement ne découle du merge.
 
 La première lune gratuite est désormais active, après renouvellement des sauvegardes et restauration en copie privée : une lune active, sept restantes. Le responsable a créé et soumis son mot de passe directement dans cPanel. Le [reçu d'hébergement](data/activation-lune-verification.json) conserve ces preuves et la clôture historique ; l’état de configuration est décrit ci-dessous.
 
-Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
+Le lot de configuration de la lune a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans cette lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n'est créé pour ce nom. Les ressources de la lune sont conservées ; la correction de cible et les contrôles restants figurent dans le plan courant.
 
 Pour revoir les sept pages publiques, lancer `npm.cmd run officiel`, puis ouvrir [l'aperçu local](http://127.0.0.1:4180/). Le lien de validation de la PR #5 y pointe désormais ; les libellés obligatoires et les coches humaines ont été conservés. Cet aperçu ne qualifie pas les comptes, les services connectés ou l'installation distante. Le [point de session courant](docs/point-session.md) et le bloc `developmentWorkflow` du [suivi canonique](docs/suivi-chantier/suivi-chantier.json) portent la prochaine action.
 

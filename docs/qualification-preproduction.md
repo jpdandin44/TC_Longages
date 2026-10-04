@@ -5,12 +5,23 @@ title: Qualification isolée de la préproduction Drupal
 status: active
 version: git
 created: 2026-09-30
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags: [drupal, o2switch, php, preproduction]
 ---
 
 # Qualification isolée de la préproduction
+
+## Raccordement au compte principal — 4 octobre
+
+L’inventaire authentifié et le [lot courant](preparer-lune-tc.md#lot-du-compte-principal)
+remplacent l’ancienne proposition de cible encore inconnue ci-dessous. Le
+compte principal TC est retenu ; le changement PHP proposé est partagé au
+compte et attend son accord. Le test conserve sa sonde sans secret, son accès
+temporaire GET/HEAD limité et son retour au refus. Aucun fichier n’est déposé
+par cette préparation ; PHP HTTP et connexion SQL restent non qualifiés.
+Les propositions et constats du 30 septembre/1er octobre sont historiques.
+
 
 La [lecture du 1er octobre](preparer-lune-tc.md) résout le blocage d’affichage des lunes et présente la reprise de l’option isolée. Le présent test PHP reste conservé ; ses preuves du 30 septembre sont historiques et ne qualifient pas l’hébergement actuel.
 

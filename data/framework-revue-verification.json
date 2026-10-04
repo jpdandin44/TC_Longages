@@ -706,5 +706,360 @@
         "checkedAt": "2026-10-04T11:29:30.143289+00:00"
       }
     ]
+  },
+  "hostingContinuation": {
+    "recordedAt": "2026-10-04T12:08:34.417734+00:00",
+    "scope": "Lecture de disponibilité des cibles et tentative de recette locale ; aucun déploiement.",
+    "unchangedToolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "verifiedGitHubHead": "4956a1ecabeb65ef590cb11bfa6bb76a748ba126",
+    "technicalCi": {
+      "conclusion": "success",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37199048528"
+    },
+    "officialDomain": {
+      "host": "tclongages.fr",
+      "dnsAResolved": true,
+      "strictHttpsRecognizedOnThisClient": false,
+      "curlExitCode": 60,
+      "tlsFailure": "Windows certificate-chain validation rejected an untrusted root.",
+      "credentialUsed": false,
+      "certificateValidationBypassed": false,
+      "certificateTypeNotInferredFromThisCheck": true
+    },
+    "primaryAccountRead": {
+      "priorMainUrlNotUsableInCurrentMoonSession": true,
+      "observedHttpStatus": 401,
+      "currentMoonAccountShownByErrorPage": true,
+      "doesNotProvePrimaryServerSessionLoggedOut": true,
+      "newCredentialEntered": false,
+      "configurationChanged": false
+    },
+    "localMysqlRehearsal": {
+      "status": "not_executed_runtime_start_failed",
+      "reason": "Docker Desktop stopped on a local socket initialization error before its API was available.",
+      "engineStartedForAttemptThenQuit": true,
+      "dockerProcessesRemaining": 0,
+      "imagesPulled": false,
+      "containersCreated": false,
+      "databaseCreated": false,
+      "drupalInstallationExecuted": false,
+      "factoryResetExecuted": false,
+      "diagnosticUploadExecuted": false,
+      "isNotARequiredHostingDependency": true,
+      "nextAction": "Recette MySQL/Drupal sur la lune après qualification et accord du lot, ou autre environnement local réellement disponible."
+    },
+    "temporaryTarget": {
+      "formStillPrepared": true,
+      "submitted": false,
+      "humanDecisionReceived": false,
+      "proposalStatus": "withdrawn_after_https_source_check",
+      "currentEvidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis"
+    },
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
+    "nextAction": "Accord du lot de configuration du compte principal TC préparé après inventaire ; ressources de la lune conservées.",
+    "toolMergeObserved": {
+      "observedAt": "2026-10-04T12:22:47.199241+00:00",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "state": "MERGED",
+      "mergedAt": "2026-10-04T11:42:28Z",
+      "mergedBy": "jpdandinavereo-design",
+      "reviewedHead": "4956a1ecabeb65ef590cb11bfa6bb76a748ba126",
+      "mergeCommit": "fc1f2d95472c36b6b4114f7d87a93729d8796b74",
+      "toolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "agentExecutedMerge": false,
+      "scope": "Fusion des outils et documents de première installation ; recette hébergée et accords distants restent à obtenir."
+    },
+    "currentCpanelAccess": {
+      "checkedAt": "2026-10-04T12:22:47.199241+00:00",
+      "liveRequestShowsExpiredSession": true,
+      "visibleMessage": "Votre cookie de session n’est pas valide. Veuillez vous reconnecter.",
+      "credentialHandoffRequested": true,
+      "agentEnteredCredential": false,
+      "privateScreenshot": ".local/hosting-verification/2026-10-04/cpanel-session-expired.jpg"
+    },
+    "followUpPullRequest": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/7",
+      "scope": "Inventaire du compte principal, sauvegarde privée et lot de configuration préparé ; outils et ZIP inchangés.",
+      "codeSourceUnchanged": true,
+      "humanBoxesCheckedByAgent": false
+    }
+  },
+  "hostingUnblockDiagnosis": {
+    "checkedAt": "2026-10-04T14:04:58.761183+00:00",
+    "scope": "Diagnostic demandé et correction du plan de préproduction ; lecture seule des hébergements.",
+    "referenceAvereo": {
+      "localHeadObserved": "426328cf837fbed7dd757b26ea6fc22e78f50da3",
+      "inspectedFilesSha256": {
+        ".github/workflows/deploy-avereo.yml": "8da190fc453ece3ecdf1169491ac985763b8bc820364b1830df17c66390b8edf",
+        "scripts/delivery-run.py": "cf85b586d49cf42e8b991a3009e13dd69fff70671597caf801d64b087d62b113",
+        "docs/suivi-refonte/05-preproduction.md": "2023be7d8e55c12d6bae08b65fa804febb87ee56a11e6ac4ef7f2e56a5dab900"
+      },
+      "document": "docs/suivi-refonte/05-preproduction.md",
+      "documentaryFacts": [
+        "Production et préproduction dans deux dossiers du même compte.",
+        "PHP 8.3 partagé par les domaines dans le dossier de recette.",
+        "Le script de livraison suppose un Drupal et une base existants."
+      ],
+      "liveAnonymousCheck": {
+        "url": "https://preprod.avereo.fr/",
+        "httpStatus": 401,
+        "strictTlsVerified": true,
+        "credentialUsed": false
+      },
+      "hostingAccountNotReinventoried": true,
+      "filesModified": false
+    },
+    "tc": {
+      "currentDomainPlacement": "Domaine officiel dans le compte principal ; préparation dans une lune distincte.",
+      "crossAccountSubdomainDenied": "Constat historique cPanel conservé et confirmé par la règle officielle.",
+      "dns": {
+        "officialAResolved": true,
+        "preproductionAResolved": false,
+        "preproductionObservedResult": "Le nom DNS n’existe pas."
+      },
+      "visibleCpanelSessionRejected": true,
+      "underlyingAccountSessionNotReauthenticatedByAgent": true,
+      "newCredentialEntered": false
+    },
+    "primarySources": [
+      {
+        "url": "https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/",
+        "fact": "Sous-domaine du domaine principal non créable sur un autre compte ou une lune."
+      },
+      {
+        "url": "https://faq.o2switch.fr/cpanel/securite/lets-encrypt-ssl-gratuit/",
+        "fact": "Émission Let's Encrypt exclue pour les domaines techniques, dont universe.wf."
+      }
+    ],
+    "withdrawnProposal": {
+      "technicalDomainSuffix": "universe.wf",
+      "reason": "Ne satisfait pas la voie HTTPS reconnue proposée avec Let’s Encrypt.",
+      "previousApprovalQuestionSuperseded": true,
+      "createdByAgent": false,
+      "alternativeCertificateMethodNotQualified": true
+    },
+    "recommendedOption": {
+      "status": "human_choice_recorded_qualification_pending",
+      "url": "https://preprod.tclongages.fr/",
+      "hostingAccount": "Compte principal TC",
+      "proposedRelativeComposerRoot": "tcl-preproduction/drupal/",
+      "proposedRelativeDocumentRoot": "tcl-preproduction/drupal/web/",
+      "separateDirectoriesAndDatabase": true,
+      "separateHostingAccountIsolation": false,
+      "sharedPhpEffectsNeedInventory": true,
+      "installerAccountGuardsNeedAdaptation": true
+    },
+    "alternativeOption": {
+      "retainMoon": true,
+      "supportExceptionFeasibility": "not_confirmed",
+      "supportMessageSent": false
+    },
+    "currentToolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "codeModified": false,
+    "drupalZipModified": false,
+    "hostingModified": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
+    "plan": "docs/preparer-lune-tc.md",
+    "documentaryReview": {
+      "checkedAt": "2026-10-04T14:28:01.877354+00:00",
+      "scope": "Documentation et suivi uniquement",
+      "sourceCommit": "4ce169f9ef958629d0e58ced1f520e774d975159",
+      "artifactDigest": "dfbfff233fb25e3e91a6f43737d7033ea2734daf4fc98d518fef8cc5465061c3",
+      "manifestDigest": "8e69cbcbb2eb9a1d9365f44400be85c1bd827dfa93250746285482436520da3a",
+      "sourceFileCount": 402,
+      "schemaViewsManifestPassed": true,
+      "documentsChecked": 14,
+      "localLinksChecked": 318,
+      "structuredFilesParsedByDocumentaryChecker": 5,
+      "humanHistoryAndPhaseZeroUnchanged": true,
+      "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "oldCodeTestResultsNotReassigned": true,
+      "hostedDrupalRecipeExecuted": false,
+      "humanApprovalRecorded": false,
+      "productionDeploymentExecuted": false
+    },
+    "humanChoice": {
+      "recordedAt": "2026-10-04T14:27:54.237603+00:00",
+      "date": "2026-10-04",
+      "sourceRef": "chat-utilisateur-2026-10-04-organisation-avereo-tc",
+      "answer": "On suit la même organisation que pour AVEREO",
+      "scope": "Choix du compte principal TC pour la préproduction, avec dossier et base séparés.",
+      "hostingConfigurationApproval": false,
+      "phaseValidation": false,
+      "productionDeploymentApproval": false,
+      "publicOpeningApproval": false
+    },
+    "cpanelLoginPreparation": {
+      "usernameCorrected": true,
+      "agentEnteredPassword": false,
+      "agentSubmittedConnection": false,
+      "privateEvidence": ".local/hosting-verification/2026-10-04/cpanel-primary-login-prepared.jpg"
+    },
+    "documentaryReviewHistory": [
+      {
+        "checkedAt": "2026-10-04T14:08:46.701635+00:00",
+        "scope": "Documentation et suivi uniquement",
+        "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
+        "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
+        "manifestDigest": "ab137996946782796084fe6d5d2b770315c1a02fd5505c5ec8e20ad7963df849",
+        "sourceFileCount": 402,
+        "schemaViewsManifestPassed": true,
+        "documentsChecked": 14,
+        "localLinksChecked": 317,
+        "structuredFilesParsedByDocumentaryChecker": 5,
+        "humanHistoryAndPhaseZeroUnchanged": true,
+        "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+        "oldCodeTestResultsNotReassigned": true,
+        "hostedDrupalRecipeExecuted": false,
+        "humanApprovalRecorded": false,
+        "productionDeploymentExecuted": false
+      }
+    ]
+  },
+  "hostingPrimaryAccountQualification": {
+    "observedAt": "2026-10-04T15:17:47.205619+00:00",
+    "status": "inventory_complete_configuration_approval_pending",
+    "scope": "Inventaire authentifié du compte principal TC, sauvegarde de fichiers privée et préparation du lot, sans application des réglages.",
+    "plan": "docs/preparer-lune-tc.md#lot-du-compte-principal",
+    "personalConnectionConfirmed": true,
+    "userConfirmationRef": "chat-utilisateur-2026-10-04-connecte-a-cpanel",
+    "privateEvidenceDirectory": ".local/hosting-verification/2026-10-04-primary/",
+    "account": {
+      "role": "primary_tc",
+      "identityAndHomeVerified": true,
+      "accountIdentifiersKeptPrivate": true
+    },
+    "domains": {
+      "businessDomain": "tclongages.fr",
+      "businessDomainCount": 1,
+      "phpSelectorHostCount": 3,
+      "preproductionParentAvailable": true,
+      "preproductionHostAbsent": true,
+      "officialDocumentRootRelative": "public_html"
+    },
+    "runtime": {
+      "phpSelectorCurrent": "native (8.1)",
+      "phpCliCurrent": "8.1.34",
+      "php83OfferedInCpanel": true,
+      "php83CliReadOnlyVersion": "8.3.33",
+      "pythonVersion": "3.6.8",
+      "perDomainIsolationRejectedByServer": true,
+      "phpChangeAppliesToWholeTcAccount": true,
+      "php83MissingRequiredExtensions": [
+        "gd",
+        "mbstring",
+        "tokenizer"
+      ],
+      "requirementsSource": "drupal/composer.lock",
+      "requiredExtensionCount": 18,
+      "phpHttpQualified": false,
+      "phpChangeExecuted": false
+    },
+    "storage": {
+      "officialRootRegularFiles": 1,
+      "officialRootDirectories": 1,
+      "officialIndexBytes": 1543401,
+      "officialIndexSha256": "6d275fe4ca09799ce89f6e03ba9ae7df133b2969f81c128c3d7875f8f6a37515",
+      "officialIndexPhpOpeningTags": 0,
+      "officialIndexPhp83SyntaxPassed": true,
+      "officialIndexIsStaticWaitingPage": true,
+      "liveRootMatchesRestoredOctober3AndOctober4": true,
+      "proposedComposerRootRelative": "tcl-preproduction/drupal",
+      "proposedDocumentRootRelative": "tcl-preproduction/drupal/web",
+      "proposedRootAbsent": true
+    },
+    "sql": {
+      "existingDatabaseCount": 0,
+      "existingUserCount": 0,
+      "plannedDatabaseSuffix": "tclpreprod",
+      "plannedUserSuffix": "tcl",
+      "targetCollation": "utf8mb4_unicode_ci",
+      "databaseCreationExecuted": false,
+      "newCredentialEntryAndSubmission": "human_in_cpanel",
+      "connectionTested": false,
+      "privilegeAssignmentApproval": "at_action_time_on_dedicated_database"
+    },
+    "dnsTls": {
+      "officialA": "109.234.167.71",
+      "authoritativeNameservers": [
+        "ns1.o2switch.net",
+        "ns2.o2switch.net"
+      ],
+      "preproductionDnsStatus": "NXDOMAIN",
+      "letsEncryptInstalledCertificateCount": 0,
+      "officialStrictTlsClientResult": "SEC_E_UNTRUSTED_ROOT",
+      "officialStrictTlsExitCode": 60,
+      "tlsValidationBypassed": false,
+      "dnsChangeExecuted": false,
+      "certificateIssued": false
+    },
+    "backup": {
+      "snapshotDate": "2026-10-04",
+      "snapshotTimeAsDisplayedByServer": "06:11 AM",
+      "destinationAsDisplayed": "Journalier-Externe",
+      "scope": "Home directory files only",
+      "remoteExportCompleted": true,
+      "archiveSha256": "4071af2f0a7bb1100f47742289a96984bffaf82d8e7525fe1e0916f85b23ffd6",
+      "archiveBytes": 1200729,
+      "regularFilesRestored": 69,
+      "directoriesRestored": 62,
+      "linksRestored": 2,
+      "gzipIntegrityVerified": true,
+      "allRestoredHashesMatched": true,
+      "privateFileCopyRestorationTested": true,
+      "livePublicRootMatchesRestoredSnapshot": true,
+      "privateReceipt": ".local/hosting-backups/2026-10-04-primary/home-snapshot.tar.gz.restoration.json",
+      "olderDnsAndCertificateExportsPreserved": true,
+      "activeAccountRestorationExecuted": false,
+      "databaseImportTested": false,
+      "dnsImportTested": false,
+      "certificateInstallationTested": false
+    },
+    "configurationProposal": {
+      "approvalRef": "TCL-CONFIG-COMPTE-PRINCIPAL-20261004",
+      "status": "prepared_for_human_approval",
+      "phpVersion": "8.3",
+      "scope": "primary_tc_account",
+      "targetHost": "preprod.tclongages.fr",
+      "formPrepared": true,
+      "formSubmitted": false,
+      "readOnlyHttpProbePlan": "docs/qualification-preproduction.md",
+      "drupalTransferIncluded": false,
+      "productionDeploymentIncluded": false,
+      "publicOpeningIncluded": false,
+      "moonResourcesPreserved": true
+    },
+    "installerAccountGuardAdaptationRequired": true,
+    "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "sourceCommitObservedBeforeChange": "105bfe3eb03828de3ab076684d4de82211ba2a09",
+    "sourceCodeChanged": false,
+    "siteZipChanged": false,
+    "hostingConfigurationApplied": false,
+    "agentEnteredPassword": false,
+    "hostedDrupalInstalled": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "documentaryReview": {
+      "checkedAt": "2026-10-04T15:22:37.533805+00:00",
+      "scope": "Inventaire principal, préparation du lot et documentation uniquement",
+      "sourceCommit": "b063b98d4381cce30d0277cad1e7489f8f12e0e9",
+      "artifactDigest": "ed9272b6d1a26a1732920966d8eb363cbf3f92bee5614216cfc0ceb42ae23bcf",
+      "manifestDigest": "c3cafb9885663688afb4fbba5f76bd6707660a37afa2aa4f5f6f607ddc77a121",
+      "sourceFileCount": 402,
+      "schemaViewsManifestPassed": true,
+      "documentsChecked": 15,
+      "localLinksChecked": 332,
+      "structuredFilesParsed": 5,
+      "humanHistoryAndPhaseZeroUnchanged": true,
+      "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "oldCodeTestsNotReassigned": true,
+      "configurationApplied": false,
+      "hostedDrupalInstalled": false,
+      "productionDeploymentExecuted": false
+    }
   }
 }

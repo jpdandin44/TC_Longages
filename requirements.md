@@ -15,6 +15,26 @@ tags:
 
 # Exigences
 
+## Transport et choix de compte — correction du 4 octobre
+
+La préproduction doit disposer d'un HTTPS reconnu. L'adresse technique
+proposée en `universe.wf` est retirée : l'outil Let's Encrypt o2switch ne
+l'accepte pas. Le [plan courant](docs/preparer-lune-tc.md) porte les sources et
+les voies à qualifier. Un choix du compte principal doit expliciter la
+séparation des fichiers et bases, la perte du cloisonnement entre comptes,
+les effets éventuels du PHP partagé et l'adaptation de l'outil avant écriture.
+Aucun compte, privilège, secret ou accord de la lune n'est transposé par défaut.
+
+## Qualification du compte principal — 4 octobre
+
+Le [lot courant](docs/preparer-lune-tc.md#lot-du-compte-principal)
+doit prendre en compte le PHP partagé constaté et activer les 18 extensions
+dérivées du verrou Composer/pilote SQL, dont `gd`, `mbstring` et `tokenizer`
+manquent au PHP 8.3 CLI observé. Relire le PHP HTTP avant tout secret ou Drupal.
+Le dossier de préproduction doit rester fermé, la base et l’utilisateur propres
+à ce compte, et le mot de passe créé personnellement. Une restauration privée
+des fichiers ne vaut pas restauration du futur Drupal, SQL, DNS ou certificat.
+
 ## Exécution sur la lune observée — 4 octobre
 
 Le vérificateur et l'outil de première installation doivent pouvoir utiliser

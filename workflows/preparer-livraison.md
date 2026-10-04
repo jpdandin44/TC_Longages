@@ -32,6 +32,16 @@ Sa provenance et ses empreintes sont dans le [reçu](../data/actions-mutualisees
 Les scripts du monorepo d'applications statiques AVEREO ne constituent pas
 l'adaptateur de ce Drupal. Aucun fichier du site AVEREO actif n'est modifié.
 
+## Cible de préproduction inventoriée — 4 octobre
+
+La connexion personnelle au compte principal TC retenu est confirmée. Le
+[plan courant](../docs/preparer-lune-tc.md#lot-du-compte-principal)
+présente les effets PHP partagés, la racine fermée, le sous-domaine/DNS/HTTPS
+et SQL dédié après inventaire et restauration privée de fichiers. Le lot
+attend son accord ; l’outil de première installation reste à adapter au compte
+principal avant le transfert. Le ZIP déjà reçu n’est pas reconstruit. La lune
+active reste conservée et aucun workflow de livraison n’est activé.
+
 ## Fonctionnement préparé
 
 La nouvelle [Action manuelle](../.github/workflows/preparer-deploiement.yml)
@@ -148,7 +158,7 @@ et une base existants, une racine plate et des contenus natifs AVEREO.
 
 Pour préparer l'adaptateur de livraison et le retour arrière du TC, il manque :
 
-1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. Une adresse temporaire attend son accord et la qualification DNS/HTTPS/runtime ; la lecture cPanel du
+1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. La proposition d'adresse technique est retirée ; qualifier l'implantation dans le compte principal désormais retenue dans le [plan corrigé](../docs/preparer-lune-tc.md), notamment PHP HTTP et HTTPS reconnu. La lecture cPanel du
    1er octobre a confirmé la racine officielle non vide, PHP 8.1, le certificat
    autosigné et huit lunes gratuites. Le [lot proposé](../docs/preparer-lune-tc.md)
    définit la suite ; PHP Apache isolé et certificat reconnu restent à qualifier.
