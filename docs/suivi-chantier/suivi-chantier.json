@@ -94,12 +94,13 @@
       ],
       "blockers": [],
       "nextAction": "PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
         "https://github.com/jpdandin44/TC_Longages/pull/2",
         "https://github.com/jpdandin44/TC_Longages/pull/3",
-        "https://github.com/jpdandin44/TC_Longages/pull/4"
+        "https://github.com/jpdandin44/TC_Longages/pull/4",
+        "https://github.com/jpdandin44/TC_Longages/pull/9"
       ],
       "reviewContext": {
         "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
@@ -208,12 +209,13 @@
       ],
       "blockers": [],
       "nextAction": "Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
         "https://github.com/jpdandin44/TC_Longages/pull/7",
-        "https://github.com/jpdandin44/TC_Longages/pull/8"
+        "https://github.com/jpdandin44/TC_Longages/pull/8",
+        "https://github.com/jpdandin44/TC_Longages/pull/9"
       ],
       "legacyPhaseIds": [
         1,

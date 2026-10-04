@@ -1726,7 +1726,7 @@
     }
   },
   "reviewValidationCorrection": {
-    "status": "prepared_locally_tests_passed_runtime_not_restarted",
+    "status": "served_locally_draft_pr_human_review_pending",
     "preparedInBranch": "fix/revue-phase-locale",
     "baseCommit": "3fb41457e2c402b85de1806dbdf85c77e62e53ed",
     "historicalValidationReopenImplemented": true,
@@ -1758,8 +1758,8 @@
       }
     ],
     "frameworkCheckPassed": true,
-    "pullRequest": null,
-    "servedByCockpit": false,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
+    "servedByCockpit": true,
     "hostingAuthorizationUnchanged": true,
     "productionChanged": false,
     "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
@@ -1772,6 +1772,47 @@
       "localLinks": 301,
       "metadataPassed": true,
       "scaffoldPresent": true
-    }
+    },
+    "pullRequestDraft": true,
+    "humanChecklistCheckedByAgent": false,
+    "recordedAt": "2026-10-04T20:39:15.872Z",
+    "localRuntime": {
+      "processId": 29612,
+      "origin": "http://127.0.0.1:4181",
+      "loopbackOnly": true
+    },
+    "visualVerification": {
+      "draftPhase": 1,
+      "checkedDraftCriteria": 12,
+      "commentPreserved": true,
+      "actorPreserved": true,
+      "criteriaLabelsPreserved": true,
+      "confirmed": false,
+      "historicalPhase0LabelVisible": true,
+      "reopenButtonEnabled": true,
+      "approveButtonDisabled": true,
+      "pr9LinkVisible": true,
+      "evidenceFile": ".local/hosting-verification/2026-10-04-primary/cockpit-historical-review-ready.jpg"
+    },
+    "historicalHumanEntriesPreserved": true,
+    "agentCreatedApproval": false,
+    "githubChecks": [
+      {
+        "name": "technical-ci",
+        "status": "COMPLETED",
+        "conclusion": "SUCCESS",
+        "observedHead": "c1148a691515936e13fbef10711cdee3ed0ff3b5",
+        "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37232030937"
+      },
+      {
+        "name": "policy",
+        "status": "COMPLETED",
+        "conclusion": "FAILURE",
+        "observedHead": "c1148a691515936e13fbef10711cdee3ed0ff3b5",
+        "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37232030905",
+        "reason": "The four human review checkboxes remain unchecked; structure passed locally with allow-unchecked. No human agreement supplied by the agent."
+      }
+    ],
+    "latestPushChecksObserved": false
   }
 }
