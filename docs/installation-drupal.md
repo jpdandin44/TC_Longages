@@ -5,14 +5,102 @@ title: Drupal dédié — installation locale et préparation de l’hébergemen
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags: [drupal, maintenance, installation, hebergement, securite]
 ---
 
 # Drupal dédié au TC Longages
 
-## État hébergé courant — 3 octobre
+## Reprise et première installation préparée — 4 octobre
+
+La connexion cPanel du compte TC puis de la lune est vérifiée. La lune conserve
+zéro domaine supplémentaire et zéro sous-domaine configuré. Le formulaire de
+l'adresse temporaire est préparé sans soumission ; son accord est attendu.
+Le terminal existant répond dans ce compte : PHP **8.3.33**, `pdo_mysql` chargé,
+Python **3.6.8**. Il s'agit de la ligne de commande ; le PHP servi en HTTP et la
+connexion SQL applicative restent à qualifier. Les observations SQL du
+3 octobre conservées plus bas ne remplacent pas cette qualification.
+
+L'[adaptateur de première installation](../scripts/first_install.py), avec son
+[auxiliaire PHP](../scripts/first-install-hosting.php), est préparé localement.
+Il réutilise le vérificateur mutualisé et reçoit le **même ZIP construit sur
+`49b4ef7`**, sans reconstruction. Douze tests de frontières ont réussi sur Linux
+local, mais l'exécution MySQL/Drupal sur la lune reste **non testée**. Le modèle
+de déploiement GitHub reste inactif.
+
+### Entrées et opérations
+
+Le [profil d'exemple](../config/first-install.example.json) contient un compte
+fictif et un accord vide : il ne permet aucune écriture tel quel. Son adaptation
+privée doit porter le compte, l'hôte et les racines réellement observés, la base
+et l'utilisateur dédiés, les empreintes du ZIP reçu et la référence de l'accord
+de transfert/installation. Le lot de configuration précédent exclut ce transfert.
+Vérifier également les empreintes des scripts transférés après leur revue.
+
+Le reçu privé de qualification porte le même hôte, DNS, HTTPS reconnu, PHP HTTP
+8.3 et fermeture réelle de la racine. Il exige une référence de preuve et un
+horodatage UTC `YYYY-MM-DDTHH:MM:SSZ` datant de moins d'une heure à l'exécution.
+Ne renseigner ces résultats qu'après essais observés.
+
+```text
+python3 first_install.py plan --profile PROFIL_PRIVE --archive ZIP_RECU
+python3 first_install.py stage --profile PROFIL_PRIVE --qualification RECU_CIBLE --archive ZIP_RECU
+python3 first_install.py install --profile PROFIL_PRIVE --qualification RECU_CIBLE
+python3 first_install.py check --profile PROFIL_PRIVE --qualification RECU_CIBLE
+```
+
+`plan` relit provenance et empreintes sans modifier de cible. `stage` refuse
+tout contenu autre que la fermeture Apache prévue et un `cgi-bin` vide. Il
+extrait dans un dossier privé neuf, relit chaque empreinte, conserve la racine
+initiale puis remplace seulement cette racine vide par deux renommages bornés.
+Le reçu de tentative précède la bascule ; une interruption bloque une reprise
+aveugle. Dépendances et sept pages dérivées restent hors du dossier Web.
+
+Après `stage`, le responsable prépare et soumet personnellement
+`hosting-input.json` dans le dossier privé, depuis le modèle sans secret créé
+sur le serveur : mot de passe SQL existant, identifiant/courriel et nouveau mot
+de passe administrateur Drupal. Garder ces accès dans son gestionnaire
+personnel. Aucun secret dans le chat, Git ou les arguments de commande.
+Les fichiers privés sont `0600`, leurs dossiers `0700` ; l'agent ne lit pas leurs
+valeurs. L'entrée contenant le mot de passe initial administrateur reste
+privée ; son nettoyage sera une action humaine distincte, après conservation
+des accès, et n'est pas automatisé.
+
+`install` contrôle connexion SQL, base/utilisateur, zéro table, version SQL,
+UTF-8 et InnoDB avant configuration active. Il appelle l'[installateur non
+interactif Drupal](https://api.drupal.org/api/drupal/core%21includes%21install.core.inc/function/install_drupal/11.x)
+avec le profil minimal : administration initialement anglaise, pages publiques
+françaises. Le collecteur du cœur neutralise les courriels avant disponibilité
+de `tcl_site`. Puis sont configurés module TC, transport `tcl_null_mail`,
+maintenance, inscriptions réservées à l'administration et arrêt du cron
+automatique. Un processus PHP neuf vérifie ce résultat avant remplacement de
+la fermeture Apache par les règles Drupal : visiteurs en maintenance,
+`install.php` et `update.php` toujours refusés, connexion native disponible
+pour la recette personnelle des pages sous maintenance.
+
+### Reçus, récupération et limites
+
+Les reçus portent candidat, outils, versions et états observés, sans secret
+ni lien de connexion à usage unique. Un code retour nul seul ne suffit pas.
+Les sorties brutes PHP ne sont pas affichées, car elles pourraient contenir
+une entrée privée. En cas d'échec d'installation ou de sa vérification, Apache
+reste fermé. L'outil ne supprime ni table, ni base, ni version extraite.
+
+La racine initiale conservée hors Web ne prouve pas un retour arrière SQL.
+Après installation, qualifier sauvegarde du Drupal, restauration dans une
+copie privée puis retour arrière borné avant livraison. Restent les essais
+HTTPS, maintenance anonyme 503, pages authentifiées, refus d'accès aux
+paramètres/dépendances/pages dérivées et de PHP dans les fichiers publics,
+journaux, ordinateur/mobile. La cible officielle, sa migration, sa livraison
+et son ouverture ont leurs accords propres. Cet outil refuse la production.
+
+La [revue Claude ciblée](../prompts/revue-premiere-installation-claude.md) est
+terminée avec Sonnet 5.5, effort Moyen, un échange. Ses conseils sont confrontés
+au code : Drush 13.8.0 est bien dans le ZIP ; aucune suppression automatique
+des tables proposée dans la réponse n'est adoptée. Les captures restent privées.
+
+## Configuration du 3 octobre — historique conservé
 
 Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
 

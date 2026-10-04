@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - site-internet
@@ -16,6 +16,13 @@ tags:
 # Tennis Club de Longages
 
 ## Mise en ligne V1 — parcours actuel
+
+Reprise le 4 octobre : cPanel et le terminal de la lune sont accessibles ; PHP
+CLI 8.3.33 et Python 3.6.8 y sont observés. L'[outil de première installation](docs/installation-drupal.md)
+est préparé et testé localement sur Linux, sans exécution MySQL/Drupal distante.
+Le formulaire de l'adresse temporaire est prêt, sans accord ni soumission.
+Le [point courant](docs/point-session.md) et le [reçu d'hébergement](data/activation-lune-verification.json)
+portent les prérequis restants ; le site n'est pas livré ou ouvert.
 
 La reprise du 3 octobre confirme la fusion humaine de la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5). L'Action de construction a réussi sur le commit de fusion ; le ZIP reçu a été vérifié intégralement sur le poste. Le [reçu de préparation](data/actions-mutualisees-verification.json), rubrique `postMergeBuild`, identifie ce candidat non configuré. Aucun déploiement ne découle du merge.
 

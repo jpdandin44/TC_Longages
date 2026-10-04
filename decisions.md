@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,23 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-04 — Préparer la première installation avec l'accès existant
+
+**Contexte.** Le terminal de la lune est accessible dans la session cPanel
+ouverte personnellement ; PHP CLI 8.3.33 et Python 3.6.8 sont observés. La
+création d'un accès SSH n'appartient pas au lot de configuration autorisé.
+
+**Choix de préparation.** Adapter le vérificateur mutualisé à ce Python et
+préparer une extraction privée avec installation PHP non interactive, depuis
+le ZIP GitHub conservé. Ne pas activer un modèle de livraison absent ou
+présenter une reconstruction comme le même artefact.
+
+**Conséquences.** Tests locaux puis qualification MySQL/Drupal réelle avant
+usage ; références d'accord pour cible et installation, paramètres soumis
+personnellement, reçu sans secret, conservation de l'état initial. Le transfert,
+la migration officielle et l'ouverture restent des décisions humaines propres.
+La [procédure](docs/installation-drupal.md) porte les commandes et leurs limites.
 
 ## Configuration isolée et maintien du domaine officiel — 3 octobre
 

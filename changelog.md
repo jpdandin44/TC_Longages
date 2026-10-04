@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,18 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-04 — Reprise et première installation préparée
+
+- Connexion cPanel et accès au terminal existant vérifiés ; PHP CLI 8.3.33,
+  `pdo_mysql` et Python 3.6.8 observés. Formulaire de l'adresse temporaire
+  préparé, sans soumission ni accord reçu.
+- Adaptateur local : même ZIP, extraction privée vérifiée, refus d'une cible
+  contenant des données, installation sans arguments secrets, contrôle neuf de
+  la maintenance. Aucune suppression SQL automatique ni ouverture implémentée.
+- Revue Claude obtenue avec Sonnet 5.5 Moyen, un échange ; tests de frontières
+  réussis sur Linux, procédure et suivi actualisés. Installation MySQL/Drupal
+  hébergée, recette, restauration et livraison demeurent à qualifier.
 
 ## 2026-10-03 — Clôture avec blocages et reprise conservée
 

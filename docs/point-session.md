@@ -5,12 +5,56 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 3 octobre 2026
+# Point de session — reprise au 4 octobre 2026
+
+## Reprise du 4 octobre — première installation préparée, décision de cible attendue
+
+Le responsable demande de reprendre et finaliser la mise en production avec
+Claude, puis confirme sa connexion cPanel. Le compte TC et sa première lune
+gratuite sont ouverts ; aucune reprise du domaine officiel ni écriture DNS
+n'est exécutée. Le formulaire de l'adresse technique temporaire est préparé
+sur la racine isolée déjà protégée, sans soumission. Son accord reste attendu.
+Les clôtures précédentes ci-dessous sont historiques ; la session de travail
+est reprise et les onglets cPanel sont conservés pour cette décision.
+
+Le terminal existant répond dans la lune : PHP CLI **8.3.33**, `pdo_mysql`
+chargé, Python **3.6.8**. L'[adaptateur de première installation](installation-drupal.md)
+est préparé localement pour ces runtimes : réemploi du vérificateur partagé,
+extraction privée et contrôle exhaustif, conservation de la racine vide,
+configuration fournie personnellement, installation fermée puis maintenance
+vérifiée dans un processus neuf. Il refuse une cible avec données, la
+production et toute suppression automatique de tables. L'exécution
+MySQL/Drupal réelle reste non testée.
+
+Douze tests de frontières passent sur Linux local ; les seize tests partagés
+et les 137 contrôles du projet passent. La syntaxe de l'auxiliaire PHP est
+vérifiée localement. Le mode `plan` a relu le même ZIP reçu : source `49b4ef7`,
+26 687 fichiers, empreintes ZIP et manifeste inchangées. Ces résultats ne
+prouvent ni PHP HTTP, connexion SQL, installation ou retour arrière sur la lune.
+Les preuves finales de revue seront rattachées au candidat figé, séparément du
+ZIP de site déjà conservé.
+
+Claude a fourni une revue dans « Drupal installation review », avec Sonnet
+5.5 et effort Moyen, un seul échange. Le [prompt de référence](../prompts/revue-premiere-installation-claude.md)
+et le [reçu courant](../data/activation-lune-verification.json) en conservent
+le périmètre. Captures, compte, chemins et archives restent privés. Aucun
+solde ou budget chiffré n'est inventé ; aucun nouvel appel de modèle pour les
+tests déterministes. Historique humain, phase 0 validée et libellés obligatoires
+de PR sont conservés.
+
+**Suite exacte :** accord sur la cible temporaire ; création et qualification
+DNS/HTTPS/PHP HTTP sans données ; présentation du transfert et de
+l'installation sous maintenance du ZIP et des outils revus ; saisie personnelle
+des paramètres privés ; recette hébergée, sauvegarde/restauration et retour
+arrière ; enfin qualification de la cible officielle et décisions de livraison
+et d'ouverture. Le formulaire proposé et ses effets n'autorisent aucun
+déplacement du domaine officiel. Aucune mise en production n'est déclarée prête
+ou réalisée par cette préparation locale.
 
 ## Fin de session du 3 octobre — configuration partielle conservée
 

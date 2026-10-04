@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,21 @@ tags:
 ---
 
 # Architecture
+
+## Première installation par le terminal existant — 4 octobre
+
+Le terminal cPanel de la lune est qualifié en lecture pour PHP CLI 8.3.33 et
+Python 3.6.8. Le [nouvel adaptateur](scripts/first_install.py) réutilise le
+vérificateur générique du ZIP construit par GitHub. Il prépare une version dans
+un dossier privé, conserve la racine vide initiale et confie l'installation
+non interactive au [script PHP privé](scripts/first-install-hosting.php).
+Les paramètres SQL et administrateur fournis personnellement restent hors
+Web ; un processus neuf contrôle maintenance et neutralisation des courriels
+avant de rendre accessible la connexion Drupal sous maintenance. La
+[procédure et ses limites](docs/installation-drupal.md) sont la référence de
+ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
+nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
+restent historiques.
 
 ## Compte isolé actif et chaîne de préparation — 3 octobre
 

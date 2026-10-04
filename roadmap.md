@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,17 @@ tags:
 ---
 
 # Feuille de route
+
+## Reprise de la première installation — 4 octobre
+
+Le terminal cPanel existant répond et l'[adaptateur](docs/installation-drupal.md)
+est désormais préparé localement, avec tests Linux. Prochaine action : obtenir
+la décision sur l'adresse temporaire préparée, qualifier son DNS/HTTPS/PHP
+servi, puis présenter le transfert et l'installation fermée du même ZIP reçu.
+La recette réelle, la sauvegarde/restauration Drupal et le retour arrière
+précèdent toujours la qualification et la livraison de production. Le
+[suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve l'historique
+humain et les blocages ; aucune phase n'est validée par cette préparation.
 
 ## État et prochaine intervention — 3 octobre
 

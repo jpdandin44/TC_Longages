@@ -3,7 +3,7 @@
   "documentType": "release-pipeline",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-03",
+  "updated": "2026-10-04",
   "owner": "jpdandin",
   "scope": "Première V1 publique sous Drupal ; espaces Bureau, Google et envois automatiques fermés jusqu'à leur propre recette.",
   "productionHost": "tclongages.fr",
@@ -98,5 +98,6 @@
     "lastResumeAt": "2026-10-03T20:34:29.627007+00:00",
     "hostingReceipt": "data/activation-lune-verification.json",
     "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel."
-  }
+  },
+  "latestResumptionEvidence": "data/activation-lune-verification.json#latestResumption"
 }

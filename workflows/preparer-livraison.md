@@ -5,12 +5,25 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## Complément local de première installation — 4 octobre
+
+Le [vérificateur partagé](../scripts/delivery_shared.py) et le constructeur
+restent la source de contrôle du ZIP reçu. Leur import ne dépend plus de la
+directive Python apparue en 3.7 : la vérification est destinée au Python 3.6.8
+observé dans cPanel ; la construction et SSH gardent leur environnement CI.
+L'[adaptateur de première installation](../scripts/first_install.py) et sa
+[procédure](../docs/installation-drupal.md) sont préparés à côté de cette
+Action, sans changer les déclenchements ni activer de livraison automatique.
+L'exécution MySQL/Drupal et la recette de cette cible restent non qualifiées.
+Les sections datées antérieures qui mentionnent un adaptateur absent restent
+l'état historique avant cette préparation.
 
 Le responsable demande le 1er octobre de reprendre la mise en production en
 réutilisant les Actions du **site Drupal AVEREO**. La chaîne de référence est

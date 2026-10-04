@@ -12,6 +12,10 @@ test('Les garde-fous partagés passent les archives hostiles et les pannes SSH s
   const result=spawnSync(python,['-m','unittest','discover','-s','tests','-p','test_delivery_shared.py'],{cwd:root,env,encoding:'utf8',windowsHide:true});
   assert.equal(result.status,0,result.stdout+result.stderr);
 });
+test('La première installation refuse les mauvaises cibles, protège les données et reste fermée en cas de panne',()=>{
+  const result=spawnSync(python,['-m','unittest','discover','-s','tests','-p','test_first_install.py'],{cwd:root,env,encoding:'utf8',windowsHide:true});
+  assert.equal(result.status,0,result.stdout+result.stderr);
+});
 test('La préparation reste manuelle, borne les crédits runner et sépare construction et accès',async()=>{
   const contents=await Promise.all(['.github/workflows/preparer-deploiement.yml','.github/actions/qualified-ssh/action.yml'].map(path=>readFile(resolve(root,path),'utf8')));
   const parsed=spawnSync(python,['-c','import json,sys,yaml; print(json.dumps([yaml.safe_load(s) for s in json.load(sys.stdin)]))'],{input:JSON.stringify(contents),env,encoding:'utf8',windowsHide:true});

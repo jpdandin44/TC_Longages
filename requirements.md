@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,16 @@ tags:
 ---
 
 # Exigences
+
+## Exécution sur la lune observée — 4 octobre
+
+Le vérificateur et l'outil de première installation doivent pouvoir utiliser
+Python 3.6.8 et PHP CLI 8.3.33 constatés dans le terminal cPanel existant. La
+construction GitHub conserve son environnement propre. Le profil d'écriture
+est limité à la préproduction vide ; mot de passe SQL et nouveau compte Drupal
+sont soumis personnellement sur le serveur, sans argument ou sortie sensible.
+HTTPS et le PHP HTTP restent des conditions distinctes. Les tests Linux locaux
+ne prouvent ni cette exécution hébergée ni le retour arrière SQL.
 
 ## Exigence de reprise — Actions GitHub, 1er octobre
 

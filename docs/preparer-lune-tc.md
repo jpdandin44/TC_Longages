@@ -5,12 +5,27 @@ title: Préparation du compte isolé de préproduction TC
 status: active
 version: git
 created: 2026-10-01
-updated: 2026-10-03
+updated: 2026-10-04
 owner: jpdandin
 tags: [o2switch, preproduction, sauvegarde, autorisation]
 ---
 
 # Préparation de la lune de préproduction
+
+## Reprise du 4 octobre
+
+Compte principal et lune reconnectés ; un compte actif gratuit et sept lunes
+restantes sont affichés. Les tables Domaines Configurés et Sous-domaines de la
+lune restent vides. Le formulaire `preprod` sous son domaine technique est
+préparé sur la même racine protégée, sans soumission ; l'accord demandé sur
+ce changement de cible est attendu. Aucun mot de passe n'est collecté.
+
+Le terminal existant répond : PHP CLI 8.3.33 avec `pdo_mysql`, Python 3.6.8.
+Le [guide d'installation](installation-drupal.md) porte l'outil désormais
+préparé localement et ses limites. DNS, HTTPS reconnu, PHP HTTP et connexion SQL
+restent à tester avant transfert autorisé du ZIP. L'état et les accords du
+3 octobre conservés ensuite ne sont pas transformés en accord de transfert,
+de migration officielle ou d'ouverture.
 
 ## Configuration autorisée et blocage de domaine — 3 octobre
 
