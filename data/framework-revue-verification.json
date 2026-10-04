@@ -758,7 +758,7 @@
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false,
     "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
-    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
+    "nextAction": "Accord du lot de configuration du compte principal TC préparé après inventaire ; ressources de la lune conservées.",
     "toolMergeObserved": {
       "observedAt": "2026-10-04T12:22:47.199241+00:00",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
@@ -781,7 +781,7 @@
     },
     "followUpPullRequest": {
       "url": "https://github.com/jpdandin44/TC_Longages/pull/7",
-      "scope": "Diagnostic et correction documentaire du choix de préproduction ; outils et ZIP inchangés.",
+      "scope": "Inventaire du compte principal, sauvegarde privée et lot de configuration préparé ; outils et ZIP inchangés.",
       "codeSourceUnchanged": true,
       "humanBoxesCheckedByAgent": false
     }
@@ -919,5 +919,147 @@
         "productionDeploymentExecuted": false
       }
     ]
+  },
+  "hostingPrimaryAccountQualification": {
+    "observedAt": "2026-10-04T15:17:47.205619+00:00",
+    "status": "inventory_complete_configuration_approval_pending",
+    "scope": "Inventaire authentifié du compte principal TC, sauvegarde de fichiers privée et préparation du lot, sans application des réglages.",
+    "plan": "docs/preparer-lune-tc.md#lot-du-compte-principal",
+    "personalConnectionConfirmed": true,
+    "userConfirmationRef": "chat-utilisateur-2026-10-04-connecte-a-cpanel",
+    "privateEvidenceDirectory": ".local/hosting-verification/2026-10-04-primary/",
+    "account": {
+      "role": "primary_tc",
+      "identityAndHomeVerified": true,
+      "accountIdentifiersKeptPrivate": true
+    },
+    "domains": {
+      "businessDomain": "tclongages.fr",
+      "businessDomainCount": 1,
+      "phpSelectorHostCount": 3,
+      "preproductionParentAvailable": true,
+      "preproductionHostAbsent": true,
+      "officialDocumentRootRelative": "public_html"
+    },
+    "runtime": {
+      "phpSelectorCurrent": "native (8.1)",
+      "phpCliCurrent": "8.1.34",
+      "php83OfferedInCpanel": true,
+      "php83CliReadOnlyVersion": "8.3.33",
+      "pythonVersion": "3.6.8",
+      "perDomainIsolationRejectedByServer": true,
+      "phpChangeAppliesToWholeTcAccount": true,
+      "php83MissingRequiredExtensions": [
+        "gd",
+        "mbstring",
+        "tokenizer"
+      ],
+      "requirementsSource": "drupal/composer.lock",
+      "requiredExtensionCount": 18,
+      "phpHttpQualified": false,
+      "phpChangeExecuted": false
+    },
+    "storage": {
+      "officialRootRegularFiles": 1,
+      "officialRootDirectories": 1,
+      "officialIndexBytes": 1543401,
+      "officialIndexSha256": "6d275fe4ca09799ce89f6e03ba9ae7df133b2969f81c128c3d7875f8f6a37515",
+      "officialIndexPhpOpeningTags": 0,
+      "officialIndexPhp83SyntaxPassed": true,
+      "officialIndexIsStaticWaitingPage": true,
+      "liveRootMatchesRestoredOctober3AndOctober4": true,
+      "proposedComposerRootRelative": "tcl-preproduction/drupal",
+      "proposedDocumentRootRelative": "tcl-preproduction/drupal/web",
+      "proposedRootAbsent": true
+    },
+    "sql": {
+      "existingDatabaseCount": 0,
+      "existingUserCount": 0,
+      "plannedDatabaseSuffix": "tclpreprod",
+      "plannedUserSuffix": "tcl",
+      "targetCollation": "utf8mb4_unicode_ci",
+      "databaseCreationExecuted": false,
+      "newCredentialEntryAndSubmission": "human_in_cpanel",
+      "connectionTested": false,
+      "privilegeAssignmentApproval": "at_action_time_on_dedicated_database"
+    },
+    "dnsTls": {
+      "officialA": "109.234.167.71",
+      "authoritativeNameservers": [
+        "ns1.o2switch.net",
+        "ns2.o2switch.net"
+      ],
+      "preproductionDnsStatus": "NXDOMAIN",
+      "letsEncryptInstalledCertificateCount": 0,
+      "officialStrictTlsClientResult": "SEC_E_UNTRUSTED_ROOT",
+      "officialStrictTlsExitCode": 60,
+      "tlsValidationBypassed": false,
+      "dnsChangeExecuted": false,
+      "certificateIssued": false
+    },
+    "backup": {
+      "snapshotDate": "2026-10-04",
+      "snapshotTimeAsDisplayedByServer": "06:11 AM",
+      "destinationAsDisplayed": "Journalier-Externe",
+      "scope": "Home directory files only",
+      "remoteExportCompleted": true,
+      "archiveSha256": "4071af2f0a7bb1100f47742289a96984bffaf82d8e7525fe1e0916f85b23ffd6",
+      "archiveBytes": 1200729,
+      "regularFilesRestored": 69,
+      "directoriesRestored": 62,
+      "linksRestored": 2,
+      "gzipIntegrityVerified": true,
+      "allRestoredHashesMatched": true,
+      "privateFileCopyRestorationTested": true,
+      "livePublicRootMatchesRestoredSnapshot": true,
+      "privateReceipt": ".local/hosting-backups/2026-10-04-primary/home-snapshot.tar.gz.restoration.json",
+      "olderDnsAndCertificateExportsPreserved": true,
+      "activeAccountRestorationExecuted": false,
+      "databaseImportTested": false,
+      "dnsImportTested": false,
+      "certificateInstallationTested": false
+    },
+    "configurationProposal": {
+      "approvalRef": "TCL-CONFIG-COMPTE-PRINCIPAL-20261004",
+      "status": "prepared_for_human_approval",
+      "phpVersion": "8.3",
+      "scope": "primary_tc_account",
+      "targetHost": "preprod.tclongages.fr",
+      "formPrepared": true,
+      "formSubmitted": false,
+      "readOnlyHttpProbePlan": "docs/qualification-preproduction.md",
+      "drupalTransferIncluded": false,
+      "productionDeploymentIncluded": false,
+      "publicOpeningIncluded": false,
+      "moonResourcesPreserved": true
+    },
+    "installerAccountGuardAdaptationRequired": true,
+    "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "sourceCommitObservedBeforeChange": "105bfe3eb03828de3ab076684d4de82211ba2a09",
+    "sourceCodeChanged": false,
+    "siteZipChanged": false,
+    "hostingConfigurationApplied": false,
+    "agentEnteredPassword": false,
+    "hostedDrupalInstalled": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "documentaryReview": {
+      "checkedAt": "2026-10-04T15:22:37.533805+00:00",
+      "scope": "Inventaire principal, préparation du lot et documentation uniquement",
+      "sourceCommit": "b063b98d4381cce30d0277cad1e7489f8f12e0e9",
+      "artifactDigest": "ed9272b6d1a26a1732920966d8eb363cbf3f92bee5614216cfc0ceb42ae23bcf",
+      "manifestDigest": "c3cafb9885663688afb4fbba5f76bd6707660a37afa2aa4f5f6f607ddc77a121",
+      "sourceFileCount": 402,
+      "schemaViewsManifestPassed": true,
+      "documentsChecked": 15,
+      "localLinksChecked": 332,
+      "structuredFilesParsed": 5,
+      "humanHistoryAndPhaseZeroUnchanged": true,
+      "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "oldCodeTestsNotReassigned": true,
+      "configurationApplied": false,
+      "hostedDrupalInstalled": false,
+      "productionDeploymentExecuted": false
+    }
   }
 }

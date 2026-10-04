@@ -154,8 +154,9 @@
         "Gestion des secrets et restauration documentées"
       ],
       "blockers": [
-        "Accès et réglages actuels du compte principal TC à inventorier après reconnexion.",
-        "Implantation retenue mais configuration et adaptation des contrôles de compte non exécutées ; DNS/HTTPS, PHP HTTP et SQL non qualifiés."
+        "Accord du lot de configuration du compte principal attendu après inventaire.",
+        "PHP HTTP/CLI avec extensions, DNS/HTTPS et base dédiée du compte principal à qualifier.",
+        "Outil de première installation à adapter au compte principal ; installation, recette et retour arrière réels non exécutés."
       ],
       "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
@@ -1026,7 +1027,7 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
+    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
     "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1139,16 +1140,16 @@
         "ready": false,
         "isolated": false,
         "empty": false,
-        "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
-        "observedAt": "2026-10-04T14:04:58.761183+00:00",
-        "limit": "Compte principal TC retenu, cible non prête : accès, PHP partagé, dossier et base, DNS/HTTPS et garde-fous de l’outil à qualifier. Ressources de la lune conservées."
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
+        "observedAt": "2026-10-04T15:17:47.205619+00:00",
+        "limit": "Compte principal TC connecté et inventorié ; PHP 8.1 partagé, racine proposée absente, zéro base/utilisateur, DNS préproduction absent. Lot concret préparé, non appliqué ; ressources de la lune conservées."
       },
       "production": {
         "id": "https://tclongages.fr/",
         "ready": false,
-        "evidence": "data/framework-revue-verification.json#hostingContinuation",
-        "observedAt": "2026-10-04T12:08:34.417734+00:00",
-        "limit": "DNS résolu ; chaîne TLS rejetée par le client Windows le 4 octobre. Racine, PHP HTTP, SQL et accès principal restent à qualifier."
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
+        "observedAt": "2026-10-04T15:17:47.205619+00:00",
+        "limit": "Racine de la page d’attente relue et sauvegarde privée requalifiée ; TLS strict rejeté. Aucun Drupal, candidat livré, retour arrière applicatif ou accord d’ouverture."
       }
     },
     "github": {
@@ -1220,12 +1221,12 @@
       "observedAt": null
     },
     "blockers": [
-      "Compte principal TC retenu : reconnexion et inventaire requis ; ancien refus de sous-domaine sur la lune conservé comme historique.",
-      "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
+      "Inventaire du compte principal TC terminé ; accord du lot PHP/DNS/HTTPS/SQL sur cette cible attendu, distinct de l’ancien accord sur la lune.",
+      "Préproduction absente : PHP natif 8.1, trois modules obligatoires manquants au PHP 8.3 CLI ; PHP HTTP, DNS/HTTPS, base et connexion applicative à qualifier.",
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
       "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
+    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1342,16 +1343,16 @@
     },
     "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
     "preproductionPlacementReview": {
-      "status": "human_choice_recorded_qualification_pending",
-      "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
+      "status": "primary_account_inventory_complete_configuration_pending",
+      "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
       "plan": "docs/preparer-lune-tc.md",
       "recordedAt": "2026-10-04T14:04:58.761183+00:00",
       "oldTechnicalProposalWithdrawn": true,
       "remoteWriteExecuted": false,
       "documentaryCandidate": {
-        "sourceCommit": "4ce169f9ef958629d0e58ced1f520e774d975159",
-        "artifactDigest": "dfbfff233fb25e3e91a6f43737d7033ea2734daf4fc98d518fef8cc5465061c3",
-        "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis.documentaryReview"
+        "sourceCommit": "b063b98d4381cce30d0277cad1e7489f8f12e0e9",
+        "artifactDigest": "ed9272b6d1a26a1732920966d8eb363cbf3f92bee5614216cfc0ceb42ae23bcf",
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification.documentaryReview"
       },
       "humanChoice": {
         "recordedAt": "2026-10-04T14:27:54.237603+00:00",
@@ -1364,7 +1365,9 @@
         "productionDeploymentApproval": false,
         "publicOpeningApproval": false
       },
-      "installerAccountGuardAdaptationRequired": true
+      "installerAccountGuardAdaptationRequired": true,
+      "accountInventoryObservedAt": "2026-10-04T15:17:47.205619+00:00",
+      "configurationApprovalPending": true
     }
   }
 }

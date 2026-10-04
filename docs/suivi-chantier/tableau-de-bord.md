@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `459624639e508607ecc7f54b963d68354f421735c57d3622ef1a02c50b512c79`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `80ced44231ec445e20a1943592d73cf41a93bd88bfc2c8a6c326b9d83d7af848`.
