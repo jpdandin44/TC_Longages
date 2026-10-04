@@ -6,8 +6,8 @@
   "created": "2026-09-29",
   "updated": "2026-10-04",
   "owner": "jpdandin",
-  "scope": "Développement local du suivi et préparation du Drupal dédié ; configuration isolée partielle autorisée de la lune, sans livraison ni ouverture publique. Les constats historiques et validations humaines sont conservés.",
-  "currentPhase": 1,
+  "scope": "Développement local et préproduction du compte principal TC configurée, fermée et qualifiée après accord ; Drupal, recette et livraison/ouverture non réalisés. Ressources de la lune et validations historiques conservées.",
+  "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
     "status": "existing_local_references_unversioned",
@@ -117,8 +117,8 @@
     },
     {
       "id": 1,
-      "title": "Socle et environnements",
-      "shortTitle": "Socle et environnements",
+      "title": "Développement local",
+      "shortTitle": "Développement local",
       "objective": "Préparer Git, le local, la préproduction, les accès et la stratégie de sauvegarde.",
       "status": "in_progress",
       "dependsOn": [
@@ -145,43 +145,7 @@
             "Préproduction cible identifiée et séparée",
             "Gestion des secrets et restauration documentées"
           ]
-        }
-      ],
-      "exitCriteria": [
-        "Dépôt et documentation prêts",
-        "Local reproductible et données de test isolées",
-        "Préproduction cible identifiée et séparée",
-        "Gestion des secrets et restauration documentées"
-      ],
-      "blockers": [
-        "Accord du lot de configuration du compte principal attendu après inventaire.",
-        "PHP HTTP/CLI avec extensions, DNS/HTTPS et base dédiée du compte principal à qualifier.",
-        "Outil de première installation à adapter au compte principal ; installation, recette et retour arrière réels non exécutés."
-      ],
-      "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
-      "pullRequests": [
-        "https://github.com/jpdandin44/TC_Longages/pull/5",
-        "https://github.com/jpdandin44/TC_Longages/pull/6",
-        "https://github.com/jpdandin44/TC_Longages/pull/7"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Réalisation par lots",
-      "shortTitle": "Réalisation par lots",
-      "objective": "Réaliser les changements autorisés, avec tests et PR pour chaque lot.",
-      "status": "not_started",
-      "dependsOn": [
-        1
-      ],
-      "startedOn": null,
-      "authorizedOn": null,
-      "deliveredOn": null,
-      "validatedOn": null,
-      "startEvidence": null,
-      "validationEvidence": null,
-      "deliverables": [
+        },
         {
           "path": "02-phase.md",
           "kind": "file",
@@ -194,34 +158,7 @@
             "Documentation et impacts à jour",
             "PR de chaque lot référencée"
           ]
-        }
-      ],
-      "exitCriteria": [
-        "Changements conformes au périmètre",
-        "Tests ciblés réussis sur la version présentée",
-        "Documentation et impacts à jour",
-        "PR de chaque lot référencée"
-      ],
-      "blockers": [],
-      "nextAction": "Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux.",
-      "pullRequest": null
-    },
-    {
-      "id": 3,
-      "title": "Recette locale et revue",
-      "shortTitle": "Recette locale et revue",
-      "objective": "Qualifier les parcours locaux et présenter une version candidate cohérente.",
-      "status": "not_started",
-      "dependsOn": [
-        2
-      ],
-      "startedOn": null,
-      "authorizedOn": null,
-      "deliveredOn": null,
-      "validatedOn": null,
-      "startEvidence": null,
-      "validationEvidence": null,
-      "deliverables": [
+        },
         {
           "path": "03-phase.md",
           "kind": "file",
@@ -237,23 +174,57 @@
         }
       ],
       "exitCriteria": [
+        "Dépôt et documentation prêts",
+        "Local reproductible et données de test isolées",
+        "Préproduction cible identifiée et séparée",
+        "Gestion des secrets et restauration documentées",
+        "Changements conformes au périmètre",
+        "Tests ciblés réussis sur la version présentée",
+        "Documentation et impacts à jour",
+        "PR de chaque lot référencée",
         "Parcours représentatifs vérifiés",
         "Régression et données préservées",
         "Revue visuelle ou métier disponible",
         "Version candidate et réserves identifiées"
       ],
-      "blockers": [],
-      "nextAction": "Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue.",
-      "pullRequest": null
+      "blockers": [
+        "Dossier regroupé à examiner sur ses douze critères ; validation historique du cadrage à requalifier pour le candidat courant. Aucun accord humain nouveau déduit du regroupement ou des tests."
+      ],
+      "nextAction": "Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "pullRequests": [
+        "https://github.com/jpdandin44/TC_Longages/pull/5",
+        "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "https://github.com/jpdandin44/TC_Longages/pull/7",
+        "https://github.com/jpdandin44/TC_Longages/pull/8"
+      ],
+      "legacyPhaseIds": [
+        1,
+        2,
+        3
+      ],
+      "reviewContext": {
+        "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+        "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+        "candidateManifest": "data/framework-candidate.json",
+        "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
+        "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
+        "evidenceRefs": [
+          "TCL-EVIDENCE-FOUR-PHASES-20261004"
+        ],
+        "testRunRefs": [
+          "TCL-TEST-FOUR-PHASES-20261004"
+        ]
+      }
     },
     {
-      "id": 4,
-      "title": "Préproduction réelle",
-      "shortTitle": "Préproduction réelle",
+      "id": 2,
+      "title": "Préproduction",
+      "shortTitle": "Préproduction",
       "objective": "Vérifier le candidat sur le moteur et les intégrations représentatifs de la production.",
-      "status": "not_started",
+      "status": "blocked",
       "dependsOn": [
-        3
+        1
       ],
       "startedOn": null,
       "authorizedOn": null,
@@ -274,36 +245,7 @@
             "Intégrations réelles vérifiées dans leur périmètre autorisé",
             "Réserves traitées ou dérogations explicites compatibles avec la livraison"
           ]
-        }
-      ],
-      "exitCriteria": [
-        "Candidat exact identifié dans le vrai runtime",
-        "Comptes, droits et édition vérifiés si applicables",
-        "Intégrations réelles vérifiées dans leur périmètre autorisé",
-        "Réserves traitées ou dérogations explicites compatibles avec la livraison"
-      ],
-      "blockers": [
-        "Qualification hébergée restante : PHP adapté, certificat reconnu, base, droits métier et sauvegarde restaurable. Ces réserves ne bloquent pas la revue du cadrage."
-      ],
-      "nextAction": "Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées.",
-      "pullRequest": null
-    },
-    {
-      "id": 5,
-      "title": "Préparation au déploiement",
-      "shortTitle": "Préparation au déploiement",
-      "objective": "Qualifier les prérequis, la sauvegarde, la restauration et le retour arrière.",
-      "status": "not_started",
-      "dependsOn": [
-        4
-      ],
-      "startedOn": null,
-      "authorizedOn": null,
-      "deliveredOn": null,
-      "validatedOn": null,
-      "startEvidence": null,
-      "validationEvidence": null,
-      "deliverables": [
+        },
         {
           "path": "05-phase.md",
           "kind": "file",
@@ -319,23 +261,61 @@
         }
       ],
       "exitCriteria": [
+        "Candidat exact identifié dans le vrai runtime",
+        "Comptes, droits et édition vérifiés si applicables",
+        "Intégrations réelles vérifiées dans leur périmètre autorisé",
+        "Réserves traitées ou dérogations explicites compatibles avec la livraison",
         "Version et manifeste acceptés",
         "Sauvegarde intègre effectivement restaurée",
         "Application et retour arrière répétés hors production",
         "Accès réseau, exploitation et dossier de livraison qualifiés"
       ],
-      "blockers": [],
-      "nextAction": "Après autorisation : qualifier sauvegarde fraîche, restauration privée et retour arrière sur les cibles explicitement retenues.",
-      "pullRequest": null
+      "blockers": [
+        "Connexion SQL applicative refusée (1045) ; synchroniser le mot de passe SQL changé personnellement avec databasePassword du fichier privé.",
+        "Première installation Drupal, recette hébergée et retour arrière restant à vérifier.",
+        "Rôles Bureau/Capitaine et édition des pages absents de la V1 : périmètre de la PR fonctionnelle à préciser avant approbation du critère correspondant."
+      ],
+      "nextAction": "Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "legacyPhaseIds": [
+        4,
+        5
+      ],
+      "observedExecution": {
+        "status": "blocked",
+        "source": "hosting_observation",
+        "environment": "preproduction",
+        "recordedAt": "2026-10-04T17:53:12.584531Z",
+        "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
+        "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
+        "summary": "Fichiers Drupal transférés et vérifiés ; installation en attente de la connexion SQL. Accords de préproduction reçus."
+      },
+      "pullRequests": [
+        "https://github.com/jpdandin44/TC_Longages/pull/5",
+        "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "https://github.com/jpdandin44/TC_Longages/pull/7",
+        "https://github.com/jpdandin44/TC_Longages/pull/8"
+      ],
+      "reviewContext": {
+        "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+        "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+        "candidateManifest": "data/framework-candidate.json",
+        "criteriaDigest": "013b3ce4ea2a219767cb91b9a1b9f812db554c77df84ba3633601ceead7a92da",
+        "documentDigest": "1d43a05cd6fffffb4026c30a9c14db74ab7bde1addec666f50760b829beae0e2",
+        "evidenceRefs": [
+          "TCL-EVIDENCE-HOSTING-SQL-BLOCKED-20261004"
+        ],
+        "testRunRefs": []
+      }
     },
     {
-      "id": 6,
-      "title": "Déploiement et ouverture",
-      "shortTitle": "Déploiement et ouverture",
+      "id": 3,
+      "title": "Mise en production",
+      "shortTitle": "Mise en production",
       "objective": "Livrer la version acceptée, contrôler la cible puis ouvrir sur décision explicite.",
       "status": "not_started",
       "dependsOn": [
-        5
+        2
       ],
       "startedOn": null,
       "authorizedOn": null,
@@ -356,34 +336,7 @@
             "Recette sur domaine ou cible officielle réalisée",
             "Ouverture explicitement autorisée et contrôlée"
           ]
-        }
-      ],
-      "exitCriteria": [
-        "Accord de déploiement lié au candidat et à la cible",
-        "Nouvelle sauvegarde restaurée avant écriture",
-        "Recette sur domaine ou cible officielle réalisée",
-        "Ouverture explicitement autorisée et contrôlée"
-      ],
-      "blockers": [],
-      "nextAction": "Attendre une autorisation de livraison liée au candidat et à la cible ; conserver l’ouverture publique comme décision séparée.",
-      "pullRequest": null
-    },
-    {
-      "id": 7,
-      "title": "Observation et transfert",
-      "shortTitle": "Observation et transfert",
-      "objective": "Observer le fonctionnement, organiser le support et clore la livraison.",
-      "status": "not_started",
-      "dependsOn": [
-        6
-      ],
-      "startedOn": null,
-      "authorizedOn": null,
-      "deliveredOn": null,
-      "validatedOn": null,
-      "startEvidence": null,
-      "validationEvidence": null,
-      "deliverables": [
+        },
         {
           "path": "07-phase.md",
           "kind": "file",
@@ -399,14 +352,22 @@
         }
       ],
       "exitCriteria": [
+        "Accord de déploiement lié au candidat et à la cible",
+        "Nouvelle sauvegarde restaurée avant écriture",
+        "Recette sur domaine ou cible officielle réalisée",
+        "Ouverture explicitement autorisée et contrôlée",
         "Surveillance et responsabilités définies",
         "Réserves et incidents tracés",
         "Procédures de reprise et sauvegardes transmises",
         "Bilan et état de session archivés"
       ],
       "blockers": [],
-      "nextAction": "Après livraison contrôlée et autorisation : définir observation, support, sauvegardes et point de transfert sans créer de surveillance permanente implicite.",
-      "pullRequest": null
+      "nextAction": "Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables.",
+      "pullRequest": null,
+      "legacyPhaseIds": [
+        6,
+        7
+      ]
     }
   ],
   "decisions": [
@@ -761,6 +722,17 @@
       "identityMode": "local_declared_not_authenticated",
       "sourceRef": "interface-locale-4181",
       "description": "On démarre la phase 1"
+    },
+    {
+      "id": "TCL-UI-5c3e63ff-b314-465e-b0a8-92c3536f2c72",
+      "type": "ui_note",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-10-04T16:44:25.077Z",
+      "comment": "Validation drupal à faire",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "Validation drupal à faire"
     }
   ],
   "reviewEvents": [
@@ -893,6 +865,17 @@
       "identityMode": "local_declared_not_authenticated",
       "sourceRef": "interface-locale-4181",
       "status": "recorded"
+    },
+    {
+      "id": "TCL-UI-5c3e63ff-b314-465e-b0a8-92c3536f2c72",
+      "type": "comment",
+      "phaseId": 0,
+      "actor": "jpdandin",
+      "recordedAt": "2026-10-04T16:44:25.077Z",
+      "comment": "Validation drupal à faire",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "status": "recorded"
     }
   ],
   "reviewFollowUps": [],
@@ -935,7 +918,7 @@
       "status": "passed",
       "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
       "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
-      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "recordedAt": "2026-09-29T10:36:07.35Z",
       "actor": "Codex",
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-EVIDENCE-NAVIGATION-02",
@@ -952,6 +935,32 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-EVIDENCE-PRS-04",
       "actualResult": "Manifeste Git conforme au commit source ; API locale de lecture des PR testée ; aucune validation de phase ou publication réalisée."
+    },
+    {
+      "id": "TCL-EVIDENCE-FOUR-PHASES-20261004",
+      "phaseId": 1,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+      "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#fourPhaseUpdate",
+      "actualResult": "Manifeste du candidat conforme ; quatre phases, anciens dossiers et libellés conservés. Six journaux humains, phase 0 et huit phases historiques inchangés ; brouillon restitué sans confirmation. PR #8 créée en brouillon ; aucune validation humaine attribuée."
+    },
+    {
+      "id": "TCL-EVIDENCE-HOSTING-SQL-BLOCKED-20261004",
+      "phaseId": 2,
+      "environment": "preproduction",
+      "status": "failed",
+      "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+      "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
+      "actualResult": "Observation du candidat hébergé 49b4ef7 / ZIP 14c270…, distinct du candidat du cockpit : 26 687 fichiers extraits et vérifiés, Apache fermé, paramètres Drupal non écrits. Authentification SQL refusée (1045). Administrateur non installé ; rôles Bureau/Capitaine et édition des sept pages absents du paquet."
     }
   ],
   "testRuns": [
@@ -973,7 +982,7 @@
       "status": "passed",
       "sourceCommit": "cafe75a4c7a2484abea9134f9968b274a09c0366",
       "artifactDigest": "59707b3c2cd8d8cd27b247a50bacfc49d2347b6f6f13db0b71692b017cce70fd",
-      "recordedAt": "2026-09-29T10:36:07.350Z",
+      "recordedAt": "2026-09-29T10:36:07.35Z",
       "actor": "Codex",
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-TEST-NAVIGATION-02",
@@ -990,6 +999,19 @@
       "artifactRef": "data/framework-revue-verification.json",
       "id": "TCL-TEST-PRS-04",
       "actualResult": "130 tests Node réussis par npm.cmd run check ; contrôle du suivi réussi ; états publics des PR #1 à #3 lus sur GitHub."
+    },
+    {
+      "id": "TCL-TEST-FOUR-PHASES-20261004",
+      "phaseId": 1,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+      "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#fourPhaseUpdate.localTests",
+      "actualResult": "29 tests du suivi réussis sur ce candidat, zéro échec et zéro ignoré. Schéma et vues vérifiés. Les 139 tests complets sur 87a7d0d restent une preuve distincte ; le commit suivant modifie seulement quatre Markdown."
     }
   ],
   "exceptions": [
@@ -1005,7 +1027,7 @@
         3
       ],
       "scope": "Travaux d’installation et essais locaux sans prétendre valider les phases antérieures",
-      "expiresAt": "2026-09-30T08:44:39.919568+00:00",
+      "expiresAt": "2026-09-30T10:44:39.919568+02:00",
       "sourceRef": "chat-utilisateur-2026-09-29-installation-framework-drupal",
       "protectionsRetained": [
         "confidentialité",
@@ -1027,8 +1049,8 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
-    "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
+    "nextAction": "Revoir le candidat d’outillage adapté puis autoriser explicitement le transfert et la première installation du ZIP Drupal inchangé sur preprod.tclongages.fr, sous maintenance ; paramètres privés soumis personnellement.",
+    "lastResumeAt": "2026-10-04T13:12:40.700085+02:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
     "automaticResumptionScheduled": false
@@ -1053,7 +1075,7 @@
     {
       "id": "TCL-OBS-03",
       "kind": "repository",
-      "recordedAt": "2026-09-29T08:44:39.919568+00:00",
+      "recordedAt": "2026-09-29T10:44:39.919568+02:00",
       "sourceRef": "connecteur-github-get_repo",
       "statement": "Connecteur GitHub accessible : dépôt jpdandin44/TC_Longages privé, branche par défaut main, permissions administrateur visibles. Git CLI n’a pas été reconfiguré.",
       "limits": "Protections de branche/environnement non vérifiées ; aucun commit ou push effectué."
@@ -1101,7 +1123,7 @@
     {
       "id": "TCL-OBS-REPRISE-20261003",
       "kind": "repository",
-      "recordedAt": "2026-10-03T20:34:29.627007+00:00",
+      "recordedAt": "2026-10-03T22:34:29.627007+02:00",
       "sourceRef": "https://github.com/jpdandin44/TC_Longages/pull/5",
       "statement": "PR #5 fusionnée par le responsable ; Action de construction réussie sur le commit de fusion et candidat ZIP reçu vérifié. La lune isolée est active après sauvegarde privée requalifiée.",
       "limits": "Aucune validation de phase ou recette hébergée déduite ; l’ancienne prochaine action de session est conservée ci-dessous comme historique.",
@@ -1113,7 +1135,7 @@
     },
     {
       "id": "TCL-OBS-CONFIGURATION-20261003",
-      "recordedAt": "2026-10-03T21:16:51.214996+00:00",
+      "recordedAt": "2026-10-03T23:16:51.214996+02:00",
       "source": "cpanel_and_user_chat",
       "summary": "Lot isolé partiellement exécuté après accord : PHP 8.3, dossier et fermeture Apache relue, base utf8mb4 vide, utilisateur personnel et dix droits relus. Domaine prévu refusé ; DNS/HTTPS/runtime non qualifiés.",
       "receipt": "data/activation-lune-verification.json",
@@ -1139,28 +1161,36 @@
         "id": "https://preprod.tclongages.fr/",
         "ready": false,
         "isolated": false,
-        "empty": false,
-        "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
-        "observedAt": "2026-10-04T15:17:47.205619+00:00",
-        "limit": "Compte principal TC connecté et inventorié ; PHP 8.1 partagé, racine proposée absente, zéro base/utilisateur, DNS préproduction absent. Lot concret préparé, non appliqué ; ressources de la lune conservées."
+        "empty": true,
+        "evidence": "data/framework-revue-verification.json#hostingPrimaryConfiguration",
+        "observedAt": "2026-10-04T16:34:27Z",
+        "limit": "Racine dédiée vide et fermée, PHP CLI/HTTP 8.3.33 avec 18 extensions, DNS public et HTTPS reconnu ; base vide UTF-8 et dix droits relus. Compte partagé, SQL applicatif et Drupal non testés ; transfert/installation non autorisés. Résolveur Windows ordinaire encore non qualifié.",
+        "filesAndDatabaseSeparated": true,
+        "accountIsolation": false,
+        "hostingConfigured": true,
+        "drupalInstalled": false
       },
       "production": {
         "id": "https://tclongages.fr/",
         "ready": false,
         "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
-        "observedAt": "2026-10-04T15:17:47.205619+00:00",
-        "limit": "Racine de la page d’attente relue et sauvegarde privée requalifiée ; TLS strict rejeté. Aucun Drupal, candidat livré, retour arrière applicatif ou accord d’ouverture."
+        "observedAt": "2026-10-04T17:17:47.205619+02:00",
+        "limit": "Page d’attente inchangée ; PHP du compte partagé passé à 8.3 après accord. Aucun Drupal ni changement de racine/DNS/certificat officiel. TLS officiel, recette, retour arrière et accords de livraison/ouverture restent à qualifier."
       }
     },
     "github": {
       "repository": "jpdandin44/TC_Longages",
-      "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "number": 8,
+      "state": "open",
+      "draft": true,
+      "headSha": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+      "observedAt": "2026-10-04T18:26:32.357Z",
       "acceptedSourceSha": null,
       "acceptedArtifactSha256": null,
       "humanAcceptanceVerified": false,
-      "evidence": "https://github.com/jpdandin44/TC_Longages/pull/6",
-      "observedAt": "2026-10-03T20:34:29.627007+00:00",
-      "limit": "Merge de la préparation constaté ; le nouvel artefact construit après fusion n’a pas de recette humaine hébergée."
+      "evidence": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "limit": "PR en brouillon ; nouvelle tête à relire après le commit des reçus. Aucun compte métier/éditeur livré par ce lot."
     },
     "checks": [
       {
@@ -1170,7 +1200,7 @@
         "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
         "target": "github-build",
         "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/37151085511",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00"
+        "observedAt": "2026-10-03T22:34:29.627007+02:00"
       },
       {
         "kind": "local",
@@ -1179,7 +1209,7 @@
         "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
         "target": "zip-received",
         "evidence": "data/actions-mutualisees-verification.json#postMergeBuild",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00",
+        "observedAt": "2026-10-03T22:34:29.627007+02:00",
         "scope": "Inventaire, empreintes de tous les fichiers et restrictions du candidat reçu ; aucune exécution serveur hébergé."
       },
       {
@@ -1188,7 +1218,7 @@
         "sourceSha": "635dce9faaa59ded68b477face87c319029e0aae",
         "artifactSha256": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7",
         "evidence": "data/framework-revue-verification.json#configurationSessionReview",
-        "observedAt": "2026-10-03T21:39:13.653904+00:00",
+        "observedAt": "2026-10-03T23:39:13.653904+02:00",
         "scope": "Socle, métadonnées, liens internes et JSON de la revue documentaire C1. Ne qualifie ni le ZIP Drupal 49b4ef7 ni son exécution hébergée.",
         "target": "configuration-documentation"
       }
@@ -1201,7 +1231,7 @@
         "status": "verified",
         "restoreStatus": "passed",
         "evidence": "data/activation-lune-verification.json",
-        "observedAt": "2026-10-03T20:28:36.601004+00:00",
+        "observedAt": "2026-10-03T22:28:36.601004+02:00",
         "scope": "Restauration de fichiers en copie privée ; aucun réimport DNS, certificat, base ou compte actif."
       }
     ],
@@ -1221,12 +1251,12 @@
       "observedAt": null
     },
     "blockers": [
-      "Inventaire du compte principal TC terminé ; accord du lot PHP/DNS/HTTPS/SQL sur cette cible attendu, distinct de l’ancien accord sur la lune.",
-      "Préproduction absente : PHP natif 8.1, trois modules obligatoires manquants au PHP 8.3 CLI ; PHP HTTP, DNS/HTTPS, base et connexion applicative à qualifier.",
-      "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
-      "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
+      "Accord de transfert et première installation du candidat exact absent ; paramètres privés et connexion SQL applicative à fournir/qualifier.",
+      "Adaptateur adapté et testé localement ; exécution Python 3.6.8/MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
+      "Résolveur Windows ordinaire non qualifié malgré DNS public, HTTPS strict avec résolution épinglée et test HTTP réussi sur le serveur.",
+      "TLS et cible officiels, candidat de production, sauvegarde/restauration, retour arrière et accords de livraison/ouverture à qualifier."
     ],
-    "nextAction": "Autoriser le lot du compte principal TC documenté : PHP 8.3 partagé et modules, racine dédiée fermée, preprod.tclongages.fr/DNS/HTTPS et base dédiée avec mot de passe personnel.",
+    "nextAction": "Revoir le candidat d’outillage adapté puis autoriser explicitement le transfert et la première installation du ZIP Drupal inchangé sur preprod.tclongages.fr, sous maintenance ; paramètres privés soumis personnellement.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1245,7 +1275,7 @@
       "reason": "Arrêt demandé par le responsable après finalisation documentaire."
     },
     "configurationReview": {
-      "recordedAt": "2026-10-03T21:39:13.653904+00:00",
+      "recordedAt": "2026-10-03T23:39:13.653904+02:00",
       "sourceCommit": "635dce9faaa59ded68b477face87c319029e0aae",
       "artifactDigest": "9d5d1f0faca2cb20343555504ed84af968197067f4ba6edada1f661d729ffcd7",
       "candidateManifest": "data/framework-candidate.json",
@@ -1304,20 +1334,20 @@
           "status": "blocked",
           "exitCode": 1,
           "output": "{\n  \"gate\": \"preproduction\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Accord humain exact absent : preproduction.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
-          "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+          "checkedAt": "2026-10-03T23:39:13.653904+02:00"
         },
         {
           "gate": "production",
           "status": "blocked",
           "exitCode": 1,
           "output": "{\n  \"gate\": \"production\",\n  \"declaredEvidenceConsistent\": false,\n  \"errors\": [\n    \"Blocages présents ou non renseignés.\",\n    \"Contrôle actuel absent : documentation.\",\n    \"Préproduction prête et isolée non prouvée.\",\n    \"Cible de production non prouvée.\",\n    \"Contrôle actuel absent : preproduction sur https://preprod.tclongages.fr/.\",\n    \"Accord humain exact absent : review.\",\n    \"Accord humain exact absent : production.\",\n    \"Acceptation GitHub du candidat non vérifiée.\",\n    \"Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.\",\n    \"Retour arrière de ce candidat non qualifié.\"\n  ],\n  \"limitation\": \"Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord.\"\n}",
-          "checkedAt": "2026-10-03T21:39:13.653904+00:00"
+          "checkedAt": "2026-10-03T23:39:13.653904+02:00"
         }
       ]
     },
     "firstInstallationPreparation": {
       "status": "prepared_locally_not_executed",
-      "recordedAt": "2026-10-04T11:28:51.744147+00:00",
+      "recordedAt": "2026-10-04T13:28:51.744147+02:00",
       "evidence": "data/activation-lune-verification.json#latestResumption",
       "documentation": "docs/installation-drupal.md",
       "candidateZipUnchanged": true,
@@ -1331,11 +1361,11 @@
         "evidence": "data/framework-revue-verification.json#hostingContinuation.toolMergeObserved",
         "mergeCommit": "fc1f2d95472c36b6b4114f7d87a93729d8796b74",
         "reviewedSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
-        "observedAt": "2026-10-04T12:22:47.199241+00:00"
+        "observedAt": "2026-10-04T14:22:47.199241+02:00"
       }
     },
     "latestReadOnlyQualification": {
-      "recordedAt": "2026-10-04T12:08:34.417734+00:00",
+      "recordedAt": "2026-10-04T14:08:34.417734+02:00",
       "evidence": "data/framework-revue-verification.json#hostingContinuation",
       "remoteWriteExecuted": false,
       "localMysqlRehearsalExecuted": false,
@@ -1343,19 +1373,19 @@
     },
     "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
     "preproductionPlacementReview": {
-      "status": "primary_account_inventory_complete_configuration_pending",
+      "status": "primary_account_configured_closed",
       "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification",
       "plan": "docs/preparer-lune-tc.md",
-      "recordedAt": "2026-10-04T14:04:58.761183+00:00",
+      "recordedAt": "2026-10-04T16:04:58.761183+02:00",
       "oldTechnicalProposalWithdrawn": true,
-      "remoteWriteExecuted": false,
+      "remoteWriteExecuted": true,
       "documentaryCandidate": {
         "sourceCommit": "b063b98d4381cce30d0277cad1e7489f8f12e0e9",
         "artifactDigest": "ed9272b6d1a26a1732920966d8eb363cbf3f92bee5614216cfc0ceb42ae23bcf",
         "evidence": "data/framework-revue-verification.json#hostingPrimaryAccountQualification.documentaryReview"
       },
       "humanChoice": {
-        "recordedAt": "2026-10-04T14:27:54.237603+00:00",
+        "recordedAt": "2026-10-04T16:27:54.237603+02:00",
         "date": "2026-10-04",
         "sourceRef": "chat-utilisateur-2026-10-04-organisation-avereo-tc",
         "answer": "On suit la même organisation que pour AVEREO",
@@ -1365,9 +1395,551 @@
         "productionDeploymentApproval": false,
         "publicOpeningApproval": false
       },
-      "installerAccountGuardAdaptationRequired": true,
-      "accountInventoryObservedAt": "2026-10-04T15:17:47.205619+00:00",
-      "configurationApprovalPending": true
+      "installerAccountGuardAdaptationRequired": false,
+      "accountInventoryObservedAt": "2026-10-04T17:17:47.205619+02:00",
+      "configurationApprovalPending": false,
+      "currentConfigurationEvidence": "data/framework-revue-verification.json#hostingPrimaryConfiguration"
+    },
+    "primaryAccountConfiguration": {
+      "status": "configuration_completed_verified",
+      "authorization": {
+        "reference": "TCL-CONFIG-COMPTE-PRINCIPAL-20261004",
+        "receivedAt": "2026-10-04T17:46:27.26936+02:00",
+        "source": "direct_user_message",
+        "message": "J'autorise ce lot sur le compte principal TC",
+        "target": "compte principal TC pour preprod.tclongages.fr",
+        "scope": [
+          "PHP 8.3 partage et modules Drupal requis",
+          "racine dediee fermee",
+          "sous-domaine et DNS de preprod.tclongages.fr",
+          "certificat HTTPS gratuit",
+          "base et utilisateur SQL dedies avec saisie et soumission personnelles du mot de passe"
+        ],
+        "drupalTransferAuthorized": false,
+        "drupalInstallationAuthorized": false,
+        "productionAuthorized": false,
+        "publicOpeningAuthorized": false,
+        "moonRemovalAuthorized": false,
+        "sqlPrivilegesConfirmationAtActionTimeRequired": true
+      },
+      "technicalReview": "data/framework-revue-verification.json#hostingPrimaryConfiguration",
+      "phpConfigured": true,
+      "rootClosed": true,
+      "domainCreated": true,
+      "recognizedHttpsVerified": true,
+      "databaseCreated": true,
+      "databaseUserCreated": true,
+      "drupalInstalled": false,
+      "productionOpened": false,
+      "recordedAt": "2026-10-04T16:34:27Z",
+      "dnsVerified": true,
+      "httpPhpVerified": true,
+      "sqlPrivilegesApplied": true,
+      "sqlCharsetVerified": true,
+      "sqlApplicationConnectionVerified": false,
+      "sharedAccountPhpChanged": true,
+      "officialRootChanged": false
+    },
+    "primaryAccountInstallerAdaptation": {
+      "status": "transferred_verified_staged_on_host",
+      "recordedAt": "2026-10-04T17:03:27.662576+00:00",
+      "sourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+      "artifactDigest": "5a545e6302cdd92be9155eb839849c2825988d71b2cb405346581e4a4b41ec1d",
+      "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+      "evidence": "data/framework-revue-verification.json#primaryAccountInstallerAdaptation",
+      "currentDocumentarySourceCommit": "902530f2f8106e78f128bb009bfa2f00f70a89bc",
+      "currentDocumentaryArtifactDigest": "6e1fe7609a8dab21b5905d9837c298046d4adac37e946f42e4d1789828a1629e",
+      "humanInstallationApprovalVerified": true,
+      "remoteExecutionQualified": true
+    },
+    "primaryAccountFirstInstallationAuthorization": {
+      "id": "TCL-PRIMARY-FIRST-INSTALL-20261004",
+      "status": "received_direct_human_message",
+      "recordedAt": "2026-10-04T17:03:27.662576+00:00",
+      "source": "direct_user_message_current_chat",
+      "answer": "Vas-y tu peux enchainer la configuration je suis OK",
+      "presentedScope": "Transfert du candidat Drupal préparé puis première installation sur la préproduction du compte principal TC, sous maintenance ; paramètres SQL et nouvel accès administrateur saisis personnellement dans le fichier privé.",
+      "environment": "preproduction",
+      "accountRole": "primary_tc",
+      "targetHost": "preprod.tclongages.fr",
+      "applicationSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+      "applicationArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+      "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+      "productionDeploymentAuthorized": false,
+      "publicOpeningAuthorized": false,
+      "newSshAccessAuthorized": false,
+      "moonDeletionAuthorized": false,
+      "credentialEntryByHumanRequired": true
+    },
+    "primaryAccountFirstInstallation": {
+      "status": "staged_closed_sql_authentication_blocked",
+      "recordedAt": "2026-10-04T17:53:12.584531Z",
+      "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
+      "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+      "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+      "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+      "remoteTransferExecuted": true,
+      "installationExecuted": false,
+      "publicOpeningExecuted": false,
+      "archiveHashVerifiedOnHost": true,
+      "stagingExecuted": true,
+      "stagedFileCount": 26687,
+      "stagedFilesHashVerifiedOnHost": true,
+      "installationAttemptExecuted": true,
+      "databaseInstalled": false,
+      "applicationConnectionVerified": false,
+      "apacheClosed": true,
+      "failedStage": "sql-read-only",
+      "sanitizedDriverCode": 1045,
+      "privateInputLastSavedAt": "2026-10-04T17:22:27Z",
+      "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation"
+    },
+    "previousGithubReviews": [
+      {
+        "repository": "jpdandin44/TC_Longages",
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "acceptedSourceSha": null,
+        "acceptedArtifactSha256": null,
+        "humanAcceptanceVerified": false,
+        "evidence": "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "observedAt": "2026-10-03T22:34:29.627007+02:00",
+        "limit": "Merge de la préparation constaté ; le nouvel artefact construit après fusion n’a pas de recette humaine hébergée.",
+        "archivedAt": "2026-10-04T18:26:32.357Z",
+        "reason": "Nouveau lot de suivi et adaptation de première installation ; conserver la portée des anciennes observations."
+      }
+    ],
+    "fourPhaseTracking": {
+      "status": "tested_locally_pr_draft",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+      "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+      "candidateManifest": "data/framework-candidate.json",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
+      "commonRulePullRequest": "https://github.com/jpdandin44/AVEREO/pull/75",
+      "evidence": "data/framework-revue-verification.json#fourPhaseUpdate",
+      "historicalPhasesPreserved": 8,
+      "activePhases": 4,
+      "humanApprovalRecorded": false
+    },
+    "accountsAndEditingReview": {
+      "status": "functional_scope_pending",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "phaseId": 2,
+      "criterion": "Comptes, droits et édition vérifiés si applicables",
+      "documentation": "docs/suivi-chantier/04-phase.md",
+      "requestSource": "direct_user_message_current_chat",
+      "request": "Je n’ai pas de PR pour la création des comptes, les droits, et l’édition ; je ne peux pas tester et approuver sans cela.",
+      "items": [
+        {
+          "kind": "sql_user_and_rights",
+          "status": "configured_application_authentication_blocked",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7"
+        },
+        {
+          "kind": "drupal_administrator",
+          "status": "first_installation_prepared_not_installed",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8"
+        },
+        {
+          "kind": "business_roles_bureau_captain",
+          "status": "not_implemented_scope_pending",
+          "pullRequest": null
+        },
+        {
+          "kind": "public_page_editing",
+          "status": "not_implemented_scope_pending",
+          "pullRequest": null
+        }
+      ],
+      "criterionAccepted": false,
+      "deferralApproved": false,
+      "notApplicableApproved": false
     }
-  }
+  },
+  "phaseModel": {
+    "id": "github-cockpit-four-phases",
+    "labels": [
+      "Cadrage",
+      "Développement local",
+      "Préproduction",
+      "Mise en production"
+    ],
+    "rule": "C:/Users/examg/.agents/skills/developpement-github-cockpit/references/protocole.md"
+  },
+  "phaseHistorySnapshots": [
+    {
+      "recordedOn": "2026-10-04",
+      "namespace": "legacy-eight-phases",
+      "reason": "Regroupement demandé en quatre phases ; décisions et preuves conservées dans leur périmètre initial.",
+      "phases": [
+        {
+          "id": 0,
+          "title": "Cadrage et audit",
+          "shortTitle": "Cadrage et audit",
+          "objective": "Définir le besoin, les sources, les limites et les critères vérifiables.",
+          "status": "validated",
+          "dependsOn": [],
+          "startedOn": "2026-09-29",
+          "authorizedOn": "2026-09-29",
+          "deliveredOn": "2026-09-29",
+          "validatedOn": "2026-09-29",
+          "startEvidence": {
+            "decisionId": "TCL-D01",
+            "sourceRef": "chat-utilisateur-2026-09-29-adoption-framework"
+          },
+          "validationEvidence": {
+            "decisionId": "TCL-UI-513886dc-bb81-44dd-bccb-3c97e8b6c90b"
+          },
+          "deliverables": [
+            {
+              "path": "00-phase.md",
+              "kind": "file",
+              "title": "Dossier — Cadrage et audit",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Périmètre et exclusions confirmés",
+                "État existant et risques inventoriés",
+                "Exigences reliées à des tests",
+                "Responsables et règles de décision identifiés"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Périmètre et exclusions confirmés",
+            "État existant et risques inventoriés",
+            "Exigences reliées à des tests",
+            "Responsables et règles de décision identifiés"
+          ],
+          "blockers": [],
+          "nextAction": "PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/4",
+          "pullRequests": [
+            "https://github.com/jpdandin44/TC_Longages/pull/1",
+            "https://github.com/jpdandin44/TC_Longages/pull/2",
+            "https://github.com/jpdandin44/TC_Longages/pull/3",
+            "https://github.com/jpdandin44/TC_Longages/pull/4"
+          ],
+          "reviewContext": {
+            "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+            "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+            "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-PRS-04"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-PRS-04"
+            ]
+          }
+        },
+        {
+          "id": 1,
+          "title": "Socle et environnements",
+          "shortTitle": "Socle et environnements",
+          "objective": "Préparer Git, le local, la préproduction, les accès et la stratégie de sauvegarde.",
+          "status": "in_progress",
+          "dependsOn": [
+            0
+          ],
+          "startedOn": "2026-09-29",
+          "authorizedOn": "2026-09-29",
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": {
+            "decisionId": "TCL-UI-b02d064c-b84b-4569-ac2d-3e702af773f0"
+          },
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "01-phase.md",
+              "kind": "file",
+              "title": "Dossier — Socle et environnements",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Dépôt et documentation prêts",
+                "Local reproductible et données de test isolées",
+                "Préproduction cible identifiée et séparée",
+                "Gestion des secrets et restauration documentées"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Dépôt et documentation prêts",
+            "Local reproductible et données de test isolées",
+            "Préproduction cible identifiée et séparée",
+            "Gestion des secrets et restauration documentées"
+          ],
+          "blockers": [
+            "Accord de transfert et première installation du candidat exact absent ; paramètres privés et connexion SQL applicative à fournir/qualifier.",
+            "Adaptateur adapté et testé localement ; exécution Python 3.6.8/MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
+            "Résolveur Windows ordinaire non qualifié malgré DNS public, HTTPS strict avec résolution épinglée et test HTTP réussi sur le serveur."
+          ],
+          "nextAction": "Revoir le candidat d’outillage adapté puis autoriser explicitement le transfert et la première installation du ZIP Drupal inchangé sur preprod.tclongages.fr, sous maintenance ; paramètres privés soumis personnellement.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
+          "pullRequests": [
+            "https://github.com/jpdandin44/TC_Longages/pull/5",
+            "https://github.com/jpdandin44/TC_Longages/pull/6",
+            "https://github.com/jpdandin44/TC_Longages/pull/7"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Réalisation par lots",
+          "shortTitle": "Réalisation par lots",
+          "objective": "Réaliser les changements autorisés, avec tests et PR pour chaque lot.",
+          "status": "not_started",
+          "dependsOn": [
+            1
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "02-phase.md",
+              "kind": "file",
+              "title": "Dossier — Réalisation par lots",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Changements conformes au périmètre",
+                "Tests ciblés réussis sur la version présentée",
+                "Documentation et impacts à jour",
+                "PR de chaque lot référencée"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Changements conformes au périmètre",
+            "Tests ciblés réussis sur la version présentée",
+            "Documentation et impacts à jour",
+            "PR de chaque lot référencée"
+          ],
+          "blockers": [],
+          "nextAction": "Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux.",
+          "pullRequest": null
+        },
+        {
+          "id": 3,
+          "title": "Recette locale et revue",
+          "shortTitle": "Recette locale et revue",
+          "objective": "Qualifier les parcours locaux et présenter une version candidate cohérente.",
+          "status": "not_started",
+          "dependsOn": [
+            2
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "03-phase.md",
+              "kind": "file",
+              "title": "Dossier — Recette locale et revue",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Parcours représentatifs vérifiés",
+                "Régression et données préservées",
+                "Revue visuelle ou métier disponible",
+                "Version candidate et réserves identifiées"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Parcours représentatifs vérifiés",
+            "Régression et données préservées",
+            "Revue visuelle ou métier disponible",
+            "Version candidate et réserves identifiées"
+          ],
+          "blockers": [],
+          "nextAction": "Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue.",
+          "pullRequest": null
+        },
+        {
+          "id": 4,
+          "title": "Préproduction réelle",
+          "shortTitle": "Préproduction réelle",
+          "objective": "Vérifier le candidat sur le moteur et les intégrations représentatifs de la production.",
+          "status": "not_started",
+          "dependsOn": [
+            3
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "04-phase.md",
+              "kind": "file",
+              "title": "Dossier — Préproduction réelle",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Candidat exact identifié dans le vrai runtime",
+                "Comptes, droits et édition vérifiés si applicables",
+                "Intégrations réelles vérifiées dans leur périmètre autorisé",
+                "Réserves traitées ou dérogations explicites compatibles avec la livraison"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Candidat exact identifié dans le vrai runtime",
+            "Comptes, droits et édition vérifiés si applicables",
+            "Intégrations réelles vérifiées dans leur périmètre autorisé",
+            "Réserves traitées ou dérogations explicites compatibles avec la livraison"
+          ],
+          "blockers": [
+            "Qualification hébergée restante : PHP adapté, certificat reconnu, base, droits métier et sauvegarde restaurable. Ces réserves ne bloquent pas la revue du cadrage."
+          ],
+          "nextAction": "Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées.",
+          "pullRequest": null
+        },
+        {
+          "id": 5,
+          "title": "Préparation au déploiement",
+          "shortTitle": "Préparation au déploiement",
+          "objective": "Qualifier les prérequis, la sauvegarde, la restauration et le retour arrière.",
+          "status": "not_started",
+          "dependsOn": [
+            4
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "05-phase.md",
+              "kind": "file",
+              "title": "Dossier — Préparation au déploiement",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Version et manifeste acceptés",
+                "Sauvegarde intègre effectivement restaurée",
+                "Application et retour arrière répétés hors production",
+                "Accès réseau, exploitation et dossier de livraison qualifiés"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Version et manifeste acceptés",
+            "Sauvegarde intègre effectivement restaurée",
+            "Application et retour arrière répétés hors production",
+            "Accès réseau, exploitation et dossier de livraison qualifiés"
+          ],
+          "blockers": [],
+          "nextAction": "Après autorisation : qualifier sauvegarde fraîche, restauration privée et retour arrière sur les cibles explicitement retenues.",
+          "pullRequest": null
+        },
+        {
+          "id": 6,
+          "title": "Déploiement et ouverture",
+          "shortTitle": "Déploiement et ouverture",
+          "objective": "Livrer la version acceptée, contrôler la cible puis ouvrir sur décision explicite.",
+          "status": "not_started",
+          "dependsOn": [
+            5
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "06-phase.md",
+              "kind": "file",
+              "title": "Dossier — Déploiement et ouverture",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Accord de déploiement lié au candidat et à la cible",
+                "Nouvelle sauvegarde restaurée avant écriture",
+                "Recette sur domaine ou cible officielle réalisée",
+                "Ouverture explicitement autorisée et contrôlée"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Accord de déploiement lié au candidat et à la cible",
+            "Nouvelle sauvegarde restaurée avant écriture",
+            "Recette sur domaine ou cible officielle réalisée",
+            "Ouverture explicitement autorisée et contrôlée"
+          ],
+          "blockers": [],
+          "nextAction": "Attendre une autorisation de livraison liée au candidat et à la cible ; conserver l’ouverture publique comme décision séparée.",
+          "pullRequest": null
+        },
+        {
+          "id": 7,
+          "title": "Observation et transfert",
+          "shortTitle": "Observation et transfert",
+          "objective": "Observer le fonctionnement, organiser le support et clore la livraison.",
+          "status": "not_started",
+          "dependsOn": [
+            6
+          ],
+          "startedOn": null,
+          "authorizedOn": null,
+          "deliveredOn": null,
+          "validatedOn": null,
+          "startEvidence": null,
+          "validationEvidence": null,
+          "deliverables": [
+            {
+              "path": "07-phase.md",
+              "kind": "file",
+              "title": "Dossier — Observation et transfert",
+              "availability": "available",
+              "description": "Dossier de cadrage adapté au projet, avec critères et réserves ; sa présence ne prouve ni réalisation opérationnelle ni validation de cette phase.",
+              "expectedEvidence": [
+                "Surveillance et responsabilités définies",
+                "Réserves et incidents tracés",
+                "Procédures de reprise et sauvegardes transmises",
+                "Bilan et état de session archivés"
+              ]
+            }
+          ],
+          "exitCriteria": [
+            "Surveillance et responsabilités définies",
+            "Réserves et incidents tracés",
+            "Procédures de reprise et sauvegardes transmises",
+            "Bilan et état de session archivés"
+          ],
+          "blockers": [],
+          "nextAction": "Après livraison contrôlée et autorisation : définir observation, support, sauvegardes et point de transfert sans créer de surveillance permanente implicite.",
+          "pullRequest": null
+        }
+      ],
+      "mapping": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2,
+        "5": 2,
+        "6": 3,
+        "7": 3
+      }
+    }
+  ]
 }

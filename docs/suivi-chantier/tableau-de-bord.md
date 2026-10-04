@@ -14,7 +14,7 @@ tags: [framework, suivi, vue-generee]
 
 <!-- Vue générée par scripts/framework.mjs ; les décisions passent par le moteur interactif. -->
 
-**Phase actuelle : 1 — Socle et environnements. 1 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
+**Phase actuelle : 2 — Préproduction. 1 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
 
 [Ouvrir le suivi interactif local](http://127.0.0.1:4181/) · [Ouvrir Drupal local](http://127.0.0.1:4182/)
 
@@ -32,14 +32,10 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage et audit | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
-| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr. |
-| 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
-| 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
-| 4 — Préproduction réelle | Non démarrée | [Dossier](04-phase.md) | Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées. |
-| 5 — Préparation au déploiement | Non démarrée | [Dossier](05-phase.md) | Après autorisation : qualifier sauvegarde fraîche, restauration privée et retour arrière sur les cibles explicitement retenues. |
-| 6 — Déploiement et ouverture | Non démarrée | [Dossier](06-phase.md) | Attendre une autorisation de livraison liée au candidat et à la cible ; conserver l’ouverture publique comme décision séparée. |
-| 7 — Observation et transfert | Non démarrée | [Dossier](07-phase.md) | Après livraison contrôlée et autorisation : définir observation, support, sauvegardes et point de transfert sans créer de surveillance permanente implicite. |
+| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
+| 1 — Développement local | En cours | [Dossier](01-phase.md) | Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier. |
+| 2 — Préproduction | Bloquée | [Dossier](04-phase.md) | Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette. |
+| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables. |
 
 ## Points à résoudre
 
@@ -55,10 +51,10 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 ## Lire ce suivi
 
-Les huit phases décrivent la méthode de travail ; G0–G8 restent les lots métier de la V1. Les recettes historiques ne créent pas de validation automatique. Une validation peut rester consignée tout en devenant à requalifier après changement de documents ou de preuves. Le suivi ne calcule aucun pourcentage d’effort.
+Les quatre phases regroupent le cadrage, le développement local, la préproduction et la mise en production ; G0–G8 restent les lots métier de la V1. Les recettes historiques ne créent pas de validation automatique. Une validation peut rester consignée tout en devenant à requalifier après changement de documents ou de preuves. Le suivi ne calcule aucun pourcentage d’effort.
 
 Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle locale distingue validation et autorisation suivante ; l’identité y reste déclarée, sans authentification distante. Le mode d’installation n’accorde aucun déploiement, aucune ouverture publique et aucune permission de modifier les accès distants. Les adaptations de préproduction, livraison et restauration restent à qualifier.
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `80ced44231ec445e20a1943592d73cf41a93bd88bfc2c8a6c326b9d83d7af848`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `ecb85acf2af5556a6d6e144c73ce6553f1d5b842e56c6fa3d07c6254a1a0a2f0`.

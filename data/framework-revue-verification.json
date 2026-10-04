@@ -291,11 +291,14 @@
     "phaseValidationInLocalTool": false
   },
   "currentPullRequest": {
-    "url": "https://github.com/jpdandin44/TC_Longages/pull/4",
-    "state": "OPEN",
-    "mergedAt": null,
-    "phaseValidationInLocalTool": false,
-    "observedAt": "2026-09-29T12:41:31.200Z"
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/8",
+    "number": 8,
+    "state": "open",
+    "draft": true,
+    "headSha": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+    "observedAt": "2026-10-04T18:26:32.357Z",
+    "humanChecklistAccepted": false,
+    "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd"
   },
   "deliveryPreparation": {
     "observedAt": "2026-10-01T17:42:30.088767+00:00",
@@ -1060,6 +1063,561 @@
       "configurationApplied": false,
       "hostedDrupalInstalled": false,
       "productionDeploymentExecuted": false
+    }
+  },
+  "hostingPrimaryConfiguration": {
+    "observedAt": "2026-10-04T16:34:27Z",
+    "status": "configuration_completed_verified",
+    "authorization": {
+      "reference": "TCL-CONFIG-COMPTE-PRINCIPAL-20261004",
+      "receivedAt": "2026-10-04T15:46:27.269360+00:00",
+      "source": "direct_user_message",
+      "message": "J'autorise ce lot sur le compte principal TC",
+      "target": "compte principal TC pour preprod.tclongages.fr",
+      "scope": [
+        "PHP 8.3 partage et modules Drupal requis",
+        "racine dediee fermee",
+        "sous-domaine et DNS de preprod.tclongages.fr",
+        "certificat HTTPS gratuit",
+        "base et utilisateur SQL dedies avec saisie et soumission personnelles du mot de passe"
+      ],
+      "drupalTransferAuthorized": false,
+      "drupalInstallationAuthorized": false,
+      "productionAuthorized": false,
+      "publicOpeningAuthorized": false,
+      "moonRemovalAuthorized": false,
+      "sqlPrivilegesConfirmationAtActionTimeRequired": true
+    },
+    "previousInventory": "hostingPrimaryAccountQualification",
+    "humanPullRequestMerge": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/7",
+      "head": "b954b468c74e6d554a112c459c86d9a48e8e56ce",
+      "mergeCommit": "f6785bcfdede3c8fbc93d5104ef31560fed988bf",
+      "mergedAt": "2026-10-04T15:40:50Z",
+      "actor": "jpdandinavereo-design",
+      "configurationApprovalDerivedFromMerge": false
+    },
+    "steps": {
+      "php": {
+        "selected": "8.3",
+        "cliVersion": "8.3.33",
+        "httpVersion": "8.3.33",
+        "requiredExtensions": 18,
+        "loadedExtensions": 18,
+        "missingExtensions": [],
+        "scope": "Tous les hôtes du compte principal TC partagent la sélection PHP.",
+        "additionalModuleCheckboxChangesRequired": false,
+        "evidence": [
+          ".local/hosting-verification/2026-10-04-primary/php83-applied.jpg",
+          ".local/hosting-verification/2026-10-04-primary/final-root-verification.jpg"
+        ]
+      },
+      "root": {
+        "composerRootRelative": "tcl-preproduction/drupal",
+        "documentRootRelative": "tcl-preproduction/drupal/web",
+        "privateRootRelative": "tcl-preproduction/private",
+        "privateDirectoryMode": "0700",
+        "closureBytes": 36,
+        "closureSha256": "dbdf47f62a27badc00789cd9369768de4d210117e6b04d534677154701c19435",
+        "finalPublicEntries": [
+          ".htaccess",
+          "cgi-bin"
+        ],
+        "cgiBinEmpty": true,
+        "drupalFilesPresent": false,
+        "originalOfficialIndexSha256Unchanged": true,
+        "evidence": ".local/hosting-verification/2026-10-04-primary/final-root-verification.jpg"
+      },
+      "domain": {
+        "host": "preprod.tclongages.fr",
+        "created": true,
+        "documentRootRelative": "tcl-preproduction/drupal/web",
+        "dnsPublicReadback": "Google DNS over HTTPS : réponse A correspondant à l’adresse de cet hébergement.",
+        "ordinaryWindowsResolverQualified": false,
+        "directAuthoritativeUdpQuerySucceeded": false,
+        "resolverLimit": "Le résolveur ordinaire du poste ne résout pas encore ce nom ; sa cause précise n’est pas déterminée.",
+        "evidence": [
+          ".local/hosting-verification/2026-10-04-primary/subdomain-created.jpg",
+          ".local/hosting-verification/2026-10-04-primary/google-dns-readback.json"
+        ]
+      },
+      "https": {
+        "certificateInstalled": true,
+        "provider": "Let's Encrypt",
+        "challenge": "DNS-01",
+        "includedHosts": [
+          "preprod.tclongages.fr"
+        ],
+        "wwwOrWildcardIncluded": false,
+        "recognizedChainVerified": true,
+        "validationBypassed": false,
+        "verifiedClients": [
+          "urllib sur l’hébergement, résolution DNS normale et chaîne/nom vérifiés",
+          "curl Windows, chaîne/nom vérifiés, résolution épinglée sur l’adresse qualifiée"
+        ],
+        "evidence": [
+          ".local/hosting-verification/2026-10-04-primary/certificate-installed.jpg",
+          ".local/hosting-verification/2026-10-04-primary/final-root-verification.jpg",
+          ".local/hosting-verification/2026-10-04-primary/final-external-closure.json"
+        ]
+      },
+      "sql": {
+        "databaseCreated": true,
+        "databaseSuffix": "tclpreprod",
+        "userCreated": true,
+        "userSuffix": "tcl",
+        "credentialSubmittedByHuman": true,
+        "agentEnteredOrReadCredential": false,
+        "privileges": [
+          "ALTER",
+          "CREATE",
+          "CREATE TEMPORARY TABLES",
+          "DELETE",
+          "DROP",
+          "INDEX",
+          "INSERT",
+          "LOCK TABLES",
+          "SELECT",
+          "UPDATE"
+        ],
+        "persistedPrivilegesReread": true,
+        "otherDatabaseGrantsChanged": false,
+        "allPrivilegesSelected": false,
+        "serverVersion": "11.4.13-MariaDB",
+        "defaultStorageEngine": "InnoDB",
+        "defaultCharacterSet": "utf8mb4",
+        "defaultCollation": "utf8mb4_unicode_ci",
+        "tableCount": 0,
+        "charsetChangeAllTablesSelected": false,
+        "applicationConnectionTested": false,
+        "inspectionIdentity": "SSO cPanel dans phpMyAdmin ; pas la connexion PDO de l’utilisateur applicatif.",
+        "evidence": [
+          ".local/hosting-verification/2026-10-04-primary/sql-user-created.jpg",
+          ".local/hosting-verification/2026-10-04-primary/sql-rights-persisted.jpg",
+          ".local/hosting-verification/2026-10-04-primary/sql-collation-verified.jpg",
+          ".local/hosting-verification/2026-10-04-primary/sql-final-verification.jpg"
+        ]
+      },
+      "httpProbe": {
+        "noSecrets": true,
+        "phpSyntaxValidatedOnHosting": true,
+        "phpVersion": "8.3.33",
+        "sapi": "cgi-fcgi",
+        "extensionsLoaded": 18,
+        "getStatus": 200,
+        "headStatus": 200,
+        "headBodyBytes": 0,
+        "postStatus": 405,
+        "protectedPaths": [
+          "/",
+          "/.htaccess",
+          "/.env",
+          "/install.php",
+          "/private/hosting-input.json"
+        ],
+        "protectedPathStatus": 403,
+        "noindexAndNoStoreVerified": true,
+        "closureRestored": true,
+        "probeAfterClosureStatus": 403,
+        "publicTestFilesMovedToPrivateSnapshot": true,
+        "remoteReceiptRelative": "tcl-preproduction/private/runtime-probe/qualification.json",
+        "externalClosureStatuses": {
+          "/": 403,
+          "/tcl-probe.php": 403,
+          "/install.php": 403
+        },
+        "evidence": [
+          ".local/hosting-verification/2026-10-04-primary/probe-staged-closed.jpg",
+          ".local/hosting-verification/2026-10-04-primary/final-root-verification.jpg",
+          ".local/hosting-verification/2026-10-04-primary/final-external-closure.json"
+        ]
+      }
+    },
+    "drupalTransferred": false,
+    "drupalInstalled": false,
+    "publicOpeningExecuted": false,
+    "moonPreserved": true,
+    "sqlPrivilegesAuthorization": {
+      "receivedAt": "2026-10-04T16:06:26.224343+00:00",
+      "source": "direct_user_reply_to_action_time_question",
+      "answer": "Autoriser ces dix droits SQL",
+      "target": "utilisateur de suffixe tcl, seule base de suffixe tclpreprod du compte principal TC",
+      "privileges": [
+        "ALTER",
+        "CREATE",
+        "CREATE TEMPORARY TABLES",
+        "DELETE",
+        "DROP",
+        "INDEX",
+        "INSERT",
+        "LOCK TABLES",
+        "SELECT",
+        "UPDATE"
+      ],
+      "otherDatabaseAccessAuthorized": false,
+      "serverAdministrationAuthorized": false
+    },
+    "sharedAccountPhpChanged": true,
+    "officialRootChanged": false,
+    "officialDomainOrDnsChanged": false,
+    "officialCertificateChanged": false,
+    "productionDeploymentExecuted": false,
+    "remaining": [
+      "Revoir et autoriser le transfert puis la première installation du candidat Drupal exact sur cette seule préproduction.",
+      "Le responsable fournit lui-même le mot de passe SQL et le nouveau compte administrateur dans le fichier privé du serveur.",
+      "Vérifier la connexion PDO applicative, installer sous maintenance et effectuer la recette Drupal hébergée.",
+      "Éprouver sauvegarde/restauration et retour arrière du Drupal, puis qualifier et autoriser la livraison et l’ouverture de production.",
+      "Requalifier la résolution DNS ordinaire sur le poste avant la recette personnelle par navigateur."
+    ]
+  },
+  "primaryAccountInstallerAdaptation": {
+    "status": "prepared_tested_locally_not_transferred",
+    "checkedAt": "2026-10-04T17:03:27.662576+00:00",
+    "sourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+    "artifactDigest": "5a545e6302cdd92be9155eb839849c2825988d71b2cb405346581e4a4b41ec1d",
+    "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+    "toolPackageBytes": 27683,
+    "toolPackageEntries": 7,
+    "toolFileInventory": {
+      "first_install.py": {
+        "sourcePath": "scripts/first_install.py",
+        "bytes": 14660,
+        "sha256": "42ed16d32d26a4cba43e180f65ff19fcd5acecf8fe70cbb37cc4e395eb4d1b63"
+      },
+      "first-install-hosting.php": {
+        "sourcePath": "scripts/first-install-hosting.php",
+        "bytes": 10140,
+        "sha256": "8737cfdf8f4fb1133b713882aafb384a1a95a59891019362153f5d82e12bc548"
+      },
+      "delivery_shared.py": {
+        "sourcePath": "scripts/delivery_shared.py",
+        "bytes": 9695,
+        "sha256": "107ea9c9497b23539612ef729d6dc8e72fa5c08adbaae46e0e6ac8f61921574b"
+      },
+      "prepare_delivery.py": {
+        "sourcePath": "scripts/prepare_delivery.py",
+        "bytes": 7841,
+        "sha256": "dbc2b8fbb45709b9fe490767b4c08549626e1f84626ab6056eebbee5e359f50d"
+      },
+      "first-install.example.json": {
+        "sourcePath": "config/first-install.example.json",
+        "bytes": 701,
+        "sha256": "19737fe762a2345f452154adb7e4af948b9fe33593e18c5ae02fc42661cfaf5d"
+      },
+      "installation-drupal.md": {
+        "sourcePath": "docs/installation-drupal.md",
+        "bytes": 30362,
+        "sha256": "180090417d33a1cfa3451c10bf343442a74b9d8ccbdcc9455bc7242e7c7d785a"
+      }
+    },
+    "zipCrcAndBytesVerified": true,
+    "accountRole": "primary_tc",
+    "targetHost": "preprod.tclongages.fr",
+    "qualificationIdentityFields": [
+      "accountRole",
+      "account",
+      "home",
+      "composerRoot",
+      "documentRoot",
+      "database",
+      "databaseUser"
+    ],
+    "applicationPlan": {
+      "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+      "sourceClean": true,
+      "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
+      "regularFiles": 26687,
+      "status": "local_plan_verified",
+      "deploymentExecuted": false,
+      "installationAdapterAvailable": true,
+      "publicOpeningExecuted": false
+    },
+    "localTests": [
+      {
+        "command": "npm.cmd run check",
+        "tests": 137,
+        "passed": 137,
+        "failed": 0,
+        "skipped": 0,
+        "sourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8"
+      },
+      {
+        "command": "npm.cmd run framework:check",
+        "tests": 27,
+        "passed": 27,
+        "failed": 0,
+        "skipped": 0,
+        "sourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8"
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -p test_first_install.py -v",
+        "runtime": "WSL Ubuntu Python 3.14.4",
+        "tests": 14,
+        "passed": 14,
+        "failed": 0,
+        "skipped": 0,
+        "sourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+        "hostingExecution": false
+      }
+    ],
+    "currentDocumentaryCandidate": {
+      "sourceCommit": "902530f2f8106e78f128bb009bfa2f00f70a89bc",
+      "artifactDigest": "6e1fe7609a8dab21b5905d9837c298046d4adac37e946f42e4d1789828a1629e",
+      "sourceFileCount": 402,
+      "manifestDigest": "f9dd78afb75bfaa9e1bba8a78086fe43ff1a053cd1cec6e718b59b9f8dd3d8a9",
+      "schemaViewsAndManifestPassed": true,
+      "documentaryCheck": {
+        "scaffoldMissing": [],
+        "documentsChecked": 17,
+        "metadataIssues": [],
+        "localLinksChecked": 350,
+        "missingLocalLinks": [],
+        "structuredFilesParsed": 5
+      },
+      "codeTestsSourceUnchanged": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+      "differenceFromTestedToolSource": "Mise à jour du seul dossier Markdown de phase 1 pour afficher le suivi du déploiement ; scripts/tests/profil d’installation et guide du ZIP d’outils inchangés."
+    },
+    "historicalMoonToolPackagePreserved": true,
+    "newPrivateProfileAuthorizationBlank": false,
+    "remoteToolTransferExecuted": false,
+    "remoteDrupalInstallationExecuted": false,
+    "humanInstallationApprovalVerified": true,
+    "sqlApplicationConnectionVerified": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "newClaudeReviewRequested": false,
+    "previousClaudeReviewScope": "Avis reçu avant changement de compte ; aucune revue des nouvelles gardes attribuée à Claude.",
+    "limitations": [
+      "Adaptateur non exécuté sur Python 3.6.8 hébergé.",
+      "Installation PHP/MySQL, recette Drupal et retour arrière non testés sur serveur.",
+      "Résolveur Windows ordinaire encore non qualifié.",
+      "Paramètres SQL et nouvel accès administrateur à saisir personnellement sur le serveur."
+    ],
+    "deliveryGates": [
+      {
+        "gate": "preproduction",
+        "status": "blocked",
+        "checkedAt": "2026-10-04T17:03:27.662576+00:00",
+        "exitCode": 1,
+        "result": {
+          "gate": "preproduction",
+          "declaredEvidenceConsistent": false,
+          "errors": [
+            "Blocages présents ou non renseignés.",
+            "Contrôle actuel absent : documentation.",
+            "Préproduction prête et isolée non prouvée.",
+            "Accord humain exact absent : preproduction.",
+            "Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés."
+          ],
+          "limitation": "Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord."
+        }
+      },
+      {
+        "gate": "production",
+        "status": "blocked",
+        "checkedAt": "2026-10-04T17:03:27.662576+00:00",
+        "exitCode": 1,
+        "result": {
+          "gate": "production",
+          "declaredEvidenceConsistent": false,
+          "errors": [
+            "Blocages présents ou non renseignés.",
+            "Contrôle actuel absent : documentation.",
+            "Préproduction prête et isolée non prouvée.",
+            "Cible de production non prouvée.",
+            "Contrôle actuel absent : preproduction sur https://preprod.tclongages.fr/.",
+            "Accord humain exact absent : review.",
+            "Accord humain exact absent : production.",
+            "Acceptation GitHub du candidat non vérifiée.",
+            "Sauvegarde restaurée absente pour la cible, ou vacuité/isolement non prouvés.",
+            "Retour arrière de ce candidat non qualifié."
+          ],
+          "limitation": "Déclarations à vérifier aux sources ; ce résultat ne déploie pas et ne donne aucun accord."
+        }
+      }
+    ],
+    "humanInstallationAuthorization": {
+      "id": "TCL-PRIMARY-FIRST-INSTALL-20261004",
+      "status": "received_direct_human_message",
+      "recordedAt": "2026-10-04T17:03:27.662576+00:00",
+      "source": "direct_user_message_current_chat",
+      "answer": "Vas-y tu peux enchainer la configuration je suis OK",
+      "presentedScope": "Transfert du candidat Drupal préparé puis première installation sur la préproduction du compte principal TC, sous maintenance ; paramètres SQL et nouvel accès administrateur saisis personnellement dans le fichier privé.",
+      "environment": "preproduction",
+      "accountRole": "primary_tc",
+      "targetHost": "preprod.tclongages.fr",
+      "applicationSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+      "applicationArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+      "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+      "productionDeploymentAuthorized": false,
+      "publicOpeningAuthorized": false,
+      "newSshAccessAuthorized": false,
+      "moonDeletionAuthorized": false,
+      "credentialEntryByHumanRequired": true
+    }
+  },
+  "primaryAccountFirstInstallationAuthorization": {
+    "id": "TCL-PRIMARY-FIRST-INSTALL-20261004",
+    "status": "received_direct_human_message",
+    "recordedAt": "2026-10-04T17:03:27.662576+00:00",
+    "source": "direct_user_message_current_chat",
+    "answer": "Vas-y tu peux enchainer la configuration je suis OK",
+    "presentedScope": "Transfert du candidat Drupal préparé puis première installation sur la préproduction du compte principal TC, sous maintenance ; paramètres SQL et nouvel accès administrateur saisis personnellement dans le fichier privé.",
+    "environment": "preproduction",
+    "accountRole": "primary_tc",
+    "targetHost": "preprod.tclongages.fr",
+    "applicationSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "applicationArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+    "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+    "productionDeploymentAuthorized": false,
+    "publicOpeningAuthorized": false,
+    "newSshAccessAuthorized": false,
+    "moonDeletionAuthorized": false,
+    "credentialEntryByHumanRequired": true
+  },
+  "primaryAccountFirstInstallation": {
+    "status": "staged_closed_sql_authentication_blocked",
+    "recordedAt": "2026-10-04T17:53:12.584531Z",
+    "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
+    "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
+    "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
+    "remoteTransferExecuted": true,
+    "installationExecuted": false,
+    "publicOpeningExecuted": false,
+    "archiveHashVerifiedOnHost": true,
+    "stagingExecuted": true,
+    "stagedFileCount": 26687,
+    "stagedFilesHashVerifiedOnHost": true,
+    "installationAttemptExecuted": true,
+    "databaseInstalled": false,
+    "applicationConnectionVerified": false,
+    "apacheClosed": true,
+    "failedStage": "sql-read-only",
+    "sanitizedDriverCode": 1045,
+    "privateInputLastSavedAt": "2026-10-04T17:22:27Z",
+    "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
+    "environment": "preproduction",
+    "targetHost": "preprod.tclongages.fr",
+    "account": "daje5127",
+    "privateRunDirectory": "/home2/daje5127/tcl-preproduction/private/first-install-svfc2tg9",
+    "toolsExtractedHashVerified": true,
+    "hostingPythonVersion": "3.6.8",
+    "hostingPhpVersion": "8.3.33",
+    "phpHelperLintPassed": true,
+    "planPassed": true,
+    "settingsWritten": false,
+    "databaseFileWritten": false,
+    "runtimeWritten": false,
+    "sqlEndpointChecks": [
+      "localhost:1045",
+      "127.0.0.1:1045"
+    ],
+    "passwordHasSurroundingWhitespace": false,
+    "evidenceFiles": [
+      ".local/hosting-verification/2026-10-04-primary/application-plan-hosted.jpg",
+      ".local/hosting-verification/2026-10-04-primary/drupal-stage-closed.jpg",
+      ".local/hosting-verification/2026-10-04-primary/sql-endpoint-diagnostic.jpg"
+    ],
+    "privateValuesExcluded": true,
+    "productionChanged": false
+  },
+  "fourPhaseUpdate": {
+    "recordedAt": "2026-10-04T18:26:32.357Z",
+    "status": "tested_locally_pr_draft",
+    "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+    "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+    "candidateManifest": "data/framework-candidate.json",
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
+    "commonRulePullRequest": "https://github.com/jpdandin44/AVEREO/pull/75",
+    "manifestDigest": "837443f8f09c1980ae207d9ed35e8143b74de913ea70fa20b61849c8735e366c",
+    "sourceFileCount": 402,
+    "localTests": [
+      {
+        "command": "npm.cmd run check",
+        "sourceCommit": "87a7d0d9f69b0645a099aa7162ec548bac3eb57e",
+        "tests": 139,
+        "passed": 139,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "command": "npm.cmd run framework:check",
+        "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+        "tests": 29,
+        "passed": 29,
+        "failed": 0,
+        "skipped": 0
+      }
+    ],
+    "documentaryDeltaAfterFullTests": [
+      "changelog.md",
+      "docs/point-session.md",
+      "docs/suivi-chantier/04-phase.md",
+      "requirements.md"
+    ],
+    "documentation": {
+      "scaffoldMissing": [],
+      "documentsChecked": 27,
+      "metadataIssues": [],
+      "localLinksChecked": 441,
+      "missingLocalLinks": [],
+      "structuredFilesParsed": 5
+    },
+    "historicalPhasesPreserved": 8,
+    "protectedHumanFieldsUnchanged": [
+      "history",
+      "decisions",
+      "reviewEvents",
+      "reviewFollowUps",
+      "requirementChanges",
+      "reviewCommentResponses"
+    ],
+    "phaseZeroUnchanged": true,
+    "criterionLabelsPreserved": true,
+    "reviewDraftRestoredWithoutConfirmation": true,
+    "humanApprovalRecorded": false,
+    "preproductionReviewPassed": false,
+    "productionExecuted": false,
+    "publicOpeningExecuted": false,
+    "githubCiObserved": false,
+    "accountsAndEditingReview": {
+      "status": "functional_scope_pending",
+      "recordedAt": "2026-10-04T18:26:32.357Z",
+      "phaseId": 2,
+      "criterion": "Comptes, droits et édition vérifiés si applicables",
+      "documentation": "docs/suivi-chantier/04-phase.md",
+      "requestSource": "direct_user_message_current_chat",
+      "request": "Je n’ai pas de PR pour la création des comptes, les droits, et l’édition ; je ne peux pas tester et approuver sans cela.",
+      "items": [
+        {
+          "kind": "sql_user_and_rights",
+          "status": "configured_application_authentication_blocked",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7"
+        },
+        {
+          "kind": "drupal_administrator",
+          "status": "first_installation_prepared_not_installed",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8"
+        },
+        {
+          "kind": "business_roles_bureau_captain",
+          "status": "not_implemented_scope_pending",
+          "pullRequest": null
+        },
+        {
+          "kind": "public_page_editing",
+          "status": "not_implemented_scope_pending",
+          "pullRequest": null
+        }
+      ],
+      "criterionAccepted": false,
+      "deferralApproved": false,
+      "notApplicableApproved": false
     }
   }
 }
