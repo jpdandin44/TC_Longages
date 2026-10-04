@@ -154,10 +154,10 @@
         "Gestion des secrets et restauration documentées"
       ],
       "blockers": [
-        "Le domaine parent tclongages.fr appartient au compte principal : cPanel refuse son sous-domaine sur la lune.",
-        "Proposition technique retirée ; implantation à décider après inventaire du compte principal TC. DNS, HTTPS reconnu, PHP HTTP et SQL non qualifiés."
+        "Accès et réglages actuels du compte principal TC à inventorier après reconnexion.",
+        "Implantation retenue mais configuration et adaptation des contrôles de compte non exécutées ; DNS/HTTPS, PHP HTTP et SQL non qualifiés."
       ],
-      "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+      "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -1026,7 +1026,7 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
     "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1141,7 +1141,7 @@
         "empty": false,
         "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
         "observedAt": "2026-10-04T14:04:58.761183+00:00",
-        "limit": "Implantation à décider : compte principal recommandé à qualifier ; lune conservée sans suppression. Adresse technique retirée. DNS, HTTPS, PHP HTTP, SQL et contrôles de compte de l’outil restent à qualifier."
+        "limit": "Compte principal TC retenu, cible non prête : accès, PHP partagé, dossier et base, DNS/HTTPS et garde-fous de l’outil à qualifier. Ressources de la lune conservées."
       },
       "production": {
         "id": "https://tclongages.fr/",
@@ -1220,12 +1220,12 @@
       "observedAt": null
     },
     "blockers": [
-      "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Proposition technique retirée ; compte principal recommandé à qualifier, implantation non décidée.",
+      "Compte principal TC retenu : reconnexion et inventaire requis ; ancien refus de sous-domaine sur la lune conservé comme historique.",
       "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
       "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1342,17 +1342,29 @@
     },
     "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
     "preproductionPlacementReview": {
-      "status": "recommended_option_not_approved",
+      "status": "human_choice_recorded_qualification_pending",
       "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
       "plan": "docs/preparer-lune-tc.md",
       "recordedAt": "2026-10-04T14:04:58.761183+00:00",
       "oldTechnicalProposalWithdrawn": true,
       "remoteWriteExecuted": false,
       "documentaryCandidate": {
-        "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
-        "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
+        "sourceCommit": "4ce169f9ef958629d0e58ced1f520e774d975159",
+        "artifactDigest": "dfbfff233fb25e3e91a6f43737d7033ea2734daf4fc98d518fef8cc5465061c3",
         "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis.documentaryReview"
-      }
+      },
+      "humanChoice": {
+        "recordedAt": "2026-10-04T14:27:54.237603+00:00",
+        "date": "2026-10-04",
+        "sourceRef": "chat-utilisateur-2026-10-04-organisation-avereo-tc",
+        "answer": "On suit la même organisation que pour AVEREO",
+        "scope": "Choix du compte principal TC pour la préproduction, avec dossier et base séparés.",
+        "hostingConfigurationApproval": false,
+        "phaseValidation": false,
+        "productionDeploymentApproval": false,
+        "publicOpeningApproval": false
+      },
+      "installerAccountGuardAdaptationRequired": true
     }
   }
 }

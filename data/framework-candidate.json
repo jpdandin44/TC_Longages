@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
+  "sourceCommit": "4ce169f9ef958629d0e58ced1f520e774d975159",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -139,9 +139,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "9737df0cf7b278b6a53362add893092f3332b608",
-      "size": 41665,
-      "sha256": "fb281bd90f1a74127e9b8960a68516a9d010e537696d7bddf80ec44680e0a433"
+      "gitBlob": "521a26564d26667d622ec25f114c56eb44ae3b75",
+      "size": 41679,
+      "sha256": "8b42ec5931c22000def55378d70d1df225f8b028f74d2bbf7284e55754ad868c"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -195,16 +195,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "3179457b6a589ac235430b5e3a070fdc47e272a4",
-      "size": 42878,
-      "sha256": "1b25e67d1b831fd0ac64685bb8ceeffa0209f2e152d2b4bbe8c0ae16001459dc"
+      "gitBlob": "3e965e72d9b0c291884366e9e5d88b29e5700037",
+      "size": 42895,
+      "sha256": "e1a6ae65b8e4d63c01198f7545d9a47a872f4dc7673782e203f25d29b141faf4"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "f5e68ddfae2e129a25b479a4642f5107be571bd2",
-      "size": 30714,
-      "sha256": "22ed9e772cc45fa2120da291a5479ce483329435ae9f224a60931963b3dbefba"
+      "gitBlob": "51fc8b6c66c842c47c84a6e1068a1063442f9684",
+      "size": 31214,
+      "sha256": "6daf16a9daab0230a382c9755e4b59d9ece4c97cf4ccda1b7371fdf8a683d23b"
     },
     {
       "path": "config/first-install.example.json",
@@ -349,9 +349,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "3c1a0089a844c6ee516f1854d943dafe150a72cd",
-      "size": 37621,
-      "sha256": "7f64c69a8330ea8bcc0ad39900da60a75b7b5891a2743e3acd09796abeb6921e"
+      "gitBlob": "40dee8e0a6b28c3def8968496e56cc24365c3abe",
+      "size": 38677,
+      "sha256": "ab6c07f13c6b2f996dcdf4404fe6773d227386b5563f8484a5a780db70bd079c"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -440,9 +440,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "29bed911bb1a24e3dad0ccffe1103e082c50795b",
-      "size": 36503,
-      "sha256": "5e75508399101993ddf3c3c2d1ce4423736d289ffd52fd4ee365c3bc7c757c27"
+      "gitBlob": "663a0c7cfa66cd53a06509db8ae5bd77f3121939",
+      "size": 36553,
+      "sha256": "80b9f4c71c9a0808eb8c07e944255d4963ac323a260f324a30293dc9eedc0cc4"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -454,9 +454,9 @@
     {
       "path": "docs/preparer-lune-tc.md",
       "mode": "100644",
-      "gitBlob": "fc7f4af09d6ae30d56b371de5ce7a9447ea8c352",
-      "size": 17293,
-      "sha256": "34d96678f8db85cc8fae0817e636c1141f5c390e6acd34aac5dcc5865c1a0b8b"
+      "gitBlob": "c3ca0b725d4178f8fc10fada97f96832fb413a74",
+      "size": 17445,
+      "sha256": "a4d1e374f67aecb1c4a9db5c5c8c9592a6baab54031f9c058a1d81aa5fd0cfa3"
     },
     {
       "path": "docs/processus-inscriptions.md",
@@ -1987,9 +1987,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "e5009e130ccf94146582b40602935376a93b8522",
-      "size": 21401,
-      "sha256": "2e4bc4450e910c6757669ca30e85281ae096e9c7961cd434e211745bdac673c3"
+      "gitBlob": "3d6d51d07ab938735fd49204a5f99b0be7b2a25e",
+      "size": 21337,
+      "sha256": "cd037a46acf5ded0a9222eeef4933d723cd5371721d1a371c365d23e345b79c8"
     },
     {
       "path": "scripts/build-demo.mjs",
@@ -2813,9 +2813,9 @@
     {
       "path": "workflows/preparer-livraison.md",
       "mode": "100644",
-      "gitBlob": "546c1e56be81a9105b6e0f42e32a58caa626c4cb",
-      "size": 11362,
-      "sha256": "d9433581aa2cec795ab3987aead2f209f6634dabe5e577a280c28cc7145f6072"
+      "gitBlob": "2bb3fa0cdbaf51b1110a41a4d2ecd5d484313ad4",
+      "size": 11399,
+      "sha256": "f9582cbfc2948df096018cc5ac65236925b1d52a671845cb9224c1024f46b5eb"
     },
     {
       "path": "workflows/publication-controlee.md",
@@ -2825,5 +2825,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6"
+  "artifactDigest": "dfbfff233fb25e3e91a6f43737d7033ea2734daf4fc98d518fef8cc5465061c3"
 }

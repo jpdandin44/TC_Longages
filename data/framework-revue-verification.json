@@ -758,7 +758,7 @@
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false,
     "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
-    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
     "toolMergeObserved": {
       "observedAt": "2026-10-04T12:22:47.199241+00:00",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
@@ -841,7 +841,7 @@
       "alternativeCertificateMethodNotQualified": true
     },
     "recommendedOption": {
-      "status": "proposed_not_approved",
+      "status": "human_choice_recorded_qualification_pending",
       "url": "https://preprod.tclongages.fr/",
       "hostingAccount": "Compte principal TC",
       "proposedRelativeComposerRoot": "tcl-preproduction/drupal/",
@@ -862,18 +862,18 @@
     "hostingModified": false,
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false,
-    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+    "nextAction": "Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr.",
     "plan": "docs/preparer-lune-tc.md",
     "documentaryReview": {
-      "checkedAt": "2026-10-04T14:08:46.701635+00:00",
+      "checkedAt": "2026-10-04T14:28:01.877354+00:00",
       "scope": "Documentation et suivi uniquement",
-      "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
-      "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
-      "manifestDigest": "ab137996946782796084fe6d5d2b770315c1a02fd5505c5ec8e20ad7963df849",
+      "sourceCommit": "4ce169f9ef958629d0e58ced1f520e774d975159",
+      "artifactDigest": "dfbfff233fb25e3e91a6f43737d7033ea2734daf4fc98d518fef8cc5465061c3",
+      "manifestDigest": "8e69cbcbb2eb9a1d9365f44400be85c1bd827dfa93250746285482436520da3a",
       "sourceFileCount": 402,
       "schemaViewsManifestPassed": true,
       "documentsChecked": 14,
-      "localLinksChecked": 317,
+      "localLinksChecked": 318,
       "structuredFilesParsedByDocumentaryChecker": 5,
       "humanHistoryAndPhaseZeroUnchanged": true,
       "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
@@ -881,6 +881,43 @@
       "hostedDrupalRecipeExecuted": false,
       "humanApprovalRecorded": false,
       "productionDeploymentExecuted": false
-    }
+    },
+    "humanChoice": {
+      "recordedAt": "2026-10-04T14:27:54.237603+00:00",
+      "date": "2026-10-04",
+      "sourceRef": "chat-utilisateur-2026-10-04-organisation-avereo-tc",
+      "answer": "On suit la même organisation que pour AVEREO",
+      "scope": "Choix du compte principal TC pour la préproduction, avec dossier et base séparés.",
+      "hostingConfigurationApproval": false,
+      "phaseValidation": false,
+      "productionDeploymentApproval": false,
+      "publicOpeningApproval": false
+    },
+    "cpanelLoginPreparation": {
+      "usernameCorrected": true,
+      "agentEnteredPassword": false,
+      "agentSubmittedConnection": false,
+      "privateEvidence": ".local/hosting-verification/2026-10-04/cpanel-primary-login-prepared.jpg"
+    },
+    "documentaryReviewHistory": [
+      {
+        "checkedAt": "2026-10-04T14:08:46.701635+00:00",
+        "scope": "Documentation et suivi uniquement",
+        "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
+        "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
+        "manifestDigest": "ab137996946782796084fe6d5d2b770315c1a02fd5505c5ec8e20ad7963df849",
+        "sourceFileCount": 402,
+        "schemaViewsManifestPassed": true,
+        "documentsChecked": 14,
+        "localLinksChecked": 317,
+        "structuredFilesParsedByDocumentaryChecker": 5,
+        "humanHistoryAndPhaseZeroUnchanged": true,
+        "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+        "oldCodeTestResultsNotReassigned": true,
+        "hostedDrupalRecipeExecuted": false,
+        "humanApprovalRecorded": false,
+        "productionDeploymentExecuted": false
+      }
+    ]
   }
 }

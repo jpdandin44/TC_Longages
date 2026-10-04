@@ -33,7 +33,7 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
 | 0 — Cadrage et audit | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
-| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant. |
+| 1 — Socle et environnements | En cours | [Dossier](01-phase.md) | Reconnexion personnelle au compte principal TC retenu, inventaire des réglages et sites puis présentation du lot de configuration de preprod.tclongages.fr. |
 | 2 — Réalisation par lots | Non démarrée | [Dossier](02-phase.md) | Après acceptation du socle et autorisation : proposer les lots manquants de la V1 en conservant G0–G8 et leurs acquis locaux. |
 | 3 — Recette locale et revue | Non démarrée | [Dossier](03-phase.md) | Après autorisation : rejouer les parcours pertinents sur un commit identifié et soumettre la recette et ses réserves à revue. |
 | 4 — Préproduction réelle | Non démarrée | [Dossier](04-phase.md) | Après autorisation de phase et mutation explicite : installer un candidat identifié dans une cible isolée, puis tester les intégrations autorisées. |
@@ -61,4 +61,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `2c696a45e9dbceb15502672ef5cc355ac3f4f1ebec542b1e27df16e0859b7cee`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `459624639e508607ecc7f54b963d68354f421735c57d3622ef1a02c50b512c79`.
