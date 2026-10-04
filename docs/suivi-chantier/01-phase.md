@@ -5,7 +5,7 @@ title: "Phase 1 — Socle et environnements"
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [framework, phase, revue, gouvernance]
 ---
@@ -26,9 +26,20 @@ Ce dossier définit le socle à présenter à la revue. TCL-D02 autorise une ins
 
 Le [package local](../../package.json) prévoit Node.js >=22.9.0, les commandes de construction et les recettes existantes. Le socle documentaire est présent. Le paquet de démonstration Apache a une recette locale, mais cette démonstration n’est pas une préproduction native.
 
-Le [profil](../../framework/profil-projet.json) distingue local, CI, aperçu visuel, préproduction, répétition privée et production. Le [suivi interactif local](../installation-framework.md) permet notes, critères et décisions distinctes ; son identité déclarée n’est pas une connexion Drupal. Un [Drupal dédié est installé localement](../installation-drupal.md), avec maintenance native vérifiée. Aucun environnement distant n’est qualifié par ces installations.
+Le [profil](../../framework/profil-projet.json) distingue local, CI, aperçu visuel, préproduction, répétition privée et production. Le [suivi interactif local](../installation-framework.md) permet notes, critères et décisions distinctes ; son identité déclarée n’est pas une connexion Drupal. Un [Drupal dédié est installé localement](../installation-drupal.md), avec maintenance native vérifiée. Les preuves locales et hébergées restent distinctes.
 
-L’inventaire cPanel décrit une cible et ses écarts de runtime, de certificat et de base ; les détails restent centralisés dans le guide Drupal. Le dépôt privé et sa branche `main` sont observés par le connecteur, tandis que le raccordement local et les protections restent à traiter selon [la préparation du dépôt](../preparer-depot.md).
+Le dépôt public TC, le raccordement local et les contrôles GitHub sont établis ; les constats datés restent dans [la préparation du dépôt](../preparer-depot.md) et ses reçus. La PR #7 est fusionnée personnellement le 4 octobre. Après un accord cPanel distinct, la préproduction du compte principal est configurée et fermée ; les résultats et limites restent centralisés dans le [reçu courant](../../data/framework-revue-verification.json#hostingPrimaryConfiguration). Aucun Drupal distant n’est installé.
+
+## Suivi de déploiement au 4 octobre
+
+| Étape | État vérifié et prochaine action |
+|---|---|
+| Configuration de préproduction | Terminée après accord : domaine, DNS public, HTTPS reconnu, PHP CLI/HTTP et base vide avec droits dédiés. Racine fermée. |
+| Installation Drupal | Préparée localement, à revoir et autoriser sur le candidat exact ; paramètres privés soumis personnellement, connexion SQL applicative à tester. |
+| Recette de préproduction | À réaliser après installation sous maintenance, avec sauvegarde/restauration et retour arrière. Résolution DNS ordinaire du poste à requalifier. |
+| Production et ouverture | À préparer après recette ; cible, certificat officiel et accords de livraison/ouverture restent distincts. |
+
+Le [parcours V1](../parcours-mise-en-ligne.md) et le bloc `developmentWorkflow` du suivi canonique portent ce déploiement. Ce tableau n’enregistre aucune validation de phase ; la Lune est conservée.
 
 ## Exigences et critères à préparer
 
@@ -49,14 +60,14 @@ Ces cases décrivent la revue à conduire ; leur affichage n’enregistre aucune
 
 | Contrôle à prévoir | Preuve attendue | Limite actuelle |
 |---|---|---|
-| Dépôt et accès | URL, référence réellement lue, branche et protections observées | Lecture par connecteur réalisée ; raccordement CLI et protections non qualifiés |
-| Reproduction locale | Installation verrouillée, version runtime et tests sur commit du site | Suivi et Drupal locaux testés selon leurs guides ; aucun commit du site local encore établi |
-| Préproduction et répétition | Cibles séparées, droits et neutralisation des sorties | Cibles non désignées |
-| Sauvegarde | Périmètre, inventaire et restauration privée | Archive locale de sources ≠ sauvegarde hébergeur |
+| Dépôt et accès | URL, référence réellement lue, branche et protections observées | Git raccordé, PR/CI actives ; dernières preuves exactes liées au candidat dans le reçu de revue |
+| Reproduction locale | Installation verrouillée, version runtime et tests sur commit du site | Recettes locales et ZIP reçu identifiés ; aucun test local ne vaut installation Drupal hébergée |
+| Préproduction et répétition | Cibles séparées, droits et neutralisation des sorties | Racine et base dédiées dans le compte principal, PHP partagé ; SQL applicatif, Drupal et répétition de restauration restent à tester |
+| Sauvegarde | Périmètre, inventaire et restauration privée | Export de fichiers du compte restauré en copie privée ; restauration du futur Drupal et de SQL non éprouvée |
 
 ## Revue et PR
 
-La référence de PR et les dates de remise figurent uniquement dans le suivi. Aucune PR n’est attestée à l’initialisation. Préparer une PR lors du passage en revue, après lecture du dépôt communiqué ; conserver les commentaires, la version relue et les décisions humaines. Le merge reste humain.
+La référence de PR et les dates de remise figurent dans le suivi. Les PR fusionnées restent historiques ; le nouveau lot d’outillage et ses preuves ont leur propre revue. Conserver les commentaires, la version relue et les décisions humaines. Le merge reste humain.
 
 ## Réserves et prochaine étape
 
