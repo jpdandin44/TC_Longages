@@ -15,6 +15,17 @@ tags:
 
 # Exigences
 
+## Site de recette et langue — 4 octobre
+
+Le lien « environnement de validation » des PR doit ouvrir le site TC Longages,
+actuellement [sa préproduction](https://preprod.tclongages.fr/). Pendant la
+maintenance, le responsable se connecte dans Drupal puis revient à l’accueil.
+Le suivi sert au pilotage personnel et ne remplace pas la recette du site.
+Conserver les libellés obligatoires et les coches humaines lors de toute
+correction de lien ; identifier séparément le candidat du site et celui d’un
+éventuel changement de l’outil de suivi. L’administration Drupal et la page
+de connexion doivent être proposées en français.
+
 ## Reprise d’une validation devenue historique
 
 Le cockpit doit permettre de reprendre personnellement la revue d’une phase

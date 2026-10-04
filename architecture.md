@@ -36,6 +36,13 @@ publiques contrôlées répondent 503 avec non-indexation. Les sondes restent en
 privé. Le [reçu d’installation](data/framework-revue-verification.json#primaryAccountFirstInstallation)
 conserve l’identité du ZIP, les paramètres de fermeture et la recette anonyme.
 
+Les modules natifs `language` et `locale`, avec leur dépendance `file`, sont
+activés pour la traduction. Le français est la langue par défaut ; la détection
+de l’interface utilise la langue sélectionnée, sans préfixe d’URL obligatoire.
+Les traductions importées et la configuration linguistique résident dans
+l’installation Drupal et sa base, séparément des pages V1 du ZIP. Le site de
+recette est l’accueil de la préproduction ; le cockpit reste local au poste.
+
 L’[adaptateur](scripts/first_install.py) réutilise le vérificateur du ZIP reçu,
 exige le rôle du compte principal TC et lie sept champs d’identité du reçu
 au profil privé. Il refuse la Lune, les hôtes officiels ou techniques et les

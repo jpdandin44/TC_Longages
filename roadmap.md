@@ -26,7 +26,9 @@ est adapté et testé localement pour cette cible.
 
 Le lot de première installation est également autorisé et réalisé : même ZIP
 source `49b4ef7`, connexion SQL réussie, Drupal sous maintenance et connexion
-HTTPS accessible. La suite est la recette connectée des comptes et droits,
+HTTPS accessible. Le site de recette est ouvert dans la session administrateur,
+ses sept pages sont parcourues et Drupal est réglé en français. Les liens de
+recette des PR pointent vers le site. La suite est la recette des comptes et droits,
 la livraison du lot d’édition des pages et la clarification des rôles métier.
 Recette réelle, sauvegarde/restauration et retour arrière précèdent la
 qualification de production, sa livraison puis son ouverture sur décisions
