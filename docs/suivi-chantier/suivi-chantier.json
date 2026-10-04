@@ -158,10 +158,11 @@
         "Adresse temporaire proposée sans accord ni création ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL non qualifiés."
       ],
       "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
-        "https://github.com/jpdandin44/TC_Longages/pull/6"
+        "https://github.com/jpdandin44/TC_Longages/pull/6",
+        "https://github.com/jpdandin44/TC_Longages/pull/7"
       ]
     },
     {
@@ -1338,6 +1339,7 @@
       "remoteWriteExecuted": false,
       "localMysqlRehearsalExecuted": false,
       "cpanelSessionExpiredObserved": true
-    }
+    },
+    "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7"
   }
 }
