@@ -4,7 +4,7 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-03",
+  "updated": "2026-10-04",
   "owner": "jpdandin",
   "scope": "Développement local du suivi et préparation du Drupal dédié ; configuration isolée partielle autorisée de la lune, sans livraison ni ouverture publique. Les constats historiques et validations humaines sont conservés.",
   "currentPhase": 1,
@@ -157,7 +157,7 @@
         "Le domaine parent tclongages.fr appartient au compte principal : cPanel refuse son sous-domaine sur la lune.",
         "Adresse temporaire proposée sans accord ni création ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL non qualifiés."
       ],
-      "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+      "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -1023,10 +1023,10 @@
     "lastDeploymentEvidence": null
   },
   "session": {
-    "status": "closed",
+    "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
-    "lastResumeAt": "2026-10-03T20:34:29.627007+00:00",
+    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+    "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
     "automaticResumptionScheduled": false
@@ -1220,10 +1220,10 @@
     "blockers": [
       "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Adresse technique temporaire proposée, sans soumission.",
       "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
-      "Adaptateur de première installation, recette hébergée et retour arrière à réaliser.",
+      "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
       "Candidat de production et accords exacts de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel.",
+    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1232,7 +1232,7 @@
       "unit": "crédits",
       "observedUsage": null,
       "observedAt": null,
-      "instruction": "Économiser les modèles et conserver une marge de corrections ; aucune nouvelle revue Claude pour les contrôles déterministes de cette reprise."
+      "instruction": "Limiter les modèles et garder une marge de corrections : un échange Claude Sonnet 5.5 Moyen le 4 octobre, contrôles déterministes exécutés localement. Solde et réserve chiffrés non déterminés."
     },
     "sessionClose": {
       "closedAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1311,6 +1311,19 @@
           "checkedAt": "2026-10-03T21:39:13.653904+00:00"
         }
       ]
+    },
+    "firstInstallationPreparation": {
+      "status": "prepared_locally_not_executed",
+      "recordedAt": "2026-10-04T11:28:51.744147+00:00",
+      "evidence": "data/activation-lune-verification.json#latestResumption",
+      "documentation": "docs/installation-drupal.md",
+      "candidateZipUnchanged": true,
+      "remoteExecutionQualified": false,
+      "humanInstallationApprovalVerified": false,
+      "sourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "artifactDigest": "826951159f228b2c5bc799d418e1a6728068672a208dd7af3911a44c2a6a305d",
+      "technicalReview": "data/framework-revue-verification.json#firstInstallationPreparation",
+      "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f"
     }
   }
 }
