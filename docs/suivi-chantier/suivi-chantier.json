@@ -1184,8 +1184,8 @@
       "number": 8,
       "state": "open",
       "draft": true,
-      "headSha": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
-      "observedAt": "2026-10-04T18:26:32.357Z",
+      "headSha": "f2561184f8110610948a712773f75ba8e8447b1d",
+      "observedAt": "2026-10-04T18:37:05.621663+00:00",
       "acceptedSourceSha": null,
       "acceptedArtifactSha256": null,
       "humanAcceptanceVerified": false,
@@ -1521,7 +1521,23 @@
       "evidence": "data/framework-revue-verification.json#fourPhaseUpdate",
       "historicalPhasesPreserved": 8,
       "activePhases": 4,
-      "humanApprovalRecorded": false
+      "humanApprovalRecorded": false,
+      "githubObservation": {
+        "observedAt": "2026-10-04T18:37:05.621663+00:00",
+        "headSha": "f2561184f8110610948a712773f75ba8e8447b1d",
+        "candidateSourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+        "technicalCi": {
+          "status": "passed",
+          "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37224602911"
+        },
+        "humanReviewPolicy": {
+          "status": "waiting_for_human_checklist",
+          "githubConclusion": "failure",
+          "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37224602953",
+          "diagnosis": "Les quatre cases humaines sont décochées. La description réellement publiée passe le contrôle de structure avec --allow-unchecked ; aucun libellé modifié et aucun accord ajouté."
+        },
+        "laterReceiptCommitsNotTestedByThisRun": true
+      }
     },
     "accountsAndEditingReview": {
       "status": "functional_scope_pending",
