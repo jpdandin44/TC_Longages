@@ -751,12 +751,14 @@
     "temporaryTarget": {
       "formStillPrepared": true,
       "submitted": false,
-      "humanDecisionReceived": false
+      "humanDecisionReceived": false,
+      "proposalStatus": "withdrawn_after_https_source_check",
+      "currentEvidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis"
     },
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false,
     "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
-    "nextAction": "Décision humaine sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation. Qualifier ensuite le HTTPS officiel.",
+    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
     "toolMergeObserved": {
       "observedAt": "2026-10-04T12:22:47.199241+00:00",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
@@ -779,9 +781,106 @@
     },
     "followUpPullRequest": {
       "url": "https://github.com/jpdandin44/TC_Longages/pull/7",
-      "scope": "Qualification documentaire après fusion des outils.",
+      "scope": "Diagnostic et correction documentaire du choix de préproduction ; outils et ZIP inchangés.",
       "codeSourceUnchanged": true,
       "humanBoxesCheckedByAgent": false
+    }
+  },
+  "hostingUnblockDiagnosis": {
+    "checkedAt": "2026-10-04T14:04:58.761183+00:00",
+    "scope": "Diagnostic demandé et correction du plan de préproduction ; lecture seule des hébergements.",
+    "referenceAvereo": {
+      "localHeadObserved": "426328cf837fbed7dd757b26ea6fc22e78f50da3",
+      "inspectedFilesSha256": {
+        ".github/workflows/deploy-avereo.yml": "8da190fc453ece3ecdf1169491ac985763b8bc820364b1830df17c66390b8edf",
+        "scripts/delivery-run.py": "cf85b586d49cf42e8b991a3009e13dd69fff70671597caf801d64b087d62b113",
+        "docs/suivi-refonte/05-preproduction.md": "2023be7d8e55c12d6bae08b65fa804febb87ee56a11e6ac4ef7f2e56a5dab900"
+      },
+      "document": "docs/suivi-refonte/05-preproduction.md",
+      "documentaryFacts": [
+        "Production et préproduction dans deux dossiers du même compte.",
+        "PHP 8.3 partagé par les domaines dans le dossier de recette.",
+        "Le script de livraison suppose un Drupal et une base existants."
+      ],
+      "liveAnonymousCheck": {
+        "url": "https://preprod.avereo.fr/",
+        "httpStatus": 401,
+        "strictTlsVerified": true,
+        "credentialUsed": false
+      },
+      "hostingAccountNotReinventoried": true,
+      "filesModified": false
+    },
+    "tc": {
+      "currentDomainPlacement": "Domaine officiel dans le compte principal ; préparation dans une lune distincte.",
+      "crossAccountSubdomainDenied": "Constat historique cPanel conservé et confirmé par la règle officielle.",
+      "dns": {
+        "officialAResolved": true,
+        "preproductionAResolved": false,
+        "preproductionObservedResult": "Le nom DNS n’existe pas."
+      },
+      "visibleCpanelSessionRejected": true,
+      "underlyingAccountSessionNotReauthenticatedByAgent": true,
+      "newCredentialEntered": false
+    },
+    "primarySources": [
+      {
+        "url": "https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/",
+        "fact": "Sous-domaine du domaine principal non créable sur un autre compte ou une lune."
+      },
+      {
+        "url": "https://faq.o2switch.fr/cpanel/securite/lets-encrypt-ssl-gratuit/",
+        "fact": "Émission Let's Encrypt exclue pour les domaines techniques, dont universe.wf."
+      }
+    ],
+    "withdrawnProposal": {
+      "technicalDomainSuffix": "universe.wf",
+      "reason": "Ne satisfait pas la voie HTTPS reconnue proposée avec Let’s Encrypt.",
+      "previousApprovalQuestionSuperseded": true,
+      "createdByAgent": false,
+      "alternativeCertificateMethodNotQualified": true
+    },
+    "recommendedOption": {
+      "status": "proposed_not_approved",
+      "url": "https://preprod.tclongages.fr/",
+      "hostingAccount": "Compte principal TC",
+      "proposedRelativeComposerRoot": "tcl-preproduction/drupal/",
+      "proposedRelativeDocumentRoot": "tcl-preproduction/drupal/web/",
+      "separateDirectoriesAndDatabase": true,
+      "separateHostingAccountIsolation": false,
+      "sharedPhpEffectsNeedInventory": true,
+      "installerAccountGuardsNeedAdaptation": true
+    },
+    "alternativeOption": {
+      "retainMoon": true,
+      "supportExceptionFeasibility": "not_confirmed",
+      "supportMessageSent": false
+    },
+    "currentToolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "codeModified": false,
+    "drupalZipModified": false,
+    "hostingModified": false,
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
+    "plan": "docs/preparer-lune-tc.md",
+    "documentaryReview": {
+      "checkedAt": "2026-10-04T14:08:46.701635+00:00",
+      "scope": "Documentation et suivi uniquement",
+      "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
+      "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
+      "manifestDigest": "ab137996946782796084fe6d5d2b770315c1a02fd5505c5ec8e20ad7963df849",
+      "sourceFileCount": 402,
+      "schemaViewsManifestPassed": true,
+      "documentsChecked": 14,
+      "localLinksChecked": 317,
+      "structuredFilesParsedByDocumentaryChecker": 5,
+      "humanHistoryAndPhaseZeroUnchanged": true,
+      "toolSourceCommitUnchanged": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "oldCodeTestResultsNotReassigned": true,
+      "hostedDrupalRecipeExecuted": false,
+      "humanApprovalRecorded": false,
+      "productionDeploymentExecuted": false
     }
   }
 }

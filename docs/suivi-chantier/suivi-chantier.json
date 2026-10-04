@@ -155,9 +155,9 @@
       ],
       "blockers": [
         "Le domaine parent tclongages.fr appartient au compte principal : cPanel refuse son sous-domaine sur la lune.",
-        "Adresse temporaire proposée sans accord ni création ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL non qualifiés."
+        "Proposition technique retirée ; implantation à décider après inventaire du compte principal TC. DNS, HTTPS reconnu, PHP HTTP et SQL non qualifiés."
       ],
-      "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+      "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -1026,7 +1026,7 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Reconnexion personnelle au compte TC principal et décision sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation.",
+    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
     "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1139,9 +1139,9 @@
         "ready": false,
         "isolated": false,
         "empty": false,
-        "evidence": "data/activation-lune-verification.json",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00",
-        "limit": "Compte isolé, PHP sélectionné, racine et SQL préparés ; domaine prévu refusé. Adresse alternative non soumise, DNS/HTTPS/runtime non qualifiés."
+        "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
+        "observedAt": "2026-10-04T14:04:58.761183+00:00",
+        "limit": "Implantation à décider : compte principal recommandé à qualifier ; lune conservée sans suppression. Adresse technique retirée. DNS, HTTPS, PHP HTTP, SQL et contrôles de compte de l’outil restent à qualifier."
       },
       "production": {
         "id": "https://tclongages.fr/",
@@ -1220,12 +1220,12 @@
       "observedAt": null
     },
     "blockers": [
-      "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Adresse technique temporaire proposée, sans soumission.",
+      "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Proposition technique retirée ; compte principal recommandé à qualifier, implantation non décidée.",
       "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
       "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "Reconnexion personnelle au compte TC principal et décision sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation.",
+    "nextAction": "Reconnexion personnelle au compte principal TC, inventaire puis choix d’implantation ; présenter le lot de configuration correspondant.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1340,6 +1340,19 @@
       "localMysqlRehearsalExecuted": false,
       "cpanelSessionExpiredObserved": true
     },
-    "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7"
+    "hostingDocumentationPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/7",
+    "preproductionPlacementReview": {
+      "status": "recommended_option_not_approved",
+      "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis",
+      "plan": "docs/preparer-lune-tc.md",
+      "recordedAt": "2026-10-04T14:04:58.761183+00:00",
+      "oldTechnicalProposalWithdrawn": true,
+      "remoteWriteExecuted": false,
+      "documentaryCandidate": {
+        "sourceCommit": "73732c9629af25574171b3ac52d3d205d4f2f667",
+        "artifactDigest": "73e7dbb3943f11693166fbd53d185fd326194fc21af1726f3648f454955128e6",
+        "evidence": "data/framework-revue-verification.json#hostingUnblockDiagnosis.documentaryReview"
+      }
+    }
   }
 }
