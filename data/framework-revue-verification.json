@@ -1613,7 +1613,100 @@
       "privateReceipt": "/home2/daje5127/tcl-preproduction/private/first-install-svfc2tg9/http-receipt-20261004T200500049343Z.json"
     },
     "officialIndexUnchanged": true,
-    "privateInputMode": "0600"
+    "privateInputMode": "0600",
+    "authenticatedSiteInspectionExecuted": true,
+    "authenticatedSiteInspection": {
+      "recordedAt": "2026-10-04T20:53:25.394Z",
+      "environment": "preproduction",
+      "userSignedInPersonally": true,
+      "pages": [
+        {
+          "h1": "Le tennisse partage.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "url": "https://preprod.tclongages.fr/"
+        },
+        {
+          "h1": "Le plaisir du match,l’esprit du club.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Compétitions · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/competitions.html"
+        },
+        {
+          "h1": "À vos agendas.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Calendrier · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/calendrier.html"
+        },
+        {
+          "h1": "Votre réponse compte.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Mes disponibilités · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/disponibilites.html"
+        },
+        {
+          "h1": "Les équipes du club.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Équipes · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/equipes.html"
+        },
+        {
+          "h1": "Un espace pourfaire vivre les équipes.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Bureau / Capitaine · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/espace.html"
+        },
+        {
+          "h1": "Écrivez au club.",
+          "language": "fr",
+          "overflow": false,
+          "title": "Contact · Tennis Club de Longages",
+          "url": "https://preprod.tclongages.fr/contact.html"
+        }
+      ],
+      "formsSubmitted": false,
+      "status": "passed",
+      "scope": "Seven site pages in the personally authenticated administrator session; titles and horizontal width inspected. Account creation, limited roles, revocation and page editing not tested.",
+      "evidenceFile": ".local/hosting-verification/2026-10-04-primary/preproduction-site-connected.jpg"
+    },
+    "frenchInterface": {
+      "status": "configured_and_verified",
+      "recordedAt": "2026-10-04T21:05:34.745Z",
+      "modulesEnabled": [
+        "language",
+        "locale",
+        "file"
+      ],
+      "defaultLanguage": "fr",
+      "interfaceDetectionEnabled": [
+        "language-selected"
+      ],
+      "urlDetectionEnabled": false,
+      "translationsImported": 10480,
+      "translationStrings": 10488,
+      "translatedPercent": 99.92,
+      "maintenanceCheckboxStillChecked": true,
+      "credentialsOrPermissionsChanged": false,
+      "httpVerification": {
+        "recordedAt": "2026-10-04T20:55:00.372Z",
+        "tlsValidationDisabled": false,
+        "rootStatus": 503,
+        "loginStatus": 200,
+        "rootNoIndex": true,
+        "loginNoIndex": true,
+        "loginFrenchHtml": true,
+        "usernameFrench": true,
+        "passwordFrench": true,
+        "loginForm": true
+      },
+      "evidenceFile": ".local/hosting-verification/2026-10-04-primary/drupal-maintenance-french.jpg"
+    }
   },
   "fourPhaseUpdate": {
     "recordedAt": "2026-10-04T18:26:32.357Z",
@@ -1726,7 +1819,7 @@
     }
   },
   "reviewValidationCorrection": {
-    "status": "served_locally_draft_pr_human_review_pending",
+    "status": "merged_human_checklist_confirmed",
     "preparedInBranch": "fix/revue-phase-locale",
     "baseCommit": "3fb41457e2c402b85de1806dbdf85c77e62e53ed",
     "historicalValidationReopenImplemented": true,
@@ -1773,7 +1866,7 @@
       "metadataPassed": true,
       "scaffoldPresent": true
     },
-    "pullRequestDraft": true,
+    "pullRequestDraft": false,
     "humanChecklistCheckedByAgent": false,
     "recordedAt": "2026-10-04T20:39:15.872Z",
     "localRuntime": {
@@ -1813,6 +1906,38 @@
         "reason": "The four human review checkboxes remain unchecked; structure passed locally with allow-unchecked. No human agreement supplied by the agent."
       }
     ],
-    "latestPushChecksObserved": false
+    "latestPushChecksObserved": false,
+    "githubMergedAt": "2026-10-04T20:57:41Z",
+    "githubMergeCommit": "d9b9d9f79ce798371f859280e68c3f61b01f5052",
+    "humanChecklistConfirmedOnGithub": true
+  },
+  "siteReviewEnvironment": {
+    "url": "https://preprod.tclongages.fr/",
+    "loginUrl": "https://preprod.tclongages.fr/user/login",
+    "pilotageUrl": "http://127.0.0.1:4181/",
+    "requiresAdministrativeSessionWhileInMaintenance": true,
+    "siteSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "siteArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "reviewSourceCommit": "749b38d4a66b16ab71ba7f27b12dcd03209b7cd4",
+    "documentationCheck": {
+      "documents": 11,
+      "localLinks": 302,
+      "metadataPassed": true,
+      "scaffoldPresent": true
+    },
+    "mergedPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
+    "pullRequestLinkUpdatedAndReadBack": true,
+    "futureTemplateUpdated": true,
+    "humanCheckboxLabelsAndMarkersPreserved": true,
+    "agentCreatedApproval": false,
+    "recordedAt": "2026-10-04T21:05:34.745Z",
+    "frameworkCheck": {
+      "status": "passed",
+      "tests": 31,
+      "referenceFiles": 28,
+      "viewsConsistent": true,
+      "recordedAt": "2026-10-04T21:08:31.259Z",
+      "scope": "Schema, generated views, review store and HTTP server regressions on the documentary candidate."
+    }
   }
 }
