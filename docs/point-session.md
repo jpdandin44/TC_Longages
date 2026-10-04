@@ -19,6 +19,13 @@ Le [suivi canonique](suivi-chantier/suivi-chantier.json) présente quatre phases
 selon la règle commune, avec les huit anciennes phases et décisions conservées.
 La PR #8 est fusionnée sur `3fb41457e2c402b85de1806dbdf85c77e62e53ed`.
 Ce merge ne vaut ni validation de phase, ni autorisation de production.
+La PR #9 est ensuite fusionnée le 4 octobre à 20:57:41 UTC sur
+`d9b9d9f79ce798371f859280e68c3f61b01f5052`, avec les quatre cases humaines
+cochées personnellement. La phase 1 du suivi reste en cours : le cadrage
+possède encore la décision du 29 septembre, liée à l’ancien dossier. La reprise
+de ce cadrage reste une action humaine ; aucun nouveau clic ni accord de phase
+n’est déduit du merge. Les justificatifs techniques sont remis en cohérence
+avant cette reprise, sans effacer les douze cases de brouillon de phase 1.
 
 Le lot de première installation déjà autorisé est **réalisé** sur le compte
 principal TC : `preprod.tclongages.fr`, base `daje5127_tclpreprod`, utilisateur
