@@ -219,15 +219,39 @@ Les accès sont : [site local](http://127.0.0.1:4182/), [connexion](http://127.0
 
 Le fichier privé `.local/drupal-admin.json` contient l’identifiant et le mot de passe aléatoire du compte de recette. Le consulter uniquement sur le poste pour se connecter. **Ne pas copier son contenu dans une conversation, une capture, Git ou une archive à partager.** Il ne s’agit pas du futur compte personnel d’administration.
 
+## Français et accès au site de recette
+
+La préproduction est désormais réglée en français : modules natifs **Language**
+et **Interface Translation**, avec la dépendance **File**, puis ajout de
+**French** et sélection du français par défaut dans
+`/admin/config/regional/language`. L’import natif a ajouté 10 480 traductions,
+soit 99,92 % de l’interface recensée. La détection par URL est désactivée dans
+`/admin/config/regional/language/detection` ; seule la langue sélectionnée est
+active. Les adresses usuelles restent utilisables sans préfixe `/fr`.
+Ce réglage est observé sur l’hébergement ; le profil minimal d’installation
+et l’instance locale antérieure restent initialement en anglais.
+
+Pour la recette, ouvrir [le site TC Longages](https://preprod.tclongages.fr/).
+Pendant la maintenance, se connecter personnellement via
+[la connexion Drupal](https://preprod.tclongages.fr/user/login), puis revenir
+au site. Les sept pages sont parcourues en session administrateur ; ce contrôle
+ne couvre ni les droits des autres comptes ni l’édition, encore absente du ZIP.
+Le lien de recette des PR ouvre ce site ; le suivi reste un outil de pilotage.
+Un contrôle HTTPS anonyme postérieur confirme accueil 503 et connexion 200,
+en français et non indexables. Aucun compte ni permission n’a été modifié
+pour ce réglage de langue ; la maintenance est restée active.
+
 ## Activer ou désactiver la maintenance
 
-Après connexion, ouvrir `/admin/config/development/maintenance`. L’interface native est actuellement en anglais :
+Après connexion, ouvrir `/admin/config/development/maintenance`. Les libellés
+ci-dessous sont vérifiés sur la préproduction française ; l’ancienne instance
+locale peut encore afficher leurs équivalents anglais :
 
 | Libellé Drupal | Sens et action |
 |---|---|
-| Put site into maintenance mode | Cocher pour afficher la maintenance aux visiteurs ; décocher pour rouvrir les routes du site. |
-| Message to display when in maintenance mode | Texte affiché aux visiteurs pendant la maintenance. |
-| Save configuration | Enregistrer la décision. |
+| Mettre le site en mode maintenance | Cocher pour afficher la maintenance aux visiteurs ; décocher pour rouvrir les routes du site. |
+| Message à afficher en mode maintenance | Texte affiché aux visiteurs pendant la maintenance. |
+| Enregistrer la configuration | Enregistrer la décision. |
 
 La permission `access site in maintenance mode` permet à l’administrateur de parcourir le site pendant la maintenance. Elle ne doit pas être attribuée aux visiteurs anonymes. Les autorisations de gérer la configuration restent réservées à l’administrateur.
 
@@ -269,7 +293,7 @@ Le résultat est dans `.local/drupal-http-results.json`, et la configuration vé
 
 Le test utilise Playwright installé et le navigateur Edge. Il ouvre puis referme **la démonstration locale uniquement** et restaure la maintenance dans son bloc de finalisation. Il ne fait pas partie d’une procédure de recette distante autorisée. Une nouvelle exécution locale peut se faire avec `node tests/drupal-local.cjs` lorsque Playwright est résolu par Node et le serveur local démarré.
 
-Les tests locaux ne démontrent pas les règles Apache/cPanel, le certificat HTTPS, une restauration d’hébergement, l’envoi de courriels ou l’authentification métier réelle. L’interface administrative française, les comptes réels, les rôles Bureau/Capitaine, le périmètre des équipes et le raccordement éventuel à CONNECT restent à qualifier séparément.
+Les tests locaux ne démontrent pas les règles Apache/cPanel, le certificat HTTPS, une restauration d’hébergement, l’envoi de courriels ou l’authentification métier réelle. L’interface administrative française est désormais vérifiée séparément sur la préproduction. Les comptes réels, les rôles Bureau/Capitaine, le périmètre des équipes et le raccordement éventuel à CONNECT restent à qualifier séparément.
 
 ## Préparation initiale de l’hébergement — historique du 29 septembre
 

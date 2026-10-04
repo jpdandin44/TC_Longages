@@ -44,9 +44,23 @@ porte les résultats et leurs limites. La page d’attente officielle conserve
 son empreinte ; la Lune et ses ressources restent conservées. Aucun secret
 n’est lu dans le chat, aucun compte métier ni ouverture de production n’est créé.
 
-**Prochaine action exacte :** se connecter personnellement avec l’identifiant
-et le mot de passe administrateur choisis dans `adminName`/`adminPassword`.
-Tester connexion/déconnexion, comptes et permissions natifs. L’édition des
+Le responsable s’est connecté personnellement et a constaté le fonctionnement
+de Drupal. Le [site de recette](https://preprod.tclongages.fr/) est ouvert dans
+cette session : accueil et six pages secondaires parcourus, titres présents,
+aucun débordement horizontal au format observé. Le lien de validation de la
+PR #9 ouvre désormais ce site, avec les quatre libellés et coches conservés ;
+le modèle des futures PR reprend cette destination. Le suivi reste personnel
+au pilotage. Ce constat ne constitue pas une approbation du site ou de la PR.
+
+L’administration est maintenant en français : 10 480 traductions importées,
+français par défaut, détection sans préfixe d’URL. La page de maintenance affiche
+les libellés français et la case reste cochée. À 20:55 UTC, contrôle HTTPS
+anonyme réussi : accueil 503, connexion française 200, non-indexation dans les
+deux cas. Le [guide Drupal](installation-drupal.md#français-et-accès-au-site-de-recette)
+porte les réglages reproductibles et leurs limites.
+
+**Prochaine action exacte :** tester le site dans cette préproduction, puis
+connexion/déconnexion, comptes et permissions natifs. L’édition des
 sept pages et les rôles Bureau/Capitaine restent absents du ZIP livré. Le
 travail d’édition est isolé dans `.worktrees/drupal-comptes-edition`, commit
 de travail `cde2180`, sans qualification ni transfert de ce nouveau code.

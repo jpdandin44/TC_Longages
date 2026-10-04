@@ -14,6 +14,19 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Recette centrée sur le site et administration française
+
+- Accueil du site hébergé ouvert dans la session administrateur personnelle ;
+  sept pages parcourues, titres présents et aucun débordement horizontal au
+  format observé. Aucun formulaire public envoyé.
+- Lien de recette de la PR #9 et modèle des futures PR orientés vers le site
+  de préproduction ; quatre libellés obligatoires et coches conservés.
+- Modules natifs de langue et traduction activés avec la dépendance File ;
+  français par défaut et 10 480 traductions importées (99,92 %).
+- Réglages de maintenance en français, case toujours cochée ; contrôle HTTPS
+  anonyme après réglage : accueil 503 non indexable, connexion française 200
+  non indexable. Comptes métier, édition et retour arrière restent à qualifier.
+
 ## 2026-10-04 — Drupal installé en préproduction
 
 - Mot de passe SQL et fichier privé synchronisés personnellement ; connexion

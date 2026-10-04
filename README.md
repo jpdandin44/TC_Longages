@@ -29,9 +29,14 @@ Après l’accord de première installation et la synchronisation personnelle
 du mot de passe SQL, **Drupal 11.4.8 est installé en préproduction** avec le
 ZIP source `49b4ef7` inchangé. La [connexion HTTPS](https://preprod.tclongages.fr/user/login)
 est disponible ; les pages publiques restent en maintenance et non indexables.
+Le [site de recette](https://preprod.tclongages.fr/) affiche les sept pages du
+club dans la session administrateur connectée. Ce site est la destination du
+lien « environnement de validation » des PR ; le suivi reste réservé au pilotage.
+L’administration et la connexion Drupal sont désormais en français.
 Les courriels sont neutralisés et l’inscription libre désactivée. Le
 [reçu d’installation](data/framework-revue-verification.json#primaryAccountFirstInstallation)
-porte les résultats réels. Recette connectée, édition des pages et rôles métier,
+porte les résultats réels. L’accueil et les six autres pages ont été parcourus
+en session connectée. Recette des comptes et droits, édition des pages et rôles métier,
 sauvegarde/restauration puis retour arrière restent à traiter avant production.
 Le [point courant](docs/point-session.md) porte la reprise exacte ; le domaine
 officiel et la Lune sont conservés.
