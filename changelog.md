@@ -14,6 +14,17 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Inventaire principal et lot de configuration préparé
+
+- Connexion personnelle au compte TC principal relue ; PHP 8.1 partagé,
+  PHP 8.3 disponible, trois extensions obligatoires manquantes et zéro base/utilisateur SQL.
+- Page d’attente actuelle sans code PHP, comparée à la sauvegarde ; export
+  de fichiers du 4 octobre restauré en copie privée : 69 fichiers et deux liens.
+- Formulaire de préproduction préparé sans soumission ; lot PHP, racine fermée,
+  DNS/HTTPS et SQL dédié présenté dans le plan. Ressources de la lune conservées.
+- Aucun réglage appliqué, nouveau mot de passe saisi par l’agent, transfert
+  Drupal, installation, livraison ou ouverture. Recette et restauration applicatives restent à faire.
+
 ## 2026-10-04 — Choix du compte principal confirmé
 
 - Le responsable retient l'organisation AVEREO pour la préproduction TC :

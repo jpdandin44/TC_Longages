@@ -30,7 +30,19 @@ ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
 nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
 restent historiques.
 
-## Implantation de préproduction à revoir — 4 octobre
+## Compte principal inventorié — 4 octobre
+
+L’organisation retenue utilise des fichiers et données séparés dans le compte
+principal TC. L’inventaire confirme le défaut PHP 8.1 partagé et le refus
+d’isolation par domaine ; la racine actuelle contient seulement la page
+d’attente statique. Les ressources de la lune restent distinctes et conservées.
+Le [lot précis](docs/preparer-lune-tc.md#lot-du-compte-principal)
+propose PHP 8.3, dossier fermé, hôte/DNS/HTTPS et SQL propres au compte principal,
+sans application des réglages ni dépôt Drupal. Les lectures CLI et la copie
+de fichiers restaurée ne qualifient pas encore HTTP, SQL ou restauration
+applicative. L’outil doit être adapté à ce compte avant sa première utilisation.
+
+## Implantation de préproduction — choix humain du 4 octobre
 
 Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
 et distingue l'implantation AVEREO dans un même compte de l'implantation TC

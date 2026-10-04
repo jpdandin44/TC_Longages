@@ -1,7 +1,7 @@
 ---
 project: TC_Longages
 document_type: intervention-plan
-title: Préparation du compte isolé de préproduction TC
+title: Préparation de la préproduction TC
 status: active
 version: git
 created: 2026-10-01
@@ -10,7 +10,7 @@ owner: jpdandin
 tags: [o2switch, preproduction, sauvegarde, autorisation]
 ---
 
-# Préparation de la lune de préproduction
+# Préparation de la préproduction TC
 
 ## Correction du plan — 4 octobre
 
@@ -42,9 +42,9 @@ conservées ; aucun déplacement ou nettoyage automatique n'est prévu.
 
 | Ordre | Préparation concrète | Limite ou décision |
 | --- | --- | --- |
-| 1 | Se reconnecter au compte principal TC via [cPanel](https://barriere.o2switch.net:2083/) ; les anciennes URL `cpsess` ne doivent pas être réutilisées comme accès permanent. | Le dernier onglet affiche une session refusée ; identifiants saisis personnellement. |
-| 2 | Inventorier les domaines et sites du compte, le PHP réellement servi, les extensions, le stockage et les bases. | Lecture seule avant toute proposition de modification PHP partagée ; effet sur les sites existants à déterminer. |
-| 3 | Présenter le lot du compte principal : sous-domaine `preprod`, parent `tclongages.fr`, dossier Composer proposé `tcl-preproduction/drupal/`, racine Web proposée `tcl-preproduction/drupal/web/`, base et utilisateur propres à ce compte. | Chemins, état vide, PHP et périmètre de sauvegarde à qualifier ; le lot de configuration autorisé sur la lune ne couvre pas ce compte. |
+| 1 | Se reconnecter au compte principal TC via [cPanel](https://barriere.o2switch.net:2083/) ; les anciennes URL `cpsess` ne doivent pas être réutilisées comme accès permanent. | Connexion personnelle confirmée le 4 octobre ; compte principal et racine de compte relus. Identifiants et captures restent privés. |
+| 2 | Inventorier les domaines et sites du compte, le PHP réellement servi, les extensions, le stockage et les bases. | Inventaire terminé : PHP natif 8.1 partagé, isolation refusée, trois hôtes techniques/métier, une page d’attente sans code PHP et aucune base/utilisateur SQL. |
+| 3 | Présenter le lot du compte principal : sous-domaine `preprod`, parent `tclongages.fr`, dossier Composer proposé `tcl-preproduction/drupal/`, racine Web proposée `tcl-preproduction/drupal/web/`, base et utilisateur propres à ce compte. | Racine proposée absente, chemins relatifs qualifiés et sauvegarde privée requalifiée ; le lot exact ci-dessous attend son accord sur le compte principal. |
 | 4 | Après l'accord correspondant, configurer cette cible fermée, son DNS et un certificat reconnu, puis qualifier PHP HTTP et SQL. | Le DNS de `preprod.tclongages.fr` ne résout pas au contrôle du 4 octobre ; aucune valeur DNS n'est inventée. |
 | 5 | Adapter les contrôles de compte de l'outil de première installation au choix validé, tester et figer le candidat avant présentation du transfert. | L'outil actuel est limité à la lune ; aucun transfert Drupal ni déploiement autorisé par cette étude. |
 
@@ -58,6 +58,70 @@ d'implantation et le [reçu de diagnostic](../data/framework-revue-verification.
 porte les lectures et leurs limites. Ce choix ne constitue pas l'accord du
 lot de configuration encore à présenter après inventaire du compte, ni une
 validation de phase, de transfert ou d'ouverture.
+
+## Inventaire authentifié du compte principal — 4 octobre
+
+Le responsable confirme sa connexion personnelle. Le compte principal TC et
+sa racine sont relus dans cPanel et dans son terminal existant. Un seul domaine
+métier est configuré, `tclongages.fr`, sur `public_html` ; le sélecteur PHP
+recense aussi ses deux hôtes techniques. Aucun autre site métier, base ou
+utilisateur SQL n’est affiché dans cet inventaire. La racine contient `cgi-bin/`
+vide et une page d’attente `index.php` de 1 543 401 octets sans balise PHP
+exécutable. Son empreinte correspond aux copies restaurées des 3 et 4 octobre.
+
+PHP natif **8.1.34** est courant. L’isolation par domaine reste refusée par le
+serveur : sélectionner PHP 8.3 changera le défaut de **tout le compte TC**.
+PHP 8.3 est proposé dans l’interface et son binaire, observé en lecture seule,
+répond **8.3.33**. La syntaxe de l’index actuel passe avec ce binaire. Python
+**3.6.8** est disponible. Les 18 extensions exigées par le verrou Composer et
+le pilote SQL sont relues ; `gd`, `mbstring` et `tokenizer` manquent actuellement
+au binaire PHP 8.3. Cela ne qualifie pas encore PHP HTTP.
+
+Le dossier `tcl-preproduction/` n’existe pas dans ce compte. Le parent
+`tclongages.fr` est proposé dans le formulaire des sous-domaines, et
+`preprod.tclongages.fr` est absent. Le DNS officiel pointe sur l’hébergement TC,
+avec les serveurs `ns1.o2switch.net` et `ns2.o2switch.net` ; la préproduction
+renvoie NXDOMAIN. Aucun certificat Let’s Encrypt installé n’est affiché.
+Le contrôle TLS strict de l’adresse officielle reste rejeté par le client
+Windows ; aucune validation n’est contournée.
+
+La sauvegarde externe du **4 octobre à 06:11, heure affichée par le serveur**,
+est exportée et téléchargée dans un dossier privé. Ses **69 fichiers, 62
+dossiers et deux liens** sont restaurés en copie privée avec gzip et empreintes
+vérifiés. La page publique actuelle correspond à cette copie. Cet export porte
+sur les fichiers du répertoire de compte ; les exports DNS et certificats
+antérieurs sont conservés. Aucun réimport de compte, SQL, DNS ou certificat
+n’est testé par cette copie. Le [reçu courant](../data/framework-revue-verification.json)
+contient `hostingPrimaryAccountQualification` ; comptes, chemins absolus,
+archives et captures restent hors Git.
+
+## Lot du compte principal
+
+**Cible :** compte principal TC connecté, pour `preprod.tclongages.fr`.
+Référence de présentation : `TCL-CONFIG-COMPTE-PRINCIPAL-20261004`.
+
+| Réglage proposé | Effet et contrôle |
+| --- | --- |
+| PHP 8.3 du compte | Remplacer le défaut natif 8.1 et activer les modules obligatoires manquants, puis relire CLI et HTTP. Les trois hôtes du compte partagent ce réglage ; seule la page d’attente statique est présente. |
+| Racine dédiée | Créer `tcl-preproduction/drupal/web/` et le stockage privé hors `public_html`. Installer le refus Apache avant de rattacher l’hôte. Conserver l’index officiel actuel. |
+| Sous-domaine et DNS | Préfixe `preprod`, parent `tclongages.fr`, racine `tcl-preproduction/drupal/web`. Le formulaire est rempli sans soumission ; relire la zone puis contrôler la résolution après création. |
+| HTTPS | Émettre un certificat gratuit pour le seul hôte de préproduction, puis vérifier la chaîne sans exception avant utilisation de secrets. La correction du certificat officiel relève du lot de production ultérieur. |
+| SQL dédié | Créer la base de suffixe `tclpreprod` en `utf8mb4_unicode_ci`, puis l’utilisateur de suffixe `tcl` dans ce même compte. Le responsable saisit, confirme et soumet le nouveau mot de passe personnellement. Présenter les droits limités à cette base au moment de leur attribution. |
+| Qualification PHP HTTP | Utiliser uniquement la [sonde sans secret](qualification-preproduction.md), avec accès GET/HEAD temporaire au seul fichier de test ; conserver le reste fermé et remettre le refus à la fin. Aucun Drupal ni connexion SQL dans cette sonde. |
+
+**Sauvegarde et retour :** fichiers restaurés en copie privée et index courant
+comparé ; réglage PHP 8.1 et inventaires avant changement conservés. En cas
+d’échec, arrêter la configuration, refermer la racine et rétablir le défaut PHP
+initial. Le retrait des seules ressources nouvelles est présenté avant action ;
+aucun retour ne doit écraser le domaine officiel ou la lune. Une restauration
+applicative du futur Drupal reste à éprouver avant livraison.
+
+**Portée :** l’accord de configuration acquis sur la lune n’autorise pas ce
+nouveau compte. Le transfert et l’installation Drupal, les nouveaux accès SSH,
+la migration officielle et l’ouverture publique restent des étapes distinctes.
+La lune active, son dossier et sa base sont conservés ; toute désactivation
+attendra une demande explicite du responsable. L’outil de première installation
+doit encore être adapté et testé pour ce compte avant présentation du transfert.
 
 ## Reprise initiale du 4 octobre — constat historique
 

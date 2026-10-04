@@ -21,8 +21,10 @@ Le diagnostic du 4 octobre retire la proposition de préproduction en
 `universe.wf`, exclue de l'émission Let's Encrypt o2switch. Le
 [plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
 compte principal TC pour `preprod.tclongages.fr`, comme l'organisation AVEREO.
-Reconnexion cPanel et inventaire de ce compte restent nécessaires avant
-présentation de sa configuration. L'[outil de première installation](docs/installation-drupal.md)
+La reconnexion personnelle et l’inventaire de ce compte sont confirmés :
+PHP 8.1 partagé, page d’attente statique sauvegardée, aucune base ni utilisateur
+SQL. Le lot PHP 8.3, domaine/DNS/HTTPS et base dédiée est désormais préparé
+pour accord ; aucun réglage n’est appliqué. L'[outil de première installation](docs/installation-drupal.md)
 est préparé et testé localement pour la lune, sans exécution MySQL/Drupal
 distante ; un changement de compte exigera son adaptation. Le
 [point courant](docs/point-session.md) porte la suite ; le site n'est pas livré

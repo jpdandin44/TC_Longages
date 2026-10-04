@@ -32,6 +32,16 @@ Sa provenance et ses empreintes sont dans le [reçu](../data/actions-mutualisees
 Les scripts du monorepo d'applications statiques AVEREO ne constituent pas
 l'adaptateur de ce Drupal. Aucun fichier du site AVEREO actif n'est modifié.
 
+## Cible de préproduction inventoriée — 4 octobre
+
+La connexion personnelle au compte principal TC retenu est confirmée. Le
+[plan courant](../docs/preparer-lune-tc.md#lot-du-compte-principal)
+présente les effets PHP partagés, la racine fermée, le sous-domaine/DNS/HTTPS
+et SQL dédié après inventaire et restauration privée de fichiers. Le lot
+attend son accord ; l’outil de première installation reste à adapter au compte
+principal avant le transfert. Le ZIP déjà reçu n’est pas reconstruit. La lune
+active reste conservée et aucun workflow de livraison n’est activé.
+
 ## Fonctionnement préparé
 
 La nouvelle [Action manuelle](../.github/workflows/preparer-deploiement.yml)

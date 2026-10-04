@@ -12,7 +12,25 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 4 octobre 2026
 
-## Diagnostic de déblocage du 4 octobre — choix du compte à revoir
+## Compte principal connecté et lot préparé — 4 octobre
+
+La connexion personnelle au compte principal TC est confirmée. L’inventaire
+authentifié, la comparaison de la racine actuelle et la restauration privée
+de l’export de fichiers du 4 octobre sont terminés. Le [plan de configuration](preparer-lune-tc.md#lot-du-compte-principal)
+porte les effets exacts : PHP 8.3 partagé et modules, nouveau dossier fermé,
+`preprod.tclongages.fr`/DNS/HTTPS et SQL dédié. Le formulaire est préparé sans
+soumission. Le mot de passe SQL sera créé et soumis personnellement ; les
+droits seront présentés sur la seule base dédiée au moment de leur attribution.
+
+**Prochaine action :** obtenir l’accord de ce lot sur le compte principal,
+puis appliquer et qualifier les réglages autorisés. L’ancien accord sur la
+lune reste limité à cette lune. Ses ressources sont conservées ; aucun
+nettoyage ni déplacement automatique. Adapter et retester ensuite l’outil
+avant de présenter le transfert Drupal. PHP HTTP et SQL applicatif, recette
+hébergée, restauration Drupal, livraison et ouverture restent non qualifiés.
+Aucun nouveau appel Claude pour cet inventaire et les contrôles déterministes.
+
+## Diagnostic de déblocage du 4 octobre — constats historiques et choix humain
 
 La comparaison avec AVEREO explique le refus : AVEREO utilise deux dossiers du
 même compte pour son domaine et sa préproduction ; TC a préparé sa cible dans
@@ -30,7 +48,7 @@ principal n'est modifié. L'outil de première installation
 actuel reste limité à la lune et devra être adapté et retesté si le compte
 principal est retenu.
 
-La lecture actuelle constate la session cPanel refusée et l'absence de
+La lecture de diagnostic constatait la session cPanel refusée et l'absence de
 résolution DNS de `preprod.tclongages.fr`. La préproduction AVEREO répond en
 HTTPS reconnu, HTTP 401 anonyme ; cela prouve sa protection observable,
 sans remplacer une recette complète de ce site. PR #6 fusionnée, PR #7 en

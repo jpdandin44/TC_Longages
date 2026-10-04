@@ -21,9 +21,10 @@ tags:
 L'[adaptateur](docs/installation-drupal.md) est préparé localement pour la lune,
 avec tests Linux. La proposition d'adresse technique a été retirée ; le
 [plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
-compte principal comme pour AVEREO. Prochaine action : reconnexion personnelle
-au compte principal TC, inventaire puis présentation du lot de configuration
-correspondant. Adapter et tester l'outil pour ce compte avant de présenter le
+compte principal comme pour AVEREO. La connexion et l’inventaire du compte principal sont terminés, avec
+sauvegarde de fichiers du 4 octobre restaurée en copie privée. Prochaine action :
+accord puis application du [lot de configuration précis](docs/preparer-lune-tc.md#lot-du-compte-principal),
+avant les contrôles HTTP et SQL de cette cible. Adapter et tester l'outil pour ce compte avant de présenter le
 transfert et l'installation fermée du même ZIP reçu.
 La recette réelle, la sauvegarde/restauration Drupal et le retour arrière
 précèdent toujours la qualification et la livraison de production. Le
