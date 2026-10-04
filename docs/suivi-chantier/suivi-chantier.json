@@ -93,14 +93,15 @@
         "Responsables et règles de décision identifiés"
       ],
       "blockers": [],
-      "nextAction": "PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
+      "nextAction": "Reprendre la revue du cadrage actuel, enregistrer les critères puis soumettre et valider le dossier ; ancienne décision conservée.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
         "https://github.com/jpdandin44/TC_Longages/pull/2",
         "https://github.com/jpdandin44/TC_Longages/pull/3",
         "https://github.com/jpdandin44/TC_Longages/pull/4",
-        "https://github.com/jpdandin44/TC_Longages/pull/9"
+        "https://github.com/jpdandin44/TC_Longages/pull/9",
+        "https://github.com/jpdandin44/TC_Longages/pull/10"
       ],
       "reviewContext": {
         "sourceCommit": "749b38d4a66b16ab71ba7f27b12dcd03209b7cd4",
@@ -225,14 +226,15 @@
         "Version candidate et réserves identifiées"
       ],
       "blockers": [],
-      "nextAction": "Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9",
+      "nextAction": "Après reprise du cadrage, enregistrer les douze critères puis soumettre et valider la phase ; PR #9 fusionnée, dossier documentaire de recette disponible.",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
         "https://github.com/jpdandin44/TC_Longages/pull/7",
         "https://github.com/jpdandin44/TC_Longages/pull/8",
-        "https://github.com/jpdandin44/TC_Longages/pull/9"
+        "https://github.com/jpdandin44/TC_Longages/pull/9",
+        "https://github.com/jpdandin44/TC_Longages/pull/10"
       ],
       "legacyPhaseIds": [
         1,
@@ -346,7 +348,7 @@
         "Recette connectée des comptes et permissions à effectuer ; rôles Bureau/Capitaine et édition des sept pages absents du ZIP livré.",
         "Sauvegarde Drupal/SQL à restaurer effectivement et retour arrière à répéter avant toute production."
       ],
-      "nextAction": "Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette.",
+      "nextAction": "Recetter le site TC Longages sur https://preprod.tclongages.fr/ dans la session connectée ; préparer le lot fonctionnel d’édition puis les essais des comptes/droits et le retour arrière. Le suivi reste réservé au pilotage.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
       "legacyPhaseIds": [
         4,
@@ -365,7 +367,8 @@
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
         "https://github.com/jpdandin44/TC_Longages/pull/7",
-        "https://github.com/jpdandin44/TC_Longages/pull/8"
+        "https://github.com/jpdandin44/TC_Longages/pull/8",
+        "https://github.com/jpdandin44/TC_Longages/pull/10"
       ],
       "reviewContext": {
         "sourceCommit": "749b38d4a66b16ab71ba7f27b12dcd03209b7cd4",
@@ -1270,7 +1273,7 @@
       "actor": "Codex",
       "id": "TCL-TEST-SITE-RECIPE-FR-20261004-0",
       "artifactRef": "data/framework-revue-verification.json#siteReviewEnvironment",
-      "actualResult": "11 Markdown : métadonnées et 302 liens locaux valides, socle obligatoire présent ; structure de PR vérifiée avec allow-unchecked. Scripts, tests et profil inchangés par rapport au code précédemment qualifié, dont CI réussie sur fdbcdd1."
+      "actualResult": "11 Markdown : métadonnées et 302 liens locaux valides, socle obligatoire présent ; structure de PR vérifiée avec allow-unchecked. Scripts, tests et profil inchangés par rapport au code précédemment qualifié, dont CI réussie sur fdbcdd1. Contrôle final du suivi : 31 tests réussis, 28 références et vues cohérentes."
     },
     {
       "phaseId": 1,
@@ -1283,7 +1286,7 @@
       "actor": "Codex",
       "id": "TCL-TEST-SITE-RECIPE-FR-20261004-1",
       "artifactRef": "data/framework-revue-verification.json#siteReviewEnvironment",
-      "actualResult": "11 Markdown : métadonnées et 302 liens locaux valides, socle obligatoire présent ; structure de PR vérifiée avec allow-unchecked. Scripts, tests et profil inchangés par rapport au code précédemment qualifié, dont CI réussie sur fdbcdd1."
+      "actualResult": "11 Markdown : métadonnées et 302 liens locaux valides, socle obligatoire présent ; structure de PR vérifiée avec allow-unchecked. Scripts, tests et profil inchangés par rapport au code précédemment qualifié, dont CI réussie sur fdbcdd1. Contrôle final du suivi : 31 tests réussis, 28 références et vues cohérentes."
     },
     {
       "phaseId": 2,
@@ -1487,7 +1490,14 @@
       "acceptedArtifactSha256": null,
       "humanAcceptanceVerified": false,
       "evidence": "https://github.com/jpdandin44/TC_Longages/pull/8",
-      "limit": "PR en brouillon ; nouvelle tête à relire après le commit des reçus. Aucun compte métier/éditeur livré par ce lot."
+      "limit": "PR en brouillon ; nouvelle tête à relire après le commit des reçus. Aucun compte métier/éditeur livré par ce lot.",
+      "documentationReview": {
+        "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
+        "draft": true,
+        "sourceSha": "749b38d4a66b16ab71ba7f27b12dcd03209b7cd4",
+        "siteRecipeUrl": "https://preprod.tclongages.fr/",
+        "mergedCodePullRequest": "https://github.com/jpdandin44/TC_Longages/pull/9"
+      }
     },
     "checks": [
       {
