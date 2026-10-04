@@ -12,6 +12,15 @@ tags: [claude, drupal, installation, o2switch]
 
 # Revue de première installation Drupal
 
+## Périmètre historique de la revue reçue le 4 octobre
+
+Ce prompt conserve exactement le contexte de Lune transmis à Claude avant le
+choix et la configuration du compte principal. Il n’est pas un prompt courant
+à rejouer pour cette nouvelle cible. La revue reçue reste un avis historique ;
+elle ne couvre pas les nouvelles gardes de compte/profil, testées localement.
+Le [guide courant](../docs/installation-drupal.md) porte la cible retenue et
+le lot proposé. Aucun nouvel échange Claude n’est lancé pour ces tests.
+
 ## Objectif
 
 Revoir le chemin de première installation encore manquant pour aboutir à la

@@ -1,4 +1,4 @@
-"""Stage and install one approved, unconfigured Drupal ZIP in an empty TC moon.
+"""Stage and install one approved Drupal ZIP in the empty primary TC preprod root.
 
 Python 3.6 compatible. No SSH, production switch, database purge or opening.
 All private configuration is entered by the responsible person on the server.
@@ -47,10 +47,10 @@ def validate_profile(profile):
     require(profile.get('project') == 'tclongages'
             and profile.get('environment') == 'preproduction', 'Preproduction only.')
     account = profile.get('account', '')
-    require(re.fullmatch(r'sc[1-8][a-z][a-z0-9]{1,24}', account), 'Invalid moon account.')
+    require(profile.get('accountRole') == 'primary_tc'
+            and re.fullmatch(r'daje[0-9]{4}', account), 'Unqualified primary TC account.')
     host = profile.get('targetHost', '')
-    require(host in ('preprod.tclongages.fr', 'preprod.' + account + '.universe.wf'),
-            'Unreviewed target host.')
+    require(host == 'preprod.tclongages.fr', 'Unreviewed target host.')
     home = PurePosixPath(profile.get('home', ''))
     require(str(home) == '/home2/' + account, 'Unexpected account home.')
     root = home / 'tcl-preproduction' / 'drupal'
@@ -72,6 +72,8 @@ def runtime_gate(profile, qualification):
     require(profile.get('installationAuthorizationRef', '').strip(), 'Installation agreement absent.')
     require(qualification.get('targetHost') == profile['targetHost']
             and qualification.get('environment') == 'preproduction', 'Wrong qualified target.')
+    for field in ('accountRole', 'account', 'home', 'composerRoot', 'documentRoot', 'database', 'databaseUser'):
+        require(qualification.get(field) == profile[field], 'Qualification scope mismatch: ' + field)
     for flag in ('dnsVerified', 'recognizedHttpsVerified', 'httpPhpVerified', 'webRootProtectionVerified'):
         require(qualification.get(flag) is True, 'Unqualified target: ' + flag)
     require(qualification.get('phpVersion', '').startswith('8.3.'), 'PHP 8.3 HTTP required.')

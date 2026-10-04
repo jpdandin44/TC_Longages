@@ -15,44 +15,31 @@ tags:
 
 # Architecture
 
-## Première installation par le terminal existant — 4 octobre
+## Compte principal TC et première installation — 4 octobre
 
-Le terminal cPanel de la lune est qualifié en lecture pour PHP CLI 8.3.33 et
-Python 3.6.8. Le [nouvel adaptateur](scripts/first_install.py) réutilise le
-vérificateur générique du ZIP construit par GitHub. Il prépare une version dans
-un dossier privé, conserve la racine vide initiale et confie l'installation
-non interactive au [script PHP privé](scripts/first-install-hosting.php).
-Les paramètres SQL et administrateur fournis personnellement restent hors
-Web ; un processus neuf contrôle maintenance et neutralisation des courriels
-avant de rendre accessible la connexion Drupal sous maintenance. La
-[procédure et ses limites](docs/installation-drupal.md) sont la référence de
-ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
-nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
-restent historiques.
+La préproduction est configurée dans le compte du domaine officiel, suivant
+le choix humain et le lot explicite [décrits dans le plan](docs/preparer-lune-tc.md).
+`tcl-preproduction/drupal/web` est la seule racine Web de cet hôte ; Composer,
+les dépendances et pages dérivées futurs resteront dans son parent. Le dossier
+`tcl-preproduction/private`, hors webroot et en `0700`, conserve les preuves
+de qualification et recevra les entrées privées après accord d’installation.
+Fichiers et base sont séparés de la production ; les comptes et le PHP sont
+partagés. La Lune antérieure reste conservée.
 
-## Compte principal inventorié — 4 octobre
+PHP CLI et HTTP répondent 8.3.33 avec les 18 extensions attendues. Le certificat
+de la seule préproduction est émis par DNS-01. Après le test sans secret,
+Apache refuse de nouveau l’hôte et la sonde ; les fichiers de test sont en
+privé. MariaDB 11.4.13 et la base vide UTF-8/InnoDB sont observés via le SSO
+phpMyAdmin, sans preuve de connexion de l’utilisateur applicatif.
 
-L’organisation retenue utilise des fichiers et données séparés dans le compte
-principal TC. L’inventaire confirme le défaut PHP 8.1 partagé et le refus
-d’isolation par domaine ; la racine actuelle contient seulement la page
-d’attente statique. Les ressources de la lune restent distinctes et conservées.
-Le [lot précis](docs/preparer-lune-tc.md#lot-du-compte-principal)
-propose PHP 8.3, dossier fermé, hôte/DNS/HTTPS et SQL propres au compte principal,
-sans application des réglages ni dépôt Drupal. Les lectures CLI et la copie
-de fichiers restaurée ne qualifient pas encore HTTP, SQL ou restauration
-applicative. L’outil doit être adapté à ce compte avant sa première utilisation.
-
-## Implantation de préproduction — choix humain du 4 octobre
-
-Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
-et distingue l'implantation AVEREO dans un même compte de l'implantation TC
-dans une lune distincte. Qualifier le compte principal TC est le choix humain
-désormais retenu ; le cloisonnement de comptes et les réglages PHP
-potentiellement partagés doivent être qualifiés avant les modifications
-correspondantes. Les ressources
-déjà créées dans la lune et les décisions historiques restent conservées.
-L'adaptateur local demeure limité à cette lune ; aucun changement de cible
-d'écriture ni migration du domaine officiel n'est implémenté par cette étude.
+L’[adaptateur](scripts/first_install.py) réutilise le vérificateur du ZIP reçu,
+exige le rôle du compte principal TC et lie sept champs d’identité du reçu
+au profil privé. Il refuse la Lune, les hôtes officiels ou techniques et les
+preuves d’un autre compte. Extraction privée, conservation de la racine vide,
+installation PHP fermée et contrôle dans un processus neuf restent le chemin
+préparé. La [procédure](docs/installation-drupal.md) précise la saisie humaine,
+maintenance et limites. Aucun Drupal hébergé ni nouvel accès SSH n’est créé.
+Les inventaires datés suivants restent historiques.
 
 ## Compte isolé actif et chaîne de préparation — 3 octobre
 

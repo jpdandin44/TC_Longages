@@ -27,15 +27,21 @@ Aucun compte, privilège, secret ou accord de la lune n'est transposé par défa
 
 ## Qualification du compte principal — 4 octobre
 
-Le [lot courant](docs/preparer-lune-tc.md#lot-du-compte-principal)
-doit prendre en compte le PHP partagé constaté et activer les 18 extensions
-dérivées du verrou Composer/pilote SQL, dont `gd`, `mbstring` et `tokenizer`
-manquent au PHP 8.3 CLI observé. Relire le PHP HTTP avant tout secret ou Drupal.
-Le dossier de préproduction doit rester fermé, la base et l’utilisateur propres
-à ce compte, et le mot de passe créé personnellement. Une restauration privée
-des fichiers ne vaut pas restauration du futur Drupal, SQL, DNS ou certificat.
+Le [lot courant](docs/preparer-lune-tc.md#lot-du-compte-principal) est autorisé
+et effectué. Les 18 extensions dérivées du verrou Composer/pilote SQL sont
+chargées sous PHP CLI et HTTP 8.3.33. La sélection PHP est partagée au compte.
+La base dédiée vide est en `utf8mb4_unicode_ci`, avec moteur par défaut InnoDB
+et dix droits limités ; les identifiants restent privés et le mot de passe
+est soumis personnellement. La connexion PDO reste à tester lors de l’installation.
 
-## Exécution sur la lune observée — 4 octobre
+L’adaptateur doit lier le rôle, compte, home, racines Composer/Web, base et
+utilisateur SQL du reçu à ceux du profil. Refuser une preuve de Lune, un
+autre compte ou l’hôte officiel avant toute écriture. Rafraîchir DNS, HTTPS,
+PHP HTTP et fermeture de moins d’une heure avant son utilisation. La
+restauration privée des fichiers actuels ne vaut pas restauration du futur
+Drupal, SQL, DNS ou certificat.
+
+## Runtimes observés avant changement de cible — historique du 4 octobre
 
 Le vérificateur et l'outil de première installation doivent pouvoir utiliser
 Python 3.6.8 et PHP CLI 8.3.33 constatés dans le terminal cPanel existant. La

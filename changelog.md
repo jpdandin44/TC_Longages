@@ -14,6 +14,19 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Configuration principale terminée et garde d’installation adaptée
+
+- Accord distinct reçu après fusion humaine de la PR #7 ; lot principal appliqué.
+- PHP partagé 8.3, racine dédiée fermée, préproduction/DNS public, certificat
+  reconnu, base vide UTF-8/InnoDB et dix droits SQL relus. Mot de passe soumis
+  personnellement ; page d’attente officielle inchangée et Lune conservée.
+- Sonde sans secret : PHP HTTP 8.3.33, 18 extensions, GET/HEAD, refus POST,
+  chemins privés fermés ; refus Apache restauré puis sondes déplacées en privé.
+- Adaptateur lié au compte principal et aux sept champs d’identité du reçu ;
+  quatorze tests Linux de frontières réussis, sans exécution Drupal distante.
+- Limites : résolveur Windows ordinaire, PDO applicatif, première installation,
+  recette et retour arrière à qualifier ; aucun Drupal transféré ou ouvert.
+
 ## 2026-10-04 — Inventaire principal et lot de configuration préparé
 
 - Connexion personnelle au compte TC principal relue ; PHP 8.1 partagé,

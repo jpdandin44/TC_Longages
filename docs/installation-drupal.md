@@ -12,22 +12,63 @@ tags: [drupal, maintenance, installation, hebergement, securite]
 
 # Drupal dédié au TC Longages
 
-## Reprise et première installation préparée — 4 octobre
+## Première installation sur le compte principal — préparation du 4 octobre
 
-La connexion cPanel du compte TC puis de la lune est vérifiée. La lune conserve
-zéro domaine supplémentaire et zéro sous-domaine configuré. Le formulaire de
-l'adresse temporaire est préparé sans soumission ; son accord est attendu.
-Le terminal existant répond dans ce compte : PHP **8.3.33**, `pdo_mysql` chargé,
-Python **3.6.8**. Il s'agit de la ligne de commande ; le PHP servi en HTTP et la
-connexion SQL applicative restent à qualifier. Les observations SQL du
-3 octobre conservées plus bas ne remplacent pas cette qualification.
+Le [lot d’hébergement](preparer-lune-tc.md#lot-du-compte-principal) est terminé
+après accord : racine dédiée fermée, `preprod.tclongages.fr`, DNS public et
+certificat reconnu, PHP CLI/HTTP 8.3.33 avec 18 extensions, base dédiée vide
+UTF-8/InnoDB et dix droits relus. La connexion PDO avec l’utilisateur
+applicatif reste non testée. Python 3.6.8 est disponible dans le terminal
+cPanel existant ; l’adaptateur n’y a pas encore été transféré ni exécuté.
+La Lune antérieure reste conservée.
 
-L'[adaptateur de première installation](../scripts/first_install.py), avec son
-[auxiliaire PHP](../scripts/first-install-hosting.php), est préparé localement.
-Il réutilise le vérificateur mutualisé et reçoit le **même ZIP construit sur
-`49b4ef7`**, sans reconstruction. Douze tests de frontières ont réussi sur Linux
-local, mais l'exécution MySQL/Drupal sur la lune reste **non testée**. Le modèle
-de déploiement GitHub reste inactif.
+L’[adaptateur](../scripts/first_install.py) et le [profil inactif](../config/first-install.example.json)
+sont adaptés au rôle `primary_tc`, au compte principal et à l’hôte exact
+`preprod.tclongages.fr`. Une preuve de Lune, un autre compte ou l’hôte officiel
+sont refusés. Quatorze tests passent sur Linux local ; deux contrôlent le
+refus d’une identité de preuve différente et d’un mauvais utilisateur runtime
+avant modification de la cible. Le ZIP Drupal construit sur `49b4ef7` est
+conservé sans reconstruction. Les preuves des anciens outils de Lune restent
+historiques ; aucun déploiement automatique n’est activé.
+
+## Lot de première installation sur le compte principal
+
+**Cible et version :** uniquement la préproduction dédiée du compte principal
+TC, racine `tcl-preproduction/drupal/web`, base/utilisateur de suffixes
+`tclpreprod`/`tcl`. Même ZIP non configuré source
+`49b4ef7b975b8edff4308373732033630582da6b`, empreinte
+`14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a`.
+Le candidat exact d’outillage et son ZIP privé sont identifiés dans le
+[reçu de revue](../data/framework-revue-verification.json#primaryAccountInstallerAdaptation)
+après gel des sources ; ils exigent leur revue humaine. L’accord de
+configuration ne couvre pas ce transfert ou cette première installation.
+
+**Effet proposé après accord :** transférer les outils revus et le ZIP en
+privé via cPanel, relire leurs empreintes et rafraîchir la qualification de
+cible ; extraire et relire tous les fichiers, conserver la racine vide initiale
+puis placer Drupal sous refus Apache. Le responsable crée personnellement
+le fichier privé de paramètres SQL/administrateur. Contrôler l’utilisateur,
+base vide, UTF-8, moteur et versions ; installer le profil minimal puis
+`tcl_site`. Un processus neuf vérifie maintenance, courriels neutralisés,
+inscription réservée à l’administration et cron arrêté avant de rendre la
+connexion native disponible pour la recette. Les visiteurs restent en
+maintenance ; aucun espace Bureau ni service connecté n’est activé.
+
+**Risque et récupération :** cette intervention écrit le code et initialise
+la seule base neuve. Mauvaise cible, intégrité ou preuve expirée arrêtent le
+processus. La racine initiale et les reçus restent en privé ; un échec conserve
+le refus Apache et l’état pour analyse. Aucun effacement SQL ou répétition
+aveugle. La restauration du Drupal et de SQL n’est pas encore éprouvée et
+reste obligatoire avant production. Le fichier privé contenant le mot de
+passe administrateur devra être nettoyé personnellement après conservation
+des accès ; il n’est jamais lu par l’agent.
+
+**Limites de ce lot :** pas de changement du domaine, DNS, certificat ou
+racine officiels, pas de nouvel accès SSH, pas de transfert de compte/secret
+AVEREO ou de Lune, pas d’ouverture publique ni de retrait de la Lune.
+La résolution DNS ordinaire sur le poste reste à requalifier avant recette
+personnelle. L’accord portant sur cette intervention et le candidat exact
+est demandé après ses vérifications locales, avant toute écriture Drupal.
 
 ### Entrées et opérations
 
@@ -39,7 +80,9 @@ de transfert/installation. Le lot de configuration précédent exclut ce transfe
 Vérifier également les empreintes des scripts transférés après leur revue.
 
 Le reçu privé de qualification porte le même hôte, DNS, HTTPS reconnu, PHP HTTP
-8.3 et fermeture réelle de la racine. Il exige une référence de preuve et un
+8.3 et fermeture réelle de la racine. Les sept champs `accountRole`, `account`,
+`home`, `composerRoot`, `documentRoot`, `database` et `databaseUser` doivent
+correspondre exactement au profil. Il exige une référence de preuve et un
 horodatage UTC `YYYY-MM-DDTHH:MM:SSZ` datant de moins d'une heure à l'exécution.
 Ne renseigner ces résultats qu'après essais observés.
 
@@ -95,8 +138,8 @@ paramètres/dépendances/pages dérivées et de PHP dans les fichiers publics,
 journaux, ordinateur/mobile. La cible officielle, sa migration, sa livraison
 et son ouverture ont leurs accords propres. Cet outil refuse la production.
 
-La [revue Claude ciblée](../prompts/revue-premiere-installation-claude.md) est
-terminée avec Sonnet 5.5, effort Moyen, un échange. Ses conseils sont confrontés
+La [revue Claude ciblée](../prompts/revue-premiere-installation-claude.md),
+reçue avant ce changement de compte, est terminée avec Sonnet 5.5, effort Moyen, un échange. Ses conseils sont confrontés
 au code : Drush 13.8.0 est bien dans le ZIP ; aucune suppression automatique
 des tables proposée dans la réponse n'est adoptée. Les captures restent privées.
 
@@ -141,7 +184,7 @@ Le [framework](framework-developpement.md) reste un composant distinct : le mode
 
 Sources primaires consultées : [Drupal 11.4.8](https://www.drupal.org/project/drupal/releases/11.4.8), [Drush 13.8.0](https://github.com/drush-ops/drush/releases/tag/13.8.0), [Composer](https://getcomposer.org/download/). L’empreinte attendue de Composer 2.10.3 est conservée dans le [script de préparation](../scripts/drupal-local.ps1) ; aucune exécution n’a lieu si elle diffère.
 
-Les [exigences PHP de Drupal](https://www.drupal.org/docs/getting-started/system-requirements/php-requirements), ses [exigences de base de données](https://www.drupal.org/docs/getting-started/system-requirements/database-server-requirements) et les [exigences Composer](https://www.drupal.org/docs/getting-started/system-requirements/composer-requirements) constituent les références avant toute nouvelle installation. Pour Drupal 11 : PHP 8.3 minimum, MySQL 8.0 ou MariaDB 10.6 minimum ; SQLite 3.45 minimum pour l’évaluation locale. La version réelle du moteur SQL hébergé reste **à vérifier**.
+Les [exigences PHP de Drupal](https://www.drupal.org/docs/getting-started/system-requirements/php-requirements), ses [exigences de base de données](https://www.drupal.org/docs/getting-started/system-requirements/database-server-requirements) et les [exigences Composer](https://www.drupal.org/docs/getting-started/system-requirements/composer-requirements) constituent les références avant toute nouvelle installation. Pour Drupal 11 : PHP 8.3 minimum, MySQL 8.0 ou MariaDB 10.6 minimum ; SQLite 3.45 minimum pour l’évaluation locale. La version SQL hébergée actuelle est observée dans le reçu du 4 octobre ; la connexion applicative reste à vérifier.
 
 ## Utilisation locale
 
@@ -216,7 +259,7 @@ Le test utilise Playwright installé et le navigateur Edge. Il ouvre puis referm
 
 Les tests locaux ne démontrent pas les règles Apache/cPanel, le certificat HTTPS, une restauration d’hébergement, l’envoi de courriels ou l’authentification métier réelle. L’interface administrative française, les comptes réels, les rôles Bureau/Capitaine, le périmètre des équipes et le raccordement éventuel à CONNECT restent à qualifier séparément.
 
-## Préparation de l’hébergement — proposition inactive
+## Préparation initiale de l’hébergement — historique du 29 septembre
 
 L’[inventaire d’hébergement](../data/hebergement-inventaire.json) est la source canonique des constats et de leurs dates ; ne pas déduire l’état distant à partir du serveur local. La lecture cPanel du 29 septembre montre `tclongages.fr` sur `public_html` et aucun `preprod.tclongages.fr` configuré ; le sous-domaine ne résout pas non plus dans la lecture DNS. Les fichiers cachés ne sont pas inventoriés. PHP natif 8.1 est le défaut des trois domaines affichés et l’interface indique que l’isolation par domaine est désactivée par l’administrateur du serveur : une bascule globale pourrait affecter les autres sites du compte. Le certificat de `tclongages.fr` et `www` est autosigné. L’outil Let's Encrypt propose le domaine principal, mais aucun certificat n'est émis ; la préproduction n'a pas encore de certificat à qualifier. Aucune base ni utilisateur MySQL n’existe. JetBackup affiche une sauvegarde quotidienne du 29 septembre à 07 h 33, non téléchargée ni restaurée. Ce n’est pas encore une cible Drupal 11 qualifiée.
 

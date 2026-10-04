@@ -12,7 +12,24 @@ tags: [o2switch, preproduction, sauvegarde, autorisation]
 
 # Préparation de la préproduction TC
 
-## Correction du plan — 4 octobre
+## État courant du lot principal — 4 octobre
+
+L’accord « J'autorise ce lot sur le compte principal TC » est reçu séparément
+du merge de la PR #7. Le lot ci-dessous est terminé et ses résultats sont dans
+le [reçu courant](../data/framework-revue-verification.json#hostingPrimaryConfiguration) :
+PHP partagé CLI/HTTP 8.3.33 et 18 extensions, racine dédiée fermée, domaine et
+DNS public, certificat reconnu du seul hôte de préproduction, base vide
+UTF-8/InnoDB et dix droits SQL persistants. Mot de passe créé et soumis
+personnellement. Après la sonde, Apache est refermé et les tests sont en privé.
+La page d’attente officielle conserve son empreinte et la Lune est conservée.
+
+Restent le résolveur ordinaire du poste, la connexion PDO et la [première
+installation Drupal](installation-drupal.md#lot-de-premiere-installation-sur-le-compte-principal),
+puis recette, restauration et production. L’outil est adapté et testé localement.
+Ce lot terminé exclut toujours Drupal, nouvel SSH, livraison et ouverture.
+Les sections datées suivantes conservent le diagnostic et l’inventaire avant accord.
+
+## Correction du plan — diagnostic du 4 octobre avant configuration
 
 La demande de déblocage conduit à comparer les configurations réelles décrites
 dans les deux projets. Le dossier AVEREO place production et préproduction dans
@@ -59,7 +76,7 @@ porte les lectures et leurs limites. Ce choix ne constitue pas l'accord du
 lot de configuration encore à présenter après inventaire du compte, ni une
 validation de phase, de transfert ou d'ouverture.
 
-## Inventaire authentifié du compte principal — 4 octobre
+## Inventaire authentifié du compte principal — historique avant accord du 4 octobre
 
 Le responsable confirme sa connexion personnelle. Le compte principal TC et
 sa racine sont relus dans cPanel et dans son terminal existant. Un seul domaine
@@ -97,6 +114,9 @@ archives et captures restent hors Git.
 
 ## Lot du compte principal
 
+**Statut courant :** accord explicite reçu et configuration terminée. La table
+conserve la portée présentée ; les résultats vérifiés sont dans le reçu actuel.
+
 **Cible :** compte principal TC connecté, pour `preprod.tclongages.fr`.
 Référence de présentation : `TCL-CONFIG-COMPTE-PRINCIPAL-20261004`.
 
@@ -121,7 +141,8 @@ nouveau compte. Le transfert et l’installation Drupal, les nouveaux accès SSH
 la migration officielle et l’ouverture publique restent des étapes distinctes.
 La lune active, son dossier et sa base sont conservés ; toute désactivation
 attendra une demande explicite du responsable. L’outil de première installation
-doit encore être adapté et testé pour ce compte avant présentation du transfert.
+est désormais adapté et testé localement pour ce compte ; son candidat exact
+reste à examiner avant l’accord distinct de transfert.
 
 ## Reprise initiale du 4 octobre — constat historique
 

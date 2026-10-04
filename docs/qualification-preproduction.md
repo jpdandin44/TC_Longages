@@ -12,16 +12,33 @@ tags: [drupal, o2switch, php, preproduction]
 
 # Qualification isolée de la préproduction
 
-## Raccordement au compte principal — 4 octobre
+## Qualification effective du compte principal — 4 octobre
 
-L’inventaire authentifié et le [lot courant](preparer-lune-tc.md#lot-du-compte-principal)
-remplacent l’ancienne proposition de cible encore inconnue ci-dessous. Le
-compte principal TC est retenu ; le changement PHP proposé est partagé au
-compte et attend son accord. Le test conserve sa sonde sans secret, son accès
-temporaire GET/HEAD limité et son retour au refus. Aucun fichier n’est déposé
-par cette préparation ; PHP HTTP et connexion SQL restent non qualifiés.
-Les propositions et constats du 30 septembre/1er octobre sont historiques.
+Le [lot principal](preparer-lune-tc.md#lot-du-compte-principal) est autorisé
+séparément et effectué. Le [reçu courant](../data/framework-revue-verification.json#hostingPrimaryConfiguration)
+porte les observations : certificat de `preprod.tclongages.fr` seulement,
+émis par DNS-01, PHP HTTP/CLI 8.3.33 et 18 extensions chargées.
 
+La sonde générée depuis le verrou est copiée sous refus Apache, relue par
+empreinte puis validée syntaxiquement par le PHP hébergé. Le modèle de test
+est activé uniquement pendant le contrôle, avec sauvegarde privée du refus.
+Depuis le serveur, HTTPS vérifie nom et chaîne sans exception : GET 200 avec
+JSON attendu, HEAD 200 sans corps, POST 405, en-têtes noindex/no-store.
+`/`, `/.htaccess`, `/.env`, `/install.php` et `/private/hosting-input.json`
+restent en 403. Le refus initial est restauré dans la finalisation, puis
+sonde et robots sont déplacés dans le dossier privé. Le webroot contient
+seulement `.htaccess` et le `cgi-bin` vide créé par cPanel ; la sonde répond 403.
+
+Un client Windows confirme HTTPS strict et les 403 finaux en épinglant
+l’adresse qualifiée du serveur. Le DNS public Google répond correctement et
+le test sur le serveur utilise sa résolution normale. Le résolveur ordinaire
+Windows échoue encore ; sa cause reste inconnue. Ce résultat ne qualifie pas
+encore une navigation personnelle normale depuis le poste.
+
+La base vide UTF-8/InnoDB et les dix droits sont relus par SSO phpMyAdmin.
+La sonde n’utilise aucun mot de passe ni connexion SQL ; PDO applicatif et
+Drupal hébergé restent à qualifier lors du lot distinct d’installation.
+Les propositions et constats suivants sont historiques.
 
 La [lecture du 1er octobre](preparer-lune-tc.md) résout le blocage d’affichage des lunes et présente la reprise de l’option isolée. Le présent test PHP reste conservé ; ses preuves du 30 septembre sont historiques et ne qualifient pas l’hébergement actuel.
 
@@ -49,7 +66,7 @@ La copie active de `.htaccess` doit rester celle qui refuse l'accès jusqu'au te
 
 La sonde répond 200 lorsque PHP et toutes les extensions contrôlées conviennent, 503 sinon, 405 aux méthodes autres que GET/HEAD. HEAD ne renvoie aucun corps. Une réussite locale décrit le poste ; elle ne valide pas le gestionnaire PHP hébergé ni Apache. Le [guide Drupal](installation-drupal.md) conserve la procédure d'installation ultérieure.
 
-## Première opération distante proposée
+## Proposition initiale de test — historique du 30 septembre
 
 **Cible proposée :** `preprod.tclongages.fr` dans le compte actuel, vers un **nouveau dossier vide hors `public_html`**, destiné à recevoir seulement les quatre fichiers de `web/`. Le chemin absolu du compte et la racine effective restent **TBD — à confirmer dans cPanel**. Le candidat Drupal, le manifeste et ses fichiers privés ne sont pas déposés lors de ce test.
 
@@ -67,6 +84,6 @@ La sonde répond 200 lorsque PHP et toutes les extensions contrôlées convienne
 
 Après cette qualification : certificat reconnu, PHP web et CLI/Composer compatibles, ressources privées inscriptibles et non servies, base dédiée et paramètres via canal sécurisé, choix de configuration privée compatible avec le modèle actuel, intégrité du candidat, installation avec module `tcl_site`, accueil `/club`, comptes explicitement décidés et maintenance native avant toute requête anonyme. Vérifier les sept pages, les erreurs, GET/HEAD, connexion, courriels neutralisés et noindex en préproduction. Tester le retour arrière. La recette de préproduction, la livraison en production et l'ouverture publique demeurent des décisions séparées.
 
-## Limites actuelles
+## Limites à la clôture du 30 septembre — historique
 
 La session est close à la demande du responsable le 30 septembre. L'onglet de connexion cPanel a été fermé ; l'état de la session serveur après sa tentative de connexion reste non vérifié. À la reprise, le responsable devra rendre la session accessible, sans transmettre de mot de passe au chat. Le DNS et la consultation publique GitHub ont été relus ; aucune qualification cPanel, Apache distant, SQL, restauration ou connexion administrative distante n'a été exécutée. Les réserves et résultats exacts sont dans le reçu ; aucune étape humaine n'est validée par cette préparation.

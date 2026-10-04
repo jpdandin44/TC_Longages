@@ -12,7 +12,40 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 4 octobre 2026
 
-## Compte principal connecté et lot préparé — 4 octobre
+## Lot du compte principal terminé — 4 octobre
+
+La PR #7 est fusionnée personnellement sur `f6785bc` après ses quatre
+confirmations. L’accord cPanel « J'autorise ce lot sur le compte principal TC »
+est reçu séparément. Le [reçu](../data/framework-revue-verification.json#hostingPrimaryConfiguration)
+porte les résultats du lot : PHP partagé CLI/HTTP 8.3.33 et 18 extensions,
+racine dédiée fermée, domaine/DNS public/HTTPS reconnu, base vide UTF-8/InnoDB.
+Le responsable a soumis le mot de passe SQL puis autorisé les dix droits ;
+leur persistance est relue sur la seule base prévue. La page d’attente
+officielle conserve son empreinte. La Lune et ses ressources sont conservées.
+
+GET et HEAD de la sonde sans secret répondent 200, POST 405 ; cinq chemins
+restent en 403. Le refus Apache est rétabli et les fichiers de test sont
+déplacés en privé. Le contrôle TLS strict externe, avec résolution sur
+l’adresse qualifiée, confirme les 403 finaux. Le DNS public et la résolution
+normale depuis le serveur réussissent ; le résolveur ordinaire Windows du
+poste reste non qualifié, sans cause précise établie. SQL est inspecté par
+SSO phpMyAdmin, pas par le nouvel utilisateur applicatif.
+
+L’adaptateur est adapté au compte principal et à la correspondance des sept
+champs du reçu/profil. Quatorze tests de frontières passent sur Linux local,
+sans exécution de l’adaptateur sur le Python 3.6.8 hébergé ni installation SQL.
+L’ancien outil de Lune, les reçus et le ZIP Drupal reçu restent conservés.
+
+**Suite exacte :** examiner le candidat d’outillage et autoriser le [lot de
+première installation](installation-drupal.md#lot-de-premiere-installation-sur-le-compte-principal).
+Le ZIP source `49b4ef7` est inchangé ; les paramètres privés sont fournis
+personnellement sur le serveur après préparation fermée. Qualifier PDO,
+installer Drupal sous maintenance, faire la recette, sauvegarde/restauration
+et retour arrière, puis préparer production et ouverture séparées. Aucune
+validation de phase, aucun transfert Drupal ni accord de production ou
+d’ouverture n’est déduit du lot terminé. La session demeure active.
+
+## Compte principal connecté et lot préparé — constat avant accord
 
 La connexion personnelle au compte principal TC est confirmée. L’inventaire
 authentifié, la comparaison de la racine actuelle et la restauration privée

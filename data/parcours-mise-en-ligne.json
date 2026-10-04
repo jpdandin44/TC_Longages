@@ -26,12 +26,13 @@
         "Le 30 septembre, sonde PHP isolée préparée localement depuis composer.lock ; résultats et limites dans data/reprise-deploiement-verification.json. Aucun transfert distant.",
         "Le 1er octobre, sauvegarde et première activation gratuite autorisées : trois archives JetBackup restaurées en copie privée, 75 fichiers et deux liens vérifiés ; archive fraîche de public_html restaurée et comparée. Aucun réimport du compte actif. Le dialogue de la première lune attend le nouveau mot de passe saisi et soumis par le responsable. Résultats dans data/activation-lune-verification.json.",
         "Le 3 octobre, sauvegardes du compte requalifiées en copie privée et première lune gratuite activée personnellement ; compteur 1 active / 7 restantes et compte isolé vérifiés. Reçu : data/activation-lune-verification.json.",
-        "Le 3 octobre, lot de configuration autorisé : PHP 8.3 appliqué sur la lune, racine isolée créée et règle Apache fermée déposée puis relue ; base vide utf8mb4, utilisateur créé personnellement, dix droits limités à cette base enregistrés et relus. Rattachement de preprod.tclongages.fr refusé pour propriété du domaine parent."
+        "Le 3 octobre, lot de configuration autorisé : PHP 8.3 appliqué sur la lune, racine isolée créée et règle Apache fermée déposée puis relue ; base vide utf8mb4, utilisateur créé personnellement, dix droits limités à cette base enregistrés et relus. Rattachement de preprod.tclongages.fr refusé pour propriété du domaine parent.",
+        "Le 4 octobre, lot du compte principal explicitement autorisé et effectué : PHP 8.3 CLI/HTTP et 18 extensions, racine dédiée fermée, sous-domaine/DNS public/HTTPS reconnu, base vide utf8mb4_unicode_ci et dix droits SQL relus. Reçu : data/framework-revue-verification.json#hostingPrimaryConfiguration ; la lune reste conservée."
       ],
       "remaining": [
-        "Paquet Drupal hébergeable et configuration privée de chaque cible à qualifier.",
-        "Lever le blocage du nom de préproduction : adresse temporaire de la lune proposée, accord attendu ; DNS, HTTPS reconnu, PHP réellement servi et connexion SQL restent à qualifier.",
-        "Sauvegarde des fichiers actuels qualifiée en copie privée ; réimports DNS/certificats et retour arrière de la future cible restent à éprouver. Qualifier HTTPS et la connexion à la base dédiée existante."
+        "Revoir et autoriser le transfert puis la première installation du candidat Drupal exact sur cette seule préproduction.",
+        "Le responsable fournit lui-même le mot de passe SQL et le nouveau compte administrateur dans le fichier privé du serveur.",
+        "Vérifier la connexion PDO applicative, installer sous maintenance et effectuer la recette Drupal hébergée."
       ]
     },
     {
@@ -58,12 +59,15 @@
       "status": "blocked",
       "action": "Installer le même candidat sous maintenance sur preprod.tclongages.fr, puis tester HTTPS et les parcours anonymes et administrateur.",
       "evidence": [
-        "Lecture seule du 29 septembre : preprod.tclongages.fr est absent de cPanel et ne résout pas ; aucun certificat ni dossier cible n'a donc été qualifié."
+        "Lecture seule du 29 septembre : preprod.tclongages.fr est absent de cPanel et ne résout pas ; aucun certificat ni dossier cible n'a donc été qualifié.",
+        "Hébergement fermé qualifié le 4 octobre sur le compte principal ; aucun Drupal installé. SQL inspecté par SSO phpMyAdmin, distinct de PDO applicatif. Résolution ordinaire du poste encore non qualifiée."
       ],
       "remaining": [
-        "Décider d’une cible autorisée compatible avec la restriction inter-comptes o2switch ; qualifier DNS, HTTPS et protections Web avant installation.",
-        "Vérifier PHP 8.3 réellement servi et la connexion à la base dédiée existante, puis préparer la configuration privée.",
-        "Compléter le retour arrière de la future cible avant copie distante ; les essais du 1er octobre ne prouvent que la restauration privée des fichiers du compte actuel."
+        "Revoir et autoriser le transfert puis la première installation du candidat Drupal exact sur cette seule préproduction.",
+        "Le responsable fournit lui-même le mot de passe SQL et le nouveau compte administrateur dans le fichier privé du serveur.",
+        "Vérifier la connexion PDO applicative, installer sous maintenance et effectuer la recette Drupal hébergée.",
+        "Éprouver sauvegarde/restauration et retour arrière du Drupal, puis qualifier et autoriser la livraison et l’ouverture de production.",
+        "Requalifier la résolution DNS ordinaire sur le poste avant la recette personnelle par navigateur."
       ]
     },
     {
@@ -80,24 +84,27 @@
     }
   ],
   "preparation": {
-    "checkedAt": "2026-10-03",
+    "checkedAt": "2026-10-04",
     "receipt": "data/reprise-deploiement-verification.json",
     "guide": "docs/qualification-preproduction.md",
     "probeGenerator": "scripts/build-hosting-probe.mjs",
     "remoteWriteExecuted": true,
     "claudeReviewReceived": true,
-    "sessionStatus": "closed",
+    "sessionStatus": "active",
     "sharedActionsReceipt": "data/actions-mutualisees-verification.json",
     "preparationWorkflow": ".github/workflows/preparer-deploiement.yml",
     "deploymentAdapterImplemented": false,
     "hostingPreparationReceipt": "data/activation-lune-verification.json",
-    "remoteWriteScope": "Sauvegarde fraîche autorisée, activation gratuite personnelle, PHP 8.3 de la lune, dossier fermé par .htaccess, base vide UTF-8 et utilisateur SQL personnel avec dix droits dédiés. Aucun DNS, certificat ni transfert Drupal.",
+    "remoteWriteScope": "Lot principal autorisé : PHP partagé 8.3, racine fermée, préproduction/DNS/HTTPS et SQL dédié. Sonde PHP sans secret testée puis déplacée en privé ; aucun transfert Drupal, installation, livraison ou ouverture.",
     "moonActivationConfirmed": true,
     "sessionClosedAt": "2026-10-03T23:32:21.540861+02:00",
     "sessionCloseGuide": "docs/point-session.md",
     "lastResumeAt": "2026-10-03T20:34:29.627007+00:00",
     "hostingReceipt": "data/activation-lune-verification.json",
-    "nextAction": "À la reprise explicite : choisir et autoriser la cible temporaire de préproduction, ou obtenir une solution o2switch pour le sous-domaine initial ; qualifier ensuite DNS, HTTPS, PHP servi et connexion SQL. Aucun transfert Drupal dans le lot de configuration actuel."
+    "nextAction": "Revoir le candidat d’outillage adapté puis autoriser explicitement le transfert et la première installation du ZIP Drupal inchangé sur preprod.tclongages.fr, sous maintenance ; paramètres privés soumis personnellement.",
+    "currentConfigurationReceipt": "data/framework-revue-verification.json#hostingPrimaryConfiguration",
+    "firstInstallationAdapterPrepared": true,
+    "firstInstallationExecuted": false
   },
   "latestResumptionEvidence": "data/activation-lune-verification.json#latestResumption"
 }

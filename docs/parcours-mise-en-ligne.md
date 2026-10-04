@@ -5,7 +5,7 @@ title: Parcours simplifié de mise en ligne V1
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [drupal, recette, preproduction, production]
 ---
@@ -14,11 +14,11 @@ tags: [drupal, recette, preproduction, production]
 
 Le [registre JSON](../data/parcours-mise-en-ligne.json) porte les quatre étapes et leurs états. Le registre historique des huit phases et ses décisions humaines restent intacts dans [suivi-chantier.json](suivi-chantier/suivi-chantier.json). Cette simplification du pilotage de la V1 publique ne réécrit pas une validation et n'autorise pas une intervention distante.
 
-| Étape | Critère de sortie concret | État au 29 septembre |
+| Étape | Critère de sortie concret | État courant au 4 octobre |
 |---|---|---|
-| Initialisation | Candidat Drupal identifiable, prérequis PHP/SQL/racines/HTTPS et sauvegarde qualifiés. | En cours : sources, installation locale et candidat de pages préparés ; hébergement à confirmer. |
+| Initialisation | Candidat Drupal identifiable, prérequis PHP/SQL/racines/HTTPS et sauvegarde qualifiés. | En cours : candidat reçu, compte principal configuré et fermé ; première installation et connexion applicative à autoriser/qualifier. |
 | Recette locale | Tests automatisés et parcours public/admin sur la version exacte ; maintenance et courriels vérifiés. | En cours : sept pages contrôlées localement sur mobile et ordinateur ; validation de la présentation par le responsable encore attendue. |
-| Recette en préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | En attente : sous-domaine non résolu lors de la vérification du 29 septembre ; cible et base non qualifiées. |
+| Recette en préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | En attente : DNS public, HTTPS, PHP et base vide qualifiés ; Drupal, paramètres privés et recette restent à réaliser. |
 | Mise en production | Après recette et accord explicite sur l'action, sauvegarde restaurable, livraison du candidat exact sous maintenance, contrôle, puis accord distinct pour l'ouverture Drupal. | Non exécutée. |
 
 La première V1 comprend les sept pages publiques sous Drupal. La page « Espace » reste un écran d'attente ; aucun compte Bureau, formulaire Google, publication sociale ou collecte de contact n'est activé. Le contact public affiché est `tclongages@gmail.com` ; `support@tclongages.fr` reste prévu, sans boîte attestée.
