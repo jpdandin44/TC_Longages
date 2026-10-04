@@ -756,6 +756,26 @@
     "productionDeploymentExecuted": false,
     "publicOpeningExecuted": false,
     "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
-    "nextAction": "Décision humaine sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation. Qualifier ensuite le HTTPS officiel."
+    "nextAction": "Décision humaine sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation. Qualifier ensuite le HTTPS officiel.",
+    "toolMergeObserved": {
+      "observedAt": "2026-10-04T12:22:47.199241+00:00",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/6",
+      "state": "MERGED",
+      "mergedAt": "2026-10-04T11:42:28Z",
+      "mergedBy": "jpdandinavereo-design",
+      "reviewedHead": "4956a1ecabeb65ef590cb11bfa6bb76a748ba126",
+      "mergeCommit": "fc1f2d95472c36b6b4114f7d87a93729d8796b74",
+      "toolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+      "agentExecutedMerge": false,
+      "scope": "Fusion des outils et documents de première installation ; recette hébergée et accords distants restent à obtenir."
+    },
+    "currentCpanelAccess": {
+      "checkedAt": "2026-10-04T12:22:47.199241+00:00",
+      "liveRequestShowsExpiredSession": true,
+      "visibleMessage": "Votre cookie de session n’est pas valide. Veuillez vous reconnecter.",
+      "credentialHandoffRequested": true,
+      "agentEnteredCredential": false,
+      "privateScreenshot": ".local/hosting-verification/2026-10-04/cpanel-session-expired.jpg"
+    }
   }
 }

@@ -1025,7 +1025,7 @@
   "session": {
     "status": "active",
     "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+    "nextAction": "Reconnexion personnelle au compte TC principal et décision sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation.",
     "lastResumeAt": "2026-10-04T11:12:40.700085+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-03T23:32:21.540861+02:00",
@@ -1224,7 +1224,7 @@
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
       "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
-    "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
+    "nextAction": "Reconnexion personnelle au compte TC principal et décision sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation.",
     "nextIteration": [
       "Recette réelle de préproduction puis livraison du même artefact en production après qualification et accords applicables."
     ],
@@ -1324,13 +1324,20 @@
       "sourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
       "artifactDigest": "826951159f228b2c5bc799d418e1a6728068672a208dd7af3911a44c2a6a305d",
       "technicalReview": "data/framework-revue-verification.json#firstInstallationPreparation",
-      "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f"
+      "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f",
+      "toolMerge": {
+        "evidence": "data/framework-revue-verification.json#hostingContinuation.toolMergeObserved",
+        "mergeCommit": "fc1f2d95472c36b6b4114f7d87a93729d8796b74",
+        "reviewedSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+        "observedAt": "2026-10-04T12:22:47.199241+00:00"
+      }
     },
     "latestReadOnlyQualification": {
       "recordedAt": "2026-10-04T12:08:34.417734+00:00",
       "evidence": "data/framework-revue-verification.json#hostingContinuation",
       "remoteWriteExecuted": false,
-      "localMysqlRehearsalExecuted": false
+      "localMysqlRehearsalExecuted": false,
+      "cpanelSessionExpiredObserved": true
     }
   }
 }
