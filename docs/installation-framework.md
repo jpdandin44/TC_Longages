@@ -5,14 +5,14 @@ title: Utiliser le suivi interactif local et terminer son installation
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [framework, installation, suivi, controle-utilisateur]
 ---
 
 # Le suivi interactif du projet
 
-L’interface HTML permet de consulter les huit phases, lire leurs dossiers, enregistrer des notes et préparer les décisions. Elle fonctionne sur ce poste à [l’adresse locale du suivi](http://127.0.0.1:4181/). Le suivi est distinct de l’aperçu du site V1 au port 4180 et du Drupal local au port 4182. Le fichier `tableau-de-bord.html` est une vue statique de consultation : pour saisir une revue, utiliser l’adresse du suivi interactif.
+L’interface HTML permet de consulter les quatre phases communes, lire leurs dossiers, enregistrer des notes et préparer les décisions. Elle fonctionne sur ce poste à [l’adresse locale du suivi](http://127.0.0.1:4181/). Le suivi est distinct de l’aperçu du site V1 au port 4180 et du Drupal local au port 4182. Le fichier `tableau-de-bord.html` est une vue statique de consultation : pour saisir une revue, utiliser l’adresse du suivi interactif.
 
 Le moteur interactif complète les vues statiques de [suivi](suivi-chantier/tableau-de-bord.md). L’identité du responsable est **déclarée localement, sans authentification distante**. Toute personne disposant de ce compte Windows peut accéder aux fichiers et à cet outil. Le moteur ne fournit ni comptes Drupal, ni collaboration distante, ni bouton de livraison.
 
@@ -70,9 +70,9 @@ L’interface explique les éléments manquants. Elle lit l’état public des P
 
 La source [framework/installation.json](../framework/installation.json) conserve la portée de l’exception demandée par l’utilisateur, son auteur déclaré, sa référence, son échéance et les critères de réactivation.
 
-Quand cette exception est active et non expirée, elle permet seulement de **démarrer les travaux locaux d’installation des phases 0 à 3** avant validation de toutes les dépendances. Elle ne coche aucun critère, ne valide aucune phase et ne crée aucun accord de publication. Chaque démarrage effectué par l’utilisateur dans l’écran produit sa propre trace liée à l’autorisation d’installation.
+L’ancienne exception couvrait les phases locales historiques 0 à 3. Elle est fermée. Dans le découpage actuel, une éventuelle exception explicitement autorisée peut couvrir seulement les phases locales 0 et 1 ; elle ne peut activer la préproduction ou la production. Elle ne coche aucun critère, ne valide aucune phase et ne crée aucun accord de publication. Chaque démarrage effectué par l’utilisateur dans l’écran produit sa propre trace liée à l’autorisation d’installation.
 
-Les protections de boucle locale, d’origine, de jeton, des données et des révisions restent actives pendant toute l’installation. Les phases 4 à 7 sont consultables ; le moteur n’offre aucune action d’autorisation ou d’exécution distante pour ces phases.
+Les protections de boucle locale, d’origine, de jeton, des données et des révisions restent actives pendant toute l’installation. Les phases 2 et 3 sont consultables ; le moteur n’offre aucune action d’autorisation ou d’exécution distante pour ces phases.
 
 Après qualification de l’installation locale, l’opérateur remet le fichier d’installation en état `secured` et y consigne la preuve et la date de fermeture. Cette opération restaure les gardes normales de progression. L’exception d’installation a été refermée ; l’état canonique reste dans le fichier lié ci-dessus. La préparation de la PR ne la réactive pas. Une exception expirée n’autorise plus de nouveau contournement, même si son état reste `active`. Toute intervention externe reste soumise à ses propres accords, accès, sauvegardes et vérifications selon [les commandes sensibles](commandes-sensibles.md).
 

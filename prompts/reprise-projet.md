@@ -5,7 +5,7 @@ title: Reprendre le développement piloté du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [prompt, reprise, framework]
 ---
@@ -27,7 +27,7 @@ Demande courante, AGENTS local et global, README, point de session, profil, suiv
 ## Instructions
 
 1. Inspecter le contexte et les modifications humaines avant d'agir. Lire la branche, le commit et l'état Git réels ; conserver l'historique initial du dépôt. Le raccordement CLI a été rétabli : ne pas reprendre un ancien refus d'authentification comme fait courant sans nouvelle vérification.
-2. Identifier le lot autorisé et les critères. Les phases 0–7 décrivent le processus ; G0–G8 restent les lots métier V1. Ne pas réinitialiser les acquis ni inventer d'accord.
+2. Identifier le lot autorisé et les critères. Les quatre phases communes décrivent le processus ; les anciens identifiants 0–7 et leur mapping sont conservés ; G0–G8 restent les lots métier V1. Ne pas réinitialiser les acquis ni inventer d'accord.
 3. Accomplir le lot local demandé, tester ses effets, mettre à jour les sources documentaires et régénérer les vues. Lire les nouveaux commentaires du suivi et consigner les réponses sans effacer les notes initiales. Pour la demande autorisée de PR, préparer le candidat et ses références réelles, vérifier les contrôles correspondant à ce commit puis rattacher la remise au suivi. Ne jamais cocher les critères, ajouter une validation personnelle ou fusionner par déduction de cette préparation.
 4. Avant toute opération sensible, présenter cible, effet, risque, sauvegarde et retour puis vérifier l'accord applicable. Aucun déploiement ne découle d'un push, d'un merge ou de la possession du domaine.
 5. Clore avec un point de reprise exact, les résultats réels et leurs limites ; arrêter seulement les processus identifiés que la clôture autorise à arrêter.

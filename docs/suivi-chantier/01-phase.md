@@ -12,7 +12,7 @@ tags: [framework, phase, revue, gouvernance]
 
 # Phase 1 — Socle et environnements
 
-Le [suivi JSON](suivi-chantier.json) est l’unique source des états, dates et décisions. Ce dossier expose le périmètre et les critères ; sa présence ne constitue pas une remise ou une validation. Les phases 0–7 ne remplacent pas les lots métier G0–G8.
+Le [suivi JSON](suivi-chantier.json) est l’unique source des états, dates et décisions. Ce dossier expose le périmètre et les critères ; sa présence ne constitue pas une remise ou une validation. Ce dossier constitue la tâche historique « Socle et environnements » de la phase commune 1, Développement local. Les dossiers [réalisation](02-phase.md) et [recette locale](03-phase.md) appartiennent à cette même phase ; les critères originaux sont conservés. Les quatre phases communes ne remplacent pas les lots métier G0–G8.
 
 ## Objectif
 
@@ -35,7 +35,7 @@ Le dépôt public TC, le raccordement local et les contrôles GitHub sont établ
 | Étape | État vérifié et prochaine action |
 |---|---|
 | Configuration de préproduction | Terminée après accord : domaine, DNS public, HTTPS reconnu, PHP CLI/HTTP et base vide avec droits dédiés. Racine fermée. |
-| Installation Drupal | Préparée localement, à revoir et autoriser sur le candidat exact ; paramètres privés soumis personnellement, connexion SQL applicative à tester. |
+| Installation Drupal | Autorisation reçue ; fichiers transférés et vérifiés. Installation arrêtée avant écriture des paramètres/base sur refus SQL 1045 ; synchroniser le mot de passe SQL changé personnellement dans le fichier privé. |
 | Recette de préproduction | À réaliser après installation sous maintenance, avec sauvegarde/restauration et retour arrière. Résolution DNS ordinaire du poste à requalifier. |
 | Production et ouverture | À préparer après recette ; cible, certificat officiel et accords de livraison/ouverture restent distincts. |
 

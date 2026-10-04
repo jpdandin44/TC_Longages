@@ -12,14 +12,16 @@ tags: [drupal, maintenance, installation, hebergement, securite]
 
 # Drupal dédié au TC Longages
 
-## Première installation sur le compte principal — préparation du 4 octobre
+## Première installation sur le compte principal — état du 4 octobre
 
 Le [lot d’hébergement](preparer-lune-tc.md#lot-du-compte-principal) est terminé
 après accord : racine dédiée fermée, `preprod.tclongages.fr`, DNS public et
 certificat reconnu, PHP CLI/HTTP 8.3.33 avec 18 extensions, base dédiée vide
 UTF-8/InnoDB et dix droits relus. La connexion PDO avec l’utilisateur
-applicatif reste non testée. Python 3.6.8 est disponible dans le terminal
-cPanel existant ; l’adaptateur n’y a pas encore été transféré ni exécuté.
+applicatif est testée et refusée (1045). Les archives et outils sont transférés,
+leurs empreintes relues ; Python 3.6.8 a exécuté le plan et l’extraction de
+26 687 fichiers avec contrôle intégral. Le helper PHP 8.3.33 passe le contrôle
+de syntaxe. La racine Drupal reste fermée par Apache.
 La Lune antérieure reste conservée.
 
 L’[adaptateur](../scripts/first_install.py) et le [profil inactif](../config/first-install.example.json)
@@ -41,7 +43,9 @@ TC, racine `tcl-preproduction/drupal/web`, base/utilisateur de suffixes
 Le candidat exact d’outillage et son ZIP privé sont identifiés dans le
 [reçu de revue](../data/framework-revue-verification.json#primaryAccountInstallerAdaptation)
 après gel des sources ; ils exigent leur revue humaine. L’accord de
-configuration ne couvre pas ce transfert ou cette première installation.
+configuration est distinct. L’accord de première installation
+`TCL-PRIMARY-FIRST-INSTALL-20261004` est reçu et borné à cette cible et ces
+artefacts ; il est conservé dans le reçu avec son message original.
 
 **Effet proposé après accord :** transférer les outils revus et le ZIP en
 privé via cPanel, relire leurs empreintes et rafraîchir la qualification de

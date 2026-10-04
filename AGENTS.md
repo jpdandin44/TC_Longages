@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - codex
@@ -19,13 +19,13 @@ Ces consignes complètent la politique documentaire globale pour `Site_Internet/
 
 ## Développement piloté depuis le 29 septembre
 
-- Pour la première livraison V1 publique, le responsable a demandé un [parcours opérationnel de quatre étapes](docs/parcours-mise-en-ligne.md). Le registre `data/parcours-mise-en-ligne.json` décrit ces étapes sans créer une seconde interface de suivi. Le suivi HTML existant des huit phases reste un historique protégé ; ne pas convertir ses décisions en autorisations distantes.
+- Pour la première livraison V1 publique, le responsable a demandé un [parcours opérationnel de quatre étapes](docs/parcours-mise-en-ligne.md). Le registre `data/parcours-mise-en-ligne.json` décrit ces étapes sans créer une seconde interface de suivi. Depuis la demande du 4 octobre, le cockpit canonique présente quatre phases communes : Cadrage, Développement local, Préproduction et Mise en production. L’ancien découpage à huit phases et son mapping sont conservés dans le suivi ; ses décisions restent protégées dans leur périmètre original.
 
 - La demande reprend le projet et autorise l'adoption locale du framework. Lire [le guide adapté](docs/framework-developpement.md), [le profil](framework/profil-projet.json), [le suivi canonique](docs/suivi-chantier/suivi-chantier.json) et [le point de session](docs/point-session.md). Les modèles reçus sous `docs/references/` restent des sources à adapter, sans autorisation héritée.
 - `tclongages.fr` est obtenu et sa racine a été observée dans cPanel ; consulter l'inventaire actuel dans [le guide Drupal](docs/installation-drupal.md). Le dépôt `https://github.com/jpdandin44/TC_Longages` est public depuis le choix utilisateur du 29 septembre. Git local est raccordé à son historique initial. La demande explicite de finaliser les PR autorise le premier lot et ses tests ; elle ne donne aucun accord de merge ou de déploiement.
 - Le suivi JSON est canonique ; `npm.cmd run framework` sert l'interface locale sur 4181. Respecter révision, sauvegardes, historique et actions humaines distinctes. Le générateur fournit des vues de lecture. L'identité déclarée locale ne permet aucune exposition distante.
-- L'utilisateur a autorisé le montage et les essais locaux du framework et de Drupal dédié. L'exception bornée `framework/installation.json` permet le travail d'installation local 0–3 sans déclarer les phases validées ; la refermer après vérification. Maintenir Host/Origin/CSRF, confidentialité et accords de publication. L'expiration n'autorise aucun contournement.
-- Les phases 0–7 et les lots G0–G8 restent distincts. Une décision d'architecture, un démarrage, une validation, un merge et une ouverture ne se remplacent pas. Conserver les acquis et l'historique sans forger de preuves ou d'approbations.
+- L'utilisateur a autorisé le montage et les essais locaux du framework et de Drupal dédié. L'exception bornée `framework/installation.json` permet le travail d'installation local historique 0–3 sans déclarer les phases validées ; la refermer après vérification. Maintenir Host/Origin/CSRF, confidentialité et accords de publication. L'expiration n'autorise aucun contournement.
+- Les quatre phases actives et les lots G0–G8 restent distincts. Les anciens identifiants 0–7 sont historiques. Une décision d'architecture, un démarrage, une validation, un merge et une ouverture ne se remplacent pas. Conserver les acquis et l'historique sans forger de preuves ou d'approbations.
 - Seules les Actions CI technique et politique de PR sont actives ; aucun workflow de livraison. Préparer une PR par lot autorisé ; laisser les confirmations humaines à l’utilisateur. Le contrôle strict de checklist ne prouve pas l’authenticité de son auteur. Aucun push ou merge ne doit publier le site automatiquement.
 - La livraison exige candidat exact, préproduction qualifiée, sauvegarde fraîche vérifiée et restaurée avant écriture, recette de cible puis ouverture explicitement autorisée. Ne copier aucun accord, droit ou secret d'AVEREO.
 - Mettre à jour le point de session ; une clôture de session ne valide pas une phase.

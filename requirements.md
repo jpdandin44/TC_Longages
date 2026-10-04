@@ -286,3 +286,7 @@ La [recette dédiée](docs/recette-vitrine-o2switch.md) conserve les résultats 
 - La procédure explique sauvegarde, extraction privée et retrait des pages ajoutées lors du retour arrière, sans modifier les autres sites du compte.
 
 Le [guide de présentation](docs/publier-demo-o2switch.md) décrit les opérations choisies par l'utilisateur ; la [recette correspondante](docs/recette-demo-o2switch.md) consigne les vérifications réellement exécutées, sans assimiler un essai local à un dépôt effectif.
+
+## Suivi commun depuis le 4 octobre
+
+Présenter exactement quatre phases selon le skill commun. Regrouper les dossiers détaillés, conserver les anciens identifiants et critères, ne pas étendre les accords historiques. Les opérations distantes des phases 2 et 3 restent hors des boutons locaux de validation.

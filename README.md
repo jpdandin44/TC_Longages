@@ -60,7 +60,7 @@ Le parcours opérationnel demandé est maintenant ramené à quatre étapes : in
 
 ## Suivi historique interactif et Drupal dédié — 29 septembre
 
-Le suivi possède désormais une interface utilisable : lancer `npm.cmd run framework`, puis ouvrir [le suivi local](http://127.0.0.1:4181/). Les huit phases, documents, critères et commentaires sont visibles ; les notes sont enregistrées sur le poste. Soumettre, valider, autoriser la suite et démarrer sont des actes distincts. L'identité y est déclarée localement : ce service n'est pas à exposer sur Internet. Voir [le fonctionnement](docs/installation-framework.md) et [le point de session](docs/point-session.md).
+Le suivi possède désormais une interface utilisable : lancer `npm.cmd run framework`, puis ouvrir [le suivi local](http://127.0.0.1:4181/). Les quatre phases communes, documents, critères et commentaires sont visibles ; les notes sont enregistrées sur le poste. Soumettre, valider, autoriser la suite et démarrer sont des actes distincts. L'identité y est déclarée localement : ce service n'est pas à exposer sur Internet. Voir [le fonctionnement](docs/installation-framework.md) et [le point de session](docs/point-session.md).
 
 L'utilisateur a retenu un **Drupal dédié au club**, indépendant d'AVEREO. Le socle local peut être lancé sur [127.0.0.1:4182](http://127.0.0.1:4182/) avec la maintenance native activée. Les sept pages passent par Drupal ; les anciens fichiers de maintenance ne commandent pas cette variante. La connexion administrative locale existe, mais les rôles métier Bureau/Capitaine et les services Google restent à réaliser. Voir [l'installation Drupal](docs/installation-drupal.md).
 

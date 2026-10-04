@@ -8,15 +8,12 @@
   "scope": "Première V1 publique sous Drupal ; espaces Bureau, Google et envois automatiques fermés jusqu'à leur propre recette.",
   "productionHost": "tclongages.fr",
   "preproductionHost": "preprod.tclongages.fr",
-  "historicalTracker": "docs/suivi-chantier/suivi-chantier.json",
   "productionDeploymentExecuted": false,
   "publicOpeningExecuted": false,
   "stages": [
     {
       "id": "initialisation",
-      "title": "Initialisation",
-      "status": "in_progress",
-      "action": "Préparer le paquet Drupal dédié et vérifier les prérequis de la cible ; exécuter uniquement les interventions distantes expressément autorisées.",
+      "title": "Cadrage",
       "evidence": [
         "Dépôt public et contrôles PR actifs ; historique des huit phases préservé.",
         "Drupal dédié installé uniquement sur le poste local.",
@@ -30,16 +27,17 @@
         "Le 4 octobre, lot du compte principal explicitement autorisé et effectué : PHP 8.3 CLI/HTTP et 18 extensions, racine dédiée fermée, sous-domaine/DNS public/HTTPS reconnu, base vide utf8mb4_unicode_ci et dix droits SQL relus. Reçu : data/framework-revue-verification.json#hostingPrimaryConfiguration ; la lune reste conservée."
       ],
       "remaining": [
-        "Revoir et autoriser le transfert puis la première installation du candidat Drupal exact sur cette seule préproduction.",
-        "Le responsable fournit lui-même le mot de passe SQL et le nouveau compte administrateur dans le fichier privé du serveur.",
+        "Synchroniser personnellement databasePassword avec le mot de passe SQL changé dans cPanel, puis enregistrer et fermer le fichier privé.",
         "Vérifier la connexion PDO applicative, installer sous maintenance et effectuer la recette Drupal hébergée."
-      ]
+      ],
+      "legacyId": "initialisation",
+      "canonicalPhaseId": 0,
+      "statusSource": "docs/suivi-chantier/suivi-chantier.json#phases/0",
+      "actionSource": "docs/suivi-chantier/suivi-chantier.json#phases/0/nextAction"
     },
     {
       "id": "recette-locale",
-      "title": "Recette locale",
-      "status": "in_progress",
-      "action": "Construire la V1 et rejouer les contrôles Node, navigateur et Drupal sur un commit identifié.",
+      "title": "Développement local",
       "evidence": [
         "Le 29 septembre, npm.cmd run check : 132 tests réussis sur 132, avec l'interpréteur Python du framework configuré.",
         "Syntaxe PHP du contrôleur, du filtre de réponses et du modèle d'hébergement vérifiée ; 19 tests ciblés du suivi et des pages publiques réussis.",
@@ -51,16 +49,19 @@
       "remaining": [
         "Faire valider la présentation par le responsable du club ; la vérification technique ne remplace pas son appréciation.",
         "Finaliser la qualification de l'archive hébergeable et vérifier les dépendances propres à l'environnement distant."
-      ]
+      ],
+      "legacyId": "recette-locale",
+      "canonicalPhaseId": 1,
+      "statusSource": "docs/suivi-chantier/suivi-chantier.json#phases/1",
+      "actionSource": "docs/suivi-chantier/suivi-chantier.json#phases/1/nextAction"
     },
     {
       "id": "recette-preproduction",
-      "title": "Recette en préproduction",
-      "status": "blocked",
-      "action": "Installer le même candidat sous maintenance sur preprod.tclongages.fr, puis tester HTTPS et les parcours anonymes et administrateur.",
+      "title": "Préproduction",
       "evidence": [
         "Lecture seule du 29 septembre : preprod.tclongages.fr est absent de cPanel et ne résout pas ; aucun certificat ni dossier cible n'a donc été qualifié.",
-        "Hébergement fermé qualifié le 4 octobre sur le compte principal ; aucun Drupal installé. SQL inspecté par SSO phpMyAdmin, distinct de PDO applicatif. Résolution ordinaire du poste encore non qualifiée."
+        "Hébergement fermé qualifié le 4 octobre sur le compte principal ; aucun Drupal installé. SQL inspecté par SSO phpMyAdmin, distinct de PDO applicatif. Résolution ordinaire du poste encore non qualifiée.",
+        "Le 4 octobre, accord de première installation reçu ; archive et outils vérifiés, 26 687 fichiers extraits et relus sur le serveur. Apache reste fermé ; PDO refuse encore l’authentification (1045). Reçu : data/framework-revue-verification.json#primaryAccountFirstInstallation."
       ],
       "remaining": [
         "Revoir et autoriser le transfert puis la première installation du candidat Drupal exact sur cette seule préproduction.",
@@ -68,19 +69,25 @@
         "Vérifier la connexion PDO applicative, installer sous maintenance et effectuer la recette Drupal hébergée.",
         "Éprouver sauvegarde/restauration et retour arrière du Drupal, puis qualifier et autoriser la livraison et l’ouverture de production.",
         "Requalifier la résolution DNS ordinaire sur le poste avant la recette personnelle par navigateur."
-      ]
+      ],
+      "legacyId": "recette-preproduction",
+      "canonicalPhaseId": 2,
+      "statusSource": "docs/suivi-chantier/suivi-chantier.json#phases/2",
+      "actionSource": "docs/suivi-chantier/suivi-chantier.json#phases/2/nextAction"
     },
     {
       "id": "mise-en-production",
       "title": "Mise en production",
-      "status": "blocked",
-      "action": "Après recette de préproduction, sauvegarder la cible, livrer le candidat exact sous maintenance, vérifier, puis ouvrir Drupal sur accord explicite.",
       "evidence": [],
       "remaining": [
         "Recette de préproduction et candidat identique à confirmer.",
         "Sauvegarde restaurable et retour arrière à vérifier.",
         "Accord explicite distinct pour la livraison et l'ouverture publique."
-      ]
+      ],
+      "legacyId": "mise-en-production",
+      "canonicalPhaseId": 3,
+      "statusSource": "docs/suivi-chantier/suivi-chantier.json#phases/3",
+      "actionSource": "docs/suivi-chantier/suivi-chantier.json#phases/3/nextAction"
     }
   ],
   "preparation": {
@@ -106,5 +113,7 @@
     "firstInstallationAdapterPrepared": true,
     "firstInstallationExecuted": false
   },
-  "latestResumptionEvidence": "data/activation-lune-verification.json#latestResumption"
+  "latestResumptionEvidence": "data/activation-lune-verification.json#latestResumption",
+  "canonicalTracker": "docs/suivi-chantier/suivi-chantier.json",
+  "phaseModel": "github-cockpit-four-phases"
 }

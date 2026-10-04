@@ -142,3 +142,7 @@ L'ancien paquet de vitrine seule reste disponible selon son [guide de dépôt](d
 | P1 | Compléter les informations du club. | Conditions tarifaires, horaires et modalités validés, version vectorielle du logo fournie ; photo du court reçue et JPEG conservé comme logo temporaire. |
 
 Les dates de livraison, la racine et la configuration Apache distantes ainsi que le choix d'une éventuelle automatisation restent TBD. Le besoin d'un futur domaine pour le service réel est retenu ; la présentation fictive utilise l'adresse HTTP existante choisie. Aucun achat, fournisseur de connexion, changement DNS/HTTPS ni activation de comptes réels n'est réalisé dans cette étape.
+
+## État observé le 4 octobre — quatre phases
+
+Le cockpit regroupe les anciens dossiers dans les quatre phases communes. La préproduction principale est configurée ; les fichiers Drupal sont transférés et vérifiés sous fermeture Apache. L’installation attend la connexion SQL applicative, puis la recette hébergée. Sauvegarde/restauration applicative, retour arrière et livraison sur le domaine officiel restent à qualifier.

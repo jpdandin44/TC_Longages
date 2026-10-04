@@ -313,3 +313,9 @@ Contrôles locaux et recette navigateur consignés dans la [recette du prototype
 ## 2026-09-15 — Référence historique
 
 Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit une vitrine initiale, des erreurs d'accès aux images et une correction autonome préparée mais non publiée au dernier contrôle de cette session. Ces constats sont datés et ne constituent pas une vérification de l'état public actuel.
+
+## 2026-10-04 — Suivi simplifié et transfert de préproduction
+
+- Quatre phases actives ; ancien découpage, décisions et libellés de critères conservés. Brouillon restitué sans confirmation automatique.
+- Archive Drupal et outils transférés, empreintes vérifiées sur le serveur ; 26 687 fichiers extraits et relus, racine Apache fermée.
+- Première installation arrêtée avant écriture des paramètres et de la base : connexion SQL applicative refusée (1045). Le mot de passe changé personnellement doit être synchronisé dans le fichier privé.

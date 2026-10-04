@@ -12,6 +12,45 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 4 octobre 2026
 
+
+## Reprise actuelle — suivi regroupé et installation en attente SQL
+
+Le [suivi canonique](suivi-chantier/suivi-chantier.json) et le cockpit actif
+présentent quatre phases selon la règle commune. Le mapping conserve les
+huit anciennes phases ; six journaux humains et la phase 0 restent identiques.
+Le brouillon « RAS » et ses quatre cases sont restitués sans confirmation
+automatique. Les critères originaux sont regroupés sans changement de libellé.
+
+L’accord distinct « Vas-y tu peux enchainer la configuration je suis OK »
+est enregistré pour la première installation en préproduction principale.
+Le [reçu](../data/framework-revue-verification.json#primaryAccountFirstInstallation)
+identifie le ZIP Drupal inchangé `49b4ef7` / `14c270…` et les outils
+`b462f6f` / `80c111…`. Tous sont transférés et leurs empreintes relues sur le
+serveur. Le plan et l’extraction ont réussi sur Python 3.6.8 : 26 687 fichiers
+extraits puis relus. PHP 8.3.33 valide la syntaxe du helper. Apache reste fermé.
+L’état privé est `staged_closed`, dans `first-install-svfc2tg9` ; conserver
+cette tentative et la racine initiale privée.
+
+L’installation a échoué avant écriture des paramètres et de la base. Les
+quatre valeurs privées sont présentes et la forme du courriel/longueur du
+mot de passe administrateur passent ; PDO refuse l’utilisateur SQL (1045)
+sur localhost et 127.0.0.1. `adminName` n’intervient pas dans cette connexion.
+Le responsable indique avoir changé le mot de passe SQL. Le fichier privé
+porte encore l’enregistrement du 4 octobre à 17:22:27 UTC ; sa synchronisation
+personnelle reste demandée. Aucun secret n’est lu ou consigné dans le chat.
+
+**Prochaine action exacte :** reporter la nouvelle valeur SQL dans
+`databasePassword` de `private/hosting-input.json`, enregistrer et fermer
+l’éditeur ; refaire uniquement le précontrôle sans affichage des valeurs.
+Après succès et confirmation de vacuité, rafraîchir la qualification réelle
+PHP HTTP/DNS/HTTPS (l’ancienne date est expirée pour l’installateur), puis
+reprendre `install` sur la même tentative. Ne pas supprimer une base pour
+contourner un échec. Vérifier maintenance, courriels neutralisés, droits et
+parcours hébergés ; préparer sauvegarde/restauration et retour arrière avant
+production. Aucun accord de production ou d’ouverture n’est ajouté.
+
+Les sections suivantes conservent les constats historiques de la reprise.
+
 ## Lot du compte principal terminé — 4 octobre
 
 La PR #7 est fusionnée personnellement sur `f6785bc` après ses quatre
