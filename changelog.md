@@ -14,6 +14,17 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Correction du plan d'hébergement
+
+- Comparaison AVEREO/TC établie : même compte pour le domaine et la préproduction
+  AVEREO, lune distincte pour la préparation TC ; limites des lectures indiquées.
+- Proposition technique en `universe.wf` retirée après vérification de son
+  exclusion de l'émission Let's Encrypt o2switch ; ancienne demande d'accord
+  devenue sans objet, sans création de domaine.
+- [Plan de déblocage](docs/preparer-lune-tc.md), prochaine action et exigences
+  corrigés ; compte principal recommandé à qualifier, choix humain non acquis.
+  Code, ZIP et ressources d'hébergement conservés ; aucun transfert exécuté.
+
 ## 2026-10-04 — Reprise et première installation préparée
 
 - Connexion cPanel et accès au terminal existant vérifiés ; PHP CLI 8.3.33,

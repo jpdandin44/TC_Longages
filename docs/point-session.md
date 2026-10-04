@@ -12,7 +12,33 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 4 octobre 2026
 
-## Reprise du 4 octobre — première installation préparée, décision de cible attendue
+## Diagnostic de déblocage du 4 octobre — choix du compte à revoir
+
+La comparaison avec AVEREO explique le refus : AVEREO utilise deux dossiers du
+même compte pour son domaine et sa préproduction ; TC a préparé sa cible dans
+une lune différente du compte du domaine principal. La proposition technique
+en `universe.wf` est retirée après vérification de son exclusion de l'émission
+Let's Encrypt o2switch. L'ancienne demande d'accord sur cette adresse est
+sans objet. La [correction du plan](preparer-lune-tc.md) est la référence unique
+des étapes proposées et des limites.
+
+La voie recommandée reste une proposition : qualifier le compte principal TC
+pour `preprod.tclongages.fr`, avec fichiers et base séparés, puis présenter
+l'accord de configuration de ce compte. Si la lune est conservée, la
+faisabilité d'un rattachement par o2switch reste à obtenir. Aucun choix humain
+n'est enregistré, aucune ressource de la lune n'est supprimée et aucun
+réglage PHP du compte principal n'est modifié. L'outil de première installation
+actuel reste limité à la lune et devra être adapté et retesté si le compte
+principal est retenu.
+
+La lecture actuelle constate la session cPanel refusée et l'absence de
+résolution DNS de `preprod.tclongages.fr`. La préproduction AVEREO répond en
+HTTPS reconnu, HTTP 401 anonyme ; cela prouve sa protection observable,
+sans remplacer une recette complète de ce site. PR #6 fusionnée, PR #7 en
+brouillon ; aucune mise en production TC exécutée. Reconnexion personnelle au
+compte principal TC nécessaire pour l'inventaire, puis choix de l'implantation.
+
+## Reprise initiale du 4 octobre — préparation conservée, constat historique
 
 Le responsable demande de reprendre et finaliser la mise en production avec
 Claude, puis confirme sa connexion cPanel. Le compte TC et sa première lune

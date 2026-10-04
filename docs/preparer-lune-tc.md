@@ -12,7 +12,52 @@ tags: [o2switch, preproduction, sauvegarde, autorisation]
 
 # Préparation de la lune de préproduction
 
-## Reprise du 4 octobre
+## Correction du plan — 4 octobre
+
+La demande de déblocage conduit à comparer les configurations réelles décrites
+dans les deux projets. Le dossier AVEREO place production et préproduction dans
+deux dossiers du même compte cPanel, avec PHP 8.3 partagé. Sa préproduction
+répond aujourd'hui en HTTPS reconnu avec HTTP 401 sans authentification.
+Pour TC, `tclongages.fr` reste dans le compte principal et la préproduction a
+été préparée dans une lune distincte. Le refus de rattachement est donc lié à
+ce choix d'hébergement ; les composants GitHub réutilisés ne règlent pas cette
+association de domaine. La [règle o2switch](https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/)
+interdit de créer le sous-domaine du compte principal dans une autre lune.
+
+**Proposition technique retirée :** ne pas créer la préproduction sous
+`universe.wf`. La [documentation Let's Encrypt o2switch](https://faq.o2switch.fr/cpanel/securite/lets-encrypt-ssl-gratuit/)
+exclut les domaines techniques de son émission de certificats. Le plan
+précédent n'avait pas vérifié cette condition ; aucun certificat ni domaine
+n'a été créé par cette proposition. Une éventuelle autre méthode de certificat
+n'est ni vérifiée ni retenue. L'ancienne demande d'accord sur cette adresse
+est devenue sans objet.
+
+**Voie recommandée, non adoptée :** qualifier `preprod.tclongages.fr` dans le
+compte principal TC, comme pour AVEREO, avec un dossier et une base dédiés.
+Cette voie conserve le domaine officiel dans son compte actuel. Elle sépare
+les fichiers et les données, mais ne conserve pas le cloisonnement entre
+comptes apporté par la lune. Les ressources existantes de la lune restent
+conservées ; aucun déplacement ou nettoyage automatique n'est prévu.
+
+| Ordre | Préparation concrète | Limite ou décision |
+| --- | --- | --- |
+| 1 | Se reconnecter au compte principal TC via [cPanel](https://barriere.o2switch.net:2083/) ; les anciennes URL `cpsess` ne doivent pas être réutilisées comme accès permanent. | Le dernier onglet affiche une session refusée ; identifiants saisis personnellement. |
+| 2 | Inventorier les domaines et sites du compte, le PHP réellement servi, les extensions, le stockage et les bases. | Lecture seule avant toute proposition de modification PHP partagée ; effet sur les sites existants à déterminer. |
+| 3 | Présenter le lot du compte principal : sous-domaine `preprod`, parent `tclongages.fr`, dossier Composer proposé `tcl-preproduction/drupal/`, racine Web proposée `tcl-preproduction/drupal/web/`, base et utilisateur propres à ce compte. | Chemins, état vide, PHP et périmètre de sauvegarde à qualifier ; le lot de configuration autorisé sur la lune ne couvre pas ce compte. |
+| 4 | Après l'accord correspondant, configurer cette cible fermée, son DNS et un certificat reconnu, puis qualifier PHP HTTP et SQL. | Le DNS de `preprod.tclongages.fr` ne résout pas au contrôle du 4 octobre ; aucune valeur DNS n'est inventée. |
+| 5 | Adapter les contrôles de compte de l'outil de première installation au choix validé, tester et figer le candidat avant présentation du transfert. | L'outil actuel est limité à la lune ; aucun transfert Drupal ni déploiement autorisé par cette étude. |
+
+**Autre voie :** si le cloisonnement de la lune est conservé, préparer une
+demande à o2switch sur le rattachement de `preprod.tclongages.fr` sans déplacer
+le domaine principal. La faisabilité de cette exception n'est pas établie ;
+aucun ticket ni changement serveur n'est exécuté par l'agent.
+
+Le [suivi canonique](suivi-chantier/suivi-chantier.json) porte le choix encore
+attendu et le [reçu de diagnostic](../data/framework-revue-verification.json)
+porte les lectures et leurs limites. Cette correction n'est pas une décision
+humaine de changement d'architecture.
+
+## Reprise initiale du 4 octobre — constat historique
 
 Compte principal et lune reconnectés ; un compte actif gratuit et sept lunes
 restantes sont affichés. Les tables Domaines Configurés et Sous-domaines de la
@@ -35,9 +80,9 @@ Le responsable a répondu **« Autoriser ce lot de configuration »**, puis **«
 
 La [documentation officielle o2switch](https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/) confirme la restriction de sous-domaines entre comptes. Le plan initial ne l’avait pas prise en compte ; il est corrigé avant poursuite. La fermeture `.htaccess` de 36 octets a été téléchargée après dépôt et comparée à sa source. Son application HTTP reste à tester après rattachement d’un hôte. La sonde PHP n’a pas été transférée.
 
-### Adresse temporaire proposée
+### Adresse temporaire proposée le 3 octobre — proposition retirée le 4 octobre
 
-Le formulaire « Sous-domaines » de la lune propose son seul domaine technique parent. Préfixe `preprod`, même racine `tcl-preproduction/drupal/web`. Le nom complet et la capture restent dans les preuves privées. Effets proposés : création de ce seul sous-domaine, qualification DNS, émission d’un certificat reconnu et essai de la sonde PHP sans données ; arrêt si TLS reconnu impossible, contrat ou coût. Aucun transfert Drupal ou changement du domaine officiel. L’accord sur ce changement de cible est attendu ; le formulaire n’est pas soumis. Le domaine technique parent actuel échoue à la validation TLS stricte et n’est pas déclaré utilisable en HTTPS.
+Le formulaire « Sous-domaines » de la lune proposait son seul domaine technique parent. Préfixe `preprod`, même racine `tcl-preproduction/drupal/web`. Le nom complet et la capture restent dans les preuves privées. Le formulaire n'a pas été soumis et aucun transfert Drupal ou changement du domaine officiel n'a été réalisé. Cette proposition est retirée pour le motif HTTPS documenté en tête du présent plan ; son ancienne demande d'accord ne doit plus déclencher une création.
 
 ### État initial du compte actif — 3 octobre
 

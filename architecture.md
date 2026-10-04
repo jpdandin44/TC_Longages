@@ -30,6 +30,17 @@ ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
 nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
 restent historiques.
 
+## Implantation de préproduction à revoir — 4 octobre
+
+Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
+et distingue l'implantation AVEREO dans un même compte de l'implantation TC
+dans une lune distincte. Qualifier le compte principal TC est la recommandation
+actuelle, non adoptée ; le cloisonnement de comptes et les réglages PHP
+potentiellement partagés doivent être explicités avant ce choix. Les ressources
+déjà créées dans la lune et les décisions historiques restent conservées.
+L'adaptateur local demeure limité à cette lune ; aucun changement de cible
+d'écriture ni migration du domaine officiel n'est implémenté par cette étude.
+
 ## Compte isolé actif et chaîne de préparation — 3 octobre
 
 La première lune gratuite dédiée à la préproduction TC est active ; l'accès à son cPanel séparé est confirmé. Le domaine officiel conserve son compte actuel. Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier. Les détails de compte demeurent privés ; le [reçu](data/activation-lune-verification.json) porte l'état vérifié et les limites des restaurations de fichiers.

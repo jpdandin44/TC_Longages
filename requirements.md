@@ -15,6 +15,16 @@ tags:
 
 # Exigences
 
+## Transport et choix de compte — correction du 4 octobre
+
+La préproduction doit disposer d'un HTTPS reconnu. L'adresse technique
+proposée en `universe.wf` est retirée : l'outil Let's Encrypt o2switch ne
+l'accepte pas. Le [plan courant](docs/preparer-lune-tc.md) porte les sources et
+les voies à qualifier. Un choix du compte principal doit expliciter la
+séparation des fichiers et bases, la perte du cloisonnement entre comptes,
+les effets éventuels du PHP partagé et l'adaptation de l'outil avant écriture.
+Aucun compte, privilège, secret ou accord de la lune n'est transposé par défaut.
+
 ## Exécution sur la lune observée — 4 octobre
 
 Le vérificateur et l'outil de première installation doivent pouvoir utiliser

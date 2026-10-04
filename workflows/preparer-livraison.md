@@ -148,7 +148,7 @@ et une base existants, une racine plate et des contenus natifs AVEREO.
 
 Pour préparer l'adaptateur de livraison et le retour arrière du TC, il manque :
 
-1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. Une adresse temporaire attend son accord et la qualification DNS/HTTPS/runtime ; la lecture cPanel du
+1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. La proposition d'adresse technique est retirée ; qualifier et décider l'implantation du [plan corrigé](../docs/preparer-lune-tc.md), notamment PHP HTTP et HTTPS reconnu. La lecture cPanel du
    1er octobre a confirmé la racine officielle non vide, PHP 8.1, le certificat
    autosigné et huit lunes gratuites. Le [lot proposé](../docs/preparer-lune-tc.md)
    définit la suite ; PHP Apache isolé et certificat reconnu restent à qualifier.

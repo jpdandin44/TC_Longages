@@ -15,6 +15,23 @@ tags:
 
 # Décisions
 
+## 2026-10-04 — Retrait d'une proposition technique non qualifiée
+
+**Contexte.** La comparaison demandée avec AVEREO révèle que les implantations
+ne sont pas identiques : même compte pour AVEREO, lune différente du domaine
+principal pour TC. La documentation officielle exclut les adresses techniques
+de l'outil Let's Encrypt o2switch.
+
+**Correction de préparation.** Retirer la proposition en `universe.wf` et son
+ancienne demande d'accord ; recommander la qualification du compte principal
+TC, ou conserver la lune sous réserve d'une solution de rattachement confirmée
+par o2switch. Le [plan](docs/preparer-lune-tc.md) porte les étapes et sources.
+
+**Conséquences.** La décision humaine historique de lune n'est pas remplacée.
+Le changement de compte reste à décider et à qualifier, notamment pour PHP
+partagé, base dédiée et contrôles de l'outil. Aucune suppression, écriture
+d'hébergement, installation ou publication n'est exécutée par ce diagnostic.
+
 ## 2026-10-04 — Préparer la première installation avec l'accès existant
 
 **Contexte.** Le terminal de la lune est accessible dans la session cPanel
