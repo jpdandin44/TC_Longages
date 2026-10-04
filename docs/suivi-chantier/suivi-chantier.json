@@ -6,7 +6,7 @@
   "created": "2026-09-29",
   "updated": "2026-10-04",
   "owner": "jpdandin",
-  "scope": "Développement local et préproduction du compte principal TC configurée, fermée et qualifiée après accord ; Drupal, recette et livraison/ouverture non réalisés. Ressources de la lune et validations historiques conservées.",
+  "scope": "Développement local et préproduction du compte principal TC installée sous maintenance après accord ; recette connectée, édition et retour arrière à réaliser, livraison et ouverture de production non réalisées. Ressources de la lune et validations historiques conservées.",
   "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
@@ -102,18 +102,37 @@
         "https://github.com/jpdandin44/TC_Longages/pull/4"
       ],
       "reviewContext": {
-        "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
-        "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+        "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+        "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
-        "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+        "documentDigest": "7e205b040f8992115be36959b9db7180d95bb9a7314c434a7b438a5326a1041e",
         "evidenceRefs": [
-          "TCL-EVIDENCE-PRS-04"
+          "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-0"
         ],
         "testRunRefs": [
-          "TCL-TEST-PRS-04"
+          "TCL-TEST-REVIEW-CORRECTION-20261004-0"
         ]
-      }
+      },
+      "reviewContextHistory": [
+        {
+          "recordedAt": "2026-10-04T20:22:28.119Z",
+          "reason": "Actualisation technique après installation réelle et correction de reprise ; décisions humaines conservées.",
+          "context": {
+            "sourceCommit": "4942e4cf1d0dd1cf63aa2f3c8c8191b0e39d9c3e",
+            "artifactDigest": "753dcac3e067f57bec3f0ab3554d63f139809c8db59d664a15d144cd9af75d11",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+            "documentDigest": "f16c727e9074e9cb1ed0d7f07cc5cf383baf97160d60d0e5ebdeb6d7533fe5cc",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-PRS-04"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-PRS-04"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 1,
@@ -187,9 +206,7 @@
         "Revue visuelle ou métier disponible",
         "Version candidate et réserves identifiées"
       ],
-      "blockers": [
-        "Dossier regroupé à examiner sur ses douze critères ; validation historique du cadrage à requalifier pour le candidat courant. Aucun accord humain nouveau déduit du regroupement ou des tests."
-      ],
+      "blockers": [],
       "nextAction": "Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
       "pullRequests": [
@@ -204,25 +221,44 @@
         3
       ],
       "reviewContext": {
-        "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
-        "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+        "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+        "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
         "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
         "evidenceRefs": [
-          "TCL-EVIDENCE-FOUR-PHASES-20261004"
+          "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-1"
         ],
         "testRunRefs": [
-          "TCL-TEST-FOUR-PHASES-20261004"
+          "TCL-TEST-REVIEW-CORRECTION-20261004-1"
         ]
-      }
+      },
+      "reviewContextHistory": [
+        {
+          "recordedAt": "2026-10-04T20:22:28.119Z",
+          "reason": "Actualisation technique après installation réelle et correction de reprise ; décisions humaines conservées.",
+          "context": {
+            "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+            "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
+            "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-FOUR-PHASES-20261004"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-FOUR-PHASES-20261004"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 2,
       "title": "Préproduction",
       "shortTitle": "Préproduction",
       "objective": "Vérifier le candidat sur le moteur et les intégrations représentatifs de la production.",
-      "status": "blocked",
+      "status": "in_progress",
       "dependsOn": [
         1
       ],
@@ -271,9 +307,8 @@
         "Accès réseau, exploitation et dossier de livraison qualifiés"
       ],
       "blockers": [
-        "Connexion SQL applicative refusée (1045) ; synchroniser le mot de passe SQL changé personnellement avec databasePassword du fichier privé.",
-        "Première installation Drupal, recette hébergée et retour arrière restant à vérifier.",
-        "Rôles Bureau/Capitaine et édition des pages absents de la V1 : périmètre de la PR fonctionnelle à préciser avant approbation du critère correspondant."
+        "Recette connectée des comptes et permissions à effectuer ; rôles Bureau/Capitaine et édition des sept pages absents du ZIP livré.",
+        "Sauvegarde Drupal/SQL à restaurer effectivement et retour arrière à répéter avant toute production."
       ],
       "nextAction": "Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
@@ -282,13 +317,13 @@
         5
       ],
       "observedExecution": {
-        "status": "blocked",
+        "status": "in_progress",
         "source": "hosting_observation",
         "environment": "preproduction",
-        "recordedAt": "2026-10-04T17:53:12.584531Z",
+        "recordedAt": "2026-10-04T20:22:28.119Z",
         "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
         "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
-        "summary": "Fichiers Drupal transférés et vérifiés ; installation en attente de la connexion SQL. Accords de préproduction reçus."
+        "summary": "Préproduction Drupal installée sous maintenance ; SQL fonctionne et connexion native HTTPS disponible. Recette connectée et lot fonctionnel à traiter, sans ouverture de production."
       },
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -297,16 +332,35 @@
         "https://github.com/jpdandin44/TC_Longages/pull/8"
       ],
       "reviewContext": {
-        "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
-        "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+        "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+        "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "013b3ce4ea2a219767cb91b9a1b9f812db554c77df84ba3633601ceead7a92da",
-        "documentDigest": "1d43a05cd6fffffb4026c30a9c14db74ab7bde1addec666f50760b829beae0e2",
+        "documentDigest": "a622aff82bfa32e22fe76afbc90e53c5e76ae9064874478c2b8954c05fd1cdb2",
         "evidenceRefs": [
-          "TCL-EVIDENCE-HOSTING-SQL-BLOCKED-20261004"
+          "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-2"
         ],
-        "testRunRefs": []
-      }
+        "testRunRefs": [
+          "TCL-TEST-REVIEW-CORRECTION-20261004-2"
+        ]
+      },
+      "reviewContextHistory": [
+        {
+          "recordedAt": "2026-10-04T20:22:28.119Z",
+          "reason": "Actualisation technique après installation réelle et correction de reprise ; décisions humaines conservées.",
+          "context": {
+            "sourceCommit": "eaa85d44cf3476b561a82e50cafc922cd18971dd",
+            "artifactDigest": "4972bdcd237ed1118947e3865b65f26cd0f9a872152812dcd4c5f4914a9c5a55",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "013b3ce4ea2a219767cb91b9a1b9f812db554c77df84ba3633601ceead7a92da",
+            "documentDigest": "1d43a05cd6fffffb4026c30a9c14db74ab7bde1addec666f50760b829beae0e2",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-HOSTING-SQL-BLOCKED-20261004"
+            ],
+            "testRunRefs": []
+          }
+        }
+      ]
     },
     {
       "id": 3,
@@ -733,6 +787,17 @@
       "identityMode": "local_declared_not_authenticated",
       "sourceRef": "interface-locale-4181",
       "description": "Validation drupal à faire"
+    },
+    {
+      "id": "TCL-UI-125733a7-b3b0-4e9f-b028-ec915b6a913a",
+      "type": "ui_note",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-10-04T19:05:39.511Z",
+      "comment": "La recette des comptes, droits d'accès et permission ne sont pas possible en local car il faut une base de donnée fonctionnelle.\nOn peut finaliser cette phase pour passer en préproduction",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "description": "La recette des comptes, droits d'accès et permission ne sont pas possible en local car il faut une base de donnée fonctionnelle.\nOn peut finaliser cette phase pour passer en préproduction"
     }
   ],
   "reviewEvents": [
@@ -876,6 +941,17 @@
       "identityMode": "local_declared_not_authenticated",
       "sourceRef": "interface-locale-4181",
       "status": "recorded"
+    },
+    {
+      "id": "TCL-UI-125733a7-b3b0-4e9f-b028-ec915b6a913a",
+      "type": "comment",
+      "phaseId": 1,
+      "actor": "jpdandin",
+      "recordedAt": "2026-10-04T19:05:39.511Z",
+      "comment": "La recette des comptes, droits d'accès et permission ne sont pas possible en local car il faut une base de donnée fonctionnelle.\nOn peut finaliser cette phase pour passer en préproduction",
+      "identityMode": "local_declared_not_authenticated",
+      "sourceRef": "interface-locale-4181",
+      "status": "recorded"
     }
   ],
   "reviewFollowUps": [],
@@ -961,6 +1037,45 @@
       "actor": "Codex",
       "artifactRef": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
       "actualResult": "Observation du candidat hébergé 49b4ef7 / ZIP 14c270…, distinct du candidat du cockpit : 26 687 fichiers extraits et vérifiés, Apache fermé, paramètres Drupal non écrits. Authentification SQL refusée (1045). Administrateur non installé ; rôles Bureau/Capitaine et édition des sept pages absents du paquet."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-0",
+      "artifactRef": "data/framework-revue-verification.json#reviewValidationCorrection",
+      "actualResult": "Dossier de cadrage actualisé au périmètre autorisé : quatre phases, préproduction installée, périmètre métier absent du ZIP explicite, règles de décision conservées. Ancienne validation préservée ; aucun accord actuel attribué."
+    },
+    {
+      "phaseId": 1,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-1",
+      "artifactRef": "data/framework-revue-verification.json#reviewValidationCorrection",
+      "actualResult": "Correction locale testée : reprise explicite d’une validation historique, dépendance nommée, sauvegarde des critères distincte d’une note, libellés et anciens accords conservés. Aucune approbation automatique."
+    },
+    {
+      "phaseId": 2,
+      "environment": "preproduction",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-EVIDENCE-REVIEW-CORRECTION-20261004-2",
+      "artifactRef": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
+      "actualResult": "Observation du code hébergé 49b4ef7, ZIP 14c270…, distinct du code du cockpit : SQL vide avant écriture, Drupal 11.4.8 installé sous maintenance, MariaDB 11.4.13 et paramètres de fermeture relus par processus neuf. 19 chemins HTTPS contrôlés anonymement, connexion native 200 ; recette connectée et édition non attestées."
     }
   ],
   "testRuns": [
@@ -1012,6 +1127,45 @@
       "actor": "Codex",
       "artifactRef": "data/framework-revue-verification.json#fourPhaseUpdate.localTests",
       "actualResult": "29 tests du suivi réussis sur ce candidat, zéro échec et zéro ignoré. Schéma et vues vérifiés. Les 139 tests complets sur 87a7d0d restent une preuve distincte ; le commit suivant modifie seulement quatre Markdown."
+    },
+    {
+      "phaseId": 0,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-TEST-REVIEW-CORRECTION-20261004-0",
+      "artifactRef": "data/framework-revue-verification.json#reviewValidationCorrection.localTestRuns",
+      "actualResult": "141 contrôles Node exercés : 138 réussites initiales, trois échecs YAML résolus par le Python projet qualifié (7 tests rejoués réussis), puis 21 tests du serveur sur le code final réussis. Schéma/vues vérifiés ; 10 Markdown et 301 liens locaux contrôlés."
+    },
+    {
+      "phaseId": 1,
+      "environment": "local",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-TEST-REVIEW-CORRECTION-20261004-1",
+      "artifactRef": "data/framework-revue-verification.json#reviewValidationCorrection.localTestRuns",
+      "actualResult": "141 contrôles Node exercés : 138 réussites initiales, trois échecs YAML résolus par le Python projet qualifié (7 tests rejoués réussis), puis 21 tests du serveur sur le code final réussis. Schéma/vues vérifiés ; 10 Markdown et 301 liens locaux contrôlés."
+    },
+    {
+      "phaseId": 2,
+      "environment": "preproduction",
+      "status": "passed",
+      "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+      "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+      "candidateManifest": "data/framework-candidate.json",
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "id": "TCL-TEST-REVIEW-CORRECTION-20261004-2",
+      "artifactRef": "data/framework-revue-verification.json#primaryAccountFirstInstallation.anonymousHttpAcceptance",
+      "actualResult": "19 contrôles HTTPS anonymes réussis sur le candidat applicatif 49b4ef7 ; 9 routes publiques en 503 noindex, connexion 200 noindex, administration et chemins privés fermés. Aucune connexion authentifiée exécutée."
     }
   ],
   "exceptions": [
@@ -1140,6 +1294,12 @@
       "summary": "Lot isolé partiellement exécuté après accord : PHP 8.3, dossier et fermeture Apache relue, base utf8mb4 vide, utilisateur personnel et dix droits relus. Domaine prévu refusé ; DNS/HTTPS/runtime non qualifiés.",
       "receipt": "data/activation-lune-verification.json",
       "humanPhaseValidation": false
+    },
+    {
+      "recordedAt": "2026-10-04T20:22:28.119Z",
+      "actor": "Codex",
+      "statement": "Refus SQL résolu après synchronisation personnelle du fichier ; même ZIP autorisé installé en préproduction. Correction de reprise de revue préparée ; contextes techniques actualisés sans décision nouvelle.",
+      "limits": "Recette connectée, édition et rôles métier, sauvegarde/restauration et retour arrière restent à traiter. Le merge, la validation de phase et la livraison restent distincts."
     }
   ],
   "developmentWorkflow": {

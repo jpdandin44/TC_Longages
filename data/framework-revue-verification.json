@@ -1479,27 +1479,25 @@
     "credentialEntryByHumanRequired": true
   },
   "primaryAccountFirstInstallation": {
-    "status": "staged_closed_sql_authentication_blocked",
-    "recordedAt": "2026-10-04T17:53:12.584531Z",
+    "status": "installed_maintenance_anonymous_http_checked_authenticated_acceptance_pending",
+    "recordedAt": "2026-10-04T20:00:15+00:00",
     "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
     "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
     "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
     "toolSourceCommit": "b462f6f6b7f3c92053093715d51742eb4de365a8",
     "toolPackageSha256": "80c11193ee1690be32c7e45d6c5dce74d0e8df6b4eb44509b888920ddf8bbfca",
     "remoteTransferExecuted": true,
-    "installationExecuted": false,
+    "installationExecuted": true,
     "publicOpeningExecuted": false,
     "archiveHashVerifiedOnHost": true,
     "stagingExecuted": true,
     "stagedFileCount": 26687,
     "stagedFilesHashVerifiedOnHost": true,
     "installationAttemptExecuted": true,
-    "databaseInstalled": false,
-    "applicationConnectionVerified": false,
-    "apacheClosed": true,
-    "failedStage": "sql-read-only",
-    "sanitizedDriverCode": 1045,
-    "privateInputLastSavedAt": "2026-10-04T17:22:27Z",
+    "databaseInstalled": true,
+    "applicationConnectionVerified": true,
+    "apacheClosed": false,
+    "privateInputLastSavedAt": "2026-10-04T19:57:33Z",
     "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
     "environment": "preproduction",
     "targetHost": "preprod.tclongages.fr",
@@ -1510,21 +1508,112 @@
     "hostingPhpVersion": "8.3.33",
     "phpHelperLintPassed": true,
     "planPassed": true,
-    "settingsWritten": false,
-    "databaseFileWritten": false,
-    "runtimeWritten": false,
-    "sqlEndpointChecks": [
-      "localhost:1045",
-      "127.0.0.1:1045"
-    ],
-    "passwordHasSurroundingWhitespace": false,
+    "settingsWritten": true,
+    "databaseFileWritten": true,
+    "runtimeWritten": true,
     "evidenceFiles": [
       ".local/hosting-verification/2026-10-04-primary/application-plan-hosted.jpg",
       ".local/hosting-verification/2026-10-04-primary/drupal-stage-closed.jpg",
-      ".local/hosting-verification/2026-10-04-primary/sql-endpoint-diagnostic.jpg"
+      ".local/hosting-verification/2026-10-04-primary/sql-endpoint-diagnostic.jpg",
+      ".local/hosting-verification/2026-10-04-primary/sql-connection-passed.jpg",
+      ".local/hosting-verification/2026-10-04-primary/runtime-refresh-passed.jpg",
+      ".local/hosting-verification/2026-10-04-primary/drupal-installed-maintenance.jpg",
+      ".local/hosting-verification/2026-10-04-primary/preproduction-login-ready.jpg",
+      ".local/hosting-verification/2026-10-04-primary/hosted-http-acceptance-passed.jpg"
     ],
     "privateValuesExcluded": true,
-    "productionChanged": false
+    "productionChanged": false,
+    "latestDatabaseVerification": {
+      "connected": true,
+      "tablesBeforeInstallation": 0,
+      "privateInputLastSavedAt": "2026-10-04T19:57:33Z",
+      "evidenceFile": ".local/hosting-verification/2026-10-04-primary/sql-connection-passed.jpg",
+      "privateValuesExcluded": true
+    },
+    "previousDatabaseVerification": {
+      "observedAt": "2026-10-04T19:49:23Z",
+      "environment": "preproduction",
+      "targetHost": "preprod.tclongages.fr",
+      "account": "daje5127",
+      "database": "daje5127_tclpreprod",
+      "databaseUser": "daje5127_tcl",
+      "connected": false,
+      "sanitizedDriverCode": 1045,
+      "privateInputLastSavedAt": "2026-10-04T17:22:27Z",
+      "requiredPrivateFieldsPresent": true,
+      "privateInputMode": "0600",
+      "userDatabaseAttachmentObservedInCpanel": true,
+      "terminalUapiReadAvailable": false,
+      "editorLegacyModeEditable": true,
+      "passwordEntryAndSubmissionLeftToUser": true,
+      "evidenceFiles": [
+        ".local/hosting-verification/2026-10-04-primary/sql-verification-after-user-change.jpg",
+        ".local/hosting-verification/2026-10-04-primary/hosting-file-reopened.jpg"
+      ],
+      "privateValuesExcluded": true,
+      "installationExecuted": false,
+      "productionChanged": false
+    },
+    "lastFailedStage": "sql-read-only",
+    "previousSqlEndpointChecks": [
+      "localhost:1045",
+      "127.0.0.1:1045"
+    ],
+    "applicationPublicPagesClosed": true,
+    "apacheApplicationRoutingEnabled": true,
+    "maintenanceEnabled": true,
+    "mailNeutralized": true,
+    "registration": "admin_only",
+    "cronAutorunDisabled": true,
+    "drupalVersion": "11.4.8",
+    "sqlVersion": "11.4.13-MariaDB",
+    "authenticatedAcceptanceExecuted": false,
+    "installationReceipt": {
+      "checkedAt": "2026-10-04T20:00:15+00:00",
+      "drupalVersion": "11.4.8",
+      "phpVersion": "8.3.33",
+      "environment": "preproduction",
+      "maintenanceEnabled": true,
+      "tclSiteEnabled": true,
+      "mailNeutralized": true,
+      "registration": "admin_only",
+      "cronAutorunDisabled": true,
+      "databaseConnectionVerified": true,
+      "sqlVersion": "11.4.13-MariaDB",
+      "installationExecuted": true,
+      "publicOpeningExecuted": false
+    },
+    "runtimeRefresh": {
+      "checkedAt": "2026-10-04T19:59:37Z",
+      "dnsVerified": true,
+      "recognizedHttpsVerified": true,
+      "httpPhpVerified": true,
+      "phpVersion": "8.3.33",
+      "requiredExtensionsLoaded": 18,
+      "protectedPaths": 8,
+      "closureRestoredBeforeInstallation": true,
+      "evidenceRef": "/home2/daje5127/tcl-preproduction/private/runtime-refresh-pi54w69r/checks.json"
+    },
+    "anonymousHttpAcceptance": {
+      "checkedAt": "2026-10-04T20:05:00Z",
+      "checkedPaths": 19,
+      "publicPathsInMaintenance": 9,
+      "publicPathStatus": 503,
+      "publicPathsNoindex": true,
+      "loginStatus": 200,
+      "loginFormPresent": true,
+      "loginNoindex": true,
+      "anonymousAdminStatus": 503,
+      "envAndGitStatus": 403,
+      "coreInstallerAndUpdateStatus": 503,
+      "settingsAndPrivateInputStatus": 503,
+      "recognizedHttpsVerified": true,
+      "passed": true,
+      "authenticatedAcceptanceExecuted": false,
+      "privateReceipt": "/home2/daje5127/tcl-preproduction/private/first-install-svfc2tg9/http-receipt-20261004T200500049343Z.json"
+    },
+    "officialIndexUnchanged": true,
+    "privateInputMode": "0600"
   },
   "fourPhaseUpdate": {
     "recordedAt": "2026-10-04T18:26:32.357Z",
@@ -1634,6 +1723,55 @@
         "diagnosis": "Les quatre cases humaines sont décochées. La description réellement publiée passe le contrôle de structure avec --allow-unchecked ; aucun libellé modifié et aucun accord ajouté."
       },
       "laterReceiptCommitsNotTestedByThisRun": true
+    }
+  },
+  "reviewValidationCorrection": {
+    "status": "prepared_locally_tests_passed_runtime_not_restarted",
+    "preparedInBranch": "fix/revue-phase-locale",
+    "baseCommit": "3fb41457e2c402b85de1806dbdf85c77e62e53ed",
+    "historicalValidationReopenImplemented": true,
+    "historicalDecisionsPreserved": true,
+    "checklistLabelsPreserved": true,
+    "automaticApprovalAdded": false,
+    "localTestRuns": [
+      {
+        "command": "npm.cmd run check",
+        "tests": 141,
+        "passed": 138,
+        "failed": 3,
+        "reason": "Default Python lacks yaml; all three failures concern YAML parsing."
+      },
+      {
+        "command": "node --test tests/ci-workflows.test.mjs tests/delivery-shared.test.mjs",
+        "tests": 7,
+        "passed": 7,
+        "failed": 0,
+        "python": "Site_Internet/.local/framework-venv/Scripts/python.exe",
+        "scope": "Three failed YAML tests rerun successfully with the existing qualified runtime, plus four related tests."
+      },
+      {
+        "command": "node --test tests/framework-server.test.mjs",
+        "tests": 21,
+        "passed": 21,
+        "failed": 0,
+        "scope": "Final UI status labels and historical validation recovery, after the full run and qualified YAML rerun."
+      }
+    ],
+    "frameworkCheckPassed": true,
+    "pullRequest": null,
+    "servedByCockpit": false,
+    "hostingAuthorizationUnchanged": true,
+    "productionChanged": false,
+    "sourceCommit": "03118455aa78abd5131a7d46bad62de8137cb6b6",
+    "artifactDigest": "b964942885cb865922be65f3567964eac5f43b91504466b5d85a1aedf9a4a583",
+    "canonicalTechnicalContextsUpdated": true,
+    "humanJournalsPreserved": true,
+    "scopeRequalificationRequiresHumanReview": true,
+    "documentationCheck": {
+      "documents": 10,
+      "localLinks": 301,
+      "metadataPassed": true,
+      "scaffoldPresent": true
     }
   }
 }

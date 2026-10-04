@@ -34,7 +34,7 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 |---|---|---|---|
 | 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #4 ouverte et contrôle technique GitHub réussi. Le responsable relit les fichiers, coche lui-même les confirmations de la PR et décide de la fusion. Il enregistre ensuite les quatre critères et valide la phase 0 ; la phase 1 demande une autorisation distincte. |
 | 1 — Développement local | En cours | [Dossier](01-phase.md) | Examiner la PR #8 et les justificatifs actuels ; confirmer le périmètre fonctionnel des comptes et de l’édition, puis traiter les validations à requalifier. |
-| 2 — Préproduction | Bloquée | [Dossier](04-phase.md) | Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette. |
+| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Synchroniser le paramètre SQL privé pour terminer l’installation autorisée ; préciser puis livrer le périmètre d’édition/comptes avec sa PR et sa recette. |
 | 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables. |
 
 ## Points à résoudre
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `75e5389958facc706a6aa41755f9077540ee6c5410aa6d54bfe25b759a34d71d`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `24ec857c1fd06dcf5f73a30fe8f4ece9dcc3372fdb4b77f8da3b87c20769c0d3`.
