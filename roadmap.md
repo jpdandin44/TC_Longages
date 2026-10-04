@@ -16,7 +16,7 @@ tags:
 
 # Feuille de route
 
-## Préproduction configurée, première installation à autoriser — 4 octobre
+## Préproduction installée, recette à conduire — 4 octobre
 
 Le [lot du compte principal](docs/preparer-lune-tc.md#lot-du-compte-principal)
 est terminé après accord distinct du merge de la PR #7. La cible reste fermée ;
@@ -24,9 +24,10 @@ PHP HTTP, DNS public, certificat, base vide et droits SQL sont vérifiés. Les
 ressources de la Lune sont conservées. L’[outil d’installation](docs/installation-drupal.md)
 est adapté et testé localement pour cette cible.
 
-La suite est l’examen du candidat exact d’outillage, puis l’accord sur le
-transfert et l’installation sous maintenance du ZIP reçu. Paramètres privés
-soumis personnellement et connexion SQL applicative contrôlée avant Drupal.
+Le lot de première installation est également autorisé et réalisé : même ZIP
+source `49b4ef7`, connexion SQL réussie, Drupal sous maintenance et connexion
+HTTPS accessible. La suite est la recette connectée des comptes et droits,
+la livraison du lot d’édition des pages et la clarification des rôles métier.
 Recette réelle, sauvegarde/restauration et retour arrière précèdent la
 qualification de production, sa livraison puis son ouverture sur décisions
 distinctes. Le [suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve

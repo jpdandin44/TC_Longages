@@ -14,6 +14,30 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Drupal installé en préproduction
+
+- Mot de passe SQL et fichier privé synchronisés personnellement ; connexion
+  applicative réussie et base vide constatée avant installation.
+- Qualification réelle rafraîchie : DNS, HTTPS reconnu, PHP HTTP 8.3.33,
+  18 extensions et huit chemins fermés ; sonde déplacée en privé.
+- Même ZIP `49b4ef7` installé sur MariaDB 11.4.13. Maintenance, courriels
+  neutralisés, inscription réservée à l’administration et cron arrêté relus
+  par un processus neuf ; connexion native disponible en HTTPS.
+- Dix-neuf chemins HTTPS contrôlés anonymement, dont neuf routes publiques
+  en 503 non indexables. Aucune recette connectée ni ouverture de production.
+
+## 2026-10-04 — Reprise de revue et diagnostic SQL
+
+- Correction locale du blocage empêchant de reprendre une validation devenue
+  historique : action humaine disponible, décision précédente conservée,
+  dépendance nommée et nouvelle approbation toujours requise.
+- Enregistrement des critères présenté comme action principale ; simple note
+  explicitement distincte. Libellés des checklists conservés.
+- Nouvelle vérification SQL : refus 1045 ; fichier privé toujours enregistré
+  à 17:22:27 UTC malgré le changement signalé. Éditeur simple rendu modifiable
+  et rattachement utilisateur/base relu dans cPanel, sans lecture des secrets.
+- Installation distante toujours en attente ; aucun changement de production.
+
 ## 2026-10-04 — Périmètre de recette des comptes rendu explicite
 
 - Rattachement des PR d’environnement et d’installation préparé dans la phase

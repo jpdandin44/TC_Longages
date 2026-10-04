@@ -13,41 +13,55 @@ tags: [session, reprise, framework, drupal, git]
 # Point de session — reprise au 4 octobre 2026
 
 
-## Reprise actuelle — suivi regroupé et installation en attente SQL
+## Reprise actuelle — préproduction Drupal installée
 
-Le [suivi canonique](suivi-chantier/suivi-chantier.json) et le cockpit actif
-présentent quatre phases selon la règle commune. Le mapping conserve les
-huit anciennes phases ; six journaux humains et la phase 0 restent identiques.
-Le brouillon « RAS » et ses quatre cases sont restitués sans confirmation
-automatique. Les critères originaux sont regroupés sans changement de libellé.
+Le [suivi canonique](suivi-chantier/suivi-chantier.json) présente quatre phases
+selon la règle commune, avec les huit anciennes phases et décisions conservées.
+La PR #8 est fusionnée sur `3fb41457e2c402b85de1806dbdf85c77e62e53ed`.
+Ce merge ne vaut ni validation de phase, ni autorisation de production.
 
-L’accord distinct « Vas-y tu peux enchainer la configuration je suis OK »
-est enregistré pour la première installation en préproduction principale.
-Le [reçu](../data/framework-revue-verification.json#primaryAccountFirstInstallation)
-identifie le ZIP Drupal inchangé `49b4ef7` / `14c270…` et les outils
-`b462f6f` / `80c111…`. Tous sont transférés et leurs empreintes relues sur le
-serveur. Le plan et l’extraction ont réussi sur Python 3.6.8 : 26 687 fichiers
-extraits puis relus. PHP 8.3.33 valide la syntaxe du helper. Apache reste fermé.
-L’état privé est `staged_closed`, dans `first-install-svfc2tg9` ; conserver
-cette tentative et la racine initiale privée.
+Le lot de première installation déjà autorisé est **réalisé** sur le compte
+principal TC : `preprod.tclongages.fr`, base `daje5127_tclpreprod`, utilisateur
+`daje5127_tcl`, racine `/home2/daje5127/tcl-preproduction/drupal/web`.
+Même ZIP source `49b4ef7` / `14c270…` et outils `b462f6f` / `80c111…`.
+La tentative `first-install-svfc2tg9` est désormais `installed_maintenance` ;
+aucune réextraction ni suppression de base n’a été nécessaire.
 
-L’installation a échoué avant écriture des paramètres et de la base. Les
-quatre valeurs privées sont présentes et la forme du courriel/longueur du
-mot de passe administrateur passent ; PDO refuse l’utilisateur SQL (1045)
-sur localhost et 127.0.0.1. `adminName` n’intervient pas dans cette connexion.
-Le responsable indique avoir changé le mot de passe SQL. Le fichier privé
-porte encore l’enregistrement du 4 octobre à 17:22:27 UTC ; sa synchronisation
-personnelle reste demandée. Aucun secret n’est lu ou consigné dans le chat.
+Le refus SQL 1045 est **résolu** après synchronisation personnelle du mot de
+passe et du fichier enregistré à 19:57:33 UTC. Connexion réussie et zéro table
+constatée avant écriture. À 19:59:37 UTC, DNS/HTTPS/PHP HTTP 8.3.33 et les
+18 extensions sont requalifiés sur la cible réelle, avec huit chemins fermés
+et refus Apache restauré avant installation. Drupal 11.4.8 est installé à
+20:00:15 UTC sur MariaDB 11.4.13. Un processus neuf confirme maintenance,
+courriels neutralisés, inscription réservée à l’administration et cron arrêté.
 
-**Prochaine action exacte :** reporter la nouvelle valeur SQL dans
-`databasePassword` de `private/hosting-input.json`, enregistrer et fermer
-l’éditeur ; refaire uniquement le précontrôle sans affichage des valeurs.
-Après succès et confirmation de vacuité, rafraîchir la qualification réelle
-PHP HTTP/DNS/HTTPS (l’ancienne date est expirée pour l’installateur), puis
-reprendre `install` sur la même tentative. Ne pas supprimer une base pour
-contourner un échec. Vérifier maintenance, courriels neutralisés, droits et
-parcours hébergés ; préparer sauvegarde/restauration et retour arrière avant
-production. Aucun accord de production ou d’ouverture n’est ajouté.
+La [connexion HTTPS](https://preprod.tclongages.fr/user/login) répond 200 avec
+formulaire natif et non-indexation. Dix-neuf chemins sont contrôlés anonymement :
+les neuf routes publiques restent en 503 non indexables ; écrans administratifs,
+installation, mise à jour et paramètres privés restent inaccessibles au visiteur.
+Le [reçu d’installation](../data/framework-revue-verification.json#primaryAccountFirstInstallation)
+porte les résultats et leurs limites. La page d’attente officielle conserve
+son empreinte ; la Lune et ses ressources restent conservées. Aucun secret
+n’est lu dans le chat, aucun compte métier ni ouverture de production n’est créé.
+
+**Prochaine action exacte :** se connecter personnellement avec l’identifiant
+et le mot de passe administrateur choisis dans `adminName`/`adminPassword`.
+Tester connexion/déconnexion, comptes et permissions natifs. L’édition des
+sept pages et les rôles Bureau/Capitaine restent absents du ZIP livré. Le
+travail d’édition est isolé dans `.worktrees/drupal-comptes-edition`, commit
+de travail `cde2180`, sans qualification ni transfert de ce nouveau code.
+Préparer sa PR fonctionnelle et sa recette, puis sauvegarde Drupal/SQL,
+restauration et répétition du retour arrière avant production. Aucun accord
+de production ou d’ouverture n’est ajouté.
+
+Le brouillon de phase 1 conserve douze cases cochées ; l’enregistrement d’une
+note ne les a pas enregistrées comme critères. La validation historique du
+cadrage ne couvre plus le périmètre élargi. Une correction locale permet la
+reprise humaine de revue, conserve l’ancienne décision et nomme la dépendance.
+Le [guide du cockpit](installation-framework.md) décrit cette action ; sa version,
+ses tests et sa PR figurent dans le [reçu de correction](../data/framework-revue-verification.json#reviewValidationCorrection).
+La première installation utilise son accord distinct déjà acquis, sans
+déduire une validation du cockpit ni la laisser bloquer cet accord.
 
 Les sections suivantes conservent les constats historiques de la reprise.
 

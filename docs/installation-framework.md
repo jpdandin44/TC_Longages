@@ -47,7 +47,7 @@ Ces tests couvrent les routes locales, les refus d’origine et de jeton, les é
 
 Les notes et critères sont modifiables même quand la préparation technique du dossier est incomplète. Chaque bouton de progression indique son effet et ce qui manque éventuellement pour le rendre disponible. Une PR, un commit ou des tests manquants peuvent empêcher la validation ; ils n’empêchent pas de renseigner son avis.
 
-Pour une question ou une correction sans décision de phase, utiliser **Enregistrer la note**. Son texte initial est conservé dans le journal et retiré de la zone de saisie après succès. Les cases en cours de saisie restent cochées mais ne deviennent pas des critères enregistrés par cette seule action. Le suivi d’une note ajoute une réponse, un état et, pour une résolution, une référence de preuve.
+Pour une question ou une correction sans décision de phase, utiliser **Enregistrer une simple note**. Le bouton principal **Enregistrer les critères** sauvegarde les cases ; les deux actions restent distinctes. Le texte initial de la note est conservé dans le journal et retiré de la zone de saisie après succès. Les cases en cours de saisie restent cochées mais ne deviennent pas des critères enregistrés par cette seule action. Le suivi d’une note ajoute une réponse, un état et, pour une résolution, une référence de preuve.
 
 Les états d’une note sont : enregistrée, lue, en cours, décision nécessaire et résolue. Enregistrer une note ne signifie pas qu’un agent l’a lue ou traitée. Aucun agent permanent ni aucune synchronisation GitHub ne sont lancés par ces boutons.
 
@@ -60,7 +60,7 @@ Les états d’une note sont : enregistrée, lue, en cours, décision nécessair
 | Autoriser la phase suivante | Accord de démarrage pour la phase locale suivante. | Phase précédente validée sur les critères, documents et preuves actuels. La phase suivante reste non démarrée. |
 | Démarrer la phase | Date de début et état « En cours ». | Autorisation valable et dépendances valides ; exception locale d’installation décrite ci-dessous. |
 
-**Demander des corrections** remet une phase en revue à l’état « En cours » et conserve la demande dans le journal. Les décisions historiques ne sont jamais effacées. Si des documents ou preuves évoluent après validation, l’accord historique reste visible mais ne permet plus automatiquement de poursuivre.
+**Demander des corrections** remet une phase en revue à l’état « En cours » et conserve la demande dans le journal. Si une phase locale validée n’est plus recevable pour la version ou le périmètre actuel, elle affiche **Validée historiquement · à requalifier** et propose **Reprendre la revue**. Cette action exige le commentaire et la confirmation personnels ; elle conserve la décision antérieure et sa référence. Elle n’approuve aucune nouvelle version. Les preuves doivent ensuite être actualisées avant une nouvelle remise et une nouvelle validation humaine. Les dépendances bloquantes indiquent la phase concernée ; les libellés obligatoires des critères restent inchangés.
 
 Les notes et critères peuvent être enregistrés avant la remise d’une PR. La validation de phase exige un contexte technique explicite : commit source, empreinte du candidat, empreintes des documents et critères, PR du dépôt TC_Longages, références de preuves et résultats de tests locaux correspondants. La section **Justificatifs et version présentés** affiche les résultats, leurs auteurs, dates et références. Les liens de PR et de commit sont cliquables lorsqu’ils visent le dépôt du club.
 
