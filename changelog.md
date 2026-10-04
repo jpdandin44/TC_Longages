@@ -14,6 +14,15 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Choix du compte principal confirmé
+
+- Le responsable retient l'organisation AVEREO pour la préproduction TC :
+  dossier et base propres dans le compte principal du domaine.
+- Choix consigné avec sa portée, sans accord de configuration déduit ;
+  reconnexion personnelle et inventaire requis avant le lot correspondant.
+- Champ d'identifiant cPanel corrigé ; mot de passe et connexion non soumis par
+  l'agent. Sources et suivi réalignés, ressources de la lune conservées.
+
 ## 2026-10-04 — Correction du plan d'hébergement
 
 - Comparaison AVEREO/TC établie : même compte pour le domaine et la préproduction

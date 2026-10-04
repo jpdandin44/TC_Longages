@@ -19,10 +19,10 @@ tags:
 
 Le diagnostic du 4 octobre retire la proposition de préproduction en
 `universe.wf`, exclue de l'émission Let's Encrypt o2switch. Le
-[plan corrigé](docs/preparer-lune-tc.md) recommande de qualifier le compte
-principal TC pour `preprod.tclongages.fr`, comme l'organisation AVEREO, sans
-présenter ce choix comme adopté. Reconnexion cPanel et choix d'implantation
-restent nécessaires. L'[outil de première installation](docs/installation-drupal.md)
+[plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
+compte principal TC pour `preprod.tclongages.fr`, comme l'organisation AVEREO.
+Reconnexion cPanel et inventaire de ce compte restent nécessaires avant
+présentation de sa configuration. L'[outil de première installation](docs/installation-drupal.md)
 est préparé et testé localement pour la lune, sans exécution MySQL/Drupal
 distante ; un changement de compte exigera son adaptation. Le
 [point courant](docs/point-session.md) porte la suite ; le site n'est pas livré

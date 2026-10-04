@@ -34,9 +34,10 @@ restent historiques.
 
 Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
 et distingue l'implantation AVEREO dans un même compte de l'implantation TC
-dans une lune distincte. Qualifier le compte principal TC est la recommandation
-actuelle, non adoptée ; le cloisonnement de comptes et les réglages PHP
-potentiellement partagés doivent être explicités avant ce choix. Les ressources
+dans une lune distincte. Qualifier le compte principal TC est le choix humain
+désormais retenu ; le cloisonnement de comptes et les réglages PHP
+potentiellement partagés doivent être qualifiés avant les modifications
+correspondantes. Les ressources
 déjà créées dans la lune et les décisions historiques restent conservées.
 L'adaptateur local demeure limité à cette lune ; aucun changement de cible
 d'écriture ni migration du domaine officiel n'est implémenté par cette étude.

@@ -32,8 +32,9 @@ n'a été créé par cette proposition. Une éventuelle autre méthode de certif
 n'est ni vérifiée ni retenue. L'ancienne demande d'accord sur cette adresse
 est devenue sans objet.
 
-**Voie recommandée, non adoptée :** qualifier `preprod.tclongages.fr` dans le
-compte principal TC, comme pour AVEREO, avec un dossier et une base dédiés.
+**Choix humain retenu le 4 octobre :** le responsable demande « On suit la même
+organisation que pour AVEREO ». Qualifier `preprod.tclongages.fr` dans le
+compte principal TC, avec un dossier et une base dédiés.
 Cette voie conserve le domaine officiel dans son compte actuel. Elle sépare
 les fichiers et les données, mais ne conserve pas le cloisonnement entre
 comptes apporté par la lune. Les ressources existantes de la lune restent
@@ -52,10 +53,11 @@ demande à o2switch sur le rattachement de `preprod.tclongages.fr` sans déplace
 le domaine principal. La faisabilité de cette exception n'est pas établie ;
 aucun ticket ni changement serveur n'est exécuté par l'agent.
 
-Le [suivi canonique](suivi-chantier/suivi-chantier.json) porte le choix encore
-attendu et le [reçu de diagnostic](../data/framework-revue-verification.json)
-porte les lectures et leurs limites. Cette correction n'est pas une décision
-humaine de changement d'architecture.
+Le [suivi canonique](suivi-chantier/suivi-chantier.json) porte le choix humain
+d'implantation et le [reçu de diagnostic](../data/framework-revue-verification.json)
+porte les lectures et leurs limites. Ce choix ne constitue pas l'accord du
+lot de configuration encore à présenter après inventaire du compte, ni une
+validation de phase, de transfert ou d'ouverture.
 
 ## Reprise initiale du 4 octobre — constat historique
 
