@@ -1,5 +1,5 @@
 """Build an unconfigured TCL Drupal candidate or qualify read-only SSH."""
-from __future__ import annotations
+# Verification also runs in cPanel with Python 3.6; building stays in CI.
 import argparse
 from datetime import datetime, timezone
 import hashlib

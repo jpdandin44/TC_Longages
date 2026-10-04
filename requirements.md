@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - exigences
@@ -15,13 +15,27 @@ tags:
 
 # Exigences
 
+## Exécution sur la lune observée — 4 octobre
+
+Le vérificateur et l'outil de première installation doivent pouvoir utiliser
+Python 3.6.8 et PHP CLI 8.3.33 constatés dans le terminal cPanel existant. La
+construction GitHub conserve son environnement propre. Le profil d'écriture
+est limité à la préproduction vide ; mot de passe SQL et nouveau compte Drupal
+sont soumis personnellement sur le serveur, sans argument ou sortie sensible.
+HTTPS et le PHP HTTP restent des conditions distinctes. Les tests Linux locaux
+ne prouvent ni cette exécution hébergée ni le retour arrière SQL.
+
 ## Exigence de reprise — Actions GitHub, 1er octobre
 
 La demande du 1er octobre exige la réutilisation des fonctionnalités des Actions du site Drupal AVEREO et une consommation de modèles limitée. Les comptes, secrets et cibles TC doivent rester distincts ; la préparation doit identifier le commit et le candidat exacts sans valoir autorisation de mise en production. La réalisation et ses limites sont dans le [workflow de référence](workflows/preparer-livraison.md).
 
+## Contraintes constatées le 3 octobre
+
+Un sous-domaine du compte principal ne peut pas être rattaché à une lune distincte avec la configuration o2switch observée. `preprod.tclongages.fr` reste une intention non réalisable sur cette lune à ce stade ; une adresse alternative exige un accord sur sa cible et la qualification DNS/HTTPS. Le réglage PHP du nouveau compte et les droits SQL doivent conserver leur périmètre isolé. Voir le [reçu](data/activation-lune-verification.json).
+
 ## Parcours de mise en ligne simplifié
 
-- Suivre la V1 publique dans quatre étapes opérationnelles, avec état et preuves séparés des décisions historiques des huit phases ; afficher ce parcours en HTML local.
+- Suivre la V1 publique dans quatre étapes opérationnelles, avec état et preuves séparés des décisions historiques des huit phases ; rattacher ces étapes au suivi existant, sans nouvelle interface.
 - Déployer d'abord les sept pages publiques sous Drupal. Garder fermés Bureau, formulaires Google, automatisations de communication et collecte tant que leurs propres recettes ne sont pas terminées.
 - Utiliser `preprod.tclongages.fr` comme cible de recette envisagée ; vérifier DNS, HTTPS, racine, PHP, SQL, sauvegarde et restauration avant écriture distante.
 - Préparer un candidat reproductible depuis les sources V1 et `composer.lock` ; garder les pages hors webroot, la maintenance native et l'absence d'indexation par défaut.
@@ -62,7 +76,7 @@ Les 30 arbitrages reçus le 24 septembre définissent le P0 courant ; leur prove
 | V1-13 | Distribuer un aperçu local distinct de la bêta à activer. | Sept HTML et trois fichiers de contrôle ; règle Apache 503 inconditionnelle, sans ouverture par renommage du témoin. Consultation par serveur local sur 4180 ; aucune donnée privée, compte ou ressource Google active. |
 | V1-14 | Fournir une archive V1 séparée pour le sous-domaine, avec dépôt, ouverture et fermeture réalisés par l'utilisateur avant la future production. | `tc-longages-v1-demo-o2switch.zip`, dix fichiers, fermé par défaut. `maintenance.inactive` seul ouvre ; tous les autres états ferment avec 503. Ouvert, servir seulement les sept pages et `robots.txt`, refuser les anciennes routes même résiduelles. Aucune authentification, donnée privée ou transmission Contact ; qualification distante à effectuer après le dépôt. |
 
-La [spécification V1](../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md) et ses 25 scénarios décrivent l'acceptation complète. Une recette de navigation ou de démonstration statique ne valide pas Google, l'accès d'un capitaine, l'acheminement du contact ou l'ouverture HTTPS. La recommandation PHP de la source précède l'orientation Drupal demandée ultérieurement ; aucun schéma d'authentification n'est implémenté par cette orientation. La présentation temporaire du sous-domaine suit son [guide spécifique](docs/publier-v1-sous-domaine.md), sans assouplir les conditions de bêta réelle.
+La [spécification V1 inventoriée](data/officiel-sources.json) (source externe `TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md`, non incluse dans ce checkout) et ses 25 scénarios décrivent l'acceptation complète. Une recette de navigation ou de démonstration statique ne valide pas Google, l'accès d'un capitaine, l'acheminement du contact ou l'ouverture HTTPS. La recommandation PHP de la source précède l'orientation Drupal demandée ultérieurement ; aucun schéma d'authentification n'est implémenté par cette orientation. La présentation temporaire du sous-domaine suit son [guide spécifique](docs/publier-v1-sous-domaine.md), sans assouplir les conditions de bêta réelle.
 
 ## Exigences des prototypes antérieurs conservés
 

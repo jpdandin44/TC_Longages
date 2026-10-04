@@ -5,12 +5,25 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## Complément local de première installation — 4 octobre
+
+Le [vérificateur partagé](../scripts/delivery_shared.py) et le constructeur
+restent la source de contrôle du ZIP reçu. Leur import ne dépend plus de la
+directive Python apparue en 3.7 : la vérification est destinée au Python 3.6.8
+observé dans cPanel ; la construction et SSH gardent leur environnement CI.
+L'[adaptateur de première installation](../scripts/first_install.py) et sa
+[procédure](../docs/installation-drupal.md) sont préparés à côté de cette
+Action, sans changer les déclenchements ni activer de livraison automatique.
+L'exécution MySQL/Drupal et la recette de cette cible restent non qualifiées.
+Les sections datées antérieures qui mentionnent un adaptateur absent restent
+l'état historique avant cette préparation.
 
 Le responsable demande le 1er octobre de reprendre la mise en production en
 réutilisant les Actions du **site Drupal AVEREO**. La chaîne de référence est
@@ -82,6 +95,30 @@ maintenues du nouveau composant ni de nouveau dépôt de composants créé.
 Les adaptateurs Drupal, bases, sauvegardes/restaurations, chemins et contenus
 restent propres au site ; aucun secret ou accord AVEREO n'est hérité.
 
+## Revue de la PR et aperçu du site
+
+La PR #5 a été fusionnée par le responsable le 3 octobre. Son lien
+« l'environnement de validation » a été corrigé vers
+[l'aperçu local](http://127.0.0.1:4180/), après ouverture et vérification de
+celui-ci. Les quatre libellés obligatoires du modèle de PR et les coches
+humaines ont été conservés ; seuls le lien et une explication adjacente ont
+changé. La page GitHub de ce document sert à la revue documentaire.
+
+Lancer `npm.cmd run officiel` sur le poste avant d'utiliser cet aperçu.
+Il présente les sept pages publiques ; les comptes, les services connectés et
+la recette du Drupal hébergé restent hors de sa qualification. Un lien local
+ne constitue pas une préproduction distante.
+
+L'Action de construction a réussi sur le commit fusionné `49b4ef7b975b8edff4308373732033630582da6b`.
+Le ZIP reçu a été relu intégralement sur le poste et correspond au reçu GitHub.
+Les empreintes et limites sont conservées dans le
+[reçu de préparation](../data/actions-mutualisees-verification.json), rubrique
+`postMergeBuild`. Cette construction ne configure ni ne déploie le site.
+
+Le protocole commun GitHub et cockpit est raccordé au bloc
+`developmentWorkflow` du [suivi canonique](../docs/suivi-chantier/suivi-chantier.json).
+Les décisions historiques de phase restent distinctes des contrôles de livraison.
+
 ## Configuration SSH encore nécessaire
 
 Après présentation et accord sur l'accès, configurer l'environnement GitHub
@@ -111,7 +148,7 @@ et une base existants, une racine plate et des contenus natifs AVEREO.
 
 Pour préparer l'adaptateur de livraison et le retour arrière du TC, il manque :
 
-1. Compte isolé et racine de préproduction à établir ; la lecture cPanel du
+1. Compte isolé actif, PHP 8.3 sélectionné et racine fermée préparée ; le rattachement de `preprod.tclongages.fr` est refusé pour propriété du domaine parent. Une adresse temporaire attend son accord et la qualification DNS/HTTPS/runtime ; la lecture cPanel du
    1er octobre a confirmé la racine officielle non vide, PHP 8.1, le certificat
    autosigné et huit lunes gratuites. Le [lot proposé](../docs/preparer-lune-tc.md)
    définit la suite ; PHP Apache isolé et certificat reconnu restent à qualifier.

@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - architecture
@@ -15,9 +15,34 @@ tags:
 
 # Architecture
 
+## Première installation par le terminal existant — 4 octobre
+
+Le terminal cPanel de la lune est qualifié en lecture pour PHP CLI 8.3.33 et
+Python 3.6.8. Le [nouvel adaptateur](scripts/first_install.py) réutilise le
+vérificateur générique du ZIP construit par GitHub. Il prépare une version dans
+un dossier privé, conserve la racine vide initiale et confie l'installation
+non interactive au [script PHP privé](scripts/first-install-hosting.php).
+Les paramètres SQL et administrateur fournis personnellement restent hors
+Web ; un processus neuf contrôle maintenance et neutralisation des courriels
+avant de rendre accessible la connexion Drupal sous maintenance. La
+[procédure et ses limites](docs/installation-drupal.md) sont la référence de
+ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
+nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
+restent historiques.
+
+## Compte isolé actif et chaîne de préparation — 3 octobre
+
+La première lune gratuite dédiée à la préproduction TC est active ; l'accès à son cPanel séparé est confirmé. Le domaine officiel conserve son compte actuel. Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier. Les détails de compte demeurent privés ; le [reçu](data/activation-lune-verification.json) porte l'état vérifié et les limites des restaurations de fichiers.
+
+L'Action GitHub a construit et vérifié le candidat non configuré sur le commit fusionné de la PR #5. L'archive reçue et son manifeste ont été relus sur le poste, sans reconstruction. Le [reçu de préparation](data/actions-mutualisees-verification.json) identifie le même artefact à conserver pour la prochaine qualification. Le protocole GitHub et cockpit est raccordé au bloc `developmentWorkflow` du [suivi existant](docs/suivi-chantier/suivi-chantier.json), sans second historique de décisions ni nouvelle interface.
+
+Les sections datées du 1er octobre ci-dessous conservent l'état antérieur à cette activation.
+
 ## Composants de préparation partagés — 1er octobre
 
 La demande de réutiliser les Actions du site Drupal AVEREO est traitée par une [bibliothèque générique et une Action SSH paramétrée](workflows/preparer-livraison.md), sans modifier AVEREO ni hériter de ses secrets. Le constructeur produit un candidat Drupal non configuré et vérifie son inventaire exhaustif. La qualification SSH exige un environnement TC distinct et n'effectue aucun transfert. Sauvegarde initiale, restauration réelle, configuration privée, recette hébergée, livraison et ouverture restent à qualifier séparément ; l'adaptateur de première installation n'est pas implémenté. Aucune réussite de préparation ne vaut mise en production.
+
+Le [reçu d'hébergement](data/activation-lune-verification.json) qualifie désormais la sauvegarde des fichiers du compte actuel et de sa racine publique fraîche, restaurés en copie privée locale. Les exports DNS et certificats sont conservés et leurs fichiers vérifiés ; leur réinstallation dans cPanel n'est pas testée. La création de la lune isolée attend la saisie personnelle du nouveau mot de passe. Aucun compte Drupal hébergé, base, runtime compatible ou accès SSH TC n'est qualifié par cette sauvegarde.
 
 ## Parcours de livraison V1
 

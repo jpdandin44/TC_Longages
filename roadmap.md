@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags:
   - roadmap
@@ -16,7 +16,28 @@ tags:
 
 # Feuille de route
 
+## Reprise de la première installation — 4 octobre
+
+Le terminal cPanel existant répond et l'[adaptateur](docs/installation-drupal.md)
+est désormais préparé localement, avec tests Linux. Prochaine action : obtenir
+la décision sur l'adresse temporaire préparée, qualifier son DNS/HTTPS/PHP
+servi, puis présenter le transfert et l'installation fermée du même ZIP reçu.
+La recette réelle, la sauvegarde/restauration Drupal et le retour arrière
+précèdent toujours la qualification et la livraison de production. Le
+[suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve l'historique
+humain et les blocages ; aucune phase n'est validée par cette préparation.
+
+## État et prochaine intervention — 3 octobre
+
+La préparation de la PR #5 est fusionnée. L'Action GitHub a construit un candidat non configuré, reçu et vérifié intégralement sur le poste. La sauvegarde privée du compte est requalifiée ; la première lune gratuite est active. Voir les [preuves de préparation](data/actions-mutualisees-verification.json) et d'[hébergement](data/activation-lune-verification.json).
+
+La [configuration de cette lune](docs/preparer-lune-tc.md) a commencé après accord. Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier. Ensuite restent l'adaptateur de première installation, les paramètres privés, l'installation sous maintenance, la recette réelle et la répétition du retour arrière. La mise en production demandera la qualification de sa cible et la livraison du même artefact, puis son contrôle et l'ouverture autorisée.
+
+L'aperçu local des sept pages a été présenté à la revue de la PR ; cette revue ne valide pas les comptes ni les services connectés. Aucune phase historique n'est validée par l'agent et aucun site n'est déployé par le merge. Les sections suivantes sont des constats datés de préparation.
+
 ## Reprise du 1er octobre — préparation partagée avec AVEREO
+
+**Clôture du 1er octobre :** travail arrêté à la demande du responsable, formulaire d'activation annulé, cPanel déconnecté et onglet fermé. Reprendre uniquement sur nouvelle demande, depuis le [point de session](docs/point-session.md), en vérifiant l'état de la lune et la fraîcheur des sauvegardes. L'accord existant reste limité au lot gratuit ; la configuration et la mise en production attendent leurs décisions propres.
 
 La [préparation manuelle](workflows/preparer-livraison.md) construit le candidat sans accès serveur et offre une qualification SSH distincte. Le composant partagé est préparé dans le dépôt TC, utilisable par un futur appel AVEREO épinglé sur un commit ; cette migration reste proposée. Le site AVEREO actif n'est pas modifié. Prochaine action : revue du lot et qualification cPanel récente avant toute configuration d'accès ou première installation. Le solde et les vérifications courantes sont dans le [reçu](data/actions-mutualisees-verification.json). Aucun budget de réserve chiffré n'est considéré approuvé.
 
@@ -24,7 +45,7 @@ La [préparation manuelle](workflows/preparer-livraison.md) construit le candida
 
 Le [parcours en quatre étapes](docs/parcours-mise-en-ligne.md) remplace les huit phases comme vue opérationnelle de cette livraison, sans effacer leur historique. Initialisation et recette locale sont en cours ; la préproduction `preprod.tclongages.fr` attend sa qualification ; la production n'est pas démarrée. La première ouverture ne comprend que les pages publiques Drupal. Les comptes Bureau, formulaires Google et envois automatiques suivent leurs recettes propres après cette V1.
 
-Le blocage des lunes signalé le 29 septembre est résolu côté affichage le 1er octobre : l'interface exige une largeur ordinateur. Le [plan de compte isolé](docs/preparer-lune-tc.md) présente la lune gratuite disponible à activer après sauvegarde/restauration et accord. L'isolation PHP par domaine du compte actuel reste désactivée. Aucun réglage distant n'a été modifié.
+Le blocage des lunes signalé le 29 septembre est résolu côté affichage le 1er octobre : l'interface exige une largeur ordinateur. Le [plan de compte isolé](docs/preparer-lune-tc.md) porte le lot désormais autorisé. Sauvegarde et restauration des fichiers en copie privée ont réussi ; le [reçu](data/activation-lune-verification.json) précise leur périmètre. L'activation de la première lune gratuite reste à terminer à la reprise : nouveau mot de passe saisi et soumis personnellement dans cPanel, puis vérification du résultat. Le formulaire a été annulé à la clôture. L'isolation PHP par domaine du compte actuel reste désactivée. La configuration et la recette de la future lune restent à présenter après confirmation de son activation.
 
 Prochaine séquence : qualifier et sauvegarder la cible de préproduction, puis réaliser le [test PHP isolé préparé](docs/qualification-preproduction.md) avec accord sur les changements distants ; ensuite installer le candidat sous maintenance, puis présenter la livraison de production et l'ouverture comme décisions distinctes. Le 30 septembre, le responsable demande d'optimiser les crédits restants et de garder une marge pour les corrections. L'ancienne réserve de 800 dépasse le solde observé à la reprise ; une marge de 200 est proposée, sans validation personnelle déduite. Le [reçu de reprise](data/reprise-deploiement-verification.json) conserve les résultats et limites actuels.
 

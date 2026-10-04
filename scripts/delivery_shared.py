@@ -3,7 +3,7 @@
 Canonical source for TCL's preparation and SSH qualification. No account,
 database, document root, credential or production mutation is embedded here.
 """
-from __future__ import annotations
+# Keep the archive verifier importable by the qualified cPanel Python 3.6.
 import gzip
 import hashlib
 import os

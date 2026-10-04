@@ -2,15 +2,104 @@
 project: TC_Longages
 document_type: intervention-plan
 title: Préparation du compte isolé de préproduction TC
-status: proposed
+status: active
 version: git
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-04
 owner: jpdandin
 tags: [o2switch, preproduction, sauvegarde, autorisation]
 ---
 
-# Intervention suivante proposée
+# Préparation de la lune de préproduction
+
+## Reprise du 4 octobre
+
+Compte principal et lune reconnectés ; un compte actif gratuit et sept lunes
+restantes sont affichés. Les tables Domaines Configurés et Sous-domaines de la
+lune restent vides. Le formulaire `preprod` sous son domaine technique est
+préparé sur la même racine protégée, sans soumission ; l'accord demandé sur
+ce changement de cible est attendu. Aucun mot de passe n'est collecté.
+
+Le terminal existant répond : PHP CLI 8.3.33 avec `pdo_mysql`, Python 3.6.8.
+Le [guide d'installation](installation-drupal.md) porte l'outil désormais
+préparé localement et ses limites. DNS, HTTPS reconnu, PHP HTTP et connexion SQL
+restent à tester avant transfert autorisé du ZIP. L'état et les accords du
+3 octobre conservés ensuite ne sont pas transformés en accord de transfert,
+de migration officielle ou d'ouverture.
+
+## Configuration autorisée et blocage de domaine — 3 octobre
+
+Le lot de configuration a été autorisé et partiellement réalisé : PHP 8.3 appliqué, racine isolée créée avec fermeture Apache relue, base vide UTF-8 et utilisateur SQL dédié avec dix droits enregistrés. cPanel refuse `preprod.tclongages.fr` dans la lune parce que son domaine parent appartient au compte principal. Aucun DNS ni certificat n’est créé pour ce nom. Une adresse temporaire de la lune est proposée, non soumise ; son accord, DNS, HTTPS reconnu et PHP réellement servi restent à qualifier.
+
+Le responsable a répondu **« Autoriser ce lot de configuration »**, puis **« Autoriser ces droits SQL »** au moment de leur attribution. Le mot de passe SQL a été saisi, confirmé et soumis personnellement. La base initialement vide avait `latin1_swedish_ci` ; elle est désormais en `utf8mb4_unicode_ci`. MariaDB 11.4.13 est observé dans phpMyAdmin du sous-compte ; cela ne prouve pas une connexion Drupal.
+
+La [documentation officielle o2switch](https://blog.o2switch.fr/creer-un-sous-domaine-o2switch-a-quoi-ca-sert-et-comment-le-configurer/) confirme la restriction de sous-domaines entre comptes. Le plan initial ne l’avait pas prise en compte ; il est corrigé avant poursuite. La fermeture `.htaccess` de 36 octets a été téléchargée après dépôt et comparée à sa source. Son application HTTP reste à tester après rattachement d’un hôte. La sonde PHP n’a pas été transférée.
+
+### Adresse temporaire proposée
+
+Le formulaire « Sous-domaines » de la lune propose son seul domaine technique parent. Préfixe `preprod`, même racine `tcl-preproduction/drupal/web`. Le nom complet et la capture restent dans les preuves privées. Effets proposés : création de ce seul sous-domaine, qualification DNS, émission d’un certificat reconnu et essai de la sonde PHP sans données ; arrêt si TLS reconnu impossible, contrat ou coût. Aucun transfert Drupal ou changement du domaine officiel. L’accord sur ce changement de cible est attendu ; le formulaire n’est pas soumis. Le domaine technique parent actuel échoue à la validation TLS stricte et n’est pas déclaré utilisable en HTTPS.
+
+### État initial du compte actif — 3 octobre
+
+Le lot gratuit autorisé le 1er octobre a repris après contrôle de fraîcheur : trois exports JetBackup et une archive fraîche de la racine publique ont été restaurés en copie privée, avec gzip et empreintes vérifiés. Le responsable a saisi, confirmé et soumis le mot de passe dans cPanel. Le compteur indique une lune active et sept restantes ; l'accès à son compte séparé est confirmé. Le [reçu courant](../data/activation-lune-verification.json) remplace l'état d'attente historique décrit ci-dessous.
+
+La lecture du compte isolé constate PHP natif 8.1, PHP 8.3 disponible, aucun domaine supplémentaire, aucune base et aucun utilisateur SQL. Le compte du domaine officiel reste distinct. Les noms de compte, chemins absolus et captures sont privés.
+
+### Configuration initiale autorisée, avant installation du site
+
+**Cible :** première lune gratuite désormais active, exclusivement pour `preprod.tclongages.fr`.
+
+**Effets autorisés pour la cible initiale, dont le rattachement est bloqué :**
+
+1. Sélectionner PHP 8.3 dans cette lune et qualifier les extensions exigées par le verrou Drupal. Ce réglage porte sur le compte isolé.
+2. Préparer la racine Composer `tcl-preproduction/drupal/`, avec seule racine Web `tcl-preproduction/drupal/web/`, relative au dossier du sous-compte. Les dépendances et paramètres privés doivent rester hors de cette racine Web.
+3. Rattacher uniquement `preprod.tclongages.fr` à cette racine. Ajouter seulement le DNS de ce sous-domaine vers l'adresse d'hébergement vérifiée et demander son certificat reconnu. Conserver le rattachement et les enregistrements du domaine officiel ; arrêt si l'interface exige de retirer ou migrer `tclongages.fr`.
+4. Créer une base de suffixe `tclpreprod` et un utilisateur SQL dédié à cette base, sans privilèges sur d'autres bases. Le responsable crée et soumet lui-même le nouveau mot de passe par le canal cPanel ; aucune valeur dans le chat ou Git.
+
+**Limites :** ce lot ne comprend ni transfert de Drupal, ni nouvelle clé SSH, ni secret GitHub, ni migration du domaine principal, ni ouverture du site. Après configuration, vérifier le PHP réellement servi, HTTPS, les paramètres SQL et les protections de la racine avant de présenter l'installation sous maintenance du candidat construit après fusion.
+
+**Sauvegarde et retour :** conserver les exports du compte actuel et relever l'état initial de la lune avant toute écriture. Enregistrer chaque création et réglage pour préparer un retour précis. Ne pas supprimer automatiquement une ressource nouvellement créée qui pourrait avoir reçu des données. La restauration privée déjà réussie ne prouve pas un retour arrière Drupal ou SQL.
+
+**Arrêts :** nouveau mot de passe à saisir par le responsable, contrat, coût, effet sur le domaine officiel, cible inattendue ou contrôle d'intégrité en échec. Aucun de ces effets supplémentaires n'est autorisé par l'activation gratuite.
+
+Les sections du 1er octobre suivantes sont historiques ; leurs observations antérieures à l'activation restent conservées.
+
+## Lot autorisé le 1er octobre — arrêté à la clôture
+
+Le responsable a répondu **« Autoriser sauvegarde et activation gratuite »**.
+Le [reçu daté](../data/activation-lune-verification.json) porte l'état courant ;
+les identifiants de compte, archives, empreintes détaillées et captures restent
+dans le dossier privé ignoré par Git.
+
+Trois archives JetBackup du 1er octobre ont été téléchargées puis restaurées
+dans une copie locale distincte : 75 fichiers réguliers et deux liens internes
+contrôlés. Les flux gzip complets et toutes les empreintes des fichiers restaurés
+ont été vérifiés. Les exports couvrent les fichiers du compte, deux zones DNS
+et les certificats de deux domaines. Une archive fraîche de `public_html`, créée
+dans le dossier privé du compte, hors racine publique, a aussi été téléchargée
+et restaurée : un fichier et deux dossiers, aucun fichier masqué supplémentaire.
+Le fichier courant et l'archive fraîche correspondent à l'instantané sauvegardé.
+cPanel confirme zéro base MySQL et zéro utilisateur SQL. Les fichiers du site
+courant n'ont pas été modifiés.
+
+Ces essais prouvent la restauration des fichiers en copie privée sur le poste.
+Ils ne constituent pas un réimport cPanel, DNS ou certificat, ni une restauration
+de base. Les propriétaires et modes POSIX sont conservés dans les reçus, sans
+application sur Windows. Les autres paramètres du compte ne sont pas réputés
+restaurables à partir de ces exports seuls.
+
+L'interface confirme huit lunes gratuites, zéro active et un total affiché de
+0 € par mois. Le dialogue de la première lune a été ouvert après réussite des
+contrôles ; il demande un nouveau mot de passe. L'agent s'est arrêté avant toute
+saisie ou soumission, conformément à l'accord. **Activation non confirmée :** le
+responsable doit saisir, confirmer et soumettre le mot de passe directement dans
+cPanel. À la clôture du 1er octobre, le formulaire non soumis a été annulé,
+la déconnexion cPanel confirmée et l'onglet fermé. Une nouvelle connexion et
+une lecture de l'état sont nécessaires à la reprise, avec vérification de la
+fraîcheur des sauvegardes. Vérifier ensuite le compteur et l'état de la lune. PHP, DNS, HTTPS,
+base, accès SSH et installation Drupal restent le lot ultérieur à présenter.
+
+## Inventaire avant intervention
 
 L'utilisateur a reconnecté cPanel le 1er octobre. La lecture confirme :
 
@@ -29,7 +118,7 @@ Les chemins absolus de compte et l'inventaire privé sont conservés hors Git.
 Aucune donnée de session cPanel, clé privée ou valeur de mot de passe n'est
 enregistrée dans ce document. La lecture ne donne aucun accord d'activation.
 
-## Lot à autoriser
+## Périmètre du lot autorisé
 
 **Cible :** compte cPanel du club actuellement connecté, puis première lune
 gratuite disponible de ce compte, destinée uniquement à la préproduction TC.
