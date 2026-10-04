@@ -706,5 +706,56 @@
         "checkedAt": "2026-10-04T11:29:30.143289+00:00"
       }
     ]
+  },
+  "hostingContinuation": {
+    "recordedAt": "2026-10-04T12:08:34.417734+00:00",
+    "scope": "Lecture de disponibilité des cibles et tentative de recette locale ; aucun déploiement.",
+    "unchangedToolSourceCommit": "7d8066fa83d10680cf706130f4896bf67e2d1fc3",
+    "verifiedGitHubHead": "4956a1ecabeb65ef590cb11bfa6bb76a748ba126",
+    "technicalCi": {
+      "conclusion": "success",
+      "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37199048528"
+    },
+    "officialDomain": {
+      "host": "tclongages.fr",
+      "dnsAResolved": true,
+      "strictHttpsRecognizedOnThisClient": false,
+      "curlExitCode": 60,
+      "tlsFailure": "Windows certificate-chain validation rejected an untrusted root.",
+      "credentialUsed": false,
+      "certificateValidationBypassed": false,
+      "certificateTypeNotInferredFromThisCheck": true
+    },
+    "primaryAccountRead": {
+      "priorMainUrlNotUsableInCurrentMoonSession": true,
+      "observedHttpStatus": 401,
+      "currentMoonAccountShownByErrorPage": true,
+      "doesNotProvePrimaryServerSessionLoggedOut": true,
+      "newCredentialEntered": false,
+      "configurationChanged": false
+    },
+    "localMysqlRehearsal": {
+      "status": "not_executed_runtime_start_failed",
+      "reason": "Docker Desktop stopped on a local socket initialization error before its API was available.",
+      "engineStartedForAttemptThenQuit": true,
+      "dockerProcessesRemaining": 0,
+      "imagesPulled": false,
+      "containersCreated": false,
+      "databaseCreated": false,
+      "drupalInstallationExecuted": false,
+      "factoryResetExecuted": false,
+      "diagnosticUploadExecuted": false,
+      "isNotARequiredHostingDependency": true,
+      "nextAction": "Recette MySQL/Drupal sur la lune après qualification et accord du lot, ou autre environnement local réellement disponible."
+    },
+    "temporaryTarget": {
+      "formStillPrepared": true,
+      "submitted": false,
+      "humanDecisionReceived": false
+    },
+    "productionDeploymentExecuted": false,
+    "publicOpeningExecuted": false,
+    "privateEvidenceLocation": ".local/hosting-verification/2026-10-04",
+    "nextAction": "Décision humaine sur l’adresse temporaire ; qualifier DNS/HTTPS/PHP HTTP avant transfert et première installation. Qualifier ensuite le HTTPS officiel."
   }
 }

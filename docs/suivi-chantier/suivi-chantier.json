@@ -1145,8 +1145,9 @@
       "production": {
         "id": "https://tclongages.fr/",
         "ready": false,
-        "evidence": "docs/point-session.md",
-        "observedAt": "2026-10-03T20:34:29.627007+00:00"
+        "evidence": "data/framework-revue-verification.json#hostingContinuation",
+        "observedAt": "2026-10-04T12:08:34.417734+00:00",
+        "limit": "DNS résolu ; chaîne TLS rejetée par le client Windows le 4 octobre. Racine, PHP HTTP, SQL et accès principal restent à qualifier."
       }
     },
     "github": {
@@ -1221,7 +1222,7 @@
       "preprod.tclongages.fr refusé sur la lune : domaine parent détenu par le compte principal. Adresse technique temporaire proposée, sans soumission.",
       "DNS/HTTPS et runtime réellement servi non qualifiés ; base UTF-8 et dix droits dédiés relus, connexion Drupal non testée.",
       "Adaptateur préparé et testé localement ; exécution MySQL/Drupal réelle, recette hébergée et retour arrière non qualifiés.",
-      "Candidat de production et accords exacts de livraison/ouverture non qualifiés."
+      "HTTPS officiel rejeté par la validation stricte du client Windows ; cible et candidat de production, retour arrière et accords de livraison/ouverture non qualifiés."
     ],
     "nextAction": "Décider de la cible temporaire préparée, puis qualifier DNS/HTTPS/PHP HTTP avant présentation du transfert et de la première installation sous maintenance.",
     "nextIteration": [
@@ -1324,6 +1325,12 @@
       "artifactDigest": "826951159f228b2c5bc799d418e1a6728068672a208dd7af3911a44c2a6a305d",
       "technicalReview": "data/framework-revue-verification.json#firstInstallationPreparation",
       "toolPackageSha256": "f7e4f3710ae7b47349b5165f1c769b00ea591b5435b234b09afc86a59bd7356f"
+    },
+    "latestReadOnlyQualification": {
+      "recordedAt": "2026-10-04T12:08:34.417734+00:00",
+      "evidence": "data/framework-revue-verification.json#hostingContinuation",
+      "remoteWriteExecuted": false,
+      "localMysqlRehearsalExecuted": false
     }
   }
 }
