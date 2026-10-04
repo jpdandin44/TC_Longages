@@ -18,10 +18,18 @@ Le [lot d’hébergement](preparer-lune-tc.md#lot-du-compte-principal) est termi
 après accord : racine dédiée fermée, `preprod.tclongages.fr`, DNS public et
 certificat reconnu, PHP CLI/HTTP 8.3.33 avec 18 extensions, base dédiée vide
 UTF-8/InnoDB et dix droits relus. La connexion PDO avec l’utilisateur
-applicatif est testée et refusée (1045). Les archives et outils sont transférés,
+applicatif a d’abord été refusée (1045), puis a réussi après synchronisation
+personnelle du fichier privé enregistré à 19:57:33 UTC. Les archives et outils sont transférés,
 leurs empreintes relues ; Python 3.6.8 a exécuté le plan et l’extraction de
 26 687 fichiers avec contrôle intégral. Le helper PHP 8.3.33 passe le contrôle
-de syntaxe. La racine Drupal reste fermée par Apache.
+de syntaxe. La qualification DNS/HTTPS/PHP HTTP est rafraîchie à 19:59:37 UTC
+avant installation. Drupal 11.4.8 est installé à 20:00:15 UTC, avec un contrôle
+neuf de la maintenance, des courriels neutralisés, de l’inscription réservée à
+l’administration et du cron arrêté. Les pages publiques restent fermées par
+la maintenance ; la [connexion native](https://preprod.tclongages.fr/user/login)
+répond 200 en HTTPS. Le [reçu courant](../data/framework-revue-verification.json#primaryAccountFirstInstallation)
+conserve ces preuves sans secret. La recette connectée et le retour arrière
+ne sont pas attestés par cette seule installation.
 La Lune antérieure reste conservée.
 
 L’[adaptateur](../scripts/first_install.py) et le [profil inactif](../config/first-install.example.json)

@@ -15,6 +15,16 @@ tags:
 
 # Exigences
 
+## Reprise d’une validation devenue historique
+
+Le cockpit doit permettre de reprendre personnellement la revue d’une phase
+locale dont la validation ne couvre plus la version ou le périmètre courant.
+Conserver la décision précédente, les critères et les journaux ; exiger de
+nouvelles preuves puis une nouvelle confirmation avant approbation. La reprise
+ne doit accorder ni préproduction, ni mise en production, ni ouverture.
+L’enregistrement d’une note et celui des cases de recette doivent rester
+distincts et clairement indiqués, sans changer les libellés obligatoires.
+
 ## Recette des comptes et de l’édition — clarification du 4 octobre
 
 Le responsable demande des PR identifiables pour tester la création des comptes,
@@ -43,7 +53,9 @@ et effectué. Les 18 extensions dérivées du verrou Composer/pilote SQL sont
 chargées sous PHP CLI et HTTP 8.3.33. La sélection PHP est partagée au compte.
 La base dédiée vide est en `utf8mb4_unicode_ci`, avec moteur par défaut InnoDB
 et dix droits limités ; les identifiants restent privés et le mot de passe
-est soumis personnellement. La connexion PDO reste à tester lors de l’installation.
+est soumis personnellement. La connexion PDO a réussi après synchronisation
+personnelle du fichier privé ; Drupal est installé en maintenance. La recette
+connectée des comptes et droits reste distincte de ce précontrôle SQL.
 
 L’adaptateur doit lier le rôle, compte, home, racines Composer/Web, base et
 utilisateur SQL du reçu à ceux du profil. Refuser une preuve de Lune, un

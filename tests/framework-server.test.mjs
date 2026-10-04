@@ -108,6 +108,35 @@ test('Une modification des documents retire la validité courante sans effacer l
  await writeFile(resolve(f.root,'docs/suivi-chantier/00-phase.md'),'Document fictif modifié après décision, qui doit invalider la portée de la preuve.');
  const s=await f.state();assert.equal(s.phaseViews[0].validationCurrent,false);assert.equal(s.tracker.decisions.length,2);assert.equal((await f.action('authorize_next')).status,422);
 });
+
+test('Une validation historique peut être reprise explicitement, sans devenir un accord actuel',async t=>{
+ const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
+ await f.action('criteria',{checkedCriteria});await f.action('submit');await f.action('approve',{checkedCriteria});
+ let s=await f.state();const oldDecision=structuredClone(s.tracker.decisions.at(-1));
+ assert.equal(s.phaseViews[0].actions.request_changes,false);
+ const target=resolve(f.root,'docs/suivi-chantier/suivi-chantier.json'),tracker=JSON.parse(await readFile(target,'utf8'));
+ tracker.scope+=' Nouveau périmètre local fictif, à revoir.';await writeFile(target,JSON.stringify(tracker));
+ s=await f.state();assert.equal(s.phaseViews[0].validationCurrent,false);assert.equal(s.phaseViews[0].actions.request_changes,true);
+ assert.equal((await f.action('approve',{checkedCriteria})).status,422);
+ assert.equal((await f.action('request_changes',{confirmed:false})).status,422);
+ assert.equal((await f.action('request_changes')).status,200);s=await f.state();
+ assert.equal(s.tracker.phases[0].status,'in_progress');assert.deepEqual(s.tracker.decisions.at(-1),oldDecision);
+ assert.equal(s.tracker.reviewEvents.at(-1).previousValidationId,oldDecision.id);
+ assert.equal((await f.action('submit')).status,200);assert.equal((await f.action('approve',{checkedCriteria})).status,200);
+ s=await f.state();assert.equal(s.phaseViews[0].validationCurrent,true);assert.equal(s.tracker.decisions.length,3);
+ assert.deepEqual(s.tracker.decisions[1],oldDecision);assert.notEqual(s.tracker.decisions[2].scope,oldDecision.scope);
+});
+
+test('Reprendre la revue conserve les contrôles de candidat et explique la dépendance bloquante',async t=>{
+ const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
+ await f.action('criteria',{checkedCriteria});await f.action('submit');await f.action('approve',{checkedCriteria});
+ const path=resolve(f.root,'docs/suivi-chantier/00-phase.md');await writeFile(path,'Un dossier de cadrage changé depuis la validation, sans nouvelle qualification technique.');
+ let s=await f.state(),view=s.phaseViews[0];assert.match(reviewGuidance(s.tracker.phases[0],view,s.tracker.phases[1]).submit,/Reprendre la revue/);
+ assert.ok(s.phaseViews[1].issues.some(i=>i.includes('phase 0')&&i.includes('Reprendre la revue')));
+ await f.action('request_changes');assert.equal((await f.action('submit')).status,422);s=await f.state();
+ assert.equal(s.phaseViews[0].actions.approve,false);assert.equal(s.phaseViews[0].validationCurrent,false);
+ assert.match(reviewGuidance(s.tracker.phases[0],s.phaseViews[0],s.tracker.phases[1]).submit,/critères et documents actuels/);
+});
 test('Exception locale bornée : démarrage possible, validation et phases distantes toujours verrouillées',async t=>{
  const f=await fixture(t,{bootstrap:true});assert.equal((await f.action('start',{phaseId:1})).status,200);let s=await f.state();assert.equal(s.tracker.phases[0].status,'in_progress');assert.equal(s.tracker.phases[1].status,'in_progress');assert.equal(s.tracker.decisions.at(-1).authorizationKind,'installation_local');
  assert.equal((await f.action('start',{phaseId:2})).status,422);assert.equal((await f.action('approve',{phaseId:1,checkedCriteria:[0,1,2,3]})).status,422);

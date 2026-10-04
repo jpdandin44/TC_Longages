@@ -5,12 +5,33 @@ title: "Phase 0 — Cadrage et audit"
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [framework, phase, revue, gouvernance]
 ---
 
 # Phase 0 — Cadrage et audit
+
+## Périmètre actuel et conservation de la revue antérieure
+
+Ce dossier relève de **Cadrage**, première des quatre phases actuelles.
+Le découpage 0–7 décrit ci-dessous reste historique, avec son mapping dans le
+[suivi canonique](suivi-chantier.json). La validation locale du 29 septembre
+est conservée ; elle ne couvre pas automatiquement l’élargissement du périmètre.
+
+Le responsable a depuis autorisé les lots distincts du compte principal TC
+et de première installation. La préproduction est installée sous maintenance,
+avec SQL fonctionnel et connexion HTTPS native ; le domaine officiel et la
+Lune sont conservés. Les [preuves d’installation](../../data/framework-revue-verification.json#primaryAccountFirstInstallation)
+sont des constats techniques, sans validation de phase ni accord de production.
+Comptes natifs : recette connectée à effectuer. Édition des pages et rôles
+Bureau/Capitaine : absents du ZIP livré, lot fonctionnel à examiner. Avant
+production : sauvegarde/restauration, retour arrière et recette qualifiés.
+
+Le [guide du cockpit](../installation-framework.md) permet une reprise de revue
+personnelle de l’ancienne validation. Préparer les preuves courantes et une
+nouvelle PR conserve les critères obligatoires et l’ancienne décision ; seule
+une nouvelle action humaine peut accepter ce périmètre actualisé.
 
 Le [suivi JSON](suivi-chantier.json) est l’unique source des états, dates et décisions. Ce dossier expose le périmètre et les critères ; sa présence ne constitue pas une remise ou une validation. Les phases 0–7 ne remplacent pas les lots métier G0–G8.
 

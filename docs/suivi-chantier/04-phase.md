@@ -26,7 +26,7 @@ Cette phase exige une cible isolée désignée, un candidat identifié et une au
 
 ## Existant et sources
 
-Le compte principal dispose d’une racine et d’une base propres pour `preprod.tclongages.fr`. Le lot d’environnement est réalisé ; le ZIP Drupal est extrait et vérifié sous fermeture Apache. La première installation reste bloquée par l’authentification SQL. Le [point de session](../point-session.md) et le [reçu d’installation](../../data/framework-revue-verification.json#primaryAccountFirstInstallation) portent la dernière observation. Le [guide Drupal](../installation-drupal.md) centralise la procédure et les écarts avec le local. Le [guide de dépôt de la démonstration](../publier-v1-sous-domaine.md) concerne un paquet statique distinct.
+Le compte principal dispose d’une racine et d’une base propres pour `preprod.tclongages.fr`. Le lot d’environnement est réalisé ; le ZIP Drupal est extrait et vérifié sous fermeture Apache. La première installation a réussi après synchronisation personnelle du mot de passe SQL ; Drupal reste sous maintenance, avec connexion native HTTPS accessible. La recette connectée et le retour arrière restent à conduire. Le [point de session](../point-session.md) et le [reçu d’installation](../../data/framework-revue-verification.json#primaryAccountFirstInstallation) portent la dernière observation. Le [guide Drupal](../installation-drupal.md) centralise la procédure et les écarts avec le local. Le [guide de dépôt de la démonstration](../publier-v1-sous-domaine.md) concerne un paquet statique distinct.
 
 ## Exigences et critères à préparer
 
@@ -62,7 +62,7 @@ Les références de PR et leurs états figurent dans le suivi canonique. Une PR 
 | Élément | Réalisation constatée | Test à effectuer avant acceptation |
 |---|---|---|
 | Utilisateur et droits SQL | Utilisateur dédié et dix privilèges appliqués à la seule base de préproduction ; lot d’environnement documenté. | Connexion de l’application réussie avec le paramètre privé synchronisé. Ces droits SQL ne sont pas les droits des membres du club. |
-| Administrateur Drupal | Création prévue par l’outil de première installation, avec inscription publique désactivée. L’installation n’a pas encore réussi. | Connexion et déconnexion dans Drupal hébergé, création puis désactivation d’un compte de recette, refus des écrans administratifs au visiteur anonyme. |
+| Administrateur Drupal | Créé par la première installation autorisée du 4 octobre, avec inscription publique désactivée et maintenance active. Connexion HTTPS accessible ; recette connectée non encore attestée. | Connexion et déconnexion dans Drupal hébergé, création puis désactivation d’un compte de recette, refus des écrans administratifs au visiteur anonyme. |
 | Bureau et Capitaine | Rôles et restrictions par équipe absents du module Drupal livré. Les anciens prototypes restent distincts. | TBD — préciser le périmètre du lot, développer une PR fonctionnelle, puis vérifier accès autorisés, refus hors équipe et révocation. |
 | Édition des sept pages publiques | `ClubPageController` lit des fichiers HTML hors de la racine Web. Aucun éditeur, contenu Drupal ni révision éditoriale n’est implémenté pour ces pages. | TBD — confirmer le périmètre de l’édition, livrer une PR fonctionnelle et tester sauvegarde, persistance, droits, conflit et retour à une révision. |
 

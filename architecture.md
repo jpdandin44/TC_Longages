@@ -20,25 +20,29 @@ tags:
 La préproduction est configurée dans le compte du domaine officiel, suivant
 le choix humain et le lot explicite [décrits dans le plan](docs/preparer-lune-tc.md).
 `tcl-preproduction/drupal/web` est la seule racine Web de cet hôte ; Composer,
-les dépendances et pages dérivées futurs resteront dans son parent. Le dossier
+les dépendances et pages dérivées sont dans son parent. Le dossier
 `tcl-preproduction/private`, hors webroot et en `0700`, conserve les preuves
-de qualification et recevra les entrées privées après accord d’installation.
+de qualification et les paramètres privés de l’installation autorisée.
 Fichiers et base sont séparés de la production ; les comptes et le PHP sont
 partagés. La Lune antérieure reste conservée.
 
 PHP CLI et HTTP répondent 8.3.33 avec les 18 extensions attendues. Le certificat
-de la seule préproduction est émis par DNS-01. Après le test sans secret,
-Apache refuse de nouveau l’hôte et la sonde ; les fichiers de test sont en
-privé. MariaDB 11.4.13 et la base vide UTF-8/InnoDB sont observés via le SSO
-phpMyAdmin, sans preuve de connexion de l’utilisateur applicatif.
+de la seule préproduction est émis par DNS-01. Drupal 11.4.8 est installé sur
+la base dédiée MariaDB 11.4.13, en UTF-8/InnoDB ; sa connexion applicative a
+réussi après synchronisation du paramètre privé. Apache charge les règles du
+candidat et les protections d’installation ; la maintenance Drupal ferme les
+pages publiques. La connexion native répond 200 en HTTPS, les neuf routes
+publiques contrôlées répondent 503 avec non-indexation. Les sondes restent en
+privé. Le [reçu d’installation](data/framework-revue-verification.json#primaryAccountFirstInstallation)
+conserve l’identité du ZIP, les paramètres de fermeture et la recette anonyme.
 
 L’[adaptateur](scripts/first_install.py) réutilise le vérificateur du ZIP reçu,
 exige le rôle du compte principal TC et lie sept champs d’identité du reçu
 au profil privé. Il refuse la Lune, les hôtes officiels ou techniques et les
 preuves d’un autre compte. Extraction privée, conservation de la racine vide,
-installation PHP fermée et contrôle dans un processus neuf restent le chemin
-préparé. La [procédure](docs/installation-drupal.md) précise la saisie humaine,
-maintenance et limites. Aucun Drupal hébergé ni nouvel accès SSH n’est créé.
+installation PHP fermée et contrôle dans un processus neuf sont exécutés pour
+le lot autorisé. La [procédure](docs/installation-drupal.md) précise la saisie
+humaine, la maintenance et les limites. Aucun nouvel accès SSH n’est créé.
 Les inventaires datés suivants restent historiques.
 
 ## Compte isolé actif et chaîne de préparation — 3 octobre

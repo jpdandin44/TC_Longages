@@ -101,8 +101,11 @@ function proofIssues(state,p) {
     const refs=context?.[key];
     if(!Array.isArray(refs)||!refs.length||!refs.every(id=>state.tracker[source].some(e=>e.id===id&&e.phaseId===p.id&&e.status==='passed'&&hasEvidenceContext(e)&&e.environment==='local'&&e.sourceCommit===context.sourceCommit&&e.artifactDigest===context.artifactDigest))) issues.push(key==='evidenceRefs'?'Les preuves locales correspondant à ce candidat sont manquantes.':'Les résultats de tests correspondant à ce candidat sont manquants.');
   }
-  if(p.blockers.length) issues.push('Des blocages de cette phase restent ouverts.');
-  if(!p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id]))) issues.push('Les phases précédentes doivent être validées sur leurs versions actuelles.');
+  for(const blocker of p.blockers) issues.push('Blocage déclaré : '+blocker);
+  for(const id of p.dependsOn) if(!currentValidation(state,state.tracker.phases[id])) {
+    const previous=state.tracker.phases[id],label=state.tracker.phaseModel?.labels?.[id]||previous.title;
+    issues.push('La phase '+id+' « '+label+' » doit être validée sur son périmètre et sa version actuels.'+(previous.status==='validated'?' Son ancienne décision est conservée ; ouvrez cette phase et utilisez « Reprendre la revue ».':''));
+  }
   return issues;
 }
 export function recoverReviewDraft(draft,tracker,profile) {
@@ -120,7 +123,7 @@ export function phaseView(state,p) {
   const approvable=local&&p.status==='awaiting_review'&&!issues.length&&checked.length===p.exitCriteria.length;
   const i=state.installation, installationDecision=state.tracker.decisions.find(d=>d.id===i?.authorization?.id&&d.type==='installation_authorization'&&d.status==='approved'&&d.environment==='local'&&d.project===state.tracker.project);
   const bootstrap=local&&i?.project==='tclongages'&&i.status==='active'&&i.environment==='local'&&i.allowedPhaseIds?.includes(p.id)&&i.allowedPhaseIds.every(id=>Number.isInteger(id)&&id>=0&&id<=1)&&Date.parse(i.activatedAt)<=Date.now()&&Date.parse(i.expiresAt)>Date.now()&&Date.parse(i.expiresAt)<=Date.parse(installationDecision?.expiresAt)&&state.profile.project.humanApprovers.includes(i.authorization?.actor)&&installationDecision?.actor===i.authorization.actor&&installationDecision?.sourceRef===i.authorization.sourceRef&&installationDecision?.scope===i.authorization.scope&&i.protections?.remoteExposureAllowed===false&&i.protections?.deployAllowed===false&&i.protections?.csrfRequired===true&&i.protections?.revisionCheckRequired===true&&i.protections?.secretProtectionRequired===true;
-  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:!!bootstrap,validationCurrent:currentValidation(state,p),actions:{submit:local&&p.status==='in_progress'&&!issues.length,approve:approvable,authorize_next:local&&p.id<1&&currentValidation(state,p)&&!state.tracker.phases[p.id+1].startEvidence,start:local&&p.status==='not_started'&&(!!bootstrap||(!!authorized&&p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id])))),request_changes:local&&p.status==='awaiting_review'},external:!local};
+  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:!!bootstrap,validationCurrent:currentValidation(state,p),actions:{submit:local&&p.status==='in_progress'&&!issues.length,approve:approvable,authorize_next:local&&p.id<1&&currentValidation(state,p)&&!state.tracker.phases[p.id+1].startEvidence,start:local&&p.status==='not_started'&&(!!bootstrap||(!!authorized&&p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id])))),request_changes:local&&(p.status==='awaiting_review'||(p.status==='validated'&&!currentValidation(state,p)))},external:!local};
 }
 export async function createReviewStore(root,{regenerate}={}) {
   root=await realpath(root);
@@ -155,7 +158,11 @@ export async function createReviewStore(root,{regenerate}={}) {
       } else {
         required(Object.hasOwn(v.actions,request.action)&&v.actions[request.action],'Action indisponible : '+(v.external?'les opérations distantes restent hors de ce moteur.':v.issues.join(' ')||'vérifiez l’état de la phase et les critères.'));
         if(request.action==='submit') {p.status='awaiting_review';p.deliveredOn=now.slice(0,10); t.reviewEvents.push({...event,...binding(state,p),type:'submitted'});}
-        if(request.action==='request_changes') {p.status='in_progress';t.reviewEvents.push({...event,type:'changes_requested'});}
+        if(request.action==='request_changes') {
+          const previousValidationId=p.status==='validated'?p.validationEvidence?.decisionId:null;
+          p.status='in_progress';
+          t.reviewEvents.push({...event,type:'changes_requested',...(previousValidationId?{previousValidationId}:{} )});
+        }
         if(request.action==='approve') {
           required(Array.isArray(request.checkedCriteria)&&request.checkedCriteria.length===p.exitCriteria.length&&p.exitCriteria.every((_,i)=>request.checkedCriteria.includes(i)),'Confirmez chaque critère de cette revue.');
           t.decisions.push({...event,...binding(state,p),type:'validation',status:'approved',checkedCriteria:request.checkedCriteria});

@@ -22,16 +22,19 @@ Le lot du compte principal TC est explicitement autorisé puis terminé le
 PHP CLI/HTTP 8.3.33 et 18 extensions, base vide UTF-8 et dix droits SQL relus.
 Le PHP est partagé au compte ; la page d’attente officielle est conservée.
 La Lune reste active, avec ses ressources. Le [reçu courant](data/framework-revue-verification.json#hostingPrimaryConfiguration)
-porte les résultats, la limite du résolveur du poste et la distinction entre
-inspection SQL et connexion applicative non testée.
+porte les résultats datés de configuration ; les preuves d’installation
+et de connexion applicative sont désormais distinctes.
 
-L’[outil de première installation](docs/installation-drupal.md) est adapté au
-compte principal et testé localement sur Linux. Prochaine étape : examiner
-le candidat d’outillage puis autoriser le transfert et l’installation sous
-maintenance du même ZIP Drupal reçu, avec paramètres privés fournis
-personnellement. Recette hébergée, sauvegarde/restauration, livraison et
-ouverture restent à réaliser. Le [point courant](docs/point-session.md) porte
-la reprise exacte ; aucun site Drupal distant n’est installé.
+Après l’accord de première installation et la synchronisation personnelle
+du mot de passe SQL, **Drupal 11.4.8 est installé en préproduction** avec le
+ZIP source `49b4ef7` inchangé. La [connexion HTTPS](https://preprod.tclongages.fr/user/login)
+est disponible ; les pages publiques restent en maintenance et non indexables.
+Les courriels sont neutralisés et l’inscription libre désactivée. Le
+[reçu d’installation](data/framework-revue-verification.json#primaryAccountFirstInstallation)
+porte les résultats réels. Recette connectée, édition des pages et rôles métier,
+sauvegarde/restauration puis retour arrière restent à traiter avant production.
+Le [point courant](docs/point-session.md) porte la reprise exacte ; le domaine
+officiel et la Lune sont conservés.
 
 La reprise du 3 octobre confirme la fusion humaine de la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5). L'Action de construction a réussi sur le commit de fusion ; le ZIP reçu a été vérifié intégralement sur le poste. Le [reçu de préparation](data/actions-mutualisees-verification.json), rubrique `postMergeBuild`, identifie ce candidat non configuré. Aucun déploiement ne découle du merge.
 
