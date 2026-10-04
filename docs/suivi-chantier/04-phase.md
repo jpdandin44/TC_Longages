@@ -26,7 +26,7 @@ Cette phase exige une cible isolée désignée, un candidat identifié et une au
 
 ## Existant et sources
 
-Aucune cible native de préproduction n’est qualifiée pour le club. La lecture cPanel a identifié la cible du domaine et ses prérequis ; elle n’établit pas un environnement isolé prêt à recevoir le candidat. Le [guide Drupal](../installation-drupal.md) centralise les constats d’hébergement et les écarts avec l’installation locale. Le [guide de dépôt de la démonstration](../publier-v1-sous-domaine.md) concerne un paquet statique sans authentification ou collecte.
+Le compte principal dispose d’une racine et d’une base propres pour `preprod.tclongages.fr`. Le lot d’environnement est réalisé ; le ZIP Drupal est extrait et vérifié sous fermeture Apache. La première installation reste bloquée par l’authentification SQL. Le [point de session](../point-session.md) et le [reçu d’installation](../../data/framework-revue-verification.json#primaryAccountFirstInstallation) portent la dernière observation. Le [guide Drupal](../installation-drupal.md) centralise la procédure et les écarts avec le local. Le [guide de dépôt de la démonstration](../publier-v1-sous-domaine.md) concerne un paquet statique distinct.
 
 ## Exigences et critères à préparer
 
@@ -55,7 +55,18 @@ Ces cases décrivent la revue à conduire ; leur affichage n’enregistre aucune
 
 ## Revue et PR
 
-La référence de PR et les dates de remise figurent uniquement dans le suivi. Aucune PR n’est attestée à l’initialisation. Préparer une PR lors du passage en revue, après lecture du dépôt communiqué ; conserver les commentaires, la version relue et les décisions humaines. Le merge reste humain.
+Les références de PR et leurs états figurent dans le suivi canonique. Une PR de configuration de l’hébergement et une PR d’installation ne prouvent pas l’existence de comptes métier ou d’un éditeur. Conserver les commentaires, la version relue et les décisions humaines. Le merge reste humain.
+
+### Périmètre du critère « Comptes, droits et édition vérifiés si applicables »
+
+| Élément | Réalisation constatée | Test à effectuer avant acceptation |
+|---|---|---|
+| Utilisateur et droits SQL | Utilisateur dédié et dix privilèges appliqués à la seule base de préproduction ; lot d’environnement documenté. | Connexion de l’application réussie avec le paramètre privé synchronisé. Ces droits SQL ne sont pas les droits des membres du club. |
+| Administrateur Drupal | Création prévue par l’outil de première installation, avec inscription publique désactivée. L’installation n’a pas encore réussi. | Connexion et déconnexion dans Drupal hébergé, création puis désactivation d’un compte de recette, refus des écrans administratifs au visiteur anonyme. |
+| Bureau et Capitaine | Rôles et restrictions par équipe absents du module Drupal livré. Les anciens prototypes restent distincts. | TBD — préciser le périmètre du lot, développer une PR fonctionnelle, puis vérifier accès autorisés, refus hors équipe et révocation. |
+| Édition des sept pages publiques | `ClubPageController` lit des fichiers HTML hors de la racine Web. Aucun éditeur, contenu Drupal ni révision éditoriale n’est implémenté pour ces pages. | TBD — confirmer le périmètre de l’édition, livrer une PR fonctionnelle et tester sauvegarde, persistance, droits, conflit et retour à une révision. |
+
+Le responsable signale le 4 octobre qu’il ne peut pas tester et approuver ces éléments sans PR. Le rattachement des PR existantes est corrigé dans le suivi ; le périmètre fonctionnel supplémentaire attend sa réponse. Le libellé obligatoire est conservé. Aucun « non applicable », résultat réussi ou accord de report n’est déduit de l’absence de fonctionnalité. Ce critère reste à vérifier.
 
 ## Réserves et prochaine étape
 

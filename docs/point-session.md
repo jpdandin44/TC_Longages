@@ -51,6 +51,22 @@ production. Aucun accord de production ou d’ouverture n’est ajouté.
 
 Les sections suivantes conservent les constats historiques de la reprise.
 
+## Réserve de recette — comptes, droits et édition
+
+Le responsable demande une PR permettant de tester et approuver ce périmètre.
+Le [dossier de préproduction](suivi-chantier/04-phase.md)
+distingue les droits SQL appliqués, l’administrateur prévu à l’installation,
+les rôles Bureau/Capitaine absents et l’édition des pages absente. Les PR
+existantes sont rattachées à la phase 2 dans le suivi canonique ; elles ne
+couvrent pas un éditeur ni les rôles métier. Le libellé obligatoire de la case
+reste inchangé, sans validation ni report automatique.
+
+TBD — réponse du responsable sur le périmètre à livrer avant production :
+administrateur et édition des pages, ajout des rôles métier, ou report explicite
+à une autre itération. Préparer une PR fonctionnelle et sa recette selon cette
+réponse. L’ancien ZIP de site et le paquet des outils restent identifiés
+séparément ; un futur changement applicatif exige son propre candidat.
+
 ## Lot du compte principal terminé — 4 octobre
 
 La PR #7 est fusionnée personnellement sur `f6785bc` après ses quatre

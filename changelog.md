@@ -14,6 +14,15 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Périmètre de recette des comptes rendu explicite
+
+- Rattachement des PR d’environnement et d’installation préparé dans la phase
+  Préproduction ; critère obligatoire conservé sans approbation automatique.
+- Dossier de recette précisé : droits SQL, administrateur Drupal prévu,
+  rôles Bureau/Capitaine et édition des pages encore absents du paquet V1.
+- Tests attendus et périmètre supplémentaire à confirmer consignés. Une PR
+  de configuration ne devient pas une preuve d’édition fonctionnelle.
+
 ## 2026-10-04 — Configuration principale terminée et garde d’installation adaptée
 
 - Accord distinct reçu après fusion humaine de la PR #7 ; lot principal appliqué.

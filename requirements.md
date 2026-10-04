@@ -15,6 +15,17 @@ tags:
 
 # Exigences
 
+## Recette des comptes et de l’édition — clarification du 4 octobre
+
+Le responsable demande des PR identifiables pour tester la création des comptes,
+leurs droits et l’édition avant approbation. Le [dossier de préproduction](docs/suivi-chantier/04-phase.md)
+précise la réalisation constatée et les essais attendus. L’utilisateur SQL,
+l’administrateur Drupal et les comptes métier du club ont des rôles distincts.
+Le paquet V1 actuel n’inclut ni rôles Bureau/Capitaine ni édition des sept pages
+dans Drupal. TBD — périmètre de la PR fonctionnelle à confirmer ; aucun accord
+de report ni caractère non applicable n’est supposé. Préserver le libellé
+« Comptes, droits et édition vérifiés si applicables » dans la checklist.
+
 ## Transport et choix de compte — correction du 4 octobre
 
 La préproduction doit disposer d'un HTTPS reconnu. L'adresse technique
