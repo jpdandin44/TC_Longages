@@ -26,7 +26,7 @@ export async function startFrameworkServer({root=projectRoot,port=4181,regenerat
       if(req.method==='GET'&&path==='/') return send(200,renderShell(token),'text/html; charset=utf-8');
       if(req.method==='GET'&&path==='/app.js') return send(200,clientScript,'text/javascript; charset=utf-8');
       if(req.method==='GET'&&path==='/app.css') return send(200,styles,'text/css; charset=utf-8');
-      if(req.method==='GET'&&/^\/documents\/[0-7]\/\d+$/.test(path)) {
+      if(req.method==='GET'&&/^\/documents\/[0-3]\/\d+$/.test(path)) {
         const [, ,phase,index]=path.split('/'),state=await store.read(),doc=state.documents.find(d=>d.phaseId===Number(phase)&&d.index===Number(index));
         if(!doc)throw new ReviewError('Document inconnu.',404);return send(200,documentPage(doc),'text/html; charset=utf-8');
       }

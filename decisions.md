@@ -343,3 +343,7 @@ Le responsable autorise le lot PHP/racine/domaine/base sur la lune, puis les dix
 **Raison.** Faciliter la maintenance et éviter qu'une démonstration de gestion locale soit déposée par erreur sur l'hébergement.
 
 **Conséquence.** Les sorties générées sont dérivées ; toute correction part des sources. Le nouveau HTML ne correspond pas nécessairement à l'empreinte historique. Aucun contenu éditorial privé du navigateur n'est inclus dans la vitrine préparée.
+
+## 2026-10-04 — Regroupement du suivi en quatre phases
+
+À la demande du responsable, le cockpit applique le modèle du skill commun : Cadrage, Développement local, Préproduction et Mise en production. Les anciennes phases sont conservées en instantané : 0 → 0 ; 1–3 → 1 ; 4–5 → 2 ; 6–7 → 3. Les décisions, commentaires et libellés obligatoires gardent leur portée. Le brouillon personnel est restitué avec confirmation à renouveler ; aucune approbation n’est créée. Les observations d’hébergement sont distinctes des validations humaines.

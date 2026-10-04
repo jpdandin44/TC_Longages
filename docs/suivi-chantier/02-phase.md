@@ -5,7 +5,7 @@ title: "Phase 2 — Réalisation par lots"
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [framework, phase, revue, gouvernance]
 ---
@@ -13,6 +13,8 @@ tags: [framework, phase, revue, gouvernance]
 # Phase 2 — Réalisation par lots
 
 Le [suivi JSON](suivi-chantier.json) est l’unique source des états, dates et décisions. Ce dossier expose le périmètre et les critères ; sa présence ne constitue pas une remise ou une validation. Les phases 0–7 ne remplacent pas les lots métier G0–G8.
+
+Ce dossier conserve l’ancien identifiant 2 ; il appartient désormais à la phase commune 1. Les critères et décisions historiques gardent leur portée. Le [suivi canonique](suivi-chantier.json) conserve le mapping.
 
 ## Objectif
 

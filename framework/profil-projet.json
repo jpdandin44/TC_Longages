@@ -4,7 +4,7 @@
   "documentType": "framework-project-profile",
   "template": false,
   "created": "2026-09-29",
-  "updated": "2026-09-29",
+  "updated": "2026-10-04",
   "owner": "jpdandin",
   "project": {
     "id": "tclongages",
@@ -35,8 +35,8 @@
   "profile": {
     "kind": "web",
     "runtimeAdapter": "Node.js pour V1 et suivi4181 ; Drupal11.4.8/PHP8.4.23 local4182",
-    "hostingAdapter": "o2switch inspecté en lecture seule ; Drupal dédié hébergé à préparer, PHP/SSL à adapter",
-    "databaseAdapter": "SQLite locale privée ; MySQL/MariaDB hébergé à qualifier",
+    "hostingAdapter": "Compte principal TC : préproduction fermée configurée et qualifiée le 4 octobre ; Drupal distant non installé.",
+    "databaseAdapter": "SQLite locale privée ; MariaDB 11.4.13, base dédiée vide UTF-8/InnoDB observée en SSO ; PDO applicatif à qualifier.",
     "identityAdapter": "Drupal dédié au club retenu ; connexion hébergée et rôles métier à qualifier",
     "docker": "to_decide",
     "trackerEngine": {
@@ -91,15 +91,17 @@
     "preproduction": {
       "kind": "preproduction",
       "required": true,
-      "status": "not_configured",
-      "url": null,
-      "runtime": null,
-      "database": null,
-      "storage": null,
-      "secretScope": null,
+      "status": "configured_unverified",
+      "url": "https://preprod.tclongages.fr/",
+      "runtime": "PHP CLI/HTTP 8.3.33, 18 extensions qualifiées ; Python 3.6.8 disponible, adaptateur non exécuté sur serveur.",
+      "database": "Base dédiée vide : MariaDB 11.4.13, utf8mb4_unicode_ci, InnoDB ; utilisateur personnel et dix droits relus, connexion applicative non testée.",
+      "storage": "tcl-preproduction/drupal/web fermé ; stockage privé hors webroot. Même compte, fichiers et base séparés.",
+      "secretScope": "Paramètres TC propres au compte principal, saisis personnellement ; aucun secret AVEREO ou de la lune réutilisé.",
       "dataPolicy": "synthetic_or_sanitized",
       "outboundPolicy": "disabled",
-      "evidenceRefs": []
+      "evidenceRefs": [
+        "data/framework-revue-verification.json#hostingPrimaryConfiguration"
+      ]
     },
     "restore_rehearsal": {
       "kind": "restore_rehearsal",
@@ -119,7 +121,7 @@
       "required": true,
       "status": "not_configured",
       "url": "https://tclongages.fr/",
-      "runtime": "Constat cPanel29/09 : PHPnative8.1, certificat autosigné ; Drupal distant non installé",
+      "runtime": "PHP du compte partagé passé à 8.3 après accord le 4 octobre ; page d’attente conservée, TLS officiel et Drupal de production non qualifiés.",
       "database": null,
       "storage": "Racine actuelle observée dans cPanel ; chemin exact privé, nouvelle racine Drupal à qualifier",
       "secretScope": null,

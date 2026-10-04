@@ -22,13 +22,17 @@ export function validateInteractiveState(profile,tracker) {
   if(profile?.project?.id!=='tclongages'||tracker?.project!=='tclongages'||tracker?.template!==false||profile?.template!==false) errors.push('Projet incorrect.');
   if(profile?.profile?.trackerEngine?.remoteExposureAllowed!==false||profile?.governance?.deployOnPush!==false||profile?.governance?.deployOnMerge!==false||profile?.delivery?.openPublicAutomatically!==false) errors.push('Exposition ou livraison automatique interdite.');
   if(Object.values(tracker.publication||{}).some(Boolean)||Object.values(tracker.release||{}).some(Boolean)) errors.push('Ce moteur local ne peut pas attester une livraison.');
-  if(tracker.phases?.length!==8||tracker.phases.some((p,i)=>p.id!==i||!Array.isArray(p.exitCriteria)||!p.exitCriteria.length||!['not_started','in_progress','awaiting_review','validated','blocked'].includes(p.status))) errors.push('Huit phases ordonnées avec critères sont requises.');
+  if(tracker.phases?.length!==4||tracker.phases.some((p,i)=>p.id!==i||!Array.isArray(p.exitCriteria)||!p.exitCriteria.length||!['not_started','in_progress','awaiting_review','validated','blocked'].includes(p.status))) errors.push('Quatre phases ordonnées avec critères sont requises.');
   const ids=tracker.decisions?.map(d=>d.id)||[]; if(new Set(ids).size!==ids.length) errors.push('Décision dupliquée.');
   if(tracker.decisions?.some(d=>d.status==='approved'&&['production_deployment','public_opening'].includes(d.type))) errors.push('Une autorisation distante ne peut pas être attestée par ce moteur local.');
   if([...(tracker.evidence||[]),...(tracker.testRuns||[])].some(e=>e.status==='passed'&&!hasEvidenceContext(e))) errors.push('Preuve réussie sans contexte suffisant : commit, date, auteur, référence et résultat effectif requis.');
   for(const phase of tracker.phases||[]) {
     if(phase.dependsOn.some(id=>!Number.isInteger(id)||id<0||id>=phase.id)) errors.push('Dépendance invalide.');
-    if(phase.id>3 && (phase.status!=='not_started'||phase.startEvidence||phase.validationEvidence)) errors.push('Les phases distantes ne peuvent pas être activées par ce moteur.');
+    if(phase.id>=2) {
+      const observation=phase.observedExecution;
+      const observed=['in_progress','blocked'].includes(phase.status)&&observation?.source==='hosting_observation'&&observation.environment===(phase.id===2?'preproduction':'production')&&observation.status===phase.status&&Number.isFinite(Date.parse(observation.recordedAt))&&typeof observation.evidence==='string'&&observation.evidence.trim()&&typeof observation.authorizationRef==='string'&&observation.authorizationRef.trim();
+      if((phase.status!=='not_started'&&!observed)||phase.startEvidence||phase.validationEvidence||phase.startedOn||phase.validatedOn) errors.push('Les phases distantes exigent des observations distinctes ; ce moteur ne les autorise ni ne les valide.');
+    }
     if(phase.status==='validated' && !tracker.decisions.some(d=>d.id===phase.validationEvidence?.decisionId&&d.type==='validation'&&d.phaseId===phase.id&&d.status==='approved'&&d.environment==='local'&&profile.project.humanApprovers.includes(d.actor)&&d.identityMode==='local_declared_not_authenticated'&&d.comment&&d.documentDigest&&d.criteriaDigest&&sha(d.sourceCommit)&&fingerprint(d.artifactDigest))) errors.push('Validation sans décision locale complète.');
     if(phase.id>0 && phase.startedOn && !tracker.decisions.some(d=>d.id===phase.startEvidence?.decisionId&&d.type==='authorization'&&d.phaseId===phase.id&&d.status==='approved')) errors.push('Démarrage sans autorisation.');
   }
@@ -65,7 +69,13 @@ export async function loadReviewState(root) {
     }
   }
   const revision=hash({tracker,profile,installation,reviewPolicy,candidateChecks,documents:documents.map(({content,...rest})=>rest)});
-  const state={tracker,profile,installation,reviewPolicy,candidateChecks,documents,revision};
+  let recoveredDraft=null;
+  try {
+    const draft=await json(await contained(root,resolve(root,'.local/framework-review-draft.json')));
+    const humanStateDigest=hash({decisions:tracker.decisions,history:tracker.history,reviewEvents:tracker.reviewEvents,reviewCommentResponses:tracker.reviewCommentResponses});
+    if(draft.humanStateDigest===humanStateDigest&&Date.parse(draft.capturedAt)>Date.now()-86400000) recoveredDraft=recoverReviewDraft(draft,tracker,profile);
+  } catch(error) {if(error.code!=='ENOENT'&&!(error instanceof SyntaxError)) throw error;}
+  const state={tracker,profile,installation,reviewPolicy,candidateChecks,documents,revision,recoveredDraft};
   return {...state,phaseViews:tracker.phases.map(p=>phaseView(state,p))};
 }
 function binding(state,phase) {
@@ -95,16 +105,22 @@ function proofIssues(state,p) {
   if(!p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id]))) issues.push('Les phases précédentes doivent être validées sur leurs versions actuelles.');
   return issues;
 }
+export function recoverReviewDraft(draft,tracker,profile) {
+  const phase=tracker.phases.find(p=>p.id===draft.phaseId);
+  if(!phase||!profile.project.humanApprovers.includes(draft.actor)||typeof draft.comment!=='string'||draft.comment.length>6000||!Array.isArray(draft.criteria)||!draft.criteria.length||draft.criteria.some((c,i)=>c.label!==phase.exitCriteria[i]||typeof c.checked!=='boolean')) return null;
+  const followups=Array.isArray(draft.followups)?draft.followups.filter(f=>tracker.reviewEvents.some(e=>e.id===f.id&&e.type==='comment'&&e.phaseId===phase.id)&&['read','in_progress','needs_decision','resolved'].includes(f.status)&&typeof f.comment==='string'&&f.comment.length<=6000&&typeof f.evidence==='string'&&f.evidence.length<=2000):[];
+  return {phaseId:phase.id,comment:draft.comment,actor:draft.actor,checked:draft.criteria.flatMap((c,i)=>c.checked?[i]:[]),confirmed:false,followups};
+}
 export function phaseView(state,p) {
-  const issues=proofIssues(state,p), local=p.id<=3;
+  const issues=proofIssues(state,p), local=p.id<=1;
   const initial=p.id===0&&p.startEvidence?.decisionId===state.profile.project.initialAuthorizationRef;
   const authorization=state.tracker.decisions.find(d=>d.id===p.startEvidence?.decisionId&&d.type==='authorization'&&d.status==='approved');
   const authorized=initial||(authorization&&Object.entries(binding(state,p)).every(([k,v])=>authorization[k]===v));
   const checked=state.tracker.reviewEvents.filter(e=>e.type==='criteria_checked'&&e.phaseId===p.id&&e.criteriaDigest===hash(p.exitCriteria)&&e.documentDigest===binding(state,p).documentDigest).at(-1)?.checkedCriteria||[];
   const approvable=local&&p.status==='awaiting_review'&&!issues.length&&checked.length===p.exitCriteria.length;
   const i=state.installation, installationDecision=state.tracker.decisions.find(d=>d.id===i?.authorization?.id&&d.type==='installation_authorization'&&d.status==='approved'&&d.environment==='local'&&d.project===state.tracker.project);
-  const bootstrap=i?.project==='tclongages'&&i.status==='active'&&i.environment==='local'&&i.allowedPhaseIds?.includes(p.id)&&i.allowedPhaseIds.every(id=>Number.isInteger(id)&&id>=0&&id<=3)&&Date.parse(i.activatedAt)<=Date.now()&&Date.parse(i.expiresAt)>Date.now()&&Date.parse(i.expiresAt)<=Date.parse(installationDecision?.expiresAt)&&state.profile.project.humanApprovers.includes(i.authorization?.actor)&&installationDecision?.actor===i.authorization.actor&&installationDecision?.sourceRef===i.authorization.sourceRef&&installationDecision?.scope===i.authorization.scope&&i.protections?.remoteExposureAllowed===false&&i.protections?.deployAllowed===false&&i.protections?.csrfRequired===true&&i.protections?.revisionCheckRequired===true&&i.protections?.secretProtectionRequired===true;
-  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:!!bootstrap,validationCurrent:currentValidation(state,p),actions:{submit:local&&p.status==='in_progress'&&!issues.length,approve:approvable,authorize_next:local&&p.id<3&&currentValidation(state,p)&&!state.tracker.phases[p.id+1].startEvidence,start:local&&p.status==='not_started'&&(!!bootstrap||(!!authorized&&p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id])))),request_changes:local&&p.status==='awaiting_review'},external:!local};
+  const bootstrap=local&&i?.project==='tclongages'&&i.status==='active'&&i.environment==='local'&&i.allowedPhaseIds?.includes(p.id)&&i.allowedPhaseIds.every(id=>Number.isInteger(id)&&id>=0&&id<=1)&&Date.parse(i.activatedAt)<=Date.now()&&Date.parse(i.expiresAt)>Date.now()&&Date.parse(i.expiresAt)<=Date.parse(installationDecision?.expiresAt)&&state.profile.project.humanApprovers.includes(i.authorization?.actor)&&installationDecision?.actor===i.authorization.actor&&installationDecision?.sourceRef===i.authorization.sourceRef&&installationDecision?.scope===i.authorization.scope&&i.protections?.remoteExposureAllowed===false&&i.protections?.deployAllowed===false&&i.protections?.csrfRequired===true&&i.protections?.revisionCheckRequired===true&&i.protections?.secretProtectionRequired===true;
+  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:!!bootstrap,validationCurrent:currentValidation(state,p),actions:{submit:local&&p.status==='in_progress'&&!issues.length,approve:approvable,authorize_next:local&&p.id<1&&currentValidation(state,p)&&!state.tracker.phases[p.id+1].startEvidence,start:local&&p.status==='not_started'&&(!!bootstrap||(!!authorized&&p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id])))),request_changes:local&&p.status==='awaiting_review'},external:!local};
 }
 export async function createReviewStore(root,{regenerate}={}) {
   root=await realpath(root);

@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {resolve,sep} from 'node:path';
 import {request} from 'node:http';
 import {startFrameworkServer,projectRoot} from '../scripts/framework-server.mjs';
-import {hash,validateInteractiveState} from '../scripts/framework-store.mjs';
+import {hash,validateInteractiveState,recoverReviewDraft} from '../scripts/framework-store.mjs';
 import {safeProjectUrl,reviewGuidance,retainedReviewDraft,clientScript} from '../scripts/framework-ui.mjs';
 import {Script} from 'node:vm';
 
@@ -16,7 +16,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
  const profile=JSON.parse(await readFile(resolve(projectRoot,'framework/profil-projet.json'),'utf8'));
  const tracker=JSON.parse(await readFile(resolve(projectRoot,'docs/suivi-chantier/suivi-chantier.json'),'utf8'));
  tracker.reviewEvents=[];tracker.reviewCommentResponses=[];tracker.history=[];tracker.decisions=tracker.decisions.filter(d=>d.id===profile.project.initialAuthorizationRef);tracker.evidence=[];tracker.testRuns=[];
- tracker.phases.forEach(p=>{p.status=p.id===0?'in_progress':'not_started';p.blockers=[];p.deliveredOn=null;p.validatedOn=null;p.validationEvidence=null;p.reviewContext=null;if(p.id>0){p.startEvidence=null;p.startedOn=null;p.authorizedOn=null;}});
+ tracker.phases.forEach(p=>{delete p.observedExecution;p.status=p.id===0?'in_progress':'not_started';p.blockers=[];p.deliveredOn=null;p.validatedOn=null;p.validationEvidence=null;p.reviewContext=null;if(p.id>0){p.startEvidence=null;p.startedOn=null;p.authorizedOn=null;}});
  for(const p of tracker.phases) for(const d of p.deliverables) await writeFile(resolve(root,'docs/suivi-chantier',d.path),'---\nowner: jpdandin\n---\n\n# Dossier de test fictif\n\n'+p.title+' : contenu fictif détaillé, isolé du vrai dossier.');
  if(qualified) {
    const p=tracker.phases[0],doc=await readFile(resolve(root,'docs/suivi-chantier',p.deliverables[0].path),'utf8');
@@ -26,7 +26,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
    tracker.testRuns.push({...tracker.evidence[0],id:'T1'});
  }
  await writeFile(resolve(root,'framework/profil-projet.json'),JSON.stringify(profile));
- if(bootstrap){const expiresAt=new Date(Date.now()+60000).toISOString(),authorization={id:'test-authorized',actor:'jpdandin',sourceRef:'test-only',scope:'Installation locale fictive'};tracker.decisions.push({...authorization,type:'installation_authorization',status:'approved',project:'tclongages',environment:'local',expiresAt});await writeFile(resolve(root,'framework/installation.json'),JSON.stringify({project:'tclongages',status:'active',environment:'local',allowedPhaseIds:[0,1,2,3],activatedAt:new Date().toISOString(),expiresAt,authorization,protections:{remoteExposureAllowed:false,deployAllowed:false,csrfRequired:true,revisionCheckRequired:true,secretProtectionRequired:true}}));}
+ if(bootstrap){const expiresAt=new Date(Date.now()+60000).toISOString(),authorization={id:'test-authorized',actor:'jpdandin',sourceRef:'test-only',scope:'Installation locale fictive'};tracker.decisions.push({...authorization,type:'installation_authorization',status:'approved',project:'tclongages',environment:'local',expiresAt});await writeFile(resolve(root,'framework/installation.json'),JSON.stringify({project:'tclongages',status:'active',environment:'local',allowedPhaseIds:[0,1],activatedAt:new Date().toISOString(),expiresAt,authorization,protections:{remoteExposureAllowed:false,deployAllowed:false,csrfRequired:true,revisionCheckRequired:true,secretProtectionRequired:true}}));}
  await writeFile(resolve(root,'docs/suivi-chantier/suivi-chantier.json'),JSON.stringify(tracker));
  const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests});
  t.after(async()=>{await app.close();assert.ok(root.startsWith(resolve(tmpdir())+sep));await rm(root,{recursive:true,force:true});});
@@ -38,7 +38,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
  return {app,root,headers,token,state,post,action};
 }
 test('Le serveur reste local, permet la lecture déclarée et refuse les routes privées',async t=>{
- const f=await fixture(t);assert.equal(f.app.server.address().address,'127.0.0.1');assert.equal((await f.state()).tracker.phases.length,8);
+ const f=await fixture(t);assert.equal(f.app.server.address().address,'127.0.0.1');assert.equal((await f.state()).tracker.phases.length,4);
  assert.equal((await fetch(f.app.origin+'/documents/0/0')).status,200);
  for(const path of ['/framework/profil-projet.json','/.local/framework-runtime.lock','/api/deploy','/documents/0/99','/api/state?x=1'])assert.equal((await fetch(f.app.origin+path)).status,404);
  assert.equal((await fetch(f.app.origin+'/api/state')).status,403);
@@ -110,7 +110,7 @@ test('Une modification des documents retire la validité courante sans effacer l
 });
 test('Exception locale bornée : démarrage possible, validation et phases distantes toujours verrouillées',async t=>{
  const f=await fixture(t,{bootstrap:true});assert.equal((await f.action('start',{phaseId:1})).status,200);let s=await f.state();assert.equal(s.tracker.phases[0].status,'in_progress');assert.equal(s.tracker.phases[1].status,'in_progress');assert.equal(s.tracker.decisions.at(-1).authorizationKind,'installation_local');
- assert.equal((await f.action('start',{phaseId:4})).status,422);assert.equal((await f.action('approve',{phaseId:1,checkedCriteria:[0,1,2,3]})).status,422);
+ assert.equal((await f.action('start',{phaseId:2})).status,422);assert.equal((await f.action('approve',{phaseId:1,checkedCriteria:[0,1,2,3]})).status,422);
  const path=resolve(f.root,'framework/installation.json'),i=JSON.parse(await readFile(path,'utf8'));i.expiresAt='2020-01-01T00:00:00.000Z';await writeFile(path,JSON.stringify(i));assert.equal((await f.action('start',{phaseId:2})).status,422);
  i.status='secured';await writeFile(path,JSON.stringify(i));s=await f.state();assert.equal(s.phaseViews[2].bootstrapStart,false);
 });
@@ -147,4 +147,24 @@ test('L’enregistrement des critères conserve le commentaire et la confirmatio
 test('Les liens cliquables de revue visent exclusivement une PR ou un commit du dépôt du club',()=>{
  for(const path of ['pull/23','commit/'+'a'.repeat(40)])assert.equal(safeProjectUrl('https://github.com/jpdandin44/TC_Longages/'+path),'https://github.com/jpdandin44/TC_Longages/'+path);
  for(const value of ['javascript:alert(1)','https://github.com/evil/project/pull/1','https://github.com/jpdandin44/TC_Longages/pull/1?x=1','https://user:password@github.com/jpdandin44/TC_Longages/pull/1'])assert.equal(safeProjectUrl(value),null);
+});
+
+test('Le regroupement conserve le brouillon et refuse d’en faire une décision ou une confirmation',async t=>{
+ const f=await fixture(t),s=await f.state(),phase=s.tracker.phases[1],before=structuredClone(s.tracker);
+ const draft={phaseId:1,actor:'jpdandin',comment:'Ma saisie conservée',confirmed:true,criteria:phase.exitCriteria.slice(0,4).map(label=>({label,checked:true})),followups:[]};
+ const recovered=recoverReviewDraft(draft,s.tracker,s.profile);
+ assert.deepEqual(recovered.checked,[0,1,2,3]);assert.equal(recovered.confirmed,false);assert.equal(recovered.comment,draft.comment);assert.deepEqual(s.tracker,before);
+ assert.equal(recoverReviewDraft({...draft,criteria:[{label:'Autre périmètre',checked:true}]},s.tracker,s.profile),null);
+ assert.equal(recoverReviewDraft({...draft,actor:'intrus'},s.tracker,s.profile),null);
+});
+
+test('Les phases de préproduction et production restent sans action distante, même sous exception locale',async t=>{
+ const f=await fixture(t,{bootstrap:true}),before=(await f.state()).tracker;
+ for(const phaseId of [2,3]) for(const action of ['start','submit','approve','authorize_next','request_changes']) assert.equal((await f.action(action,{phaseId,checkedCriteria:[0,1,2,3]})).status,422);
+ assert.deepEqual((await f.state()).tracker,before);
+ const observed=structuredClone(before);observed.phases[2].status='blocked';
+ assert.ok(validateInteractiveState((await f.state()).profile,observed).some(e=>e.includes('observations distinctes')));
+ observed.phases[2].observedExecution={source:'hosting_observation',environment:'preproduction',status:'blocked',recordedAt:new Date().toISOString(),evidence:'Preuve fictive',authorizationRef:'Accord fictif'};
+ assert.deepEqual(validateInteractiveState((await f.state()).profile,observed),[]);
+ observed.phases[2].status='validated';assert.ok(validateInteractiveState((await f.state()).profile,observed).length);
 });

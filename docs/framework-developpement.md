@@ -5,7 +5,7 @@ title: Application du framework de développement piloté
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-04
 owner: jpdandin
 tags: [framework, gouvernance, phases, reprise]
 ---
@@ -27,15 +27,15 @@ La [référence reçue](references/framework-developpement-pilote/README.md) est
 | [Intégration V1](integration-officiel.md) | Lots métier G0–G8, acquis et réserves historiques. |
 | [Reprise](../prompts/reprise-projet.md) | Prompt de reprise adapté, sans autorisation de livraison implicite. |
 
-Les deux vues `tableau-de-bord.md` et `tableau-de-bord.html` sont dérivées du JSON ; ne pas les éditer à la main. Les phases du framework vont de 0 à 7 : cadrage, socle, réalisation, recette locale, préproduction, préparation, livraison/ouverture, observation. G0–G8 restent les lots métier de la V1 ; leurs acquis ne sont pas effacés, ni promus en validations du framework.
+Les deux vues `tableau-de-bord.md` et `tableau-de-bord.html` sont dérivées du JSON ; ne pas les éditer à la main. Depuis la demande du 4 octobre, les quatre phases actives sont Cadrage, Développement local, Préproduction et Mise en production. Le suivi conserve les huit phases antérieures dans `phaseHistorySnapshots`, avec leur mapping ; leurs décisions gardent leur portée originale. G0–G8 restent les lots métier de la V1 ; leurs acquis ne sont pas effacés, ni promus en validations du framework.
 
 ## Niveau réellement installé
 
-Le profil reste `configured_unqualified` pour la chaîne de livraison globale. L'adaptateur [scripts/framework.mjs](../scripts/framework.mjs) valide le modèle et produit deux vues statiques en lecture seule. Le [serveur interactif](../scripts/framework-server.mjs) ajoute une interface HTML au port 4181 : huit phases, dossiers, notes, suivi des commentaires, critères et décisions locales distinctes. Le [magasin de revue](../scripts/framework-store.mjs) vérifie les révisions et empreintes, conserve les anciens événements, sauvegarde le JSON précédent et remplace atomiquement le suivi. Les refus sont expliqués dans l'écran ; les brouillons restent saisis lors d'un conflit.
+Le profil reste `configured_unqualified` pour la chaîne de livraison globale. L'adaptateur [scripts/framework.mjs](../scripts/framework.mjs) valide le modèle et produit deux vues statiques en lecture seule. Le [serveur interactif](../scripts/framework-server.mjs) ajoute une interface HTML au port 4181 : quatre phases, dossiers, notes, suivi des commentaires, critères et décisions locales distinctes. Le [magasin de revue](../scripts/framework-store.mjs) vérifie les révisions et empreintes, conserve les anciens événements, sauvegarde le JSON précédent et remplace atomiquement le suivi. Les refus sont expliqués dans l'écran ; les brouillons restent saisis lors d'un conflit.
 
 La zone de revue reste éditable avant que les justificatifs de validation soient tous prêts. Le lien **Renseigner ma revue**, les instructions de saisie, le compteur des critères enregistrés et l'explication de chaque bouton distinguent préparation de l'avis et décision de phase. Le commentaire est conservé après l'enregistrement des critères ; une nouvelle confirmation personnelle est demandée pour l'action suivante. La PR, le commit et les résultats référencés sont consultables dans l'écran quand ils ont été réellement rattachés au dossier.
 
-L'accès est strictement limité à la boucle locale, avec contrôle Host/Origin et jeton de revue. Le nom du décideur est une identité déclarée, sans authentification distante. Les phases 0 à 3 peuvent recevoir des décisions quand leurs prérequis sont réunis ; les phases 4 à 7 restent consultables, sans autorisation de livraison dans le moteur. Il n'existe ni endpoint de publication, ni synchronisation GitHub automatique, ni compte distant activé par ce suivi.
+L'accès est strictement limité à la boucle locale, avec contrôle Host/Origin et jeton de revue. Le nom du décideur est une identité déclarée, sans authentification distante. Les phases locales 0 et 1 peuvent recevoir des décisions quand leurs prérequis sont réunis ; les phases 2 et 3 présentent les observations réelles d’hébergement et restent consultables sans autorisation de livraison dans le moteur. Il n'existe ni endpoint de publication, ni synchronisation GitHub automatique, ni compte distant activé par ce suivi.
 
 La source [installation.json](../framework/installation.json) trace l'exception demandée pour installer et tester localement le processus, désormais refermée en `secured`. Une nouvelle PR ne réactive pas cette exception. Lorsqu'elle était active et non expirée, elle autorisait des démarrages locaux bornés sans valider les phases précédentes. Elle ne désactive jamais les protections d'accès, de données, de révision ou de secret. La procédure de fermeture et les gardes normales figurent dans [la procédure d'installation](installation-framework.md).
 

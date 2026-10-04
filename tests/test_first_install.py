@@ -47,11 +47,12 @@ class FirstInstallBoundaries(unittest.TestCase):
             for name, data in files.items():
                 bundle.writestr(name, data)
             bundle.writestr('manifest.json', manifest_data)
-        self.profile = {'project': 'tclongages', 'environment': 'preproduction', 'account': 'sc1fixture',
-                        'targetHost': 'preprod.sc1fixture.universe.wf', 'home': '/home2/sc1fixture',
-                        'composerRoot': '/home2/sc1fixture/tcl-preproduction/drupal',
-                        'documentRoot': '/home2/sc1fixture/tcl-preproduction/drupal/web',
-                        'database': 'sc1fixture_tclpreprod', 'databaseUser': 'sc1fixture_tcl',
+        self.profile = {'project': 'tclongages', 'environment': 'preproduction',
+                        'accountRole': 'primary_tc', 'account': 'daje1234',
+                        'targetHost': 'preprod.tclongages.fr', 'home': '/home2/daje1234',
+                        'composerRoot': '/home2/daje1234/tcl-preproduction/drupal',
+                        'documentRoot': '/home2/daje1234/tcl-preproduction/drupal/web',
+                        'database': 'daje1234_tclpreprod', 'databaseUser': 'daje1234_tcl',
                         'sourceCommit': 'a' * 40, 'archiveSha256': install.digest(self.archive),
                         'manifestSha256': hashlib.sha256(manifest_data).hexdigest(),
                         'phpBinary': '/usr/local/bin/php', 'installationAuthorizationRef': 'fixture-only'}
@@ -60,6 +61,8 @@ class FirstInstallBoundaries(unittest.TestCase):
                               'webRootProtectionVerified': True, 'phpVersion': '8.3.33',
                               'evidenceRef': 'fixture-only',
                               'checkedAt': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}
+        self.qualification.update({field: self.profile[field] for field in
+            ('accountRole', 'account', 'home', 'composerRoot', 'documentRoot', 'database', 'databaseUser')})
 
     def staged(self):
         with patch.object(install, 'validate_profile', return_value=(self.home, self.root)), \
@@ -69,9 +72,11 @@ class FirstInstallBoundaries(unittest.TestCase):
     def test_target_profile_rejects_other_projects_accounts_and_roots(self):
         install.validate_profile(self.profile)
         changes = [{'project': 'avereo'}, {'environment': 'production'}, {'account': 'principal'},
-                   {'targetHost': 'avereo.fr'}, {'home': '/tmp/sc1fixture'},
-                   {'composerRoot': '/home2/sc1fixture/public_html'}, {'documentRoot': '/home2/sc1fixture'},
-                   {'database': 'sc1fixture_other'}, {'databaseUser': 'root'}, {'sourceCommit': 'bad'},
+                   {'accountRole': ''}, {'accountRole': 'moon'}, {'account': 'sc1fixture'},
+                   {'targetHost': 'avereo.fr'}, {'targetHost': 'tclongages.fr'},
+                   {'targetHost': 'preprod.sc1fixture.universe.wf'}, {'home': '/tmp/daje1234'},
+                   {'composerRoot': '/home2/daje1234/public_html'}, {'documentRoot': '/home2/daje1234'},
+                   {'database': 'daje1234_other'}, {'databaseUser': 'root'}, {'sourceCommit': 'bad'},
                    {'archiveSha256': ''}, {'phpBinary': '/bin/sh'}]
         for change in changes:
             with self.subTest(change=change), self.assertRaises(ValueError):
@@ -92,6 +97,30 @@ class FirstInstallBoundaries(unittest.TestCase):
                     install.runtime_gate(self.profile, {**self.qualification, **change})
             with self.assertRaises(ValueError):
                 install.runtime_gate({**self.profile, 'installationAuthorizationRef': ''}, self.qualification)
+
+    @unittest.skipUnless(os.name == 'posix', 'UID gate is Linux-specific')
+    def test_old_moon_or_other_account_proofs_cannot_stage_the_primary_root(self):
+        import pwd
+        identity = type('Identity', (), {'pw_name': self.profile['account']})()
+        with patch.object(pwd, 'getpwuid', return_value=identity), \
+             patch.object(install, 'validate_profile', return_value=(self.home, self.root)):
+            for field in ('accountRole', 'account', 'home', 'composerRoot', 'documentRoot', 'database', 'databaseUser'):
+                for value in (None, '', 'previous-moon-or-another-account'):
+                    with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                        install.stage(self.archive, self.profile, {**self.qualification, field: value})
+            self.assertEqual((self.root / 'web/.htaccess').read_bytes(), install.DENY)
+            self.assertFalse((self.home / 'tcl-preproduction/private').exists())
+
+    @unittest.skipUnless(os.name == 'posix', 'UID gate is Linux-specific')
+    def test_runtime_uid_of_another_account_cannot_prepare_files(self):
+        import pwd
+        identity = type('Identity', (), {'pw_name': 'daje5678'})()
+        with patch.object(pwd, 'getpwuid', return_value=identity), \
+             patch.object(install, 'validate_profile', return_value=(self.home, self.root)), \
+             self.assertRaises(ValueError):
+            install.stage(self.archive, self.profile, self.qualification)
+        self.assertEqual((self.root / 'web/.htaccess').read_bytes(), install.DENY)
+        self.assertFalse((self.home / 'tcl-preproduction/private').exists())
 
     def test_existing_user_files_or_changed_closure_are_preserved(self):
         for extra in (self.root / 'new-file', self.root / 'web/new-file', self.root / 'web/cgi-bin/new-file'):

@@ -32,15 +32,21 @@ Sa provenance et ses empreintes sont dans le [reçu](../data/actions-mutualisees
 Les scripts du monorepo d'applications statiques AVEREO ne constituent pas
 l'adaptateur de ce Drupal. Aucun fichier du site AVEREO actif n'est modifié.
 
-## Cible de préproduction inventoriée — 4 octobre
+## Préproduction principale configurée — 4 octobre
 
-La connexion personnelle au compte principal TC retenu est confirmée. Le
-[plan courant](../docs/preparer-lune-tc.md#lot-du-compte-principal)
-présente les effets PHP partagés, la racine fermée, le sous-domaine/DNS/HTTPS
-et SQL dédié après inventaire et restauration privée de fichiers. Le lot
-attend son accord ; l’outil de première installation reste à adapter au compte
-principal avant le transfert. Le ZIP déjà reçu n’est pas reconstruit. La lune
-active reste conservée et aucun workflow de livraison n’est activé.
+Le [lot du compte principal](../docs/preparer-lune-tc.md#lot-du-compte-principal)
+est autorisé puis terminé : PHP 8.3 CLI/HTTP, 18 extensions, racine fermée,
+domaine/DNS public/HTTPS reconnu et SQL dédié vide, droits relus. Le
+[reçu courant](../data/framework-revue-verification.json#hostingPrimaryConfiguration)
+précise les contrôles et limites. La Lune reste conservée.
+
+L’outil de première installation est adapté au compte principal et au lien
+exact des sept champs du reçu/profil. Son candidat est distinct du ZIP Drupal
+reçu, qui n’est pas reconstruit. Transfert, paramètres privés, connexion PDO,
+installation sous maintenance et recette exigent encore le lot correspondant.
+La revue Claude précédente portait sur l’installation avant ce changement de
+compte ; les nouvelles gardes sont contrôlées par tests Linux déterministes.
+Aucun workflow de livraison, nouveau SSH ou ouverture automatique n’est activé.
 
 ## Fonctionnement préparé
 

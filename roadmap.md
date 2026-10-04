@@ -16,20 +16,21 @@ tags:
 
 # Feuille de route
 
-## Reprise de la première installation — 4 octobre
+## Préproduction configurée, première installation à autoriser — 4 octobre
 
-L'[adaptateur](docs/installation-drupal.md) est préparé localement pour la lune,
-avec tests Linux. La proposition d'adresse technique a été retirée ; le
-[plan corrigé](docs/preparer-lune-tc.md) porte le choix humain de qualifier le
-compte principal comme pour AVEREO. La connexion et l’inventaire du compte principal sont terminés, avec
-sauvegarde de fichiers du 4 octobre restaurée en copie privée. Prochaine action :
-accord puis application du [lot de configuration précis](docs/preparer-lune-tc.md#lot-du-compte-principal),
-avant les contrôles HTTP et SQL de cette cible. Adapter et tester l'outil pour ce compte avant de présenter le
-transfert et l'installation fermée du même ZIP reçu.
-La recette réelle, la sauvegarde/restauration Drupal et le retour arrière
-précèdent toujours la qualification et la livraison de production. Le
-[suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve l'historique
-humain et les blocages ; aucune phase n'est validée par cette préparation.
+Le [lot du compte principal](docs/preparer-lune-tc.md#lot-du-compte-principal)
+est terminé après accord distinct du merge de la PR #7. La cible reste fermée ;
+PHP HTTP, DNS public, certificat, base vide et droits SQL sont vérifiés. Les
+ressources de la Lune sont conservées. L’[outil d’installation](docs/installation-drupal.md)
+est adapté et testé localement pour cette cible.
+
+La suite est l’examen du candidat exact d’outillage, puis l’accord sur le
+transfert et l’installation sous maintenance du ZIP reçu. Paramètres privés
+soumis personnellement et connexion SQL applicative contrôlée avant Drupal.
+Recette réelle, sauvegarde/restauration et retour arrière précèdent la
+qualification de production, sa livraison puis son ouverture sur décisions
+distinctes. Le [suivi canonique](docs/suivi-chantier/suivi-chantier.json) conserve
+les preuves et blocages sans validation de phase déduite.
 
 ## État et prochaine intervention — 3 octobre
 
@@ -45,7 +46,7 @@ L'aperçu local des sept pages a été présenté à la revue de la PR ; cette r
 
 La [préparation manuelle](workflows/preparer-livraison.md) construit le candidat sans accès serveur et offre une qualification SSH distincte. Le composant partagé est préparé dans le dépôt TC, utilisable par un futur appel AVEREO épinglé sur un commit ; cette migration reste proposée. Le site AVEREO actif n'est pas modifié. Prochaine action : revue du lot et qualification cPanel récente avant toute configuration d'accès ou première installation. Le solde et les vérifications courantes sont dans le [reçu](data/actions-mutualisees-verification.json). Aucun budget de réserve chiffré n'est considéré approuvé.
 
-## Priorité actuelle — première V1 publique
+## Séquencement initial de la première V1 — historique du 29 septembre/1er octobre
 
 Le [parcours en quatre étapes](docs/parcours-mise-en-ligne.md) remplace les huit phases comme vue opérationnelle de cette livraison, sans effacer leur historique. Initialisation et recette locale sont en cours ; la préproduction `preprod.tclongages.fr` attend sa qualification ; la production n'est pas démarrée. La première ouverture ne comprend que les pages publiques Drupal. Les comptes Bureau, formulaires Google et envois automatiques suivent leurs recettes propres après cette V1.
 
@@ -141,3 +142,7 @@ L'ancien paquet de vitrine seule reste disponible selon son [guide de dépôt](d
 | P1 | Compléter les informations du club. | Conditions tarifaires, horaires et modalités validés, version vectorielle du logo fournie ; photo du court reçue et JPEG conservé comme logo temporaire. |
 
 Les dates de livraison, la racine et la configuration Apache distantes ainsi que le choix d'une éventuelle automatisation restent TBD. Le besoin d'un futur domaine pour le service réel est retenu ; la présentation fictive utilise l'adresse HTTP existante choisie. Aucun achat, fournisseur de connexion, changement DNS/HTTPS ni activation de comptes réels n'est réalisé dans cette étape.
+
+## État observé le 4 octobre — quatre phases
+
+Le cockpit regroupe les anciens dossiers dans les quatre phases communes. La préproduction principale est configurée ; les fichiers Drupal sont transférés et vérifiés sous fermeture Apache. L’installation attend la connexion SQL applicative, puis la recette hébergée. Sauvegarde/restauration applicative, retour arrière et livraison sur le domaine officiel restent à qualifier.

@@ -15,44 +15,31 @@ tags:
 
 # Architecture
 
-## Première installation par le terminal existant — 4 octobre
+## Compte principal TC et première installation — 4 octobre
 
-Le terminal cPanel de la lune est qualifié en lecture pour PHP CLI 8.3.33 et
-Python 3.6.8. Le [nouvel adaptateur](scripts/first_install.py) réutilise le
-vérificateur générique du ZIP construit par GitHub. Il prépare une version dans
-un dossier privé, conserve la racine vide initiale et confie l'installation
-non interactive au [script PHP privé](scripts/first-install-hosting.php).
-Les paramètres SQL et administrateur fournis personnellement restent hors
-Web ; un processus neuf contrôle maintenance et neutralisation des courriels
-avant de rendre accessible la connexion Drupal sous maintenance. La
-[procédure et ses limites](docs/installation-drupal.md) sont la référence de
-ce composant préparé localement, non exécuté sur la lune. Aucun accès SSH
-nouveau ni workflow de livraison n'est activé. Les inventaires datés suivants
-restent historiques.
+La préproduction est configurée dans le compte du domaine officiel, suivant
+le choix humain et le lot explicite [décrits dans le plan](docs/preparer-lune-tc.md).
+`tcl-preproduction/drupal/web` est la seule racine Web de cet hôte ; Composer,
+les dépendances et pages dérivées futurs resteront dans son parent. Le dossier
+`tcl-preproduction/private`, hors webroot et en `0700`, conserve les preuves
+de qualification et recevra les entrées privées après accord d’installation.
+Fichiers et base sont séparés de la production ; les comptes et le PHP sont
+partagés. La Lune antérieure reste conservée.
 
-## Compte principal inventorié — 4 octobre
+PHP CLI et HTTP répondent 8.3.33 avec les 18 extensions attendues. Le certificat
+de la seule préproduction est émis par DNS-01. Après le test sans secret,
+Apache refuse de nouveau l’hôte et la sonde ; les fichiers de test sont en
+privé. MariaDB 11.4.13 et la base vide UTF-8/InnoDB sont observés via le SSO
+phpMyAdmin, sans preuve de connexion de l’utilisateur applicatif.
 
-L’organisation retenue utilise des fichiers et données séparés dans le compte
-principal TC. L’inventaire confirme le défaut PHP 8.1 partagé et le refus
-d’isolation par domaine ; la racine actuelle contient seulement la page
-d’attente statique. Les ressources de la lune restent distinctes et conservées.
-Le [lot précis](docs/preparer-lune-tc.md#lot-du-compte-principal)
-propose PHP 8.3, dossier fermé, hôte/DNS/HTTPS et SQL propres au compte principal,
-sans application des réglages ni dépôt Drupal. Les lectures CLI et la copie
-de fichiers restaurée ne qualifient pas encore HTTP, SQL ou restauration
-applicative. L’outil doit être adapté à ce compte avant sa première utilisation.
-
-## Implantation de préproduction — choix humain du 4 octobre
-
-Le [plan courant](docs/preparer-lune-tc.md) retire l'adresse technique proposée
-et distingue l'implantation AVEREO dans un même compte de l'implantation TC
-dans une lune distincte. Qualifier le compte principal TC est le choix humain
-désormais retenu ; le cloisonnement de comptes et les réglages PHP
-potentiellement partagés doivent être qualifiés avant les modifications
-correspondantes. Les ressources
-déjà créées dans la lune et les décisions historiques restent conservées.
-L'adaptateur local demeure limité à cette lune ; aucun changement de cible
-d'écriture ni migration du domaine officiel n'est implémenté par cette étude.
+L’[adaptateur](scripts/first_install.py) réutilise le vérificateur du ZIP reçu,
+exige le rôle du compte principal TC et lie sept champs d’identité du reçu
+au profil privé. Il refuse la Lune, les hôtes officiels ou techniques et les
+preuves d’un autre compte. Extraction privée, conservation de la racine vide,
+installation PHP fermée et contrôle dans un processus neuf restent le chemin
+préparé. La [procédure](docs/installation-drupal.md) précise la saisie humaine,
+maintenance et limites. Aucun Drupal hébergé ni nouvel accès SSH n’est créé.
+Les inventaires datés suivants restent historiques.
 
 ## Compte isolé actif et chaîne de préparation — 3 octobre
 
@@ -72,7 +59,7 @@ Le [reçu d'hébergement](data/activation-lune-verification.json) qualifie déso
 
 `scripts/build-hosting-probe.mjs` dérive une sonde PHP de `drupal/composer.lock`, avec le pilote SQL de la cible. Son dossier local de qualification reste distinct du candidat Drupal ; seul le sous-dossier `web/` serait déposé lors d'un test autorisé, avec refus Apache par défaut. Le [guide de qualification](docs/qualification-preproduction.md) précise cette frontière et le retour à la fermeture.
 
-Le [registre des quatre étapes](data/parcours-mise-en-ligne.json) est distinct du suivi historique à huit phases. Il documente cette livraison sans ajouter de page au serveur local de suivi. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
+Le [suivi canonique](docs/suivi-chantier/suivi-chantier.json) présente quatre phases communes. Il conserve les huit anciennes phases en instantané avec leur mapping. Le [registre opérationnel](data/parcours-mise-en-ligne.json) référence ces phases ; il conserve les reçus de livraison sans maintenir un second statut de revue. Il documente cette livraison sans ajouter de page au serveur local de suivi. Le dossier de pages `.local/drupal-public-candidate/` est dérivé des sources V1 par `scripts/build-drupal-public-pages.mjs` et reste ignoré par Git. Les décisions de revue historiques demeurent dans `docs/suivi-chantier/suivi-chantier.json`.
 
 Le module Drupal sert les pages hors webroot. Son abonné de réponse bloque l'indexation par défaut ; un drapeau explicite ne retire ce blocage que sur les chemins publics et réponses 200. La maintenance, les erreurs et la connexion restent non indexables. Les installations préproduction et production nécessitent bases, répertoires privés, paramètres et contrôles distincts ; aucune de ces installations n'est créée par le dépôt.
 
@@ -80,7 +67,7 @@ Le module Drupal sert les pages hors webroot. Son abonné de réponse bloque l'i
 
 Le [profil](framework/profil-projet.json) décrit les environnements ; le [suivi JSON](docs/suivi-chantier/suivi-chantier.json) porte phases, commentaires et décisions. `framework-server.mjs` sert l'interface sur 127.0.0.1:4181 ; `framework-store.mjs` contrôle les transitions et écrit atomiquement le suivi avec sauvegarde et historique. La révision couvre profil, suivi, documents et configuration d'installation. Une requête obsolète reçoit 409 ; son brouillon reste disponible dans l'interface. Host, Origin, jeton temporaire et boucle locale limitent les accès. L'identité est déclarée, sans authentification distante.
 
-`scripts/framework.mjs` valide et génère les vues Markdown/HTML de lecture. Le serveur régénère ces vues après une mutation ; elles ne sont pas une seconde source. [Installation et usage](docs/installation-framework.md) décrit les actions de revue des phases locales 0 à 3. Les phases de livraison restent sans adaptateur opérationnel ; aucun bouton ne déploie ou n'ouvre le site. La dérogation temporaire est bornée par `framework/installation.json`, distincte des protections de confidentialité et de publication conservées.
+`scripts/framework.mjs` valide et génère les vues Markdown/HTML de lecture. Le serveur régénère ces vues après une mutation ; elles ne sont pas une seconde source. [Installation et usage](docs/installation-framework.md) décrit les actions de revue des phases locales 0 et 1. Les phases de livraison restent sans adaptateur opérationnel ; aucun bouton ne déploie ou n'ouvre le site. La dérogation temporaire est bornée par `framework/installation.json`, distincte des protections de confidentialité et de publication conservées.
 
 Le [manifeste du candidat](docs/candidat-revue.md) rattache la revue à un commit source. Les modifications des sources rendent les preuves périmées ; les écritures de suivi et reçus sont exclues selon une liste fermée. Les workflows `technical-ci` et `policy` exécutent respectivement les tests et la vérification stricte de la description de PR. Ils ne disposent d’aucun accès d’hébergement.
 

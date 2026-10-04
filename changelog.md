@@ -14,6 +14,28 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-04 — Périmètre de recette des comptes rendu explicite
+
+- Rattachement des PR d’environnement et d’installation préparé dans la phase
+  Préproduction ; critère obligatoire conservé sans approbation automatique.
+- Dossier de recette précisé : droits SQL, administrateur Drupal prévu,
+  rôles Bureau/Capitaine et édition des pages encore absents du paquet V1.
+- Tests attendus et périmètre supplémentaire à confirmer consignés. Une PR
+  de configuration ne devient pas une preuve d’édition fonctionnelle.
+
+## 2026-10-04 — Configuration principale terminée et garde d’installation adaptée
+
+- Accord distinct reçu après fusion humaine de la PR #7 ; lot principal appliqué.
+- PHP partagé 8.3, racine dédiée fermée, préproduction/DNS public, certificat
+  reconnu, base vide UTF-8/InnoDB et dix droits SQL relus. Mot de passe soumis
+  personnellement ; page d’attente officielle inchangée et Lune conservée.
+- Sonde sans secret : PHP HTTP 8.3.33, 18 extensions, GET/HEAD, refus POST,
+  chemins privés fermés ; refus Apache restauré puis sondes déplacées en privé.
+- Adaptateur lié au compte principal et aux sept champs d’identité du reçu ;
+  quatorze tests Linux de frontières réussis, sans exécution Drupal distante.
+- Limites : résolveur Windows ordinaire, PDO applicatif, première installation,
+  recette et retour arrière à qualifier ; aucun Drupal transféré ou ouvert.
+
 ## 2026-10-04 — Inventaire principal et lot de configuration préparé
 
 - Connexion personnelle au compte TC principal relue ; PHP 8.1 partagé,
@@ -300,3 +322,9 @@ Contrôles locaux et recette navigateur consignés dans la [recette du prototype
 ## 2026-09-15 — Référence historique
 
 Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit une vitrine initiale, des erreurs d'accès aux images et une correction autonome préparée mais non publiée au dernier contrôle de cette session. Ces constats sont datés et ne constituent pas une vérification de l'état public actuel.
+
+## 2026-10-04 — Suivi simplifié et transfert de préproduction
+
+- Quatre phases actives ; ancien découpage, décisions et libellés de critères conservés. Brouillon restitué sans confirmation automatique.
+- Archive Drupal et outils transférés, empreintes vérifiées sur le serveur ; 26 687 fichiers extraits et relus, racine Apache fermée.
+- Première installation arrêtée avant écriture des paramètres et de la base : connexion SQL applicative refusée (1045). Le mot de passe changé personnellement doit être synchronisé dans le fichier privé.

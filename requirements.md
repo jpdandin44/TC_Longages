@@ -15,6 +15,17 @@ tags:
 
 # Exigences
 
+## Recette des comptes et de l’édition — clarification du 4 octobre
+
+Le responsable demande des PR identifiables pour tester la création des comptes,
+leurs droits et l’édition avant approbation. Le [dossier de préproduction](docs/suivi-chantier/04-phase.md)
+précise la réalisation constatée et les essais attendus. L’utilisateur SQL,
+l’administrateur Drupal et les comptes métier du club ont des rôles distincts.
+Le paquet V1 actuel n’inclut ni rôles Bureau/Capitaine ni édition des sept pages
+dans Drupal. TBD — périmètre de la PR fonctionnelle à confirmer ; aucun accord
+de report ni caractère non applicable n’est supposé. Préserver le libellé
+« Comptes, droits et édition vérifiés si applicables » dans la checklist.
+
 ## Transport et choix de compte — correction du 4 octobre
 
 La préproduction doit disposer d'un HTTPS reconnu. L'adresse technique
@@ -27,15 +38,21 @@ Aucun compte, privilège, secret ou accord de la lune n'est transposé par défa
 
 ## Qualification du compte principal — 4 octobre
 
-Le [lot courant](docs/preparer-lune-tc.md#lot-du-compte-principal)
-doit prendre en compte le PHP partagé constaté et activer les 18 extensions
-dérivées du verrou Composer/pilote SQL, dont `gd`, `mbstring` et `tokenizer`
-manquent au PHP 8.3 CLI observé. Relire le PHP HTTP avant tout secret ou Drupal.
-Le dossier de préproduction doit rester fermé, la base et l’utilisateur propres
-à ce compte, et le mot de passe créé personnellement. Une restauration privée
-des fichiers ne vaut pas restauration du futur Drupal, SQL, DNS ou certificat.
+Le [lot courant](docs/preparer-lune-tc.md#lot-du-compte-principal) est autorisé
+et effectué. Les 18 extensions dérivées du verrou Composer/pilote SQL sont
+chargées sous PHP CLI et HTTP 8.3.33. La sélection PHP est partagée au compte.
+La base dédiée vide est en `utf8mb4_unicode_ci`, avec moteur par défaut InnoDB
+et dix droits limités ; les identifiants restent privés et le mot de passe
+est soumis personnellement. La connexion PDO reste à tester lors de l’installation.
 
-## Exécution sur la lune observée — 4 octobre
+L’adaptateur doit lier le rôle, compte, home, racines Composer/Web, base et
+utilisateur SQL du reçu à ceux du profil. Refuser une preuve de Lune, un
+autre compte ou l’hôte officiel avant toute écriture. Rafraîchir DNS, HTTPS,
+PHP HTTP et fermeture de moins d’une heure avant son utilisation. La
+restauration privée des fichiers actuels ne vaut pas restauration du futur
+Drupal, SQL, DNS ou certificat.
+
+## Runtimes observés avant changement de cible — historique du 4 octobre
 
 Le vérificateur et l'outil de première installation doivent pouvoir utiliser
 Python 3.6.8 et PHP CLI 8.3.33 constatés dans le terminal cPanel existant. La
@@ -280,3 +297,7 @@ La [recette dédiée](docs/recette-vitrine-o2switch.md) conserve les résultats 
 - La procédure explique sauvegarde, extraction privée et retrait des pages ajoutées lors du retour arrière, sans modifier les autres sites du compte.
 
 Le [guide de présentation](docs/publier-demo-o2switch.md) décrit les opérations choisies par l'utilisateur ; la [recette correspondante](docs/recette-demo-o2switch.md) consigne les vérifications réellement exécutées, sans assimiler un essai local à un dépôt effectif.
+
+## Suivi commun depuis le 4 octobre
+
+Présenter exactement quatre phases selon le skill commun. Regrouper les dossiers détaillés, conserver les anciens identifiants et critères, ne pas étendre les accords historiques. Les opérations distantes des phases 2 et 3 restent hors des boutons locaux de validation.
