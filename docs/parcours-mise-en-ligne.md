@@ -18,8 +18,8 @@ Le [suivi canonique](suivi-chantier/suivi-chantier.json) porte les quatre phases
 |---|---|---|
 | Cadrage | Périmètre et candidat exact identifiés ; lot d'hébergement concret. | V1 recentrée par le responsable sur le site public. Comptes Bureau/Capitaine et droits par équipe reportés en V2. |
 | Développement local | Tests automatisés et parcours public/admin sur la version exacte ; maintenance et courriels vérifiés. | Paquet installé `49b4ef7` revérifié intégralement contre son reçu ; améliorations de la chaîne préparées sur une branche distincte. |
-| Préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | Drupal installé, français, SQL opérationnel ; sept pages relues en session administrateur. Sauvegarde intègre et 26 819 fichiers restaurés dans une copie privée ; restauration SQL et démarrage encore à éprouver. |
-| Mise en production | Après recette et accord explicite sur l'action, sauvegarde restaurable, livraison du candidat exact sous maintenance, contrôle, puis accord distinct pour l'ouverture Drupal. | Préparation autorisée : même ZIP copié hors domaine, base dédiée créée et certificat gratuit reconnu sur les deux noms officiels. Mot de passe du nouvel utilisateur SQL en saisie personnelle. Racine `public_html` conservée ; aucune bascule ni ouverture. |
+| Préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | Drupal installé, français, SQL opérationnel ; sept pages relues en session administrateur. Sauvegarde intègre, 26 819 fichiers et 43 tables SQL restaurés ; deux démarrages Drupal en français sous maintenance vérifiés. Retour arrière HTTP encore à qualifier. |
+| Mise en production | Après recette et accord explicite sur l'action, sauvegarde restaurable, livraison du candidat exact sous maintenance, contrôle, puis accord distinct pour l'ouverture Drupal. | Préparation autorisée : même ZIP copié hors domaine, base dédiée créée et certificat gratuit reconnu sur les deux noms officiels. Saisie SQL vérifiée, base restaurée et Drupal démarré sous maintenance hors domaine. Permissions Apache et HTTP de la nouvelle racine non qualifiés. Racine `public_html` conservée ; aucune bascule ni ouverture. |
 
 La première V1 comprend les sept pages publiques sous Drupal. La page « Espace » reste un écran d'attente ; aucun compte Bureau, formulaire Google, publication sociale ou collecte de contact n'est activé. Le contact public affiché est `tclongages@gmail.com` ; `support@tclongages.fr` reste prévu, sans boîte attestée.
 
@@ -66,19 +66,21 @@ n'est requis pour conduire ces opérations.
 L'adaptateur `first_install.py` est réservé à la première installation de
 préproduction et refuse une cible de production. Il ne doit pas être relancé
 sur la base existante ou détourné par modification du profil. L'adaptateur de
-mise à jour, la restauration hébergée et la bascule réelle restent à qualifier.
+mise à jour et la bascule réelle restent à qualifier. La restauration privée
+hébergée est désormais vérifiée selon le reçu courant ci-dessous.
 
 La restauration des fichiers est effectuée par `scripts/restore_backup_files.py`,
 dans un nouveau dossier privé, après contrôle des deux empreintes de sauvegarde.
 Elle vérifie chaque fichier et n'atteste pas une restauration SQL.
 `scripts/stage_production.py` a préparé et revérifié le ZIP sans écraser une
 version existante ; ses fichiers restent accessibles uniquement au propriétaire.
-`scripts/restore_production.py` est préparé pour importer le SQL dans la base
-vide de production après la saisie personnelle et l'accord sur les droits.
+`scripts/restore_production.py` a importé le SQL dans la nouvelle base vide
+de production après la saisie personnelle et l'accord sur les droits.
 Il contrôle le compte SQL et ses dix droits réels, refuse une nouvelle tentative
-sur une cible partiellement importée et doit vérifier le démarrage du Drupal
-restauré ainsi que celui du paquet de production. Sa recette hébergée reste à
-effectuer ; ce script ne modifie ni la racine cPanel ni l'ouverture du site.
+et vérifie le démarrage du Drupal restauré ainsi que celui du paquet de
+production. Sa recette hébergée réussit le 5 octobre à 11:26 UTC : 43 tables,
+français, maintenance, non-indexation et courriels neutralisés. Ce script
+ne modifie ni la racine cPanel ni l'ouverture du site.
 
 ## Lot de préparation de production proposé le 5 octobre
 
@@ -86,10 +88,10 @@ Le responsable a autorisé ce lot dans la conversation le 5 octobre
 (`TCL-PROD-PREP-20261005`). La copie du ZIP, la base et le certificat sont
 préparés et vérifiés. L'utilisateur SQL est créé personnellement et ses dix
 droits sont enregistrés sur cette seule base après confirmation
-`TCL-PROD-SQL-20261005`. Le fichier privé et l'import restent à terminer.
-La nouvelle base vide utilise `utf8mb4_unicode_ci`, relu après correction
-de la valeur par défaut. Le champ privé du mot de passe est encore vide
-au dernier contrôle ; aucun import SQL n'est commencé.
+`TCL-PROD-SQL-20261005`. Le fichier privé est enregistré personnellement et
+l'authentification SQL est vérifiée sans afficher le secret. La nouvelle base
+utilise `utf8mb4_unicode_ci`. L'import des 43 tables et les deux démarrages
+Drush réussissent ; le lot de préparation est terminé dans son périmètre.
 Cet accord ne change pas la racine servie et n'ouvre pas Drupal.
 
 | Élément | Cible exacte et effet |
@@ -106,13 +108,32 @@ Cet accord ne change pas la racine servie et n'ouvre pas Drupal.
 
 La sauvegarde contient Drupal, ses paramètres privés, sa base et la page
 d'attente actuelle. Son intégrité et la restauration des fichiers ont été
-vérifiées ; la restauration SQL et le démarrage restent à éprouver avant
-bascule. Le reçu technique est référencé
+vérifiées ; la restauration SQL et le démarrage des deux copies sont
+éprouvés. L'ancienne racine et sa copie restaurée concordent avec la sauvegarde.
+Le retour arrière du routage officiel reste à tester. Le reçu technique est référencé
 dans le suivi canonique. En cas d'échec, conserver les copies privées pour
 diagnostic et laisser la racine officielle `public_html` et la préproduction
 inchangées. Une émission de certificat réussie n'autorise ni bascule de racine,
 ni ouverture, ni indexation. La bascule et l'ouverture feront l'objet d'un lot
 exact présenté après la recette et le retour arrière testés.
+
+## Lot réversible de qualification de la racine officielle
+
+**Préparé, non autorisé.** Candidat site `49b4ef7`, ZIP `14c270431af12397…`,
+sans changement des pages ni des bases. Le contrôle technique privé réussit ;
+il ne prouve pas encore le PHP servi ou les protections Apache de cette racine.
+
+| Action à autoriser | Cible et résultat attendu |
+|---|---|
+| Permissions publiques minimales | Dossiers sous `drupal/web` en 0755, fichiers en 0644, chargeur `settings.php` maintenu en 0600 ; ancêtres de production en traversée seule 0711. Aucune modification des arbres privés ou vendor. |
+| Raccordement sous maintenance | `tclongages.fr` et `www` vers `/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web`, HTTPS forcé. Accueil anonyme 503 ; connexion française fonctionnelle ; paramètres refusés et ressources publiques lisibles. |
+| Retour réel à répéter | Revenir à `/home2/daje5127/public_html` et retrouver la page d'attente déjà sauvegardée et restaurée ; ensuite remettre Drupal sous maintenance si les contrôles réussissent. |
+| Arrêt sur défaut | Garder ou rétablir `public_html`, conserver les copies et reçus ; aucune purge ou nouvelle importation SQL. |
+
+Ce lot exclut l'ouverture publique, la levée de non-indexation, les adresses
+DNS, les droits SQL, les comptes et tout coût. Il conserve les paramètres,
+la préproduction, la lune et AVEREO. L'ouverture vient après la recette HTTP
+de cette cible, la répétition du retour et l'acceptation humaine de la V1.
 
 Le [suivi HTML](http://127.0.0.1:4181/) présente les quatre phases, les revues et les observations réelles de déploiement. Ce guide décrit le parcours de livraison sans créer de nouvelle interface.
 

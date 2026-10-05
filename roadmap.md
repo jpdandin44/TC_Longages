@@ -28,12 +28,12 @@ Ordre immédiat : recette du site, sauvegarde et restauration privée du Drupal
 actuel, préparation séparée de la production et de son certificat, présentation
 du lot exact, bascule sous maintenance, puis ouverture et contrôle anonyme.
 Le refus SQL de préproduction est résolu ; il ne faut pas le retravailler.
-La sauvegarde et la restauration des fichiers sont vérifiées ; HTTPS officiel
-et `www` sont désormais reconnus. Le même paquet est préparé hors domaine et
-la base de production vide est créée, son utilisateur et ses dix droits sont
-enregistrés et l'encodage Unicode est corrigé. Terminer la saisie personnelle
-du mot de passe SQL dans le fichier privé, puis éprouver l'import et le démarrage
-avant la bascule. Le développement du cockpit et du lot de comptes ne
+La sauvegarde, les fichiers et les 43 tables SQL restaurées sont vérifiés ;
+HTTPS officiel et `www` sont reconnus. Le même paquet est préparé hors domaine
+et les deux copies de Drupal démarrent en français sous maintenance.
+Le blocage de saisie privée SQL est résolu. Qualifier maintenant les permissions
+Apache, PHP servi, HTTPS et le retour à `public_html` dans un lot réversible
+explicitement autorisé, puis présenter l'ouverture après contrôle. Le développement du cockpit et du lot de comptes ne
 conditionne pas cette V1.
 
 ## Préproduction installée, recette à conduire — 4 octobre

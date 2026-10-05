@@ -32,8 +32,11 @@ tags:
   ZIP préparé hors domaine dans une nouvelle racine propriétaire.
 - Utilisateur SQL de production créé personnellement ; dix droits appliqués
   sur sa seule base après accord `TCL-PROD-SQL-20261005`, encodage Unicode
-  corrigé avant import. Outils bornés de restauration SQL préparés ; le fichier
-  privé, l'import et le démarrage restent à qualifier.
+  corrigé avant import. Saisie privée contrôlée avec succès, puis restauration
+  des 43 tables et démarrage des copies restaurée et de production vérifiés.
+  Français, maintenance, non-indexation et courriels neutralisés confirmés.
+  Ancienne racine et copie de retour comparées à la sauvegarde : concordance.
+  Permissions Apache, routage HTTP et retour arrière réel restent à qualifier.
 - [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) ouverte en brouillon :
   contrôles technique Windows et livraison Linux réussis sur le candidat
   d'outillage initial ; 49 tests Python passent sur Linux. Les confirmations

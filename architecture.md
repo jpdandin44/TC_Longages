@@ -28,11 +28,13 @@ Les paramètres, comptes, fichiers de fonctionnement et bases restent hors du
 paquet. Préproduction et production doivent garder des bases et racines
 distinctes. Le même ZIP est préparé sous
 `tcl-production/releases/14c270431af12397/drupal/`, sans raccordement HTTP.
-La base vide `daje5127_tclprod` est créée ; ses nouveaux identifiants et son
-import restent à terminer. Le certificat officiel, initialement autosigné,
-est remplacé par un certificat gratuit reconnu sur le domaine et `www`.
-La sauvegarde courante et ses fichiers restaurés sont vérifiés ; le SQL et
-le démarrage restent à éprouver. Les outils de préparation et restauration
+La base dédiée `daje5127_tclprod` reçoit les 43 tables de la sauvegarde
+vérifiée après contrôle de sa vacuité et de ses dix droits. Le mot de passe
+reste hors racine web. Le certificat officiel, initialement autosigné, est
+remplacé par un certificat gratuit reconnu sur le domaine et `www`.
+La copie restaurée et la copie de production démarrent en français sous
+maintenance. Les permissions Apache et le routage HTTP de cette nouvelle
+racine restent à qualifier ; le domaine conserve sa page d'attente. Les outils de préparation et restauration
 refusent l'écrasement d'une version ou d'une base existante. L'adaptateur de
 mise à jour récurrent reste à qualifier. Les versions futures préserveront
 les données de production et appliqueront les migrations examinées.

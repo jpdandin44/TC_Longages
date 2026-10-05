@@ -47,29 +47,39 @@ base `daje5127_tclprod`, même ZIP préparé et revérifié dans
 `tcl-production/releases/14c270431af12397/drupal`. Code et paramètres restent
 propriétaires, hors domaine. L'utilisateur SQL est créé personnellement et
 ses dix droits sont appliqués à la seule base `daje5127_tclprod`, après accord
-`TCL-PROD-SQL-20261005`. Son mot de passe doit être reporté personnellement
-dans le fichier privé de production ouvert dans cPanel.
-La base vide est passée de l'encodage par défaut à `utf8mb4_unicode_ci`
-et cette valeur est relue dans phpMyAdmin. Le contrôle privé confirme que
-le champ du mot de passe est encore vide ; aucun import SQL n'est tenté.
+`TCL-PROD-SQL-20261005`. La saisie privée est contrôlée avec succès le
+5 octobre à 11:25 UTC : authentification, base vide et dix droits vérifiés.
+L'encodage `utf8mb4_unicode_ci` est confirmé avant import. La restauration
+réussit à 11:26 UTC : 43 tables, connexion SQL et démarrage des copies
+restaurée et de production vérifiés. Maintenance, français, courriels
+neutralisés, inscription libre et cron désactivés, non-indexation confirmés.
+Les paramètres restent privés ; aucune valeur de secret n'est affichée.
 Les 141 tests Node passent. Sur 49 tests Python, 45 passent et quatre
 contrôles POSIX sont ignorés sous Windows. La syntaxe des trois fragments PHP
-du runtime, du préflight et du contrôle Drupal de production est vérifiée. La restauration SQL
-et le démarrage ne sont pas encore
-attestés ; aucune bascule ni ouverture de production.
+du runtime, du préflight et du contrôle Drupal de production est vérifiée.
+Le reçu hébergé de restauration est dans
+`/home2/daje5127/tcl-production/private/production-restore-receipt.json`.
+L'ancienne racine et sa copie restaurée correspondent à la sauvegarde ;
+les droits privés sont contrôlés. Les fichiers publics restent en 0600/0700 :
+permissions Apache et HTTP de cette nouvelle racine non qualifiés.
+Aucune bascule ni ouverture de production.
 
 La [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) est ouverte en
 brouillon pour les outils et la documentation. Ses contrôles technique
-Windows et livraison Linux ont réussi sur le candidat d'outillage initial
-`6d99849` ; les 49 tests Python passent sur Linux. Les quatre confirmations
+Windows et livraison Linux ont réussi sur le candidat d'outillage
+`3c1bf8c` avant cette actualisation documentaire ; les 49 tests Python passent
+sur Linux. Les nouveaux reçus documentaires restent à qualifier dans leur commit. Les quatre confirmations
 humaines sont conservées et non cochées. Les reçus portent le commit et
 le résultat exacts ; une actualisation documentaire n'est pas un nouveau
 déploiement du site.
 
-**Suite exacte :** attendre l'enregistrement personnel du mot de passe SQL
-dans le fichier privé de production. L'outil de restauration
-SQL est préparé ; le recetter sur la nouvelle base vide, vérifier le démarrage
-des deux copies, puis présenter le lot de bascule exact avec son retour.
+**Suite exacte :** recueillir l'accord sur le lot réversible de qualification
+de la racine officielle décrit dans le parcours V1. Rendre les seuls fichiers
+publics lisibles par Apache, raccorder le domaine à Drupal sous maintenance,
+vérifier HTTPS/PHP/protections, puis éprouver le retour à `public_html`.
+L'acceptation de la V1 avec ses réserves et l'ouverture restent des décisions
+humaines distinctes. Ne pas relancer l'outil de restauration sur cette base
+désormais remplie ; il refuse une seconde tentative.
 Le [parcours existant](parcours-mise-en-ligne.md) et `developmentWorkflow.deliveryPlan`
 portent les résultats attendus et l'estimation restante de 1 h 30 à 3 heures
 avec marge de correction, hors attentes humaines ou techniques externes.

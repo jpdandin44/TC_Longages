@@ -23,11 +23,12 @@ Drupal est installé en préproduction, SQL fonctionne et l'administration est
 en français depuis le 4 octobre. Les vérifications anonymes du 5 octobre
 confirment maintenance et non-indexation. Les anciens refus SQL décrivent des
 tentatives résolues. Production non livrée : certificat officiel désormais
-reconnu, même ZIP préparé hors domaine et nouvelle base vide créée après
-accord. Fichiers de sauvegarde restaurés et vérifiés ; utilisateur SQL dédié
-créé, dix droits appliqués à sa seule base et encodage Unicode vérifié.
-Fichier privé, restauration de base, démarrage et adaptateur de mise à jour
-non qualifiés.
+reconnu, même ZIP préparé hors domaine et base dédiée restaurée après
+accord. Fichiers et 43 tables SQL restaurés et vérifiés ; utilisateur SQL dédié
+créé, dix droits limités à sa seule base et encodage Unicode vérifié.
+Les copies restaurée et de production démarrent en français sous maintenance.
+Permissions Apache, routage HTTP, retour arrière officiel et adaptateur de
+mise à jour restent non qualifiés.
 Le compte cPanel donne accès à Terminal ; aucun nouvel accès SSH n'est créé.
 
 GitHub observé le 5 octobre : trois workflows actifs, dont la préparation
@@ -103,7 +104,10 @@ commencée et les instructions SQL visant une autre base ou les accès serveur.
 Le mot de passe reste dans un fichier client temporaire en 0600, sans argument
 ni sortie publique. Il doit vérifier le démarrage de la copie restaurée et du
 paquet de production : français, maintenance, courriels neutralisés, cron
-désactivé et non-indexation. Sa recette hébergée est encore à effectuer.
+désactivé et non-indexation. Sa recette hébergée réussit le 5 octobre à
+11:26 UTC, avec 43 tables et deux démarrages CLI. Le reçu est conservé
+privé et référencé dans `data/industrialisation-verification.json#backup`.
+Les contrôles HTTP de la nouvelle racine sont distincts et restent à effectuer.
 
 Ces deux derniers outils concernent la **première production dans une cible
 vide**. Ils ne constituent pas l'adaptateur de mise à jour d'une production

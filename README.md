@@ -38,12 +38,13 @@ Les courriels sont neutralisés et l’inscription libre désactivée. Le
 porte les résultats réels. L’accueil et les six autres pages ont été parcourus
 en session connectée. Le 5 octobre, le responsable reporte comptes et droits
 par équipe en V2 pour prioriser la V1 publique. La sauvegarde est intègre et
-ses fichiers sont restaurés en copie privée. Le même ZIP est préparé dans
-une racine de production distincte, non servie ; sa base vide est créée.
-Le certificat gratuit officiel et `www` sont reconnus. L'utilisateur SQL est
-créé avec dix droits limités à sa base, configurée en UTF-8. Le mot de passe
-privé, la restauration de base, le démarrage et le retour arrière restent à
-qualifier avant bascule ; aucune ouverture de production n'est exécutée.
+ses fichiers et ses 43 tables SQL sont restaurés et vérifiés en copie privée.
+Le même ZIP est préparé dans une racine de production distincte, non servie ;
+le Drupal restauré et celui de production démarrent en français sous maintenance.
+Le certificat gratuit officiel et `www` sont reconnus. Les dix droits SQL
+restent limités à la base dédiée. Les permissions Apache, le fonctionnement
+HTTP de cette nouvelle racine et son retour arrière restent à qualifier
+avant bascule ; aucune ouverture de production n'est exécutée.
 Le [point courant](docs/point-session.md) porte la reprise exacte ; le domaine
 officiel et la Lune sont conservés.
 

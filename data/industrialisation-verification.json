@@ -169,8 +169,8 @@
       "failed": 0
     },
     "limits": [
-      "The initial PR tooling source passed Linux/Windows CI; later documentation commits need their own CI result.",
-      "No hosted restore or production delivery attested."
+      "Latest tooling CI passed on source 3c1bf8c; this documentary update requires its own source qualification.",
+      "Private hosted restoration and CLI startup are attested; official-domain delivery is not attested."
     ],
     "phpSyntax": {
       "ownFilesPassed": 6,
@@ -184,7 +184,7 @@
     "approvalsGenerated": false
   },
   "backup": {
-    "status": "integrity_verified_on_host_restore_pending",
+    "status": "integrity_and_private_files_sql_drupal_restore_verified",
     "createdAt": "2026-10-05T08:00:25.404442+00:00",
     "account": "daje5127",
     "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261005T075955Z",
@@ -192,10 +192,10 @@
     "filesSha256": "3605ca1fb0148feea7067083a8aa5388d0864b20fe943f0f1f30b69dbf3d5734",
     "sqlUncompressedBytes": 5062381,
     "integrityVerified": true,
-    "restorationTested": false,
+    "restorationTested": true,
     "deploymentExecuted": false,
     "limits": [
-      "The SQL export and file archive were fully reread; no restored SQL bootstrap is attested."
+      "Private restoration and two CLI bootstraps verified; official HTTP root rollback remains untested."
     ],
     "filesRestore": {
       "format": "tcl-private-file-restore-v1",
@@ -207,6 +207,55 @@
       "drupalBootstrapped": false,
       "restorationTested": false,
       "deploymentExecuted": false
+    },
+    "databaseRestored": true,
+    "drupalBootstrapped": true,
+    "sqlRestore": {
+      "format": "tcl-production-restore-v1",
+      "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+      "database": "daje5127_tclprod",
+      "sqlSha256": "708530a6886ea09b6233dfd6f2783b292546816de3ee87c982c9e047ba03e070",
+      "filesSha256": "3605ca1fb0148feea7067083a8aa5388d0864b20fe943f0f1f30b69dbf3d5734",
+      "backupTableCount": 43,
+      "preflight": {
+        "emptyDatabaseVerified": true,
+        "dedicatedRightsVerified": true
+      },
+      "restoredDrupal": {
+        "databaseConnectionVerified": true,
+        "coreVersion": "11.4.8",
+        "environment": "production",
+        "defaultLanguage": "fr",
+        "maintenanceActive": true,
+        "mailBackend": "tcl_null_mail",
+        "registration": "admin_only",
+        "cronInterval": 0,
+        "publicIndexing": "0",
+        "tclSiteInstalled": true,
+        "tableCount": 43
+      },
+      "productionDrupal": {
+        "databaseConnectionVerified": true,
+        "coreVersion": "11.4.8",
+        "environment": "production",
+        "defaultLanguage": "fr",
+        "maintenanceActive": true,
+        "mailBackend": "tcl_null_mail",
+        "registration": "admin_only",
+        "cronInterval": 0,
+        "publicIndexing": "0",
+        "tclSiteInstalled": true,
+        "tableCount": 43
+      },
+      "sourceArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "databaseRestored": true,
+      "restorationTested": true,
+      "configurationActivated": true,
+      "officialRootChanged": false,
+      "publicOpeningExecuted": false,
+      "hostedReceipt": "/home2/daje5127/tcl-production/private/production-restore-receipt.json",
+      "evidenceMethod": "Safe native cPanel Terminal JSON read; no credential displayed",
+      "proof": "Private local screenshot production-restore-completion.png"
     }
   },
   "hostingPreparation": {
@@ -243,25 +292,54 @@
     },
     "databaseCharset": "utf8mb4",
     "databaseCollation": "utf8mb4_unicode_ci",
-    "databaseEmptyVerified": true,
-    "privatePasswordPresent": false,
-    "sqlImportStarted": false,
-    "encodingVerifiedAt": "2026-10-05T09:21:09.219767+00:00"
+    "privatePasswordPresent": true,
+    "sqlImportStarted": true,
+    "encodingVerifiedAt": "2026-10-05T09:21:09.219767+00:00",
+    "databaseEmptyVerifiedBeforeImport": true,
+    "privateInputSaved": true,
+    "sqlImportCompleted": true,
+    "databaseTableCount": 43,
+    "preflightCheckedAt": "2026-10-05T11:25:19.728191+00:00",
+    "restoreCheckedAt": "2026-10-05T11:26:13.060309+00:00"
   },
   "productionStage": {
     "preparedAt": "2026-10-05T08:27:32.759204+00:00",
     "composerRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal",
     "documentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
-    "status": "code_verified_private_input_pending",
+    "status": "private_drupal_restore_verified_http_routing_pending",
     "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
     "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
     "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
     "regularFiles": 26687,
     "receiptVerified": true,
-    "configurationActivated": false,
-    "databaseRestored": false,
+    "configurationActivated": true,
+    "databaseRestored": true,
     "officialRootChanged": false,
-    "publicOpeningExecuted": false
+    "publicOpeningExecuted": false,
+    "restorationTested": true,
+    "drupalBootstrapped": true,
+    "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+    "privateProtection": {
+      "checkedAt": "2026-10-05T11:30:14.007630+00:00",
+      "privateRootOutsideWeb": true,
+      "privateRootMode": "0700",
+      "privateFilesMode600": true,
+      "privateInputsAbsentUnderWeb": true,
+      "settingsLoaderMode": "0600",
+      "webRootMode": "0700",
+      "frontControllerMode": "0600",
+      "drupalRewritePresent": true,
+      "settingsDenyRulePresent": true,
+      "defaultFilesHtaccessExists": true,
+      "scope": "Filesystem checks only; Apache permissions, routing and served PHP not qualified for this new root."
+    },
+    "waitingRootVerification": {
+      "checkedAt": "2026-10-05T11:31:03.611166+00:00",
+      "expectedFiles": 1,
+      "currentOfficialRootMatchesBackup": true,
+      "restoredWaitingRootMatchesBackup": true,
+      "realDomainRollbackTested": false
+    }
   },
   "documentation": {
     "foundationPresent": true,
@@ -280,7 +358,11 @@
     ],
     "issues": [],
     "humanHistoryPreserved": true,
-    "phaseStatusesUnchanged": true
+    "phaseStatusesUnchanged": true,
+    "checkedAt": "2026-10-05T11:40:31.619707+00:00",
+    "localLinks": 332,
+    "jsonParsed": 4,
+    "scope": "Eleven structural Markdown files: metadata, owner, local file links, Unicode; four JSON sources; foundation and protected human history. Generated views verified by framework check."
   },
   "initialPullRequestCi": {
     "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
