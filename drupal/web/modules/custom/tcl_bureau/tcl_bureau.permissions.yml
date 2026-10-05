@@ -1,0 +1,16 @@
+access tcl bureau:
+  title: Accéder à l'espace du club
+manage tcl registrations:
+  title: Enregistrer et gérer les dossiers des adhérents
+  restrict access: true
+manage tcl captain accounts:
+  title: Créer et gérer les comptes Capitaine
+  restrict access: true
+administer tcl bureau accounts:
+  title: Créer et gérer les comptes Bureau
+  restrict access: true
+manage tcl teams:
+  title: Gérer toutes les équipes et leurs capitaines
+  restrict access: true
+view assigned tcl teams:
+  title: Consulter et mettre à jour les équipes attribuées

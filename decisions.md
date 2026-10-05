@@ -15,6 +15,65 @@ tags:
 
 # Décisions
 
+## 2026-10-05 — Agenda public dédié et informations de compétition
+
+**Contexte.** Le responsable demande l'affichage des événements Google et des
+compétitions sur le site. L'intégration de l'agenda principal fourni refuse
+l'accès au visiteur ; ADOC demande une reconnexion, Ten’Up affiche les rencontres.
+
+**Décision humaine.** Choisir un agenda dédié aux événements publics du club,
+au sein du même compte Google si souhaité. La présence des compétiteurs serait
+renseignée par le capitaine dans FFT ; son exploitation viendra après qualification.
+
+**Conséquences.** Préparer le composant Calendrier en local, conserver ID vide
+et activation désactivée jusqu'au contrôle du partage. Une catégorie ou couleur
+ne crée pas de droit public. Aucun partage de l'agenda principal, import de joueurs,
+automatisme FFT ni déploiement V2 n'est exécuté. Les limites sont dans les
+[guides Calendar](api/google-calendar.md) et [FFT](api/fft.md).
+
+## 2026-10-05 — Nouvelle itération locale des comptes et du Bureau
+
+**Contexte.** Le responsable confirme V1 en production puis demande de commencer
+V2 en local avec comptes et Bureau, puis précise que le Bureau doit surtout
+enregistrer les nouveaux adhérents, avant la gestion des équipes.
+
+**Choix du candidat.** Utiliser comptes, sessions et formulaires Drupal. Le Bureau
+enregistre et contrôle les fiches Adultes/Mineurs. Les comptes restent natifs ;
+l'administrateur crée aussi les comptes Bureau. Le code d'équipes déjà préparé
+est conservé avec ses routes désactivées par configuration. Base neuve et données
+fictives isolent la recette. Ces règles du candidat sont proposées à la revue ;
+aucun accord humain de phase ou livraison V2 n'est créé.
+
+**Conséquences.** Reçu et artefact V1 conservés. Qualifier la mise à jour du
+Drupal existant, MySQL, sauvegarde et droits avant livraison V2. Les prototypes
+antérieurs de comptes génériques et OIDC ne deviennent pas la cible par défaut.
+Les fiches existantes guident les champs ; tarifs, consentements et parcours
+complet restent à examiner avant collecte réelle. Les pages FFT consultées
+informent le futur lot compétitions, sans remplacer les dossiers du Bureau.
+
+## 2026-10-05 — Ouverture de la V1 et configuration d'hébergement identifiée
+
+**Contexte.** Le même paquet Drupal a été restauré et vérifié. La qualification
+du domaine officiel puis son ouverture attendent encore l'accord du responsable.
+
+**Décision humaine.** L'accord explicite `TCL-PROD-EXECUTION-20261005` dans la
+conversation couvre le raccordement sous maintenance, les contrôles et le retour
+réel, puis l'ouverture du candidat V1 si les contrôles réussissent. Les réserves
+fonctionnelles présentées et le report des comptes en V2 font partie du périmètre.
+Aucune permission supplémentaire n'est à saisir pour ce même lot.
+
+**Choix d'exécution.** Conserver le ZIP et les pages acceptés. Identifier séparément
+la configuration Apache nécessaire à HTTPS, aux refus de fichiers privés et à
+l'indexation des seules pages publiques. Enregistrer l'empreinte du modèle et
+du fichier effectif, avec son drapeau d'ouverture. Les corrections sont vérifiées
+sur la réponse HTTP réelle, sans reconstruction du candidat ni nouvel import SQL.
+
+**Conséquences.** La V1 est publique depuis 18:14 UTC ; la préproduction et l'ancienne
+page d'attente restent disponibles pour recette et retour arrière. Le reçu
+technique ne crée aucune validation de checklist. Les accords V1 ne valent pas
+autorisation de déployer un futur candidat V2. L'automatisation des prochaines
+mises à jour reste à qualifier.
+
 ## 2026-10-05 — Première production distincte de la préproduction
 
 **Contexte.** Le site public est prioritaire pour la V1. La préproduction

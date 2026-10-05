@@ -1,0 +1,4 @@
+bureau:
+  css:
+    theme:
+      css/bureau.css: {}

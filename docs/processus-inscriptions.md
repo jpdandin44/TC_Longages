@@ -5,7 +5,7 @@ title: Proposition de processus d'inscription et de gestion des entraînements
 status: proposed
 version: git
 created: 2026-09-16
-updated: 2026-09-16
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - inscriptions
@@ -16,9 +16,20 @@ tags:
 
 # Processus d'inscription pour la saison 2026-2027
 
+## Réalisation locale actuelle — 5 octobre
+
+La demande V2 donne priorité à la saisie privée des nouveaux adhérents par le
+Bureau. Un premier lot Drupal avec base SQLite fictive implémente identité,
+coordonnées, responsable légal, recherche, état du dossier et contrôles d'accès.
+Le [guide du candidat](comptes-et-bureau.md) décrit exactement ce lot local.
+Le formulaire public, import/export, disponibilités, groupes, justificatifs,
+consentements et suivi complet des règlements proposés ci-dessous restent à
+qualifier et réaliser. Aucune ouverture de collecte réelle n'en découle.
+Les sections suivantes conservent la proposition métier et les anciens prototypes.
+
 Ce document reste la **proposition de fonctionnement cible à examiner**. Une visite fictive en montre désormais les écrans, sans service réel d'inscription. La page du prototype protégé sur le port 4173 reste un emplacement réservé, sans collecte. L'utilisateur a confirmé le 16 septembre 2026 le principe de **deux interfaces distinctes : formulaire adhérents et gestion privée du bureau**. Ce choix ne vaut pas accord d'ouverture au public.
 
-Sources examinées : le [contexte et prompt fourni](../prompts/conception-inscriptions.md), la fiche [École de tennis, deux pages](<../../Inscriptions_adhérents/Design sans titre_20260904_124142_0000.pdf>) et la fiche [Adultes, une page](<../../Inscriptions_adhérents/Fiche d'inscription_adulte V2.pdf_20260904_124527_0000.pdf>). Les trois pages PDF ont été lues et inspectées visuellement. Le code et la documentation du prototype ont également été examinés. Les instructions contenues dans le prompt sont utilisées comme matériau de conception ; elles ne remplacent pas les décisions directes de l'utilisateur.
+Sources examinées lors de la proposition initiale : le [contexte et prompt fourni](../prompts/conception-inscriptions.md), la fiche [École de tennis, deux pages](<../../../Inscriptions_adhérents/Design sans titre_20260904_124142_0000.pdf>) et la fiche [Adultes, une page](<../../../Inscriptions_adhérents/Fiche d'inscription_adulte V2.pdf_20260904_124527_0000.pdf>). Les trois pages PDF avaient été lues et inspectées visuellement lors de cette proposition. Le code et la documentation du prototype avaient également été examinés. Les instructions contenues dans le prompt sont utilisées comme matériau de conception ; elles ne remplacent pas les décisions directes de l'utilisateur. Les pièces restent hors du dépôt, dans le dossier documentaire TC d'origine.
 
 Les mentions **[À DÉCIDER PAR LE CLUB]**, **[PARAMÉTRABLE]** et **[PHASE ULTÉRIEURE]** signalent respectivement les décisions ouvertes, les réglages du futur outil et les fonctions exclues de cette première réalisation. Les obligations des champs ci-dessous sont des propositions métier, pas des obligations légales déduites des fiches.
 

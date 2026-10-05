@@ -12,6 +12,60 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 5 octobre 2026
 
+## Travail courant — V2 locale, Bureau et nouveaux adhérents
+
+Après confirmation de l'objectif V1 atteint, le responsable demande V2 en local,
+puis donne priorité à l'enregistrement des nouveaux adhérents par le Bureau.
+Checkout `.worktrees/livraison-fiable`, branche `feat/v2-comptes-bureau-local`.
+Le [site local](http://127.0.0.1:4182/) utilise Drupal 11.4.8 et une base SQLite
+neuve avec dossiers/comptes fictifs et courriels neutralisés. Le Bureau permet
+création/modification Adultes/Mineurs, recherche et état du dossier ; les équipes
+restent désactivées. Le [guide](comptes-et-bureau.md), le
+[reçu](../data/bureau-local-verification.json) et `developmentIterations` du
+suivi canonique portent ce lot distinct. La session navigateur locale Bureau
+est préparée pour la recette. Les mots de passe de recette restent dans `.local/`.
+
+Les [sources FFT](../api/fft.md) sont examinées : Ten’Up fournit des rencontres
+publiques ; ADOC demande une reconnexion. Aucune intégration ou donnée réelle
+d'adhérent n'est importée. Prochaine action : examiner le candidat local et ses
+champs, puis qualifier la mise à jour/MySQL avant une recette hébergée V2.
+La qualification mobile du nouveau Bureau reste à faire. Les accords de V1
+conservent leur portée ; aucun déploiement V2 ni validation humaine nouvelle.
+
+## État courant — V1 officielle ouverte
+
+Le responsable autorise explicitement la mise en production de V1 dans la
+conversation (`TCL-PROD-EXECUTION-20261005`). Le même candidat site `49b4ef7`,
+ZIP `14c270431af12397…`, est ouvert sur [tclongages.fr](https://tclongages.fr/)
+le 5 octobre à 18:14:45 UTC. Les sept pages anonymes, HTTPS, `www`, les cinq
+refus de chemins privés, l'administration et l'inscription anonymes, ainsi que
+la non-indexation de la connexion et de la préproduction sont contrôlés.
+La configuration Apache d'hébergement est identifiée séparément du ZIP ; les
+26 686 autres fichiers du manifeste sont revérifiés après retrait des diagnostics.
+Le retour réel à `/home2/daje5127/public_html` a rendu la page d'attente attendue
+sur les deux noms avant la reconnexion du Drupal. Les copies et sauvegardes
+privées sont conservées. Le site a aussi été examiné sur bureau et à 390 pixels.
+
+Les paramètres privés et la base dédiée de production restent séparés de la
+préproduction, qui conserve sa maintenance. Aucun compte Bureau/Capitaine,
+transport de contact ni raccordement Calendar/Forms n'est activé. Ces réserves
+V1 sont conservées dans la [note de livraison](note-de-livraison.md).
+Le [reçu technique](../data/industrialisation-verification.json#publication)
+et le suivi canonique portent la livraison réelle. Les critères, commentaires
+et statuts de validation humaine des phases ne sont pas modifiés par cette
+exécution ; l'accord de production est enregistré avec sa provenance dans le chat.
+
+Checkout opératoire : `.worktrees/livraison-fiable`, branche
+`fix/revue-pr-candidate`, HEAD `ab89256`, PR #13 fusionnée **au constat de livraison V1**. Les documents,
+configuration d'hébergement et reçus de cette publication sont conservés dans
+ce checkout. Les anciens checkouts et le lot de comptes restent intacts.
+La reprise V2 est décrite en tête de ce document. Les mises à jour doivent
+préserver la base de production. Les exigences de versioning, cockpit, GitHub Actions et
+notes de version restent dans le backlog après V1 ; aucune synchronisation
+automatique ni nouvelle permission GitHub n'a été installée.
+
+Les sections suivantes conservent les constats antérieurs à cette ouverture.
+
 ## Dernière correction du suivi — trois décisions et garde PR
 
 La PR #12 est fusionnée le 5 octobre à 15:23:37 UTC sur `76198ee`. La branche

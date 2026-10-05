@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+/** Restrict the club skin to the V2 workspace and native account screens. */
+function tcl_bureau_is_workspace(): bool {
+  $route = (string) \Drupal::routeMatch()->getRouteName();
+  return str_starts_with($route, 'tcl_bureau.') || in_array($route, ['user.login', 'user.pass', 'user.logout', 'user.logout.confirm'], TRUE);
+}
+
+/** Implements hook_page_attachments(). */
+function tcl_bureau_page_attachments(array &$attachments): void {
+  if (tcl_bureau_is_workspace()) {
+    $attachments['#attached']['library'][] = 'tcl_bureau/bureau';
+  }
+}
+
+/** Reuse the supplied club logo on native Drupal account pages. */
+function tcl_bureau_preprocess_block(array &$variables): void {
+  if (($variables['plugin_id'] ?? '') === 'system_branding_block' && tcl_bureau_is_workspace()) {
+    $variables['site_logo'] = base_path() . 'modules/custom/tcl_bureau/images/logo.jpeg';
+  }
+}

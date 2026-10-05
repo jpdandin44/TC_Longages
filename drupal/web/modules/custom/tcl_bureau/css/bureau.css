@@ -1,0 +1,23 @@
+body { margin: 0; background: #f7f7f7; font: 16px/1.6 system-ui, sans-serif; color: #272727; }
+#block-stark-branding { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 1080px; margin: auto; padding: 1.25rem; }
+#block-stark-branding img { width: 60px; height: 60px; object-fit: contain; }
+#block-stark-branding a { color: #741323; font-weight: 700; text-decoration: none; }
+main { max-width: 1130px; margin: auto; padding: 0 1rem; }
+main h1 { color: #741323; }
+#user-login-form, #user-pass { max-width: 550px; margin: 1rem auto; padding: 1.5rem; background: #fff; border-top: 5px solid #a6192e; }
+.form-item { margin: 1.2rem 0; }
+.form-item label { display: block; font-weight: 600; }
+.form-item input:not([type=checkbox]), .form-item textarea { padding: .6rem; font: inherit; max-width: 100%; box-sizing: border-box; }
+.tcl-bureau { max-width: 1080px; margin: 2rem auto; padding: 1.5rem; font-family: system-ui, sans-serif; color: #272727; border-top: 5px solid #a6192e; background: #fff; }
+.tcl-bureau a { color: #8b1830; }
+.tcl-bureau nav { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0 2rem; }
+.tcl-bureau .tcl-table { overflow-x: auto; }
+.tcl-bureau table { width: 100%; border-collapse: collapse; }
+.tcl-bureau th, .tcl-bureau td { padding: .8rem; border-bottom: 1px solid #ddd; text-align: left; vertical-align: top; }
+.tcl-bureau .tcl-note { color: #555; }
+.tcl-bureau .form-item input:not([type=checkbox]), .tcl-bureau textarea, .tcl-bureau select { max-width: 100%; box-sizing: border-box; }
+.tcl-bureau textarea { width: 100%; }
+.tcl-bureau .form-item { margin: 1.2rem 0; }
+.tcl-bureau .form-item label { display: block; font-weight: 600; }
+.tcl-bureau input[type=submit] { padding: .8rem 1.2rem; background: #a6192e; color: #fff; border: 0; border-radius: 4px; cursor: pointer; }
+@media (max-width: 600px) { .tcl-bureau { margin: 1rem 0; padding: 1rem; } .tcl-bureau th, .tcl-bureau td { padding: .6rem; } }

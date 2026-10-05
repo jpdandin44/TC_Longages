@@ -15,6 +15,31 @@ tags:
 
 # Architecture
 
+## V2 locale — comptes et Bureau
+
+Le module [tcl_bureau](drupal/web/modules/custom/tcl_bureau/tcl_bureau.info.yml)
+complète `tcl_site` avec comptes, sessions et formulaires Drupal. Le schéma
+définit une table de dossiers d'adhésion, avec identité/saison unique, état,
+détails privés, auteur et révision. Deux tables d'équipes/attributions restent
+conservées pour la suite, avec `teams_enabled: false`. La base de recette est
+un SQLite neuf dans `.local/drupal-runtime/`, distinct des bases hébergées.
+Comptes et rôles sont relus avant accès et écriture ; les formulaires contrôlent
+CSRF, doublons et révision avant une mise à jour atomique. Les valeurs sont
+restituées comme texte. Aucun dossier n'est stocké dans le navigateur.
+Le [guide du lot](docs/comptes-et-bureau.md) détaille règles et recette.
+
+Les helpers CLI, hors de `web/`, refusent toute base hébergée. L'installation
+du module seule crée le schéma/rôles sans compte ni donnée fictive. Le menu
+Espace est raccordé uniquement lorsque ce module est activé. MySQL et la mise
+à jour d'une cible existante restent à qualifier avant livraison V2.
+Les observations [FFT](api/fft.md) sont documentaires : aucune API ni
+synchronisation automatique ADOC/Ten’Up n'est raccordée à ces dossiers.
+Le calendrier est affiché depuis un cadre Google limité à `calendar.google.com`,
+sur la page Calendrier, après configuration d'un ID public et revue du partage.
+Le générateur et les aperçus contrôlent cette source ; aucune clé API ni
+identification Google n'est enregistrée. L'agenda n'étant pas qualifié, son ID
+reste vide et aucun cadre n'est chargé dans les pages actuelles.
+
 ## Livraison reproductible — 5 octobre
 
 La chaîne TC réutilise la préparation manuelle issue du site Drupal AVEREO.
@@ -27,14 +52,25 @@ au club est également contrôlée. Aucun déploiement n'est déclenché par mer
 Les paramètres, comptes, fichiers de fonctionnement et bases restent hors du
 paquet. Préproduction et production doivent garder des bases et racines
 distinctes. Le même ZIP est préparé sous
-`tcl-production/releases/14c270431af12397/drupal/`, sans raccordement HTTP.
+`tcl-production/releases/14c270431af12397/drupal/` ; son sous-répertoire
+`web` sert désormais `tclongages.fr` et `www`.
 La base dédiée `daje5127_tclprod` reçoit les 43 tables de la sauvegarde
 vérifiée après contrôle de sa vacuité et de ses dix droits. Le mot de passe
 reste hors racine web. Le certificat officiel, initialement autosigné, est
 remplacé par un certificat gratuit reconnu sur le domaine et `www`.
-La copie restaurée et la copie de production démarrent en français sous
-maintenance. Les permissions Apache et le routage HTTP de cette nouvelle
-racine restent à qualifier ; le domaine conserve sa page d'attente. Les outils de préparation et restauration
+La copie restaurée démarre en français sous maintenance. La production est
+ouverte après qualification HTTP/PHP et retour réel à `public_html`. Sa base
+conserve les données restaurées ; une table de cache Drupal a été créée lors
+de la reconstruction native des caches. Les pages viennent du ZIP immuable.
+La configuration [Apache de production](config/production-https.htaccess)
+est superposée au `.htaccess` original vérifié : HTTPS, refus des fichiers
+privés et retrait de non-indexation uniquement pour une réponse 200 sur les
+chemins publics explicitement autorisés. Son drapeau Apache est activé avec
+le drapeau PHP lors de l'ouverture et remis à zéro lors de la fermeture.
+Les paramètres restent hors webroot en 0600 ; `vendor` reste hors de la
+racine publique. Le [reçu de publication](data/industrialisation-verification.json#publication)
+sépare l'identité du ZIP de celle de la configuration hébergée.
+Les outils de préparation et restauration
 refusent l'écrasement d'une version ou d'une base existante. L'adaptateur de
 mise à jour récurrent reste à qualifier. Les versions futures préserveront
 les données de production et appliqueront les migrations examinées.

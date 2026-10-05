@@ -22,14 +22,33 @@ document décrit son raccordement TC, sans créer un second suivi.
 Drupal est installé en préproduction, SQL fonctionne et l'administration est
 en français depuis le 4 octobre. Les vérifications anonymes du 5 octobre
 confirment maintenance et non-indexation. Les anciens refus SQL décrivent des
-tentatives résolues. Production non livrée : certificat officiel désormais
-reconnu, même ZIP préparé hors domaine et base dédiée restaurée après
+tentatives résolues. Production V1 livrée le 5 octobre : certificat officiel
+reconnu, même ZIP servi depuis sa racine distincte et base dédiée restaurée après
 accord. Fichiers et 43 tables SQL restaurés et vérifiés ; utilisateur SQL dédié
 créé, dix droits limités à sa seule base et encodage Unicode vérifié.
-Les copies restaurée et de production démarrent en français sous maintenance.
-Permissions Apache, routage HTTP, retour arrière officiel et adaptateur de
-mise à jour restent non qualifiés.
+La copie restaurée démarre en français sous maintenance. La production est
+ouverte après qualification Apache, PHP 8.3.33 servi, HTTPS et retour réel
+à l'ancienne page d'attente. Les sept pages sont contrôlées anonymement ;
+la préproduction conserve sa maintenance. L'adaptateur de mise à jour d'une
+production existante reste à qualifier.
 Le compte cPanel donne accès à Terminal ; aucun nouvel accès SSH n'est créé.
+
+La [configuration Apache](../config/production-https.htaccess) est une
+configuration d'hébergement distincte du ZIP. Vérifier le `.htaccess` original,
+puis ajouter cette configuration devant ses directives, sans les supprimer.
+Le modèle garde `TCL_APACHE_PUBLIC_INDEXING` à 0. À l'ouverture autorisée,
+passer ce drapeau et le drapeau PHP privé à 1, puis lever la maintenance native.
+Les chemins sont limités aux neuf routes de vitrine ; seules leurs réponses
+200 perdent l'en-tête de non-indexation. Connexion, administration et
+préproduction restent protégées. Les refus Apache 403 sont qualifiés par
+l'absence d'accès aux fichiers privés ; ils ne passent pas par la réponse Drupal.
+Relever les empreintes du modèle, du fichier hébergé effectif et du ZIP dans
+le reçu. Au retour arrière, remettre les drapeaux à 0, la maintenance à vrai,
+puis vérifier la fermeture ; le retour de racine vers `public_html` est aussi
+éprouvé. Le [reçu courant](../data/industrialisation-verification.json#publication)
+et la [note](../docs/note-de-livraison.md) portent les résultats, sans déduire
+une permission d'un workflow réussi. Le traitement tardif des deux tables
+d'en-têtes suit la [documentation Apache](https://httpd.apache.org/docs/2.4/mod/mod_headers.html#header).
 
 GitHub observé le 5 octobre : trois workflows actifs, dont la préparation
 manuelle. Aucun environnement GitHub ni secret/variable de dépôt TC n'est

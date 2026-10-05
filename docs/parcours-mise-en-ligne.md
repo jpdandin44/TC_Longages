@@ -18,8 +18,8 @@ Le [suivi canonique](suivi-chantier/suivi-chantier.json) porte les quatre phases
 |---|---|---|
 | Cadrage | Périmètre et candidat exact identifiés ; lot d'hébergement concret. | V1 recentrée par le responsable sur le site public. Comptes Bureau/Capitaine et droits par équipe reportés en V2. |
 | Développement local | Tests automatisés et parcours public/admin sur la version exacte ; maintenance et courriels vérifiés. | Paquet installé `49b4ef7` revérifié intégralement contre son reçu ; améliorations de la chaîne préparées sur une branche distincte. |
-| Préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | Drupal installé, français, SQL opérationnel ; sept pages relues en session administrateur. Sauvegarde intègre, 26 819 fichiers et 43 tables SQL restaurés ; deux démarrages Drupal en français sous maintenance vérifiés. Retour arrière HTTP encore à qualifier. |
-| Mise en production | Après recette et accord explicite sur l'action, sauvegarde restaurable, livraison du candidat exact sous maintenance, contrôle, puis accord distinct pour l'ouverture Drupal. | Préparation autorisée : même ZIP copié hors domaine, base dédiée créée et certificat gratuit reconnu sur les deux noms officiels. Saisie SQL vérifiée, base restaurée et Drupal démarré sous maintenance hors domaine. Permissions Apache et HTTP de la nouvelle racine non qualifiés. Racine `public_html` conservée ; aucune bascule ni ouverture. |
+| Préproduction | Même candidat installé sous maintenance sur `preprod.tclongages.fr`, HTTPS valide, tests anonymes/admin et retour arrière éprouvé. | Sept pages relues dans Drupal, sauvegarde et restauration privée vérifiées ; retour réel à la racine d'attente réussi. La préproduction conserve sa maintenance. |
+| Mise en production | Recette, accord humain exact, restauration et retour éprouvés, même candidat livré puis ouvert après contrôles ; contrôle public et préparation de la suite. | V1 ouverte à 18:14 UTC le 5 octobre. Sept pages anonymes 200, HTTPS et `www`, refus privés 403, connexion et administration non indexables. ZIP inchangé ; configuration Apache identifiée séparément. |
 
 La première V1 comprend les sept pages publiques sous Drupal. La page « Espace » reste un écran d'attente ; aucun compte Bureau, formulaire Google, publication sociale ou collecte de contact n'est activé. Le contact public affiché est `tclongages@gmail.com` ; `support@tclongages.fr` reste prévu, sans boîte attestée.
 
@@ -37,14 +37,13 @@ pas qualifié. Ces ressources ne sont pas déclarées activées.
 
 Le détail, les dépendances et les estimations sont conservés dans
 `developmentWorkflow.deliveryPlan` du [suivi canonique](suivi-chantier/suivi-chantier.json).
-Après la sauvegarde, la restauration des fichiers, le certificat et la copie
-du paquet, estimation restante : **1 h 30 à 3 heures**, marge de correction
-de 25 % incluse. L'estimation initiale de 3 à 5 heures est conservée dans
-l'historique du suivi. Les
-attentes d'accès, de validation humaine, de certificat ou de DNS s'ajoutent.
-Ce délai n'est pas une garantie de livraison : un contrôle échoué exige une
-correction dans son périmètre avant bascule. Aucun développement du cockpit
-n'est requis pour conduire ces opérations.
+**Livraison V1 terminée.** Les estimations antérieures de 3 à 5 heures puis
+de 1 h 30 à 3 heures, avec marge de 25 %, sont conservées comme observations
+historiques dans le suivi. Elles ne constituent plus un effort restant de
+publication. L'adaptateur de mise à jour et les évolutions V2 suivent un lot
+distinct à cadrer ; aucun développement du cockpit n'a conditionné l'ouverture.
+
+La séquence spécifique TC effectuée est la suivante :
 
 1. Recetter les sept pages réellement hébergées et enregistrer l'acceptation
    du candidat exact. Conserver ses réserves fonctionnelles visibles.
@@ -119,9 +118,12 @@ exact présenté après la recette et le retour arrière testés.
 
 ## Lot réversible de qualification de la racine officielle
 
-**Préparé, non autorisé.** Candidat site `49b4ef7`, ZIP `14c270431af12397…`,
-sans changement des pages ni des bases. Le contrôle technique privé réussit ;
-il ne prouve pas encore le PHP servi ou les protections Apache de cette racine.
+**Autorisé et réalisé le 5 octobre.** L'accord explicite
+`TCL-PROD-EXECUTION-20261005` vise le candidat site `49b4ef7`, ZIP
+`14c270431af12397…`, son raccordement sous maintenance, les contrôles et
+le retour réel, puis l'ouverture publique si ces contrôles réussissent.
+Cet accord est consigné dans le suivi canonique ; aucune permission
+supplémentaire n'est à saisir dans GitHub ou cPanel pour le même lot.
 
 | Action à autoriser | Cible et résultat attendu |
 |---|---|
@@ -130,10 +132,33 @@ il ne prouve pas encore le PHP servi ou les protections Apache de cette racine.
 | Retour réel à répéter | Revenir à `/home2/daje5127/public_html` et retrouver la page d'attente déjà sauvegardée et restaurée ; ensuite remettre Drupal sous maintenance si les contrôles réussissent. |
 | Arrêt sur défaut | Garder ou rétablir `public_html`, conserver les copies et reçus ; aucune purge ou nouvelle importation SQL. |
 
-Ce lot exclut l'ouverture publique, la levée de non-indexation, les adresses
-DNS, les droits SQL, les comptes et tout coût. Il conserve les paramètres,
-la préproduction, la lune et AVEREO. L'ouverture vient après la recette HTTP
-de cette cible, la répétition du retour et l'acceptation humaine de la V1.
+La proposition initiale excluait l'ouverture publique. L'accord explicite
+du responsable couvre maintenant cette ouverture après réussite des contrôles,
+avec les réserves V1 déjà présentées. Les adresses DNS, droits SQL, comptes et
+coûts restent inchangés. La préproduction et la lune sont conservées.
+
+La racine officielle a été raccordée sous maintenance et le retour réel à
+`public_html` a rendu la page d'attente attendue sur les deux noms, avant
+reconnexion du Drupal. PHP 8.3.33 est vérifié par HTTP. La configuration
+d'hébergement [production-https.htaccess](../config/production-https.htaccess)
+est ajoutée devant le `.htaccess` original après vérification de son empreinte.
+Elle conserve les directives Drupal ; son empreinte est distincte du ZIP
+immuable, qui n'est pas reconstruit. Le reçu opérationnel enregistre les
+empreintes de la base, de cette configuration et du fichier effectif.
+La préproduction conserve sa maintenance et sa non-indexation.
+
+La levée de maintenance et l'ouverture sont réalisées à 18:14:45 UTC.
+Le drapeau PHP privé et `TCL_APACHE_PUBLIC_INDEXING` sont à 1 en production ;
+le modèle Apache versionné reste à 0 pour éviter une ouverture implicite lors
+de sa réutilisation. Dix-neuf lectures HTTP externes confirment les sept pages,
+les variantes d'hôte et de protocole, les refus privés, la connexion, les refus
+d'inscription et d'administration anonymes, ainsi que la fermeture de préproduction.
+Les refus natifs Apache 403 ne contiennent pas d'en-tête applicatif de non-indexation ;
+leur contrôle porte sur le refus d'accès. Les réponses de connexion, d'administration
+Drupal et de préproduction conservent leur non-indexation. La [note de livraison](note-de-livraison.md)
+et le [reçu](../data/industrialisation-verification.json#publication) portent
+le périmètre et le retour arrière. L'affichage est vérifié sur bureau et sur
+les sept pages à 390 pixels, menu mobile inclus. Aucun formulaire réel n'est envoyé.
 
 Le [suivi HTML](http://127.0.0.1:4181/) présente les quatre phases, les revues et les observations réelles de déploiement. Ce guide décrit le parcours de livraison sans créer de nouvelle interface.
 

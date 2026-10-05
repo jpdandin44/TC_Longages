@@ -14,7 +14,7 @@ tags: [framework, suivi, vue-generee]
 
 <!-- Vue générée par scripts/framework.mjs ; les décisions passent par le moteur interactif. -->
 
-**Phase actuelle : 2 — Préproduction. 2 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
+**Phase actuelle : 2 — PrÃ©production. 2 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
 
 [Ouvrir le suivi interactif local](http://127.0.0.1:4181/) · [Ouvrir Drupal local](http://127.0.0.1:4182/)
 
@@ -22,20 +22,20 @@ Ces adresses nécessitent le démarrage des services locaux ; cette vue ne certi
 
 Domaine : **tclongages.fr**, obtenu selon confirmation utilisateur ; DNS/HTTPS non vérifiés par ce générateur. Dépôt : [TC_Longages](https://github.com/jpdandin44/TC_Longages).
 
-PR #5 fusionnée par le responsable ; Action de construction réussie sur le commit de fusion et candidat ZIP reçu vérifié. La lune isolée est active après sauvegarde privée requalifiée. Aucune validation de phase ou recette hébergée déduite ; l’ancienne prochaine action de session est conservée ci-dessous comme historique.
+PR #5 fusionnÃ©e par le responsable ; Action de construction rÃ©ussie sur le commit de fusion et candidat ZIP reÃ§u vÃ©rifiÃ©. La lune isolÃ©e est active aprÃ¨s sauvegarde privÃ©e requalifiÃ©e. Aucune validation de phase ou recette hÃ©bergÃ©e dÃ©duite ; lâ€™ancienne prochaine action de session est conservÃ©e ci-dessous comme historique.
 
 **Installation :** Installation clôturée : revue et validation du candidat restent contrôlées.
 
-**Architecture retenue ou à décider :** Drupal dédié au TC Longages, maintenance par l’administration native, composants communs réutilisables ultérieurement. L’état d’installation et la qualification sont documentés séparément ; une décision d’architecture ne constitue pas une preuve d’authentification effective.
+**Architecture retenue ou à décider :** Drupal dÃ©diÃ© au TC Longages, maintenance par lâ€™administration native, composants communs rÃ©utilisables ultÃ©rieurement. L’état d’installation et la qualification sont documentés séparément ; une décision d’architecture ne constitue pas une preuve d’authentification effective.
 
 ## Phases
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | Examiner puis fusionner la nouvelle PR candidate ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique. |
-| 1 — Développement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | Après nouvelle acceptation courante du Cadrage et fusion de la nouvelle PR candidate, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle. |
-| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2. |
-| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public\_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics. |
+| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #13 fusionnÃ©e ; Revue puis confirmation personnelle Valider si une nouvelle acceptation de cette correction est souhaitÃ©e. CritÃ¨res, commentaires et dÃ©cisions antÃ©rieures conservÃ©s. |
+| 1 — DÃ©veloppement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | PR #13 fusionnÃ©e ; conserver les douze critÃ¨res, le commentaire et la confirmation personnelle pour la revue de cette correction locale. Aucune opÃ©ration dâ€™hÃ©bergement ne dÃ©coule de cette revue. |
+| 2 — PrÃ©production | En cours | [Dossier](04-phase.md) | Terminer la qualification de la racine officielle et du retour rÃ©el sous maintenance dans le lot autorisÃ©, puis conserver les reÃ§us. |
+| 3 — Mise en production | Non dÃ©marrÃ©e | [Dossier](06-phase.md) | ExÃ©cuter le raccordement autorisÃ© sous maintenance ; qualifier la cible et le retour rÃ©el ; ouvrir le mÃªme candidat aprÃ¨s rÃ©ussite des contrÃ´les. |
 
 ## Points à résoudre
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `98e761b60cd56f84b062d5fadeb8f1a50ce3a607df21e095d847bcf8205c51cf`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `fed3a79a97ca2a3498e1e3dbd0aa8d8d66a7ab69dc060b701409517f5eae5548`.
