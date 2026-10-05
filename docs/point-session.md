@@ -49,11 +49,22 @@ propriétaires, hors domaine. L'utilisateur SQL est créé personnellement et
 ses dix droits sont appliqués à la seule base `daje5127_tclprod`, après accord
 `TCL-PROD-SQL-20261005`. Son mot de passe doit être reporté personnellement
 dans le fichier privé de production ouvert dans cPanel.
+La base vide est passée de l'encodage par défaut à `utf8mb4_unicode_ci`
+et cette valeur est relue dans phpMyAdmin. Le contrôle privé confirme que
+le champ du mot de passe est encore vide ; aucun import SQL n'est tenté.
 Les 141 tests Node passent. Sur 49 tests Python, 45 passent et quatre
 contrôles POSIX sont ignorés sous Windows. La syntaxe des trois fragments PHP
 du runtime, du préflight et du contrôle Drupal de production est vérifiée. La restauration SQL
 et le démarrage ne sont pas encore
 attestés ; aucune bascule ni ouverture de production.
+
+La [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) est ouverte en
+brouillon pour les outils et la documentation. Ses contrôles technique
+Windows et livraison Linux ont réussi sur le candidat d'outillage initial
+`6d99849` ; les 49 tests Python passent sur Linux. Les quatre confirmations
+humaines sont conservées et non cochées. Les reçus portent le commit et
+le résultat exacts ; une actualisation documentaire n'est pas un nouveau
+déploiement du site.
 
 **Suite exacte :** attendre l'enregistrement personnel du mot de passe SQL
 dans le fichier privé de production. L'outil de restauration

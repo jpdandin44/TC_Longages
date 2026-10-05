@@ -67,7 +67,7 @@
       "required": true,
       "status": "configured_unverified",
       "url": "https://github.com/jpdandin44/TC_Longages/actions",
-      "runtime": "GitHub Actions Windows pour Node/Python ; nouveau job Linux de securite livraison prepare sur branche, pas encore execute sur GitHub.",
+      "runtime": "GitHub Actions Windows pour Node/Python et Ubuntu pour les tests de livraison et la syntaxe PHP ; resultats dates dans le recu de revue.",
       "database": null,
       "storage": "Checkout éphémère et fixtures tarifaires du dépôt",
       "secretScope": null,

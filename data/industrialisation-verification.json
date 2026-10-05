@@ -4,7 +4,7 @@
   "created": "2026-10-05",
   "updated": "2026-10-05",
   "owner": "jpdandin",
-  "recordedAt": "2026-10-05T08:49:31.259427+00:00",
+  "recordedAt": "2026-10-05T09:21:09.219767+00:00",
   "scope": "Audit et preparation V1 publique ; aucun accord humain genere",
   "siteCandidate": {
     "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
@@ -169,7 +169,7 @@
       "failed": 0
     },
     "limits": [
-      "Linux CI not yet run for this branch.",
+      "The initial PR tooling source passed Linux/Windows CI; later documentation commits need their own CI result.",
       "No hosted restore or production delivery attested."
     ],
     "phpSyntax": {
@@ -240,7 +240,13 @@
       ],
       "verification": "Native cPanel selections persisted after reload",
       "otherRightsSelected": false
-    }
+    },
+    "databaseCharset": "utf8mb4",
+    "databaseCollation": "utf8mb4_unicode_ci",
+    "databaseEmptyVerified": true,
+    "privatePasswordPresent": false,
+    "sqlImportStarted": false,
+    "encodingVerifiedAt": "2026-10-05T09:21:09.219767+00:00"
   },
   "productionStage": {
     "preparedAt": "2026-10-05T08:27:32.759204+00:00",
@@ -275,5 +281,17 @@
     "issues": [],
     "humanHistoryPreserved": true,
     "phaseStatusesUnchanged": true
+  },
+  "initialPullRequestCi": {
+    "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
+    "checkedHead": "c1783f1b12fda0e6e387388c53a6c6927cb86aa5",
+    "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37288321106",
+    "checkedAt": "2026-10-05T09:21:09.219767+00:00",
+    "technicalCi": "passed",
+    "deliverySafety": "passed",
+    "linuxPythonTests": 49,
+    "linuxPythonPassed": 49,
+    "linuxPythonSkipped": 0,
+    "policy": "human_confirmations_unchecked"
   }
 }

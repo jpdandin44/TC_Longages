@@ -24,8 +24,10 @@ en français depuis le 4 octobre. Les vérifications anonymes du 5 octobre
 confirment maintenance et non-indexation. Les anciens refus SQL décrivent des
 tentatives résolues. Production non livrée : certificat officiel désormais
 reconnu, même ZIP préparé hors domaine et nouvelle base vide créée après
-accord. Fichiers de sauvegarde restaurés et vérifiés ; utilisateur SQL,
-restauration de base, démarrage et adaptateur de mise à jour non qualifiés.
+accord. Fichiers de sauvegarde restaurés et vérifiés ; utilisateur SQL dédié
+créé, dix droits appliqués à sa seule base et encodage Unicode vérifié.
+Fichier privé, restauration de base, démarrage et adaptateur de mise à jour
+non qualifiés.
 Le compte cPanel donne accès à Terminal ; aucun nouvel accès SSH n'est créé.
 
 GitHub observé le 5 octobre : trois workflows actifs, dont la préparation

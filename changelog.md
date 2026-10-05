@@ -30,9 +30,14 @@ tags:
 - Après accord `TCL-PROD-PREP-20261005`, certificat gratuit officiel émis et
   reconnu sur le domaine et `www`, base de production dédiée créée et même
   ZIP préparé hors domaine dans une nouvelle racine propriétaire.
-- Outils bornés de restauration des fichiers, préparation de production et
-  restauration SQL préparés. La saisie personnelle SQL, les droits, l'import
-  et le démarrage restent à qualifier ; aucune bascule ou ouverture créée.
+- Utilisateur SQL de production créé personnellement ; dix droits appliqués
+  sur sa seule base après accord `TCL-PROD-SQL-20261005`, encodage Unicode
+  corrigé avant import. Outils bornés de restauration SQL préparés ; le fichier
+  privé, l'import et le démarrage restent à qualifier.
+- [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) ouverte en brouillon :
+  contrôles technique Windows et livraison Linux réussis sur le candidat
+  d'outillage initial ; 49 tests Python passent sur Linux. Les confirmations
+  humaines restent non cochées. Aucune bascule ou ouverture exécutée.
 
 ## 2026-10-04 — Clôture demandée, objectif de production non atteint
 

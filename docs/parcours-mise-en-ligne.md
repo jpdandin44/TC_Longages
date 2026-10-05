@@ -87,6 +87,9 @@ Le responsable a autorisé ce lot dans la conversation le 5 octobre
 préparés et vérifiés. L'utilisateur SQL est créé personnellement et ses dix
 droits sont enregistrés sur cette seule base après confirmation
 `TCL-PROD-SQL-20261005`. Le fichier privé et l'import restent à terminer.
+La nouvelle base vide utilise `utf8mb4_unicode_ci`, relu après correction
+de la valeur par défaut. Le champ privé du mot de passe est encore vide
+au dernier contrôle ; aucun import SQL n'est commencé.
 Cet accord ne change pas la racine servie et n'ouvre pas Drupal.
 
 | Élément | Cible exacte et effet |

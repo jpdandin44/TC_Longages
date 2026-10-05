@@ -26,7 +26,9 @@ dans le [parcours V1](docs/parcours-mise-en-ligne.md) : même ZIP sous une
 nouvelle racine non servie, base et utilisateur SQL distincts, restauration
 de la sauvegarde dans cette seule base vide et certificat gratuit des deux
 noms officiels (`TCL-PROD-PREP-20261005`). La saisie du mot de passe reste
-personnelle ; les dix droits exigent confirmation avant attribution.
+personnelle ; les dix droits exigent confirmation avant attribution. Le
+responsable confirme ensuite ces dix droits pour la seule base
+`daje5127_tclprod` (`TCL-PROD-SQL-20261005`) ; ils sont appliqués et relus.
 
 **Conséquences.** La copie du ZIP, la base vide et le certificat sont préparés.
 L'import doit conserver l'administrateur existant et la configuration française,
