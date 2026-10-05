@@ -32,8 +32,8 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | Examiner puis fusionner la PR candidate 12 ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique. |
-| 1 — Développement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | Après nouvelle acceptation courante du Cadrage et fusion de la PR candidate 12, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle. |
+| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | Examiner puis fusionner la nouvelle PR candidate ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique. |
+| 1 — Développement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | Après nouvelle acceptation courante du Cadrage et fusion de la nouvelle PR candidate, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle. |
 | 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2. |
 | 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public\_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics. |
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `97c281e3fbfb401cd73ac07bdc7222b52de7e2425202526d4f60a0cdc2d6e9fd`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `bbe5bdea1204e86798eb6509017c08c1446237a2d265623d5884053cbd2eb0d4`.

@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
+  "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -202,9 +202,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "1ffa83558126dbaa32774b176686d977f721067d",
-      "size": 40638,
-      "sha256": "350b3e2c1cf9ad6da688f6459ef8c2aff92e60a93a2bb68c0f4416d5f2fb8505"
+      "gitBlob": "2e8caebebcfe3694840071a0d89490ca989321f7",
+      "size": 40778,
+      "sha256": "8a74526b81264aec8acbebc3e18d97cf080f76ee57eb104fdfca2c18bb45afc1"
     },
     {
       "path": "config/first-install.example.json",
@@ -447,9 +447,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "7b60fdb18c332f0f06e965a31729026e85968855",
-      "size": 58309,
-      "sha256": "05b9f539bd8cda267db4fe621bf13bac5f458b921d60e6a8b8d328a059618cde"
+      "gitBlob": "7980587cf6c3f1221cc5c3edcc968be21b4ba503",
+      "size": 58587,
+      "sha256": "adcd8a4ff0b825daf643db8267eca749dc2f4255baaf964961b9e71024d84045"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1994,9 +1994,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "a31ee1680b9ec4896250d15fc5975eea415368d8",
-      "size": 23461,
-      "sha256": "f95d1097cbdaca78822c24d6512fa7293857e97d80355be50ae8374aecb27069"
+      "gitBlob": "e3d87aa55570e9e1a41a26919918ac7f72cf3a59",
+      "size": 24704,
+      "sha256": "18c49c59e19eab722a67adb5f75f0364e53b6f5ef19a6fc652a10e72c45ac1fc"
     },
     {
       "path": "scripts/backup_site.py",
@@ -2895,5 +2895,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33"
+  "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc"
 }

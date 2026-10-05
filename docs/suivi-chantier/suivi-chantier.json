@@ -93,7 +93,7 @@
         "Responsables et règles de décision identifiés"
       ],
       "blockers": [],
-      "nextAction": "Examiner puis fusionner la PR candidate 12 ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique.",
+      "nextAction": "Examiner puis fusionner la nouvelle PR candidate ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
@@ -106,16 +106,16 @@
         "https://github.com/jpdandin44/TC_Longages/pull/12"
       ],
       "reviewContext": {
-        "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
-        "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33",
+        "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+        "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
         "documentDigest": "316e3cf29201c7e18a1cbf2287b8365555140df7aa77e7dd6cdde481aa709ee0",
         "evidenceRefs": [
-          "TCL-EVIDENCE-TROIS-ACTIONS-20261005-ef1b4ad-0"
+          "TCL-EVIDENCE-TROIS-ACTIONS-20261005-78638be-0"
         ],
         "testRunRefs": [
-          "TCL-TEST-TROIS-ACTIONS-20261005-ef1b4ad-0"
+          "TCL-TEST-TROIS-ACTIONS-20261005-78638be-0"
         ]
       },
       "reviewContextHistory": [
@@ -223,6 +223,24 @@
               "TCL-TEST-SIMPLIFICATION-20261005-b266f45-0"
             ]
           }
+        },
+        {
+          "recordedAt": "2026-10-05T15:29:43.871Z",
+          "reason": "Trois décisions de revue et contrôle serveur de fusion exacte de la PR candidate. Anciennes acceptations humaines conservées.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+          "reviewContext": {
+            "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
+            "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+            "documentDigest": "316e3cf29201c7e18a1cbf2287b8365555140df7aa77e7dd6cdde481aa709ee0",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-TROIS-ACTIONS-20261005-ef1b4ad-0"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-TROIS-ACTIONS-20261005-ef1b4ad-0"
+            ]
+          }
         }
       ]
     },
@@ -301,7 +319,7 @@
         "Version candidate et réserves identifiées"
       ],
       "blockers": [],
-      "nextAction": "Après nouvelle acceptation courante du Cadrage et fusion de la PR candidate 12, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle.",
+      "nextAction": "Après nouvelle acceptation courante du Cadrage et fusion de la nouvelle PR candidate, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -319,16 +337,16 @@
         3
       ],
       "reviewContext": {
-        "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
-        "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33",
+        "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+        "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
         "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
         "evidenceRefs": [
-          "TCL-EVIDENCE-TROIS-ACTIONS-20261005-ef1b4ad-1"
+          "TCL-EVIDENCE-TROIS-ACTIONS-20261005-78638be-1"
         ],
         "testRunRefs": [
-          "TCL-TEST-TROIS-ACTIONS-20261005-ef1b4ad-1"
+          "TCL-TEST-TROIS-ACTIONS-20261005-78638be-1"
         ]
       },
       "reviewContextHistory": [
@@ -434,6 +452,24 @@
             ],
             "testRunRefs": [
               "TCL-TEST-SIMPLIFICATION-20261005-b266f45-1"
+            ]
+          }
+        },
+        {
+          "recordedAt": "2026-10-05T15:29:43.871Z",
+          "reason": "Trois décisions de revue et contrôle serveur de fusion exacte de la PR candidate. Anciennes acceptations humaines conservées.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+          "reviewContext": {
+            "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
+            "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
+            "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-TROIS-ACTIONS-20261005-ef1b4ad-1"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-TROIS-ACTIONS-20261005-ef1b4ad-1"
             ]
           }
         }
@@ -1617,6 +1653,30 @@
       "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
       "id": "TCL-EVIDENCE-TROIS-ACTIONS-20261005-ef1b4ad-1",
       "actualResult": "Manifeste des 412 fichiers vérifié, métadonnées de 10 documents et 223 liens internes contrôlés. Libellés obligatoires et décisions humaines conservés. PR 12 encore en brouillon lors du contrôle réel : validation bloquée."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
+      "id": "TCL-EVIDENCE-TROIS-ACTIONS-20261005-78638be-0",
+      "actualResult": "Manifeste des 412 fichiers vérifié, métadonnées de 11 documents et 260 liens internes contrôlés. Libellés obligatoires et décisions humaines conservés. La nouvelle PR candidate reste à examiner ; aucun accord humain créé."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
+      "id": "TCL-EVIDENCE-TROIS-ACTIONS-20261005-78638be-1",
+      "actualResult": "Manifeste des 412 fichiers vérifié, métadonnées de 11 documents et 260 liens internes contrôlés. Libellés obligatoires et décisions humaines conservés. La nouvelle PR candidate reste à examiner ; aucun accord humain créé."
     }
   ],
   "testRuns": [
@@ -1843,6 +1903,30 @@
       "actor": "Codex",
       "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
       "id": "TCL-TEST-TROIS-ACTIONS-20261005-ef1b4ad-1",
+      "actualResult": "45 tests ciblés réussis, aucun échec ni test ignoré. Validation refusée pour PR inconnue/ouverte/brouillon/fermée sans fusion et panne fraîche GitHub ; candidat différent ou comparaison incomplète refusés ; validation humaine complète, progression locale sans autorisation, protection des révisions et brouillons conservés."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
+      "id": "TCL-TEST-TROIS-ACTIONS-20261005-78638be-0",
+      "actualResult": "45 tests ciblés réussis, aucun échec ni test ignoré. Validation refusée pour PR inconnue/ouverte/brouillon/fermée sans fusion et panne fraîche GitHub ; candidat différent ou comparaison incomplète refusés ; validation humaine complète, progression locale sans autorisation, protection des révisions et brouillons conservés."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#threeActionReviewQualification",
+      "id": "TCL-TEST-TROIS-ACTIONS-20261005-78638be-1",
       "actualResult": "45 tests ciblés réussis, aucun échec ni test ignoré. Validation refusée pour PR inconnue/ouverte/brouillon/fermée sans fusion et panne fraîche GitHub ; candidat différent ou comparaison incomplète refusés ; validation humaine complète, progression locale sans autorisation, protection des révisions et brouillons conservés."
     }
   ],
@@ -2694,7 +2778,7 @@
     },
     "operationalCheckout": {
       "path": "C:/Users/examg/Documents local/Longages/TC_Longages/.worktrees/livraison-fiable",
-      "branch": "fix/suivi-revue-v1",
+      "branch": "fix/revue-pr-candidate",
       "previousCheckout": "C:/Users/examg/Documents local/Longages/TC_Longages/.worktrees/release-v1-four-stages",
       "previousCheckoutPreserved": true,
       "canonicalTrackingReused": true,
@@ -2991,18 +3075,18 @@
       }
     ],
     "threeActionReviewQualification": {
-      "recordedAt": "2026-10-05T15:23:37.470Z",
-      "sourceCommit": "ef1b4adae680039d1fda3a445f05930a0a0a2f47",
-      "artifactDigest": "d1bf6e24e36b584e7a35cf9e5f90e7c16a3f687c64ab967f02b32f8ebfed1b33",
-      "manifestDigest": "b3fc711328db341bdb701a56204590c1eb269720f3f8a357daa1608729c25398",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "manifestDigest": "e67a6d64c837fc8e75b29971f14eef1b03a967348f97e622d81f90fa1ed4ffd3",
       "files": 412,
       "tests": 45,
       "passed": 45,
       "failed": 0,
       "skipped": 0,
-      "testLogSha256": "fc47ec60c02139b78d270cb86eebcbb2d822242ebb89875222e5395149bc9cae",
-      "documentsChecked": 10,
-      "internalLinksChecked": 223,
+      "testLogSha256": "795c4f29ffcee5dea58825a1685036b4629fa98eec266ac6f0ab5fb42fae7bad",
+      "documentsChecked": 11,
+      "internalLinksChecked": 260,
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
       "runtimeUrl": "http://127.0.0.1:4181/",
       "humanDecisionsPreserved": true,
@@ -3019,7 +3103,7 @@
       "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier."
     },
     "phaseReviewPolicy": {
-      "recordedAt": "2026-10-05T15:23:37.470Z",
+      "recordedAt": "2026-10-05T15:29:43.871Z",
       "sourceRef": "Dernière demande utilisateur du 5 octobre : Revue, Valider, Demander des corrections",
       "actions": [
         "submit",
@@ -3028,6 +3112,36 @@
       ],
       "nextLocalPhaseOnValidation": "in_progress",
       "hostingConsentsRemainDistinct": true
+    },
+    "postV1ProcessRequirements": {
+      "recordedAt": "2026-10-05T15:29:43.871Z",
+      "sourceRef": "Demande utilisateur du 5 octobre : améliorations après mise en production V1 officielle",
+      "status": "planned_after_v1_production",
+      "phaseId": 3,
+      "documentationRef": "roadmap.md#processus-de-développement-après-la-mise-en-production-de-la-v1",
+      "items": [
+        {
+          "id": "TCL-PROCESS-VERSION",
+          "requirement": "Identifier les versions applicatives publiées, avec correspondance commit, artefact et cible. Exemple utilisateur TC Longages V1.0.",
+          "status": "planned"
+        },
+        {
+          "id": "TCL-PROCESS-COCKPIT",
+          "requirement": "Faire du suivi le cockpit central des développements et validations.",
+          "status": "planned"
+        },
+        {
+          "id": "TCL-PROCESS-ACTIONS",
+          "requirement": "Piloter GitHub Actions depuis le cockpit et répercuter les exécutions lancées directement dans GitHub.",
+          "status": "planned"
+        },
+        {
+          "id": "TCL-PROCESS-RELEASE-NOTES",
+          "requirement": "Fournir une note de version avec les livrables et la consigner dans le cockpit.",
+          "status": "planned"
+        }
+      ],
+      "implementationStarted": false
     }
   },
   "phaseModel": {
