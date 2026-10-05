@@ -6,8 +6,10 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import stat
 import subprocess
+import tempfile
 import zipfile
 from delivery_shared import digest, require, validate_revision, verify_zip, qualify_ssh, cleanup_ssh, ssh_endpoint
 
@@ -59,7 +61,47 @@ def verify_candidate(path, expected_sha):
             'status': 'candidate_verified_unconfigured', 'deploymentExecuted': False}
 
 
+def verify_receipt(archive, receipt):
+    """Bind an unchanged archive to its CI receipt, never to an approval."""
+    require(isinstance(receipt, dict), 'Candidate receipt must be an object.')
+    require(receipt.get('status') == 'candidate_verified_unconfigured'
+            and receipt.get('deploymentExecuted') is False,
+            'Unconfigured preparation receipt required.')
+    require(receipt.get('sourceClean') is True, 'Clean source receipt required.')
+    sha = receipt.get('sourceCommit')
+    require(isinstance(sha, str) and re.fullmatch(r'[a-f0-9]{40}', sha),
+            'Full source commit required in receipt.')
+    for key in ('archiveSha256', 'manifestSha256'):
+        value = receipt.get(key)
+        require(isinstance(value, str) and re.fullmatch(r'[a-f0-9]{64}', value),
+                'Full digest required in receipt: ' + key)
+    require(digest(archive) == receipt['archiveSha256'], 'Archive differs from preparation receipt.')
+    result = verify_candidate(archive, sha)
+    require(result['sourceClean'] is True, 'Clean manifest source required.')
+    require(result['manifestSha256'] == receipt['manifestSha256']
+            and result['regularFiles'] == receipt.get('regularFiles'),
+            'Manifest or inventory differs from preparation receipt.')
+    return dict(result, receiptVerified=True)
+
+
 def build_candidate(output, root=ROOT):
+    """Publish only a fully verified ZIP, refusing existing/racing destinations."""
+    output = Path(output)
+    require(not os.path.lexists(str(output)), 'Candidate already exists; reuse its ZIP and receipt.')
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='.tcl-build-', dir=str(output.parent)) as temporary:
+        staged = Path(temporary) / 'candidate.zip'
+        result = _build_candidate(staged, root)
+        # Same filesystem: hard-link publication is atomic and cannot replace a
+        # previously accepted artifact, even if another builder wins the race.
+        try:
+            os.link(str(staged), str(output))
+        except FileExistsError:
+            raise ValueError('Candidate already exists; reuse its ZIP and receipt.')
+    return result
+
+
+def _build_candidate(output, root=ROOT):
     """Git sources + installed dependencies + generated pages only; never whole checkout."""
     source = root/'drupal'
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root).decode().strip()
@@ -111,9 +153,10 @@ def build_candidate(output, root=ROOT):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('operation', choices=['validate', 'build', 'verify', 'qualify-ssh', 'cleanup'])
+    parser.add_argument('operation', choices=['validate', 'build', 'verify', 'verify-receipt', 'qualify-ssh', 'cleanup'])
     parser.add_argument('--archive', type=Path, default=ROOT/'.local/delivery/tc-longages-drupal.zip')
     parser.add_argument('--sha')
+    parser.add_argument('--receipt', type=Path)
     args = parser.parse_args()
     if args.operation == 'validate':
         result = {'sourceCommit': validate_inputs(os.environ), 'inputsValidated': True}
@@ -123,6 +166,10 @@ def main():
         result = build_candidate(args.archive)
     elif args.operation == 'verify':
         result = verify_candidate(args.archive, args.sha)
+    elif args.operation == 'verify-receipt':
+        if args.receipt is None:
+            parser.error('--receipt is required for verify-receipt')
+        result = verify_receipt(args.archive, json.loads(args.receipt.read_text(encoding='utf-8-sig')))
     elif args.operation == 'cleanup':
         cleanup_ssh(os.environ); result = {'cleanupCompleted': True}
     else:

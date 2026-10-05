@@ -17,7 +17,7 @@ import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent/'scripts'))
 import delivery_shared as shared
-from prepare_delivery import validate_inputs, verify_candidate, build_candidate, PAGES
+from prepare_delivery import validate_inputs, verify_candidate, verify_receipt, build_candidate, PAGES
 
 
 class DeliveryGates(unittest.TestCase):
@@ -179,6 +179,48 @@ class DeliveryGates(unittest.TestCase):
         self.assertTrue(result['sourceClean'])
         self.assertEqual(result['sourceCommit'], sha)
         self.assertFalse(result['deploymentExecuted'])
+
+    def test_receipt_rejects_substitution_and_incomplete_provenance(self):
+        archive = self.candidate()
+        receipt = verify_candidate(archive, 'a' * 40)
+        self.assertTrue(verify_receipt(archive, receipt)['receiptVerified'])
+        self.assertFalse(verify_receipt(archive, receipt)['deploymentExecuted'])
+        for change in ({'sourceCommit': 'b' * 40}, {'archiveSha256': 'b' * 64},
+                       {'manifestSha256': 'b' * 64}, {'sourceClean': False},
+                       {'sourceClean': 1}, {'regularFiles': 0}, {'deploymentExecuted': True},
+                       {'sourceCommit': 'a' * 7}, {'status': 'deployed'}):
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                verify_receipt(archive, dict(receipt, **change))
+        for wrong in (None, [], 'receipt'):
+            with self.subTest(wrong=wrong), self.assertRaises(ValueError):
+                verify_receipt(archive, wrong)
+        replacement = self.candidate({'drupal/web/extra.txt': b'new bytes'})
+        with self.assertRaisesRegex(ValueError, 'Archive differs'):
+            verify_receipt(replacement, receipt)
+
+    def test_build_preserves_existing_candidate(self):
+        output = self.root / 'existing.zip'
+        output.write_bytes(b'accepted artifact')
+        with self.assertRaisesRegex(ValueError, 'already exists'):
+            build_candidate(output, self.root)
+        self.assertEqual(output.read_bytes(), b'accepted artifact')
+
+    def test_failed_or_racing_build_never_replaces_candidate(self):
+        output = self.root / 'delivery' / 'candidate.zip'
+        with patch('prepare_delivery._build_candidate', side_effect=ValueError('incomplete')):
+            with self.assertRaisesRegex(ValueError, 'incomplete'):
+                build_candidate(output, self.root)
+        self.assertFalse(output.exists())
+        self.assertEqual(list(output.parent.iterdir()), [])
+        def race(staged, root):
+            staged.write_bytes(b'new artifact')
+            output.write_bytes(b'accepted artifact from concurrent build')
+            return {'deploymentExecuted': False}
+        with patch('prepare_delivery._build_candidate', side_effect=race):
+            with self.assertRaisesRegex(ValueError, 'already exists'):
+                build_candidate(output, self.root)
+        self.assertEqual(output.read_bytes(), b'accepted artifact from concurrent build')
+        self.assertEqual(list(output.parent.iterdir()), [output])
 
     def ssh_env(self):
         return {'RUNNER_TEMP': str(self.root), 'SSH_HOST': 'server.example.org',

@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - site-internet
@@ -36,10 +36,23 @@ L’administration et la connexion Drupal sont désormais en français.
 Les courriels sont neutralisés et l’inscription libre désactivée. Le
 [reçu d’installation](data/framework-revue-verification.json#primaryAccountFirstInstallation)
 porte les résultats réels. L’accueil et les six autres pages ont été parcourus
-en session connectée. Recette des comptes et droits, édition des pages et rôles métier,
-sauvegarde/restauration puis retour arrière restent à traiter avant production.
+en session connectée. Le 5 octobre, le responsable reporte comptes et droits
+par équipe en V2 pour prioriser la V1 publique. La sauvegarde est intègre et
+ses fichiers sont restaurés en copie privée. Le même ZIP est préparé dans
+une racine de production distincte, non servie ; sa base vide est créée.
+Le certificat gratuit officiel et `www` sont reconnus. L'utilisateur SQL,
+la restauration de base, le démarrage et le retour arrière restent à
+qualifier avant bascule ; aucune ouverture de production n'est exécutée.
 Le [point courant](docs/point-session.md) porte la reprise exacte ; le domaine
 officiel et la Lune sont conservés.
+
+Le [parcours V1](docs/parcours-mise-en-ligne.md) donne les actions et l'effort
+restant. La [chaîne de préparation](workflows/preparer-livraison.md) construit
+un seul ZIP à recetter puis promouvoir. `python scripts/prepare_delivery.py
+verify-receipt --archive CHEMIN/tc-longages-drupal.zip --receipt
+CHEMIN/delivery-receipt.json` vérifie le paquet exact en lecture seule ; il
+n'installe rien et ne donne aucun accord de livraison. La mise à jour répétable
+du Drupal installé reste à terminer ; aucun déploiement automatique n'est actif.
 
 La reprise du 3 octobre confirme la fusion humaine de la [PR #5](https://github.com/jpdandin44/TC_Longages/pull/5). L'Action de construction a réussi sur le commit de fusion ; le ZIP reçu a été vérifié intégralement sur le poste. Le [reçu de préparation](data/actions-mutualisees-verification.json), rubrique `postMergeBuild`, identifie ce candidat non configuré. Aucun déploiement ne découle du merge.
 

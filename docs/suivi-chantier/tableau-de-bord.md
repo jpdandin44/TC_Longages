@@ -5,7 +5,7 @@ title: Tableau de bord du développement piloté
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, suivi, vue-generee]
 ---
@@ -14,7 +14,7 @@ tags: [framework, suivi, vue-generee]
 
 <!-- Vue générée par scripts/framework.mjs ; les décisions passent par le moteur interactif. -->
 
-**Phase actuelle : 2 — Préproduction. 1 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
+**Phase actuelle : 2 — Préproduction. 0 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
 
 [Ouvrir le suivi interactif local](http://127.0.0.1:4181/) · [Ouvrir Drupal local](http://127.0.0.1:4182/)
 
@@ -32,8 +32,8 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | Reprendre la revue du cadrage actuel, enregistrer les critères puis soumettre et valider le dossier ; ancienne décision conservée. |
-| 1 — Développement local | En cours | [Dossier](01-phase.md) | Après reprise du cadrage, enregistrer les douze critères puis soumettre et valider la phase ; PR #9 fusionnée, dossier documentaire de recette disponible. |
+| 0 — Cadrage | En revue | [Dossier](00-phase.md) | Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble. |
+| 1 — Développement local | En cours | [Dossier](01-phase.md) | Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées. |
 | 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter le site TC Longages sur https://preprod.tclongages.fr/ dans la session connectée ; préparer le lot fonctionnel d’édition puis les essais des comptes/droits et le retour arrière. Le suivi reste réservé au pilotage. |
 | 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables. |
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `c9496997cbf558a539df5400e4c6698e2d54a70181b24f19e6e5c7189292001f`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `92b6d93d6b0aac42afe33ea97bf55079da3f7dcd76dc2090f4a4ba7ce8608a41`.

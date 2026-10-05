@@ -45,7 +45,7 @@ jobs:
           node-version: '24.18.0'
           cache: npm
       - name: Vérifier les garde-fous mutualisés
-        run: python3 -m unittest discover -s tests -p 'test_delivery_shared.py'
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Construire les sept pages sans intégration réelle
         run: |
           npm ci --ignore-scripts
@@ -59,6 +59,8 @@ jobs:
           composer install --no-dev --no-scripts --prefer-dist --no-interaction
       - name: Construire et vérifier intégralement le candidat sans secrets
         run: python3 scripts/prepare_delivery.py build > .local/delivery-receipt.json
+      - name: Lier le ZIP définitif à son reçu avant archivage
+        run: python3 scripts/prepare_delivery.py verify-receipt --receipt .local/delivery-receipt.json
       - name: Conserver uniquement le candidat non configuré et son reçu
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

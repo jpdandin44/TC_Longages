@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,41 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-05 — Première production distincte de la préproduction
+
+**Contexte.** Le site public est prioritaire pour la V1. La préproduction
+Drupal est installée ; conserver sa racine et sa base évite que les essais
+de V2 modifient le futur site public.
+
+**Décision humaine.** Le responsable autorise le lot de préparation proposé
+dans le [parcours V1](docs/parcours-mise-en-ligne.md) : même ZIP sous une
+nouvelle racine non servie, base et utilisateur SQL distincts, restauration
+de la sauvegarde dans cette seule base vide et certificat gratuit des deux
+noms officiels (`TCL-PROD-PREP-20261005`). La saisie du mot de passe reste
+personnelle ; les dix droits exigent confirmation avant attribution.
+
+**Conséquences.** La copie du ZIP, la base vide et le certificat sont préparés.
+L'import doit conserver l'administrateur existant et la configuration française,
+avec maintenance, non-indexation et courriels neutralisés. Cet accord exclut
+la bascule de racine, l'ouverture et les changements d'adresse DNS. La lune,
+la page d'attente officielle et la préproduction sont conservées.
+
+## 2026-10-05 — V1 publique, comptes et droits en V2
+
+**Contexte :** le responsable demande une livraison rapide après la journée
+incomplète du 4 octobre. Il envisage d'abord comptes Bureau/Capitaine et droits
+par équipe dans la première livraison, puis revient explicitement sur ce choix.
+
+**Décision :** publier le site public existant en V1 ; développer les comptes
+et droits par équipe en V2. Conserver le travail local d'édition et les
+décisions antérieures. Le suivi personnel reste hors de la livraison publique.
+
+**Conséquences :** les fonctions internes ne sont pas des critères bloquants
+de V1. La recette du site, le certificat reconnu, les données séparées, la
+sauvegarde/restauration et les accords propres à livraison/ouverture restent
+nécessaires. Ce changement de périmètre n'est pas une validation de phase ni
+l'accord sur une bascule technique qui n'a pas encore été présentée.
 
 ## 2026-10-04 — Implantation alignée sur AVEREO, compte à qualifier
 

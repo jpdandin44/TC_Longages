@@ -12,9 +12,9 @@ export const digest = value => createHash('sha256').update(value).digest('hex');
 // Toute évolution d’un contrôle actif doit être revue avec son empreinte.
 // Ce garde-fou local ne remplace pas la protection de branche ni la revue humaine.
 const approvedWorkflows = Object.freeze({
-  'ci.yml': 'de05726107a4da4a068f4deb32c2f072d71f516fcd90e303a5cd7bf13817572f',
+  'ci.yml': '8eccf7f0d4b3652c72cfa786604f0fb29ae9f281c7edac6a25846117acb2ab25',
   'pr-policy.yml': '6b4e5856e70a06348187f1344893bafda532861eb446ae24387e3e87f6022c4d',
-  'preparer-deploiement.yml': '917ff7b17bfc85ba37b8a874a9134739a0569506ad69c6ea81eccc6097ab298e'
+  'preparer-deploiement.yml': 'd51a88be270787e62421d7c93938c6d4590df6bd8a35d4ef6d80fc67967345c3'
 });
 export function validateActiveWorkflow(name, content) {
   if (!Object.hasOwn(approvedWorkflows, name)) throw new Error('Workflow actif non autorisé : ' + name);

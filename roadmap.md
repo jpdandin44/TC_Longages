@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,25 @@ tags:
 ---
 
 # Feuille de route
+
+## Priorité du 5 octobre : publier la V1
+
+La V1 publique existante est prioritaire. Le candidat installé et son reçu
+ont été revérifiés ; les comptes et droits par équipe sont reportés en V2
+par décision du responsable. Le [dossier opérationnel](docs/parcours-mise-en-ligne.md)
+et `developmentWorkflow.deliveryPlan` du suivi canonique portent les actions,
+leurs dépendances, les résultats attendus et l'effort restant.
+
+Ordre immédiat : recette du site, sauvegarde et restauration privée du Drupal
+actuel, préparation séparée de la production et de son certificat, présentation
+du lot exact, bascule sous maintenance, puis ouverture et contrôle anonyme.
+Le refus SQL de préproduction est résolu ; il ne faut pas le retravailler.
+La sauvegarde et la restauration des fichiers sont vérifiées ; HTTPS officiel
+et `www` sont désormais reconnus. Le même paquet est préparé hors domaine et
+la base de production vide est créée. Terminer la saisie personnelle du nouveau
+mot de passe SQL, confirmer ses droits, puis éprouver l'import et le démarrage
+avant la bascule. Le développement du cockpit et du lot de comptes ne
+conditionne pas cette V1.
 
 ## Préproduction installée, recette à conduire — 4 octobre
 

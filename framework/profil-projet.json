@@ -4,7 +4,7 @@
   "documentType": "framework-project-profile",
   "template": false,
   "created": "2026-09-29",
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "owner": "jpdandin",
   "project": {
     "id": "tclongages",
@@ -35,9 +35,9 @@
   "profile": {
     "kind": "web",
     "runtimeAdapter": "Node.js pour V1 et suivi4181 ; Drupal11.4.8/PHP8.4.23 local4182",
-    "hostingAdapter": "Compte principal TC : préproduction fermée configurée et qualifiée le 4 octobre ; Drupal distant non installé.",
-    "databaseAdapter": "SQLite locale privée ; MariaDB 11.4.13, base dédiée vide UTF-8/InnoDB observée en SSO ; PDO applicatif à qualifier.",
-    "identityAdapter": "Drupal dédié au club retenu ; connexion hébergée et rôles métier à qualifier",
+    "hostingAdapter": "Compte principal TC : preproduction Drupal installee ; copie de production du meme ZIP preparee hors domaine le 5 octobre, certificat officiel reconnu ; SQL production en attente de saisie personnelle.",
+    "databaseAdapter": "MariaDB 11.4.13, base daje5127_tclpreprod installee et connexion applicative fonctionnelle ; SQL sauvegarde privee le 5 octobre, restauration encore a qualifier.",
+    "identityAdapter": "Administrateur Drupal installe en preproduction ; comptes Bureau/Capitaine et droits par equipe reportes en V2.",
     "docker": "to_decide",
     "trackerEngine": {
       "sourceRepository": "local:TC_Longages/Site_Internet",
@@ -67,7 +67,7 @@
       "required": true,
       "status": "configured_unverified",
       "url": "https://github.com/jpdandin44/TC_Longages/actions",
-      "runtime": "GitHub Actions Windows ; Node et Python verrouillés dans .github/workflows/ci.yml",
+      "runtime": "GitHub Actions Windows pour Node/Python ; nouveau job Linux de securite livraison prepare sur branche, pas encore execute sur GitHub.",
       "database": null,
       "storage": "Checkout éphémère et fixtures tarifaires du dépôt",
       "secretScope": null,
@@ -93,41 +93,47 @@
       "required": true,
       "status": "configured_unverified",
       "url": "https://preprod.tclongages.fr/",
-      "runtime": "PHP CLI/HTTP 8.3.33, 18 extensions qualifiées ; Python 3.6.8 disponible, adaptateur non exécuté sur serveur.",
-      "database": "Base dédiée vide : MariaDB 11.4.13, utf8mb4_unicode_ci, InnoDB ; utilisateur personnel et dix droits relus, connexion applicative non testée.",
+      "runtime": "PHP 8.3.33 / Drupal 11.4.8 heberge ; francais, maintenance, courriels NullMail, cron automatique desactive et non-indexation.",
+      "database": "Base dediee installee daje5127_tclpreprod, utilisateur daje5127_tcl : connexion applicative fonctionnelle et export SQL le 5 octobre.",
       "storage": "tcl-preproduction/drupal/web fermé ; stockage privé hors webroot. Même compte, fichiers et base séparés.",
       "secretScope": "Paramètres TC propres au compte principal, saisis personnellement ; aucun secret AVEREO ou de la lune réutilisé.",
       "dataPolicy": "synthetic_or_sanitized",
       "outboundPolicy": "disabled",
       "evidenceRefs": [
-        "data/framework-revue-verification.json#hostingPrimaryConfiguration"
+        "data/framework-revue-verification.json#hostingPrimaryConfiguration",
+        "data/industrialisation-verification.json#backup"
       ]
     },
     "restore_rehearsal": {
       "kind": "restore_rehearsal",
       "required": true,
-      "status": "not_configured",
+      "status": "configured_unverified",
       "url": null,
-      "runtime": null,
+      "runtime": "Fichiers de la sauvegarde hebergee restaures et verifies en copie privee ; SQL et demarrage non encore testes.",
       "database": null,
-      "storage": null,
+      "storage": "Copie owner-only sous tcl-preproduction/private/restorations/ ; aucune cible HTTP.",
       "secretScope": null,
       "dataPolicy": "synthetic_or_sanitized",
       "outboundPolicy": "disabled",
-      "evidenceRefs": []
+      "evidenceRefs": [
+        "data/industrialisation-verification.json#backup"
+      ]
     },
     "production": {
       "kind": "production",
       "required": true,
       "status": "not_configured",
       "url": "https://tclongages.fr/",
-      "runtime": "PHP du compte partagé passé à 8.3 après accord le 4 octobre ; page d’attente conservée, TLS officiel et Drupal de production non qualifiés.",
-      "database": null,
-      "storage": "Racine actuelle observée dans cPanel ; chemin exact privé, nouvelle racine Drupal à qualifier",
+      "runtime": "PHP du compte 8.3 ; certificat gratuit reconnu sur les deux noms publics le 5 octobre ; copie du ZIP separee et non servie, aucun Drupal de production demarre.",
+      "database": "Nouvelle base vide daje5127_tclprod creee apres accord ; utilisateur et import en attente de saisie personnelle.",
+      "storage": "Racine actuelle public_html conservee ; copie owner-only sous tcl-production/releases/14c270431af12397/drupal/web, non raccordee.",
       "secretScope": null,
       "dataPolicy": "real_private",
       "outboundPolicy": "requires_authorization",
-      "evidenceRefs": []
+      "evidenceRefs": [
+        "data/industrialisation-verification.json#https",
+        "docs/parcours-mise-en-ligne.md"
+      ]
     }
   },
   "governance": {
@@ -181,22 +187,22 @@
       {
         "id": "ci",
         "name": "CI — TC Longages",
-        "purpose": "Tests automatiques sans secret ni déploiement ; état effectif des exécutions consigné dans le reçu de revue"
+        "purpose": "Action active sans deploiement ; nouveau job de securite livraison sur branche a recetter."
       },
       {
-        "id": "preproduction",
-        "name": "Préproduction — TC Longages",
-        "purpose": "Installation autorisée du candidat puis recette — cible du processus, aucune Action active ou recette distante attestée par ce profil"
+        "id": "policy",
+        "name": "PR Policy",
+        "purpose": "Action active : garde-fous de revue et libelles humains obligatoires."
       },
       {
         "id": "prepare",
-        "name": "Préparation au déploiement — TC Longages",
-        "purpose": "Préflight, sauvegarde vérifiée et restauration ; aucune livraison — cible du processus, aucune Action active ou recette distante attestée par ce profil"
+        "name": "Preparer la livraison — TC Longages",
+        "purpose": "Action manuelle active : paquet immuable et qualification SSH distincte ; aucun deploiement ni sauvegarde hebergee par cette Action."
       },
       {
         "id": "deploy",
-        "name": "Déployer — TC Longages",
-        "purpose": "Accord lié au candidat, sauvegarde fraîche, restauration, livraison et contrôles — cible du processus, aucune Action active ou recette distante attestée par ce profil"
+        "name": "Deployer — TC Longages",
+        "purpose": "Cible future du processus ; aucun workflow actif, transport et adaptateur de mise a jour non qualifies."
       }
     ]
   },
@@ -209,16 +215,16 @@
     "temporaryNetworkExceptionsOnly": true,
     "secretInventory": [],
     "pendingAccessDecisions": [
-      "Git local raccordé au dépôt public ; premier lot PR autorisé. Protections GitHub et résultats effectifs référencés dans le reçu de revue.",
-      "Autoriser les adaptations PHP/SSL et la future installation Drupal fermée après préparation et sauvegarde.",
-      "Drupal dédié retenu ; comptes réels et droits Admin/Bureau/Capitaine à qualifier. Aucun partage implicite AVEREO.",
-      "Ressources Google, Contact et support@tclongages.fr à préparer puis autoriser séparément."
+      "Base et utilisateur de production distincts, droits limites et parametres prives : lot presente, autorisation encore attendue.",
+      "Bascule et ouverture du candidat exact : decisions distinctes apres restauration et recette.",
+      "Comptes Bureau/Capitaine et droits par equipe : V2.",
+      "Calendar public, Forms repondants et collecte Contact : ressources ou autorisations encore manquantes."
     ]
   },
   "backup": {
     "scope": [
-      "Sources et paquets locaux : référence existante data/baseline-officiel.json, sans secrets ni serveur distant",
-      "Sauvegarde hébergée : périmètre à inventorier, incluant fichiers et éventuelle base après choix d’architecture"
+      "Sauvegarde privee hebergee du 5 octobre : Drupal, base SQL, parametres et fichiers prives, racine officielle public_html ; integrite verifiee, restauration a qualifier.",
+      "Sources et paquets locaux : baseline et candidat exact preserves ; copie hors hebergement non verifiee pour la nouvelle sauvegarde."
     ],
     "offHostCopyRequired": true,
     "retentionDays": null,

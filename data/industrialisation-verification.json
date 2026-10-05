@@ -1,0 +1,258 @@
+{
+  "project": "TC_Longages",
+  "document_type": "technical-verification",
+  "created": "2026-10-05",
+  "updated": "2026-10-05",
+  "owner": "jpdandin",
+  "recordedAt": "2026-10-05T08:49:31.259427+00:00",
+  "scope": "Audit et preparation V1 publique ; aucun accord humain genere",
+  "siteCandidate": {
+    "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
+    "regularFiles": 26687,
+    "receiptVerified": true,
+    "archiveRebuilt": false,
+    "deploymentExecuted": false
+  },
+  "https": {
+    "checkedAt": "2026-10-05T08:31:54.543678+00:00",
+    "preproduction": {
+      "url": "https://preprod.tclongages.fr/",
+      "status": 503,
+      "french": true,
+      "noindex": true
+    },
+    "login": {
+      "url": "https://preprod.tclongages.fr/user/login",
+      "status": 200,
+      "french": true,
+      "noindex": true
+    },
+    "productionHosts": [
+      "tclongages.fr",
+      "www.tclongages.fr"
+    ],
+    "recognizedProductionCertificateVerified": true,
+    "error": null,
+    "verificationBypassed": false,
+    "initialProductionObservation": {
+      "checkedAt": "2026-10-05T07:07:16+00:00",
+      "recognizedProductionCertificateVerified": false,
+      "error": "CERTIFICATE_VERIFY_FAILED: self-signed certificate"
+    },
+    "officialCertificateChecks": [
+      {
+        "host": "tclongages.fr",
+        "checkedAt": "2026-10-05T08:28:50.467217+00:00",
+        "recognizedHttpsVerified": true,
+        "issuer": [
+          [
+            [
+              "countryName",
+              "US"
+            ]
+          ],
+          [
+            [
+              "organizationName",
+              "Let's Encrypt"
+            ]
+          ],
+          [
+            [
+              "commonName",
+              "YR2"
+            ]
+          ]
+        ],
+        "subjectAltNames": [
+          [
+            "DNS",
+            "tclongages.fr"
+          ],
+          [
+            "DNS",
+            "www.tclongages.fr"
+          ]
+        ],
+        "notAfter": "Jan  3 07:24:34 2027 GMT"
+      },
+      {
+        "host": "www.tclongages.fr",
+        "checkedAt": "2026-10-05T08:28:50.592980+00:00",
+        "recognizedHttpsVerified": true,
+        "issuer": [
+          [
+            [
+              "countryName",
+              "US"
+            ]
+          ],
+          [
+            [
+              "organizationName",
+              "Let's Encrypt"
+            ]
+          ],
+          [
+            [
+              "commonName",
+              "YR2"
+            ]
+          ]
+        ],
+        "subjectAltNames": [
+          [
+            "DNS",
+            "tclongages.fr"
+          ],
+          [
+            "DNS",
+            "www.tclongages.fr"
+          ]
+        ],
+        "notAfter": "Jan  3 07:24:34 2027 GMT"
+      }
+    ]
+  },
+  "hostingReadOnly": {
+    "account": "daje5127",
+    "home": "/home2/daje5127",
+    "existingOfficialRoot": "public_html",
+    "rootEditableInCpanel": true,
+    "terminalAvailable": true,
+    "toolsObserved": [
+      "php",
+      "mysqldump",
+      "mysql",
+      "uapi",
+      "rsync"
+    ],
+    "newSshAccessCreated": false,
+    "productionRootChanged": false,
+    "certificateIssued": false,
+    "scopeNote": "Initial read-only observation before the separately authorized certificate emission."
+  },
+  "githubReadOnly": {
+    "main": "a288f835e98f3cfea1977b1eff59a4d80da322b1",
+    "activeWorkflows": [
+      "CI — TC Longages",
+      "PR Policy",
+      "Preparer la livraison — TC Longages"
+    ],
+    "deploymentWorkflowActive": false,
+    "environments": [],
+    "repositorySecretNames": [],
+    "repositoryVariableNames": [],
+    "mergedPullRequests": [
+      8,
+      9,
+      10
+    ]
+  },
+  "localChecks": {
+    "pythonTests": 48,
+    "pythonPassed": 44,
+    "pythonSkipped": 4,
+    "skipReason": "POSIX UID/permission checks require Linux",
+    "nodeFullRun": {
+      "total": 141,
+      "passed": 141,
+      "failedInitially": 2,
+      "cause": "Workflow fingerprints and the expected job list needed update for the new safety job.",
+      "resolvedBy": "Full rerun: 141 passed after the workflow fingerprint and job-list updates.",
+      "failed": 0
+    },
+    "nodeFocusedRerun": {
+      "passed": 7,
+      "failed": 0
+    },
+    "limits": [
+      "Linux CI not yet run for this branch.",
+      "No hosted restore or production delivery attested."
+    ],
+    "phpSyntax": {
+      "ownFilesPassed": 6,
+      "productionRuntimeAndPreflightPassed": 2
+    }
+  },
+  "humanHistoryPreserved": {
+    "decisionCount": 6,
+    "reviewEventCount": 13,
+    "phaseStatusesUnchanged": true,
+    "approvalsGenerated": false
+  },
+  "backup": {
+    "status": "integrity_verified_on_host_restore_pending",
+    "createdAt": "2026-10-05T08:00:25.404442+00:00",
+    "account": "daje5127",
+    "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261005T075955Z",
+    "sqlSha256": "708530a6886ea09b6233dfd6f2783b292546816de3ee87c982c9e047ba03e070",
+    "filesSha256": "3605ca1fb0148feea7067083a8aa5388d0864b20fe943f0f1f30b69dbf3d5734",
+    "sqlUncompressedBytes": 5062381,
+    "integrityVerified": true,
+    "restorationTested": false,
+    "deploymentExecuted": false,
+    "limits": [
+      "The SQL export and file archive were fully reread; no restored SQL bootstrap is attested."
+    ],
+    "filesRestore": {
+      "format": "tcl-private-file-restore-v1",
+      "checkedAt": "2026-10-05T08:16:47.898471+00:00",
+      "directory": "/home2/daje5127/tcl-preproduction/private/restorations/restore-mtkem07q",
+      "regularFiles": 26819,
+      "filesRestoredAndVerified": true,
+      "databaseRestored": false,
+      "drupalBootstrapped": false,
+      "restorationTested": false,
+      "deploymentExecuted": false
+    }
+  },
+  "hostingPreparation": {
+    "authorizationRef": "TCL-PROD-PREP-20261005",
+    "authorizationSource": "Direct human reply: Autoriser ce lot de preparation",
+    "account": "daje5127",
+    "database": "daje5127_tclprod",
+    "databaseCreated": true,
+    "databaseUserCreated": false,
+    "sqlPrivilegesApplied": false,
+    "certificateIssued": true,
+    "officialRootChanged": false,
+    "publicOpeningExecuted": false
+  },
+  "productionStage": {
+    "preparedAt": "2026-10-05T08:27:32.759204+00:00",
+    "composerRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal",
+    "documentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
+    "status": "code_verified_private_input_pending",
+    "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
+    "regularFiles": 26687,
+    "receiptVerified": true,
+    "configurationActivated": false,
+    "databaseRestored": false,
+    "officialRootChanged": false,
+    "publicOpeningExecuted": false
+  },
+  "documentation": {
+    "foundationPresent": true,
+    "markdownChecked": [
+      "AGENTS.md",
+      "README.md",
+      "architecture.md",
+      "changelog.md",
+      "decisions.md",
+      "docs/parcours-mise-en-ligne.md",
+      "docs/point-session.md",
+      "docs/suivi-chantier/tableau-de-bord.md",
+      "requirements.md",
+      "roadmap.md",
+      "workflows/preparer-livraison.md"
+    ],
+    "issues": [],
+    "humanHistoryPreserved": true,
+    "phaseStatusesUnchanged": true
+  }
+}
