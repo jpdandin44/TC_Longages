@@ -38,6 +38,7 @@ final class RegistrationController extends ControllerBase {
       '#type' => 'container', '#attributes' => ['class' => ['tcl-bureau']], '#cache' => ['max-age' => 0],
       '#attached' => ['library' => ['tcl_bureau/bureau']],
       'navigation' => ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => 'Espace Bureau'],
+        'communication' => Link::fromTextAndUrl('Communication', Url::fromRoute('tcl_bureau.communication'))->toRenderable(),
         'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
         'accounts' => Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable(),
         'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),

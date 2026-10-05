@@ -1,5 +1,8 @@
 access tcl bureau:
   title: Accéder à l'espace du club
+manage tcl communication:
+  title: Rédiger, valider et publier les actualités du club
+  restrict access: true
 manage tcl registrations:
   title: Enregistrer et gérer les dossiers des adhérents
   restrict access: true

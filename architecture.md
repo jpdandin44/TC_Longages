@@ -28,6 +28,16 @@ CSRF, doublons et révision avant une mise à jour atomique. Les valeurs sont
 restituées comme texte. Aucun dossier n'est stocké dans le navigateur.
 Le [guide du lot](docs/comptes-et-bureau.md) détaille règles et recette.
 
+La [communication V2](docs/communication-bureau.md) ajoute `tcl_bureau_post` :
+contenu, copie JPEG, auteur/date, révision et validation. Le service serveur
+compare atomiquement la révision pour enregistrer, valider, publier, retirer,
+archiver ou restaurer. Modifier un contenu le remet en brouillon. Les routes
+publiques lisent uniquement une révision publiée et validée ; les images privées
+passent par le contrôle Bureau. L'accueil reçoit les actualités via le contrôleur
+V2, sans modifier les pages immuables V1. Les liens externes sont préparés après
+validation, sans service de diffusion automatique. Le helper d'update est borné
+au SQLite local ; mise à jour et stockage MySQL restent à recetter.
+
 Les helpers CLI, hors de `web/`, refusent toute base hébergée. L'installation
 du module seule crée le schéma/rôles sans compte ni donnée fictive. Le menu
 Espace est raccordé uniquement lorsque ce module est activé. MySQL et la mise

@@ -113,6 +113,9 @@ final class BureauController extends ControllerBase {
     if ($this->repository->canManageAccount($this->currentUser())) {
       $links['accounts'] = Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable();
     }
+    if ($this->repository->allowed($this->currentUser(), 'manage tcl communication')) {
+      $links['communication'] = Link::fromTextAndUrl('Communication', Url::fromRoute('tcl_bureau.communication'))->toRenderable();
+    }
     if ($this->config('tcl_bureau.settings')->get('teams_enabled') && $this->repository->allowed($this->currentUser(), 'manage tcl teams')) {
       $links['team_add'] = Link::fromTextAndUrl('Créer une équipe', Url::fromRoute('tcl_bureau.team_add'))->toRenderable();
     }

@@ -14,6 +14,16 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-05 — Communication du Bureau intégrée en V2 locale
+
+- Brouillons, copie d'affiche et révisions conservés en base Drupal.
+- Quatre aperçus et confirmations séparées de validation/publication ; modification
+  retirant la publication, anciennes révisions et URL privées contrôlées.
+- Actualités publiées dans l'accueil et les pages publiques de la V2 locale.
+- Liens et partage manuel WhatsApp, Facebook, ADOC et Ten'Up, limite ADOC,
+  retrait du site et archives restaurables.
+- Update additive, recette HTTP, guide et suivi V2 ; aucun déploiement.
+
 ## 2026-10-05 — Première réalisation locale V2 des comptes et du Bureau
 
 - Module Drupal centré sur la saisie Bureau des nouveaux adhérents Adultes/Mineurs,

@@ -25,6 +25,14 @@ restent désactivées. Le [guide](comptes-et-bureau.md), le
 suivi canonique portent ce lot distinct. La session navigateur locale Bureau
 est préparée pour la recette. Les mots de passe de recette restent dans `.local/`.
 
+La communication du prototype est intégrée au Bureau V2, liens externes compris :
+brouillons/affiches en base, quatre aperçus, validation puis publication distincte
+sur le site local, retrait, archives et restauration. Le [guide](communication-bureau.md)
+et le [reçu](../data/communication-local-verification.json) portent les contrôles.
+La PR #14 reste le candidat de cette itération. Les anciens brouillons de 4174
+ne sont pas importés automatiquement. Qualifier MySQL, les nouvelles routes
+Apache et les images avant une livraison hébergée.
+
 Les [sources FFT](../api/fft.md) sont examinées : Ten’Up fournit des rencontres
 publiques ; ADOC demande une reconnexion. Aucune intégration ou donnée réelle
 d'adhérent n'est importée. Prochaine action : examiner le candidat local et ses
@@ -32,7 +40,16 @@ champs, puis qualifier la mise à jour/MySQL avant une recette hébergée V2.
 La qualification mobile du nouveau Bureau reste à faire. Les accords de V1
 conservent leur portée ; aucun déploiement V2 ni validation humaine nouvelle.
 
-## État courant — V1 officielle ouverte
+## État courant — V1 livrée, maintenance activée par le responsable
+
+**Observation d'exploitation ultérieure du 5 octobre.** Le responsable indique
+avoir activé la maintenance. Les contrôles anonymes de `http://tclongages.fr/`,
+`https://tclongages.fr/`, `https://www.tclongages.fr/` et d'une requête avec
+paramètre neuf rendent tous 503 et « Site en maintenance », avec `no-store`.
+La préproduction rend aussi 503. Les administrateurs connectés peuvent continuer
+à voir le site ; le prototype 4174 est indépendant. Aucune modification de
+maintenance ou déconnexion distante n'est effectuée par l'agent. Le reçu
+initial d'ouverture ci-dessous reste historique et inchangé.
 
 Le responsable autorise explicitement la mise en production de V1 dans la
 conversation (`TCL-PROD-EXECUTION-20261005`). Le même candidat site `49b4ef7`,

@@ -14,6 +14,11 @@ final class BureauRouteSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('tcl_site.espace')) {
       $route->setDefault('_controller', '\\Drupal\\tcl_bureau\\Controller\\BureauController::entry');
     }
+    foreach (['tcl_site.front', 'tcl_site.index'] as $name) {
+      if ($route = $collection->get($name)) {
+        $route->setDefault('_controller', '\\Drupal\\tcl_bureau\\Controller\\CommunicationController::front');
+      }
+    }
   }
 
 }

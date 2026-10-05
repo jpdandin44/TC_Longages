@@ -25,6 +25,11 @@ dossier, avec comptes Drupal et base fictive. Les équipes sont désactivées et
 reportées. La [recette du lot](docs/comptes-et-bureau.md) et son reçu sont liés
 à une nouvelle itération du suivi, sans remplacer les preuves de livraison V1.
 
+La communication est intégrée en local : brouillons et affiches en base,
+aperçus, validation, publication séparée, liens externes, retrait et archives
+restaurables. Examiner [ce lot](docs/communication-bureau.md) avant qualification
+MySQL/routage Apache et livraison hébergée V2.
+
 Suite : examiner le formulaire et les droits du candidat local, préciser les
 champs/consentements encore proposés dans le processus d'inscription, puis
 qualifier MySQL et une mise à jour en préproduction préservant les données.

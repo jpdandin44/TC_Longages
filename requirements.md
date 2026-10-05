@@ -15,6 +15,19 @@ tags:
 
 # Exigences
 
+## Communication V2 — demande du 5 octobre
+
+Intégrer la communication du prototype au Bureau Drupal, liens externes compris.
+Conserver brouillons et affiches en base ; réserver édition, validation et
+publication au Bureau/administrateur actif. Relire les quatre aperçus avant
+validation ; confirmer séparément la publication sur le site. Retirer la
+publication à toute modification et refuser une ancienne révision. Exiger titre,
+texte ou affiche, description d'image et confirmation personnelle des actions.
+Permettre retrait, archivage et restauration sans publication. Préparer le
+partage manuel de la révision validée, sans envoi automatique ni statut de
+livraison inventé ; respecter la limite ADOC sans tronquer. Le
+[guide V2](docs/communication-bureau.md) décrit réalisation et limites.
+
 ## V2 locale — comptes et Bureau, après livraison V1
 
 La demande du 5 octobre ouvre une itération locale avec comptes Drupal et

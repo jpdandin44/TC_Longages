@@ -12,6 +12,10 @@ tags: [drupal, comptes, bureau, inscriptions, recette]
 
 # Comptes et espace Bureau
 
+La [communication du Bureau](communication-bureau.md) utilise désormais le même
+compte et menu : brouillons, affiches, revue et publication sur le site local.
+Les visiteurs et capitaines n'accèdent pas à cette gestion.
+
 Après la publication de V1, le responsable demande de commencer V2 en local,
 puis précise que le Bureau doit surtout enregistrer les nouveaux adhérents.
 La gestion des équipes vient ensuite. Le [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations)

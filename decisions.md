@@ -15,6 +15,22 @@ tags:
 
 # Décisions
 
+## 2026-10-05 — Communication intégrée au Bureau V2
+
+**Contexte.** Le responsable demande la communication du prototype dans la V2
+en développement et précise que les liens externes y ont leur place.
+
+**Choix d'implémentation.** Réutiliser comptes/formulaires Drupal et la base :
+brouillon, revue, validation de révision puis publication explicite sur le site.
+Affiches préparées sur le serveur et privées avant publication. Liens Facebook,
+WhatsApp, ADOC et Ten'Up pour partage manuel ; aucune automatisation ou secret
+externe ajouté. Les archives peuvent être restaurées en brouillon.
+
+**Conséquences.** Update additive et permission Bureau ; dossiers existants
+conservés. L'ancien prototype et ses brouillons restent séparés. Qualifier
+MySQL et nouvelles routes Apache avant recette hébergée. La demande autorise
+le développement local, sans merge ou déploiement V2.
+
 ## 2026-10-05 — Agenda public dédié et informations de compétition
 
 **Contexte.** Le responsable demande l'affichage des événements Google et des

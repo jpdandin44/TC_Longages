@@ -5,6 +5,101 @@ tcl_bureau.home:
     _title: 'Espace du club'
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
+
+tcl_bureau.communication:
+  path: '/bureau/communication'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::overview'
+    _title: 'Communication du club'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_add:
+  path: '/bureau/communication/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationForm'
+    _title: 'Créer une actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_archives:
+  path: '/bureau/communication/archives'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::archives'
+    _title: 'Archives de communication'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_edit:
+  path: '/bureau/communication/{post}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationForm'
+    _title: 'Modifier une actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_review:
+  path: '/bureau/communication/{post}/revue'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::review'
+    _title: 'Revue de l’actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_image:
+  path: '/bureau/communication/{post}/image'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::image'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_action:
+  path: '/bureau/communication/{post}/{action}'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationActionForm'
+    _title: 'Confirmer l’action'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+    action: 'validate|publish|withdraw|archive|restore'
+
+tcl_bureau.public_news:
+  path: '/actualites'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::news'
+    _title: 'Actualités du club'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+tcl_bureau.public_post:
+  path: '/actualites/{post}'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::publicPost'
+    _title: 'Actualité du club'
+  requirements:
+    _access: 'TRUE'
+    post: '\d+'
+  options:
+    no_cache: TRUE
+
+tcl_bureau.public_image:
+  path: '/actualites/{post}/image'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::publicImage'
+  requirements:
+    _access: 'TRUE'
+    post: '\d+'
+  options:
+    no_cache: TRUE
 tcl_bureau.registrations:
   path: '/bureau/adherents'
   defaults:

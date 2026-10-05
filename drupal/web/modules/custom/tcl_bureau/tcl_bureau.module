@@ -15,9 +15,18 @@ function tcl_bureau_page_attachments(array &$attachments): void {
   }
 }
 
-/** Reuse the supplied club logo on native Drupal account pages. */
+/** Vary the branding block by route before its render cache is consulted. */
+function tcl_bureau_block_build_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block): void {
+  if ($block->getPluginId() === 'system_branding_block') {
+    $build['#cache']['contexts'][] = 'route';
+  }
+}
+
+/** Reuse the supplied club logo before or after core's branding preprocess. */
 function tcl_bureau_preprocess_block(array &$variables): void {
-  if (($variables['plugin_id'] ?? '') === 'system_branding_block' && tcl_bureau_is_workspace()) {
-    $variables['site_logo'] = base_path() . 'modules/custom/tcl_bureau/images/logo.jpeg';
+  if (($variables['base_plugin_id'] ?? '') === 'system_branding_block' && tcl_bureau_is_workspace()) {
+    $logo = base_path() . 'modules/custom/tcl_bureau/images/logo.jpeg';
+    $variables['content']['site_logo']['#uri'] = $logo;
+    $variables['site_logo'] = $logo;
   }
 }

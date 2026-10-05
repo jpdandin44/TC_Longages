@@ -1,4 +1,7 @@
 services:
+  tcl_bureau.communication:
+    class: Drupal\tcl_bureau\CommunicationRepository
+    arguments: ['@database', '@tcl_bureau.repository']
   tcl_bureau.registrations:
     class: Drupal\tcl_bureau\RegistrationRepository
     arguments: ['@database', '@tcl_bureau.repository']

@@ -25,6 +25,11 @@ les équipes sont désactivées et reportées à un lot ultérieur.
 La [recette locale](docs/comptes-et-bureau.md) explique les droits et limites.
 [Ouvrir le site local](http://127.0.0.1:4182/), puis **Bureau / Capitaine**.
 Les données de recette sont fictives ; la production conserve son candidat V1.
+La [communication du Bureau](docs/communication-bureau.md) est intégrée :
+brouillons et affiches en base, quatre aperçus, validation puis publication
+séparée sur le site local, retrait et archives restaurables. Les liens Facebook,
+WhatsApp et ADOC permettent un partage manuel après validation.
+[Ouvrir Communication](http://127.0.0.1:4182/fr/bureau/communication).
 Le [relevé FFT](api/fft.md) décrit les informations de compétition accessibles
 sur Ten’Up et la connexion requise pour ADOC, sans import ni synchronisation.
 V2 inclut aussi l'affichage direct du [calendrier Google](api/google-calendar.md)
@@ -33,13 +38,17 @@ préparé ; le calendrier fourni refuse l'accès public. Son nouvel ID et son
 partage restent à qualifier. Les présences saisies dans FFT par les capitaines
 sont prévues pour un lot ultérieur, sans récupération actuellement qualifiée.
 
-## Mise en ligne V1 — parcours actuel
+## Livraison V1 et état d'exploitation
 
 Le lot du compte principal TC est explicitement autorisé puis terminé le
 4 octobre : préproduction dédiée fermée, DNS public, certificat reconnu,
 PHP CLI/HTTP 8.3.33 et 18 extensions, base vide UTF-8 et dix droits SQL relus.
 Le PHP est partagé au compte ; la page d’attente officielle est conservée
-pour le retour arrière. Le domaine sert désormais la V1 publique.
+pour le retour arrière. Le domaine sert la V1 livrée ; le responsable a ensuite
+activé sa maintenance. Au contrôle anonyme du 5 octobre, le domaine officiel et
+`www` répondent 503 avec « Site en maintenance » et `no-store`. Un administrateur
+connecté peut encore consulter le site. Le [point de session](docs/point-session.md)
+distingue ce constat d'exploitation du reçu initial d'ouverture.
 La Lune reste active, avec ses ressources. Le [reçu courant](data/framework-revue-verification.json#hostingPrimaryConfiguration)
 porte les résultats datés de configuration ; les preuves d’installation
 et de connexion applicative sont désormais distinctes.
@@ -58,12 +67,12 @@ porte les résultats réels. L’accueil et les six autres pages ont été parco
 en session connectée. Le 5 octobre, le responsable reporte comptes et droits
 par équipe en V2 pour prioriser la V1 publique. La sauvegarde est intègre et
 ses fichiers et ses 43 tables SQL sont restaurés et vérifiés en copie privée.
-**La V1 est publique sur [tclongages.fr](https://tclongages.fr/) depuis le
+**La V1 a été ouverte sur [tclongages.fr](https://tclongages.fr/) le
 5 octobre à 18:14 UTC**, après l'accord explicite `TCL-PROD-EXECUTION-20261005`.
 Le même ZIP est servi depuis une racine de production distincte, avec sa base
-dédiée. Les sept pages répondent 200 anonymement, HTTPS et `www` fonctionnent,
+dédiée. Au contrôle de cette ouverture, les sept pages répondaient 200 anonymement, HTTPS et `www` fonctionnaient,
 les paramètres privés sont refusés 403 et le retour réel à la page d'attente
-a été testé. Les pages publiques sont indexables ; connexion et administration
+a été testé. Les pages publiques étaient indexables ; connexion et administration
 restent non indexables. Une configuration Apache propre à l'hébergement est
 ajoutée au `.htaccess` vérifié ; le ZIP et les pages ne sont pas reconstruits.
 La préproduction conserve sa maintenance. Les réserves Calendar, Forms,
