@@ -41,7 +41,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.equal(ci.jobs['technical-ci'].steps.find(step=>step.uses?.startsWith('actions/checkout@')).with['fetch-depth'],0);
   for(const flow of [ci,policy]) {
     assert.deepEqual(flow.permissions,{contents:'read'});
-    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['technical-ci'] : ['policy']);
+    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','technical-ci'] : ['policy']);
     for(const job of Object.values(flow.jobs)) {
       assert.equal(job.environment,undefined);
       assert.equal(job.permissions,undefined);
@@ -52,6 +52,12 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
       }
     }
   }
+  const safety=ci.jobs['delivery-safety'];
+  assert.equal(safety['runs-on'],'ubuntu-24.04');
+  assert.ok(safety['timeout-minutes']<=5);
+  assert.match(safety.steps[1].run,/unittest discover.*test_\*\.py/);
+  assert.match(safety.steps[2].run,/set -euo pipefail/);
+  assert.match(safety.steps[2].run,/php -l/);
   const ciRuns=ci.jobs['technical-ci'].steps.filter(s=>s.run).map(s=>s.run);
   assert.ok(ciRuns[0].includes('npm.cmd ci --ignore-scripts'));
   assert.ok(ciRuns[0].includes('requirements-verification.txt'));

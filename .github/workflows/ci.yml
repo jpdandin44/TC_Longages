@@ -9,6 +9,19 @@ permissions:
   contents: read
 
 jobs:
+  delivery-safety:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Vérifier archives, reçus et limites de première installation
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Vérifier la syntaxe PHP propre au site
+        run: |
+          set -euo pipefail
+          find drupal/web/modules/custom drupal/config scripts -type f \( -name '*.php' -o -name '*.install' -o -name '*.module' \) -print0 | xargs -0 -r -n1 php -l
   technical-ci:
     runs-on: windows-2025
     timeout-minutes: 20

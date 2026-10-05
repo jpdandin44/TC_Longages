@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,30 @@ tags:
 ---
 
 # Architecture
+
+## Livraison reproductible — 5 octobre
+
+La chaîne TC réutilise la préparation manuelle issue du site Drupal AVEREO.
+Le constructeur `prepare_delivery.py` publie un ZIP vérifié sans écraser un
+candidat existant. L'opération `verify-receipt` lie le reçu CI aux octets du
+ZIP, au manifeste et à la source propre. Les tests Linux des archives et de
+la première installation entrent dans les PR ; la syntaxe PHP du code propre
+au club est également contrôlée. Aucun déploiement n'est déclenché par merge.
+
+Les paramètres, comptes, fichiers de fonctionnement et bases restent hors du
+paquet. Préproduction et production doivent garder des bases et racines
+distinctes. Le même ZIP est préparé sous
+`tcl-production/releases/14c270431af12397/drupal/`, sans raccordement HTTP.
+La base dédiée `daje5127_tclprod` reçoit les 43 tables de la sauvegarde
+vérifiée après contrôle de sa vacuité et de ses dix droits. Le mot de passe
+reste hors racine web. Le certificat officiel, initialement autosigné, est
+remplacé par un certificat gratuit reconnu sur le domaine et `www`.
+La copie restaurée et la copie de production démarrent en français sous
+maintenance. Les permissions Apache et le routage HTTP de cette nouvelle
+racine restent à qualifier ; le domaine conserve sa page d'attente. Les outils de préparation et restauration
+refusent l'écrasement d'une version ou d'une base existante. L'adaptateur de
+mise à jour récurrent reste à qualifier. Les versions futures préserveront
+les données de production et appliqueront les migrations examinées.
 
 ## Compte principal TC et première installation — 4 octobre
 

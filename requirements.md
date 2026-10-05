@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,20 @@ tags:
 ---
 
 # Exigences
+
+## Priorité V1 publique — 5 octobre
+
+Le responsable reporte en V2 les comptes Bureau/Capitaine et les droits par
+équipe. La V1 livre les sept pages publiques existantes sous Drupal, avec les
+liens réels déjà raccordés et le contact du club. Ne pas déclarer actifs
+Calendar, Forms, effectifs ou espace interne tant que leurs ressources et
+droits ne sont pas qualifiés. L'édition locale en préparation ne vaut pas
+édition hébergée. Le cockpit personnel reste hors du site public.
+
+Chaque livraison doit identifier le paquet exact, préserver les données et
+paramètres propres à la cible et disposer d'un retour arrière éprouvé. Pour
+les versions suivantes, conserver le verrou des dépendances, recetter le même
+ZIP et effectuer une mise à jour ; ne pas relancer la première installation.
 
 ## Site de recette et langue — 4 octobre
 
@@ -112,7 +126,7 @@ Un sous-domaine du compte principal ne peut pas être rattaché à une lune dist
 - installation Drupal dédiée au club et maintenance par le moteur natif sur toutes les pages, sans renommage de fichier pour cette nouvelle variante.
 - exception d’installation bornée et tracée, puis retour aux contrôles normaux ; ni secret, ni contrôle des requêtes, ni autorisation de production désactivés.
 
-Ces exigences sont reliées aux critères des [dossiers de phases](docs/suivi-chantier/00-phase.md), aux [tests de l'adaptateur](tests/framework.test.mjs) et aux contrôles décrits dans le [guide](docs/framework-developpement.md). La chaîne complète n'est pas qualifiée. Le domaine et sa racine ont été observés dans cPanel ; le certificat courant est autosigné et ne qualifie pas une connexion publique. Voir l'inventaire dans [le guide Drupal](docs/installation-drupal.md).
+Ces exigences sont reliées aux critères des [dossiers de phases](docs/suivi-chantier/00-phase.md), aux [tests de l'adaptateur](tests/framework.test.mjs) et aux contrôles décrits dans le [guide](docs/framework-developpement.md). La chaîne complète n'est pas qualifiée. Le domaine et sa racine sont identifiés dans cPanel ; le certificat initialement autosigné est remplacé le 5 octobre par un certificat gratuit reconnu sur les deux noms officiels. La copie distincte du paquet et sa base vide sont préparées après accord ; restauration SQL, recette et bascule restent à qualifier. Voir [le parcours actuel](docs/parcours-mise-en-ligne.md).
 
 
 ## Périmètre courant — officiel V1

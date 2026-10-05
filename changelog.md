@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,53 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-05 — V1 publique et préparation fiable des versions
+
+- Périmètre V1 recentré par le responsable sur le site public ; comptes et
+  droits par équipe conservés pour V2.
+- Candidat Drupal installé revérifié contre le reçu GitHub : 26 687 fichiers,
+  empreintes ZIP et manifeste cohérentes, aucune reconstruction.
+- Refus d'écraser un paquet existant, publication après vérification complète
+  et contrôle du reçu contre les octets du candidat ajoutés au constructeur.
+- Garde-fous de livraison et d'installation ajoutés à la CI Linux des PR,
+  avec contrôle de syntaxe PHP propre au site ; archivage précédé du contrôle
+  du reçu dans la préparation manuelle.
+- Sauvegarde privée hébergée réussie, SQL et fichiers intégralement relus ;
+  26 819 fichiers restaurés et vérifiés dans une nouvelle copie privée.
+- Après accord `TCL-PROD-PREP-20261005`, certificat gratuit officiel émis et
+  reconnu sur le domaine et `www`, base de production dédiée créée et même
+  ZIP préparé hors domaine dans une nouvelle racine propriétaire.
+- Utilisateur SQL de production créé personnellement ; dix droits appliqués
+  sur sa seule base après accord `TCL-PROD-SQL-20261005`, encodage Unicode
+  corrigé avant import. Saisie privée contrôlée avec succès, puis restauration
+  des 43 tables et démarrage des copies restaurée et de production vérifiés.
+  Français, maintenance, non-indexation et courriels neutralisés confirmés.
+  Ancienne racine et copie de retour comparées à la sauvegarde : concordance.
+  Permissions Apache, routage HTTP et retour arrière réel restent à qualifier.
+- [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) ouverte en brouillon :
+  contrôles technique Windows et livraison Linux réussis sur le candidat
+  d'outillage initial ; 49 tests Python passent sur Linux. Les confirmations
+  humaines restent non cochées. Aucune bascule ou ouverture exécutée.
+
+## 2026-10-04 — Clôture demandée, objectif de production non atteint
+
+- Travail mis en pause à la demande du responsable ; état réel et reprise
+  documentés dans le point de session, avec blocages et travaux locaux conservés.
+- Brouillons privés sauvegardés, serveur du suivi arrêté, cPanel déconnecté
+  et onglets d’hébergement fermés. Préproduction conservée sous maintenance.
+- Correction locale du suivi et installation SQLite de l’éditeur conservées ;
+  aucune nouvelle PR publiée, validation humaine, bascule ou ouverture créée.
+
+## 2026-10-04 — Validation directe des phases locales
+
+- Correction du bouton grisé alors que tous les critères sont cochés : la
+  validation personnelle enregistre ensemble les critères et la décision,
+  sans imposer une sauvegarde préalable séparée des cases.
+- Commentaire, confirmation personnelle, dossier remis, version et preuves
+  recevables restent requis. Une revue partielle peut toujours être conservée.
+- Reprise des brouillons de plusieurs phases avec les libellés inchangés et
+  confirmation remise à zéro ; aucun accord humain généré par la correction.
 
 ## 2026-10-04 — Recette centrée sur le site et administration française
 

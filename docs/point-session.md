@@ -5,12 +5,164 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 4 octobre 2026
+# Point de session — reprise au 5 octobre 2026
+
+## Reprise du 5 octobre : V1 publique prioritaire
+
+Le responsable demande l'effort restant et une livraison reproductible, puis
+reporte explicitement les comptes Bureau/Capitaine et droits par équipe en V2
+pour publier le site existant aujourd'hui. La demande relance le travail sur
+le site ; elle ne transforme pas l'arrêt précédent en validation de phase.
+
+Checkout de ce lot : `.worktrees/livraison-fiable`, branche
+`feat/livraison-fiable`, depuis `main` `a288f83`. Le dernier suivi, les décisions
+et la clôture sont repris ; les anciens checkouts et leurs modifications
+restent conservés. Seule cette copie du suivi a un écrivain actif pour le lot.
+La correction UI non publiée reste sur `fix/cockpit-validation-directe`,
+l'édition locale sur `feat/drupal-comptes-edition` ; aucun de ces lots ne
+conditionne la V1 publique ou n'est ajouté au paquet installé.
+
+**Constats rafraîchis :** PR #8, #9 et #10 fusionnées ; paquet `49b4ef7`,
+ZIP `14c270…`, manifeste `a6b9ab…`, 26 687 fichiers revérifiés contre le reçu.
+Préproduction française : accueil anonyme 503, connexion 200, non-indexation ;
+site visible en session authentifiée. cPanel connecté au compte principal TC,
+racine officielle `public_html` modifiable. Le certificat officiel autosigné
+est remplacé après accord par un certificat gratuit : HTTPS du domaine et
+de `www` vérifiés le 5 octobre à 08:28 UTC. La racine actuelle est conservée.
+Terminal cPanel, PHP, MySQL/mysqldump, uapi et rsync sont disponibles ; aucun
+nouvel accès SSH n'est créé. Aucun environnement GitHub ni secret/variable
+de dépôt TC n'est configuré. Les [constats datés](../data/industrialisation-verification.json)
+gardent les limites, sans déduire une livraison des workflows.
+
+**Travail réalisé :** constructeur protégé contre l'écrasement d'un paquet,
+contrôle du reçu, tests Linux ajoutés dans les PR, sauvegarde privée
+intégralement relue et 26 819 fichiers restaurés en copie privée. Le lot de
+préparation de production est autorisé (`TCL-PROD-PREP-20261005`) : nouvelle
+base `daje5127_tclprod`, même ZIP préparé et revérifié dans
+`tcl-production/releases/14c270431af12397/drupal`. Code et paramètres restent
+propriétaires, hors domaine. L'utilisateur SQL est créé personnellement et
+ses dix droits sont appliqués à la seule base `daje5127_tclprod`, après accord
+`TCL-PROD-SQL-20261005`. La saisie privée est contrôlée avec succès le
+5 octobre à 11:25 UTC : authentification, base vide et dix droits vérifiés.
+L'encodage `utf8mb4_unicode_ci` est confirmé avant import. La restauration
+réussit à 11:26 UTC : 43 tables, connexion SQL et démarrage des copies
+restaurée et de production vérifiés. Maintenance, français, courriels
+neutralisés, inscription libre et cron désactivés, non-indexation confirmés.
+Les paramètres restent privés ; aucune valeur de secret n'est affichée.
+Les 141 tests Node passent. Sur 49 tests Python, 45 passent et quatre
+contrôles POSIX sont ignorés sous Windows. La syntaxe des trois fragments PHP
+du runtime, du préflight et du contrôle Drupal de production est vérifiée.
+Le reçu hébergé de restauration est dans
+`/home2/daje5127/tcl-production/private/production-restore-receipt.json`.
+L'ancienne racine et sa copie restaurée correspondent à la sauvegarde ;
+les droits privés sont contrôlés. Les fichiers publics restent en 0600/0700 :
+permissions Apache et HTTP de cette nouvelle racine non qualifiés.
+Aucune bascule ni ouverture de production.
+
+La [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) est ouverte en
+brouillon pour les outils et la documentation. Ses contrôles technique
+Windows et livraison Linux ont réussi sur le candidat d'outillage
+`3c1bf8c` avant cette actualisation documentaire ; les 49 tests Python passent
+sur Linux. Les nouveaux reçus documentaires restent à qualifier dans leur commit. Les quatre confirmations
+humaines sont conservées et non cochées. Les reçus portent le commit et
+le résultat exacts ; une actualisation documentaire n'est pas un nouveau
+déploiement du site.
+
+**Suite exacte :** recueillir l'accord sur le lot réversible de qualification
+de la racine officielle décrit dans le parcours V1. Rendre les seuls fichiers
+publics lisibles par Apache, raccorder le domaine à Drupal sous maintenance,
+vérifier HTTPS/PHP/protections, puis éprouver le retour à `public_html`.
+L'acceptation de la V1 avec ses réserves et l'ouverture restent des décisions
+humaines distinctes. Ne pas relancer l'outil de restauration sur cette base
+désormais remplie ; il refuse une seconde tentative.
+Le [parcours existant](parcours-mise-en-ligne.md) et `developmentWorkflow.deliveryPlan`
+portent les résultats attendus et l'estimation restante de 1 h 30 à 3 heures
+avec marge de correction, hors attentes humaines ou techniques externes.
+Les liens Google reçus restent non activés : partage Calendar non qualifié,
+Forms non destiné aux répondants, noms/catégories des équipes non fournis.
+
+Les sections ci-dessous conservent la clôture et les observations du 4 octobre.
+
+## Session du 4 octobre close à la demande du responsable
+
+Le responsable demande l’arrêt puis la clôture de cette journée, après environ
+neuf heures signalées sans atteindre la mise en production. L’objectif est
+**non atteint et mis en pause**. Les sections suivantes conservent les constats
+de travail ; elles ne décrivent plus une session active. Aucune opération de
+développement ou d’hébergement n’est poursuivie après cette demande, hors
+conservation des brouillons, fermeture et documentation de clôture.
+
+- **État livré :** Drupal en préproduction sous maintenance, sept pages du
+  club et administration française ; SQL opérationnel. Le domaine officiel
+  conserve sa page d’attente. Aucune bascule ou ouverture de production.
+- **Travail conservé :** branche locale `fix/cockpit-validation-directe`,
+  commits `3435c53` et `d84bbff`. Trente-huit tests locaux réussis pour la
+  correction du suivi. Cette branche n’est pas poussée, aucune nouvelle PR
+  n’est créée. La dernière observation navigateur affichait encore l’ancienne
+  interface : la correction n’est donc **pas déclarée vérifiée dans l’écran**.
+  Les brouillons personnels sont conservés en privé, sans confirmation active.
+- **Édition du site :** travail séparé dans `.worktrees/drupal-comptes-edition`,
+  branche `feat/drupal-comptes-edition`, HEAD `9b1a0d2`. Drupal 11.4.8 installé
+  sur une base SQLite locale isolée le 4 octobre à 21:26:52 UTC. Cette
+  installation ne prouve pas les parcours d’édition, droits et révisions.
+  Six fichiers de scaffold modifiés par Composer restent à examiner ; aucun
+  transfert de ce nouvel éditeur sur le serveur.
+- **Claude :** application inaccessible dans le connecteur disponible ;
+  version web ouverte sur sa page de connexion, sans consultation réalisée.
+  L’onglet Claude a été fermé à la clôture.
+- **Fermeture :** serveur du suivi sur 4181 arrêté après conservation de la
+  saisie ; aperçu du site sur 4180 identifié comme TC Longages puis arrêté.
+  Aucun service n’écoute sur 4173, 4174, 4175, 4180, 4181 et 4182 au contrôle
+  de clôture ; base locale conservée, aucun serveur Drupal local démarré. cPanel
+  a affiché « Vous vous êtes déconnecté. » et ses onglets de travail ont été
+  fermés. Les onglets du site et du suivi sont conservés pour la reprise ;
+  la session Drupal n’a pas été déconnectée ni requalifiée à la clôture.
+
+**Blocages et reste à faire, dans l’ordre de reprise :**
+
+1. Finaliser et recetter l’édition des pages et les comptes/droits utiles au
+   club, puis préparer la PR fonctionnelle et le candidat testable en
+   préproduction. Le travail restant ne doit pas se concentrer sur le suivi.
+2. Renseigner les liens Calendar/Forms et les équipes à partir des informations
+   du responsable ; ces données restent absentes. Leur périmètre de livraison
+   doit être explicite, sans inventer de liens ou d’effectifs.
+3. Sauvegarder le Drupal et la base réellement installés, vérifier une
+   restauration et répéter le retour arrière. Qualifier la racine et le mode
+   de bascule du domaine officiel ; la sauvegarde initiale de la page d’attente
+   ne remplace pas cette qualification.
+4. Présenter la version finale, sa recette, la cible et le retour arrière pour
+   l’accord de production applicable, puis livrer et contrôler le site. Les
+   accords de configuration et merges antérieurs gardent leur portée.
+
+À la prochaine reprise, lire cette section avant toute relance. Requalifier
+le candidat après les modifications documentaires de clôture : le manifeste
+`3435c53` conserve sa provenance mais ne couvre pas ces nouvelles sources.
+La correction du suivi reste un lot local secondaire à vérifier et à publier,
+sans fabriquer de validation de phase. Aucun redémarrage automatique n’est
+programmé ; la reprise attend une demande du responsable.
+
+## Correction actuelle du bouton de validation
+
+La PR #10 est fusionnée le 4 octobre à 21:27:49 UTC sur
+`a288f835e98f3cfea1977b1eff59a4d80da322b1`. Le responsable a repris puis
+soumis le cadrage à revue dans le suivi. Le blocage observé est distinct du
+merge : quatre cases cochées dans le navigateur, mais zéro critère enregistré.
+Le moteur exigeait cet enregistrement séparé avant d’activer la validation.
+
+La correction locale permet à **Valider cette phase** de conserver atomiquement
+les cases et l’accord personnel. **Enregistrer les critères** reste disponible
+pour une revue partielle. Les contrôles de version, justificatifs, révision,
+origine et confirmation restent obligatoires. Les brouillons des phases sont
+conservés lors du rechargement ; leur confirmation personnelle est retirée.
+La correction ne valide aucune phase et ne change aucun droit d’hébergement.
+La [procédure de revue](installation-framework.md#préparer-une-revue) est mise
+à jour. La recette de l’édition Drupal continue dans une base SQLite locale
+isolée ; ce lot distinct n’est pas encore transféré en préproduction.
 
 
 ## Reprise actuelle — préproduction Drupal installée

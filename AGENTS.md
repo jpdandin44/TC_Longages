@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - codex
@@ -26,7 +26,7 @@ Ces consignes complètent la politique documentaire globale pour `Site_Internet/
 - Le suivi JSON est canonique ; `npm.cmd run framework` sert l'interface locale sur 4181. Respecter révision, sauvegardes, historique et actions humaines distinctes. Le générateur fournit des vues de lecture. L'identité déclarée locale ne permet aucune exposition distante.
 - L'utilisateur a autorisé le montage et les essais locaux du framework et de Drupal dédié. L'exception bornée `framework/installation.json` permet le travail d'installation local historique 0–3 sans déclarer les phases validées ; la refermer après vérification. Maintenir Host/Origin/CSRF, confidentialité et accords de publication. L'expiration n'autorise aucun contournement.
 - Les quatre phases actives et les lots G0–G8 restent distincts. Les anciens identifiants 0–7 sont historiques. Une décision d'architecture, un démarrage, une validation, un merge et une ouverture ne se remplacent pas. Conserver les acquis et l'historique sans forger de preuves ou d'approbations.
-- Seules les Actions CI technique et politique de PR sont actives ; aucun workflow de livraison. Préparer une PR par lot autorisé ; laisser les confirmations humaines à l’utilisateur. Le contrôle strict de checklist ne prouve pas l’authenticité de son auteur. Aucun push ou merge ne doit publier le site automatiquement.
+- Trois Actions sont actives : CI technique, politique de PR et préparation manuelle du candidat. Aucun workflow de déploiement n'est actif. Préparer une PR par lot autorisé ; laisser les confirmations humaines à l’utilisateur. Le contrôle strict de checklist ne prouve pas l’authenticité de son auteur. Aucun push ou merge ne doit publier le site automatiquement.
 - La livraison exige candidat exact, préproduction qualifiée, sauvegarde fraîche vérifiée et restaurée avant écriture, recette de cible puis ouverture explicitement autorisée. Ne copier aucun accord, droit ou secret d'AVEREO.
 - Mettre à jour le point de session ; une clôture de session ne valide pas une phase.
 

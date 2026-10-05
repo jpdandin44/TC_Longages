@@ -5,12 +5,117 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## État réel et industrialisation — 5 octobre
+
+Le parcours de la V1 publique et son effort sont dans
+[le dossier existant](../docs/parcours-mise-en-ligne.md). Le processus commun
+à quatre phases reste celui du skill `developpement-github-cockpit` ; ce
+document décrit son raccordement TC, sans créer un second suivi.
+
+Drupal est installé en préproduction, SQL fonctionne et l'administration est
+en français depuis le 4 octobre. Les vérifications anonymes du 5 octobre
+confirment maintenance et non-indexation. Les anciens refus SQL décrivent des
+tentatives résolues. Production non livrée : certificat officiel désormais
+reconnu, même ZIP préparé hors domaine et base dédiée restaurée après
+accord. Fichiers et 43 tables SQL restaurés et vérifiés ; utilisateur SQL dédié
+créé, dix droits limités à sa seule base et encodage Unicode vérifié.
+Les copies restaurée et de production démarrent en français sous maintenance.
+Permissions Apache, routage HTTP, retour arrière officiel et adaptateur de
+mise à jour restent non qualifiés.
+Le compte cPanel donne accès à Terminal ; aucun nouvel accès SSH n'est créé.
+
+GitHub observé le 5 octobre : trois workflows actifs, dont la préparation
+manuelle. Aucun environnement GitHub ni secret/variable de dépôt TC n'est
+configuré. Le YAML de qualification SSH ne suffit donc pas à l'exécuter.
+L'exemple `deployer.yml.example` reste inactif et appelle un adaptateur absent ;
+il ne constitue pas une livraison disponible.
+
+Le lot local `feat/livraison-fiable` ajoute :
+
+- refus d'écraser un ZIP existant, y compris lors de constructions concurrentes ;
+- publication locale du paquet seulement après sa vérification intégrale ;
+- contrôle du reçu de préparation contre le SHA source, le SHA-256 du ZIP,
+  celui du manifeste et l'inventaire réel ; refus d'une source modifiée ;
+- tests des garde-fous de livraison et de première installation dans chaque PR
+  sur Linux, plus syntaxe PHP propre au site ; vérification du reçu dans
+  l'Action de préparation avant archivage.
+
+Commande reproductible, en lecture seule, avant un transfert vers une cible :
+
+```text
+python scripts/prepare_delivery.py verify-receipt --archive CHEMIN/tc-longages-drupal.zip --receipt CHEMIN/delivery-receipt.json
+```
+
+Un reçu cohérent atteste les octets du paquet. Il n'atteste ni recette,
+sauvegarde restaurée, accord humain, transfert ou ouverture. Les contrôles
+`check-gate.py` du skill commun restent applicables et leurs preuves doivent
+être contrôlées à la source.
+
+Pour les versions suivantes : branche et PR cohérentes, tests puis merge
+humain, construction unique depuis le verrou Composer, recette du ZIP exact
+en préproduction, sauvegarde fraîche et restauration éprouvée, puis promotion
+du même ZIP vers la production après accord. Les contenus, comptes, fichiers
+téléversés et paramètres de production sont conservés. Une mise à jour ne
+réinstalle jamais Drupal et ne remplace pas la base de production par celle
+de recette. Les migrations et éventuels imports de configuration sont revus
+avant application. Cette séparation suit la
+[procédure Drupal](https://www.drupal.org/docs/updating-drupal/deploying-a-drupal-update).
+Le transport récurrent et son adaptateur restent à terminer ; aucune
+automatisation complète n'est annoncée.
+
+### Sauvegarde privée du site installé
+
+`scripts/backup_site.py` utilise le PHP qualifié et l'entrée PHP de Drush,
+avec racines limitées au compte TC, paramètres gardés en privé et sortie
+publique limitée à des empreintes. Il archive Drupal, les paramètres actifs,
+les fichiers privés et la racine officielle existante ; il relit chaque
+fichier du tar et le gzip SQL. Liens, fichiers spéciaux, source modifiée et
+archives existantes sont refusés. Aucune restauration ni suppression n'est
+exécutée par cet outil. Son reçu conserve `restorationTested: false` jusqu'à
+une répétition réelle distincte. Garder le répertoire en 0700 et ses fichiers
+en 0600 ; ne publier ni l'archive ni son inventaire privé dans GitHub.
+
+### Restauration et préparation de la première production
+
+`restore_backup_files.py` vérifie les empreintes SQL/tar contre celles du
+reçu examiné, refuse les chemins sortants et liens, puis restaure chaque
+fichier dans un nouveau dossier privé. Le 5 octobre, 26 819 fichiers ont été
+restaurés et revérifiés sur l'hébergement ; aucun import SQL n'est déduit de
+ce résultat. Le reçu de sauvegarde historique reste intact.
+
+`stage_production.py` réutilise `verify-receipt` et exige les chemins, le
+compte, la base et l'accord de préparation du lot TC. Il extrait puis relit
+les 26 687 fichiers du même ZIP dans une nouvelle version propriétaire,
+sans modifier cPanel ni la racine servie. Les paramètres SQL sont saisis
+personnellement dans `tcl-production/private/hosting-input.json` ; aucun
+nouveau compte administrateur n'est nécessaire pour le clone du site.
+
+`restore_production.py` prépare la restauration de la sauvegarde du 5 octobre
+dans cette seule base de production vide. Il exige la confirmation des droits,
+contrôle les dix droits réels et la base vide, refuse une tentative déjà
+commencée et les instructions SQL visant une autre base ou les accès serveur.
+Le mot de passe reste dans un fichier client temporaire en 0600, sans argument
+ni sortie publique. Il doit vérifier le démarrage de la copie restaurée et du
+paquet de production : français, maintenance, courriels neutralisés, cron
+désactivé et non-indexation. Sa recette hébergée réussit le 5 octobre à
+11:26 UTC, avec 43 tables et deux démarrages CLI. Le reçu est conservé
+privé et référencé dans `data/industrialisation-verification.json#backup`.
+Les contrôles HTTP de la nouvelle racine sont distincts et restent à effectuer.
+
+Ces deux derniers outils concernent la **première production dans une cible
+vide**. Ils ne constituent pas l'adaptateur de mise à jour d'une production
+existante et ne doivent pas y être relancés. Ils ne basculent pas le domaine
+et n'ouvrent pas Drupal. Le détail, les cibles et l'état de chaque action sont
+dans le [parcours V1](../docs/parcours-mise-en-ligne.md) et le suivi canonique.
+Les options du client SQL suivent la
+[documentation MariaDB](https://mariadb.com/docs/server/clients-and-utilities/mariadb-client/mariadb-command-line-client).
 
 ## Complément local de première installation — 4 octobre
 
@@ -21,7 +126,8 @@ observé dans cPanel ; la construction et SSH gardent leur environnement CI.
 L'[adaptateur de première installation](../scripts/first_install.py) et sa
 [procédure](../docs/installation-drupal.md) sont préparés à côté de cette
 Action, sans changer les déclenchements ni activer de livraison automatique.
-L'exécution MySQL/Drupal et la recette de cette cible restent non qualifiées.
+À cette étape de préparation, l'exécution MySQL/Drupal n'était pas qualifiée ;
+elle est depuis réalisée en préproduction selon l'état courant ci-dessus.
 Les sections datées antérieures qui mentionnent un adaptateur absent restent
 l'état historique avant cette préparation.
 
@@ -40,10 +146,10 @@ domaine/DNS public/HTTPS reconnu et SQL dédié vide, droits relus. Le
 [reçu courant](../data/framework-revue-verification.json#hostingPrimaryConfiguration)
 précise les contrôles et limites. La Lune reste conservée.
 
-L’outil de première installation est adapté au compte principal et au lien
+Dans la préparation antérieure à l'installation, l’outil est adapté au compte principal et au lien
 exact des sept champs du reçu/profil. Son candidat est distinct du ZIP Drupal
 reçu, qui n’est pas reconstruit. Transfert, paramètres privés, connexion PDO,
-installation sous maintenance et recette exigent encore le lot correspondant.
+installation sous maintenance et recette exigeaient encore le lot correspondant.
 La revue Claude précédente portait sur l’installation avant ce changement de
 compte ; les nouvelles gardes sont contrôlées par tests Linux déterministes.
 Aucun workflow de livraison, nouveau SSH ou ouverture automatique n’est activé.
