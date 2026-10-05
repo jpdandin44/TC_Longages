@@ -22,7 +22,9 @@ tags:
   et rattachée au candidat exact ; GitHub revérifié sans cache lors de l’accord.
 - États candidats affichés depuis le même contrôle que le bouton ; conservation
   des critères, commentaires et validations historiques sans approbation créée.
-- Correction intégrée au lot de la PR #12 ; aucune intervention sur le site hébergé.
+- Correction dans une nouvelle PR après la fusion humaine de la PR #12 ; aucune
+  intervention sur le site hébergé. Exigences du futur cockpit et des notes de
+  version consignées pour l’itération suivant la livraison V1.
 
 ## 2026-10-05 — V1 publique et préparation fiable des versions
 

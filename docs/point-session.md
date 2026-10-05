@@ -14,7 +14,9 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Dernière correction du suivi — trois décisions et garde PR
 
-La branche opérationnelle `fix/suivi-revue-v1` poursuit la PR #12. Le responsable
+La PR #12 est fusionnée le 5 octobre à 15:23:37 UTC sur `76198ee`. La branche
+opérationnelle `fix/revue-pr-candidate` porte la correction suivante : les trois
+décisions et la garde de fusion exacte, absentes de cette PR déjà fusionnée. Le responsable
 retire le démarrage puis l’autorisation des phases suivantes : Revue, Valider et
 Demander des corrections constituent le parcours actuel. La fusion exacte de la
 PR candidate est désormais un prérequis vérifié par le serveur, avec une nouvelle
@@ -22,7 +24,9 @@ lecture GitHub lors de la validation. Les critères obligatoires, le commentaire
 et la confirmation personnelle sont conservés.
 
 Les deux décisions humaines du 5 octobre à 14:55 et 14:57 UTC ont été enregistrées
-alors que la PR #12 restait ouverte en brouillon. Elles restent intactes dans le
+alors que la PR #12 restait ouverte en brouillon. Sa fusion ultérieure ne
+transforme pas ces acceptations en preuve de revue de la nouvelle correction.
+Elles restent intactes dans le
 suivi ; le moteur les signale historiques à requalifier. Aucune nouvelle validation
 n’est créée par la correction. Les résultats de tests et le candidat qualifié sont
 rattachés au registre canonique et au reçu de revue. Le site installé, ses secrets
