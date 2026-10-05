@@ -5,7 +5,7 @@ title: "Phase 4 — Préproduction réelle"
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, phase, revue, gouvernance]
 ---
@@ -21,6 +21,15 @@ Ce dossier conserve l’ancien identifiant 4 ; il appartient désormais à la ph
 Vérifier le candidat sur le moteur et les intégrations représentatifs de la production.
 
 ## Autorisation et périmètre
+
+Pour la livraison V1 demandée le 5 octobre, la recette porte sur les sept pages
+publiques du club. Comptes Bureau/Capitaine, restrictions par équipe et édition
+sont reportés en V2. Les libellés obligatoires ci-dessous restent identiques ;
+leur applicabilité dépend de ce périmètre. Ce report ne constitue ni une
+réussite des essais V2 ni une validation humaine des critères V1.
+Le [parcours courant](../parcours-mise-en-ligne.md) centralise les réserves
+Google, équipes et contact, la restauration privée réussie et les contrôles
+de routage et retour arrière encore nécessaires.
 
 Cette phase exige une cible isolée désignée, un candidat identifié et une autorisation de mutation applicable avant toute installation. Une préproduction réelle est distincte de l’aperçu local et de l’ancienne démonstration HTTP.
 

@@ -37,10 +37,18 @@ tags:
   Français, maintenance, non-indexation et courriels neutralisés confirmés.
   Ancienne racine et copie de retour comparées à la sauvegarde : concordance.
   Permissions Apache, routage HTTP et retour arrière réel restent à qualifier.
-- [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) ouverte en brouillon :
-  contrôles technique Windows et livraison Linux réussis sur le candidat
-  d'outillage initial ; 49 tests Python passent sur Linux. Les confirmations
-  humaines restent non cochées. Aucune bascule ou ouverture exécutée.
+- [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) fusionnée par le
+  responsable sur `1aa1581` ; quatre confirmations de revue cochées dans GitHub.
+  CI technique et livraison réussies avant et après merge ; arbre fusionné
+  identique au candidat qualifié. Aucune bascule ou ouverture exécutée.
+- Dossiers de Cadrage et Préproduction réalignés sur la V1 publique ; les
+  fonctionnalités Bureau/Capitaine et l'édition restent en V2. Requalification
+  locale du dossier de revue après les mises à jour documentaires, sans
+  modifier les critères obligatoires ou les décisions humaines.
+- Validation locale en un clic : critères, commentaire et confirmation
+  personnelle restent obligatoires ; leur enregistrement et la décision
+  sont atomiques. L'autorisation de la phase locale suivante la passe en
+  cours ; le bouton de démarrage séparé est retiré, l'historique conservé.
 
 ## 2026-10-04 — Clôture demandée, objectif de production non atteint
 

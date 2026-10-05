@@ -34,8 +34,8 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 |---|---|---|---|
 | 0 — Cadrage | En revue | [Dossier](00-phase.md) | Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble. |
 | 1 — Développement local | En cours | [Dossier](01-phase.md) | Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées. |
-| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter le site TC Longages sur https://preprod.tclongages.fr/ dans la session connectée ; préparer le lot fonctionnel d’édition puis les essais des comptes/droits et le retour arrière. Le suivi reste réservé au pilotage. |
-| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables. |
+| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2. |
+| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public\_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics. |
 
 ## Points à résoudre
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `fb3b6e45299d964d76bf297e0ed08fb2036296b44e4d63c370122afd200ea926`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `9db2d03725ef8a827d1f4e9ee07b1d3b95d0dd6ae178c6b49a99b154a847445f`.

@@ -6,7 +6,7 @@ import {resolve,sep} from 'node:path';
 import {request} from 'node:http';
 import {startFrameworkServer,projectRoot} from '../scripts/framework-server.mjs';
 import {hash,validateInteractiveState,recoverReviewDraft} from '../scripts/framework-store.mjs';
-import {safeProjectUrl,reviewGuidance,retainedReviewDraft,clientScript} from '../scripts/framework-ui.mjs';
+import {safeProjectUrl,reviewGuidance,retainedReviewDraft,approvalInputState,clientScript} from '../scripts/framework-ui.mjs';
 import {Script} from 'node:vm';
 
 async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequests}={}) {
@@ -96,12 +96,57 @@ test('Sans preuves la validation reste impossible ; une note ne valide rien',asy
  const f=await fixture(t);for(const action of ['submit','approve','authorize_next','start'])assert.equal((await f.action(action)).status,422);
  const state=await f.state();assert.equal(state.tracker.phases[0].status,'in_progress');assert.ok(state.phaseViews[0].issues.some(s=>s.includes('commit')));
 });
-test('Revue, validation, autorisation suivante et démarrage sont quatre actes distincts',async t=>{
+test('La validation reste distincte ; autoriser la suivante la passe directement en cours',async t=>{
  const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
  assert.equal((await f.action('criteria',{checkedCriteria})).status,200);assert.equal((await f.action('submit')).status,200);
  assert.equal((await f.action('approve',{checkedCriteria})).status,200);let s=await f.state();assert.equal(s.tracker.phases[0].status,'validated');assert.equal(s.tracker.phases[1].startEvidence,null);
- assert.equal((await f.action('authorize_next')).status,200);s=await f.state();assert.equal(s.tracker.phases[1].status,'not_started');assert.ok(s.tracker.phases[1].startEvidence);
- assert.equal((await f.action('start',{phaseId:1})).status,200);s=await f.state();assert.equal(s.tracker.phases[1].status,'in_progress');assert.equal(s.tracker.publication.publicOpeningExecuted,false);assert.equal(s.tracker.release.approvedCandidate,null);
+ const before=await f.state();
+ for(const input of [{confirmed:false},{actor:'intrus'},{comment:''},{revision:'ancienne'}]) {
+   assert.equal((await f.action('authorize_next',input)).status,input.revision?409:422);
+   assert.deepEqual((await f.state()).tracker,before.tracker);
+ }
+ assert.equal((await f.action('authorize_next')).status,200);s=await f.state();assert.equal(s.tracker.phases[1].status,'in_progress');assert.ok(s.tracker.phases[1].startEvidence);
+ assert.equal(s.tracker.currentPhase,1);assert.equal(s.tracker.phases[1].startedOn,s.tracker.phases[1].authorizedOn);
+ assert.equal((await f.action('start',{phaseId:1})).status,422);
+ assert.equal((await f.action('authorize_next')).status,422);
+ assert.equal(s.tracker.publication.publicOpeningExecuted,false);assert.equal(s.tracker.release.approvedCandidate,null);
+});
+test('Un seul clic humain valide les critères saisis sans sauvegarde séparée préalable',async t=>{
+ const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
+ await f.action('submit');const before=await f.state(),backupCount=(await readdir(resolve(f.root,'.local/framework-backups'))).length;
+ assert.deepEqual(before.phaseViews[0].checkedCriteria,[]);
+ assert.equal(approvalInputState(before.tracker.phases[0],before.phaseViews[0],checkedCriteria).enabled,true);
+ assert.equal((await f.action('approve',{checkedCriteria})).status,200);
+ const after=await f.state(),decision=after.tracker.decisions.at(-1),criteria=after.tracker.reviewEvents.at(-1);
+ assert.equal(after.phaseViews[0].validationCurrent,true);assert.deepEqual(after.phaseViews[0].checkedCriteria,checkedCriteria);
+ assert.equal(criteria.type,'criteria_checked');assert.equal(criteria.recordedAt,decision.recordedAt);
+ assert.equal(criteria.actor,decision.actor);assert.equal(criteria.documentDigest,decision.documentDigest);
+ assert.equal((await readdir(resolve(f.root,'.local/framework-backups'))).length,backupCount+1);
+ assert.equal(after.tracker.decisions.length,before.tracker.decisions.length+1);
+ assert.equal(after.tracker.phases[1].startEvidence,null);assert.deepEqual(after.tracker.publication,before.tracker.publication);
+});
+test('La validation directe refuse des critères incomplets et conserve toutes les protections',async t=>{
+ const f=await fixture(t,{qualified:true});await f.action('submit');const before=await f.state();
+ for(const checkedCriteria of [undefined,[],[0,1,2],[0,1,2,2],[0,1,2,3,4],['0',1,2,3]]) {
+   assert.equal((await f.action('approve',{checkedCriteria})).status,422);
+   assert.deepEqual((await f.state()).tracker,before.tracker);
+ }
+ for(const input of [{confirmed:false},{actor:'intrus'},{comment:''},{revision:'ancienne'}]) {
+   assert.equal((await f.action('approve',{checkedCriteria:[0,1,2,3],...input})).status,input.revision?409:422);
+   assert.deepEqual((await f.state()).tracker,before.tracker);
+ }
+ assert.equal(approvalInputState(before.tracker.phases[0],before.phaseViews[0],[0,1,2]).enabled,false);
+ assert.equal(approvalInputState(before.tracker.phases[0],{...before.phaseViews[0],actions:{approve:false}},[0,1,2,3]).enabled,false);
+});
+test('Plusieurs brouillons conservés se rechargent sans reconfirmer une décision humaine',async t=>{
+ const f=await fixture(t),state=await f.state();
+ await mkdir(resolve(f.root,'.local'),{recursive:true});
+ const drafts=[0,1].map(phaseId=>({phaseId,actor:'jpdandin',comment:'Brouillon fictif '+phaseId,confirmed:true,criteria:state.tracker.phases[phaseId].exitCriteria.map(label=>({label,checked:true})),followups:[]}));
+ const digest=hash({decisions:state.tracker.decisions,history:state.tracker.history,reviewEvents:state.tracker.reviewEvents,reviewCommentResponses:state.tracker.reviewCommentResponses});
+ await writeFile(resolve(f.root,'.local/framework-review-draft.json'),JSON.stringify({phaseId:0,capturedAt:new Date().toISOString(),humanStateDigest:digest,drafts}));
+ let recovered=await f.state();assert.equal(recovered.recoveredDraft.phaseId,0);assert.equal(recovered.recoveredDrafts.length,2);
+ assert.ok(recovered.recoveredDrafts.every(d=>d.confirmed===false));assert.deepEqual(recovered.tracker,state.tracker);
+ await f.action('note');recovered=await f.state();assert.deepEqual(recovered.recoveredDrafts,[]);
 });
 test('Une modification des documents retire la validité courante sans effacer la décision historique',async t=>{
  const f=await fixture(t,{qualified:true});await f.action('criteria',{checkedCriteria:[0,1,2,3]});await f.action('submit');await f.action('approve',{checkedCriteria:[0,1,2,3]});
