@@ -1973,5 +1973,25 @@
     "stoppedOnUserRequest": true,
     "closedAt": "2026-10-04T21:48:45.703Z",
     "sourceCandidateMustBeRequalifiedAfterClosureDocs": true
+  },
+  "industrialisationReview": {
+    "status": "local_checks_passed_pr_preparation",
+    "phase": "Développement local",
+    "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
+    "artifactDigest": "c1500f4b091259d4bfc90ef25463d3cf3f1c4b138a0c08bed02298d32c39de31",
+    "branch": "feat/livraison-fiable",
+    "siteRecipeUrl": "https://preprod.tclongages.fr/",
+    "siteSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+    "siteArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "observedAt": "2026-10-05T09:09:34.951098+00:00",
+    "localTests": {
+      "nodePassed": 141,
+      "pythonPassed": 45,
+      "pythonSkippedWindowsPosix": 4,
+      "phpInlineFragmentsPassed": 3
+    },
+    "documentation": "data/industrialisation-verification.json#documentation",
+    "deploymentExecuted": false,
+    "humanConfirmationsGenerated": false
   }
 }

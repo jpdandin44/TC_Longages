@@ -1744,11 +1744,11 @@
     },
     "blockers": [
       "Restauration SQL et demarrage du Drupal sauvegarde dans la copie privee encore a eprouver.",
-      "Nouvel utilisateur SQL de production : saisie personnelle en attente ; droits limites a confirmer avant attribution.",
+      "Mot de passe du nouvel utilisateur SQL de production a reporter personnellement dans le fichier prive avant import.",
       "Parametres et recette de la production separee, bascule et retour arriere a qualifier.",
       "Acceptation du candidat et accord sur le lot exact de bascule/ouverture a enregistrer."
     ],
-    "nextAction": "Terminer la creation personnelle du nouvel utilisateur SQL, presenter les droits exacts, puis restaurer le SQL dans la nouvelle base vide et qualifier la copie de production fermee.",
+    "nextAction": "Attendre le fichier prive enregistre, controler la base dediee vide et ses dix droits, restaurer le SQL et demarrer les deux copies fermees.",
     "nextIteration": [
       {
         "objective": "Comptes Bureau/Capitaine et limitation serveur par equipe",
@@ -2305,7 +2305,8 @@
       "authorizationRef": "TCL-PROD-PREP-20261005",
       "authorizationQuote": "Autoriser ce lot de préparation",
       "authorizationSource": "Direct human reply in the current chat on 2026-10-05",
-      "evidenceRef": "data/industrialisation-verification.json#hostingPreparation"
+      "evidenceRef": "data/industrialisation-verification.json#hostingPreparation",
+      "sqlRightsAuthorizationRef": "TCL-PROD-SQL-20261005"
     },
     "productionStage": {
       "evidenceRef": "data/industrialisation-verification.json#productionStage",
@@ -2313,7 +2314,18 @@
       "configurationActivated": false,
       "databaseRestored": false,
       "officialRootChanged": false,
-      "publicOpeningExecuted": false
+      "publicOpeningExecuted": false,
+      "databaseUserCreated": true,
+      "sqlPrivilegesApplied": true,
+      "privateInputSaved": false
+    },
+    "industrialisationReview": {
+      "evidenceRef": "data/framework-revue-verification.json#industrialisationReview",
+      "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
+      "artifactDigest": "c1500f4b091259d4bfc90ef25463d3cf3f1c4b138a0c08bed02298d32c39de31",
+      "phase": "Développement local",
+      "status": "local_checks_passed_pr_preparation",
+      "siteRecipeUrl": "https://preprod.tclongages.fr/"
     }
   },
   "phaseModel": {
