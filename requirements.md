@@ -42,6 +42,14 @@ de connexion doivent être proposées en français.
 
 ## Reprise d’une validation devenue historique
 
+Depuis la demande du 5 octobre, la validation locale doit enregistrer en un
+seul clic tous les critères cochés, le commentaire et la confirmation
+personnelle, sans sauvegarde intermédiaire obligatoire. Ces trois éléments
+restent requis et contrôlés côté serveur ; conserver leurs libellés.
+Après validation de la phase précédente, l'autorisation personnelle de la
+suivante la passe directement en cours. Supprimer le bouton de démarrage
+séparé, conserver les traces antérieures et les accords propres à l'hébergement.
+
 Le cockpit doit permettre de reprendre personnellement la revue d’une phase
 locale dont la validation ne couvre plus la version ou le périmètre courant.
 Conserver la décision précédente, les critères et les journaux ; exiger de

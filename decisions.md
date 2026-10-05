@@ -384,3 +384,23 @@ Le responsable autorise le lot PHP/racine/domaine/base sur la lune, puis les dix
 ## 2026-10-04 — Regroupement du suivi en quatre phases
 
 À la demande du responsable, le cockpit applique le modèle du skill commun : Cadrage, Développement local, Préproduction et Mise en production. Les anciennes phases sont conservées en instantané : 0 → 0 ; 1–3 → 1 ; 4–5 → 2 ; 6–7 → 3. Les décisions, commentaires et libellés obligatoires gardent leur portée. Le brouillon personnel est restitué avec confirmation à renouveler ; aucune approbation n’est créée. Les observations d’hébergement sont distinctes des validations humaines.
+
+## 2026-10-05 — Validation locale en un clic et passage en cours à l'autorisation
+
+**Contexte.** Le responsable demande de simplifier la validation et de retirer
+le démarrage séparé, en maintenant explicitement les critères cochés, le
+commentaire et la confirmation personnelle.
+
+**Décision.** Enregistrer atomiquement les critères et l'acceptation sur
+« Valider cette phase ». Après validation courante de la précédente,
+« Autoriser la phase suivante » enregistre son autorisation et la passe
+directement en cours. Retirer le bouton de démarrage du parcours normal.
+
+**Raison.** Supprimer la sauvegarde intermédiaire obligatoire et une action
+de progression redondante, sans supprimer les éléments de validation.
+
+**Conséquences.** Les contrôles de candidat, de révision, de dépendances,
+d'identité déclarée et de confirmation restent actifs. Les anciennes traces
+de démarrage sont conservées. Ce changement du moteur local ne crée aucun
+accord d'hébergement, déploiement, merge ou ouverture publique ; les phases
+distantes restent soumises à leurs contrôles et accords spécifiques.

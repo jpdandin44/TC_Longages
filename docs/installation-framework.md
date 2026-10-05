@@ -5,7 +5,7 @@ title: Utiliser le suivi interactif local et terminer son installation
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, installation, suivi, controle-utilisateur]
 ---
@@ -42,23 +42,27 @@ Ces tests couvrent les routes locales, les refus d’origine et de jeton, les é
 
 1. Choisir une phase et consulter ses PR puis ses dossiers. La liste placée avant **Les dossiers à consulter** contient uniquement les PR explicitement rattachées à cette phase dans le suivi JSON ; leurs états sont lus sur GitHub, avec date de contrôle et actualisation manuelle. Si GitHub est indisponible, un état non vérifié est signalé. Les fichiers Markdown déclarés s’ouvrent en lecture seule. Le lien **Renseigner ma revue** mène directement à la zone de saisie.
 2. Cocher les critères effectivement vérifiés, puis écrire un commentaire d’au moins **trois caractères** pour expliquer son retour ou sa décision. Le compteur distingue les cases cochées dans la saisie des critères déjà enregistrés.
-3. Cocher la confirmation personnelle puis utiliser **Enregistrer les critères**. Les cases enregistrées sont liées à l’empreinte des critères et des documents ; leur modification demande une nouvelle revue. Le commentaire reste dans la zone de saisie pour faciliter l’étape suivante, mais la confirmation personnelle est décochée.
-4. Si le dossier est remis et complet, relire les justificatifs, confirmer personnellement la nouvelle action, puis utiliser **Valider cette phase**. La validation ne démarre pas la phase suivante.
+3. Cocher la confirmation personnelle puis utiliser **Valider cette phase** quand le dossier est remis et complet. Ce seul clic enregistre ensemble les critères cochés et la décision, liés à la version et aux empreintes présentées. Il n'est plus nécessaire d'enregistrer les critères avant de valider. Le serveur refuse les critères incomplets, le commentaire absent, une confirmation manquante ou une version périmée.
+4. Pour continuer, confirmer personnellement **Autoriser la phase suivante**. Cette autorisation passe directement la phase locale suivante à **En cours**, avec sa date et sa trace. La validation seule ne l'autorise pas. Le bouton **Démarrer la phase** est retiré.
 
 Les notes et critères sont modifiables même quand la préparation technique du dossier est incomplète. Chaque bouton de progression indique son effet et ce qui manque éventuellement pour le rendre disponible. Une PR, un commit ou des tests manquants peuvent empêcher la validation ; ils n’empêchent pas de renseigner son avis.
 
-Pour une question ou une correction sans décision de phase, utiliser **Enregistrer une simple note**. Le bouton principal **Enregistrer les critères** sauvegarde les cases ; les deux actions restent distinctes. Le texte initial de la note est conservé dans le journal et retiré de la zone de saisie après succès. Les cases en cours de saisie restent cochées mais ne deviennent pas des critères enregistrés par cette seule action. Le suivi d’une note ajoute une réponse, un état et, pour une résolution, une référence de preuve.
+Pour une question ou une correction sans décision de phase, utiliser **Enregistrer une simple note**. **Enregistrer les critères** reste disponible pour sauvegarder une revue incomplète sans valider. Le texte initial de la note est conservé dans le journal et retiré de la zone de saisie après succès. Les cases en cours de saisie restent cochées mais ne deviennent pas des critères enregistrés par cette seule action. Le suivi d’une note ajoute une réponse, un état et, pour une résolution, une référence de preuve.
 
 Les états d’une note sont : enregistrée, lue, en cours, décision nécessaire et résolue. Enregistrer une note ne signifie pas qu’un agent l’a lue ou traitée. Aucun agent permanent ni aucune synchronisation GitHub ne sont lancés par ces boutons.
 
-## Quatre décisions distinctes
+## Décisions et progression
 
 | Action | Effet enregistré | Conditions principales |
 |---|---|---|
 | Soumettre à revue | Date de remise et état « En revue ». | Phase en cours, dépendances valides, documents disponibles, PR et preuves techniques liées à la version courante. |
 | Valider cette phase | Décision humaine locale, critères, empreintes et date de validation. | Revue ouverte, critères tous vérifiés et reconfirmés, preuves encore recevables, commentaire et confirmation personnelle. |
-| Autoriser la phase suivante | Accord de démarrage pour la phase locale suivante. | Phase précédente validée sur les critères, documents et preuves actuels. La phase suivante reste non démarrée. |
-| Démarrer la phase | Date de début et état « En cours ». | Autorisation valable et dépendances valides ; exception locale d’installation décrite ci-dessous. |
+| Autoriser la phase suivante | Autorisation, date et état « En cours » pour la phase locale suivante. | Phase précédente validée sur les critères, documents et preuves actuels, commentaire et confirmation personnels. Aucune action de démarrage supplémentaire. |
+
+La règle simplifiée est demandée le 5 octobre. Les anciens événements de
+démarrage sont conservés dans l'historique. Les phases d'hébergement gardent
+leurs accords spécifiques ; aucune transition locale n'exécute un déploiement
+ou une ouverture publique.
 
 **Demander des corrections** remet une phase en revue à l’état « En cours » et conserve la demande dans le journal. Si une phase locale validée n’est plus recevable pour la version ou le périmètre actuel, elle affiche **Validée historiquement · à requalifier** et propose **Reprendre la revue**. Cette action exige le commentaire et la confirmation personnels ; elle conserve la décision antérieure et sa référence. Elle n’approuve aucune nouvelle version. Les preuves doivent ensuite être actualisées avant une nouvelle remise et une nouvelle validation humaine. Les dépendances bloquantes indiquent la phase concernée ; les libellés obligatoires des critères restent inchangés.
 

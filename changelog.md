@@ -45,6 +45,10 @@ tags:
   fonctionnalités Bureau/Capitaine et l'édition restent en V2. Requalification
   locale du dossier de revue après les mises à jour documentaires, sans
   modifier les critères obligatoires ou les décisions humaines.
+- Validation locale en un clic : critères, commentaire et confirmation
+  personnelle restent obligatoires ; leur enregistrement et la décision
+  sont atomiques. L'autorisation de la phase locale suivante la passe en
+  cours ; le bouton de démarrage séparé est retiré, l'historique conservé.
 
 ## 2026-10-04 — Clôture demandée, objectif de production non atteint
 

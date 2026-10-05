@@ -82,6 +82,11 @@ Elle conserve les décisions, les brouillons et les critères obligatoires ;
 aucune validation humaine ni autorisation d'hébergement n'est créée.
 Les résultats et la version exacte figurent dans
 `developmentWorkflow.localReviewQualification` du suivi canonique.
+Le responsable demande ensuite une validation en un clic et le retrait du
+démarrage séparé. Les critères cochés, le commentaire et la confirmation
+personnelle restent requis ; l'autorisation de la phase locale suivante la
+passe directement en cours. Cette simplification ne crée aucune décision sur
+le vrai suivi et ne déclenche aucune opération d'hébergement.
 
 **Suite exacte :** recueillir l'accord sur le lot réversible de qualification
 de la racine officielle décrit dans le parcours V1. Rendre les seuls fichiers
