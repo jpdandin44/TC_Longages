@@ -94,7 +94,7 @@
       ],
       "blockers": [],
       "nextAction": "Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
         "https://github.com/jpdandin44/TC_Longages/pull/2",
@@ -104,16 +104,16 @@
         "https://github.com/jpdandin44/TC_Longages/pull/10"
       ],
       "reviewContext": {
-        "sourceCommit": "3435c532f13cdb3d907327e8368f3cabe6038b6a",
-        "artifactDigest": "04ad55478597cfa40d49a01ef547239ce8245f45e0824d1f707385b26826e8d3",
+        "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+        "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
-        "documentDigest": "7e205b040f8992115be36959b9db7180d95bb9a7314c434a7b438a5326a1041e",
+        "documentDigest": "316e3cf29201c7e18a1cbf2287b8365555140df7aa77e7dd6cdde481aa709ee0",
         "evidenceRefs": [
-          "TCL-EVIDENCE-DIRECT-VALIDATION-20261004-0"
+          "TCL-EVIDENCE-SIMPLIFICATION-20261005-b266f45-0"
         ],
         "testRunRefs": [
-          "TCL-TEST-DIRECT-VALIDATION-20261004-0"
+          "TCL-TEST-SIMPLIFICATION-20261005-b266f45-0"
         ]
       },
       "reviewContextHistory": [
@@ -165,6 +165,42 @@
             ],
             "testRunRefs": [
               "TCL-TEST-SITE-RECIPE-FR-20261004-0"
+            ]
+          }
+        },
+        {
+          "recordedAt": "2026-10-05T14:16:32.326Z",
+          "reason": "Qualification locale des documents après la fusion de la PR 11 ; périmètre V1 publique.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
+          "reviewContext": {
+            "sourceCommit": "3435c532f13cdb3d907327e8368f3cabe6038b6a",
+            "artifactDigest": "04ad55478597cfa40d49a01ef547239ce8245f45e0824d1f707385b26826e8d3",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+            "documentDigest": "7e205b040f8992115be36959b9db7180d95bb9a7314c434a7b438a5326a1041e",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-DIRECT-VALIDATION-20261004-0"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-DIRECT-VALIDATION-20261004-0"
+            ]
+          }
+        },
+        {
+          "recordedAt": "2026-10-05T14:23:50.170Z",
+          "reason": "Qualification locale des documents après la fusion de la PR 11 ; périmètre V1 publique.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+          "reviewContext": {
+            "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+            "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "d8a6e5de993aaee51fb27376f4cab41aa2f50d144cb82c97cdf3704573f89143",
+            "documentDigest": "316e3cf29201c7e18a1cbf2287b8365555140df7aa77e7dd6cdde481aa709ee0",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-LOCAL-REQUALIFICATION-20261005-0"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-LOCAL-REQUALIFICATION-20261005-0"
             ]
           }
         }
@@ -244,7 +280,7 @@
       ],
       "blockers": [],
       "nextAction": "Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
@@ -259,16 +295,16 @@
         3
       ],
       "reviewContext": {
-        "sourceCommit": "3435c532f13cdb3d907327e8368f3cabe6038b6a",
-        "artifactDigest": "04ad55478597cfa40d49a01ef547239ce8245f45e0824d1f707385b26826e8d3",
+        "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+        "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
         "candidateManifest": "data/framework-candidate.json",
         "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
         "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
         "evidenceRefs": [
-          "TCL-EVIDENCE-DIRECT-VALIDATION-20261004-1"
+          "TCL-EVIDENCE-SIMPLIFICATION-20261005-b266f45-1"
         ],
         "testRunRefs": [
-          "TCL-TEST-DIRECT-VALIDATION-20261004-1"
+          "TCL-TEST-SIMPLIFICATION-20261005-b266f45-1"
         ]
       },
       "reviewContextHistory": [
@@ -320,6 +356,42 @@
             ],
             "testRunRefs": [
               "TCL-TEST-SITE-RECIPE-FR-20261004-1"
+            ]
+          }
+        },
+        {
+          "recordedAt": "2026-10-05T14:16:32.326Z",
+          "reason": "Qualification locale des documents après la fusion de la PR 11 ; périmètre V1 publique.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/10",
+          "reviewContext": {
+            "sourceCommit": "3435c532f13cdb3d907327e8368f3cabe6038b6a",
+            "artifactDigest": "04ad55478597cfa40d49a01ef547239ce8245f45e0824d1f707385b26826e8d3",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
+            "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-DIRECT-VALIDATION-20261004-1"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-DIRECT-VALIDATION-20261004-1"
+            ]
+          }
+        },
+        {
+          "recordedAt": "2026-10-05T14:23:50.170Z",
+          "reason": "Qualification locale des documents après la fusion de la PR 11 ; périmètre V1 publique.",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+          "reviewContext": {
+            "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+            "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+            "candidateManifest": "data/framework-candidate.json",
+            "criteriaDigest": "7b570b909f82762372c5b30fa35498a032e0a1ca6ca3fcf30fec251f31ed76b5",
+            "documentDigest": "1576e6f3c904610920bc0f8548a3bdb8864584bcc015ba36df1d0c4fcbf3b7c4",
+            "evidenceRefs": [
+              "TCL-EVIDENCE-LOCAL-REQUALIFICATION-20261005-1"
+            ],
+            "testRunRefs": [
+              "TCL-TEST-LOCAL-REQUALIFICATION-20261005-1"
             ]
           }
         }
@@ -379,10 +451,10 @@
         "Accès réseau, exploitation et dossier de livraison qualifiés"
       ],
       "blockers": [
-        "Recette connectée des comptes et permissions à effectuer ; rôles Bureau/Capitaine et édition des sept pages absents du ZIP livré.",
-        "Sauvegarde Drupal/SQL à restaurer effectivement et retour arrière à répéter avant toute production."
+        "Retour arrière réel de la racine officielle et contrôles HTTP/PHP à qualifier dans le lot réversible sous maintenance, dont l’accord est en attente.",
+        "Acceptation humaine des réserves V1 encore nécessaire : Google non raccordé, équipes non renseignées et contact de prévisualisation. Comptes et droits par équipe reportés en V2."
       ],
-      "nextAction": "Recetter le site TC Longages sur https://preprod.tclongages.fr/ dans la session connectée ; préparer le lot fonctionnel d’édition puis les essais des comptes/droits et le retour arrière. Le suivi reste réservé au pilotage.",
+      "nextAction": "Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2.",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/8",
       "legacyPhaseIds": [
         4,
@@ -395,7 +467,7 @@
         "recordedAt": "2026-10-04T20:22:28.119Z",
         "authorizationRef": "data/framework-revue-verification.json#primaryAccountFirstInstallationAuthorization",
         "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
-        "summary": "Préproduction installée sous maintenance, sept pages inspectées en session administrateur et interface française. Recette des comptes, édition et retour arrière restent à faire ; production non ouverte."
+        "summary": "Site de sept pages inspecté sous maintenance, interface française ; sauvegarde et restauration privée SQL/Drupal réussies. V1 publique prioritaire, comptes et droits par équipe en V2. Routage officiel, retour arrière réel et ouverture restent à conduire."
       },
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
@@ -506,7 +578,7 @@
         "Bilan et état de session archivés"
       ],
       "blockers": [],
-      "nextAction": "Après la recette : qualifier sauvegarde/restauration et retour arrière, présenter la version et recueillir les accords de production et d’ouverture applicables.",
+      "nextAction": "Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics.",
       "pullRequest": null,
       "legacyPhaseIds": [
         6,
@@ -1281,6 +1353,54 @@
       "artifactRef": "data/framework-revue-verification.json#directPhaseValidation",
       "id": "TCL-EVIDENCE-DIRECT-VALIDATION-20261004-1",
       "actualResult": "Bouton de validation lié aux cases effectivement cochées ; critères et décision sauvegardés atomiquement sur action humaine explicite. Gardes de dossier, version, révision, origine et confirmation conservées."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+      "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+      "recordedAt": "2026-10-05T14:16:32.326Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-EVIDENCE-LOCAL-REQUALIFICATION-20261005-0",
+      "actualResult": "Manifeste Git des 412 fichiers vérifié ; dossiers de revue et critères liés à la version documentaire actuelle. Anciennes décisions conservées. Aucun accord humain créé."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+      "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+      "recordedAt": "2026-10-05T14:16:32.326Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-EVIDENCE-LOCAL-REQUALIFICATION-20261005-1",
+      "actualResult": "Manifeste Git des 412 fichiers vérifié ; dossiers de revue et critères liés à la version documentaire actuelle. Anciennes décisions conservées. Aucun accord humain créé."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+      "recordedAt": "2026-10-05T14:23:50.170Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-EVIDENCE-SIMPLIFICATION-20261005-b266f45-0",
+      "actualResult": "Manifeste Git des 412 fichiers vérifié ; dossiers de revue et critères liés à la version documentaire actuelle. Anciennes décisions conservées. Aucun accord humain créé."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+      "recordedAt": "2026-10-05T14:23:50.170Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-EVIDENCE-SIMPLIFICATION-20261005-b266f45-1",
+      "actualResult": "Manifeste Git des 412 fichiers vérifié ; dossiers de revue et critères liés à la version documentaire actuelle. Anciennes décisions conservées. Aucun accord humain créé."
     }
   ],
   "testRuns": [
@@ -1436,6 +1556,54 @@
       "artifactRef": "data/framework-revue-verification.json#directPhaseValidation",
       "id": "TCL-TEST-DIRECT-VALIDATION-20261004-1",
       "actualResult": "38 tests réussis, dont validation directe, refus de critères incomplets, conflits et confirmations absentes, protection des phases distantes, candidat et brouillons multiples. 28 références contrôlées ; 5 Markdown et 185 liens locaux valides."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+      "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+      "recordedAt": "2026-10-05T14:16:32.326Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-TEST-LOCAL-REQUALIFICATION-20261005-0",
+      "actualResult": "37 tests ciblés du candidat Git, du serveur, des états de revue et du flux PR réussis ; aucun échec ni test ignoré. Aucun contrôle HTTP de production ajouté par ce résultat."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "740d39444fac89adcdcde663e700692383725892",
+      "artifactDigest": "bd8e5bdf355e9cdc3c623f671002fbe0f27bcf9eda1a141832f889c48fe1cb2a",
+      "recordedAt": "2026-10-05T14:16:32.326Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-TEST-LOCAL-REQUALIFICATION-20261005-1",
+      "actualResult": "37 tests ciblés du candidat Git, du serveur, des états de revue et du flux PR réussis ; aucun échec ni test ignoré. Aucun contrôle HTTP de production ajouté par ce résultat."
+    },
+    {
+      "phaseId": 0,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+      "recordedAt": "2026-10-05T14:23:50.170Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-TEST-SIMPLIFICATION-20261005-b266f45-0",
+      "actualResult": "40 tests ciblés réussis : validation des critères et de la décision en un clic, refus des critères/commentaires/confirmations/révisions invalides, passage en cours à l’autorisation, brouillons conservés, candidat Git et flux PR. Aucun échec ni test ignoré ; aucune preuve de production déduite."
+    },
+    {
+      "phaseId": 1,
+      "status": "passed",
+      "environment": "local",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+      "recordedAt": "2026-10-05T14:23:50.170Z",
+      "actor": "Codex",
+      "artifactRef": "data/framework-revue-verification.json#localReviewQualification",
+      "id": "TCL-TEST-SIMPLIFICATION-20261005-b266f45-1",
+      "actualResult": "40 tests ciblés réussis : validation des critères et de la décision en un clic, refus des critères/commentaires/confirmations/révisions invalides, passage en cours à l’autorisation, brouillons conservés, candidat Git et flux PR. Aucun échec ni test ignoré ; aucune preuve de production déduite."
     }
   ],
   "exceptions": [
@@ -2286,7 +2454,7 @@
     },
     "operationalCheckout": {
       "path": "C:/Users/examg/Documents local/Longages/TC_Longages/.worktrees/livraison-fiable",
-      "branch": "feat/livraison-fiable",
+      "branch": "fix/suivi-revue-v1",
       "previousCheckout": "C:/Users/examg/Documents local/Longages/TC_Longages/.worktrees/release-v1-four-stages",
       "previousCheckoutPreserved": true,
       "canonicalTrackingReused": true,
@@ -2350,10 +2518,10 @@
       "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
       "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
       "phase": "Développement local",
-      "status": "draft_hosted_sql_restore_passed_documentary_update_ci_pending",
+      "status": "merged_ci_passed_hosted_restoration_passed_root_qualification_authorization_pending",
       "siteRecipeUrl": "https://preprod.tclongages.fr/",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
-      "draft": true,
+      "draft": false,
       "recordedAt": "2026-10-05T09:12:38.079096+00:00",
       "initialCi": {
         "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
@@ -2368,13 +2536,14 @@
         "policy": "human_confirmations_unchecked"
       },
       "latestCi": {
-        "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
-        "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
-        "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
-        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
-        "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+        "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
+        "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
+        "checkedHead": "d3833b83b14d383fe9c1cb87ac6fb3f64de1f39b",
+        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37304454049",
+        "checkedAt": "2026-10-05T12:15:38.046208+00:00",
         "technicalCi": "passed",
         "deliverySafety": "passed",
+        "completedAt": "2026-10-05T11:43:32Z",
         "productionDeploymentExecuted": false
       },
       "hostedRestoration": {
@@ -2395,22 +2564,44 @@
         "deliverySafety": "passed",
         "productionDeploymentExecuted": false
       },
-      "currentSourceCi": "pending"
+      "currentSourceCi": "passed",
+      "pullRequestState": "MERGED",
+      "mergeOutcome": {
+        "state": "MERGED",
+        "mergeCommit": "1aa1581c5d36818424da5956c59d29dc0d15cb9b",
+        "mergedAt": "2026-10-05T12:19:55Z",
+        "mergedBy": "jpdandinavereo-design",
+        "observedAt": "2026-10-05T12:29:45.431636+00:00",
+        "userConfirmation": "OK la PR#11 est mergee",
+        "headRefOid": "d3833b83b14d383fe9c1cb87ac6fb3f64de1f39b",
+        "mainCi": {
+          "headSha": "1aa1581c5d36818424da5956c59d29dc0d15cb9b",
+          "status": "completed",
+          "conclusion": "success",
+          "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37308791332"
+        },
+        "mergedTreeMatchesQualifiedPrHead": true,
+        "checkedReviewBoxes": 4,
+        "checkboxesChangedByAgent": false,
+        "hostingRootChangeAuthorized": false,
+        "publicOpeningAuthorized": false
+      },
+      "localDocumentationUpdatePendingQualification": false
     },
     "goalControlObservation": {
       "status": "blocked",
-      "source": "Native get_goal still returns the previously blocked scheduler state; no tool supports resuming it",
-      "observedAt": "2026-10-05T11:37:57.276114+00:00",
-      "previousCondition": "production_sql_private_password_missing",
-      "previousConditionResolved": true,
-      "resolutionObservedAt": "2026-10-05T11:26:13.060309+00:00",
-      "userRequestedControlAgain": true,
+      "source": "Native update_goal returned blocked after repeated missing root qualification authorization",
+      "observedAt": "2026-10-05T12:34:46.000Z",
+      "condition": "official_domain_root_qualification_authorization_pending",
+      "consecutiveGoalTurnsObserved": 3,
       "privatePasswordPresent": true,
-      "sqlImportStarted": true,
+      "databaseRestorationPassed": true,
       "officialRootChanged": false,
       "publicOpeningExecuted": false,
       "humanPhaseStatusesChanged": false,
-      "evidenceRef": "data/industrialisation-verification.json#backup"
+      "previousSqlBlockerResolved": true,
+      "nextRequiredHumanAction": "Autoriser le raccordement sous maintenance in the pending question",
+      "evidenceRef": "developmentWorkflow.productionRootQualificationProposal"
     },
     "goalControlObservationHistory": [
       {
@@ -2427,6 +2618,34 @@
         "humanPhaseStatusesChanged": false,
         "claudeExposedByCurrentConnector": false,
         "evidenceRef": "data/industrialisation-verification.json#hostingPreparation"
+      },
+      {
+        "status": "blocked",
+        "source": "Native get_goal still returns the previously blocked scheduler state; no tool supports resuming it",
+        "observedAt": "2026-10-05T11:37:57.276114+00:00",
+        "previousCondition": "production_sql_private_password_missing",
+        "previousConditionResolved": true,
+        "resolutionObservedAt": "2026-10-05T11:26:13.060309+00:00",
+        "userRequestedControlAgain": true,
+        "privatePasswordPresent": true,
+        "sqlImportStarted": true,
+        "officialRootChanged": false,
+        "publicOpeningExecuted": false,
+        "humanPhaseStatusesChanged": false,
+        "evidenceRef": "data/industrialisation-verification.json#backup"
+      },
+      {
+        "status": "active",
+        "source": "Native get_goal current returned status",
+        "observedAt": "2026-10-05T12:15:38.046208+00:00",
+        "previousCondition": "production_sql_private_password_missing",
+        "previousConditionResolved": true,
+        "resolutionObservedAt": "2026-10-05T11:26:13.060309+00:00",
+        "nextActionAuthorizationPending": true,
+        "officialRootChanged": false,
+        "publicOpeningExecuted": false,
+        "humanPhaseStatusesChanged": false,
+        "evidenceRef": "data/industrialisation-verification.json#backup"
       }
     ],
     "productionRootQualificationProposal": {
@@ -2445,7 +2664,37 @@
       "credentialsAndSqlRightsUnchanged": true,
       "publicPermissions": "Public web directories 0755 and files 0644, settings loader 0600; production ancestors traverse-only 0711. Private and vendor trees unchanged.",
       "rootRollbackToRehearse": true,
-      "authorizationGenerated": false
+      "authorizationGenerated": false,
+      "latestOfficialRootObservation": {
+        "observedAt": "2026-10-05T12:29:45.431636+00:00",
+        "documentRoot": "/home2/daje5127/public_html",
+        "evidence": "Native cPanel Domaines Configures refreshed after PR11 merge",
+        "changeSubmitted": false
+      }
+    },
+    "localReviewQualification": {
+      "recordedAt": "2026-10-05T14:23:50.170Z",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+      "manifestDigest": "4716dd7e038133e209573bf842756060313b3562569000bf3d4864454ec86976",
+      "files": 412,
+      "tests": 40,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "testLogSha256": "62a46cf064ea0d8b0f07961191403914034797ba5da9584f2b1da27abb53d0f4",
+      "scope": "Simplification locale de la validation et de la progression, documents et contexte des phases 0 et 1. Le candidat du site et les preuves CI historiques sont inchangés.",
+      "humanDecisionsPreserved": true,
+      "humanPhaseStatusesChanged": false,
+      "mandatoryCriteriaLabelsChanged": false,
+      "criteriaRequired": true,
+      "commentRequired": true,
+      "personalConfirmationRequired": true,
+      "separateStartStepRemoved": true,
+      "nextAuthorizedLocalPhaseBecomesInProgress": true,
+      "hostingMutationExecuted": false,
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+      "runtimeUrl": "http://127.0.0.1:4181/"
     }
   },
   "phaseModel": {

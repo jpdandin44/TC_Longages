@@ -1975,7 +1975,7 @@
     "sourceCandidateMustBeRequalifiedAfterClosureDocs": true
   },
   "industrialisationReview": {
-    "status": "draft_hosted_sql_restore_passed_documentary_update_ci_pending",
+    "status": "merged_ci_passed_hosted_restoration_passed_root_qualification_authorization_pending",
     "phase": "Développement local",
     "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
     "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
@@ -1994,7 +1994,7 @@
     "deploymentExecuted": false,
     "humanConfirmationsGenerated": false,
     "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
-    "draft": true,
+    "draft": false,
     "recordedAt": "2026-10-05T09:12:38.074360+00:00",
     "initialCi": {
       "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
@@ -2017,13 +2017,14 @@
       "evidence": "Native phpMyAdmin selection persisted after save/reload"
     },
     "latestCi": {
-      "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
-      "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
-      "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
-      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
-      "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+      "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
+      "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
+      "checkedHead": "d3833b83b14d383fe9c1cb87ac6fb3f64de1f39b",
+      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37304454049",
+      "checkedAt": "2026-10-05T12:15:38.046208+00:00",
       "technicalCi": "passed",
       "deliverySafety": "passed",
+      "completedAt": "2026-10-05T11:43:32Z",
       "productionDeploymentExecuted": false
     },
     "hostedRestoration": {
@@ -2043,6 +2044,52 @@
       "deliverySafety": "passed",
       "productionDeploymentExecuted": false
     },
-    "currentSourceCi": "pending"
+    "currentSourceCi": "passed",
+    "pullRequestState": "MERGED",
+    "mergeOutcome": {
+      "state": "MERGED",
+      "mergeCommit": "1aa1581c5d36818424da5956c59d29dc0d15cb9b",
+      "mergedAt": "2026-10-05T12:19:55Z",
+      "mergedBy": "jpdandinavereo-design",
+      "observedAt": "2026-10-05T12:29:45.431636+00:00",
+      "userConfirmation": "OK la PR#11 est mergee",
+      "headRefOid": "d3833b83b14d383fe9c1cb87ac6fb3f64de1f39b",
+      "mainCi": {
+        "headSha": "1aa1581c5d36818424da5956c59d29dc0d15cb9b",
+        "status": "completed",
+        "conclusion": "success",
+        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37308791332"
+      },
+      "mergedTreeMatchesQualifiedPrHead": true,
+      "checkedReviewBoxes": 4,
+      "checkboxesChangedByAgent": false,
+      "hostingRootChangeAuthorized": false,
+      "publicOpeningAuthorized": false
+    },
+    "localDocumentationUpdatePendingQualification": true
+  },
+  "localReviewQualification": {
+    "recordedAt": "2026-10-05T14:23:50.170Z",
+    "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+    "artifactDigest": "51be673979194dbf543fe22c2cfa2c8aa0aeeab11e0bdca49ff4a6357fed4f0a",
+    "manifestDigest": "4716dd7e038133e209573bf842756060313b3562569000bf3d4864454ec86976",
+    "files": 412,
+    "tests": 40,
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "testLogSha256": "62a46cf064ea0d8b0f07961191403914034797ba5da9584f2b1da27abb53d0f4",
+    "scope": "Simplification locale de la validation et de la progression, documents et contexte des phases 0 et 1. Le candidat du site et les preuves CI historiques sont inchangés.",
+    "humanDecisionsPreserved": true,
+    "humanPhaseStatusesChanged": false,
+    "mandatoryCriteriaLabelsChanged": false,
+    "criteriaRequired": true,
+    "commentRequired": true,
+    "personalConfirmationRequired": true,
+    "separateStartStepRemoved": true,
+    "nextAuthorizedLocalPhaseBecomesInProgress": true,
+    "hostingMutationExecuted": false,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+    "runtimeUrl": "http://127.0.0.1:4181/"
   }
 }
