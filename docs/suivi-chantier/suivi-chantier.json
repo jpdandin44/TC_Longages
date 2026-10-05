@@ -1627,7 +1627,7 @@
         "empty": false,
         "evidence": "data/framework-revue-verification.json#primaryAccountFirstInstallation",
         "observedAt": "2026-10-04T21:05:34.745Z",
-        "limit": "Drupal 11.4.8 installé sous maintenance ; SQL fonctionnel, HTTPS reconnu, sept pages inspectées en session administrateur personnelle et administration française. Compte partagé ; recette des autres comptes, édition, sauvegarde/restauration et retour arrière encore à qualifier.",
+        "limit": "Drupal 11.4.8 installe sous maintenance ; SQL, HTTPS et francais verifies, sept pages relues en session administrateur. Comptes et edition reportes en V2. Sauvegarde fichiers/SQL restauree et deux demarrages CLI verifies ; recette humaine exacte et retour arriere HTTP restent a qualifier.",
         "filesAndDatabaseSeparated": true,
         "accountIsolation": false,
         "hostingConfigured": true,
@@ -1636,9 +1636,9 @@
       "production": {
         "id": "https://tclongages.fr/",
         "ready": false,
-        "evidence": "data/industrialisation-verification.json#https",
-        "observedAt": "2026-10-05T07:50:45.742195+00:00",
-        "limit": "Racine public_html modifiable dans cPanel ; certificat officiel absent de la liste Lets Encrypt et refuse comme autosigne sur les deux hotes. Aucune bascule ou ouverture executee.",
+        "evidence": "data/industrialisation-verification.json#productionStage",
+        "observedAt": "2026-10-05T11:26:13.060309+00:00",
+        "limit": "Certificat officiel reconnu. Drupal restaure dans la base dediee et demarre en francais sous maintenance, hors domaine. Permissions Apache, HTTP servi, bascule et retour arriere non qualifies.",
         "previousObservations": [
           {
             "id": "https://tclongages.fr/",
@@ -1649,7 +1649,10 @@
           }
         ],
         "recognizedHttpsVerified": true,
-        "evidenceRef": "data/industrialisation-verification.json#https"
+        "evidenceRef": "data/industrialisation-verification.json#https",
+        "drupalPrepared": true,
+        "databaseRestored": true,
+        "httpRoutingVerified": false
       }
     },
     "github": {
@@ -1704,6 +1707,16 @@
         "observedAt": "2026-10-03T23:39:13.653904+02:00",
         "scope": "Socle, métadonnées, liens internes et JSON de la revue documentaire C1. Ne qualifie ni le ZIP Drupal 49b4ef7 ni son exécution hébergée.",
         "target": "configuration-documentation"
+      },
+      {
+        "kind": "hosted-restoration",
+        "status": "passed",
+        "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+        "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+        "target": "private-restored-copy-and-new-production-database",
+        "evidence": "data/industrialisation-verification.json#backup",
+        "observedAt": "2026-10-05T11:26:13.060309+00:00",
+        "scope": "Private SQL/file restoration and two closed French Drupal CLI bootstraps; no HTTP delivery or human acceptance."
       }
     ],
     "approvals": [],
@@ -1721,10 +1734,10 @@
         "target": "installed-preproduction-and-official-waiting-root",
         "id": "backup-installed-20261005T075955Z",
         "status": "verified",
-        "restoreStatus": "files_verified_sql_pending",
+        "restoreStatus": "passed",
         "evidence": "data/industrialisation-verification.json#backup",
-        "observedAt": "2026-10-05T08:31:54.543678+00:00",
-        "scope": "Hosted SQL and private files/Drupal/current official root; every file restored privately, SQL bootstrap still unverified."
+        "observedAt": "2026-10-05T11:26:13.060309+00:00",
+        "scope": "Hosted private files and 43 SQL tables restored; restored-copy and production CLI bootstraps passed. Official-domain rollback untested."
       }
     ],
     "rollback": {
@@ -1743,12 +1756,10 @@
       "observedAt": null
     },
     "blockers": [
-      "Restauration SQL et demarrage du Drupal sauvegarde dans la copie privee encore a eprouver.",
-      "Mot de passe du nouvel utilisateur SQL de production a reporter personnellement dans le fichier prive avant import.",
-      "Parametres et recette de la production separee, bascule et retour arriere a qualifier.",
-      "Acceptation du candidat et accord sur le lot exact de bascule/ouverture a enregistrer."
+      "Permissions Apache, PHP servi, routage HTTPS et retour arriere de la nouvelle racine officielle restent a qualifier.",
+      "Acceptation de la V1 exacte avec ses reserves et accords de bascule puis ouverture restent a enregistrer."
     ],
-    "nextAction": "Attendre le fichier prive enregistre, controler la base dediee vide et ses dix droits, restaurer le SQL et demarrer les deux copies fermees.",
+    "nextAction": "Presenter le lot reversible de qualification de la racine officielle sous maintenance : permissions publiques minimales, racine Drupal, controle HTTP et retour public_html. Ouverture publique distincte apres controles reussis.",
     "nextIteration": [
       {
         "objective": "Comptes Bureau/Capitaine et limitation serveur par equipe",
@@ -2285,13 +2296,15 @@
       "evidenceRef": "data/industrialisation-verification.json#backup",
       "backupDirectory": "/home2/daje5127/tcl-preproduction/private/backups/20261005T075955Z",
       "integrityVerified": true,
-      "restorationTested": false,
+      "restorationTested": true,
       "deploymentExecuted": false,
       "filesRestoredAndVerified": true,
-      "databaseRestored": false
+      "databaseRestored": true,
+      "drupalBootstrapped": true,
+      "checkedAt": "2026-10-05T11:26:13.060309+00:00"
     },
     "productionPreparationProposal": {
-      "status": "authorized_in_progress",
+      "status": "authorized_preparation_completed",
       "documentRef": "docs/parcours-mise-en-ligne.md#lot-de-préparation-de-production-proposé-le-5-octobre",
       "account": "daje5127",
       "composerRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal",
@@ -2306,30 +2319,38 @@
       "authorizationQuote": "Autoriser ce lot de préparation",
       "authorizationSource": "Direct human reply in the current chat on 2026-10-05",
       "evidenceRef": "data/industrialisation-verification.json#hostingPreparation",
-      "sqlRightsAuthorizationRef": "TCL-PROD-SQL-20261005"
+      "sqlRightsAuthorizationRef": "TCL-PROD-SQL-20261005",
+      "completedAt": "2026-10-05T11:26:13.060309+00:00"
     },
     "productionStage": {
       "evidenceRef": "data/industrialisation-verification.json#productionStage",
       "codeVerified": true,
-      "configurationActivated": false,
-      "databaseRestored": false,
+      "configurationActivated": true,
+      "databaseRestored": true,
       "officialRootChanged": false,
       "publicOpeningExecuted": false,
       "databaseUserCreated": true,
       "sqlPrivilegesApplied": true,
-      "privateInputSaved": false,
+      "privateInputSaved": true,
       "databaseCharset": "utf8mb4",
       "databaseCollation": "utf8mb4_unicode_ci",
-      "databaseEmptyVerified": true,
-      "privatePasswordPresent": false,
-      "sqlImportStarted": false
+      "privatePasswordPresent": true,
+      "sqlImportStarted": true,
+      "databaseEmptyVerifiedBeforeImport": true,
+      "restorationTested": true,
+      "drupalBootstrapped": true,
+      "sqlImportCompleted": true,
+      "databaseTableCount": 43,
+      "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+      "httpRoutingVerified": false,
+      "servedPhpVerified": false
     },
     "industrialisationReview": {
       "evidenceRef": "data/framework-revue-verification.json#industrialisationReview",
-      "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
-      "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+      "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
+      "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
       "phase": "Développement local",
-      "status": "draft_opened_documentation_refresh_ci_pending",
+      "status": "draft_hosted_sql_restore_passed_documentary_update_ci_pending",
       "siteRecipeUrl": "https://preprod.tclongages.fr/",
       "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
       "draft": true,
@@ -2345,7 +2366,86 @@
         "linuxPythonPassed": 49,
         "linuxPythonSkipped": 0,
         "policy": "human_confirmations_unchecked"
+      },
+      "latestCi": {
+        "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+        "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+        "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
+        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
+        "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+        "technicalCi": "passed",
+        "deliverySafety": "passed",
+        "productionDeploymentExecuted": false
+      },
+      "hostedRestoration": {
+        "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+        "passed": true,
+        "evidenceRef": "data/industrialisation-verification.json#backup",
+        "officialRootChanged": false,
+        "publicOpeningExecuted": false
+      },
+      "observedAt": "2026-10-05T11:41:29.493055+00:00",
+      "previousPassedCi": {
+        "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+        "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+        "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
+        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
+        "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+        "technicalCi": "passed",
+        "deliverySafety": "passed",
+        "productionDeploymentExecuted": false
+      },
+      "currentSourceCi": "pending"
+    },
+    "goalControlObservation": {
+      "status": "blocked",
+      "source": "Native get_goal still returns the previously blocked scheduler state; no tool supports resuming it",
+      "observedAt": "2026-10-05T11:37:57.276114+00:00",
+      "previousCondition": "production_sql_private_password_missing",
+      "previousConditionResolved": true,
+      "resolutionObservedAt": "2026-10-05T11:26:13.060309+00:00",
+      "userRequestedControlAgain": true,
+      "privatePasswordPresent": true,
+      "sqlImportStarted": true,
+      "officialRootChanged": false,
+      "publicOpeningExecuted": false,
+      "humanPhaseStatusesChanged": false,
+      "evidenceRef": "data/industrialisation-verification.json#backup"
+    },
+    "goalControlObservationHistory": [
+      {
+        "status": "blocked",
+        "source": "Native Codex goal status returned by update_goal",
+        "observedAt": "2026-10-05T09:40:07+00:00",
+        "condition": "production_sql_private_password_missing",
+        "consecutiveGoalTurnsObserved": 3,
+        "latestServerCheckAt": "2026-10-05T09:37:22.751455+00:00",
+        "privatePasswordPresent": false,
+        "sqlImportStarted": false,
+        "officialRootChanged": false,
+        "publicOpeningExecuted": false,
+        "humanPhaseStatusesChanged": false,
+        "claudeExposedByCurrentConnector": false,
+        "evidenceRef": "data/industrialisation-verification.json#hostingPreparation"
       }
+    ],
+    "productionRootQualificationProposal": {
+      "status": "prepared_not_authorized",
+      "documentRef": "docs/parcours-mise-en-ligne.md#lot-reversible-de-qualification-de-la-racine-officielle",
+      "candidate": {
+        "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+        "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a"
+      },
+      "account": "daje5127",
+      "previousRoot": "/home2/daje5127/public_html",
+      "proposedRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
+      "maintenanceRemainsActive": true,
+      "publicOpeningExcluded": true,
+      "dnsAddressChangeExcluded": true,
+      "credentialsAndSqlRightsUnchanged": true,
+      "publicPermissions": "Public web directories 0755 and files 0644, settings loader 0600; production ancestors traverse-only 0711. Private and vendor trees unchanged.",
+      "rootRollbackToRehearse": true,
+      "authorizationGenerated": false
     }
   },
   "phaseModel": {

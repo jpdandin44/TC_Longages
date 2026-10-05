@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+  "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -139,9 +139,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "1c45e11a3254ed24afa4e071e062358a15f5c4a5",
-      "size": 43755,
-      "sha256": "9a3a88f3a2a9c95fbe1382cc3281e112bdb3ace2aec148e9888b1d6a27061ba3"
+      "gitBlob": "0fd1624767f64874163486d4bd72c2ff142d4b34",
+      "size": 43828,
+      "sha256": "930613976d6c8a45a6d67ab02738acd8177e6081415b26146b3092590c307663"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -195,16 +195,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "e52b6595d3f8b408d07e61cda2f9742a952297e4",
-      "size": 45385,
-      "sha256": "518e26b333ab18a911b4f8002979e609919e3a789c6ad66554ba972acdda1e56"
+      "gitBlob": "162b0ef1e2240fb1cbedc5ad745645d3f916a052",
+      "size": 45560,
+      "sha256": "6a58bc06d336bc9ee6350773399235800b1f1a40cba088cf487336b997f1448f"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "a0b2460553f0fe22a5e330911aaa6e755de015c5",
-      "size": 39119,
-      "sha256": "d1f4147b0fcc5b66b5f25cb4b0e81b8ef0bae4edcf808c0f013ddc0f4a5c7186"
+      "gitBlob": "5ae38cdea03803c4b081fa60244b0e9a631158bd",
+      "size": 39383,
+      "sha256": "d9485ee916fe9ff28704a18a5f86688a39cce35faa107fc614ce3e5559dd1629"
     },
     {
       "path": "config/first-install.example.json",
@@ -293,9 +293,9 @@
     {
       "path": "data/industrialisation-verification.json",
       "mode": "100644",
-      "gitBlob": "7a18637a26dd872ac9955f344fa39d95e2037daa",
-      "size": 8976,
-      "sha256": "d01d7c7616233ee93265a2c417d59b88a1930ea1cd79f80073ab1aee6d9ccd23"
+      "gitBlob": "36183795dcd494bf04098449c035a6f7ea6cc30d",
+      "size": 12429,
+      "sha256": "c0961a783f24831017ff4bbca11a36a18fabd25a7ee83490df746ed0a0dcdeec"
     },
     {
       "path": "data/officiel-hosted-demo-manifest.json",
@@ -440,16 +440,16 @@
     {
       "path": "docs/parcours-mise-en-ligne.md",
       "mode": "100644",
-      "gitBlob": "bbaf7f8b55eb2c3f07dcd2b1383ae41931ee458f",
-      "size": 13104,
-      "sha256": "30cf3efa56aa126f9dac852a881a04b86b30398a12187a7e5a91d7ea7d9ea4ab"
+      "gitBlob": "c692489e5b98654860cd62901d4b40074297b78f",
+      "size": 15040,
+      "sha256": "313ad24a1463ced4fcf4e2b22855579e565465122623c47f7c5975c88389e393"
     },
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "4ccf9512a49db0b1a1af3b6fe0ae72ee6af1bf06",
-      "size": 55308,
-      "sha256": "0a69151cb8e35ef2dfd00a3d79fc18b84e90399dd7d7c11a4616a4d0bc18bcdd"
+      "gitBlob": "cb9636d2dc564e9f894a070c8c5156270fd7a0bd",
+      "size": 56087,
+      "sha256": "649fac647785a38be7d21a9d62cfbefcfc6c313dad49268c4e87e4000d0d0e1a"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1994,9 +1994,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "368025a2863006827697aa58e95ad10099c554d5",
-      "size": 23419,
-      "sha256": "0f37b4f9f72bff58959d6810df33749ac120bb8cf35acb71b7bcedb659528975"
+      "gitBlob": "a31ee1680b9ec4896250d15fc5975eea415368d8",
+      "size": 23461,
+      "sha256": "f95d1097cbdaca78822c24d6512fa7293857e97d80355be50ae8374aecb27069"
     },
     {
       "path": "scripts/backup_site.py",
@@ -2883,9 +2883,9 @@
     {
       "path": "workflows/preparer-livraison.md",
       "mode": "100644",
-      "gitBlob": "bf6d148393ea506cf0c0882752e6a25417dda0b3",
-      "size": 18568,
-      "sha256": "a41013386001b650e8fca303e7cae42cf49d2302e5fa873002403dc01e79d5f3"
+      "gitBlob": "5566650480bcbc10b37fc6e8ca9b504d410ca6f4",
+      "size": 18901,
+      "sha256": "7eb96c7cecc8249aa2c9f90443a3c37031b623f06b8abb73f420d3d8bfe7d33d"
     },
     {
       "path": "workflows/publication-controlee.md",
@@ -2895,5 +2895,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a"
+  "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492"
 }

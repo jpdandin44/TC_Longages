@@ -1975,15 +1975,15 @@
     "sourceCandidateMustBeRequalifiedAfterClosureDocs": true
   },
   "industrialisationReview": {
-    "status": "draft_opened_documentation_refresh_ci_pending",
+    "status": "draft_hosted_sql_restore_passed_documentary_update_ci_pending",
     "phase": "Développement local",
-    "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
-    "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+    "sourceCommit": "f1853fe7f7228984225a82657c47963a8b47755f",
+    "artifactDigest": "c7d71808ba4e0ce4cf6e856666230f17c8c42f8b6de67fe8ea0264e9c4f81492",
     "branch": "feat/livraison-fiable",
     "siteRecipeUrl": "https://preprod.tclongages.fr/",
     "siteSourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
     "siteArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
-    "observedAt": "2026-10-05T09:09:34.951098+00:00",
+    "observedAt": "2026-10-05T11:41:29.493100+00:00",
     "localTests": {
       "nodePassed": 141,
       "pythonPassed": 45,
@@ -2015,6 +2015,34 @@
       "collation": "utf8mb4_unicode_ci",
       "observedAt": "2026-10-05T09:21:09.219767+00:00",
       "evidence": "Native phpMyAdmin selection persisted after save/reload"
-    }
+    },
+    "latestCi": {
+      "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+      "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+      "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
+      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
+      "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+      "technicalCi": "passed",
+      "deliverySafety": "passed",
+      "productionDeploymentExecuted": false
+    },
+    "hostedRestoration": {
+      "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+      "passed": true,
+      "evidenceRef": "data/industrialisation-verification.json#backup",
+      "officialRootChanged": false,
+      "publicOpeningExecuted": false
+    },
+    "previousPassedCi": {
+      "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+      "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
+      "checkedHead": "225e7d4a323a60f6d687f8d6f22813d1056cd4d5",
+      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37289501903",
+      "checkedAt": "2026-10-05T09:27:42.514760+00:00",
+      "technicalCi": "passed",
+      "deliverySafety": "passed",
+      "productionDeploymentExecuted": false
+    },
+    "currentSourceCi": "pending"
   }
 }
