@@ -64,14 +64,24 @@ les droits privés sont contrôlés. Les fichiers publics restent en 0600/0700 :
 permissions Apache et HTTP de cette nouvelle racine non qualifiés.
 Aucune bascule ni ouverture de production.
 
-La [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) est ouverte en
-brouillon pour les outils et la documentation. Ses contrôles technique
-Windows et livraison Linux ont réussi sur le candidat d'outillage
-`3c1bf8c` avant cette actualisation documentaire ; les 49 tests Python passent
-sur Linux. Les nouveaux reçus documentaires restent à qualifier dans leur commit. Les quatre confirmations
-humaines sont conservées et non cochées. Les reçus portent le commit et
-le résultat exacts ; une actualisation documentaire n'est pas un nouveau
-déploiement du site.
+La [PR #11](https://github.com/jpdandin44/TC_Longages/pull/11) est fusionnée
+le 5 octobre à 14 h 19, heure de Paris, sur
+`1aa1581c5d36818424da5956c59d29dc0d15cb9b`. Ses quatre confirmations de revue
+sont cochées dans GitHub par l'utilisateur ; aucune case n'est cochée par
+l'agent. La CI technique et de livraison a réussi sur le candidat examiné et
+sur `main` après fusion. L'arbre fusionné concorde avec celui de la PR
+qualifiée. Le candidat du site reste le ZIP `14c270…` issu de `49b4ef7`.
+La racine officielle `public_html` est relue dans cPanel après ce merge.
+L'accord de raccordement sous maintenance reste en attente, distinct du merge
+et de l'ouverture publique. Le suivi canonique conserve les décisions et les
+états de phase ; le merge ne les valide pas automatiquement.
+Les reçus de la PR fusionnée conservent leur provenance. La remise en
+cohérence locale du dossier de revue qualifie séparément les documents
+actualisés et rattache Cadrage et Développement local au même manifeste.
+Elle conserve les décisions, les brouillons et les critères obligatoires ;
+aucune validation humaine ni autorisation d'hébergement n'est créée.
+Les résultats et la version exacte figurent dans
+`developmentWorkflow.localReviewQualification` du suivi canonique.
 
 **Suite exacte :** recueillir l'accord sur le lot réversible de qualification
 de la racine officielle décrit dans le parcours V1. Rendre les seuls fichiers

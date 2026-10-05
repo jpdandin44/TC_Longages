@@ -5,7 +5,7 @@ title: "Phase 0 — Cadrage et audit"
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, phase, revue, gouvernance]
 ---
@@ -13,6 +13,13 @@ tags: [framework, phase, revue, gouvernance]
 # Phase 0 — Cadrage et audit
 
 ## Périmètre actuel et conservation de la revue antérieure
+
+Le 5 octobre, le responsable limite la livraison à la vitrine publique des
+sept pages. Les comptes Bureau/Capitaine, les droits par équipe et leur
+édition sont reportés en V2. Le [parcours de mise en ligne](../parcours-mise-en-ligne.md)
+et le bloc `developmentWorkflow` du suivi canonique portent ce périmètre,
+les réserves et les preuves courantes. Les lots fonctionnels décrits plus bas
+restent conservés ; ils ne conditionnent plus cette livraison V1.
 
 Ce dossier relève de **Cadrage**, première des quatre phases actuelles.
 Le découpage 0–7 décrit ci-dessous reste historique, avec son mapping dans le
