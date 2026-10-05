@@ -14,7 +14,7 @@ tags: [framework, suivi, vue-generee]
 
 <!-- Vue générée par scripts/framework.mjs ; les décisions passent par le moteur interactif. -->
 
-**Phase actuelle : 2 — Préproduction. 0 validation\(s\) consignée\(s\), 0 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
+**Phase actuelle : 2 — Préproduction. 2 validation\(s\) consignée\(s\), 2 encore recevable\(s\) selon le moteur. Aucune livraison attestée par ce suivi local.**
 
 [Ouvrir le suivi interactif local](http://127.0.0.1:4181/) · [Ouvrir Drupal local](http://127.0.0.1:4182/)
 
@@ -32,8 +32,8 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage | En revue | [Dossier](00-phase.md) | Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble. |
-| 1 — Développement local | En cours | [Dossier](01-phase.md) | Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées. |
+| 0 — Cadrage | Validée | [Dossier](00-phase.md) | Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble. |
+| 1 — Développement local | Validée | [Dossier](01-phase.md) | Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées. |
 | 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2. |
 | 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public\_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics. |
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `9db2d03725ef8a827d1f4e9ee07b1d3b95d0dd6ae178c6b49a99b154a847445f`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `1a6f979190f25244dc6badc5058a4ca5d405c1f311e16969ef0dd5ce0037478f`.
