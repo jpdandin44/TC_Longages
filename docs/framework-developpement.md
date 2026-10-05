@@ -5,7 +5,7 @@ title: Application du framework de développement piloté
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-04
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, gouvernance, phases, reprise]
 ---
@@ -35,7 +35,7 @@ Le profil reste `configured_unqualified` pour la chaîne de livraison globale. L
 
 La zone de revue reste éditable avant que les justificatifs de validation soient tous prêts. Le lien **Renseigner ma revue**, les instructions de saisie, le compteur des critères enregistrés et l'explication de chaque bouton distinguent préparation de l'avis et décision de phase. Le commentaire est conservé après l'enregistrement des critères ; une nouvelle confirmation personnelle est demandée pour l'action suivante. La PR, le commit et les résultats référencés sont consultables dans l'écran quand ils ont été réellement rattachés au dossier.
 
-L'accès est strictement limité à la boucle locale, avec contrôle Host/Origin et jeton de revue. Le nom du décideur est une identité déclarée, sans authentification distante. Les phases locales 0 et 1 peuvent recevoir des décisions quand leurs prérequis sont réunis ; les phases 2 et 3 présentent les observations réelles d’hébergement et restent consultables sans autorisation de livraison dans le moteur. Il n'existe ni endpoint de publication, ni synchronisation GitHub automatique, ni compte distant activé par ce suivi.
+L'accès est strictement limité à la boucle locale, avec contrôle Host/Origin et jeton de revue. Le nom du décideur est une identité déclarée, sans authentification distante. Les phases locales 0 et 1 peuvent recevoir des décisions quand leurs prérequis sont réunis ; les phases 2 et 3 présentent les observations réelles d’hébergement et restent consultables sans autorisation de livraison dans le moteur. Le contrôle ponctuel de la PR candidate lit GitHub côté serveur et bloque la validation sans fusion du candidat exact ; il ne synchronise pas les décisions humaines. Le parcours TC comporte Revue, Valider et Demander des corrections, avec progression locale après validation. Il n’existe ni endpoint de publication ni compte distant activé par ce suivi.
 
 La source [installation.json](../framework/installation.json) trace l'exception demandée pour installer et tester localement le processus, désormais refermée en `secured`. Une nouvelle PR ne réactive pas cette exception. Lorsqu'elle était active et non expirée, elle autorisait des démarrages locaux bornés sans valider les phases précédentes. Elle ne désactive jamais les protections d'accès, de données, de révision ou de secret. La procédure de fermeture et les gardes normales figurent dans [la procédure d'installation](installation-framework.md).
 

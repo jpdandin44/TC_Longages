@@ -9,7 +9,7 @@ import {hash,validateInteractiveState,recoverReviewDraft} from '../scripts/frame
 import {safeProjectUrl,reviewGuidance,retainedReviewDraft,approvalInputState,clientScript} from '../scripts/framework-ui.mjs';
 import {Script} from 'node:vm';
 
-async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequests}={}) {
+async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequests,verifyPullRequest=async ({url,sourceCommit})=>({passed:true,status:'merged',url,headCommit:sourceCommit,mergedAt:'2026-10-05T10:00:00Z',checkedAt:new Date().toISOString(),issues:[]})}={}) {
  const root=await mkdtemp(resolve(tmpdir(),'tcl-framework-test-'));
  assert.ok(root.startsWith(resolve(tmpdir())+sep));
  await mkdir(resolve(root,'framework'));await mkdir(resolve(root,'docs/suivi-chantier'),{recursive:true});
@@ -28,7 +28,7 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
  await writeFile(resolve(root,'framework/profil-projet.json'),JSON.stringify(profile));
  if(bootstrap){const expiresAt=new Date(Date.now()+60000).toISOString(),authorization={id:'test-authorized',actor:'jpdandin',sourceRef:'test-only',scope:'Installation locale fictive'};tracker.decisions.push({...authorization,type:'installation_authorization',status:'approved',project:'tclongages',environment:'local',expiresAt});await writeFile(resolve(root,'framework/installation.json'),JSON.stringify({project:'tclongages',status:'active',environment:'local',allowedPhaseIds:[0,1],activatedAt:new Date().toISOString(),expiresAt,authorization,protections:{remoteExposureAllowed:false,deployAllowed:false,csrfRequired:true,revisionCheckRequired:true,secretProtectionRequired:true}}));}
  await writeFile(resolve(root,'docs/suivi-chantier/suivi-chantier.json'),JSON.stringify(tracker));
- const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests});
+ const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests,verifyPullRequest});
  t.after(async()=>{await app.close();assert.ok(root.startsWith(resolve(tmpdir())+sep));await rm(root,{recursive:true,force:true});});
  const html=await(await fetch(app.origin)).text(),token=html.match(/name="review-token" content="([a-f0-9]+)"/)[1];
  const headers={'X-Review-Token':token};
@@ -96,20 +96,18 @@ test('Sans preuves la validation reste impossible ; une note ne valide rien',asy
  const f=await fixture(t);for(const action of ['submit','approve','authorize_next','start'])assert.equal((await f.action(action)).status,422);
  const state=await f.state();assert.equal(state.tracker.phases[0].status,'in_progress');assert.ok(state.phaseViews[0].issues.some(s=>s.includes('commit')));
 });
-test('La validation reste distincte ; autoriser la suivante la passe directement en cours',async t=>{
+test('Valider passe directement la suivante en cours sans créer d’autorisation',async t=>{
  const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
- assert.equal((await f.action('criteria',{checkedCriteria})).status,200);assert.equal((await f.action('submit')).status,200);
- assert.equal((await f.action('approve',{checkedCriteria})).status,200);let s=await f.state();assert.equal(s.tracker.phases[0].status,'validated');assert.equal(s.tracker.phases[1].startEvidence,null);
- const before=await f.state();
- for(const input of [{confirmed:false},{actor:'intrus'},{comment:''},{revision:'ancienne'}]) {
-   assert.equal((await f.action('authorize_next',input)).status,input.revision?409:422);
-   assert.deepEqual((await f.state()).tracker,before.tracker);
- }
- assert.equal((await f.action('authorize_next')).status,200);s=await f.state();assert.equal(s.tracker.phases[1].status,'in_progress');assert.ok(s.tracker.phases[1].startEvidence);
- assert.equal(s.tracker.currentPhase,1);assert.equal(s.tracker.phases[1].startedOn,s.tracker.phases[1].authorizedOn);
- assert.equal((await f.action('start',{phaseId:1})).status,422);
- assert.equal((await f.action('authorize_next')).status,422);
- assert.equal(s.tracker.publication.publicOpeningExecuted,false);assert.equal(s.tracker.release.approvedCandidate,null);
+ await f.action('submit');const before=await f.state();
+ assert.equal((await f.action('approve',{checkedCriteria})).status,200);
+ const s=await f.state();assert.equal(s.tracker.phases[0].status,'validated');
+ assert.equal(s.tracker.phases[1].status,'in_progress');assert.equal(s.tracker.currentPhase,1);
+ assert.equal(s.tracker.phases[1].startEvidence,null);assert.ok(s.tracker.phases[1].progressionEvidence);
+ assert.equal(s.tracker.decisions.length,before.tracker.decisions.length+1);
+ assert.equal(s.tracker.decisions.at(-1).type,'validation');
+ for(const action of ['start','authorize_next'])assert.equal((await f.action(action,{phaseId:1})).status,422);
+ assert.deepEqual(s.tracker.publication,before.tracker.publication);assert.deepEqual(s.tracker.release,before.tracker.release);
+ assert.deepEqual(validateInteractiveState(s.profile,s.tracker),[]);
 });
 test('Un seul clic humain valide les critères saisis sans sauvegarde séparée préalable',async t=>{
  const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
@@ -117,7 +115,7 @@ test('Un seul clic humain valide les critères saisis sans sauvegarde séparée 
  assert.deepEqual(before.phaseViews[0].checkedCriteria,[]);
  assert.equal(approvalInputState(before.tracker.phases[0],before.phaseViews[0],checkedCriteria).enabled,true);
  assert.equal((await f.action('approve',{checkedCriteria})).status,200);
- const after=await f.state(),decision=after.tracker.decisions.at(-1),criteria=after.tracker.reviewEvents.at(-1);
+ const after=await f.state(),decision=after.tracker.decisions.at(-1),criteria=after.tracker.reviewEvents.findLast(e=>e.type==='criteria_checked');
  assert.equal(after.phaseViews[0].validationCurrent,true);assert.deepEqual(after.phaseViews[0].checkedCriteria,checkedCriteria);
  assert.equal(criteria.type,'criteria_checked');assert.equal(criteria.recordedAt,decision.recordedAt);
  assert.equal(criteria.actor,decision.actor);assert.equal(criteria.documentDigest,decision.documentDigest);
@@ -158,7 +156,7 @@ test('Une validation historique peut être reprise explicitement, sans devenir u
  const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
  await f.action('criteria',{checkedCriteria});await f.action('submit');await f.action('approve',{checkedCriteria});
  let s=await f.state();const oldDecision=structuredClone(s.tracker.decisions.at(-1));
- assert.equal(s.phaseViews[0].actions.request_changes,false);
+ assert.equal(s.phaseViews[0].actions.request_changes,true);
  const target=resolve(f.root,'docs/suivi-chantier/suivi-chantier.json'),tracker=JSON.parse(await readFile(target,'utf8'));
  tracker.scope+=' Nouveau périmètre local fictif, à revoir.';await writeFile(target,JSON.stringify(tracker));
  s=await f.state();assert.equal(s.phaseViews[0].validationCurrent,false);assert.equal(s.phaseViews[0].actions.request_changes,true);
@@ -176,17 +174,19 @@ test('Reprendre la revue conserve les contrôles de candidat et explique la dép
  const f=await fixture(t,{qualified:true}),checkedCriteria=[0,1,2,3];
  await f.action('criteria',{checkedCriteria});await f.action('submit');await f.action('approve',{checkedCriteria});
  const path=resolve(f.root,'docs/suivi-chantier/00-phase.md');await writeFile(path,'Un dossier de cadrage changé depuis la validation, sans nouvelle qualification technique.');
- let s=await f.state(),view=s.phaseViews[0];assert.match(reviewGuidance(s.tracker.phases[0],view,s.tracker.phases[1]).submit,/Reprendre la revue/);
- assert.ok(s.phaseViews[1].issues.some(i=>i.includes('phase 0')&&i.includes('Reprendre la revue')));
+ let s=await f.state(),view=s.phaseViews[0];assert.match(reviewGuidance(s.tracker.phases[0],view,s.tracker.phases[1]).submit,/Revue/);
+ assert.ok(s.phaseViews[1].issues.some(i=>i.includes('phase 0')&&i.includes('Revue')));
  await f.action('request_changes');assert.equal((await f.action('submit')).status,422);s=await f.state();
  assert.equal(s.phaseViews[0].actions.approve,false);assert.equal(s.phaseViews[0].validationCurrent,false);
  assert.match(reviewGuidance(s.tracker.phases[0],s.phaseViews[0],s.tracker.phases[1]).submit,/critères et documents actuels/);
 });
-test('Exception locale bornée : démarrage possible, validation et phases distantes toujours verrouillées',async t=>{
- const f=await fixture(t,{bootstrap:true});assert.equal((await f.action('start',{phaseId:1})).status,200);let s=await f.state();assert.equal(s.tracker.phases[0].status,'in_progress');assert.equal(s.tracker.phases[1].status,'in_progress');assert.equal(s.tracker.decisions.at(-1).authorizationKind,'installation_local');
- assert.equal((await f.action('start',{phaseId:2})).status,422);assert.equal((await f.action('approve',{phaseId:1,checkedCriteria:[0,1,2,3]})).status,422);
- const path=resolve(f.root,'framework/installation.json'),i=JSON.parse(await readFile(path,'utf8'));i.expiresAt='2020-01-01T00:00:00.000Z';await writeFile(path,JSON.stringify(i));assert.equal((await f.action('start',{phaseId:2})).status,422);
- i.status='secured';await writeFile(path,JSON.stringify(i));s=await f.state();assert.equal(s.phaseViews[2].bootstrapStart,false);
+test('Même sous ancienne exception les actions de démarrage et d’autorisation sont retirées',async t=>{
+ const f=await fixture(t,{bootstrap:true}),before=(await f.state()).tracker;
+ for(const phaseId of [0,1,2,3])for(const action of ['start','authorize_next'])assert.equal((await f.action(action,{phaseId})).status,422);
+ assert.deepEqual((await f.state()).tracker,before);
+ assert.deepEqual(Object.keys((await f.state()).phaseViews[0].actions),['submit','approve','request_changes']);
+ assert.ok(!clientScript.includes('data-action="authorize_next"'));assert.ok(!clientScript.includes("['authorize_next'"));
+ assert.ok(clientScript.includes("[['submit','Revue'],['approve','Valider'],['request_changes','Demander des corrections']]"));
 });
 test('Un seul serveur écrivain est admis et une erreur de génération ne rejoue pas la décision',async t=>{
  const f=await fixture(t,{regenerate:async()=>{throw new Error('Fixture');}});await assert.rejects(()=>startFrameworkServer({root:f.root,port:0}),/verrou local/);
@@ -241,4 +241,32 @@ test('Les phases de préproduction et production restent sans action distante, m
  observed.phases[2].observedExecution={source:'hosting_observation',environment:'preproduction',status:'blocked',recordedAt:new Date().toISOString(),evidence:'Preuve fictive',authorizationRef:'Accord fictif'};
  assert.deepEqual(validateInteractiveState((await f.state()).profile,observed),[]);
  observed.phases[2].status='validated';assert.ok(validateInteractiveState((await f.state()).profile,observed).length);
+});
+
+test('Une PR inconnue, ouverte, en brouillon ou fermée sans fusion bloque la validation côté serveur',async t=>{
+ let status='unknown';const f=await fixture(t,{qualified:true,verifyPullRequest:async ({url})=>({passed:false,status,url,issues:['PR candidate '+status]})});
+ assert.equal((await f.action('submit')).status,200);
+ for(status of ['unknown','draft','open','closed','unavailable']){
+   const before=await f.state();assert.equal(before.phaseViews[0].actions.approve,false);
+   assert.equal((await f.action('approve',{checkedCriteria:[0,1,2,3],pullRequestStatus:'merged'})).status,422);
+   assert.deepEqual((await f.state()).tracker,before.tracker);
+ }
+ assert.equal((await f.action('criteria',{checkedCriteria:[0,1,2,3]})).status,200);
+});
+test('Une approbation revérifie GitHub sans faire confiance au cache affiché et conserve le dossier',async t=>{
+ const calls=[];let fail=false;const f=await fixture(t,{qualified:true,verifyPullRequest:async ({url,sourceCommit,force})=>{
+   calls.push(force);return fail&&force?{passed:false,status:'unavailable',url,issues:['GitHub indisponible']}:{passed:true,status:'merged',url,headCommit:sourceCommit,issues:[],checkedAt:new Date().toISOString()};
+ }});
+ await f.action('submit');const before=await f.state();assert.equal(before.phaseViews[0].actions.approve,true);
+ fail=true;assert.equal((await f.action('approve',{checkedCriteria:[0,1,2,3]})).status,422);
+ assert.ok(calls.includes(true));assert.deepEqual((await f.state()).tracker,before.tracker);
+});
+test('Une ancienne validation sans preuve de fusion reste historique sans être effacée',async t=>{
+ const f=await fixture(t,{qualified:true});await f.action('submit');await f.action('approve',{checkedCriteria:[0,1,2,3]});
+ const path=resolve(f.root,'docs/suivi-chantier/suivi-chantier.json'),tracker=JSON.parse(await readFile(path,'utf8'));
+ delete tracker.decisions.at(-1).pullRequestVerification;await writeFile(path,JSON.stringify(tracker));
+ const before=await f.state();assert.equal(before.phaseViews[0].validationCurrent,false);assert.equal(before.phaseViews[0].actions.submit,true);
+ assert.equal((await f.action('submit')).status,200);const after=await f.state();
+ assert.deepEqual(after.tracker.decisions,before.tracker.decisions);assert.equal(after.tracker.phases[0].status,'awaiting_review');
+ assert.equal(after.tracker.reviewEvents.at(-1).previousValidationId,before.tracker.phases[0].validationEvidence.decisionId);
 });

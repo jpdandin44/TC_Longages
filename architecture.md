@@ -106,7 +106,7 @@ Le [profil](framework/profil-projet.json) décrit les environnements ; le [suivi
 
 Le [manifeste du candidat](docs/candidat-revue.md) rattache la revue à un commit source. Les modifications des sources rendent les preuves périmées ; les écritures de suivi et reçus sont exclues selon une liste fermée. Les workflows `technical-ci` et `policy` exécutent respectivement les tests et la vérification stricte de la description de PR. Ils ne disposent d’aucun accès d’hébergement.
 
-Le tableau interactif affiche les PR explicitement associées à chaque phase dans le suivi JSON. Son service local lit en lecture seule leurs états publics sur l’API GitHub, met le résultat en cache et indique si la lecture est indisponible. Cette lecture n’alimente ni les critères, ni les décisions de phase. L’[intégration GitHub du suivi](api/github-suivi.md) décrit cette frontière.
+Le tableau interactif affiche les PR explicitement associées à chaque phase dans le suivi JSON. Son service local lit en lecture seule leurs états publics sur l’API GitHub, met le résultat en cache et indique si la lecture est indisponible. La liste générale reste informative. Un contrôle séparé du détail de la PR candidate bloque la validation en l’absence de fusion exacte ; il ne coche aucun critère ni ne crée de décision humaine. L’[intégration GitHub du suivi](api/github-suivi.md) décrit cette frontière.
 
 La garde Fetch Metadata autorise une navigation humaine de premier niveau vers `GET /` (mode `navigate`, destination `document`, activation `?1`) depuis une page externe pour ouvrir le suivi existant. Cette exception ne s’applique ni aux API, ni aux écritures, ni à l’historique ; les vérifications Host/Origin restent préalables et les pages ne peuvent pas être incorporées dans une iframe.
 
@@ -135,6 +135,17 @@ La [baseline locale](data/baseline-officiel.json) préserve les fichiers avant i
 La règle Apache ne sert les sept pages et `robots.txt` que si `maintenance.inactive` existe seul. Présence de `maintenance.active`, des deux témoins ou absence des deux : refus 503. À l'ouverture, la liste de routes autorisées refuse également les anciens chemins du bureau, même si des fichiers résiduels existent. Les réponses et métadonnées de non-indexation ne sont pas une authentification ; les sept pages sont publiques pendant la présentation. Aucun forçage HTTPS n'est ajouté à cette variante sans compte. Son [guide](docs/publier-v1-sous-domaine.md) exige sauvegarde, fermeture vérifiée avant copie et retour arrière complet. La [recette dédiée](docs/recette-v1-sous-domaine.md) distingue qualification locale et fonctionnement distant encore à vérifier. Le paquet de revue `officiel/` conserve son 503 inconditionnel ; les deux variantes ne se substituent pas à la future bêta Drupal.
 
 La [note de mutualisation CONNECT](docs/mutualisation-connect.md) distingue le code réellement réutilisable et les conditions d'un éventuel service partagé. Le code examiné n'accepte actuellement que ses domaines et applications AVEREO, sans rôles ni équipes du club ; l'isolation de l'administration des comptes reste à qualifier. Un service déjà consommé peut transmettre une évolution compatible après son déploiement autorisé ; un module ou client embarqué dans une application doit être mis à jour et redéployé. Aucun héritage automatique de toutes les fonctions n'est implémenté, et une instance dédiée au club est désormais confirmée ; les composants communs restent à qualifier.
+
+## Contrôle de revue du cockpit local
+
+Le serveur local de revue lit les détails publics de la PR candidate dans GitHub.
+Le contrôle côté serveur exige sa fusion et la correspondance entre son commit
+et le candidat local ; seuls les reçus explicitement exclus du manifeste peuvent
+différer. La lecture est renouvelée sans cache lors d’une validation et enregistrée
+avec la décision humaine. Une panne ou une comparaison incomplète bloque l’accord.
+Les états GitHub affichés ne créent aucune décision, aucun merge et aucun déploiement.
+Les anciens événements restent conservés ; la progression locale après validation
+remplace les actions de démarrage et d’autorisation des phases suivantes.
 
 ## Architecture des prototypes antérieurs conservés
 

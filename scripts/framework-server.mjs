@@ -4,13 +4,13 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createReviewStore,ReviewError} from './framework-store.mjs';
 import {renderShell,styles,clientScript,documentPage} from './framework-ui.mjs';
-import {createPullRequestFeed} from './framework-prs.mjs';
+import {createPullRequestFeed,createCandidatePullRequestCheck} from './framework-prs.mjs';
 
 export const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const safeToken=(given,expected)=>typeof given==='string'&&Buffer.byteLength(given)===Buffer.byteLength(expected)&&timingSafeEqual(Buffer.from(given),Buffer.from(expected));
-export async function startFrameworkServer({root=projectRoot,port=4181,regenerate,getPullRequests=createPullRequestFeed()}={}) {
+export async function startFrameworkServer({root=projectRoot,port=4181,regenerate,getPullRequests=createPullRequestFeed(),verifyPullRequest=createCandidatePullRequestCheck()}={}) {
   if(!Number.isInteger(port)||port<0||port>65535) throw new Error('Port incorrect.');
-  const store=await createReviewStore(root,{regenerate});
+  const store=await createReviewStore(root,{regenerate,verifyPullRequest});
   try {await store.read();}catch(error){await store.close();throw error;}
   const token=randomBytes(32).toString('hex');let origin,closing=false;
   const server=createServer(async(req,res)=>{
@@ -35,10 +35,11 @@ export async function startFrameworkServer({root=projectRoot,port=4181,regenerat
         if(!safeToken(req.headers['x-review-token'],token))throw new ReviewError('Jeton de session locale invalide. Rouvrez le tableau de bord.',403);
         return send(200,await getPullRequests({force:path.endsWith('?refresh=1')}));
       }
-      if(!['/api/state','/api/action'].includes(path)) throw new ReviewError('Page inconnue.',404);
-      if((path==='/api/state'&&req.method!=='GET')||(path==='/api/action'&&req.method!=='POST'))throw new ReviewError('Méthode refusée pour cette route.',405);
+      const stateRoute=path==='/api/state'||path==='/api/state?refresh=1';
+      if(!stateRoute&&path!=='/api/action') throw new ReviewError('Page inconnue.',404);
+      if((stateRoute&&req.method!=='GET')||(path==='/api/action'&&req.method!=='POST'))throw new ReviewError('Méthode refusée pour cette route.',405);
       if(!safeToken(req.headers['x-review-token'],token))throw new ReviewError('Jeton de session locale invalide. Rouvrez le tableau de bord.',403);
-      if(req.method==='GET') return send(200,await store.read());
+      if(req.method==='GET') return send(200,await store.read({forcePullRequest:path.endsWith('?refresh=1')}));
       if(req.headers.origin!==origin)throw new ReviewError('Origine requise pour enregistrer.',403);
       if(req.headers['content-type']!=='application/json')throw new ReviewError('Le contenu JSON est requis.',415);
       const chunks=[];let size=0;

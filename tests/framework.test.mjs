@@ -16,6 +16,7 @@ test('La génération accepte les décisions du store sans modifier le suivi ni 
 test('Une fausse validation et un démarrage sans accord sont refusés',async()=>{
   const state=await readState();
   state.tracker.phases[1].status='validated';
+  state.tracker.phases[1].validationEvidence={decisionId:'validation-inventee'};
   state.tracker.phases[1].startedOn='2026-09-29';
   assert.ok(validateLocalState(state.profile,state.tracker).length>0);
 });
@@ -72,6 +73,9 @@ test('Les vues proposent les deux services locaux et utilisent la dernière obse
 });
 test('Une validation périmée reste historique et la fermeture d’installation est visible',async()=>{
   const state=await readState();
+  // This rendering scenario must not depend on approvals added by the user
+  // to the real tracker while working on another phase.
+  for(const p of state.tracker.phases.slice(1))p.status='not_started';
   state.tracker.currentPhase=1;
   state.tracker.phases[0].status='validated';
   state.phaseViews[0].validationCurrent=false;

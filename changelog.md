@@ -14,6 +14,16 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-05 — Revue simplifiée et PR candidate obligatoire
+
+- Trois décisions : Revue, Valider et Demander des corrections ; retrait du
+  démarrage et de l’autorisation de suite, progression locale après validation.
+- Validation refusée côté serveur tant que la PR candidate n’est pas fusionnée
+  et rattachée au candidat exact ; GitHub revérifié sans cache lors de l’accord.
+- États candidats affichés depuis le même contrôle que le bouton ; conservation
+  des critères, commentaires et validations historiques sans approbation créée.
+- Correction intégrée au lot de la PR #12 ; aucune intervention sur le site hébergé.
+
 ## 2026-10-05 — V1 publique et préparation fiable des versions
 
 - Périmètre V1 recentré par le responsable sur le site public ; comptes et

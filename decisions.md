@@ -404,3 +404,24 @@ d'identité déclarée et de confirmation restent actifs. Les anciennes traces
 de démarrage sont conservées. Ce changement du moteur local ne crée aucun
 accord d'hébergement, déploiement, merge ou ouverture publique ; les phases
 distantes restent soumises à leurs contrôles et accords spécifiques.
+
+## 2026-10-05 — Trois décisions de revue et contrôle bloquant de la PR candidate
+
+**Contexte.** Le responsable a pu valider les phases 0 et 1 alors que la PR #12
+candidate restait à vérifier. Le statut GitHub était seulement affiché ; cette
+absence de garde a permis une acceptation prématurée. Le responsable retire
+l’autorisation des phases suivantes et confirme les trois actions souhaitées.
+
+**Décision.** Remplacer le parcours précédent par Revue, Valider et Demander des
+corrections. La validation passe la phase locale suivante en cours, sans démarrage
+ni autorisation supplémentaires. Conserver tous les anciens accords et événements.
+Exiger une PR candidate fusionnée correspondant exactement au candidat qualifié ;
+la vérifier sur GitHub sans cache au moment de valider et enregistrer cette preuve
+avec la décision. Un état inconnu, indisponible ou un candidat différent bloque.
+Revue peut ouvrir un dossier dont la PR reste à examiner.
+
+**Conséquences.** Les critères et leurs libellés, le commentaire et la confirmation
+personnelle restent obligatoires. Les validations antérieures sans preuve de fusion
+sont conservées comme historiques à requalifier ; aucune décision humaine n’est
+réécrite. Le moteur ne fusionne aucune PR, ne change aucun accès distant et ne
+transforme aucune progression de phase en accord de déploiement ou d’ouverture.
