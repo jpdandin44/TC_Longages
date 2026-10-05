@@ -1,7 +1,7 @@
 import {readFile, writeFile, mkdir, rename, realpath, open, unlink, stat} from 'node:fs/promises';
 import {resolve, sep, dirname} from 'node:path';
 import {createHash, randomUUID} from 'node:crypto';
-import {readCandidateVerification} from './framework-candidate.mjs';
+import {readCandidateVerification,CANDIDATE_EXCLUSIONS} from './framework-candidate.mjs';
 
 export const hash = value => createHash('sha256').update(typeof value === 'string' || Buffer.isBuffer(value) ? value : JSON.stringify(value)).digest('hex');
 export class ReviewError extends Error { constructor(message, status=422) { super(message); this.status=status; } }
@@ -34,12 +34,12 @@ export function validateInteractiveState(profile,tracker) {
       if((phase.status!=='not_started'&&!observed)||phase.startEvidence||phase.validationEvidence||phase.startedOn||phase.validatedOn) errors.push('Les phases distantes exigent des observations distinctes ; ce moteur ne les autorise ni ne les valide.');
     }
     if(phase.status==='validated' && !tracker.decisions.some(d=>d.id===phase.validationEvidence?.decisionId&&d.type==='validation'&&d.phaseId===phase.id&&d.status==='approved'&&d.environment==='local'&&profile.project.humanApprovers.includes(d.actor)&&d.identityMode==='local_declared_not_authenticated'&&d.comment&&d.documentDigest&&d.criteriaDigest&&sha(d.sourceCommit)&&fingerprint(d.artifactDigest))) errors.push('Validation sans décision locale complète.');
-    if(phase.id>0 && phase.startedOn && !tracker.decisions.some(d=>d.id===phase.startEvidence?.decisionId&&d.type==='authorization'&&d.phaseId===phase.id&&d.status==='approved')) errors.push('Démarrage sans autorisation.');
+    if(phase.id>0 && phase.startedOn && !tracker.decisions.some(d=>d.id===phase.startEvidence?.decisionId&&d.type==='authorization'&&d.phaseId===phase.id&&d.status==='approved')&&!tracker.reviewEvents.some(e=>e.id===phase.progressionEvidence?.eventId&&e.type==='phase_advanced'&&e.phaseId===phase.id&&tracker.decisions.some(d=>d.id===e.previousValidationId&&d.type==='validation'&&d.phaseId===phase.id-1&&d.status==='approved'))) errors.push('Démarrage sans autorisation historique ou validation précédente.');
   }
   if(!tracker.decisions?.some(d=>d.id===profile.project.initialAuthorizationRef&&d.type==='authorization'&&d.status==='approved'&&d.phaseId===0&&d.environment==='local'&&profile.project.humanApprovers.includes(d.actor))) errors.push('Autorisation initiale absente.');
   return errors;
 }
-export async function loadReviewState(root) {
+export async function loadReviewState(root,{verifyPullRequest,forcePullRequest=false}={}) {
   await contained(root,resolve(root,'docs/suivi-chantier'));
   const trackerPath=await contained(root,resolve(root,'docs/suivi-chantier/suivi-chantier.json'));
   const profilePath=await contained(root,resolve(root,'framework/profil-projet.json'));
@@ -83,15 +83,25 @@ export async function loadReviewState(root) {
       recoveredDraft=recoveredDrafts.find(row=>row.phaseId===draft.phaseId)||recoveredDrafts[0]||null;
     }
   } catch(error) {if(error.code!=='ENOENT'&&!(error instanceof SyntaxError)) throw error;}
-  const state={tracker,profile,installation,reviewPolicy,candidateChecks,documents,revision,recoveredDraft,recoveredDrafts};
+  const pullRequestChecks={},prCache=new Map();
+  for(const p of tracker.phases.filter(p=>p.id<=1&&p.reviewContext)) {
+    const url=typeof p.pullRequest==='string'?p.pullRequest:p.pullRequest?.url,key=JSON.stringify([url,p.reviewContext.sourceCommit]);
+    if(!prCache.has(key))prCache.set(key,verifyPullRequest?await verifyPullRequest({url,sourceCommit:p.reviewContext.sourceCommit,excludedPaths:CANDIDATE_EXCLUSIONS,force:forcePullRequest}):{passed:false,status:'unavailable',url,issues:['La PR candidate doit être vérifiée sur GitHub avant validation.']});
+    pullRequestChecks[p.id]=prCache.get(key);
+  }
+  const state={tracker,profile,installation,reviewPolicy,candidateChecks,pullRequestChecks,documents,revision,recoveredDraft,recoveredDrafts};
   return {...state,phaseViews:tracker.phases.map(p=>phaseView(state,p))};
 }
 function binding(state,phase) {
-  return {project:state.tracker.project,phaseId:phase.id,environment:'local',scope:state.tracker.scope,criteriaDigest:hash(phase.exitCriteria),documentDigest:hash(state.documents.filter(d=>d.phaseId===phase.id).map(d=>({path:d.path,digest:d.digest}))),sourceCommit:phase.reviewContext?.sourceCommit||null,artifactDigest:phase.reviewContext?.artifactDigest||null};
+  return {project:state.tracker.project,phaseId:phase.id,environment:'local',scope:state.tracker.scope,criteriaDigest:hash(phase.exitCriteria),documentDigest:hash(state.documents.filter(d=>d.phaseId===phase.id).map(d=>({path:d.path,digest:d.digest}))),sourceCommit:phase.reviewContext?.sourceCommit||null,artifactDigest:phase.reviewContext?.artifactDigest||null,pullRequest:typeof phase.pullRequest==='string'?phase.pullRequest:phase.pullRequest?.url||null};
 }
 function currentValidation(state,phase) {
   const decision=state.tracker.decisions.find(d=>d.id===phase.validationEvidence?.decisionId);
-  return phase.status==='validated'&&decision?.status==='approved'&&Object.entries(binding(state,phase)).every(([key,value])=>decision[key]===value)&&proofIssues(state,phase).length===0;
+  return phase.status==='validated'&&decision?.status==='approved'&&decision.pullRequestVerification?.passed===true&&decision.pullRequestVerification.url===binding(state,phase).pullRequest&&decision.pullRequestVerification.headCommit===state.pullRequestChecks?.[phase.id]?.headCommit&&Object.entries(binding(state,phase)).every(([key,value])=>decision[key]===value)&&proofIssues(state,phase).length===0&&pullRequestIssues(state,phase).length===0;
+}
+function pullRequestIssues(state,p) {
+  const check=state.pullRequestChecks?.[p.id];
+  return check?.passed?[]:check?.issues||['La PR candidate doit être vérifiée et fusionnée avant validation.'];
 }
 function proofIssues(state,p) {
   const issues=[], context=p.reviewContext, b=binding(state,p);
@@ -112,7 +122,7 @@ function proofIssues(state,p) {
   for(const blocker of p.blockers) issues.push('Blocage déclaré : '+blocker);
   for(const id of p.dependsOn) if(!currentValidation(state,state.tracker.phases[id])) {
     const previous=state.tracker.phases[id],label=state.tracker.phaseModel?.labels?.[id]||previous.title;
-    issues.push('La phase '+id+' « '+label+' » doit être validée sur son périmètre et sa version actuels.'+(previous.status==='validated'?' Son ancienne décision est conservée ; ouvrez cette phase et utilisez « Reprendre la revue ».':''));
+    issues.push('La phase '+id+' « '+label+' » doit être validée sur son périmètre et sa version actuels.'+(previous.status==='validated'?' Son ancienne décision est conservée ; ouvrez cette phase et utilisez « Revue ».':''));
   }
   return issues;
 }
@@ -123,18 +133,13 @@ export function recoverReviewDraft(draft,tracker,profile) {
   return {phaseId:phase.id,comment:draft.comment,actor:draft.actor,checked:draft.criteria.flatMap((c,i)=>c.checked?[i]:[]),confirmed:false,followups};
 }
 export function phaseView(state,p) {
-  const issues=proofIssues(state,p), local=p.id<=1;
-  const initial=p.id===0&&p.startEvidence?.decisionId===state.profile.project.initialAuthorizationRef;
-  const authorization=state.tracker.decisions.find(d=>d.id===p.startEvidence?.decisionId&&d.type==='authorization'&&d.status==='approved');
-  const authorized=initial||(authorization&&Object.entries(binding(state,p)).every(([k,v])=>authorization[k]===v));
+  const technicalIssues=proofIssues(state,p),local=p.id<=1,prIssues=local?pullRequestIssues(state,p):[],issues=[...technicalIssues,...prIssues];
   const checked=state.tracker.reviewEvents.filter(e=>e.type==='criteria_checked'&&e.phaseId===p.id&&e.criteriaDigest===hash(p.exitCriteria)&&e.documentDigest===binding(state,p).documentDigest).at(-1)?.checkedCriteria||[];
   // The human approval request itself supplies and confirms all criteria.
   const approvable=local&&p.status==='awaiting_review'&&!issues.length;
-  const i=state.installation, installationDecision=state.tracker.decisions.find(d=>d.id===i?.authorization?.id&&d.type==='installation_authorization'&&d.status==='approved'&&d.environment==='local'&&d.project===state.tracker.project);
-  const bootstrap=local&&i?.project==='tclongages'&&i.status==='active'&&i.environment==='local'&&i.allowedPhaseIds?.includes(p.id)&&i.allowedPhaseIds.every(id=>Number.isInteger(id)&&id>=0&&id<=1)&&Date.parse(i.activatedAt)<=Date.now()&&Date.parse(i.expiresAt)>Date.now()&&Date.parse(i.expiresAt)<=Date.parse(installationDecision?.expiresAt)&&state.profile.project.humanApprovers.includes(i.authorization?.actor)&&installationDecision?.actor===i.authorization.actor&&installationDecision?.sourceRef===i.authorization.sourceRef&&installationDecision?.scope===i.authorization.scope&&i.protections?.remoteExposureAllowed===false&&i.protections?.deployAllowed===false&&i.protections?.csrfRequired===true&&i.protections?.revisionCheckRequired===true&&i.protections?.secretProtectionRequired===true;
-  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:!!bootstrap,validationCurrent:currentValidation(state,p),actions:{submit:local&&p.status==='in_progress'&&!issues.length,approve:approvable,authorize_next:local&&p.id<1&&currentValidation(state,p)&&!state.tracker.phases[p.id+1].startEvidence,start:local&&p.status==='not_started'&&(!!bootstrap||(!!authorized&&p.dependsOn.every(id=>currentValidation(state,state.tracker.phases[id])))),request_changes:local&&(p.status==='awaiting_review'||(p.status==='validated'&&!currentValidation(state,p)))},external:!local};
+  return {phaseId:p.id,binding:binding(state,p),checkedCriteria:checked,issues,bootstrapStart:false,pullRequestCheck:state.pullRequestChecks?.[p.id]||null,validationCurrent:currentValidation(state,p),actions:{submit:local&&(p.status==='in_progress'||(p.status==='validated'&&!currentValidation(state,p)))&&!technicalIssues.length,approve:approvable,request_changes:local&&['awaiting_review','validated'].includes(p.status)},external:!local};
 }
-export async function createReviewStore(root,{regenerate}={}) {
+export async function createReviewStore(root,{regenerate,verifyPullRequest}={}) {
   root=await realpath(root);
   await mkdir(resolve(root,'.local'),{recursive:true}); await contained(root,resolve(root,'.local'));
   const lockPath=resolve(root,'.local/framework-runtime.lock');
@@ -145,7 +150,7 @@ export async function createReviewStore(root,{regenerate}={}) {
   async function mutate(request) {
     required(!writing,'Une autre écriture est en cours. Rechargez le suivi.',409); writing=true;
     try {
-      const state=await loadReviewState(root);
+      const state=await loadReviewState(root,{verifyPullRequest,forcePullRequest:request.action==='approve'});
       required(request.revision===state.revision,'Le suivi ou ses documents ont changé. Votre brouillon est conservé ; rechargez les données avant de confirmer.',409);
       const p=state.tracker.phases.find(p=>p.id===request.phaseId);
       required(p,'Phase inconnue.');
@@ -166,7 +171,7 @@ export async function createReviewStore(root,{regenerate}={}) {
         t.reviewEvents.push({...event,type:'criteria_checked',checkedCriteria:request.checkedCriteria,criteriaDigest:hash(p.exitCriteria),documentDigest:binding(state,p).documentDigest});
       } else {
         required(Object.hasOwn(v.actions,request.action)&&v.actions[request.action],'Action indisponible : '+(v.external?'les opérations distantes restent hors de ce moteur.':v.issues.join(' ')||'vérifiez l’état de la phase et les critères.'));
-        if(request.action==='submit') {p.status='awaiting_review';p.deliveredOn=now.slice(0,10); t.reviewEvents.push({...event,...binding(state,p),type:'submitted'});}
+        if(request.action==='submit') {const previousValidationId=p.validationEvidence?.decisionId;p.status='awaiting_review';p.deliveredOn=now.slice(0,10); t.reviewEvents.push({...event,...binding(state,p),type:'submitted',...(previousValidationId?{previousValidationId}:{})});}
         if(request.action==='request_changes') {
           const previousValidationId=p.status==='validated'?p.validationEvidence?.decisionId:null;
           p.status='in_progress';
@@ -175,18 +180,15 @@ export async function createReviewStore(root,{regenerate}={}) {
         if(request.action==='approve') {
           required(Array.isArray(request.checkedCriteria)&&request.checkedCriteria.length===p.exitCriteria.length&&p.exitCriteria.every((_,i)=>request.checkedCriteria.includes(i)),'Confirmez chaque critère de cette revue.');
           t.reviewEvents.push({...event,id:id+'-criteria',type:'criteria_checked',checkedCriteria:request.checkedCriteria,criteriaDigest:hash(p.exitCriteria),documentDigest:binding(state,p).documentDigest});
-          t.decisions.push({...event,...binding(state,p),type:'validation',status:'approved',checkedCriteria:request.checkedCriteria});
+          t.decisions.push({...event,...binding(state,p),type:'validation',status:'approved',checkedCriteria:request.checkedCriteria,pullRequestVerification:state.pullRequestChecks[p.id]});
           p.status='validated';p.validatedOn=now.slice(0,10);p.validationEvidence={decisionId:id};
-        }
-        if(request.action==='authorize_next') {
           const next=t.phases[p.id+1];
-          t.decisions.push({...event,...binding(state,next),type:'authorization',authorizationKind:'next_phase',status:'approved',previousValidationId:p.validationEvidence.decisionId});
-          next.authorizedOn=now.slice(0,10);next.startEvidence={decisionId:id};
-          next.status='in_progress';next.startedOn=now.slice(0,10);t.currentPhase=next.id;t.state='in_progress';
-        }
-        if(request.action==='start') {
-          if(v.bootstrapStart&&!p.startEvidence) {t.decisions.push({...event,...binding(state,p),type:'authorization',authorizationKind:'installation_local',status:'approved',bootstrapAuthorizationRef:state.installation.authorization.id});p.startEvidence={decisionId:id};p.authorizedOn=now.slice(0,10);}
-          p.status='in_progress';p.startedOn=now.slice(0,10);t.currentPhase=p.id;t.state='in_progress';
+          if(next&&next.id<=1&&next.status==='not_started') {
+            const progression={...event,id:id+'-next',type:'phase_advanced',phaseId:next.id,previousValidationId:id};
+            t.reviewEvents.push(progression);next.progressionEvidence={eventId:progression.id};
+            next.status='in_progress';next.startedOn=now.slice(0,10);
+          }
+          if(next&&next.status==='in_progress'){t.currentPhase=next.id;t.state='in_progress';}
         }
       }
       t.history.push({...event,type:'ui_'+request.action,description:comment});t.updated=now.slice(0,10);
@@ -201,8 +203,8 @@ export async function createReviewStore(root,{regenerate}={}) {
       try {const file=await open(temp,'wx',0o600);try{await file.writeFile(JSON.stringify(t,null,2)+'\n');await file.sync();}finally{await file.close();}await rename(temp,target);} finally {await unlink(temp).catch(e=>{if(e.code!=='ENOENT')throw e;});}
       let viewWarning=null;
       if(regenerate) try {await regenerate();}catch {viewWarning='Enregistrement réussi ; les vues statiques doivent être régénérées. Ne confirmez pas une seconde fois.';}
-      return {...await loadReviewState(root),viewWarning};
+      return {...await loadReviewState(root,{verifyPullRequest}),viewWarning};
     } finally {writing=false;}
   }
-  return {read:()=>loadReviewState(root),mutate,close:async()=>{await lock.close();await unlink(lockPath);}};
+  return {read:({forcePullRequest=false}={})=>loadReviewState(root,{verifyPullRequest,forcePullRequest}),mutate,close:async()=>{await lock.close();await unlink(lockPath);}};
 }

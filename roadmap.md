@@ -36,6 +36,26 @@ Apache, PHP servi, HTTPS et le retour à `public_html` dans un lot réversible
 explicitement autorisé, puis présenter l'ouverture après contrôle. Le développement du cockpit et du lot de comptes ne
 conditionne pas cette V1.
 
+## Processus de développement après la mise en production de la V1
+
+Le responsable demande les évolutions suivantes pour l’itération qui suivra
+la mise en production du site TC Longages V1 officiel. Elles sont prévues ;
+leur réalisation ne conditionne pas la livraison actuelle.
+
+- Identifier les versions applicatives réellement publiées (par exemple
+  « TC Longages V1.0 »), avec lien entre version, commit, paquet et environnement.
+  Cette version de logiciel reste distincte de `version: git` des documents.
+- Faire du suivi le cockpit central des développements et des validations,
+  avec conservation des décisions, preuves, critères et historiques de versions.
+- Piloter GitHub Actions depuis le cockpit ; si une Action est lancée depuis
+  GitHub, répercuter son exécution et son résultat dans le suivi, avec leur provenance.
+- Fournir une note de version avec les livrables et la consigner dans le cockpit.
+
+Le bloc `developmentWorkflow.postV1ProcessRequirements` du
+[suivi canonique](docs/suivi-chantier/suivi-chantier.json) rattache ces exigences
+à la préparation de l’itération suivante. Synchronisation, déclenchement distant,
+modèle de version et format des notes restent à concevoir après livraison.
+
 ## Préproduction installée, recette à conduire — 4 octobre
 
 Le [lot du compte principal](docs/preparer-lune-tc.md#lot-du-compte-principal)

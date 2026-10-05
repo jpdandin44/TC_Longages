@@ -296,7 +296,7 @@
       "id": "TCL-TBD-06",
       "topic": "Revue du cadrage et qualification du framework",
       "impact": "Le travail technique ne valide aucune phase ; la remise doit rattacher PR, commit, manifeste et tests avant acceptation humaine.",
-      "nextAction": "Compléter la traçabilité et présenter une PR du cadrage quand le dépôt est prêt ; validation humaine et autorisation suivante séparées"
+      "nextAction": "Examiner puis fusionner la PR candidate ; reprendre Revue et confirmer personnellement Valider. La phase locale suivante passe en cours sans autorisation supplémentaire."
     },
     {
       "id": "TCL-TBD-CI",

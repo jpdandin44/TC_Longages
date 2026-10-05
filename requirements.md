@@ -46,9 +46,13 @@ Depuis la demande du 5 octobre, la validation locale doit enregistrer en un
 seul clic tous les critères cochés, le commentaire et la confirmation
 personnelle, sans sauvegarde intermédiaire obligatoire. Ces trois éléments
 restent requis et contrôlés côté serveur ; conserver leurs libellés.
-Après validation de la phase précédente, l'autorisation personnelle de la
-suivante la passe directement en cours. Supprimer le bouton de démarrage
-séparé, conserver les traces antérieures et les accords propres à l'hébergement.
+La dernière demande du 5 octobre retire aussi l’autorisation de suite : garder
+exactement Revue, Valider et Demander des corrections. Après validation, la phase
+locale suivante passe en cours sans décision supplémentaire. Conserver les traces
+antérieures et les accords propres à l’hébergement. Refuser côté serveur toute
+validation tant que la PR candidate n’est pas fusionnée et vérifiée sur sa version
+exacte ; revérifier GitHub sans cache lors du clic. Un état inconnu ou indisponible
+reste bloquant. Les acceptations antérieures restent historiques à requalifier.
 
 Le cockpit doit permettre de reprendre personnellement la revue d’une phase
 locale dont la validation ne couvre plus la version ou le périmètre courant.
@@ -126,10 +130,10 @@ Un sous-domaine du compte principal ne peut pas être rattaché à une lune dist
 ## Pilotage adopté le 29 septembre
 
 - suivre le projet dans un profil JSON et un registre de phases/événements distincts des lots métier G0–G8 ; conserver les acquis et les sources.
-- distinguer exécution technique, validation humaine et autorisation suivante ; aucun accord AVEREO transposé au club.
+- distinguer exécution technique et validation humaine ; aucun accord AVEREO transposé au club.
 - préparer la revue dans le dépôt dédié communiqué, sans publication au push/merge, sans cocher les confirmations humaines. Git local est raccordé au dépôt public ; les protections et exécutions effectives se vérifient dans le reçu de revue.
 - qualifier la préproduction, le candidat, la sauvegarde fraîche et sa restauration avant écriture de production ; autoriser séparément livraison et ouverture.
-- interface HTML avec commentaires persistants, critères, revue et autorisation suivante distincte ; révision concurrente et historique ; identité déclarée uniquement en boucle locale, authentification à qualifier avant partage.
+- interface HTML avec commentaires persistants, critères et trois décisions Revue, Valider et Demander des corrections ; révision concurrente et historique ; identité déclarée uniquement en boucle locale, authentification à qualifier avant partage.
 - présenter dans chaque phase uniquement les PR qui lui sont rattachées, avec leur état public vérifié sur GitHub ; une PR fusionnée ne vaut pas validation de la phase.
 - installation Drupal dédiée au club et maintenance par le moteur natif sur toutes les pages, sans renommage de fichier pour cette nouvelle variante.
 - exception d’installation bornée et tracée, puis retour aux contrôles normaux ; ni secret, ni contrôle des requêtes, ni autorisation de production désactivés.

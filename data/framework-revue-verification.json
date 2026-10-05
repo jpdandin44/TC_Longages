@@ -2099,6 +2099,152 @@
       "approveButtonEnabledWithCompleteCriteria": true,
       "separateStartButtonAbsent": true,
       "humanValidationExecutedByAgent": false
+    },
+    "latestCi": {
+      "checkedHead": "5b3455851849f043dd35abf64e3188ce1b5d81be",
+      "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
+      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37324904492",
+      "technicalCi": "passed",
+      "deliverySafety": "passed",
+      "reviewChecklist": "human_confirmations_pending",
+      "limits": "Passed checks observed before the page inspection; new operational receipts are excluded from the source candidate.",
+      "recordedAt": "2026-10-05T14:49:43.663124+00:00",
+      "observationTiming": "Completed CI observed in this resumption before the native production-page check; exact observation timestamp not retained."
+    }
+  },
+  "productionPagesCliInspection": {
+    "format": "tcl-native-terminal-page-inspection-summary-v1",
+    "checkedAt": "2026-10-05T14:40:10.886330+00:00",
+    "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+    "sourceArchiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "passed": true,
+    "pages": [
+      {
+        "page": "index",
+        "controllerStatus": 200,
+        "bytes": 567038,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "competitions",
+        "controllerStatus": 200,
+        "bytes": 154757,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "calendrier",
+        "controllerStatus": 200,
+        "bytes": 154164,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "disponibilites",
+        "controllerStatus": 200,
+        "bytes": 154648,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "equipes",
+        "controllerStatus": 200,
+        "bytes": 154213,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "espace",
+        "controllerStatus": 200,
+        "bytes": 154554,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      },
+      {
+        "page": "contact",
+        "controllerStatus": 200,
+        "bytes": 155772,
+        "french": true,
+        "matchesArchive": true,
+        "trackerLinkAbsent": true
+      }
+    ],
+    "closedDrupalState": {
+      "environment": "production",
+      "coreVersion": "11.4.8",
+      "defaultLanguage": "fr",
+      "maintenanceActive": true,
+      "mailBackend": "tcl_null_mail",
+      "registration": "admin_only",
+      "cronInterval": 0,
+      "publicIndexing": "0",
+      "frontRoute": "/club",
+      "tableCount": 43
+    },
+    "unknownPathsRejected": 3,
+    "hostedFullReceipt": "/home2/daje5127/tcl-production/private/production-pages-20261005T144010Z.json",
+    "evidenceMethod": "Native cPanel Terminal safe stdout and screenshot; full individual SHA-256 values remain in the private hosted receipt.",
+    "proofFile": ".local/industrialisation/production-pages-cli-check.png",
+    "scope": "Native Drupal controller in private staged production via CLI. This does not qualify HTTP, Apache, served PHP or real-domain rollback.",
+    "officialRootChangeExecuted": false,
+    "publicOpeningExecuted": false
+  },
+  "goalControlObservation": {
+    "status": "blocked",
+    "observedAt": "2026-10-05T14:55:43+00:00",
+    "condition": "official_domain_root_qualification_authorization_pending",
+    "consecutiveResumedGoalTurnsObserved": 3,
+    "previousTurnClassification": "progress",
+    "currentTurnClassification": "no_progress_authorization_block_revalidated",
+    "privateProductionPreparationCompleted": true,
+    "cliPagesVerified": 7,
+    "rootQualificationAuthorized": false,
+    "publicOpeningAuthorized": false,
+    "officialRootChanged": false,
+    "objectiveAchieved": false,
+    "humanPhaseStatusesChanged": false,
+    "nextRequiredHumanAction": "Autoriser le raccordement sous maintenance dans la demande existante.",
+    "reason": "La préparation et les contrôles privés sont terminés. Le lot autorisé excluait la racine officielle ; aucun accord nouveau n’a été reçu. Aucune autre mutation nécessaire ne peut être effectuée dans le périmètre actuellement autorisé."
+  },
+  "threeActionReviewQualification": {
+    "recordedAt": "2026-10-05T15:29:43.871Z",
+    "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+    "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+    "manifestDigest": "e67a6d64c837fc8e75b29971f14eef1b03a967348f97e622d81f90fa1ed4ffd3",
+    "files": 412,
+    "tests": 45,
+    "passed": 45,
+    "failed": 0,
+    "skipped": 0,
+    "testLogSha256": "795c4f29ffcee5dea58825a1685036b4629fa98eec266ac6f0ab5fb42fae7bad",
+    "documentsChecked": 11,
+    "internalLinksChecked": 260,
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
+    "runtimeUrl": "http://127.0.0.1:4181/",
+    "humanDecisionsPreserved": true,
+    "humanPhaseStatusesChanged": false,
+    "mandatoryCriteriaLabelsChanged": false,
+    "criteriaRequired": true,
+    "commentRequired": true,
+    "personalConfirmationRequired": true,
+    "phaseAuthorizationActionRemoved": true,
+    "phaseStartActionRemoved": true,
+    "mergedCandidateRequired": true,
+    "freshGithubReadAtApproval": true,
+    "hostingMutationExecuted": false,
+    "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier.",
+    "previousPullRequest": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "status": "merged",
+      "mergedAt": "2026-10-05T15:23:37Z",
+      "mergeCommit": "76198eed0208e022c7007b4b17e577254c0108ed"
     }
   }
 }

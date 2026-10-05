@@ -5,7 +5,7 @@ title: Candidat Git et portée des preuves de revue
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-05
 owner: jpdandin
 tags: [framework, git, preuves, revue]
 ---
@@ -54,4 +54,4 @@ La révision transmise au navigateur inclut le résultat de cette vérification.
 
 Le manifeste prouve une correspondance de contenu, pas à lui seul la qualité des tests ni l’identité de la personne qui les a exécutés. Le reçu reste une déclaration technique documentée. La revue locale ne signe pas les décisions et ne se substitue pas à l’authentification future, aux protections du dépôt ou à la recette d’hébergement.
 
-Les critères humains restent à cocher par le responsable. La remise, la validation, l’autorisation de la phase suivante et l’ouverture publique demeurent des actes distincts. Les [tests du contrat](../tests/framework-candidate.test.mjs) emploient des dépôts temporaires isolés et des preuves fictives explicitement nommées ; ils ne modifient pas le vrai registre de suivi.
+Les critères humains restent à cocher par le responsable. Revue, Valider et Demander des corrections constituent le parcours TC. La validation passe la phase locale suivante en cours et reste distincte des accords de déploiement et d’ouverture. Le contrôle GitHub de la PR candidate exige sa fusion et sa correspondance exacte, selon le [contrat d’intégration](../api/github-suivi.md). Les [tests du contrat](../tests/framework-candidate.test.mjs) emploient des dépôts temporaires isolés et des preuves fictives explicitement nommées ; ils ne modifient pas le vrai registre de suivi.

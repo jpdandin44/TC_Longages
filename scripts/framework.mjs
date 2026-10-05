@@ -87,10 +87,10 @@ export function renderViews({profile, tracker, installation = null, phaseViews =
   const architecture = [...tracker.decisions].reverse().find(d => d.type === 'architecture' && d.status === 'approved');
   const architectureObservation = architecture?.scope || 'Architecture applicative à déterminer.';
   const installationObservation = installation?.status === 'secured'
-    ? 'Installation clôturée : les autorisations normales de progression sont réactivées.'
+    ? 'Installation clôturée : revue et validation du candidat restent contrôlées.'
     : installation?.status === 'active'
       ? `Installation locale encadrée : exception des phases 0 à 3, échéance ${installation.expiresAt}. Cette exception ne valide aucune phase et n’autorise aucune opération distante.`
-      : 'Aucune exception d’installation active ; les autorisations normales de progression s’appliquent.';
+      : 'Aucune exception d’installation active ; revue et validation du candidat restent contrôlées.';
   const phaseRows = tracker.phases.map(p => `| ${p.id} — ${cell(tracker.phaseModel?.labels?.[p.id]||p.title)} | ${cell(label(p))} | [Dossier](${encodeURI(p.deliverables[0].path).replace(/[()]/g, c => '%' + c.charCodeAt(0).toString(16))}) | ${cell(p.nextAction)} |`).join('\n');
   const openRows = profile.openItems.map(item => `| ${cell(item.id)} | ${cell(item.topic)} | ${cell(item.impact)} | ${cell(item.nextAction)} |`).join('\n');
   const fingerprint = digest(JSON.stringify({profile, tracker, installation, phaseViews}));
@@ -141,7 +141,7 @@ ${openRows}
 
 Les quatre phases regroupent le cadrage, le développement local, la préproduction et la mise en production ; G0–G8 restent les lots métier de la V1. Les recettes historiques ne créent pas de validation automatique. Une validation peut rester consignée tout en devenant à requalifier après changement de documents ou de preuves. Le suivi ne calcule aucun pourcentage d’effort.
 
-Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle locale distingue validation et autorisation suivante ; l’identité y reste déclarée, sans authentification distante. Le mode d’installation n’accorde aucun déploiement, aucune ouverture publique et aucune permission de modifier les accès distants. Les adaptations de préproduction, livraison et restauration restent à qualifier.
+Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle locale propose Revue, Valider et Demander des corrections ; la phase locale suivante passe en cours après validation. L’identité y reste déclarée, sans authentification distante. Le mode d’installation n’accorde aucun déploiement, aucune ouverture publique et aucune permission de modifier les accès distants. Les adaptations de préproduction, livraison et restauration restent à qualifier.
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
