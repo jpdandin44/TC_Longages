@@ -4059,8 +4059,10 @@
       "status": "in_progress",
       "objective": "Bureau: enregistrer les nouveaux adhÃ©rents; prÃ©parer affichage calendrier public et compÃ©titions. Ã‰quipes et prÃ©sences FFT ultÃ©rieures.",
       "candidate": {
-        "sourceSha": null,
-        "artifactSha256": null
+        "sourceSha": "1324109e3a6a8a46a524d50bd153849e190e7424",
+        "artifactSha256": "cf4ea2a03619979e0bf29b7bda1665bcffaf3666afb1c166f2de2cafbb0bbd40",
+        "manifest": "data/framework-candidate.json",
+        "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP"
       },
       "targets": {
         "preproduction": {
@@ -4091,8 +4093,8 @@
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "1324109e3a6a8a46a524d50bd153849e190e7424",
+          "artifactSha256": "cf4ea2a03619979e0bf29b7bda1665bcffaf3666afb1c166f2de2cafbb0bbd40",
           "target": "http://127.0.0.1:4182",
           "evidence": "data/bureau-local-verification.json",
           "observedAt": "2026-10-05T19:24:51.635362+00:00"
@@ -4100,8 +4102,8 @@
         {
           "kind": "documentation",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "1324109e3a6a8a46a524d50bd153849e190e7424",
+          "artifactSha256": "cf4ea2a03619979e0bf29b7bda1665bcffaf3666afb1c166f2de2cafbb0bbd40",
           "target": "local repository",
           "evidence": "data/bureau-local-verification.json#technicalChecks",
           "observedAt": "2026-10-05T19:39:55.673713+00:00"
@@ -4109,8 +4111,8 @@
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "1324109e3a6a8a46a524d50bd153849e190e7424",
+          "artifactSha256": "cf4ea2a03619979e0bf29b7bda1665bcffaf3666afb1c166f2de2cafbb0bbd40",
           "target": "public-page generator and local security policy",
           "evidence": "data/bureau-local-verification.json#technicalChecks",
           "observedAt": "2026-10-05T19:41:38.062458+00:00"
@@ -4156,7 +4158,7 @@
       "versionLabel": "TC Longages V2, candidat local",
       "guide": "docs/comptes-et-bureau.md",
       "branch": "feat/v2-comptes-bureau-local",
-      "updatedAt": "2026-10-05T19:35:50.440596+00:00",
+      "updatedAt": "2026-10-05T19:45:32.017999+00:00",
       "phases": [
         {
           "id": 0,
