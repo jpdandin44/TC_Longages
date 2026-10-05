@@ -152,8 +152,8 @@
     ]
   },
   "localChecks": {
-    "pythonTests": 48,
-    "pythonPassed": 44,
+    "pythonTests": 49,
+    "pythonPassed": 45,
     "pythonSkipped": 4,
     "skipReason": "POSIX UID/permission checks require Linux",
     "nodeFullRun": {
@@ -174,7 +174,7 @@
     ],
     "phpSyntax": {
       "ownFilesPassed": 6,
-      "productionRuntimeAndPreflightPassed": 2
+      "productionRuntimeAndPreflightPassed": 3
     }
   },
   "humanHistoryPreserved": {
@@ -215,11 +215,32 @@
     "account": "daje5127",
     "database": "daje5127_tclprod",
     "databaseCreated": true,
-    "databaseUserCreated": false,
-    "sqlPrivilegesApplied": false,
+    "databaseUserCreated": true,
+    "sqlPrivilegesApplied": true,
     "certificateIssued": true,
     "officialRootChanged": false,
-    "publicOpeningExecuted": false
+    "publicOpeningExecuted": false,
+    "sqlRightsAuthorizationRef": "TCL-PROD-SQL-20261005",
+    "sqlRightsAuthorizationQuote": "Autoriser ces dix droits SQL de production",
+    "sqlRightsObservedAt": "2026-10-05T09:03:34.432618+00:00",
+    "sqlRightsScope": {
+      "user": "daje5127_tclprod",
+      "database": "daje5127_tclprod",
+      "privileges": [
+        "ALTER",
+        "CREATE",
+        "CREATE TEMPORARY TABLES",
+        "DELETE",
+        "DROP",
+        "INDEX",
+        "INSERT",
+        "LOCK TABLES",
+        "SELECT",
+        "UPDATE"
+      ],
+      "verification": "Native cPanel selections persisted after reload",
+      "otherRightsSelected": false
+    }
   },
   "productionStage": {
     "preparedAt": "2026-10-05T08:27:32.759204+00:00",

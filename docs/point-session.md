@@ -45,17 +45,18 @@ intégralement relue et 26 819 fichiers restaurés en copie privée. Le lot de
 préparation de production est autorisé (`TCL-PROD-PREP-20261005`) : nouvelle
 base `daje5127_tclprod`, même ZIP préparé et revérifié dans
 `tcl-production/releases/14c270431af12397/drupal`. Code et paramètres restent
-propriétaires, hors domaine. L'utilisateur SQL est préparé dans cPanel pour
-une saisie personnelle du mot de passe ; ses dix droits restent à confirmer.
-Les 141 tests Node passent. Sur 48 tests Python, 44 passent et quatre
-contrôles POSIX sont ignorés sous Windows. La syntaxe des deux fichiers PHP
-du runtime et du préflight de production est vérifiée. La restauration SQL
+propriétaires, hors domaine. L'utilisateur SQL est créé personnellement et
+ses dix droits sont appliqués à la seule base `daje5127_tclprod`, après accord
+`TCL-PROD-SQL-20261005`. Son mot de passe doit être reporté personnellement
+dans le fichier privé de production ouvert dans cPanel.
+Les 141 tests Node passent. Sur 49 tests Python, 45 passent et quatre
+contrôles POSIX sont ignorés sous Windows. La syntaxe des trois fragments PHP
+du runtime, du préflight et du contrôle Drupal de production est vérifiée. La restauration SQL
 et le démarrage ne sont pas encore
 attestés ; aucune bascule ni ouverture de production.
 
-**Suite exacte :** terminer la création personnelle de l'utilisateur SQL,
-présenter les dix droits pour cette seule nouvelle base, puis reporter son
-mot de passe dans le fichier privé de production. L'outil de restauration
+**Suite exacte :** attendre l'enregistrement personnel du mot de passe SQL
+dans le fichier privé de production. L'outil de restauration
 SQL est préparé ; le recetter sur la nouvelle base vide, vérifier le démarrage
 des deux copies, puis présenter le lot de bascule exact avec son retour.
 Le [parcours existant](parcours-mise-en-ligne.md) et `developmentWorkflow.deliveryPlan`

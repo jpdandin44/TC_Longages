@@ -125,7 +125,7 @@
       "status": "not_configured",
       "url": "https://tclongages.fr/",
       "runtime": "PHP du compte 8.3 ; certificat gratuit reconnu sur les deux noms publics le 5 octobre ; copie du ZIP separee et non servie, aucun Drupal de production demarre.",
-      "database": "Nouvelle base vide daje5127_tclprod creee apres accord ; utilisateur et import en attente de saisie personnelle.",
+      "database": "Base vide et utilisateur dedies daje5127_tclprod crees ; dix droits appliques sur cette seule base apres confirmation. Mot de passe prive et import en attente.",
       "storage": "Racine actuelle public_html conservee ; copie owner-only sous tcl-production/releases/14c270431af12397/drupal/web, non raccordee.",
       "secretScope": null,
       "dataPolicy": "real_private",

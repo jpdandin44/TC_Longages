@@ -84,8 +84,10 @@ effectuer ; ce script ne modifie ni la racine cPanel ni l'ouverture du site.
 
 Le responsable a autorisé ce lot dans la conversation le 5 octobre
 (`TCL-PROD-PREP-20261005`). La copie du ZIP, la base et le certificat sont
-préparés et vérifiés ; l'utilisateur SQL, ses droits et l'import restent à
-terminer. Cet accord ne change pas la racine servie et n'ouvre pas Drupal.
+préparés et vérifiés. L'utilisateur SQL est créé personnellement et ses dix
+droits sont enregistrés sur cette seule base après confirmation
+`TCL-PROD-SQL-20261005`. Le fichier privé et l'import restent à terminer.
+Cet accord ne change pas la racine servie et n'ouvre pas Drupal.
 
 | Élément | Cible exacte et effet |
 |---|---|
