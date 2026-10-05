@@ -94,7 +94,7 @@
       ],
       "blockers": [],
       "nextAction": "Examiner puis fusionner la nouvelle PR candidate ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
         "https://github.com/jpdandin44/TC_Longages/pull/2",
@@ -103,7 +103,8 @@
         "https://github.com/jpdandin44/TC_Longages/pull/9",
         "https://github.com/jpdandin44/TC_Longages/pull/10",
         "https://github.com/jpdandin44/TC_Longages/pull/11",
-        "https://github.com/jpdandin44/TC_Longages/pull/12"
+        "https://github.com/jpdandin44/TC_Longages/pull/12",
+        "https://github.com/jpdandin44/TC_Longages/pull/13"
       ],
       "reviewContext": {
         "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
@@ -320,7 +321,7 @@
       ],
       "blockers": [],
       "nextAction": "Après nouvelle acceptation courante du Cadrage et fusion de la nouvelle PR candidate, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
@@ -329,7 +330,8 @@
         "https://github.com/jpdandin44/TC_Longages/pull/9",
         "https://github.com/jpdandin44/TC_Longages/pull/10",
         "https://github.com/jpdandin44/TC_Longages/pull/11",
-        "https://github.com/jpdandin44/TC_Longages/pull/12"
+        "https://github.com/jpdandin44/TC_Longages/pull/12",
+        "https://github.com/jpdandin44/TC_Longages/pull/13"
       ],
       "legacyPhaseIds": [
         1,
@@ -3087,7 +3089,7 @@
       "testLogSha256": "795c4f29ffcee5dea58825a1685036b4629fa98eec266ac6f0ab5fb42fae7bad",
       "documentsChecked": 11,
       "internalLinksChecked": 260,
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
       "runtimeUrl": "http://127.0.0.1:4181/",
       "humanDecisionsPreserved": true,
       "humanPhaseStatusesChanged": false,
@@ -3100,7 +3102,13 @@
       "mergedCandidateRequired": true,
       "freshGithubReadAtApproval": true,
       "hostingMutationExecuted": false,
-      "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier."
+      "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier.",
+      "previousPullRequest": {
+        "url": "https://github.com/jpdandin44/TC_Longages/pull/12",
+        "status": "merged",
+        "mergedAt": "2026-10-05T15:23:37Z",
+        "mergeCommit": "76198eed0208e022c7007b4b17e577254c0108ed"
+      }
     },
     "phaseReviewPolicy": {
       "recordedAt": "2026-10-05T15:29:43.871Z",
@@ -3142,6 +3150,14 @@
         }
       ],
       "implementationStarted": false
+    },
+    "candidateReviewPullRequest": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/13",
+      "status": "open",
+      "headBranch": "fix/revue-pr-candidate",
+      "sourceCommit": "78638be9fc0596bfc04e9843ce6a2d6b878fd9ab",
+      "artifactDigest": "cf722ac5f9c9839a0d497aabc3d2a74eb2fdf8dbabb356a1d3773b0211ce5ebc",
+      "recordedAt": "2026-10-05T15:30:37.610072+00:00"
     }
   },
   "phaseModel": {

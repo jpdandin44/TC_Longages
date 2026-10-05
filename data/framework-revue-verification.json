@@ -2226,7 +2226,7 @@
     "testLogSha256": "795c4f29ffcee5dea58825a1685036b4629fa98eec266ac6f0ab5fb42fae7bad",
     "documentsChecked": 11,
     "internalLinksChecked": 260,
-    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
     "runtimeUrl": "http://127.0.0.1:4181/",
     "humanDecisionsPreserved": true,
     "humanPhaseStatusesChanged": false,
@@ -2239,6 +2239,12 @@
     "mergedCandidateRequired": true,
     "freshGithubReadAtApproval": true,
     "hostingMutationExecuted": false,
-    "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier."
+    "scope": "Correction locale du suivi ; candidat Drupal du site inchangé. Acceptations antérieures conservées sans preuve de fusion, à requalifier.",
+    "previousPullRequest": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "status": "merged",
+      "mergedAt": "2026-10-05T15:23:37Z",
+      "mergeCommit": "76198eed0208e022c7007b4b17e577254c0108ed"
+    }
   }
 }
