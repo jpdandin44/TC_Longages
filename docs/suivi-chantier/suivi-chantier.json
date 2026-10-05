@@ -94,14 +94,16 @@
       ],
       "blockers": [],
       "nextAction": "Dans le dossier remis, relire les critères et confirmer personnellement « Valider cette phase » ; critères et décision sont enregistrés ensemble.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/1",
         "https://github.com/jpdandin44/TC_Longages/pull/2",
         "https://github.com/jpdandin44/TC_Longages/pull/3",
         "https://github.com/jpdandin44/TC_Longages/pull/4",
         "https://github.com/jpdandin44/TC_Longages/pull/9",
-        "https://github.com/jpdandin44/TC_Longages/pull/10"
+        "https://github.com/jpdandin44/TC_Longages/pull/10",
+        "https://github.com/jpdandin44/TC_Longages/pull/11",
+        "https://github.com/jpdandin44/TC_Longages/pull/12"
       ],
       "reviewContext": {
         "sourceCommit": "b266f45999b6b4d286fe76434c9073e07ceb4e04",
@@ -280,14 +282,16 @@
       ],
       "blockers": [],
       "nextAction": "Après validation du cadrage, soumettre ce dossier puis confirmer personnellement « Valider cette phase » ; les douze cases du brouillon restent conservées.",
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
       "pullRequests": [
         "https://github.com/jpdandin44/TC_Longages/pull/5",
         "https://github.com/jpdandin44/TC_Longages/pull/6",
         "https://github.com/jpdandin44/TC_Longages/pull/7",
         "https://github.com/jpdandin44/TC_Longages/pull/8",
         "https://github.com/jpdandin44/TC_Longages/pull/9",
-        "https://github.com/jpdandin44/TC_Longages/pull/10"
+        "https://github.com/jpdandin44/TC_Longages/pull/10",
+        "https://github.com/jpdandin44/TC_Longages/pull/11",
+        "https://github.com/jpdandin44/TC_Longages/pull/12"
       ],
       "legacyPhaseIds": [
         1,
@@ -2693,8 +2697,17 @@
       "separateStartStepRemoved": true,
       "nextAuthorizedLocalPhaseBecomesInProgress": true,
       "hostingMutationExecuted": false,
-      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
-      "runtimeUrl": "http://127.0.0.1:4181/"
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+      "runtimeUrl": "http://127.0.0.1:4181/",
+      "uiVerification": {
+        "phaseId": 0,
+        "fourCheckedCriteriaRestored": true,
+        "commentRestored": true,
+        "personalConfirmationRestoredUnchecked": true,
+        "approveButtonEnabledWithCompleteCriteria": true,
+        "separateStartButtonAbsent": true,
+        "humanValidationExecutedByAgent": false
+      }
     }
   },
   "phaseModel": {

@@ -2089,7 +2089,16 @@
     "separateStartStepRemoved": true,
     "nextAuthorizedLocalPhaseBecomesInProgress": true,
     "hostingMutationExecuted": false,
-    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
-    "runtimeUrl": "http://127.0.0.1:4181/"
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/12",
+    "runtimeUrl": "http://127.0.0.1:4181/",
+    "uiVerification": {
+      "phaseId": 0,
+      "fourCheckedCriteriaRestored": true,
+      "commentRestored": true,
+      "personalConfirmationRestoredUnchecked": true,
+      "approveButtonEnabledWithCompleteCriteria": true,
+      "separateStartButtonAbsent": true,
+      "humanValidationExecutedByAgent": false
+    }
   }
 }
