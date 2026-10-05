@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
+  "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -139,9 +139,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "d4109d4271c6b64ed1c250cdadde84d3932dca77",
-      "size": 43662,
-      "sha256": "cb4686efb7b506b4801f350b150307887449a564a56512cfbce6165b98f67f4b"
+      "gitBlob": "1c45e11a3254ed24afa4e071e062358a15f5c4a5",
+      "size": 43755,
+      "sha256": "9a3a88f3a2a9c95fbe1382cc3281e112bdb3ace2aec148e9888b1d6a27061ba3"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -202,9 +202,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "05416b757c81d37dc51fb99e5f272302aef432c3",
-      "size": 38747,
-      "sha256": "270ee39c89e29db27f2648b1516e1c998c929b7a28223631141dbaa7873dc8fe"
+      "gitBlob": "a0b2460553f0fe22a5e330911aaa6e755de015c5",
+      "size": 39119,
+      "sha256": "d1f4147b0fcc5b66b5f25cb4b0e81b8ef0bae4edcf808c0f013ddc0f4a5c7186"
     },
     {
       "path": "config/first-install.example.json",
@@ -293,9 +293,9 @@
     {
       "path": "data/industrialisation-verification.json",
       "mode": "100644",
-      "gitBlob": "6649da24d831d757618dc572d8d4744674fb6eef",
-      "size": 8169,
-      "sha256": "de6a2c1d7f1ee3eb8df64e774c5f83b329261b7b0ca682a19feb9b4d19a693e4"
+      "gitBlob": "7a18637a26dd872ac9955f344fa39d95e2037daa",
+      "size": 8976,
+      "sha256": "d01d7c7616233ee93265a2c417d59b88a1930ea1cd79f80073ab1aee6d9ccd23"
     },
     {
       "path": "data/officiel-hosted-demo-manifest.json",
@@ -356,9 +356,9 @@
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "36f618852d4bb644b41dcdff17d9d3e214d25ec3",
-      "size": 41274,
-      "sha256": "4b9eb235951525b8308bf8ed335589ff1c946367a4b7d3ec1e338592394722ad"
+      "gitBlob": "5672323e1e6f0092aa1279bc756719cd5eb19524",
+      "size": 41417,
+      "sha256": "4da5906d177f2fd92388fdfda8d9afb30720c6a61c93b9c3b6219aa35b7e006e"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -440,16 +440,16 @@
     {
       "path": "docs/parcours-mise-en-ligne.md",
       "mode": "100644",
-      "gitBlob": "ab75b82929e275073c45571bd18fee05405f5f06",
-      "size": 12898,
-      "sha256": "5b33af791d12b79e779cce10c093bfdb4e6581a0bf9f1d15e693ea548957d75a"
+      "gitBlob": "bbaf7f8b55eb2c3f07dcd2b1383ae41931ee458f",
+      "size": 13104,
+      "sha256": "30cf3efa56aa126f9dac852a881a04b86b30398a12187a7e5a91d7ea7d9ea4ab"
     },
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "d13b341dcf513a58c8ef74fe15ccbdfc95019261",
-      "size": 54610,
-      "sha256": "8fc9950434b13bdbb28b171dc9d005f94c12aee42dae0ce2c1ba8a2d4bd293c2"
+      "gitBlob": "4ccf9512a49db0b1a1af3b6fe0ae72ee6af1bf06",
+      "size": 55308,
+      "sha256": "0a69151cb8e35ef2dfd00a3d79fc18b84e90399dd7d7c11a4616a4d0bc18bcdd"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1917,9 +1917,9 @@
     {
       "path": "framework/profil-projet.json",
       "mode": "100644",
-      "gitBlob": "ae1b19f700e8d4df8a54d40ba98a560b21de5515",
-      "size": 13967,
-      "sha256": "c29976b459bf8fab29d22e043af7b65f4b817800c9a6c520b8d2cc0df2741361"
+      "gitBlob": "da326f9b4880990243975e8c529ea5376df00aa6",
+      "size": 13970,
+      "sha256": "657ab81d76be08ebf5a77055237ac0727cfc131dc38dda6d26bce8cc402a5b2e"
     },
     {
       "path": "framework/review-policy.json",
@@ -1994,9 +1994,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "44ecaf5331b93dc8ecbd2fb76f31cb97f8c38a2e",
-      "size": 23338,
-      "sha256": "65e094d53b95ba2812d529f80532b1104a206b78ce4fc850019cf2b6793c15ee"
+      "gitBlob": "368025a2863006827697aa58e95ad10099c554d5",
+      "size": 23419,
+      "sha256": "0f37b4f9f72bff58959d6810df33749ac120bb8cf35acb71b7bcedb659528975"
     },
     {
       "path": "scripts/backup_site.py",
@@ -2883,9 +2883,9 @@
     {
       "path": "workflows/preparer-livraison.md",
       "mode": "100644",
-      "gitBlob": "3ba6dc76381397b80b9c6c2c4a676b95dd828407",
-      "size": 18467,
-      "sha256": "259ec653016f06e8ed596c5ae3d370ccaeaaf70170480ee552039532ced76c94"
+      "gitBlob": "bf6d148393ea506cf0c0882752e6a25417dda0b3",
+      "size": 18568,
+      "sha256": "a41013386001b650e8fca303e7cae42cf49d2302e5fa873002403dc01e79d5f3"
     },
     {
       "path": "workflows/publication-controlee.md",
@@ -2895,5 +2895,5 @@
       "sha256": "84b12b17eea10c80ba8a6812db00448b56ee12595fb3a036a6574188cf103c87"
     }
   ],
-  "artifactDigest": "c1500f4b091259d4bfc90ef25463d3cf3f1c4b138a0c08bed02298d32c39de31"
+  "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a"
 }

@@ -2317,15 +2317,35 @@
       "publicOpeningExecuted": false,
       "databaseUserCreated": true,
       "sqlPrivilegesApplied": true,
-      "privateInputSaved": false
+      "privateInputSaved": false,
+      "databaseCharset": "utf8mb4",
+      "databaseCollation": "utf8mb4_unicode_ci",
+      "databaseEmptyVerified": true,
+      "privatePasswordPresent": false,
+      "sqlImportStarted": false
     },
     "industrialisationReview": {
       "evidenceRef": "data/framework-revue-verification.json#industrialisationReview",
-      "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
-      "artifactDigest": "c1500f4b091259d4bfc90ef25463d3cf3f1c4b138a0c08bed02298d32c39de31",
+      "sourceCommit": "3c1bf8c74c17d05d2dd8f82c66032bb9c3b53a70",
+      "artifactDigest": "b1722ef490b54d6da7628a81ef104b99eeca88727cf921f2945887a2fdb5319a",
       "phase": "Développement local",
-      "status": "local_checks_passed_pr_preparation",
-      "siteRecipeUrl": "https://preprod.tclongages.fr/"
+      "status": "draft_opened_documentation_refresh_ci_pending",
+      "siteRecipeUrl": "https://preprod.tclongages.fr/",
+      "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/11",
+      "draft": true,
+      "recordedAt": "2026-10-05T09:12:38.079096+00:00",
+      "initialCi": {
+        "sourceCommit": "6d998499d117f474e67ec12b75c4a5409b705465",
+        "checkedHead": "c1783f1b12fda0e6e387388c53a6c6927cb86aa5",
+        "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37288321106",
+        "checkedAt": "2026-10-05T09:21:09.219767+00:00",
+        "technicalCi": "passed",
+        "deliverySafety": "passed",
+        "linuxPythonTests": 49,
+        "linuxPythonPassed": 49,
+        "linuxPythonSkipped": 0,
+        "policy": "human_confirmations_unchecked"
+      }
     }
   },
   "phaseModel": {
