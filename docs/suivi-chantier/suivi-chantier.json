@@ -4087,29 +4087,39 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": "docs/suivi-chantier/suivi-chantier.json#developmentIterations",
-        "observedAt": "2026-10-05T19:48:14.942171+00:00",
+        "observedAt": "2026-10-05T20:59:16.884832+00:00",
         "prNumber": 14,
         "state": "OPEN",
         "isDraft": true,
-        "observedHead": "1734e8d1add232666443139bfe4706b47fc214b3",
+        "observedHead": "6353d845bb1227be14296ec39512c3df1121d078",
         "statusChecks": [
           {
             "__typename": "CheckRun",
             "completedAt": "0001-01-01T00:00:00Z",
             "conclusion": "",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37365341936/job/111948999993",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372865549/job/111974092821",
             "name": "policy",
-            "startedAt": "2026-10-05T19:44:27Z",
+            "startedAt": "2026-10-05T20:56:53Z",
             "status": "QUEUED",
             "workflowName": "PR Policy"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "2026-10-05T19:45:00Z",
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866533/job/111974096800",
+            "name": "policy",
+            "startedAt": "2026-10-05T20:56:54Z",
+            "status": "QUEUED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-05T20:57:14Z",
             "conclusion": "SUCCESS",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37365341929/job/111949000419",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866692/job/111974097890",
             "name": "delivery-safety",
-            "startedAt": "2026-10-05T19:44:54Z",
+            "startedAt": "2026-10-05T20:57:07Z",
             "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           },
@@ -4117,13 +4127,14 @@
             "__typename": "CheckRun",
             "completedAt": "0001-01-01T00:00:00Z",
             "conclusion": "",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37365341929/job/111949000089",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866692/job/111974097717",
             "name": "technical-ci",
-            "startedAt": "2026-10-05T19:44:27Z",
+            "startedAt": "2026-10-05T20:56:54Z",
             "status": "QUEUED",
             "workflowName": "CI — TC Longages"
           }
-        ]
+        ],
+        "title": "feat(bureau): intégrer les adhérents et la communication à la V2"
       },
       "checks": [
         {
@@ -4206,6 +4217,17 @@
           "target": "Communication browser previews 1280/390",
           "evidence": "data/communication-local-verification.json#browserRecipe",
           "observedAt": "2026-10-05T20:56:26.343109+00:00"
+        },
+        {
+          "kind": "ci",
+          "status": "in_progress",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "GitHub PR #14",
+          "headSha": "6353d845bb1227be14296ec39512c3df1121d078",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/pull/14/checks",
+          "observedAt": "2026-10-05T20:59:16.884832+00:00",
+          "note": "Observed GitHub state only; unchecked human confirmations remain the responsibility of the reviewer."
         }
       ],
       "approvals": [],
