@@ -4057,10 +4057,10 @@
       "kind": "site",
       "stage": "developpement_local",
       "status": "in_progress",
-      "objective": "Bureau: enregistrer les nouveaux adhérents; préparer affichage calendrier public et compétitions. Équipes et présences FFT ultérieures.",
+      "objective": "Bureau: enregistrer les nouveaux adhérents; préparer affichage calendrier public et compétitions. Équipes et présences FFT ultérieures. Communication du Bureau : brouillons, affiches, validation et publication sur le site local, liens et partage manuel.",
       "candidate": {
-        "sourceSha": "1324109e3a6a8a46a524d50bd153849e190e7424",
-        "artifactSha256": "cf4ea2a03619979e0bf29b7bda1665bcffaf3666afb1c166f2de2cafbb0bbd40",
+        "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+        "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
         "manifest": "data/framework-candidate.json",
         "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP"
       },
@@ -4161,10 +4161,63 @@
           "target": "GitHub PR #14",
           "evidence": "https://github.com/jpdandin44/TC_Longages/pull/14/checks",
           "observedAt": "2026-10-05T19:48:14.942171+00:00"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "http://127.0.0.1:4182",
+          "evidence": "data/communication-local-verification.json#httpRecipe",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "Bureau regression on private SQLite",
+          "evidence": "data/communication-local-verification.json#bureauRegression",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "Node/Python/PHP and canonical framework",
+          "evidence": "data/communication-local-verification.json#technicalChecks",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "Changed documents, local links and foundation",
+          "evidence": "data/communication-local-verification.json#technicalChecks",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "target": "Communication browser previews 1280/390",
+          "evidence": "data/communication-local-verification.json#browserRecipe",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00"
         }
       ],
       "approvals": [],
-      "backups": [],
+      "backups": [
+        {
+          "status": "local_integrity_checked",
+          "target": "private local SQLite",
+          "evidence": "data/communication-local-verification.json#localUpdate",
+          "observedAt": "2026-10-05T20:56:26.343109+00:00",
+          "hostedRestoreProven": false
+        }
+      ],
       "rollback": {
         "status": "not_tested",
         "target": null,
@@ -4182,10 +4235,10 @@
       },
       "blockers": [
         "Agenda public dédié : ID et accès aux événements non qualifiés",
-        "MySQL, mise à jour Drupal existant et sauvegarde avant recette V2 non qualifiés",
-        "Recette mobile du nouveau Bureau non effectuée"
+        "Mise à jour MySQL, stockage des images, routage Apache et sauvegarde/restauration V2 à qualifier sur l’hébergement",
+        "Recette mobile complète des dossiers du Bureau non effectuée; Communication examinée à 390 et 1280 pixels"
       ],
-      "nextAction": "Examiner le candidat local et sa PR; choisir les champs complets et transmettre ID/code public du nouvel agenda; qualifier ensuite la mise à jour en préproduction.",
+      "nextAction": "Recetter en local les adhérents et la communication de la PR #14; confirmer les champs et fournir ID/code du nouvel agenda public; qualifier ensuite update MySQL, images, Apache et sauvegarde/restauration pour une recette hébergée V2.",
       "nextIteration": [
         "Affichage actualisable des compétitions FFT",
         "Lecture des présences saisies dans FFT par les capitaines, après qualification des accès et du mécanisme",
@@ -4203,7 +4256,7 @@
       "versionLabel": "TC Longages V2, candidat local",
       "guide": "docs/comptes-et-bureau.md",
       "branch": "feat/v2-comptes-bureau-local",
-      "updatedAt": "2026-10-05T19:45:32.017999+00:00",
+      "updatedAt": "2026-10-05T20:57:20.620818+00:00",
       "phases": [
         {
           "id": 0,
@@ -4231,8 +4284,38 @@
           "source": "chat-utilisateur-20261005",
           "statement": "Commencer V2 en local avec comptes et Bureau, priorité nouveaux adhérents; afficher calendrier Google et compétitions; agenda public dédié choisi; présence dans FFT saisie par capitaine.",
           "effect": "Local development and assessment only; no V2 hosting or sharing changes"
+        },
+        {
+          "source": "chat-utilisateur-20261005-communication",
+          "statement": "Integrer la communication du prototype a la V2 en developpement, liens externes inclus.",
+          "effect": "Local development only; no hosting or external automatic publication"
         }
-      ]
+      ],
+      "communicationLot": {
+        "status": "local_ready_for_review",
+        "scope": "local_only",
+        "target": "http://127.0.0.1:4182",
+        "url": "http://127.0.0.1:4182/fr/bureau/communication",
+        "guide": "docs/communication-bureau.md",
+        "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+        "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+        "evidence": "data/communication-local-verification.json",
+        "checkedAt": "2026-10-05T20:56:26.343109+00:00",
+        "checks": {
+          "communicationHttp": 50,
+          "bureauRegressionHttp": 37,
+          "node": 151,
+          "pythonExecuted": 45,
+          "pythonSkipped": 4,
+          "phpFiles": 16,
+          "framework": 37,
+          "previewWidths": [
+            1280,
+            390
+          ]
+        },
+        "nextAction": "Tester brouillon, affiche, revue, validation, publication locale et retrait; examiner la PR #14."
+      }
     }
   ],
   "activeIterationId": "tcl-v2-bureau-calendrier-local",
