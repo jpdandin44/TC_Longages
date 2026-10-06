@@ -4,8 +4,8 @@
   "observedAt": "2026-10-06T09:34:04.787835+00:00",
   "status": "support_and_editor_preproduction_requested",
   "branch": "feat/v1-signalement-support",
-  "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
-  "artifactSha256": "b65e8d5e3af264afb19cf06b785ff13515210dd1e06f7a1e9a7f2bcffed46a28",
+  "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+  "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
   "mailbox": {
     "address": "support@tclongages.fr",
     "status": "created_and_visible_in_cpanel",
@@ -663,13 +663,13 @@
     }
   },
   "deliveryPackage": {
-    "manifestSha256": "3ce203104e96471f8e7023f5443f7340dd514beaeab6fef8023f1185b9c628c3",
+    "manifestSha256": "34865960d6d249f87d29c3c97d019f871ac1a1a4b0ff9cbcaa3492605e19c3dd",
     "files": 41,
-    "bytes": 815664
+    "bytes": 816003
   },
   "gitSourceManifest": {
-    "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
-    "artifactSha256": "ae0f7c2977ea4e7744b6f712c7bc70f2f47c70a7addb1bf24fd27baf9bbc8a25",
+    "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+    "artifactSha256": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060",
     "manifest": "data/framework-candidate.json"
   }
 }

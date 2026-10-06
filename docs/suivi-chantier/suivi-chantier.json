@@ -3556,13 +3556,13 @@
       "status": "in_progress",
       "objective": "Ajouter le signalement V1, le suivi privé et l’édition native des textes des sept pages ; livrer ce correctif sur la préproduction TC.",
       "candidate": {
-        "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
-        "artifactSha256": "b65e8d5e3af264afb19cf06b785ff13515210dd1e06f7a1e9a7f2bcffed46a28",
+        "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+        "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
         "manifest": "private ZIP manifest.json",
         "artifactKind": "Pinned additive support/editor preproduction ZIP",
-        "packageFilename": "tcl-support-editor-f127c227fe17.zip",
+        "packageFilename": "tcl-support-editor-f6dafd80bbd2.zip",
         "gitSourceManifest": "data/framework-candidate.json",
-        "gitSourceDigest": "ae0f7c2977ea4e7744b6f712c7bc70f2f47c70a7addb1bf24fd27baf9bbc8a25"
+        "gitSourceDigest": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060"
       },
       "targets": {
         "preproduction": {
@@ -3654,20 +3654,20 @@
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
-          "artifactSha256": "b65e8d5e3af264afb19cf06b785ff13515210dd1e06f7a1e9a7f2bcffed46a28",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
           "target": "http://127.0.0.1:4183",
           "evidence": "data/support-v1-verification.json#checks",
-          "observedAt": "2026-10-06T09:34:36.016459+00:00"
+          "observedAt": "2026-10-06T09:39:38.734518+00:00"
         },
         {
           "kind": "documentation",
           "status": "passed",
-          "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
-          "artifactSha256": "b65e8d5e3af264afb19cf06b785ff13515210dd1e06f7a1e9a7f2bcffed46a28",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
           "target": "changed documents and links",
           "evidence": "data/support-v1-verification.json#documentation",
-          "observedAt": "2026-10-06T09:34:36.016459+00:00"
+          "observedAt": "2026-10-06T09:39:38.734518+00:00"
         }
       ],
       "approvals": [
@@ -3681,6 +3681,18 @@
           "source": "user_chat",
           "evidence": "Latest user request: pousser la nouvelle version sur la préprod",
           "recordedAt": "2026-10-06T09:34:36.016459+00:00",
+          "scopeDetail": "Current V1 support and native text editing patch; private preproduction; no production write."
+        },
+        {
+          "scope": "preproduction",
+          "status": "approved",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+          "target": "https://preprod.tclongages.fr/",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "evidence": "Latest user request: pousser la nouvelle version sur la préprod",
+          "recordedAt": "2026-10-06T09:39:38.734518+00:00",
           "scopeDetail": "Current V1 support and native text editing patch; private preproduction; no production write."
         }
       ],

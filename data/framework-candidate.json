@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "f127c227fe176ae045c01399784bb409bca80bb5",
+  "sourceCommit": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -455,9 +455,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "a60c8888fdaa325d52e48d4a549ff6f4d7db8240",
-      "size": 61032,
-      "sha256": "77d660f85e278007faea86b901fab56a0be1adba423f1eec59cfd956daf7cd7a"
+      "gitBlob": "5f7b7c80aed08af288465b43defc6a22584a4412",
+      "size": 61524,
+      "sha256": "d86cb2637eda6ef5853afc0980f685554a154ec5c4d813acca2536a48e965701"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2457,9 +2457,9 @@
     {
       "path": "scripts/support-update-hosting.py",
       "mode": "100644",
-      "gitBlob": "0d7dadcb7c92058ef5a2e4e517fba252f44af559",
-      "size": 15311,
-      "sha256": "5879242770f07dc66f049624eee5761de2edf813c196ab65b7c39ae3ee2a0b3d"
+      "gitBlob": "9c0f64640d30dab56c0026b63b29a7b261798f7e",
+      "size": 16512,
+      "sha256": "1ac4779b09c7219303741d4e298da1ad4f32c3d7d37fe61449d77206d8f322b7"
     },
     {
       "path": "scripts/tariffs.mjs",
@@ -3094,9 +3094,9 @@
     {
       "path": "tests/test_support_update.py",
       "mode": "100644",
-      "gitBlob": "7a552c7df1472c6db34031604a8bbe557ecd28b6",
-      "size": 1879,
-      "sha256": "2eb01742b45bd1f945593b2587ee1ce9797c6ea9fd85ec7d641dc9491ba7bfb6"
+      "gitBlob": "21293915f8b7786b4d7d3817604ef3a358597051",
+      "size": 2501,
+      "sha256": "eed117323c65fe718892062f5054c524245fdb168c592354ddf2f21b128f5ed4"
     },
     {
       "path": "tests/whatsapp.test.mjs",
@@ -3141,5 +3141,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "ae0f7c2977ea4e7744b6f712c7bc70f2f47c70a7addb1bf24fd27baf9bbc8a25"
+  "artifactDigest": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060"
 }
