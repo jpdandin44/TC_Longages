@@ -3566,12 +3566,15 @@
       },
       "targets": {
         "preproduction": {
-          "id": null,
-          "ready": false,
-          "isolated": false,
+          "id": "https://preprod.tclongages.fr/",
+          "ready": true,
+          "isolated": true,
           "empty": false,
-          "evidence": null,
-          "observedAt": null
+          "evidence": "data/support-v1-verification.json#preproduction.recovery",
+          "observedAt": "2026-10-06T09:40:33.514887+00:00",
+          "root": "/home2/daje5127/tcl-preproduction/drupal",
+          "databaseScope": "dedicated TC preproduction database, original empty prefix",
+          "maintenanceEnabled": true
         },
         "production": {
           "id": null,
@@ -3587,64 +3590,54 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": null,
-        "observedAt": "2026-10-06T08:18:19.669057+00:00",
+        "observedAt": "2026-10-06T09:44:11.645719+00:00",
         "prNumber": 15,
         "state": "OPEN",
         "isDraft": true,
-        "observedHead": "3544c50a6ea5746502d1ab98bb3fdc3f4128468c",
+        "observedHead": "60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
         "statusChecks": [
           {
             "__typename": "CheckRun",
-            "completedAt": "2026-10-06T08:11:12Z",
+            "completedAt": "2026-10-06T09:38:55Z",
             "conclusion": "FAILURE",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434398990/job/112172547663",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380158/job/112205542217",
             "name": "policy",
-            "startedAt": "2026-10-06T08:10:57Z",
+            "startedAt": "2026-10-06T09:38:42Z",
             "status": "COMPLETED",
             "workflowName": "PR Policy"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "2026-10-06T08:13:45Z",
-            "conclusion": "FAILURE",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434682514/job/112173488818",
-            "name": "policy",
-            "startedAt": "2026-10-06T08:13:32Z",
-            "status": "COMPLETED",
-            "workflowName": "PR Policy"
-          },
-          {
-            "__typename": "CheckRun",
-            "completedAt": "2026-10-06T08:11:05Z",
+            "completedAt": "2026-10-06T09:38:51Z",
             "conclusion": "SUCCESS",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548202",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543221",
             "name": "delivery-safety",
-            "startedAt": "2026-10-06T08:10:58Z",
+            "startedAt": "2026-10-06T09:38:43Z",
             "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "2026-10-06T08:13:14Z",
+            "completedAt": "2026-10-06T09:41:01Z",
             "conclusion": "SUCCESS",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548217",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543279",
             "name": "support-runtime",
-            "startedAt": "2026-10-06T08:10:58Z",
+            "startedAt": "2026-10-06T09:38:43Z",
             "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "2026-10-06T08:14:04Z",
+            "completedAt": "2026-10-06T09:41:19Z",
             "conclusion": "SUCCESS",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172547893",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205542984",
             "name": "technical-ci",
-            "startedAt": "2026-10-06T08:10:59Z",
+            "startedAt": "2026-10-06T09:38:43Z",
             "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           }
         ],
-        "technicalChecksPassed": false,
+        "technicalChecksPassed": true,
         "policyGate": {
           "status": "awaiting_human_confirmations",
           "reason": "Four mandatory human declarations unchecked; no declaration changed."
@@ -3668,6 +3661,24 @@
           "target": "changed documents and links",
           "evidence": "data/support-v1-verification.json#documentation",
           "observedAt": "2026-10-06T09:39:38.734518+00:00"
+        },
+        {
+          "kind": "ci",
+          "status": "passed",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+          "target": "GitHub PR head 60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201",
+          "observedAt": "2026-10-06T09:44:11.645719+00:00"
+        },
+        {
+          "kind": "preproduction",
+          "status": "passed",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+          "target": "https://preprod.tclongages.fr/",
+          "evidence": "data/support-v1-verification.json#preproduction.browserRecipe",
+          "observedAt": "2026-10-06T10:05:09.973538+00:00"
         }
       ],
       "approvals": [
@@ -3696,7 +3707,18 @@
           "scopeDetail": "Current V1 support and native text editing patch; private preproduction; no production write."
         }
       ],
-      "backups": [],
+      "backups": [
+        {
+          "id": "20261006T094004Z",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "verified",
+          "restoreStatus": "passed",
+          "evidence": "data/support-v1-verification.json#preproduction.recovery",
+          "observedAt": "2026-10-06T09:40:33.514887+00:00",
+          "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
+          "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd"
+        }
+      ],
       "rollback": {
         "status": "not_tested",
         "target": null,
@@ -3705,16 +3727,25 @@
         "observedAt": null
       },
       "delivery": {
-        "status": "not_delivered",
-        "sourceSha": null,
-        "artifactSha256": null,
-        "target": null,
-        "evidence": null,
-        "observedAt": null
+        "status": "delivered",
+        "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+        "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+        "target": "https://preprod.tclongages.fr/",
+        "evidence": "data/support-v1-verification.json#preproduction.installation",
+        "observedAt": "2026-10-06T09:43:13.032499+00:00",
+        "scope": "closed_preproduction_only",
+        "productionWritten": false
       },
       "blockers": [],
-      "nextAction": "Qualifier le ZIP, la CI et la restauration fraîche avant installation en préproduction autorisée.",
-      "nextIteration": [],
+      "nextAction": "Tester le site, modifier un texte dans Drupal et examiner la PR #15 ; enregistrer sa revue personnelle dans le cockpit.",
+      "nextIteration": [
+        {
+          "title": "Bannière Nos partenaires — V1.1",
+          "description": "Zone en bas des pages publiques ; logos, noms, liens facultatifs et ordre administrables dans Drupal. Prévue, pas encore implémentée ; logos et liens attendus.",
+          "status": "planned",
+          "requestSource": "user_chat_2026-10-06"
+        }
+      ],
       "budget": {
         "limit": null,
         "unit": null,
@@ -3733,7 +3764,11 @@
         "site": "http://127.0.0.1:4183/",
         "form": "http://127.0.0.1:4183/signaler-un-probleme",
         "privateTracker": "http://127.0.0.1:4183/admin/reports/tcl-support",
-        "editor": "http://127.0.0.1:4183/admin/content/tcl-pages"
+        "editor": "http://127.0.0.1:4183/admin/content/tcl-pages",
+        "preproductionSite": "https://preprod.tclongages.fr/",
+        "preproductionEditor": "https://preprod.tclongages.fr/admin/content/tcl-pages",
+        "preproductionTracker": "https://preprod.tclongages.fr/admin/reports/tcl-support",
+        "preproductionForm": "https://preprod.tclongages.fr/signaler-un-probleme"
       },
       "guide": "docs/signalements-support.md",
       "projection": {
@@ -3762,7 +3797,27 @@
       "guides": [
         "docs/signalements-support.md",
         "docs/modifier-textes-drupal.md"
-      ]
+      ],
+      "versionLabel": "TC Longages V1.1 — Support et édition (recette)",
+      "changes": [
+        {
+          "title": "Signalement sur les pages du site",
+          "description": "Bouton, formulaire et stockage durable des demandes."
+        },
+        {
+          "title": "Suivi privé du support",
+          "description": "États, responsable, notes et historique dans Drupal ; disponible aussi en développement."
+        },
+        {
+          "title": "Textes modifiables dans Drupal",
+          "description": "Sept pages, titre, présentation, rubriques, questions et légendes avec révisions."
+        },
+        {
+          "title": "Boîte support et recette du courriel",
+          "description": "Boîte créée ; message fictif reçu et lu. Les formulaires de recette restent en capture."
+        }
+      ],
+      "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "project": "TC_Longages",
   "iterationId": "tcl-v1-signalements-support",
-  "observedAt": "2026-10-06T09:34:04.787835+00:00",
-  "status": "support_and_editor_preproduction_requested",
+  "observedAt": "2026-10-06T10:05:09.973538+00:00",
+  "status": "installed_closed_preproduction_awaiting_human_recipe",
   "branch": "feat/v1-signalement-support",
   "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
   "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
@@ -17,8 +17,8 @@
       "exchange": "mail.tclongages.fr",
       "preference": 0
     },
-    "incomingMailVerified": false,
-    "outgoingTransportVerified": false,
+    "incomingMailVerified": true,
+    "outgoingTransportVerified": true,
     "dnsChanges": false
   },
   "referenceDocument": {
@@ -399,16 +399,198 @@
     }
   ],
   "ci": {
-    "status": "awaiting_new_exact_head"
+    "status": "passed",
+    "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+    "headSha": "60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
+    "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+    "observedAt": "2026-10-06T09:44:11.645719+00:00",
+    "jobs": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T09:38:51Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543221",
+        "name": "delivery-safety",
+        "startedAt": "2026-10-06T09:38:43Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T09:41:01Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543279",
+        "name": "support-runtime",
+        "startedAt": "2026-10-06T09:38:43Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T09:41:19Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205542984",
+        "name": "technical-ci",
+        "startedAt": "2026-10-06T09:38:43Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      }
+    ]
   },
   "preproduction": {
-    "installed": false,
-    "mailTransportQualified": false,
+    "installed": true,
+    "mailTransportQualified": true,
     "gate": {
-      "status": "preparing_pinned_patch_and_restoration",
-      "reasons": [
-        "Fresh recovery and exact-head CI to verify before apply."
-      ]
+      "status": "authorized_apply_completed",
+      "evidence": ".local/support-preproduction-gate.json",
+      "reasons": []
+    },
+    "recovery": {
+      "operation": "staged_with_recovery",
+      "checkedAt": "2026-10-06T09:40:33.514887+00:00",
+      "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+      "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+      "target": "https://preprod.tclongages.fr/",
+      "before": {
+        "checkedAt": "2026-10-06T09:40:03+00:00",
+        "operation": "check",
+        "environment": "preproduction",
+        "databaseConnectionVerified": true,
+        "maintenanceEnabled": true,
+        "drupalVersion": "11.4.8",
+        "phpVersion": "8.3.33",
+        "registration": "admin_only",
+        "supportEnabled": false,
+        "mailMode": "disabled",
+        "publicOpeningExecuted": false,
+        "restorationPrefixVerified": false
+      },
+      "backup": {
+        "format": "tcl-private-backup-v1",
+        "createdAt": "2026-10-06T09:40:23.649080+00:00",
+        "target": "https://preprod.tclongages.fr/",
+        "account": "daje5127",
+        "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
+        "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
+        "sqlUncompressedBytes": 5497124,
+        "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
+        "integrityVerified": true,
+        "restorationTested": true,
+        "deploymentExecuted": false
+      },
+      "restoredFiles": {
+        "format": "tcl-private-file-restore-v1",
+        "checkedAt": "2026-10-06T09:40:31.408192+00:00",
+        "directory": "/home2/daje5127/tcl-preproduction/private/restorations/restore-avr4j8g0",
+        "backupDirectory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
+        "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
+        "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
+        "regularFiles": 26833,
+        "filesRestoredAndVerified": true,
+        "databaseRestored": false,
+        "drupalBootstrapped": false,
+        "restorationTested": false,
+        "deploymentExecuted": false
+      },
+      "restoredDrupal": {
+        "checkedAt": "2026-10-06T09:40:33+00:00",
+        "operation": "restore-check",
+        "environment": "preproduction",
+        "databaseConnectionVerified": true,
+        "maintenanceEnabled": true,
+        "drupalVersion": "11.4.8",
+        "phpVersion": "8.3.33",
+        "registration": "admin_only",
+        "supportEnabled": false,
+        "mailMode": "disabled",
+        "publicOpeningExecuted": false,
+        "restorationPrefixVerified": true
+      },
+      "databaseRestoration": {
+        "namespace": "sr_0a623d9bec3e_",
+        "tables": 44,
+        "originalTablesOverwritten": false
+      },
+      "deploymentExecuted": false,
+      "productionWritten": false
+    },
+    "installation": {
+      "operation": "installed_closed_preproduction",
+      "checkedAt": "2026-10-06T09:43:13.032499+00:00",
+      "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+      "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+      "target": "https://preprod.tclongages.fr/",
+      "candidateFilesVerified": 41,
+      "initialized": {
+        "checkedAt": "2026-10-06T09:43:12+00:00",
+        "operation": "initialize",
+        "environment": "preproduction",
+        "databaseConnectionVerified": true,
+        "maintenanceEnabled": true,
+        "drupalVersion": "11.4.8",
+        "phpVersion": "8.3.33",
+        "registration": "admin_only",
+        "supportEnabled": true,
+        "mailMode": "capture",
+        "publicOpeningExecuted": false,
+        "restorationPrefixVerified": false,
+        "editablePages": 7
+      },
+      "checked": {
+        "checkedAt": "2026-10-06T09:43:12+00:00",
+        "operation": "check",
+        "environment": "preproduction",
+        "databaseConnectionVerified": true,
+        "maintenanceEnabled": true,
+        "drupalVersion": "11.4.8",
+        "phpVersion": "8.3.33",
+        "registration": "admin_only",
+        "supportEnabled": true,
+        "mailMode": "capture",
+        "publicOpeningExecuted": false,
+        "restorationPrefixVerified": false,
+        "editablePages": 7
+      },
+      "backupReceipt": "stage-receipt.json",
+      "maintenancePreserved": true,
+      "productionWritten": false
+    },
+    "mailQualification": {
+      "checkedAt": "2026-10-06T09:43:51+00:00",
+      "operation": "mail-test",
+      "environment": "preproduction",
+      "databaseConnectionVerified": true,
+      "maintenanceEnabled": true,
+      "drupalVersion": "11.4.8",
+      "phpVersion": "8.3.33",
+      "registration": "admin_only",
+      "supportEnabled": true,
+      "mailMode": "transport",
+      "publicOpeningExecuted": false,
+      "restorationPrefixVerified": false,
+      "editablePages": 7,
+      "testTicketId": 1,
+      "testRecipient": "support@tclongages.fr",
+      "transportAccepted": true,
+      "inboxReceptionVerified": true,
+      "receptionObservedAt": "2026-10-06T10:05:09.973538+00:00",
+      "receptionEvidence": ".local/support-preprod-mail-received.jpg",
+      "webModeRemains": "capture"
+    },
+    "browserRecipe": {
+      "observedAt": "2026-10-06T10:05:09.973538+00:00",
+      "caption": "Le court de Longages · photo fournie par le club",
+      "editablePages": 7,
+      "nativeEditSavedDisplayedAndReverted": true,
+      "revisionsPreserved": true,
+      "publicButtonCount": 1,
+      "reportFormAccessibleAuthenticated": true,
+      "privateTrackerDisplaysFictitiousProbe": true,
+      "evidence": [
+        ".local/support-preprod-site.jpg",
+        ".local/support-preprod-mail-received.jpg"
+      ],
+      "noHumanApprovalCreated": true
     }
   },
   "production": {
@@ -417,9 +599,10 @@
     "approvalForThisPatch": false
   },
   "remaining": [
-    "Qualify and install exact support/editor patch on private preproduction",
-    "Find beta strategy before production form acceptance",
-    "Human review and explicit production agreement for this patch"
+    "Recette personnelle de la PR #15 et de la préproduction",
+    "Retrouver la stratégie de bêta-test avant acceptation du formulaire en production",
+    "Accord propre à la publication de ce correctif en production",
+    "Bannière des partenaires V1.1 à développer et logos/liens à fournir"
   ],
   "documentation": {
     "status": "passed_for_metadata_foundation_and_changed_links",
@@ -480,9 +663,10 @@
       "environmentCorrection": "Three PyYAML checks rerun with documented framework Python: 7 targeted tests passed."
     },
     "python": {
-      "run": 53,
-      "passed": 49,
-      "skipped": 4
+      "run": 54,
+      "passed": 50,
+      "skipped": 4,
+      "incrementalTest": "New fifth SQL lock regression passed; complete previous 53 tests unchanged and fresh CI passed."
     },
     "phpSyntaxFiles": 24,
     "actionlint": "passed",
@@ -495,66 +679,56 @@
   "candidateManifest": "data/framework-candidate.json",
   "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/15",
   "github": {
-    "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
-    "headSha": "3544c50a6ea5746502d1ab98bb3fdc3f4128468c",
-    "state": "OPEN",
+    "headRefOid": "60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
     "isDraft": true,
-    "observedAt": "2026-10-06T08:18:19.669057+00:00",
-    "checks": [
+    "state": "OPEN",
+    "statusCheckRollup": [
       {
         "__typename": "CheckRun",
-        "completedAt": "2026-10-06T08:11:12Z",
+        "completedAt": "2026-10-06T09:38:55Z",
         "conclusion": "FAILURE",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434398990/job/112172547663",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380158/job/112205542217",
         "name": "policy",
-        "startedAt": "2026-10-06T08:10:57Z",
+        "startedAt": "2026-10-06T09:38:42Z",
         "status": "COMPLETED",
         "workflowName": "PR Policy"
       },
       {
         "__typename": "CheckRun",
-        "completedAt": "2026-10-06T08:13:45Z",
-        "conclusion": "FAILURE",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434682514/job/112173488818",
-        "name": "policy",
-        "startedAt": "2026-10-06T08:13:32Z",
-        "status": "COMPLETED",
-        "workflowName": "PR Policy"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T08:11:05Z",
+        "completedAt": "2026-10-06T09:38:51Z",
         "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548202",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543221",
         "name": "delivery-safety",
-        "startedAt": "2026-10-06T08:10:58Z",
+        "startedAt": "2026-10-06T09:38:43Z",
         "status": "COMPLETED",
         "workflowName": "CI — TC Longages"
       },
       {
         "__typename": "CheckRun",
-        "completedAt": "2026-10-06T08:13:14Z",
+        "completedAt": "2026-10-06T09:41:01Z",
         "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548217",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543279",
         "name": "support-runtime",
-        "startedAt": "2026-10-06T08:10:58Z",
+        "startedAt": "2026-10-06T09:38:43Z",
         "status": "COMPLETED",
         "workflowName": "CI — TC Longages"
       },
       {
         "__typename": "CheckRun",
-        "completedAt": "2026-10-06T08:14:04Z",
+        "completedAt": "2026-10-06T09:41:19Z",
         "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172547893",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205542984",
         "name": "technical-ci",
-        "startedAt": "2026-10-06T08:10:59Z",
+        "startedAt": "2026-10-06T09:38:43Z",
         "status": "COMPLETED",
         "workflowName": "CI — TC Longages"
       }
-    ]
+    ],
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
+    "observedAt": "2026-10-06T09:44:11.645719+00:00"
   },
   "humanReview": {
-    "status": "awaiting_preproduction_recipe_and_human_checklist",
+    "status": "awaiting_personal_recipe_and_human_checklist",
     "source": "PR Policy exact-head annotations",
     "fourCheckboxesUnchecked": true
   },
