@@ -4059,8 +4059,8 @@
       "status": "in_progress",
       "objective": "Bureau: enregistrer les nouveaux adhérents; préparer affichage calendrier public et compétitions. Équipes et présences FFT ultérieures. Communication du Bureau : brouillons, affiches, validation et publication sur le site local, liens et partage manuel.",
       "candidate": {
-        "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
-        "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+        "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+        "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
         "manifest": "data/framework-candidate.json",
         "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP"
       },
@@ -4087,50 +4087,40 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": "docs/suivi-chantier/suivi-chantier.json#developmentIterations",
-        "observedAt": "2026-10-05T20:59:16.884832+00:00",
+        "observedAt": "2026-10-06T00:08:33.512145+02:00",
         "prNumber": 14,
         "state": "OPEN",
         "isDraft": true,
-        "observedHead": "6353d845bb1227be14296ec39512c3df1121d078",
+        "observedHead": "aedc85dbdd6d068230f3c264fbe8e7fa4533e43e",
         "statusChecks": [
           {
             "__typename": "CheckRun",
-            "completedAt": "0001-01-01T00:00:00Z",
-            "conclusion": "",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372865549/job/111974092821",
+            "completedAt": "2026-10-05T21:13:19Z",
+            "conclusion": "CANCELLED",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373004159/job/111974560724",
             "name": "policy",
-            "startedAt": "2026-10-05T20:56:53Z",
-            "status": "QUEUED",
+            "startedAt": "2026-10-05T20:58:17Z",
+            "status": "COMPLETED",
             "workflowName": "PR Policy"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "0001-01-01T00:00:00Z",
-            "conclusion": "",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866533/job/111974096800",
-            "name": "policy",
-            "startedAt": "2026-10-05T20:56:54Z",
-            "status": "QUEUED",
-            "workflowName": "PR Policy"
-          },
-          {
-            "__typename": "CheckRun",
-            "completedAt": "2026-10-05T20:57:14Z",
+            "completedAt": "2026-10-05T21:08:38Z",
             "conclusion": "SUCCESS",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866692/job/111974097890",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373003823/job/111974558556",
             "name": "delivery-safety",
-            "startedAt": "2026-10-05T20:57:07Z",
+            "startedAt": "2026-10-05T21:08:28Z",
             "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           },
           {
             "__typename": "CheckRun",
-            "completedAt": "0001-01-01T00:00:00Z",
-            "conclusion": "",
-            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37372866692/job/111974097717",
+            "completedAt": "2026-10-05T21:13:19Z",
+            "conclusion": "CANCELLED",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373003823/job/111974558771",
             "name": "technical-ci",
-            "startedAt": "2026-10-05T20:56:54Z",
-            "status": "QUEUED",
+            "startedAt": "2026-10-05T20:58:17Z",
+            "status": "COMPLETED",
             "workflowName": "CI — TC Longages"
           }
         ],
@@ -4228,6 +4218,46 @@
           "evidence": "https://github.com/jpdandin44/TC_Longages/pull/14/checks",
           "observedAt": "2026-10-05T20:59:16.884832+00:00",
           "note": "Observed GitHub state only; unchecked human confirmations remain the responsibility of the reviewer."
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+          "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+          "target": "Bureau browser 390/1280",
+          "evidence": "data/reprise-bureau-verification.json#browserRecipe",
+          "observedAt": "2026-10-06T06:54:33.554925+00:00",
+          "note": "Local qualification only; no hosted proof or human approval"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+          "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+          "target": "Disposable local MariaDB native update and restored SQL",
+          "evidence": "data/reprise-bureau-verification.json#mysqlRecipe",
+          "observedAt": "2026-10-06T06:54:33.554925+00:00",
+          "note": "Local qualification only; no hosted proof or human approval"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+          "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+          "target": "Foundation and 13 documents, 371 local links",
+          "evidence": "data/reprise-bureau-verification.json#technicalChecks",
+          "observedAt": "2026-10-06T06:54:33.554925+00:00",
+          "note": "Local qualification only; no hosted proof or human approval"
+        },
+        {
+          "kind": "ci",
+          "status": "in_progress",
+          "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+          "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+          "target": "GitHub PR #14, current candidate",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/pull/14/checks",
+          "observedAt": "2026-10-06T06:54:33.554925+00:00",
+          "note": "CI awaiting current head execution; human declarations unchecked"
         }
       ],
       "approvals": [],
@@ -4237,6 +4267,13 @@
           "target": "private local SQLite",
           "evidence": "data/communication-local-verification.json#localUpdate",
           "observedAt": "2026-10-05T20:56:26.343109+00:00",
+          "hostedRestoreProven": false
+        },
+        {
+          "status": "local_restored_and_compared",
+          "target": "disposable fictitious MariaDB fixture",
+          "evidence": "data/reprise-bureau-verification.json#mysqlRecipe",
+          "observedAt": "2026-10-06T06:49:10.120142+00:00",
           "hostedRestoreProven": false
         }
       ],
@@ -4256,11 +4293,11 @@
         "observedAt": null
       },
       "blockers": [
-        "Agenda public dédié : ID et accès aux événements non qualifiés",
-        "Mise à jour MySQL, stockage des images, routage Apache et sauvegarde/restauration V2 à qualifier sur l’hébergement",
-        "Recette mobile complète des dossiers du Bureau non effectuée; Communication examinée à 390 et 1280 pixels"
+        "Agenda public dédié non créé : ID et partage requis seulement pour le complément Calendrier",
+        "CI PHP 8.3/MariaDB du candidat exact à vérifier sur GitHub",
+        "Livraison V2 à préparer : nouvelles routes/images Apache et mise à jour, sauvegarde/restauration et retour arrière à qualifier sur la cible hébergée"
       ],
-      "nextAction": "Recetter en local les adhérents et la communication de la PR #14; confirmer les champs et fournir ID/code du nouvel agenda public; qualifier ensuite update MySQL, images, Apache et sauvegarde/restauration pour une recette hébergée V2.",
+      "nextAction": "Examiner le Bureau et la Communication de la PR #14, contrôler la CI du candidat exact puis préparer la recette hébergée V2 sous maintenance avec son accord spécifique.",
       "nextIteration": [
         "Affichage actualisable des compétitions FFT",
         "Lecture des présences saisies dans FFT par les capitaines, après qualification des accès et du mécanisme",
@@ -4278,7 +4315,7 @@
       "versionLabel": "TC Longages V2, candidat local",
       "guide": "docs/comptes-et-bureau.md",
       "branch": "feat/v2-comptes-bureau-local",
-      "updatedAt": "2026-10-05T20:57:20.620818+00:00",
+      "updatedAt": "2026-10-06T00:08:33.512145+02:00",
       "phases": [
         {
           "id": 0,
@@ -4311,6 +4348,11 @@
           "source": "chat-utilisateur-20261005-communication",
           "statement": "Integrer la communication du prototype a la V2 en developpement, liens externes inclus.",
           "effect": "Local development only; no hosting or external automatic publication"
+        },
+        {
+          "source": "chat-utilisateur-20261006-agenda",
+          "statement": "Agenda public dedie pas encore cree",
+          "effect": "Keep calendar integration disabled pending public ID and sharing verification"
         }
       ],
       "communicationLot": {
@@ -4337,7 +4379,131 @@
           ]
         },
         "nextAction": "Tester brouillon, affiche, revue, validation, publication locale et retrait; examiner la PR #14."
-      }
+      },
+      "sessionClose": {
+        "status": "closed_on_user_request",
+        "closedAt": "2026-10-06T00:08:33.512145+02:00",
+        "closedOn": "2026-10-06",
+        "source": "chat-utilisateur-20261006-cloture",
+        "reason": "Fin de session demandee par le responsable",
+        "guide": "docs/point-session.md",
+        "automaticResumptionScheduled": false,
+        "iterationCompleted": false,
+        "humanPhaseChanged": false,
+        "v2Deployed": false,
+        "localServices": {
+          "drupal4182": "stopped",
+          "cockpit4181": "stopped",
+          "prototype4174": "stopped",
+          "remainingListeners": [],
+          "cockpitLock": "removed_after_owner_exit"
+        },
+        "sessions": {
+          "preproductionDrupal": "logout_confirmed_maintenance_page",
+          "localBureau": "logout_confirmed",
+          "cpanelTabPresent": false,
+          "externalChromeSession": "not_controlled"
+        },
+        "dataPreserved": [
+          "private SQLite",
+          "fictitious enrolments",
+          "communication draft example",
+          "browser prototype drafts"
+        ],
+        "testedCandidatePreserved": {
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "manifest": "data/framework-candidate.json",
+          "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP"
+        },
+        "documentaryClosureChanges": "local_uncommitted; integrate and refresh candidate before a later review",
+        "githubObservation": {
+          "head": "aedc85dbdd6d068230f3c264fbe8e7fa4533e43e",
+          "checks": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-05T21:13:19Z",
+              "conclusion": "CANCELLED",
+              "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373004159/job/111974560724",
+              "name": "policy",
+              "startedAt": "2026-10-05T20:58:17Z",
+              "status": "COMPLETED",
+              "workflowName": "PR Policy"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-05T21:08:38Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373003823/job/111974558556",
+              "name": "delivery-safety",
+              "startedAt": "2026-10-05T21:08:28Z",
+              "status": "COMPLETED",
+              "workflowName": "CI — TC Longages"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-05T21:13:19Z",
+              "conclusion": "CANCELLED",
+              "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37373003823/job/111974558771",
+              "name": "technical-ci",
+              "startedAt": "2026-10-05T20:58:17Z",
+              "status": "COMPLETED",
+              "workflowName": "CI — TC Longages"
+            }
+          ],
+          "rerunRequested": false
+        },
+        "nextAction": "Relire point de session et suivi; redemarrer les services et se reconnecter; recetter la PR #14 et relancer les controles GitHub annules."
+      },
+      "sessionResumptions": [
+        {
+          "startedAt": "2026-10-06T06:22:33.537894+00:00",
+          "startedOn": "2026-10-06",
+          "source": "chat-utilisateur-20261006-reprise",
+          "status": "local_lot_complete",
+          "scope": "Local Bureau mobile and isolated MySQL update qualification; prepare candidate and CI",
+          "hostingAuthorized": false,
+          "completedAt": "2026-10-06T06:49:10.120142+00:00",
+          "evidence": "data/reprise-bureau-verification.json",
+          "localServices": {
+            "drupal4182": "running",
+            "prototype4174": "not_started",
+            "mysql33080": "stopped_after_test"
+          },
+          "dockerRecovery": {
+            "observedAt": "2026-10-06T06:51:53.513295+00:00",
+            "source": "user restarted Docker, live local engine read",
+            "status": "available",
+            "engine": "29.7.2",
+            "os": "linux",
+            "context": "desktop-linux",
+            "containersModified": false
+          }
+        }
+      ],
+      "localQualification": {
+        "status": "passed_local_only",
+        "guide": "docs/recette-bureau-mysql.md",
+        "evidence": "data/reprise-bureau-verification.json",
+        "checkedAt": "2026-10-06T06:49:10.120142+00:00",
+        "target": "local SQLite 4182 and disposable MariaDB loopback fixture",
+        "bureauVisualObservations": 9,
+        "mysqlChecks": 26,
+        "restoredTables": 39,
+        "hostingVerified": false,
+        "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+        "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26"
+      },
+      "candidateHistory": [
+        {
+          "sourceSha": "a605a2e19082498838e66636b6c7bb5c79c6e295",
+          "artifactSha256": "63b7e715150013cd1e2919cb0a593bc1d0f869b337931ef95ecbfabd0a091e57",
+          "manifest": "data/framework-candidate.json",
+          "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP",
+          "supersededAt": "2026-10-06T06:54:33.554925+00:00",
+          "reason": "Bureau mobile and isolated MariaDB update qualification; previous proofs preserved"
+        }
+      ]
     }
   ],
   "activeIterationId": "tcl-v2-bureau-calendrier-local",
