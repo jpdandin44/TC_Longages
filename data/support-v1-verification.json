@@ -1,11 +1,11 @@
 {
   "project": "TC_Longages",
   "iterationId": "tcl-v1-signalements-support",
-  "observedAt": "2026-10-06T08:11:53.478919+00:00",
-  "status": "local_candidate_proposed_not_deployed",
+  "observedAt": "2026-10-06T09:34:04.787835+00:00",
+  "status": "support_and_editor_preproduction_requested",
   "branch": "feat/v1-signalement-support",
-  "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
-  "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+  "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
+  "artifactSha256": "b65e8d5e3af264afb19cf06b785ff13515210dd1e06f7a1e9a7f2bcffed46a28",
   "mailbox": {
     "address": "support@tclongages.fr",
     "status": "created_and_visible_in_cpanel",
@@ -38,7 +38,7 @@
   },
   "checks": [
     {
-      "observedAt": "2026-10-06T08:07:38+00:00",
+      "observedAt": "2026-10-06T09:19:12+00:00",
       "scope": "local-sqlite-only",
       "outgoingMail": false,
       "checks": [
@@ -107,13 +107,17 @@
           "passed": true
         },
         {
+          "label": "Un collecteur de test ne peut pas qualifier un transport réel",
+          "passed": true
+        },
+        {
           "label": "Limitation des soumissions après cinq demandes par heure",
           "passed": true
         }
       ]
     },
     {
-      "observedAt": "2026-10-06T08:07:49.032021+00:00",
+      "observedAt": "2026-10-06T09:22:25.566181+00:00",
       "scope": "local-http-only",
       "origin": "http://127.0.0.1:4183",
       "outgoingMail": false,
@@ -307,6 +311,77 @@
           "passed": true
         }
       ]
+    },
+    {
+      "observedAt": "2026-10-06T09:22:34.966602+00:00",
+      "scope": "local-native-editor",
+      "outgoingMail": false,
+      "checks": [
+        {
+          "label": "Éditeur privé refusé au visiteur",
+          "passed": true
+        },
+        {
+          "label": "Session Drupal de recette ouverte",
+          "passed": true
+        },
+        {
+          "label": "Sept pages disponibles dans le répertoire natif",
+          "passed": true
+        },
+        {
+          "label": "Aucun bouton public de signalement dans l’administration",
+          "passed": true
+        },
+        {
+          "label": "Rubriques disponibles dans le formulaire Drupal",
+          "passed": true
+        },
+        {
+          "label": "Modification enregistrée par le vrai formulaire de contenu",
+          "passed": true
+        },
+        {
+          "label": "Texte publié et HTML saisi échappé",
+          "passed": true
+        },
+        {
+          "label": "Aucune injection de script dans la légende",
+          "passed": true
+        },
+        {
+          "label": "Texte et balisage public restaurés à l’identique",
+          "passed": true
+        },
+        {
+          "label": "Révisions des deux enregistrements conservées",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : competitions",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : calendrier",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : disponibilites",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : equipes",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : espace",
+          "passed": true
+        },
+        {
+          "label": "Page publique préservée : contact",
+          "passed": true
+        }
+      ]
     }
   ],
   "visualChecks": [
@@ -324,13 +399,17 @@
     }
   ],
   "ci": {
-    "status": "not_observed_yet",
-    "targetJob": "support-runtime",
-    "workflowYamlActionlint": "passed"
+    "status": "awaiting_new_exact_head"
   },
   "preproduction": {
     "installed": false,
-    "mailTransportQualified": false
+    "mailTransportQualified": false,
+    "gate": {
+      "status": "preparing_pinned_patch_and_restoration",
+      "reasons": [
+        "Fresh recovery and exact-head CI to verify before apply."
+      ]
+    }
   },
   "production": {
     "installed": false,
@@ -338,9 +417,9 @@
     "approvalForThisPatch": false
   },
   "remaining": [
-    "Find beta strategy and align fields/collection notice",
-    "Qualify the additive migration and real email transport on preproduction",
-    "Review exact candidate and authorize the production patch"
+    "Qualify and install exact support/editor patch on private preproduction",
+    "Find beta strategy before production form acceptance",
+    "Human review and explicit production agreement for this patch"
   ],
   "documentation": {
     "status": "passed_for_metadata_foundation_and_changed_links",
@@ -355,66 +434,242 @@
       "docs/point-session.md",
       "docs/integration-officiel.md",
       "docs/signalements-support.md",
-      "workflows/recetter-support.md"
+      "workflows/recetter-support.md",
+      "docs/modifier-textes-drupal.md"
     ],
-    "resolvedInternalLinksChecked": 335,
+    "resolvedInternalLinksChecked": 344,
     "foundationPresent": true,
     "historicalReferencesNotResolvedInCheckout": [
       {
         "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "<../../Site_tclongages_V1_Officiel/TC_Longages_Arbitrages_Etape1_V1_complétée(1).xlsx>",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Arbitrages_Etape1_V1_complétée(1"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "<../../Site_tclongages_V1_Officiel/TC_Longages_Etape2_Backlog_Plan_Execution_V1 (1).xlsx>",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Etape2_Backlog_Plan_Execution_V1 (1"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_G1_Prototype_V1.zip",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_G1_Prototype_V1.zip"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "../livrables/tc-longages-officiel-apercu.zip",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../livrables/tc-longages-officiel-apercu.zip"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "../livrables/tc-longages-v1-demo-o2switch.zip",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../livrables/tc-longages-v1-demo-o2switch.zip"
       },
       {
         "document": "docs/integration-officiel.md",
-        "link": "../archives/reference-avant-officiel-20260924.zip",
-        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+        "link": "../archives/reference-avant-officiel-20260924.zip"
       }
     ],
-    "limits": "Beta strategy missing; external historical files and ignored delivery archives remain outside this checkout."
+    "limits": "Beta strategy missing; external historical files and ignored delivery archives remain outside this checkout.",
+    "observations": "Latest PR and CI observations are saved locally without pushing an observation-only commit and repeating the same CI.",
+    "observedAt": "2026-10-06T09:34:04.787835+00:00"
   },
   "technicalChecks": {
     "node": {
       "passed": 149,
-      "failed": 0
+      "failed": 0,
+      "environmentCorrection": "Three PyYAML checks rerun with documented framework Python: 7 targeted tests passed."
     },
     "python": {
-      "run": 49,
-      "passed": 45,
+      "run": 53,
+      "passed": 49,
       "skipped": 4
     },
-    "phpSyntaxFiles": 19,
+    "phpSyntaxFiles": 24,
     "actionlint": "passed",
     "framework": {
       "passed": 37,
       "failed": 0
     }
   },
-  "candidateKind": "Git source manifest; not a hosted delivery ZIP",
-  "candidateManifest": "data/framework-candidate.json"
+  "candidateKind": "Additive preproduction ZIP from committed source",
+  "candidateManifest": "data/framework-candidate.json",
+  "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/15",
+  "github": {
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
+    "headSha": "3544c50a6ea5746502d1ab98bb3fdc3f4128468c",
+    "state": "OPEN",
+    "isDraft": true,
+    "observedAt": "2026-10-06T08:18:19.669057+00:00",
+    "checks": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T08:11:12Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434398990/job/112172547663",
+        "name": "policy",
+        "startedAt": "2026-10-06T08:10:57Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T08:13:45Z",
+        "conclusion": "FAILURE",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434682514/job/112173488818",
+        "name": "policy",
+        "startedAt": "2026-10-06T08:13:32Z",
+        "status": "COMPLETED",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T08:11:05Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548202",
+        "name": "delivery-safety",
+        "startedAt": "2026-10-06T08:10:58Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T08:13:14Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548217",
+        "name": "support-runtime",
+        "startedAt": "2026-10-06T08:10:58Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-06T08:14:04Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172547893",
+        "name": "technical-ci",
+        "startedAt": "2026-10-06T08:10:59Z",
+        "status": "COMPLETED",
+        "workflowName": "CI — TC Longages"
+      }
+    ]
+  },
+  "humanReview": {
+    "status": "awaiting_preproduction_recipe_and_human_checklist",
+    "source": "PR Policy exact-head annotations",
+    "fourCheckboxesUnchecked": true
+  },
+  "observationsWorkingTreeOnly": true,
+  "previousCandidate": {
+    "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
+    "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+    "ci": {
+      "status": "passed",
+      "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
+      "headSha": "3544c50a6ea5746502d1ab98bb3fdc3f4128468c",
+      "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+      "observedAt": "2026-10-06T08:18:19.669057+00:00",
+      "jobs": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:11:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548202",
+          "name": "delivery-safety",
+          "startedAt": "2026-10-06T08:10:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:13:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548217",
+          "name": "support-runtime",
+          "startedAt": "2026-10-06T08:10:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:14:04Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172547893",
+          "name": "technical-ci",
+          "startedAt": "2026-10-06T08:10:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        }
+      ],
+      "workflowYamlActionlint": "passed"
+    },
+    "github": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
+      "headSha": "3544c50a6ea5746502d1ab98bb3fdc3f4128468c",
+      "state": "OPEN",
+      "isDraft": true,
+      "observedAt": "2026-10-06T08:18:19.669057+00:00",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:11:12Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434398990/job/112172547663",
+          "name": "policy",
+          "startedAt": "2026-10-06T08:10:57Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Policy"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:13:45Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434682514/job/112173488818",
+          "name": "policy",
+          "startedAt": "2026-10-06T08:13:32Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Policy"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:11:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548202",
+          "name": "delivery-safety",
+          "startedAt": "2026-10-06T08:10:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:13:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172548217",
+          "name": "support-runtime",
+          "startedAt": "2026-10-06T08:10:58Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-06T08:14:04Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37434399098/job/112172547893",
+          "name": "technical-ci",
+          "startedAt": "2026-10-06T08:10:59Z",
+          "status": "COMPLETED",
+          "workflowName": "CI — TC Longages"
+        }
+      ]
+    }
+  },
+  "deliveryPackage": {
+    "manifestSha256": "3ce203104e96471f8e7023f5443f7340dd514beaeab6fef8023f1185b9c628c3",
+    "files": 41,
+    "bytes": 815664
+  },
+  "gitSourceManifest": {
+    "sourceSha": "f127c227fe176ae045c01399784bb409bca80bb5",
+    "artifactSha256": "ae0f7c2977ea4e7744b6f712c7bc70f2f47c70a7addb1bf24fd27baf9bbc8a25",
+    "manifest": "data/framework-candidate.json"
+  }
 }
