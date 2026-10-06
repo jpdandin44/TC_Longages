@@ -9,7 +9,7 @@ import {hash,validateInteractiveState,recoverReviewDraft} from '../scripts/frame
 import {safeProjectUrl,reviewGuidance,retainedReviewDraft,approvalInputState,clientScript} from '../scripts/framework-ui.mjs';
 import {Script} from 'node:vm';
 
-async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequests,verifyPullRequest=async ({url,sourceCommit})=>({passed:true,status:'merged',url,headCommit:sourceCommit,mergedAt:'2026-10-05T10:00:00Z',checkedAt:new Date().toISOString(),issues:[]})}={}) {
+async function fixture(t,{bootstrap=false,qualified=false,iterations=false,regenerate,getPullRequests,verifyPullRequest=async ({url,sourceCommit})=>({passed:true,status:'merged',url,headCommit:sourceCommit,mergedAt:'2026-10-05T10:00:00Z',checkedAt:new Date().toISOString(),issues:[]})}={}) {
  const root=await mkdtemp(resolve(tmpdir(),'tcl-framework-test-'));
  assert.ok(root.startsWith(resolve(tmpdir())+sep));
  await mkdir(resolve(root,'framework'));await mkdir(resolve(root,'docs/suivi-chantier'),{recursive:true});
@@ -26,9 +26,10 @@ async function fixture(t,{bootstrap=false,qualified=false,regenerate,getPullRequ
    tracker.testRuns.push({...tracker.evidence[0],id:'T1'});
  }
  await writeFile(resolve(root,'framework/profil-projet.json'),JSON.stringify(profile));
+ if(iterations)tracker.developmentIterations=[{iterationId:'fixture-local',owner:'jpdandin',stage:'developpement_local',objective:'Lot fictif local',github:{},candidate:null,checks:[],blockers:[]}];
  if(bootstrap){const expiresAt=new Date(Date.now()+60000).toISOString(),authorization={id:'test-authorized',actor:'jpdandin',sourceRef:'test-only',scope:'Installation locale fictive'};tracker.decisions.push({...authorization,type:'installation_authorization',status:'approved',project:'tclongages',environment:'local',expiresAt});await writeFile(resolve(root,'framework/installation.json'),JSON.stringify({project:'tclongages',status:'active',environment:'local',allowedPhaseIds:[0,1],activatedAt:new Date().toISOString(),expiresAt,authorization,protections:{remoteExposureAllowed:false,deployAllowed:false,csrfRequired:true,revisionCheckRequired:true,secretProtectionRequired:true}}));}
  await writeFile(resolve(root,'docs/suivi-chantier/suivi-chantier.json'),JSON.stringify(tracker));
- const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests,verifyPullRequest});
+ const app=await startFrameworkServer({root,port:0,regenerate,getPullRequests,verifyPullRequest,iterationRoots:iterations?[root]:[]});
  t.after(async()=>{await app.close();assert.ok(root.startsWith(resolve(tmpdir())+sep));await rm(root,{recursive:true,force:true});});
  const html=await(await fetch(app.origin)).text(),token=html.match(/name="review-token" content="([a-f0-9]+)"/)[1];
  const headers={'X-Review-Token':token};
@@ -54,6 +55,25 @@ test('La liste GitHub est en lecture seule, locale et protégée par le jeton',a
  assert.equal((await fetch(f.app.origin+'/api/pull-requests',{method:'POST',headers:{...f.headers,Origin:f.app.origin}})).status,405);
  assert.equal((await fetch(f.app.origin+'/api/pull-requests',{headers:{...f.headers,Origin:'https://evil.example'}})).status,403);
  assert.equal((await f.state()).revision,before);
+});
+
+test('Les lots raccordés utilisent les mêmes protections HTTP et conservent le suivi historique',async t=>{
+ const f=await fixture(t,{iterations:true}),url=f.app.origin+'/api/iterations';
+ assert.match(await(await fetch(f.app.origin)).text(),/Versions et changements/);
+ assert.match(await(await fetch(f.app.origin+'/history')).text(),/review-token/);
+ assert.equal((await fetch(url)).status,403);
+ assert.equal((await fetch(url,{headers:{...f.headers,Origin:'https://evil.example'}})).status,403);
+ assert.equal((await fetch(url,{method:'POST',headers:f.headers})).status,405);
+ const state=await(await fetch(url,{headers:f.headers})).json();assert.equal(state.iterations[0].iterationId,'fixture-local');
+ const before=JSON.parse(await readFile(resolve(f.root,'docs/suivi-chantier/suivi-chantier.json'),'utf8'));
+ const body={revision:state.revision,iterationId:'fixture-local',phaseId:0,sourceSha:null,artifactSha256:null,actor:'jpdandin',confirmed:false,comment:'Recette fictive',checkedCriteria:[],action:'submit'};
+ const post=extra=>fetch(f.app.origin+'/api/iteration-action',{method:'POST',headers:{...f.headers,Origin:f.app.origin,'Content-Type':'application/json'},body:JSON.stringify({...body,...extra})});
+ assert.equal((await post({})).status,422);
+ assert.equal((await post({confirmed:true,action:'deploy'})).status,422);
+ assert.equal((await post({confirmed:true})).status,200);
+ const after=JSON.parse(await readFile(resolve(f.root,'docs/suivi-chantier/suivi-chantier.json'),'utf8'));
+ for(const key of ['phases','decisions','history','publication','release'])assert.deepEqual(after[key],before[key]);
+ assert.equal(after.developmentIterations[0].reviewEvents.length,1);
 });
 test('Host, origine, jeton, type de contenu et méthode sont contrôlés avant mutation',async t=>{
  const f=await fixture(t),before=(await f.state()).revision;

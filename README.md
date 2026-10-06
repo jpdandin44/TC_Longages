@@ -15,6 +15,17 @@ tags:
 
 # Tennis Club de Longages
 
+## Cockpit des versions — 6 octobre
+
+Le cockpit raccordé affiche désormais les lots V1.1 et V2 depuis leurs suivis
+canoniques, leurs changements, PR, contrôles et liens de recette vers le site.
+Les trois décisions conservent critères, commentaire et confirmation personnelle.
+Le [guide de pilotage](docs/piloter-versions.md) décrit le lancement, les sources
+et les limites : consultation/actualisation GitHub disponibles, déclenchement
+des workflows et synchronisation continue encore prévus. Le suivi historique
+reste consultable ; aucune décision n'est importée comme validation d'un nouveau lot.
+
+
 ## Correctif V1 de signalement — 6 octobre
 
 Le responsable demande ensuite l'édition simple des textes dans Drupal et le

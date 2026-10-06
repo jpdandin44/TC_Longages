@@ -12,6 +12,29 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 5 octobre 2026
 
+## Raccordement du cockpit et recette V1.1 — 6 octobre
+
+Le correctif support/édition est installé sous maintenance en préproduction.
+Le reçu opérationnel du checkout `support-v1` atteste les empreintes, la sauvegarde
+restaurée avant application, les sept pages éditables et la réception du message
+fictif dans la boîte support. La modification par le formulaire Drupal, son
+affichage et sa restauration ont été vérifiés, avec révisions conservées.
+Les courriels des formulaires de recette restent capturés. Aucun correctif
+de production ni validation personnelle de phase n'est exécuté par l'agent.
+
+Le code du cockpit évolue dans `.worktrees/cockpit-iterations`, branche
+`feat/cockpit-iterations`. Sa configuration privée raccorde les sources
+`support-v1` et `livraison-fiable` ; l'historique et le brouillon précédent du
+suivi 4181 sont sauvegardés avant remplacement de son seul processus vérifié.
+Les runtimes Drupal 4182/4183 et les données/brouillons V2 sont conservés.
+Le [guide](piloter-versions.md) précise la procédure de reprise et les limites.
+
+Prochaine action : recette personnelle support/édition, examen des PR et des
+critères. La stratégie de bêta-test demeure absente, réserve avant production.
+Le besoin **Nos partenaires** V1.1 est inscrit comme prévu ; noms, logos et liens
+restent à fournir. Le pilotage des Actions et les notes de version restent futurs.
+
+
 ## Nouvelle demande du 6 octobre — édition et préproduction
 
 Le responsable accepte l'apparence locale du correctif, demande de vérifier

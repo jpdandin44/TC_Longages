@@ -16,6 +16,21 @@ tags:
 
 # Feuille de route
 
+## Lots raccordés et V1.1 partenaires — 6 octobre
+
+Le cockpit local présente les versions, changements, recette, PR et observations
+de chaque lot avec les trois décisions personnelles ; l'historique est conservé.
+Le code de ce raccordement constitue un lot distinct à examiner dans sa PR.
+Les résultats hébergés support/édition restent dans le reçu opérationnel de V1.1,
+avec recette privée autorisée ; la publication de ce correctif attend son accord.
+
+Prochain développement V1.1 : bandeau **Nos partenaires** administrable dans
+Drupal, en bas des pages publiques. Logos, noms et liens attendus ; pas de logo
+fictif livré. Le travail Bureau/Communication V2 reste local et distinct.
+Le pilotage des workflows GitHub, leur synchronisation continue et les notes de
+version distribuées restent à réaliser. Voir [le guide](docs/piloter-versions.md).
+
+
 ## Correctif V1 support — 6 octobre
 
 La demande suivante ajoute l'édition des textes à ce même correctif et autorise
