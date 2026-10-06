@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "a7aaa2787911b9d8302a600d74a627ed0c5c9d69",
+  "sourceCommit": "be1c3e4748fbc7c78f439e8b14ffa2bbc37d4ae7",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -455,9 +455,9 @@
     {
       "path": "docs/piloter-versions.md",
       "mode": "100644",
-      "gitBlob": "cf7cf3244962ff470c085d24691676db6307751f",
-      "size": 5051,
-      "sha256": "d2043a1e12a249886e2401d3044b3a80a29c522ed9ec63fb54ba57f22877270e"
+      "gitBlob": "bc697019bb9a9e7b0ef72df6c74639991d7ae374",
+      "size": 5348,
+      "sha256": "231a8d29caa6cc2b7fc673ee8634b7f6f2060bc18ab50220f043b3963f9ae25d"
     },
     {
       "path": "docs/point-session.md",
@@ -2317,9 +2317,9 @@
     {
       "path": "scripts/framework-iterations.mjs",
       "mode": "100644",
-      "gitBlob": "addea790a499b287b0cc2caa659c3a5e83d888cd",
-      "size": 10090,
-      "sha256": "3221e434550087b2e1c02c20bd281952adbe7970c775b8f2db890663bed4707b"
+      "gitBlob": "499a542e53d2d29aa0d5febecca8ea848c619b66",
+      "size": 11025,
+      "sha256": "03b9c85f7a3ebf568b7cbe567d8455e41ac7cfc44520aafd90245e2f2ac0c4df"
     },
     {
       "path": "scripts/framework-prs.mjs",
@@ -2975,9 +2975,9 @@
     {
       "path": "tests/framework-iterations.test.mjs",
       "mode": "100644",
-      "gitBlob": "3ea980cf84207723c9f8d91a8186c3337ea474e8",
-      "size": 8140,
-      "sha256": "ee670cbd70b4f1a29288d7d26766bee05bd8e4deb71b5140cff345f995da2bd4"
+      "gitBlob": "ba84114e85ff2539314f8c55175dcc5a0d777b1b",
+      "size": 9015,
+      "sha256": "07db5049db16353bb574061d8e722e938ce12381cabe6f1400a71a31b729046c"
     },
     {
       "path": "tests/framework-prs.test.mjs",
@@ -3176,5 +3176,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "450ce7c3853e9f3882f36b0fac3959ec50620681d045890d572aa2be78bcc9be"
+  "artifactDigest": "ac48e17a1c6d59d94f2afb81a5cc7a233d884b88f9e18a06657a3675b2476456"
 }
