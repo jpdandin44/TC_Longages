@@ -3556,8 +3556,10 @@
       "status": "awaiting_review",
       "objective": "Ajouter un signalement V1 sur les sept pages, notifier support@tclongages.fr et suivre les demandes dans Drupal privé.",
       "candidate": {
-        "sourceSha": null,
-        "artifactSha256": null
+        "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
+        "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+        "manifest": "data/framework-candidate.json",
+        "artifactKind": "Git source manifest, not a hosted delivery ZIP"
       },
       "targets": {
         "preproduction": {
@@ -3584,7 +3586,26 @@
         "evidence": null,
         "observedAt": null
       },
-      "checks": [],
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
+          "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+          "target": "http://127.0.0.1:4183",
+          "evidence": "data/support-v1-verification.json#checks",
+          "observedAt": "2026-10-06T08:07:49.032021+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
+          "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
+          "target": "changed documents and links",
+          "evidence": "data/support-v1-verification.json#documentation",
+          "observedAt": "2026-10-06T08:11:53.478919+00:00"
+        }
+      ],
       "approvals": [],
       "backups": [],
       "rollback": {
