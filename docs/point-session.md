@@ -12,6 +12,22 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 5 octobre 2026
 
+## Dernière demande du 6 octobre — formulaire à quatre éléments
+
+Le responsable demande seulement le type, la description, le mail pour une
+réponse et la confirmation de transmission au club. Le mail reste facultatif ;
+type, description et confirmation restent obligatoires. L'objet est attribué
+par le serveur et la page d'origine conservée automatiquement. Aucun schéma
+de stockage, ticket existant ou contrôle d'accès n'est remplacé.
+
+Cette simplification reste dans le lot support/édition de la PR #15 et dans
+la recette privée déjà autorisée sur `preprod.tclongages.fr`. Le
+[reçu courant](../data/support-v1-verification.json) et l'itération canonique
+portent le nouveau candidat, ses contrôles et son état réel d'installation.
+Les validations historiques et la V2 locale restent conservées. La définition
+directe des quatre champs remplace leur ancien statut de proposition ; les
+mentions de collecte et règles de conservation restent à compléter.
+
 ## Nouvelle demande du 6 octobre — édition et préproduction
 
 Le responsable accepte l'apparence locale du correctif, demande de vérifier

@@ -32,8 +32,10 @@ connexion Drupal. La V2 Bureau reste dans son checkout sur le port 4182.
 
 `support@tclongages.fr` est créée et vérifiée dans cPanel. Les courriels du
 correctif sont capturés en recette ; le reçu distingue réception réelle et
-installation effectivement observées. Les champs sont proposés en attente du fichier de stratégie
-annoncé, absent du dépôt. Le [guide support](docs/signalements-support.md)
+installation effectivement observées. Le formulaire comprend seulement type,
+description, e-mail facultatif et confirmation obligatoire ; objet automatique
+et page d'origine cachée. Les mentions et la conservation restent à compléter
+depuis la stratégie annoncée, absente du dépôt. Le [guide support](docs/signalements-support.md)
 porte les commandes, limites et prochaines actions ; les [contrôles](data/support-v1-verification.json)
 portent la preuve courante.
 

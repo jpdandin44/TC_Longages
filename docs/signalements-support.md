@@ -32,32 +32,36 @@ L'installation et le transport hébergés sont attestés uniquement par les
 constats datés du [reçu](../data/support-v1-verification.json), qui distingue
 les contrôles locaux, la création de la boîte et la recette hébergée.
 
-## Référence manquante : formulaire proposé
+## Formulaire simplifié — demande du 6 octobre
 
 Le fichier demandé `docs/strategie-beta-test.md` est absent des copies TC
 locales et de `origin/main` observée au commit `b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30`.
 Son emplacement ou son contenu a été demandé au responsable. Aucun document
 substitutif n'a été créé sous ce nom.
 
-**Les champs ci-dessous sont une proposition locale, à confronter à cette
-source avant publication.** Leur implémentation est dans `ReportForm.php` :
+Le responsable précise ensuite directement le périmètre du formulaire :
+quatre éléments visibles seulement, pour traiter les compléments avec le
+déclarant si nécessaire. Leur implémentation est dans `ReportForm.php` :
 
 - Type de demande : problème ou besoin/amélioration, obligatoire.
-- Objet de la demande : obligatoire, 180 caractères maximum.
-- Description : obligatoire, 4 000 caractères maximum ; invitation à préciser
-  les étapes, le résultat attendu et le constat.
-- Page concernée : chemin de la page d'origine parmi les neuf chemins V1
-  autorisés ; aucun paramètre d'URL, jeton ou historique n'est collecté.
+- Description de la demande : obligatoire, 4 000 caractères maximum.
 - Adresse e-mail pour une réponse : facultative, 254 caractères maximum.
 - Confirmation personnelle de la transmission au club : obligatoire.
+
+L'objet n'est plus demandé : le serveur attribue « Problème sur le site »
+ou « Besoin ou amélioration » selon le type. La page d'origine est conservée
+automatiquement dans un champ caché, parmi les neuf chemins V1 autorisés ;
+aucun paramètre d'URL, jeton ou historique n'est collecté. Ces changements
+ne modifient ni le schéma de stockage ni les demandes déjà enregistrées.
 
 Aucune pièce jointe, donnée technique automatiquement jointe à la demande ou
 durée de conservation n'est inventée. La limitation utilise une empreinte de
 l'adresse IP dans le registre privé Drupal `flood`, avec une fenêtre d'une
 heure ; la purge dépend du fonctionnement réel du cron, à qualifier.
-**TBD :** champs, libellés, mentions de collecte, éventuelles
-pièces jointes et règles de conservation issus de la stratégie de bêta-test.
-Le formulaire local invite à utiliser uniquement des données fictives.
+**TBD :** mentions de collecte et règles de conservation issues de la
+stratégie de bêta-test absente. Les quatre champs sont définis par la demande
+directe du responsable ; aucune pièce jointe n'est ajoutée. La recette en
+mode capture invite à utiliser uniquement des données fictives.
 
 ## Parcours public et suivi
 
@@ -124,8 +128,10 @@ La connexion se fait à `/user/login` avec le compte privé généré dans
 `.local/drupal-admin.json`. Le suffixe de session propre au checkout sépare
 les cookies des autres développements sur `127.0.0.1`.
 
-Les tests HTTP créent des demandes explicitement fictives pour examiner le
-suivi. Les tests métier utilisent une transaction restaurée à la fin.
+Les tests HTTP examinent notamment l'enregistrement sans objet ni adresse
+e-mail, le titre automatique, la conservation de la page, les soumissions
+invalides et le suivi privé. Ils créent des demandes explicitement fictives.
+Les tests métier utilisent une transaction restaurée à la fin.
 Les captures et données de session restent dans `.local/`, exclu de Git.
 L'Action `support-runtime` rejoue l'installation et les contrôles dans son
 seul checkout jetable ; une CI réussie ne qualifie pas la réception o2switch.
@@ -134,7 +140,7 @@ seul checkout jetable ; une CI réussie ne qualifie pas la réception o2switch.
 
 | Phase | État de ce correctif | Résultat attendu |
 | --- | --- | --- |
-| Cadrage | Référence du formulaire manquante | Retrouver la stratégie, arrêter les champs et mentions de collecte |
+| Cadrage | Quatre champs définis directement ; stratégie absente | Compléter les mentions de collecte et conservation avant publication |
 | Développement local | Fonctionnement local testé, état de PR dans le reçu | Examiner formulaire, suivi et contrôles sur le candidat exact |
 | Préproduction | Dépôt demandé le 6 octobre ; progression et résultats dans le reçu | Sauvegarder/restaurer l'état existant, installer le module et l'édition, recetter droits et mail capturé, qualifier le transport réel |
 | Mise en production | Non autorisée pour ce correctif | Accord sur version/cible/effet, sauvegarde et restauration, migration additive, ouverture du formulaire et contrôle de réception |

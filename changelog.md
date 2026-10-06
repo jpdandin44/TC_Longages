@@ -14,6 +14,16 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-06 — Simplification du formulaire de signalement
+
+- Quatre éléments visibles : type, description, e-mail facultatif et
+  confirmation obligatoire de la transmission au club.
+- Retrait de la saisie d'objet et de l'affichage de la page concernée ;
+  objet déterminé par le serveur, page d'origine conservée automatiquement.
+- Demandes existantes et suivi privé conservés, sans migration de stockage.
+- Recette ciblée de l'enregistrement sans objet ni e-mail et des protections ;
+  candidat et installation privée de préproduction attestés par le reçu.
+
 ## 2026-10-06 — Édition native des textes et préparation de préproduction
 
 - Réutilisation de l'éditeur préparé, complétée pour rubriques, questions et
