@@ -31,7 +31,15 @@ def digest(path):
 
 def run(args, data=None, env=None):
     process = subprocess.run(args, input=data, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env, timeout=900)
-    need(process.returncode == 0, 'Private operation failed; inspect its scoped receipt, not raw credentials.')
+    if process.returncode:
+        # Expose error coordinates, never raw SQL, private row values or credentials.
+        found = re.search(r'ERROR ([0-9]+).*?at line ([0-9]+)', process.stderr.decode('utf-8', errors='replace'))
+        hint = ' SQL error ' + found.group(1) + ' at line ' + found.group(2) if found else ''
+        try:
+            failure = json.loads(process.stdout.decode())
+            if failure.get('success') is False: hint = ' stage=' + failure['stage'] + ' type=' + failure['errorType']
+        except (ValueError, KeyError, AttributeError): pass
+        raise ValueError('Private operation failed.' + hint)
     return process.stdout
 
 
@@ -55,6 +63,12 @@ def rewrite_sql(text, names, prefix):
             need(match.group(2) in names, 'Unexpected table in private SQL snapshot.')
             return match.group(1) + '`' + prefix + match.group(2) + '`'
         chunks[index] = table_position.sub(replace, chunk)
+        def replace_locks(match):
+            def table(item):
+                need(item.group(1) in names, 'Unexpected locked table in private SQL snapshot.')
+                return '`' + prefix + item.group(1) + '`'
+            return match.group(1) + re.sub(r'`([a-zA-Z0-9_]+)`', table, match.group(2)) + match.group(3)
+        chunks[index] = re.sub(r'(\bLOCK\s+TABLES\s+)([^;]+)(;)', replace_locks, chunks[index], flags=re.I)
     return ''.join(chunks)
 
 
@@ -131,12 +145,14 @@ def stage_patch(args, private, root, candidate):
     total_bytes = sum(path.stat().st_size for path in backup_api.regular_tree(root))
     need(shutil.disk_usage(str(private)).free > total_bytes * 3 + 30 * 1024**2, 'Insufficient room for a verified recovery copy.')
     backup = backup_api.backup(args.account, root, private, runtime, Path('/home2') / args.account / 'public_html', Path('/usr/local/bin/php'))
+    print(json.dumps({'step': 'fresh_backup_verified'}), flush=True)
     restore_api = module(candidate / 'tools/restore_backup_files.py', 'tcl_support_restore')
     restoration_parent = private / 'restorations'
     restoration_parent.mkdir(mode=0o700, exist_ok=True)
     need(not restoration_parent.is_symlink(), 'Redirected restoration parent.')
     restored = restore_api.restore_files(Path(backup['directory']), restoration_parent, backup['sqlSha256'], backup['filesSha256'])
     recovery = Path(restored['directory'])
+    print(json.dumps({'step': 'restored_files_verified'}), flush=True)
     with gzip.open(str(Path(backup['directory']) / 'database.sql.gz'), 'rt', encoding='utf-8') as stream: sql = stream.read()
     original_tables = re.findall(r'^CREATE TABLE `([a-zA-Z0-9_]+)`', sql, re.M)
     need(original_tables and len(original_tables) == len(set(original_tables)), 'Unrecognized private SQL snapshot.')
@@ -151,6 +167,7 @@ def stage_patch(args, private, root, candidate):
     run(mysql_args, rewritten.encode())
     after_tables = run(mysql_args + ['--execute=SHOW TABLES']).decode().splitlines()
     need(set(name for name in after_tables if name.startswith(prefix)) == set(prefix + name for name in original_tables), 'Recovery table inventory differs.')
+    print(json.dumps({'step': 'restored_sql_inventory_verified', 'tables': len(original_tables)}), flush=True)
     restored_settings = recovery / 'drupal/web/sites/default/settings.php'
     with restored_settings.open('a') as stream:
         stream.write("\n// CLI-only isolated recovery namespace; original tables are not overwritten.\nif (PHP_SAPI === 'cli' && preg_match('/^sr_[a-f0-9]{12}_$/', getenv('TCL_SUPPORT_RESTORE_PREFIX') ?: '')) { $databases['default']['default']['prefix'] = getenv('TCL_SUPPORT_RESTORE_PREFIX'); }\n")

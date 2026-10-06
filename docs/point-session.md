@@ -30,6 +30,13 @@ Le [reçu courant](../data/support-v1-verification.json) et l'itération
 accord de préproduction, sauvegarde/restauration et progression réelle.
 Le travail V2 sur 4182 et les décisions historiques sont préservés.
 
+Le premier contrôle distant de restauration a détecté les instructions de
+verrouillage de table présentes dans l'export MariaDB. Leur cible de récupération
+est maintenant préfixée comme celles des tables et insertions, avec un test de
+non-régression dédié. Cette tentative n'a pas appliqué le correctif aux fichiers
+actifs ; ses sauvegardes et copies privées restent conservées. Les reçus courants
+permettent de distinguer cette tentative du paquet corrigé et de sa recette.
+
 ## Reprise du 6 octobre — support V1
 
 Constats du premier candidat local, antérieurs à la demande de dépôt ci-dessus.

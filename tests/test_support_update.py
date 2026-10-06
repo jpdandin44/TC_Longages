@@ -17,6 +17,13 @@ class RecoverySqlTest(unittest.TestCase):
         self.assertIn("VALUES ('CREATE TABLE `users`', 'INSERT INTO `users`', 'quote\\\' `users`')", result)
     def test_unknown_table_refused(self):
         with self.assertRaises(ValueError): update.rewrite_sql('INSERT INTO `other` VALUES (1);', {'users'}, 'sr_123456789abc_')
+    def test_dump_locks_use_only_recovery_tables(self):
+        sql="LOCK TABLES `users` WRITE, `sessions` WRITE;\nINSERT INTO `users` VALUES ('LOCK TABLES `users` WRITE;');\nUNLOCK TABLES;"
+        result=update.rewrite_sql(sql, {'users','sessions'}, 'sr_123456789abc_')
+        self.assertIn('LOCK TABLES `sr_123456789abc_users` WRITE, `sr_123456789abc_sessions` WRITE;',result)
+        self.assertIn("VALUES ('LOCK TABLES `users` WRITE;')",result)
+        self.assertIn('UNLOCK TABLES;',result)
+        with self.assertRaises(ValueError): update.rewrite_sql('LOCK TABLES `other` WRITE;', {'users'}, 'sr_123456789abc_')
     def test_database_wide_objects_refused(self):
         for sql in ['CREATE DATABASE `other`;', 'USE `other`;', 'CREATE VIEW `v` AS SELECT 1;', 'DROP DATABASE `other`;']:
             with self.subTest(sql=sql), self.assertRaises(ValueError): update.rewrite_sql(sql, {'users'}, 'sr_123456789abc_')
