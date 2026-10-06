@@ -4059,8 +4059,8 @@
       "status": "in_progress",
       "objective": "Bureau: enregistrer les nouveaux adhérents; préparer affichage calendrier public et compétitions. Équipes et présences FFT ultérieures. Communication du Bureau : brouillons, affiches, validation et publication sur le site local, liens et partage manuel.",
       "candidate": {
-        "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
-        "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+        "sourceSha": "c92950de54373db59c9d9dec5c6373d38d86091f",
+        "artifactSha256": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577",
         "manifest": "data/framework-candidate.json",
         "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP"
       },
@@ -4251,13 +4251,44 @@
         },
         {
           "kind": "ci",
-          "status": "in_progress",
+          "status": "failed",
           "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
           "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
           "target": "GitHub PR #14, current candidate",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/37426336971",
+          "observedAt": "2026-10-06T07:02:35.744641+00:00",
+          "note": "Native MySQL and delivery safety passed; technical-ci failed due stale workflow job list. Corrected in new candidate.",
+          "headSha": "e22cd064fbdb3073d05dae9651878b0881b735f2"
+        },
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "c92950de54373db59c9d9dec5c6373d38d86091f",
+          "artifactSha256": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577",
+          "target": "Full Node checks and mobile/MySQL source preservation",
+          "evidence": "data/reprise-bureau-verification.json",
+          "observedAt": "2026-10-06T07:02:35.744641+00:00",
+          "note": "Current full Node check; business source checks preserved. No hosting or human approval."
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "c92950de54373db59c9d9dec5c6373d38d86091f",
+          "artifactSha256": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577",
+          "target": "Foundation and 13 documents, 371 local links",
+          "evidence": "data/reprise-bureau-verification.json#technicalChecks",
+          "observedAt": "2026-10-06T07:02:35.744641+00:00",
+          "note": "Current full Node check; business source checks preserved. No hosting or human approval."
+        },
+        {
+          "kind": "ci",
+          "status": "in_progress",
+          "sourceSha": "c92950de54373db59c9d9dec5c6373d38d86091f",
+          "artifactSha256": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577",
+          "target": "GitHub PR #14, corrected current candidate",
           "evidence": "https://github.com/jpdandin44/TC_Longages/pull/14/checks",
-          "observedAt": "2026-10-06T06:54:33.554925+00:00",
-          "note": "CI awaiting current head execution; human declarations unchecked"
+          "observedAt": "2026-10-06T07:02:35.744641+00:00",
+          "note": "Current head execution pending; human confirmations unchecked"
         }
       ],
       "approvals": [],
@@ -4491,8 +4522,9 @@
         "mysqlChecks": 26,
         "restoredTables": 39,
         "hostingVerified": false,
-        "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
-        "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26"
+        "sourceSha": "c92950de54373db59c9d9dec5c6373d38d86091f",
+        "artifactSha256": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577",
+        "workflowContractCorrected": true
       },
       "candidateHistory": [
         {
@@ -4502,6 +4534,14 @@
           "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP",
           "supersededAt": "2026-10-06T06:54:33.554925+00:00",
           "reason": "Bureau mobile and isolated MariaDB update qualification; previous proofs preserved"
+        },
+        {
+          "sourceSha": "10245a17f84a8168d55a4b30c9a743916448d521",
+          "artifactSha256": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26",
+          "manifest": "data/framework-candidate.json",
+          "artifactKind": "Git source manifest, not a hosted Drupal delivery ZIP",
+          "supersededAt": "2026-10-06T07:02:35.744641+00:00",
+          "reason": "Correct stale CI job contract after exact GitHub diagnostic; business source checks remain valid"
         }
       ]
     }

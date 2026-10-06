@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "10245a17f84a8168d55a4b30c9a743916448d521",
+  "sourceCommit": "c92950de54373db59c9d9dec5c6373d38d86091f",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -216,9 +216,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "f15c548147bcf10987639e95eceb5449620939ca",
-      "size": 44412,
-      "sha256": "e742ea5b0e10653f2da368d10282fda58cd6c146a9969bb4818901b67e3b6e40"
+      "gitBlob": "a8a5b21b3e93127b6ac5cc9733b1932acd47e417",
+      "size": 44578,
+      "sha256": "8c2ede1d44a3e6c7154fd4683583eb1b42a6083ab41292d86f428ee682b3e998"
     },
     {
       "path": "config/first-install.example.json",
@@ -377,9 +377,9 @@
     {
       "path": "data/reprise-bureau-verification.json",
       "mode": "100644",
-      "gitBlob": "40eac8c8340c1d6da62e3e38b379d7e38ab15c8e",
-      "size": 10933,
-      "sha256": "674fc9761b824146867aa93f7f2148e46a3d571a21c9c2ea45f1f9d23737b2ef"
+      "gitBlob": "8f27c3806e3b7fc58579fcb3a1d6f70e4c4cead8",
+      "size": 11934,
+      "sha256": "60f674339ef6496c9fdd2f6c75492c3ceff7101321f89e572ce297d78c40d60d"
     },
     {
       "path": "data/reprise-deploiement-verification.json",
@@ -517,9 +517,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "7a0084d8735cab7e73abd6ff4d4a88a8e25c93b2",
-      "size": 67165,
-      "sha256": "f5a908cad5a0d52e445be70a2e7e5b33507c1597f8d9213f3d48d6f00a947db0"
+      "gitBlob": "200802255d16870f9d08a0f23344f32ea5b2d47b",
+      "size": 67545,
+      "sha256": "5b36a98e544ea7c1a3d5fa7b7b28781e6ddd5f5c41bc88e2be6c8684d384390d"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -566,9 +566,9 @@
     {
       "path": "docs/recette-bureau-mysql.md",
       "mode": "100644",
-      "gitBlob": "4f9e952c3b3fa8d1dc5d2f30c99685e8a85af3b4",
-      "size": 3926,
-      "sha256": "4d21958e8b659c2f45d42fcae7f5f624de794a0e9324663bac45eae9043f86a3"
+      "gitBlob": "3b86f8c6c09f8c94c1647009568679d31ae96bf2",
+      "size": 4333,
+      "sha256": "1f914e849e2447a3ee4045936b5e34956cb563936ccaf18436a56af474b45575"
     },
     {
       "path": "docs/recette-demo-o2switch.md",
@@ -2953,9 +2953,9 @@
     {
       "path": "tests/ci-workflows.test.mjs",
       "mode": "100644",
-      "gitBlob": "0cbaac0de2b998898d84f0d1e9d8d7d42146ceb1",
-      "size": 7645,
-      "sha256": "77f553c1d05b2f4f63008d40045f62ca86e94fb8d2c791f8435853b4661a7b77"
+      "gitBlob": "602b88ffe35ea562c72e4fbcf593294d2f57e70c",
+      "size": 8622,
+      "sha256": "0d2be4ac2833738445eeaf856916ffdade1e0e3c6e162f41ddc85bcf980aab74"
     },
     {
       "path": "tests/communication-adoc.test.mjs",
@@ -3217,5 +3217,5 @@
       "sha256": "fef768594d0884ab12ca4c7ba87616ca4a8e95b1c3cb53dd4997bd99f3c0934c"
     }
   ],
-  "artifactDigest": "709c434fcb5da6e9dc2605ea321711199ce0fa70720ab803cf90a879b7b5ca26"
+  "artifactDigest": "58fa7a83fb2176c6fb924e2a6401d5143713d25abb58efd9659ff7b89c151577"
 }
