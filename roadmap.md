@@ -18,6 +18,13 @@ tags:
 
 ## Correctif V1 support — 6 octobre
 
+La demande suivante ajoute l'édition des textes à ce même correctif et autorise
+son dépôt en préproduction. L'édition native et son aller-retour réel sont
+recettés localement. Préparer le paquet exact, actualiser la PR, vérifier la CI,
+sauvegarder/restaurer puis appliquer sur la préproduction. La recette hébergée,
+le test de réception et la revue du responsable précèdent toute publication
+de production. Les comptes Bureau et la V2 restent dans leur lot indépendant.
+
 La V1 publique est confirmée par le responsable. Le correctif support est
 prioritaire dans une branche indépendante de la V2 Bureau : boîte créée,
 bouton/formulaire/suivi privé développés et recette locale effectuée.

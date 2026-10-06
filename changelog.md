@@ -14,6 +14,16 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-06 — Édition native des textes et préparation de préproduction
+
+- Réutilisation de l'éditeur préparé, complétée pour rubriques, questions et
+  légendes ; contenus natifs, révisions et rendu des textes sans HTML libre.
+- Légende « photo fournie par le club » vérifiée sur la page locale et éditable.
+- Recette HTTP d'enregistrement, affichage, échappement et restauration exacte.
+- Paquet additionnel, outils de sauvegarde/restauration isolée et installation
+  limitée à la préproduction, sans nouvelles ressources SQL ni écriture de production.
+- Collecteur de test explicitement exclu de la qualification du transport réel.
+
 ## 2026-10-06 — Correctif V1 de signalement, en recette locale
 
 - Bouton sur les sept réponses de pages Drupal ; formulaire proposé de

@@ -76,6 +76,12 @@ try {
   $check((new SupportNotifier($repo, $failingManager))->send($id) === 'failed', 'Échec du transport enregistré');
   $check($repo->load($id)->notification === 'failed' && $repo->load($id)->subject === $ticket->subject, 'Ticket intact après échec de courriel');
   $check(count($repo->history($id)) === 5, 'Notifications et traitement présents dans le journal privé');
+  $captureOnly = $savedSettings;
+  $captureOnly['tcl_support_mail_mode'] = 'transport';
+  $captureOnly['tcl_support_transport_qualified'] = TRUE;
+  new Settings($captureOnly);
+  $check(\Drupal::service('tcl_support.notifier')->send($id) === 'disabled', 'Un collecteur de test ne peut pas qualifier un transport réel');
+  new Settings($savedSettings);
   $flood = \Drupal::service('flood');
   $testIdentifier = 'support-local-test-' . bin2hex(random_bytes(8));
   for ($i = 0; $i < 5; $i++) { $flood->register('tcl_support.submit', 3600, $testIdentifier); }

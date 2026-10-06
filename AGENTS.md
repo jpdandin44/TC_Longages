@@ -17,6 +17,14 @@ tags:
 
 ## Correctif support V1 — 6 octobre
 
+La demande suivante du même jour autorise le dépôt du candidat support/édition
+en préproduction. Réutiliser cet accord pour cette cible et ce périmètre, après
+contrôles exacts et récupération qualifiée. Conserver la maintenance, la capture
+web, la V2 et la production. L'absence du fichier bêta-test reste une réserve
+documentaire ; le candidat proposé peut être examiné en recette privée, sans
+étendre ce choix en accord de publication ou en validation humaine des checklists.
+Voir [l'édition native](docs/modifier-textes-drupal.md).
+
 La demande humaine du 6 octobre autorise le développement local du formulaire
 et du suivi privé et la création de `support@tclongages.fr`. La boîte est
 confirmée créée dans cPanel ; les mentions ci-dessous de boîte prévue sont

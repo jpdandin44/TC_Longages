@@ -15,6 +15,17 @@ tags:
 
 # Exigences
 
+## Édition et préproduction demandées le 6 octobre
+
+- Modifier facilement dans Drupal les titres, présentations, rubriques, questions
+  et légendes des sept pages ; préserver navigation, fonctions et sources métier.
+- Conserver les textes édités et leurs révisions lors d'une livraison de code.
+- Rendre l'édition et le suivi privés, sans nouveaux comptes ou grants automatiques.
+- Déposer le candidat support/édition sur la seule préproduction après sauvegarde
+  fraîche et restauration vérifiée ; conserver maintenance, HTTPS et non-indexation.
+- Garder les requêtes web de recette en capture ; qualifier séparément une réception
+  réelle à la boîte support. La production reste hors de cet accord.
+
 ## Signalements du site V1 — demande du 6 octobre
 
 - Proposer depuis chacune des sept pages un bouton vers un formulaire de

@@ -1,0 +1,4 @@
+administer tcl public pages:
+  title: 'Gérer les pages publiques du TC Longages'
+  description: 'Consulter le répertoire éditorial des sept pages. Les droits de modification des contenus restent ceux de Drupal.'
+  restrict access: true

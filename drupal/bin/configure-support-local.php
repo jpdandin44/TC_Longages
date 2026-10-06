@@ -23,6 +23,8 @@ if ($options['driver'] !== 'sqlite' || $expected === FALSE || realpath($options[
   throw new \RuntimeException('Ce script exige la base SQLite privée de ce checkout et le transport capturé.');
 }
 \Drupal::service('module_installer')->install(['tcl_site', 'tcl_support']);
+\Drupal::service('plugin.manager.field.widget')->clearCachedDefinitions();
+\Drupal\tcl_site\PublicPageEditor::initialize();
 \Drupal::service('theme_installer')->install(['claro']);
 \Drupal::configFactory()->getEditable('system.theme')->set('admin', 'claro')->save();
 \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/club')

@@ -15,6 +15,17 @@ tags:
 
 # Architecture
 
+## Édition native et correctif V1 du 6 octobre
+
+`tcl_site` rattache sept modèles de pages à des contenus `tcl_public_page`.
+La base Drupal porte les textes édités et leurs révisions ; les HTML gardent
+la présentation et les fonctions. Un widget à champs nommés stocke les rubriques
+dans `field_tcl_textes`, sans HTML libre. Le rendu conserve les régions non éditées
+et vérifie l'empreinte du modèle avant substitution. Voir [l'édition Drupal](docs/modifier-textes-drupal.md).
+Le paquet additionnel support/édition n'inclut pas core, vendor, base ou secrets.
+Les outils hébergés restent hors webroot, vérifient les empreintes et limitent
+les écritures à la préproduction TC, avec restauration privée qualifiée avant application.
+
 ## Signalements V1 et suivi privé — 6 octobre
 
 Le module Drupal `tcl_support` ajoute le bouton aux réponses des sept pages

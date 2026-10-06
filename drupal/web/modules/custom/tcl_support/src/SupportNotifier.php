@@ -28,6 +28,7 @@ final class SupportNotifier {
       // A NullMail success can never qualify an actual notification.
       $capture = $mode === 'capture' && $plugin instanceof TestMailCollector;
       $transport = $mode === 'transport' && $plugin instanceof PhpMail
+        && !($plugin instanceof TestMailCollector)
         && Settings::get('tcl_support_transport_qualified', FALSE) === TRUE;
       if ($capture || $transport) {
         $result = $this->mailManager->mail('tcl_support', 'report', 'support@tclongages.fr',

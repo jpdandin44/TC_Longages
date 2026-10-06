@@ -15,6 +15,25 @@ tags:
 
 # Décisions
 
+## 2026-10-06 — Textes natifs et mise à jour bornée de préproduction
+
+**Contexte.** Le responsable souhaite modifier les textes dans Drupal, comme
+sur AVEREO, puis tester la nouvelle version sur la préproduction existante.
+La V1 actuelle sert des fichiers générés ; un raccordement titre/présentation
+avait été préparé séparément sans être livré dans la V1 officielle.
+
+**Décision.** Réutiliser et compléter ce raccordement avec des contenus natifs
+et révisions pour les sept pages et les principales rubriques/légendes.
+Conserver le modèle HTML et les sources métier ; éviter une refonte Paragraphs
+pour ce correctif. Promouvoir un paquet additionnel exact, avec sauvegarde et
+restauration isolée des fichiers et SQL avant application. Web de préproduction
+en capture ; un seul essai de transport réel identifié à la boîte support.
+
+**Conséquences.** Les textes édités deviennent des données à préserver. Un
+changement de modèle exige un rapprochement, pas une réinitialisation.
+L'accord humain de dépôt concerne la préproduction et ce périmètre ; il ne
+fusionne pas la PR et ne publie ni la production ni une bêta anonyme.
+
 ## 2026-10-06 — Suivi des demandes dans Drupal privé
 
 **Contexte.** Le responsable demande des signalements V1, une boîte support

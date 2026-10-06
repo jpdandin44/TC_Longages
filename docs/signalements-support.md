@@ -26,9 +26,11 @@ la boîte ne prouve pas la réception d'un courriel. DNS et redirections de
 messagerie n'ont pas été modifiés.
 
 Le module `tcl_support` fonctionne en recette locale sur
-[la V1 locale](http://127.0.0.1:4183/). Le code n'est installé ni en
-préproduction ni en production. Le [reçu](../data/support-v1-verification.json)
-distingue les contrôles locaux de la création de la boîte.
+[la V1 locale](http://127.0.0.1:4183/). Le responsable demande ensuite le dépôt
+du candidat en préproduction, avec l'[édition native](modifier-textes-drupal.md).
+L'installation et le transport hébergés sont attestés uniquement par les
+constats datés du [reçu](../data/support-v1-verification.json), qui distingue
+les contrôles locaux, la création de la boîte et la recette hébergée.
 
 ## Référence manquante : formulaire proposé
 
@@ -134,7 +136,7 @@ seul checkout jetable ; une CI réussie ne qualifie pas la réception o2switch.
 | --- | --- | --- |
 | Cadrage | Référence du formulaire manquante | Retrouver la stratégie, arrêter les champs et mentions de collecte |
 | Développement local | Fonctionnement local testé, état de PR dans le reçu | Examiner formulaire, suivi et contrôles sur le candidat exact |
-| Préproduction | Non exécutée pour ce correctif | Sauvegarder/restaurer l'état existant, installer le module, recetter droits et mail capturé, qualifier le transport réel |
+| Préproduction | Dépôt demandé le 6 octobre ; progression et résultats dans le reçu | Sauvegarder/restaurer l'état existant, installer le module et l'édition, recetter droits et mail capturé, qualifier le transport réel |
 | Mise en production | Non autorisée pour ce correctif | Accord sur version/cible/effet, sauvegarde et restauration, migration additive, ouverture du formulaire et contrôle de réception |
 
 La création des tables est additive. Le module ne dépend pas des comptes

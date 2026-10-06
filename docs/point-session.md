@@ -12,7 +12,27 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 5 octobre 2026
 
+## Nouvelle demande du 6 octobre — édition et préproduction
+
+Le responsable accepte l'apparence locale du correctif, demande de vérifier
+la légende « photo fournie par le club », souhaite l'édition simple des textes
+dans Drupal et demande le dépôt de la nouvelle version en préproduction.
+Cet accord porte sur le candidat support/édition, la cible TC existante et
+sa recette privée ; il n'autorise ni merge, ni production, ni ouverture anonyme.
+
+Le raccordement éditorial préparé dans `feat/drupal-comptes-edition` est repris
+et complété dans `.worktrees/support-v1` : sept contenus natifs, titre,
+présentation, rubriques, questions, légendes, révisions. L'aller-retour réel
+du formulaire conserve l'affichage initial et échappe le HTML saisi.
+Le [guide d'édition](modifier-textes-drupal.md) donne le parcours.
+Le [reçu courant](../data/support-v1-verification.json) et l'itération
+`tcl-v1-signalements-support` du suivi portent les empreintes, résultats,
+accord de préproduction, sauvegarde/restauration et progression réelle.
+Le travail V2 sur 4182 et les décisions historiques sont préservés.
+
 ## Reprise du 6 octobre — support V1
+
+Constats du premier candidat local, antérieurs à la demande de dépôt ci-dessus.
 
 Le responsable demande un correctif V1 de signalement pendant le développement
 V2. Le checkout dédié est `.worktrees/support-v1`, branche

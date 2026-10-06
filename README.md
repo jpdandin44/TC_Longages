@@ -17,6 +17,12 @@ tags:
 
 ## Correctif V1 de signalement — 6 octobre
 
+Le responsable demande ensuite l'édition simple des textes dans Drupal et le
+dépôt du candidat en préproduction. [Pages du club](docs/modifier-textes-drupal.md)
+raccorde les sept pages aux contenus natifs avec révisions : titres, présentations,
+rubriques, questions et légendes. Le reçu distingue la recette locale de l'installation
+hébergée ; aucune intervention sur la production n'est incluse dans ce lot.
+
 Le site V1 est en production selon la confirmation du responsable du 5 octobre.
 Les descriptions de préparation datées plus bas restent historiques.
 Un correctif indépendant ajoute un bouton sur les sept pages Drupal et un
@@ -25,8 +31,8 @@ Un correctif indépendant ajoute un bouton sur les sept pages Drupal et un
 connexion Drupal. La V2 Bureau reste dans son checkout sur le port 4182.
 
 `support@tclongages.fr` est créée et vérifiée dans cPanel. Les courriels du
-correctif sont capturés en local ; réception réelle et déploiement restent
-à qualifier. Les champs sont proposés en attente du fichier de stratégie
+correctif sont capturés en recette ; le reçu distingue réception réelle et
+installation effectivement observées. Les champs sont proposés en attente du fichier de stratégie
 annoncé, absent du dépôt. Le [guide support](docs/signalements-support.md)
 porte les commandes, limites et prochaines actions ; les [contrôles](data/support-v1-verification.json)
 portent la preuve courante.

@@ -134,3 +134,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    from test_editor_http import main as editor_main
+    editor_main()
