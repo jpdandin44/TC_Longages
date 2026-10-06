@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - site-internet
@@ -30,11 +30,16 @@ brouillons et affiches en base, quatre aperçus, validation puis publication
 séparée sur le site local, retrait et archives restaurables. Les liens Facebook,
 WhatsApp et ADOC permettent un partage manuel après validation.
 [Ouvrir Communication](http://127.0.0.1:4182/fr/bureau/communication).
+La [recette complémentaire](docs/recette-bureau-mysql.md) qualifie les écrans
+Bureau à 390/1 280 pixels, la mise à jour native sur MariaDB et la restauration
+d'une sauvegarde locale fictive. La CI reprend désormais ce test de base ; son
+résultat GitHub doit être vérifié sur le candidat courant avant recette hébergée.
 Le [relevé FFT](api/fft.md) décrit les informations de compétition accessibles
 sur Ten’Up et la connexion requise pour ADOC, sans import ni synchronisation.
 V2 inclut aussi l'affichage direct du [calendrier Google](api/google-calendar.md)
 depuis un agenda public dédié, choisi par le responsable. Le composant est
-préparé ; le calendrier fourni refuse l'accès public. Son nouvel ID et son
+préparé ; le responsable confirme le 6 octobre que cet agenda n'est pas encore
+créé. Le calendrier fourni refuse l'accès public. Son nouvel ID et son
 partage restent à qualifier. Les présences saisies dans FFT par les capitaines
 sont prévues pour un lot ultérieur, sans récupération actuellement qualifiée.
 

@@ -1,0 +1,383 @@
+{
+  "project": "TC_Longages",
+  "document_type": "local-verification",
+  "checkedAt": "2026-10-06T06:49:10.120142+00:00",
+  "scope": "V2 local resumption: Bureau visual checks and disposable MariaDB update/restore",
+  "status": "passed_local_only",
+  "browserRecipe": {
+    "checkedAt": "2026-10-06T06:48:19.401Z",
+    "scope": "local-ui-fictitious",
+    "checks": [
+      {
+        "label": "Création mineur — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents/ajouter",
+        "documentWidth": 390,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Prénom",
+            "name": "first_name"
+          },
+          {
+            "label": "Nom",
+            "name": "last_name"
+          },
+          {
+            "label": "Saison",
+            "name": "season"
+          },
+          {
+            "label": "Date de naissance",
+            "name": "birth_date"
+          }
+        ],
+        "width": 390
+      },
+      {
+        "label": "Création adulte — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents/ajouter",
+        "documentWidth": 375,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Prénom",
+            "name": "first_name"
+          },
+          {
+            "label": "Nom",
+            "name": "last_name"
+          },
+          {
+            "label": "Saison",
+            "name": "season"
+          },
+          {
+            "label": "Date de naissance",
+            "name": "birth_date"
+          }
+        ],
+        "width": 390
+      },
+      {
+        "label": "Création adulte — ordinateur",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents/ajouter",
+        "documentWidth": 1265,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Prénom",
+            "name": "first_name"
+          },
+          {
+            "label": "Nom",
+            "name": "last_name"
+          },
+          {
+            "label": "Saison",
+            "name": "season"
+          },
+          {
+            "label": "Date de naissance",
+            "name": "birth_date"
+          }
+        ],
+        "width": 1280
+      },
+      {
+        "label": "Liste des dossiers — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents",
+        "documentWidth": 375,
+        "overflow": [],
+        "required": [],
+        "width": 390
+      },
+      {
+        "label": "Modification du dossier — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents/6/modifier",
+        "documentWidth": 375,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Prénom",
+            "name": "first_name"
+          },
+          {
+            "label": "Nom",
+            "name": "last_name"
+          },
+          {
+            "label": "Saison",
+            "name": "season"
+          },
+          {
+            "label": "Date de naissance",
+            "name": "birth_date"
+          }
+        ],
+        "width": 390
+      },
+      {
+        "label": "Gestion des comptes — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/comptes",
+        "documentWidth": 375,
+        "overflow": [],
+        "required": [],
+        "width": 390
+      },
+      {
+        "label": "Création de compte — mobile",
+        "url": "http://127.0.0.1:4182/fr/bureau/comptes/ajouter",
+        "documentWidth": 375,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Identifiant",
+            "name": "name"
+          },
+          {
+            "label": "Adresse de courriel",
+            "name": "mail"
+          },
+          {
+            "label": "Mot de passe",
+            "name": "password[pass1]"
+          },
+          {
+            "label": "Confirmer le mot de passe",
+            "name": "password[pass2]"
+          }
+        ],
+        "width": 390
+      },
+      {
+        "label": "Création de compte — ordinateur",
+        "url": "http://127.0.0.1:4182/fr/bureau/comptes/ajouter",
+        "documentWidth": 1265,
+        "overflow": [],
+        "required": [
+          {
+            "label": "Identifiant",
+            "name": "name"
+          },
+          {
+            "label": "Adresse de courriel",
+            "name": "mail"
+          },
+          {
+            "label": "Mot de passe",
+            "name": "password[pass1]"
+          },
+          {
+            "label": "Confirmer le mot de passe",
+            "name": "password[pass2]"
+          }
+        ],
+        "width": 1280
+      },
+      {
+        "label": "Liste des dossiers — ordinateur",
+        "url": "http://127.0.0.1:4182/fr/bureau/adherents",
+        "documentWidth": 1265,
+        "overflow": [],
+        "required": [],
+        "width": 1280
+      }
+    ],
+    "hostingVerified": false,
+    "approvalsCreated": false
+  },
+  "mysqlRecipe": {
+    "checkedAt": "2026-10-06T06:45:56.8005542Z",
+    "status": "passed",
+    "scope": "isolated-local-fictitious-mariadb",
+    "hostingVerified": false,
+    "deployed": false,
+    "server": "11.4.9-MariaDB",
+    "drupal": "11.4.8",
+    "php": "8.4.23",
+    "checks": [
+      "Existing Drupal V1 fixture has no Bureau",
+      "V1 accounts preserved by additive module install",
+      "Fresh schema includes communication",
+      "Bureau role installed",
+      "Captain cannot edit registrations",
+      "Team scope remains disabled",
+      "Accented registration persisted in MySQL",
+      "Double submission returns same record",
+      "Stale registration revision refused",
+      "Earlier module revision prepared",
+      "Native updatedb applied update 11001",
+      "Communication table created by update",
+      "Communication permission added",
+      "Accounts and registrations unchanged after update",
+      "JPEG bytes conserved in MySQL BLOB",
+      "News double submission idempotent",
+      "Draft absent from public selection",
+      "Publishing unvalidated draft refused",
+      "Stale publication revision refused",
+      "Approved exact revision visible",
+      "Editing immediately removes public news",
+      "Restored archive returns unapproved draft",
+      "Captain denied private news",
+      "Captain denied private registrations",
+      "Repeated update preserves accounts and registrations",
+      "Repeated update preserves draft and JPEG"
+    ],
+    "restoration": {
+      "status": "passed",
+      "tablesCompared": 39,
+      "comparison": "exact table list and schemas, every row including binary values",
+      "scope": "local-fictitious-only"
+    },
+    "archiveSha256": "802f9f40a9dca774a3ba62f39c21093942954f178d6d7d458dc51453929bcdda",
+    "backupSha256": "9d9a9585fc00df13551744352f1668808ae76a90baa0872457bafdb9e09a3ac2"
+  },
+  "preservedLocalData": {
+    "tcl_bureau_registration": {
+      "records": 6,
+      "businessAndCredentialColumnsUnchanged": true,
+      "ignoredSessionMetadata": []
+    },
+    "tcl_bureau_post": {
+      "records": 5,
+      "businessAndCredentialColumnsUnchanged": true,
+      "ignoredSessionMetadata": []
+    },
+    "users_field_data": {
+      "records": 13,
+      "businessAndCredentialColumnsUnchanged": true,
+      "ignoredSessionMetadata": [
+        "access",
+        "changed",
+        "login"
+      ]
+    }
+  },
+  "technicalChecks": {
+    "node": {
+      "tests": 151,
+      "passed": true
+    },
+    "python": {
+      "tests": 49,
+      "skipped": 4,
+      "executed": 45,
+      "passed": true
+    },
+    "php": {
+      "files": 27,
+      "syntaxPassed": true
+    },
+    "powershell": {
+      "syntaxPassed": true
+    },
+    "canonicalPreservation": {
+      "passed": true,
+      "v1Fields": [
+        "project",
+        "document_type",
+        "title",
+        "version",
+        "created",
+        "updated",
+        "owner",
+        "scope",
+        "currentPhase",
+        "state",
+        "baseline",
+        "statusLabels",
+        "measurementRules",
+        "phases",
+        "decisions",
+        "history",
+        "reviewEvents",
+        "reviewFollowUps",
+        "requirementChanges",
+        "reviewCommentResponses",
+        "publication",
+        "template",
+        "evidence",
+        "testRuns",
+        "exceptions",
+        "release",
+        "session",
+        "observations",
+        "developmentWorkflow",
+        "phaseModel",
+        "phaseHistorySnapshots",
+        "activeIterationId",
+        "phaseDisplayScope"
+      ],
+      "humanFields": [
+        "phases",
+        "approvals",
+        "delivery",
+        "rollback"
+      ],
+      "previousClosurePreserved": true
+    },
+    "documentation": {
+      "foundationFiles": 6,
+      "foundationDirectories": 6,
+      "documents": [
+        "README.md",
+        "api/google-calendar.md",
+        "architecture.md",
+        "changelog.md",
+        "decisions.md",
+        "docs/communication-bureau.md",
+        "docs/comptes-et-bureau.md",
+        "docs/point-session.md",
+        "docs/recette-bureau-mysql.md",
+        "docs/suivi-chantier/tableau-de-bord.md",
+        "requirements.md",
+        "roadmap.md",
+        "workflows/preparer-livraison.md"
+      ],
+      "localLinksChecked": 371,
+      "newMissingReferences": [],
+      "historicalMissingReferences": [],
+      "passed": true
+    },
+    "framework": {
+      "passed": true,
+      "tests": 37,
+      "activeWorkflows": [
+        "ci.yml",
+        "pr-policy.yml",
+        "preparer-deploiement.yml"
+      ],
+      "referenceFiles": 28
+    }
+  },
+  "sourceHashes": {
+    ".github/workflows/ci.yml": "104913af78d8ad97ae1d24ea5bbe7ff0e8c615b95a2a89cbb47a788aef027992",
+    "drupal/config/settings.mysql-recette.php": "988c3aa8822a873ec71a60818d2aabbdb816aa5c0878fb9a7b6f7b40e7d7d4c3",
+    "tests/drupal-mysql-update.php": "efaf3280bd9a7482c990b9518eae741fde214ff8fc449aa7a26673548d617143",
+    "scripts/drupal-mysql-recette.ps1": "249afebeaafc846f26c4c7e450111d1ffe50c6d77f70a8c0322340d6c37966c1",
+    "drupal/web/modules/custom/tcl_bureau/css/bureau.css": "61ce1360ee15ad1d9a3fa4bb3e827dd8feb72037fa9a8ee790c189b0a01a6d61",
+    "scripts/framework.mjs": "f31c803f8e912d8231b0cd9c38c387cf8cad4296380be56a86c714384d0bf661"
+  },
+  "limits": [
+    "GitHub PHP 8.3 native job must pass on exact current PR head",
+    "Apache/o2switch and hosted database update/rollback not qualified by local fixture",
+    "V2 delivery ZIP remains to prepare and qualify",
+    "Dedicated Google public calendar not yet created",
+    "Consent and full member collection process still require review"
+  ],
+  "productionModified": false,
+  "preproductionModified": false,
+  "v2Deployed": false,
+  "externalMessagesSent": false,
+  "humanApprovalCreated": false,
+  "dockerRecovery": {
+    "observedAt": "2026-10-06T06:51:53.513295+00:00",
+    "source": "user restarted Docker, live local engine read",
+    "status": "available",
+    "engine": "29.7.2",
+    "os": "linux",
+    "context": "desktop-linux",
+    "containersModified": false
+  },
+  "sourceHashFormat": "sha256 of local tested checkout file bytes"
+}

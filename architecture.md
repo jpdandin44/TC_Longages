@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - architecture
@@ -36,12 +36,17 @@ publiques lisent uniquement une révision publiée et validée ; les images priv
 passent par le contrôle Bureau. L'accueil reçoit les actualités via le contrôleur
 V2, sans modifier les pages immuables V1. Les liens externes sont préparés après
 validation, sans service de diffusion automatique. Le helper d'update est borné
-au SQLite local ; mise à jour et stockage MySQL restent à recetter.
+au SQLite local. Une fixture MariaDB distincte qualifie maintenant installation
+additive, update native `11001`, révisions et octets JPEG : voir la
+[recette](docs/recette-bureau-mysql.md). La cible hébergée reste à recetter.
 
 Les helpers CLI, hors de `web/`, refusent toute base hébergée. L'installation
 du module seule crée le schéma/rôles sans compte ni donnée fictive. Le menu
-Espace est raccordé uniquement lorsque ce module est activé. MySQL et la mise
-à jour d'une cible existante restent à qualifier avant livraison V2.
+Espace est raccordé uniquement lorsque ce module est activé. Le test MariaDB
+utilise un multisite jetable, un serveur autonome lié à `127.0.0.1:33080`, des
+bases nouvelles et un réglage privé ; le bootstrap SQLite conserve son refus
+de MySQL. Le serveur de test est arrêté en fin de recette. Aucun outil de
+première installation n'est appliqué à une base hébergée existante.
 Les observations [FFT](api/fft.md) sont documentaires : aucune API ni
 synchronisation automatique ADOC/Ten’Up n'est raccordée à ces dossiers.
 Le calendrier est affiché depuis un cadre Google limité à `calendar.google.com`,

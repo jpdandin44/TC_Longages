@@ -5,12 +5,28 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## Contrôle de mise à jour V2 — 6 octobre
+
+La [recette locale Bureau/MariaDB](../docs/recette-bureau-mysql.md) complète les
+tests existants sans intervenir sur l'hébergement. Le job `drupal-mysql` de
+[ci.yml](../.github/workflows/ci.yml) prépare un checkout jetable Windows avec
+PHP 8.3, Composer du verrou et MariaDB 11.4.9 vérifiée par SHA-256. Il exécute
+installation additive, update native, contrôles des révisions/images et restauration
+comparée d'une sauvegarde fictive. Aucune base ou valeur d'accès du club n'est
+requise ; le serveur lié à la boucle locale est arrêté en fin de test.
+La syntaxe PHP couvre désormais aussi les helpers CLI et les tests PHP.
+L'empreinte de ce YAML est réalignée dans le vérificateur local après recette
+et lecture de son périmètre ; ce contrôle ne vaut pas approbation humaine de PR.
+Une définition YAML et un succès local ne remplacent pas le résultat GitHub
+du candidat exact. Les builds manuels et les permissions d'hébergement restent
+inchangés ; aucune livraison V2 n'est déclenchée par ce job.
 
 ## État réel et industrialisation — 5 octobre
 

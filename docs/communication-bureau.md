@@ -5,7 +5,7 @@ title: Communication du Bureau dans la V2 locale
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
@@ -91,8 +91,10 @@ HTTP réels réussis**, dont formulaires, accès, images, révisions et restaura
 Les preuves sont rattachées à la V2 dans le [suivi canonique](suivi-chantier/suivi-chantier.json).
 Les quatre aperçus ont aussi été examinés dans le navigateur à 1 280 et
 390 pixels : logo du club chargé, cartes lisibles et aucun débordement horizontal.
-Ce contrôle porte sur Communication ; la recette mobile complète des dossiers
-du Bureau reste distincte.
+Ce contrôle porte sur Communication. La [recette complémentaire du Bureau](recette-bureau-mysql.md)
+qualifie désormais ses écrans mobiles et la mise à jour MariaDB, dont les images
+binaires et la restauration intégrale d'une base locale fictive. Les reçus
+précédents restent des preuves datées ; ce complément ne les réécrit pas.
 
 ## Suite dans les quatre phases
 
@@ -103,5 +105,6 @@ configuration PHP et routage Apache des nouvelles pages et images.
 **Mise en production** : après recette et accords propres à V2 ; contrôle
 après livraison, reçu, retour arrière et note de version.
 
-TBD : MySQL et cible hébergée. Import JSON des anciens brouillons,
+TBD : cible hébergée, nouvelles routes Apache et reprise de ses données.
+Le test MariaDB local ne remplace pas ces contrôles. Import JSON des anciens brouillons,
 éditeur riche et publication automatique externe ne sont pas réalisés dans ce lot.

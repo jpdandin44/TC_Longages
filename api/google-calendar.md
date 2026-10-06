@@ -5,7 +5,7 @@ title: Affichage du calendrier Google sur le site
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [google-calendar, calendrier, integration, v2]
 ---
@@ -44,6 +44,9 @@ pas que l'agenda du club est public. Aucune bascule en production effectuée.
 ## Réglage à effectuer par le responsable
 
 Le responsable a choisi **un agenda dédié aux événements publics du club**.
+Le 6 octobre, il confirme qu'il n'est **pas encore créé**. L'ID reste nul et
+l'affichage désactivé ; la création et le partage sont la prochaine action
+nécessaire uniquement pour ce complément calendrier.
 Il peut rester dans le même compte Gmail ; choisir cet agenda lors de la création
 d'un rendez-vous décide de son affichage sur le site. Un repère de catégorie
 (Compétition, Tournoi, Animation, par exemple) facilite la lecture ; sa convention

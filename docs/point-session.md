@@ -5,14 +5,74 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 5 octobre 2026
+# Point de session — reprise au 6 octobre 2026
 
-## Travail courant — V2 locale, Bureau et nouveaux adhérents
+## Reprise active — Bureau mobile et recette MariaDB
+
+Le responsable demande la reprise de V2 en local. Drupal est relancé sur
+`127.0.0.1:4182` avec sa base conservée. La PR #14 est toujours le candidat
+de l'itération ; les accords V1 ne couvrent aucun hébergement V2.
+
+Le débordement des formulaires Bureau sur mobile est corrigé. La
+[recette complémentaire](recette-bureau-mysql.md) et son
+[reçu](../data/reprise-bureau-verification.json) portent les neuf observations
+à 390/1 280 pixels, les 26 contrôles MariaDB et la restauration comparée des
+39 tables, schémas et données compris. La fixture MariaDB est autonome, locale
+et fictive ; son serveur est arrêté après contrôle. Docker a d'abord échoué
+au démarrage ; le responsable le redémarre, puis le contrôle confirme son moteur
+Linux 29.7.2 disponible. Aucun reset ni changement de ses conteneurs n'est effectué.
+
+Le job CI natif PHP 8.3/MariaDB est ajouté à la PR ; son état courant est
+enregistré dans l'itération canonique. Les tests locaux ne constituent pas
+une réussite GitHub ni une validation humaine. L'agenda public n'est pas encore
+créé, réponse explicite du responsable ; l'affichage reste désactivé.
+
+**Suite :** examiner le Bureau et la Communication de la PR #14 ; après réussite
+des contrôles et accord propre à V2, préparer la livraison et la mise à jour
+en préproduction sous maintenance. Qualifier les nouvelles routes/images
+Apache, la reprise de la base hébergée et son retour arrière sur le même paquet.
+Les champs/consentements du processus d'inscription restent à examiner avant
+collecte réelle. Aucun effet distant n'est déduit de cette reprise.
+
+## Clôture précédente du 6 octobre — historique conservé
+
+La session est arrêtée le 6 octobre. Drupal local (4182), le suivi (4181) et
+le prototype Communication (4174) sont arrêtés ; leurs ports ne sont plus en
+écoute. Le verrou du suivi a été retiré seulement après vérification de l'arrêt
+de son propriétaire. La base SQLite, les dossiers fictifs, l'exemple de
+communication et les brouillons du prototype sont conservés. Les sessions
+Drupal de préproduction et du Bureau local ont été déconnectées ; la
+préproduction affiche « Site en maintenance ». Aucun réglage de production
+n'est modifié lors de cette clôture.
+
+La [PR #14](https://github.com/jpdandin44/TC_Longages/pull/14) reste ouverte en
+brouillon sur `aedc85d`. Au relevé de clôture, `delivery-safety` réussit ;
+`technical-ci` et `policy` sont annulés. Leur cause n'est pas déterminée par ce
+relevé et ils ne sont pas relancés pendant la clôture. Les contrôles locaux
+précédents restent consignés : 50 HTTP Communication, 37 HTTP Bureau,
+151 Node, 49 Python dont 4 ignorés, 16 fichiers PHP et 37 contrôles framework.
+Les quatre aperçus Communication ont été examinés à 1 280 et 390 pixels.
+
+**Reprise exacte :** relire ce point et `developmentIterations` du
+[suivi canonique](suivi-chantier/suivi-chantier.json), relancer les services
+selon les guides [Drupal](installation-drupal.md) et
+[suivi](installation-framework.md), puis se reconnecter au Bureau. Examiner
+les dossiers et la communication de la PR #14 et relancer ses contrôles annulés.
+Avant recette hébergée V2, qualifier update MySQL, images, routes Apache,
+sauvegarde/restauration et recette mobile complète des dossiers. L'ID et
+l'accès de l'agenda public dédié restent attendus.
+
+Cette clôture ne valide aucune phase, ne fusionne pas la PR et ne livre pas V2.
+Aucune reprise automatique n'est programmée. Le candidat produit testé
+`a605a2e` et ses preuves restent conservés ; les modifications documentaires de
+clôture sont locales, à intégrer au prochain candidat avant sa remise en revue.
+
+## Candidat conservé du 5 octobre — Bureau et nouveaux adhérents
 
 Après confirmation de l'objectif V1 atteint, le responsable demande V2 en local,
 puis donne priorité à l'enregistrement des nouveaux adhérents par le Bureau.
@@ -23,7 +83,7 @@ création/modification Adultes/Mineurs, recherche et état du dossier ; les équ
 restent désactivées. Le [guide](comptes-et-bureau.md), le
 [reçu](../data/bureau-local-verification.json) et `developmentIterations` du
 suivi canonique portent ce lot distinct. La session navigateur locale Bureau
-est préparée pour la recette. Les mots de passe de recette restent dans `.local/`.
+est déconnectée à la clôture. Les mots de passe de recette restent dans `.local/`.
 
 La communication du prototype est intégrée au Bureau V2, liens externes compris :
 brouillons/affiches en base, quatre aperçus, validation puis publication distincte

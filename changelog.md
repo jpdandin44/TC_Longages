@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,19 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-06 — Reprise locale et qualification de la mise à jour Bureau
+
+- Correction du débordement des formulaires sur téléphone ; neuf observations
+  Bureau à 390/1 280 pixels, libellés et champs obligatoires conservés.
+- Fixture MariaDB autonome et isolée : 26 contrôles de l'installation additive,
+  de l'update native, des révisions et des images ; dossiers/comptes préservés.
+- Sauvegarde restaurée dans une deuxième base fictive : 39 tables, schémas et
+  toutes les lignes comparés, valeurs binaires comprises.
+- Job CI natif PHP 8.3/MariaDB et syntaxe PHP élargie aux helpers/tests ; résultats
+  GitHub à vérifier sur le nouveau candidat. Recettes locales et clôture conservées.
+- Agenda public confirmé non créé : affichage désactivé, ID attendu.
+- Aucune livraison hébergée ni validation humaine créée par cette reprise.
 
 ## 2026-10-05 — Communication du Bureau intégrée en V2 locale
 

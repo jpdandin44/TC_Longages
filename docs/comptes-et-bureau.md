@@ -5,7 +5,7 @@ title: Comptes et espace Bureau — première itération locale V2
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [drupal, comptes, bureau, inscriptions, recette]
 ---
@@ -75,8 +75,11 @@ réels réussis** des formulaires, sessions et écritures en base : Adultes/Mine
 champs requis et contact vide/espaces, responsable légal, CSRF, doublons,
 double soumission, modification, ancienne révision, notes échappées, recherche,
 création de comptes, rôle falsifié, blocage d'une session et refus des capitaines.
-La recherche a aussi été vérifiée dans le navigateur. La qualification mobile
-reste à effectuer : l'outil de viewport n'a pas appliqué la largeur demandée.
+La recherche a aussi été vérifiée dans le navigateur. Le complément du 6 octobre
+qualifie liste, création Adultes/Mineurs, modification et comptes à 390 pixels,
+avec contrôles à 1 280 pixels. Le débordement des fieldsets est corrigé ; les
+libellés/champs obligatoires sont conservés. Voir la
+[recette complémentaire](recette-bureau-mysql.md) et son reçu distinct.
 Les contrôles de syntaxe PHP en CI ne remplacent pas cette recette avec Drupal.
 
 ## Données et limites
@@ -111,7 +114,9 @@ sans annoncer une traduction complète de l'administration Drupal.
 La [V1 publique](note-de-livraison.md) conserve son artefact et sa base. Aucun
 déploiement V2 effectué ; les accords V1 ne sont pas transposés. Ne pas exécuter
 les outils de première installation sur une base existante. Qualifier un
-adaptateur de mise à jour, MySQL, sauvegarde restaurée et droits avant recette
-hébergée. Les [sources FFT](../api/fft.md) et le [calendrier Google](../api/google-calendar.md)
+adaptateur de livraison hébergée et droits avant recette distante. Installation
+additive, mise à jour MySQL et sauvegarde/restauration sont maintenant exercées
+sur une base locale fictive, sans preuve d'hébergement. Les
+[sources FFT](../api/fft.md) et le [calendrier Google](../api/google-calendar.md)
 ont leur propre état : consultation publique Ten’Up possible, ADOC à reconnecter,
 agenda actuellement refusé au public, aucune synchronisation des présences.

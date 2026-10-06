@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - roadmap
@@ -28,16 +28,20 @@ reportées. La [recette du lot](docs/comptes-et-bureau.md) et son reçu sont li�
 La communication est intégrée en local : brouillons et affiches en base,
 aperçus, validation, publication séparée, liens externes, retrait et archives
 restaurables. Examiner [ce lot](docs/communication-bureau.md) avant qualification
-MySQL/routage Apache et livraison hébergée V2.
+du routage Apache et livraison hébergée V2. La mise à jour MariaDB et la
+sauvegarde/restauration sont qualifiées sur une fixture locale distincte,
+avec [preuves et limites](docs/recette-bureau-mysql.md).
 
 Suite : examiner le formulaire et les droits du candidat local, préciser les
 champs/consentements encore proposés dans le processus d'inscription, puis
-qualifier MySQL et une mise à jour en préproduction préservant les données.
-La recette mobile du nouveau Bureau reste à effectuer. Les observations
+recetter la mise à jour en préproduction préservant les données. La recette
+mobile Bureau est effectuée ; le débordement des formulaires est corrigé.
+La CI native MariaDB doit réussir sur le candidat exact. Les observations
 [Ten’Up/ADOC](api/fft.md) servent au futur lot compétitions ; aucune API ni
 récupération automatique d'adhérents n'est déduite de ces pages.
 Le responsable ajoute l'affichage des compétitions et du calendrier Google,
-avec agenda public dédié. Le composant attend l'ID et le partage de cet agenda.
+avec agenda public dédié, confirmé non créé le 6 octobre. Le composant attend
+l'ID et le partage de cet agenda ; cette attente ne bloque pas le Bureau local.
 Les présences saisies par le capitaine dans FFT suivent après examen des droits,
 des écrans et d'un mécanisme réel de lecture ; aucune synchronisation en place.
 
