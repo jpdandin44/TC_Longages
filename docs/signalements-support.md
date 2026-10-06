@@ -133,7 +133,7 @@ seul checkout jetable ; une CI réussie ne qualifie pas la réception o2switch.
 | Phase | État de ce correctif | Résultat attendu |
 | --- | --- | --- |
 | Cadrage | Référence du formulaire manquante | Retrouver la stratégie, arrêter les champs et mentions de collecte |
-| Développement local | Fonctionnement local testé, PR en préparation | Examiner formulaire, suivi et contrôles sur le candidat exact |
+| Développement local | Fonctionnement local testé, état de PR dans le reçu | Examiner formulaire, suivi et contrôles sur le candidat exact |
 | Préproduction | Non exécutée pour ce correctif | Sauvegarder/restaurer l'état existant, installer le module, recetter droits et mail capturé, qualifier le transport réel |
 | Mise en production | Non autorisée pour ce correctif | Accord sur version/cible/effet, sauvegarde et restauration, migration additive, ouverture du formulaire et contrôle de réception |
 
