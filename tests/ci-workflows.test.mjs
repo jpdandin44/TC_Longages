@@ -41,12 +41,13 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.equal(ci.jobs['technical-ci'].steps.find(step=>step.uses?.startsWith('actions/checkout@')).with['fetch-depth'],0);
   for(const flow of [ci,policy]) {
     assert.deepEqual(flow.permissions,{contents:'read'});
-    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','technical-ci'] : ['policy']);
+    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','support-runtime','technical-ci'] : ['policy']);
     for(const job of Object.values(flow.jobs)) {
       assert.equal(job.environment,undefined);
       assert.equal(job.permissions,undefined);
       for(const step of job.steps) {
-        if(step.uses) assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
+        if(step.uses?.startsWith('shivammathur/')) assert.equal(step.uses,'shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45');
+        else if(step.uses) assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
         if(step.uses?.startsWith('actions/checkout@')) assert.equal(step.with['persist-credentials'],false);
         assert.doesNotMatch(step.run || '',/secrets\.|gh\s|git\s+(push|commit)|ssh\s|scp\s|sftp\s|curl\s|\$\{\{/);
       }
@@ -64,6 +65,10 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.deepEqual(ciRuns.slice(1,4),['npm.cmd run check','npm.cmd run framework:build','npm.cmd run framework:check']);
   assert.match(ciRuns[4],/node scripts\/framework-candidate\.mjs verify/);
   assert.match(ciRuns[4],/Aucune vérification du candidat attestée/);
+  const supportRuns=ci.jobs['support-runtime'].steps.map(s=>s.run||'').join('\n');
+  assert.match(supportRuns,/tests\/support-runtime\.php/);
+  assert.match(supportRuns,/tests\/test_support_http\.py/);
+  assert.match(supportRuns,/-Action stop -Port 4183/);
   const policyCheck=policy.jobs.policy.steps.at(-1);
   assert.equal(policyCheck.run,'python .github/scripts/check-pr-policy.py');
   assert.equal(policyCheck.env.PR_BODY,'${{ github.event.pull_request.body }}');

@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - codex
@@ -14,6 +14,18 @@ tags:
 ---
 
 # Consignes locales
+
+## Correctif support V1 — 6 octobre
+
+La demande humaine du 6 octobre autorise le développement local du formulaire
+et du suivi privé et la création de `support@tclongages.fr`. La boîte est
+confirmée créée dans cPanel ; les mentions ci-dessous de boîte prévue sont
+historiques. La référence `docs/strategie-beta-test.md` reste introuvable :
+les champs proposés ne valent pas un remplacement de cette source.
+La branche `feat/v1-signalement-support` conserve ce correctif séparément de
+la V2. La publication du correctif et le transport réel exigent encore leur
+recette et les accords applicables au candidat. Voir [le guide support](docs/signalements-support.md).
+
 
 Ces consignes complètent la politique documentaire globale pour `Site_Internet/`.
 

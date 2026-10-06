@@ -1,0 +1,11 @@
+services:
+  tcl_support.repository:
+    class: Drupal\tcl_support\SupportRepository
+    arguments: ['@database']
+  tcl_support.notifier:
+    class: Drupal\tcl_support\SupportNotifier
+    arguments: ['@tcl_support.repository', '@plugin.manager.mail']
+  tcl_support.button:
+    class: Drupal\tcl_support\EventSubscriber\SupportButtonSubscriber
+    tags:
+      - { name: event_subscriber }

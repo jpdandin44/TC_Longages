@@ -39,7 +39,7 @@
   "contact": {
     "mode": "preview-only",
     "retentionDays": null,
-    "testSupport": { "email": "support@tclongages.fr", "status": "planned" }
+    "testSupport": { "email": "support@tclongages.fr", "status": "mailbox-created" }
   },
   "authentication": { "status": "decision-pending", "technology": null },
   "quickAccess": [

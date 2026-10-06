@@ -5,12 +5,34 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
 # Point de session — reprise au 5 octobre 2026
+
+## Reprise du 6 octobre — support V1
+
+Le responsable demande un correctif V1 de signalement pendant le développement
+V2. Le checkout dédié est `.worktrees/support-v1`, branche
+`feat/v1-signalement-support`, issu de `origin/main` à `b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30`.
+Le checkout V2 et ses observations non commises sont conservés.
+
+La boîte `support@tclongages.fr` est créée personnellement et sa présence
+confirmée dans cPanel. Aucun secret n'est consigné. Bouton, formulaire proposé
+et suivi privé fonctionnent sur [la V1 locale](http://127.0.0.1:4183/), avec
+une base propre et des courriels capturés. Aucun correctif n'est installé sur
+les domaines hébergés. Le [reçu](../data/support-v1-verification.json) est
+l'autorité des résultats et du candidat ; le [guide](signalements-support.md)
+décrit les commandes et limites.
+
+Prochaine action : retrouver `docs/strategie-beta-test.md` ou son contenu,
+aligner les champs et mentions, puis recetter le candidat en préproduction
+avant toute demande de publication. L'emplacement de cette source a été
+demandé au responsable et reste inconnu. Les validations humaines V1 et
+les brouillons V2 ne sont pas réutilisés pour approuver ce correctif.
+
 
 ## Dernière correction du suivi — trois décisions et garde PR
 

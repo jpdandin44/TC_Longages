@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,24 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-06 — Suivi des demandes dans Drupal privé
+
+**Contexte.** Le responsable demande des signalements V1, une boîte support
+et un suivi de type bug tracker disponible en développement. Le dépôt
+GitHub est public et la V2 Bureau est en cours dans un autre checkout.
+
+**Choix de mise en œuvre.** Développer un module Drupal et un journal en
+base, dans une branche V1 isolée. Conserver le suivi derrière une permission
+restreinte et traiter Jira comme exemple, sans ajouter de service ni coût.
+Enregistrer avant de notifier et capturer les messages en local.
+
+**Conséquences.** Les coordonnées restent dans le stockage privé du site ;
+un échec de mail ne perd pas la demande. Les champs proposés sont à aligner
+sur la stratégie annoncée mais absente. La boîte est créée et confirmée,
+la qualification réelle du transport et la publication restent distinctes.
+Le [guide support](docs/signalements-support.md) porte la recette et le retour.
+
 
 ## 2026-10-05 — Première production distincte de la préproduction
 

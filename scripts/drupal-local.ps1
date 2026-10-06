@@ -1,6 +1,8 @@
 param(
   [ValidateSet('prepare', 'install', 'start', 'stop', 'status')]
-  [string]$Action = 'status'
+  [string]$Action = 'status',
+  [ValidateRange(1024, 65535)]
+  [int]$Port = 4182
 )
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
@@ -12,6 +14,7 @@ $taskServerFile = Join-Path $taskRoot '.local\drupal-server.json'
 $taskPhp = (Get-Command php.exe -ErrorAction Stop).Source
 $taskIni = Join-Path $taskTools 'php.ini'
 $taskUtf8 = [System.Text.UTF8Encoding]::new($false)
+$taskOrigin = "http://127.0.0.1:$Port"
 
 function Invoke-LocalPhp([string[]]$PhpArguments) {
   & $taskPhp -c $taskIni @PhpArguments
@@ -86,10 +89,10 @@ if ($Action -eq 'install') {
     $env:COMPOSER_CACHE_DIR = Join-Path $taskTools 'composer-cache'
     Invoke-LocalPhp @((Join-Path $taskTools 'composer.phar'), 'install', '--no-interaction', '--prefer-dist', '--no-progress')
     # Keep Drush's one-time login URL and account options out of the console.
-    $taskInstallLog = & $taskPhp -c $taskIni 'vendor\drush\drush\drush.php' site:install minimal --yes --uri=http://127.0.0.1:4182 --account-name=$($taskCredentials.username) --account-pass=$($taskCredentials.password) --account-mail=local-admin@example.invalid --site-mail=local-admin@example.invalid '--site-name=TC Longages — démonstration locale' install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL 2>&1
+    $taskInstallLog = & $taskPhp -c $taskIni 'vendor\drush\drush\drush.php' site:install minimal --yes --uri=$taskOrigin --account-name=$($taskCredentials.username) --account-pass=$($taskCredentials.password) --account-mail=local-admin@example.invalid --site-mail=local-admin@example.invalid '--site-name=TC Longages — démonstration locale' install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL 2>&1
     $taskInstallCode = $LASTEXITCODE
     if ($taskInstallCode -ne 0) {
-      $taskSanitized = ($taskInstallLog | Out-String).Replace($taskCredentials.password, '[secret retiré]') -replace 'http://127\.0\.0\.1:4182/user/reset/\S+', '[lien de connexion retiré]'
+      $taskSanitized = ($taskInstallLog | Out-String).Replace($taskCredentials.password, '[secret retiré]') -replace 'http://127\.0\.0\.1:\d+/user/reset/\S+', '[lien de connexion retiré]'
       [System.IO.File]::WriteAllText((Join-Path $taskRuntime 'install-error.log'), $taskSanitized, $taskUtf8)
       throw "Installation interrompue (code $taskInstallCode) ; diagnostic local dans .local/drupal-runtime/install-error.log."
     }
@@ -103,11 +106,11 @@ if ($Action -eq 'install') {
 
 if ($Action -eq 'start') {
   if (!(Test-Path -LiteralPath (Join-Path $taskRuntime 'site.sqlite'))) { throw 'Installation locale absente.' }
-  if (Get-NetTCPConnection -State Listen -LocalPort 4182 -ErrorAction SilentlyContinue) { throw 'Le port 4182 est déjà occupé ; aucun processus existant arrêté.' }
-  $taskArguments = @('-c', ('"' + $taskIni + '"'), '-S', '127.0.0.1:4182', '-t', ('"' + (Join-Path $taskDrupal 'web') + '"'), ('"' + (Join-Path $taskDrupal 'local-router.php') + '"'))
+  if (Get-NetTCPConnection -State Listen -LocalPort $Port -ErrorAction SilentlyContinue) { throw "Le port $Port est déjà occupé ; aucun processus existant arrêté." }
+  $taskArguments = @('-c', ('"' + $taskIni + '"'), '-S', "127.0.0.1:$Port", '-t', ('"' + (Join-Path $taskDrupal 'web') + '"'), ('"' + (Join-Path $taskDrupal 'local-router.php') + '"'))
   $taskProcess = Start-Process -FilePath $taskPhp -ArgumentList $taskArguments -WorkingDirectory $taskDrupal -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $taskRuntime 'server-output.log') -RedirectStandardError (Join-Path $taskRuntime 'server-error.log')
-  [System.IO.File]::WriteAllText($taskServerFile, (@{ pid = $taskProcess.Id; origin = 'http://127.0.0.1:4182'; router = (Join-Path $taskDrupal 'local-router.php'); startedAt = (Get-Date).ToUniversalTime().ToString('o') } | ConvertTo-Json), $taskUtf8)
-  Write-Output 'Drupal démarre uniquement sur http://127.0.0.1:4182. Connexion : /user/login ; maintenance : /admin/config/development/maintenance.'
+  [System.IO.File]::WriteAllText($taskServerFile, (@{ pid = $taskProcess.Id; origin = $taskOrigin; router = (Join-Path $taskDrupal 'local-router.php'); startedAt = (Get-Date).ToUniversalTime().ToString('o') } | ConvertTo-Json), $taskUtf8)
+  Write-Output "Drupal démarre uniquement sur $taskOrigin. Connexion : /user/login ; maintenance : /admin/config/development/maintenance."
   exit
 }
 
@@ -115,7 +118,8 @@ if ($Action -eq 'stop') {
   if (!(Test-Path -LiteralPath $taskServerFile)) { Write-Output 'Aucun serveur local enregistré.'; exit }
   $taskServer = Get-Content -LiteralPath $taskServerFile -Raw | ConvertFrom-Json
   $taskProcess = Get-CimInstance Win32_Process -Filter "ProcessId = $($taskServer.pid)" -ErrorAction SilentlyContinue
-  if ($taskProcess -and $taskProcess.Name -eq 'php.exe' -and $taskProcess.CommandLine.Contains($taskServer.router) -and $taskProcess.CommandLine.Contains('127.0.0.1:4182')) {
+  $taskRecordedAuthority = ([uri]$taskServer.origin).Authority
+  if ($taskProcess -and $taskProcess.Name -eq 'php.exe' -and $taskProcess.CommandLine.Contains($taskServer.router) -and $taskProcess.CommandLine.Contains($taskRecordedAuthority)) {
     Stop-Process -Id $taskServer.pid
     Write-Output 'Serveur Drupal local arrêté.'
   } elseif ($taskProcess) { throw 'Identité du processus différente : aucun arrêt exécuté.' }
@@ -123,5 +127,5 @@ if ($Action -eq 'stop') {
   exit
 }
 
-$taskListener = Get-NetTCPConnection -State Listen -LocalPort 4182 -ErrorAction SilentlyContinue
-[ordered]@{ localDatabasePresent = (Test-Path -LiteralPath (Join-Path $taskRuntime 'site.sqlite')); listener = @($taskListener | Select-Object LocalAddress, LocalPort, OwningProcess); origin = 'http://127.0.0.1:4182'; externalDeployment = $false } | ConvertTo-Json -Depth 4
+$taskListener = Get-NetTCPConnection -State Listen -LocalPort $Port -ErrorAction SilentlyContinue
+[ordered]@{ localDatabasePresent = (Test-Path -LiteralPath (Join-Path $taskRuntime 'site.sqlite')); listener = @($taskListener | Select-Object LocalAddress, LocalPort, OwningProcess); origin = $taskOrigin; externalDeployment = $false } | ConvertTo-Json -Depth 4

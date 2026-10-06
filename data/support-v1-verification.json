@@ -1,0 +1,418 @@
+{
+  "project": "TC_Longages",
+  "iterationId": "tcl-v1-signalements-support",
+  "observedAt": "2026-10-06T08:08:47.048577+00:00",
+  "status": "local_candidate_proposed_not_deployed",
+  "branch": "feat/v1-signalement-support",
+  "sourceSha": null,
+  "artifactSha256": null,
+  "mailbox": {
+    "address": "support@tclongages.fr",
+    "status": "created_and_visible_in_cpanel",
+    "account": "main_tc",
+    "credentialEntry": "human_only",
+    "passwordStoredInRepository": false,
+    "evidence": "Private screenshot .local/support-mailbox-created.jpg",
+    "mxObserved": {
+      "exchange": "mail.tclongages.fr",
+      "preference": 0
+    },
+    "incomingMailVerified": false,
+    "outgoingTransportVerified": false,
+    "dnsChanges": false
+  },
+  "referenceDocument": {
+    "expectedPath": "docs/strategie-beta-test.md",
+    "found": false,
+    "mainObservedSha": "b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30",
+    "scope": "TC local copies, origin/main and Git history",
+    "formSpecification": "local_proposal_awaiting_reference"
+  },
+  "runtime": {
+    "origin": "http://127.0.0.1:4183",
+    "database": "private checkout SQLite",
+    "v2Preserved": true,
+    "outgoingMail": false,
+    "mailMode": "test_mail_collector",
+    "mailboxPasswordRequiredForPhpMail": false
+  },
+  "checks": [
+    {
+      "observedAt": "2026-10-06T08:07:38+00:00",
+      "scope": "local-sqlite-only",
+      "outgoingMail": false,
+      "checks": [
+        {
+          "label": "Demande durable créée avec état Nouvelle",
+          "passed": true
+        },
+        {
+          "label": "Même soumission sans doublon ni écrasement",
+          "passed": true
+        },
+        {
+          "label": "Contenu initial conservé après doublon",
+          "passed": true
+        },
+        {
+          "label": "État, responsable et note enregistrés",
+          "passed": true
+        },
+        {
+          "label": "Révision périmée refusée",
+          "passed": true
+        },
+        {
+          "label": "Historique préservé après conflit",
+          "passed": true
+        },
+        {
+          "label": "État inventé refusé",
+          "passed": true
+        },
+        {
+          "label": "Courriel capturé sans envoi réseau",
+          "passed": true
+        },
+        {
+          "label": "Destinataire et expéditeur fixes",
+          "passed": true
+        },
+        {
+          "label": "Objet du courriel sans injection d’en-tête",
+          "passed": true
+        },
+        {
+          "label": "Courriel contient la page concernée",
+          "passed": true
+        },
+        {
+          "label": "Envoi fermé sans faux succès de livraison",
+          "passed": true
+        },
+        {
+          "label": "Demande conservée lorsque le transport est fermé",
+          "passed": true
+        },
+        {
+          "label": "Échec du transport enregistré",
+          "passed": true
+        },
+        {
+          "label": "Ticket intact après échec de courriel",
+          "passed": true
+        },
+        {
+          "label": "Notifications et traitement présents dans le journal privé",
+          "passed": true
+        },
+        {
+          "label": "Limitation des soumissions après cinq demandes par heure",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "observedAt": "2026-10-06T08:07:49.032021+00:00",
+      "scope": "local-http-only",
+      "origin": "http://127.0.0.1:4183",
+      "outgoingMail": false,
+      "checks": [
+        {
+          "label": "Bouton unique sur index",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur index",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur competitions",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur competitions",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur calendrier",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur calendrier",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur disponibilites",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur disponibilites",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur equipes",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur equipes",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur espace",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur espace",
+          "passed": true
+        },
+        {
+          "label": "Bouton unique sur contact",
+          "passed": true
+        },
+        {
+          "label": "Cache privé et non-indexation sur contact",
+          "passed": true
+        },
+        {
+          "label": "Demande privée refusée au visiteur : /admin/reports/tcl-support",
+          "passed": true
+        },
+        {
+          "label": "Demande privée refusée au visiteur : /admin/reports/tcl-support/1",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Soumission sans CSRF refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Origine étrangère refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Champ piège renseigné refusé",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Page hors périmètre refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Description trop longue refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Confirmation personnelle obligatoire",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Demande valide enregistrée puis confirmation affichée",
+          "passed": true
+        },
+        {
+          "label": "Double soumission renvoie la même demande",
+          "passed": true
+        },
+        {
+          "label": "Référence connue sans accès au contenu privé",
+          "passed": true
+        },
+        {
+          "label": "Connexion du compte local de recette",
+          "passed": true
+        },
+        {
+          "label": "Demande visible dans le suivi privé avec notification capturée",
+          "passed": true
+        },
+        {
+          "label": "Coordonnée consultable par le compte autorisé",
+          "passed": true
+        },
+        {
+          "label": "Description affichée comme texte, sans exécution de HTML",
+          "passed": true
+        },
+        {
+          "label": "Traitement enregistré depuis le formulaire privé",
+          "passed": true
+        },
+        {
+          "label": "Note visible dans le journal privé",
+          "passed": true
+        },
+        {
+          "label": "Modification concurrente refusée par le formulaire réel",
+          "passed": true
+        },
+        {
+          "label": "Filtre du suivi respecte l’état demandé",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "surface": "public form",
+      "viewport": "desktop and 390px mobile",
+      "status": "passed",
+      "evidence": "Private screenshots .local/support-form-desktop.jpg and support-form-mobile.jpg"
+    },
+    {
+      "surface": "private tracker",
+      "viewport": "desktop and 390px mobile",
+      "status": "passed",
+      "evidence": "Private screenshots .local/support-tracker-desktop.jpg and support-tracker-mobile.jpg"
+    }
+  ],
+  "ci": {
+    "status": "not_observed_yet",
+    "targetJob": "support-runtime",
+    "workflowYamlActionlint": "passed"
+  },
+  "preproduction": {
+    "installed": false,
+    "mailTransportQualified": false
+  },
+  "production": {
+    "installed": false,
+    "publicFormOpened": false,
+    "approvalForThisPatch": false
+  },
+  "remaining": [
+    "Find beta strategy and align fields/collection notice",
+    "Qualify the additive migration and real email transport on preproduction",
+    "Review exact candidate and authorize the production patch"
+  ],
+  "documentation": {
+    "status": "passed_for_metadata_foundation_and_changed_links",
+    "documents": [
+      "AGENTS.md",
+      "README.md",
+      "architecture.md",
+      "requirements.md",
+      "roadmap.md",
+      "decisions.md",
+      "changelog.md",
+      "docs/point-session.md",
+      "docs/integration-officiel.md",
+      "docs/signalements-support.md",
+      "workflows/recetter-support.md"
+    ],
+    "resolvedInternalLinksChecked": 335,
+    "foundationPresent": true,
+    "historicalReferencesNotResolvedInCheckout": [
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "<../../Site_tclongages_V1_Officiel/TC_Longages_Arbitrages_Etape1_V1_complétée(1).xlsx>",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "<../../Site_tclongages_V1_Officiel/TC_Longages_Etape2_Backlog_Plan_Execution_V1 (1).xlsx>",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_G1_Prototype_V1.zip",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "../livrables/tc-longages-officiel-apercu.zip",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "../livrables/tc-longages-v1-demo-o2switch.zip",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      },
+      {
+        "document": "docs/integration-officiel.md",
+        "link": "../archives/reference-avant-officiel-20260924.zip",
+        "status": "historical_reference_outside_this_checkout_or_generated_artifact"
+      }
+    ],
+    "limits": "Beta strategy missing; external historical files and ignored delivery archives remain outside this checkout."
+  },
+  "technicalChecks": {
+    "node": {
+      "passed": 149,
+      "failed": 0
+    },
+    "python": {
+      "run": 49,
+      "passed": 45,
+      "skipped": 4
+    },
+    "phpSyntaxFiles": 19,
+    "actionlint": "passed",
+    "framework": {
+      "passed": 37,
+      "failed": 0
+    }
+  }
+}

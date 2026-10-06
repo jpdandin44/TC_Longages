@@ -75,6 +75,11 @@ $settings['rebuild_access'] = FALSE;
 
 // tcl_site must be installed. Missing plugin means failure, never mail fallback.
 $config['system.mail']['interface']['default'] = 'tcl_null_mail';
+// Support collection stays closed until the form, privacy notice and transport
+// have been accepted for this particular release. Override only in private settings.
+$settings['tcl_support_enabled'] = FALSE;
+$settings['tcl_support_mail_mode'] = 'disabled';
+$settings['tcl_support_transport_qualified'] = FALSE;
 $config['user.settings']['register'] = 'admin_only';
 $config['system.logging']['error_level'] = 'hide';
 

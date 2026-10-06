@@ -4,7 +4,7 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "owner": "jpdandin",
   "scope": "V1 publique des sept pages Drupal ; comptes Bureau/Capitaine et droits par equipe reportes en V2 par demande du 5 octobre. Preproduction installee, sauvegarde/restauration et HTTPS officiel a qualifier ; aucune bascule ni ouverture executee.",
   "currentPhase": 2,
@@ -3541,6 +3541,97 @@
         "5": 2,
         "6": 3,
         "7": 3
+      }
+    }
+  ],
+  "developmentIterations": [
+    {
+      "protocol": "developpement-github-cockpit",
+      "version": "git",
+      "iterationId": "tcl-v1-signalements-support",
+      "project": "TC_Longages",
+      "owner": "jpdandin",
+      "kind": "site",
+      "stage": "developpement_local",
+      "status": "awaiting_review",
+      "objective": "Ajouter un signalement V1 sur les sept pages, notifier support@tclongages.fr et suivre les demandes dans Drupal privé.",
+      "candidate": {
+        "sourceSha": null,
+        "artifactSha256": null
+      },
+      "targets": {
+        "preproduction": {
+          "id": null,
+          "ready": false,
+          "isolated": false,
+          "empty": false,
+          "evidence": null,
+          "observedAt": null
+        },
+        "production": {
+          "id": null,
+          "ready": false,
+          "evidence": null,
+          "observedAt": null
+        }
+      },
+      "github": {
+        "repository": "https://github.com/jpdandin44/TC_Longages",
+        "prUrl": null,
+        "acceptedSourceSha": null,
+        "acceptedArtifactSha256": null,
+        "humanAcceptanceVerified": false,
+        "evidence": null,
+        "observedAt": null
+      },
+      "checks": [],
+      "approvals": [],
+      "backups": [],
+      "rollback": {
+        "status": "not_tested",
+        "target": null,
+        "artifactSha256": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "delivery": {
+        "status": "not_delivered",
+        "sourceSha": null,
+        "artifactSha256": null,
+        "target": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "blockers": [
+        "Référence docs/strategie-beta-test.md manquante ; champs proposés en local.",
+        "Réception et transport o2switch non qualifiés pour ce correctif.",
+        "Candidat non installé en préproduction, aucune autorisation de production pour ce correctif."
+      ],
+      "nextAction": "Retrouver la stratégie de bêta-test, aligner les champs et mentions puis examiner le correctif local.",
+      "nextIteration": [],
+      "budget": {
+        "limit": null,
+        "unit": null,
+        "observedUsage": null,
+        "observedAt": null
+      },
+      "phaseModelRef": "phase-model",
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ],
+      "mailboxEvidence": "data/support-v1-verification.json#mailbox",
+      "testEnvironment": {
+        "site": "http://127.0.0.1:4183/",
+        "form": "http://127.0.0.1:4183/signaler-un-probleme",
+        "privateTracker": "http://127.0.0.1:4183/admin/reports/tcl-support"
+      },
+      "guide": "docs/signalements-support.md",
+      "projection": {
+        "status": "canonical_record_only_in_this_checkout",
+        "reason": "Main cockpit UI does not yet consume developmentIterations; keep historical V1 decisions intact."
       }
     }
   ]

@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,25 @@ tags:
 ---
 
 # Exigences
+
+## Signalements du site V1 — demande du 6 octobre
+
+- Proposer depuis chacune des sept pages un bouton vers un formulaire de
+  problème ou besoin concernant le site.
+- Adresser la notification à `support@tclongages.fr`, créée si absente.
+- Donner au responsable un suivi privé utilisable en développement, avec
+  état, responsable et journal de traitement.
+- Conserver une demande si le courriel échoue et distinguer enregistrement,
+  capture de test, acceptation par le transport et réception en boîte.
+- Ne pas exposer les coordonnées ni les notes sur le dépôt GitHub public.
+- Respecter les éléments du fichier de stratégie annoncé : **TBD**, source
+  absente des copies locales et de la branche principale observée. Les
+  champs actuels sont une proposition locale à aligner avant publication.
+
+Ces exigences sont traitées par un correctif V1 distinct de la V2 Bureau.
+Le [guide support](docs/signalements-support.md) décrit les contrôles et le
+périmètre réellement implémenté.
+
 
 ## Priorité V1 publique — 5 octobre
 

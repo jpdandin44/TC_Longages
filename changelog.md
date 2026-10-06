@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,21 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-06 — Correctif V1 de signalement, en recette locale
+
+- Bouton sur les sept réponses de pages Drupal ; formulaire proposé de
+  problème/besoin avec confirmation et page d'origine sans paramètres.
+- Stockage privé durable, suivi paginé par état, responsable, notes et
+  historique ; protection des conflits et des doubles soumissions.
+- Courriel capturé en développement, échecs conservés dans le suivi et
+  transport hébergé fermé par défaut ; réception réelle non attestée.
+- Boîte `support@tclongages.fr` créée personnellement et présence confirmée
+  dans cPanel, sans modification des DNS ou redirections.
+- Runtime et session locaux séparés de la V2, nouvelle recette automatisée
+  du support dans un checkout CI jetable. Aucun déploiement du correctif.
+- Référence de stratégie manquante consignée, sans créer un faux document.
+
 
 ## 2026-10-05 — Revue simplifiée et PR candidate obligatoire
 

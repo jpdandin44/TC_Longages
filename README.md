@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - site-internet
@@ -14,6 +14,23 @@ tags:
 ---
 
 # Tennis Club de Longages
+
+## Correctif V1 de signalement — 6 octobre
+
+Le site V1 est en production selon la confirmation du responsable du 5 octobre.
+Les descriptions de préparation datées plus bas restent historiques.
+Un correctif indépendant ajoute un bouton sur les sept pages Drupal et un
+[formulaire local](http://127.0.0.1:4183/signaler-un-probleme), avec un
+[suivi privé](http://127.0.0.1:4183/admin/reports/tcl-support) accessible après
+connexion Drupal. La V2 Bureau reste dans son checkout sur le port 4182.
+
+`support@tclongages.fr` est créée et vérifiée dans cPanel. Les courriels du
+correctif sont capturés en local ; réception réelle et déploiement restent
+à qualifier. Les champs sont proposés en attente du fichier de stratégie
+annoncé, absent du dépôt. Le [guide support](docs/signalements-support.md)
+porte les commandes, limites et prochaines actions ; les [contrôles](data/support-v1-verification.json)
+portent la preuve courante.
+
 
 ## Mise en ligne V1 — parcours actuel
 
