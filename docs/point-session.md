@@ -32,6 +32,12 @@ enregistré dans l'itération canonique. Les tests locaux ne constituent pas
 une réussite GitHub ni une validation humaine. L'agenda public n'est pas encore
 créé, réponse explicite du responsable ; l'affichage reste désactivé.
 
+La première exécution GitHub réussit pour la recette native et la sécurité
+de livraison, puis révèle le test CI resté sur l'ancienne liste de jobs.
+Le contrat de test est corrigé, y compris l'action PHP épinglée et ses
+limites. Les quatre confirmations personnelles de la PR restent décochées ;
+le contrôle de politique attend leur déclaration par le responsable.
+
 **Suite :** examiner le Bureau et la Communication de la PR #14 ; après réussite
 des contrôles et accord propre à V2, préparer la livraison et la mise à jour
 en préproduction sous maintenance. Qualifier les nouvelles routes/images

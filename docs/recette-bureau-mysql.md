@@ -64,6 +64,13 @@ sur un runner Windows jetable avec PHP 8.3. Les autres jobs conservent leurs
 contrôles. Son exécution GitHub doit réussir sur la tête exacte de la PR ; la
 préparation YAML et la réussite locale PHP 8.4 ne constituent pas cette preuve.
 
+La première exécution GitHub du 6 octobre réussit pour `drupal-mysql` et
+`delivery-safety`. Elle révèle aussi que le test du contrat CI conservait
+l'ancienne liste de jobs. Ce test est actualisé avec le nouveau job et
+l'action PHP épinglée ; les garde-fous de lecture seule et les confirmations
+humaines restent contrôlés. Le résultat du candidat corrigé est consigné
+dans le suivi canonique.
+
 Le test ne qualifie pas le serveur Apache/o2switch, ses paramètres PHP, les droits
 SQL réels, une sauvegarde de l'hébergement ni un retour arrière de production.
 La livraison récurrente et le paquet V2 restent à qualifier avant hébergement

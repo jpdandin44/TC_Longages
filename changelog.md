@@ -24,6 +24,8 @@ tags:
   toutes les lignes comparés, valeurs binaires comprises.
 - Job CI natif PHP 8.3/MariaDB et syntaxe PHP élargie aux helpers/tests ; résultats
   GitHub à vérifier sur le nouveau candidat. Recettes locales et clôture conservées.
+- Contrat des tests CI actualisé pour le job MariaDB et l'action PHP épinglée,
+  après constat GitHub de l'ancienne liste de jobs ; droits de lecture conservés.
 - Agenda public confirmé non créé : affichage désactivé, ID attendu.
 - Aucune livraison hébergée ni validation humaine créée par cette reprise.
 

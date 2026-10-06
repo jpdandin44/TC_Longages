@@ -256,7 +256,10 @@
   "technicalChecks": {
     "node": {
       "tests": 151,
-      "passed": true
+      "passed": true,
+      "checkedAt": "2026-10-06T07:01:59.117678+00:00",
+      "log": ".local/v2-resume-node-check-final.log",
+      "scope": "Full current source after workflow contract correction"
     },
     "python": {
       "tests": 49,
@@ -348,6 +351,12 @@
         "preparer-deploiement.yml"
       ],
       "referenceFiles": 28
+    },
+    "workflowContract": {
+      "tests": 4,
+      "passed": true,
+      "source": "tests/ci-workflows.test.mjs",
+      "scope": "Read-only jobs, pinned PHP action and human policy retained"
     }
   },
   "sourceHashes": {
@@ -356,7 +365,8 @@
     "tests/drupal-mysql-update.php": "efaf3280bd9a7482c990b9518eae741fde214ff8fc449aa7a26673548d617143",
     "scripts/drupal-mysql-recette.ps1": "249afebeaafc846f26c4c7e450111d1ffe50c6d77f70a8c0322340d6c37966c1",
     "drupal/web/modules/custom/tcl_bureau/css/bureau.css": "61ce1360ee15ad1d9a3fa4bb3e827dd8feb72037fa9a8ee790c189b0a01a6d61",
-    "scripts/framework.mjs": "f31c803f8e912d8231b0cd9c38c387cf8cad4296380be56a86c714384d0bf661"
+    "scripts/framework.mjs": "f31c803f8e912d8231b0cd9c38c387cf8cad4296380be56a86c714384d0bf661",
+    "tests/ci-workflows.test.mjs": "0d2be4ac2833738445eeaf856916ffdade1e0e3c6e162f41ddc85bcf980aab74"
   },
   "limits": [
     "GitHub PHP 8.3 native job must pass on exact current PR head",
@@ -379,5 +389,18 @@
     "context": "desktop-linux",
     "containersModified": false
   },
-  "sourceHashFormat": "sha256 of local tested checkout file bytes"
+  "sourceHashFormat": "sha256 of local tested checkout file bytes",
+  "githubHistory": [
+    {
+      "headSha": "e22cd064fbdb3073d05dae9651878b0881b735f2",
+      "runUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37426336971",
+      "observedAt": "2026-10-06T07:01:59.117678+00:00",
+      "jobs": {
+        "drupal-mysql": "success",
+        "delivery-safety": "success",
+        "technical-ci": "failure"
+      },
+      "failure": "Workflow contract test still expected old job list; corrected and locally rechecked. This is not a pass of the corrected head."
+    }
+  ]
 }
