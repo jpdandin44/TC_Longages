@@ -1,6 +1,7 @@
 import {readFile, writeFile, rename, realpath, lstat, mkdir, unlink} from 'node:fs/promises';
 import {resolve, sep} from 'node:path';
 import {randomUUID} from 'node:crypto';
+import {pathToFileURL} from 'node:url';
 import {hash, ReviewError} from './framework-store.mjs';
 import {readCandidateVerification, CANDIDATE_EXCLUSIONS} from './framework-candidate.mjs';
 
@@ -34,7 +35,7 @@ export function reviewIssues(i,phase,pr,source) {
   }
   return [...new Set(errors)];
 }
-export async function createIterationStore({roots=[],verifyPullRequest,verifySource=readCandidateVerification}) {
+export async function createIterationStore({roots=[],verifyPullRequest,verifySource}) {
   const sources=[];
   for(const input of roots){
     const root=await realpath(input),file=resolve(root,'docs/suivi-chantier/suivi-chantier.json');
@@ -42,6 +43,18 @@ export async function createIterationStore({roots=[],verifyPullRequest,verifySou
     sources.push({root,file});
   }
   let writing=false;
+  const nativeReaders=new Map();
+  async function reader(source){
+    if(verifySource)return {verify:verifySource,exclusions:CANDIDATE_EXCLUSIONS};
+    if(!nativeReaders.has(source.root)){
+      const file=resolve(source.root,'scripts/framework-candidate.mjs');
+      need((await lstat(file)).isFile()&&!(await lstat(file)).isSymbolicLink()&&(await realpath(file)).startsWith(source.root+sep),'Vérificateur natif hors checkout.');
+      const module=await import(pathToFileURL(file).href);
+      need(typeof module.readCandidateVerification==='function'&&Array.isArray(module.CANDIDATE_EXCLUSIONS),'Vérificateur natif incompatible.');
+      nativeReaders.set(source.root,{verify:module.readCandidateVerification,exclusions:module.CANDIDATE_EXCLUSIONS});
+    }
+    return nativeReaders.get(source.root);
+  }
   async function load(force=false){
     const rows=[],snapshots=[];
     for(const source of sources){
@@ -53,9 +66,10 @@ export async function createIterationStore({roots=[],verifyPullRequest,verifySou
         const criteria=i.reviewCriteria||tracker.phases.map(p=>p.exitCriteria);
         need(criteria.length===4&&criteria.every(c=>Array.isArray(c)&&c.length&&c.every(t=>typeof t==='string')),'Critères obligatoires incomplets.');
         const item={...i,reviewCriteria:criteria};
-        const pr=/^[a-f0-9]{40}$/.test(i.candidate?.sourceSha||'')?await verifyPullRequest({url:i.github?.prUrl,sourceCommit:i.candidate.sourceSha,excludedPaths:CANDIDATE_EXCLUSIONS,force}):{passed:false,status:'not_ready',url:i.github?.prUrl,issues:['La version locale doit être figée avant vérification de la PR.']};
         const git=i.candidate?.gitSourceDigest;
-        const check=git?await verifySource(source.root,{sourceCommit:i.candidate.sourceSha,artifactDigest:git,candidateManifest:'data/framework-candidate.json'}):{passed:false,issues:['Candidat local non figé.']};
+        const native=git?await reader(source):{verify:readCandidateVerification,exclusions:CANDIDATE_EXCLUSIONS};
+        const pr=/^[a-f0-9]{40}$/.test(i.candidate?.sourceSha||'')?await verifyPullRequest({url:i.github?.prUrl,sourceCommit:i.candidate.sourceSha,excludedPaths:native.exclusions,force}):{passed:false,status:'not_ready',url:i.github?.prUrl,issues:['La version locale doit être figée avant vérification de la PR.']};
+        const check=git?await native.verify(source.root,{sourceCommit:i.candidate.sourceSha,artifactDigest:git,candidateManifest:'data/framework-candidate.json'}):{passed:false,issues:['Candidat local non figé.']};
         const events=currentEvents(item);
         rows.push({...item,phaseIndex:knownStage(i),phaseLabels:ITERATION_PHASES,sourceCheck:check,pullRequestCheck:pr,
           phaseViews:criteria.map((labels,id)=>{

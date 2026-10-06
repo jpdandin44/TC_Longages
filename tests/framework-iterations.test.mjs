@@ -25,6 +25,14 @@ async function fixture(t,{merged=true}={}){
 test('Le lot, les quatre phases et les critères sont exposés sans validation créée',async t=>{
   const f=await fixture(t),s=await f.store.read();assert.deepEqual(s.iterations[0].phaseLabels,ITERATION_PHASES);assert.deepEqual(s.iterations[0].phaseViews.map(p=>p.criteria),f.historical.phases.map(p=>p.exitCriteria));assert.ok(s.iterations[0].phaseViews.every(p=>p.status==='not_reviewed'));assert.deepEqual(JSON.parse(await readFile(f.file)).decisions,f.historical.decisions);
 });
+
+test('Chaque checkout garde le vérificateur et les exclusions de son propre manifeste',async t=>{
+ const f=await fixture(t);await mkdir(resolve(f.root,'scripts'));
+ await writeFile(resolve(f.root,'scripts/framework-candidate.mjs'),"export const CANDIDATE_EXCLUSIONS=['fixture-proof.json']; export async function readCandidateVerification(root,context){return {passed:context.artifactDigest==='"+'d'.repeat(64)+"',protocol:'native-fixture-only'};}");
+ let exclusions;
+ const store=await createIterationStore({roots:[f.root],verifyPullRequest:async options=>{exclusions=options.excludedPaths;return {passed:false,status:'open',issues:['Fixture PR ouverte']};}});
+ const s=await store.read();assert.equal(s.iterations[0].sourceCheck.passed,true);assert.equal(s.iterations[0].sourceCheck.protocol,'native-fixture-only');assert.deepEqual(exclusions,['fixture-proof.json']);
+});
 test('Critères, commentaire, confirmation et candidat exact sont imposés côté serveur',async t=>{
   const f=await fixture(t);await f.action('submit');const before=await readFile(f.file,'utf8');
   for(const extra of [{confirmed:false},{comment:' '},{checkedCriteria:[]},{sourceSha:'e'.repeat(40)},{artifactSha256:'e'.repeat(64)},{actor:'intrus'}])await assert.rejects(f.action('approve',0,extra));

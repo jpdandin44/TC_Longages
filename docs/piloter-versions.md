@@ -73,6 +73,11 @@ Créer un fichier privé `.local/cockpit-sources.json` dans le checkout du cockp
 Les chemins doivent être remplacés par les checkouts existants ; aucun chemin
 n'est accepté depuis le navigateur. Le lancement lie le serveur à `127.0.0.1` :
 
+Chaque checkout utilise son vérificateur Git natif et ses exclusions de reçus,
+pour conserver la compatibilité des manifestes entre branches. Seuls les scripts
+des checkouts TC explicitement déclarés sont chargés ; aucune URL distante ni
+source choisie depuis l'interface n'est exécutée.
+
 ```powershell
 node scripts/cockpit-local.mjs .local/cockpit-sources.json
 ```
