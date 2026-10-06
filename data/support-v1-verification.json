@@ -4,8 +4,8 @@
   "observedAt": "2026-10-06T10:05:09.973538+00:00",
   "status": "installed_closed_preproduction_awaiting_human_recipe",
   "branch": "feat/v1-signalement-support",
-  "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
-  "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+  "sourceSha": "fa7dc2008182ca40430cd14be05dee20c7d0d49f",
+  "artifactSha256": "55da2f48e9f33f07d1519f9bae30b7c795925466a24ace9933775e15e1b6ac35",
   "mailbox": {
     "address": "support@tclongages.fr",
     "status": "created_and_visible_in_cpanel",
@@ -38,7 +38,7 @@
   },
   "checks": [
     {
-      "observedAt": "2026-10-06T09:19:12+00:00",
+      "observedAt": "2026-10-06T10:39:57+00:00",
       "scope": "local-sqlite-only",
       "outgoingMail": false,
       "checks": [
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "observedAt": "2026-10-06T09:22:25.566181+00:00",
+      "observedAt": "2026-10-06T10:41:31.171595+00:00",
       "scope": "local-http-only",
       "origin": "http://127.0.0.1:4183",
       "outgoingMail": false,
@@ -195,6 +195,10 @@
           "passed": true
         },
         {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
           "label": "Soumission sans CSRF refusée",
           "passed": true
         },
@@ -204,6 +208,10 @@
         },
         {
           "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
           "passed": true
         },
         {
@@ -219,6 +227,10 @@
           "passed": true
         },
         {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
           "label": "Champ piège renseigné refusé",
           "passed": true
         },
@@ -228,6 +240,10 @@
         },
         {
           "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
           "passed": true
         },
         {
@@ -243,6 +259,10 @@
           "passed": true
         },
         {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
           "label": "Description trop longue refusée",
           "passed": true
         },
@@ -252,6 +272,58 @@
         },
         {
           "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
+          "label": "Description vide refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
+          "label": "Type de demande obligatoire",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
+          "label": "Adresse de réponse invalide refusée",
+          "passed": true
+        },
+        {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
           "passed": true
         },
         {
@@ -267,6 +339,10 @@
           "passed": true
         },
         {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
           "label": "Demande valide enregistrée puis confirmation affichée",
           "passed": true
         },
@@ -279,15 +355,39 @@
           "passed": true
         },
         {
+          "label": "Formulaire anonyme accessible",
+          "passed": true
+        },
+        {
+          "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+          "passed": true
+        },
+        {
+          "label": "Objet supprimé et page d’origine conservée automatiquement dans un champ caché",
+          "passed": true
+        },
+        {
+          "label": "Besoin enregistré sans adresse e-mail ni objet à saisir",
+          "passed": true
+        },
+        {
           "label": "Connexion du compte local de recette",
           "passed": true
         },
         {
-          "label": "Demande visible dans le suivi privé avec notification capturée",
+          "label": "Titre automatique visible dans le suivi privé avec notification capturée",
+          "passed": true
+        },
+        {
+          "label": "Objet dérivé du type par le serveur, objet fourni par le navigateur ignoré",
           "passed": true
         },
         {
           "label": "Coordonnée consultable par le compte autorisé",
+          "passed": true
+        },
+        {
+          "label": "Page d’origine conservée dans le suivi privé",
           "passed": true
         },
         {
@@ -313,7 +413,7 @@
       ]
     },
     {
-      "observedAt": "2026-10-06T09:22:34.966602+00:00",
+      "observedAt": "2026-10-06T10:41:42.833901+00:00",
       "scope": "local-native-editor",
       "outgoingMail": false,
       "checks": [
@@ -399,163 +499,16 @@
     }
   ],
   "ci": {
-    "status": "passed",
-    "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
-    "headSha": "60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
-    "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
-    "observedAt": "2026-10-06T09:44:11.645719+00:00",
-    "jobs": [
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:38:51Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543221",
-        "name": "delivery-safety",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:41:01Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543279",
-        "name": "support-runtime",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:41:19Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205542984",
-        "name": "technical-ci",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      }
-    ]
+    "status": "pending",
+    "sourceSha": "fa7dc2008182ca40430cd14be05dee20c7d0d49f",
+    "artifactSha256": "55da2f48e9f33f07d1519f9bae30b7c795925466a24ace9933775e15e1b6ac35"
   },
   "preproduction": {
-    "installed": true,
+    "installed": false,
+    "status": "new_candidate_pending",
+    "previousInstalledSource": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
     "mailTransportQualified": true,
-    "gate": {
-      "status": "authorized_apply_completed",
-      "evidence": ".local/support-preproduction-gate.json",
-      "reasons": []
-    },
-    "recovery": {
-      "operation": "staged_with_recovery",
-      "checkedAt": "2026-10-06T09:40:33.514887+00:00",
-      "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
-      "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
-      "target": "https://preprod.tclongages.fr/",
-      "before": {
-        "checkedAt": "2026-10-06T09:40:03+00:00",
-        "operation": "check",
-        "environment": "preproduction",
-        "databaseConnectionVerified": true,
-        "maintenanceEnabled": true,
-        "drupalVersion": "11.4.8",
-        "phpVersion": "8.3.33",
-        "registration": "admin_only",
-        "supportEnabled": false,
-        "mailMode": "disabled",
-        "publicOpeningExecuted": false,
-        "restorationPrefixVerified": false
-      },
-      "backup": {
-        "format": "tcl-private-backup-v1",
-        "createdAt": "2026-10-06T09:40:23.649080+00:00",
-        "target": "https://preprod.tclongages.fr/",
-        "account": "daje5127",
-        "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
-        "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
-        "sqlUncompressedBytes": 5497124,
-        "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
-        "integrityVerified": true,
-        "restorationTested": true,
-        "deploymentExecuted": false
-      },
-      "restoredFiles": {
-        "format": "tcl-private-file-restore-v1",
-        "checkedAt": "2026-10-06T09:40:31.408192+00:00",
-        "directory": "/home2/daje5127/tcl-preproduction/private/restorations/restore-avr4j8g0",
-        "backupDirectory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
-        "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
-        "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
-        "regularFiles": 26833,
-        "filesRestoredAndVerified": true,
-        "databaseRestored": false,
-        "drupalBootstrapped": false,
-        "restorationTested": false,
-        "deploymentExecuted": false
-      },
-      "restoredDrupal": {
-        "checkedAt": "2026-10-06T09:40:33+00:00",
-        "operation": "restore-check",
-        "environment": "preproduction",
-        "databaseConnectionVerified": true,
-        "maintenanceEnabled": true,
-        "drupalVersion": "11.4.8",
-        "phpVersion": "8.3.33",
-        "registration": "admin_only",
-        "supportEnabled": false,
-        "mailMode": "disabled",
-        "publicOpeningExecuted": false,
-        "restorationPrefixVerified": true
-      },
-      "databaseRestoration": {
-        "namespace": "sr_0a623d9bec3e_",
-        "tables": 44,
-        "originalTablesOverwritten": false
-      },
-      "deploymentExecuted": false,
-      "productionWritten": false
-    },
-    "installation": {
-      "operation": "installed_closed_preproduction",
-      "checkedAt": "2026-10-06T09:43:13.032499+00:00",
-      "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
-      "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
-      "target": "https://preprod.tclongages.fr/",
-      "candidateFilesVerified": 41,
-      "initialized": {
-        "checkedAt": "2026-10-06T09:43:12+00:00",
-        "operation": "initialize",
-        "environment": "preproduction",
-        "databaseConnectionVerified": true,
-        "maintenanceEnabled": true,
-        "drupalVersion": "11.4.8",
-        "phpVersion": "8.3.33",
-        "registration": "admin_only",
-        "supportEnabled": true,
-        "mailMode": "capture",
-        "publicOpeningExecuted": false,
-        "restorationPrefixVerified": false,
-        "editablePages": 7
-      },
-      "checked": {
-        "checkedAt": "2026-10-06T09:43:12+00:00",
-        "operation": "check",
-        "environment": "preproduction",
-        "databaseConnectionVerified": true,
-        "maintenanceEnabled": true,
-        "drupalVersion": "11.4.8",
-        "phpVersion": "8.3.33",
-        "registration": "admin_only",
-        "supportEnabled": true,
-        "mailMode": "capture",
-        "publicOpeningExecuted": false,
-        "restorationPrefixVerified": false,
-        "editablePages": 7
-      },
-      "backupReceipt": "stage-receipt.json",
-      "maintenancePreserved": true,
-      "productionWritten": false
-    },
-    "mailQualification": {
+    "priorMailQualification": {
       "checkedAt": "2026-10-06T09:43:51+00:00",
       "operation": "mail-test",
       "environment": "preproduction",
@@ -577,20 +530,8 @@
       "receptionEvidence": ".local/support-preprod-mail-received.jpg",
       "webModeRemains": "capture"
     },
-    "browserRecipe": {
-      "observedAt": "2026-10-06T10:05:09.973538+00:00",
-      "caption": "Le court de Longages · photo fournie par le club",
-      "editablePages": 7,
-      "nativeEditSavedDisplayedAndReverted": true,
-      "revisionsPreserved": true,
-      "publicButtonCount": 1,
-      "reportFormAccessibleAuthenticated": true,
-      "privateTrackerDisplaysFictitiousProbe": true,
-      "evidence": [
-        ".local/support-preprod-site.jpg",
-        ".local/support-preprod-mail-received.jpg"
-      ],
-      "noHumanApprovalCreated": true
+    "gate": {
+      "status": "pending_fresh_checks_and_recovery"
     }
   },
   "production": {
@@ -599,140 +540,804 @@
     "approvalForThisPatch": false
   },
   "remaining": [
-    "Recette personnelle de la PR #15 et de la préproduction",
-    "Retrouver la stratégie de bêta-test avant acceptation du formulaire en production",
+    "Recette personnelle du formulaire simplifié et de la PR #15",
+    "Compléter les mentions de collecte et règles de conservation avant publication",
     "Accord propre à la publication de ce correctif en production",
-    "Bannière des partenaires V1.1 à développer et logos/liens à fournir"
+    "Bannière partenaires V1.1 prévue, logos et liens attendus"
   ],
   "documentation": {
-    "status": "passed_for_metadata_foundation_and_changed_links",
     "documents": [
-      "AGENTS.md",
       "README.md",
-      "architecture.md",
       "requirements.md",
-      "roadmap.md",
-      "decisions.md",
       "changelog.md",
-      "docs/point-session.md",
-      "docs/integration-officiel.md",
       "docs/signalements-support.md",
-      "workflows/recetter-support.md",
-      "docs/modifier-textes-drupal.md"
+      "docs/point-session.md"
     ],
-    "resolvedInternalLinksChecked": 344,
-    "foundationPresent": true,
-    "historicalReferencesNotResolvedInCheckout": [
+    "resolvedInternalLinks": [
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Specifications_Evolution_Prototype_Codex_V1.md"
+        "document": "README.md",
+        "reference": "docs/modifier-textes-drupal.md"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Arbitrages_Etape1_V1_complétée(1"
+        "document": "README.md",
+        "reference": "docs/signalements-support.md"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_Etape2_Backlog_Plan_Execution_V1 (1"
+        "document": "README.md",
+        "reference": "data/support-v1-verification.json"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../../Site_tclongages_V1_Officiel/TC_Longages_G1_Prototype_V1.zip"
+        "document": "README.md",
+        "reference": "data/framework-revue-verification.json#hostingPrimaryConfiguration"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../livrables/tc-longages-officiel-apercu.zip"
+        "document": "README.md",
+        "reference": "data/framework-revue-verification.json#primaryAccountFirstInstallation"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../livrables/tc-longages-v1-demo-o2switch.zip"
+        "document": "README.md",
+        "reference": "docs/point-session.md"
       },
       {
-        "document": "docs/integration-officiel.md",
-        "link": "../archives/reference-avant-officiel-20260924.zip"
+        "document": "README.md",
+        "reference": "docs/parcours-mise-en-ligne.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "workflows/preparer-livraison.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/actions-mutualisees-verification.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/activation-lune-verification.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/point-session.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/suivi-chantier/suivi-chantier.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "workflows/preparer-livraison.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/actions-mutualisees-verification.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/activation-lune-verification.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/preparer-lune-tc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/point-session.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/qualification-preproduction.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/reprise-deploiement-verification.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/parcours-mise-en-ligne.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/parcours-mise-en-ligne.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/installation-framework.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/point-session.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/installation-drupal.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "framework/installation.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/preparer-depot.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/suivi-chantier/suivi-chantier.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/integration-officiel.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "config/officiel.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/baseline-officiel.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/officiel-sources.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/publier-v1-sous-domaine.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-v1-sous-domaine.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-officiel.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/visiter-prototype.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/publier-demo-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/deployer-vitrine-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/source-provenance.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "data/tarifs-inscription.json"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "Images_Photos/Logo.jpeg"
+      },
+      {
+        "document": "README.md",
+        "reference": "Images_Photos/Image_terrain.jpg"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/visiter-prototype.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "Affiche.jpeg"
+      },
+      {
+        "document": "README.md",
+        "reference": "api/adoc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/authentification-oidc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/certificat-et-connexion-bureau.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/acces-bureau.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/integration-officiel.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-officiel.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "architecture.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "requirements.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "roadmap.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "decisions.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "changelog.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/commandes-sensibles.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/publier-v1-sous-domaine.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-v1-sous-domaine.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/mutualisation-connect.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/authentification-oidc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-oidc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/certificat-et-connexion-bureau.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/acces-bureau.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/visiter-prototype.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-demo.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/publier-demo-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/deployer-vitrine-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-vitrine-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "prompts/conception-inscriptions.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "workflows/publication-controlee.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "api/facebook.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "api/whatsapp.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "api/adoc.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "AGENTS.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-prototype.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-demo.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-vitrine-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "README.md",
+        "reference": "docs/recette-oidc.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/signalements-support.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/suivi-chantier/04-phase.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/preparer-lune-tc.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/preparer-lune-tc.md#lot-du-compte-principal"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "workflows/preparer-livraison.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "data/activation-lune-verification.json"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/suivi-chantier/00-phase.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "tests/framework.test.mjs"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/framework-developpement.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/parcours-mise-en-ligne.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/integration-officiel.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/recette-officiel.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "data/officiel-sources.json"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/publier-v1-sous-domaine.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "architecture.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "data/tarifs-inscription.json"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "api/adoc.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/recette-oidc.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/recette-demo.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/recette-vitrine-o2switch.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/deployer-vitrine-o2switch.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/publier-demo-o2switch.md"
+      },
+      {
+        "document": "requirements.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/preparer-lune-tc.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "data/activation-lune-verification.json"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/point-session.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/point-session.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/publier-v1-sous-domaine.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-v1-sous-domaine.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-officiel.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-officiel.md#révision-du-24-septembre--numéro-de-rue-confirmé"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/integration-officiel.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "data/officiel-sources.json"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-officiel.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "api/adoc.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/publier-demo-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-demo-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/authentification-oidc.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-oidc.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/certificat-et-connexion-bureau.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/deployer-vitrine-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-vitrine-o2switch.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/visiter-prototype.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-demo.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/processus-inscriptions.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-prototype.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-prototype.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "docs/recette-prototype.md"
+      },
+      {
+        "document": "changelog.md",
+        "reference": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md"
+      },
+      {
+        "document": "docs/signalements-support.md",
+        "reference": "modifier-textes-drupal.md"
+      },
+      {
+        "document": "docs/signalements-support.md",
+        "reference": "../data/support-v1-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/support-v1-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "modifier-textes-drupal.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/support-v1-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/support-v1-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "signalements-support.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/industrialisation-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "parcours-mise-en-ligne.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-framework.md#préparer-une-revue"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "suivi-chantier/suivi-chantier.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-revue-verification.json#primaryAccountFirstInstallation"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md#français-et-accès-au-site-de-recette"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-framework.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-revue-verification.json#reviewValidationCorrection"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "suivi-chantier/04-phase.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-revue-verification.json#hostingPrimaryConfiguration"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md#lot-de-premiere-installation-sur-le-compte-principal"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-lune-tc.md#lot-du-compte-principal"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-lune-tc.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../prompts/revue-premiere-installation-claude.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/activation-lune-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/actions-mutualisees-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/activation-lune-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-lune-tc.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "suivi-chantier/suivi-chantier.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/activation-lune-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/activation-lune-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-lune-tc.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../workflows/preparer-livraison.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/actions-mutualisees-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-revue-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-lune-tc.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/reprise-deploiement-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "qualification-preproduction.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "qualification-preproduction.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/reprise-deploiement-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "parcours-mise-en-ligne.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/parcours-mise-en-ligne.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "suivi-chantier/suivi-chantier.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "preparer-depot.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-revue-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "candidat-revue.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../framework/installation.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-framework.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "installation-drupal.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-interactif-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/framework-verification.json"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "suivi-chantier/archives/2026-09-29-adoption-framework.md"
+      },
+      {
+        "document": "docs/point-session.md",
+        "reference": "../data/hebergement-inventaire.json"
       }
     ],
-    "limits": "Beta strategy missing; external historical files and ignored delivery archives remain outside this checkout.",
-    "observations": "Latest PR and CI observations are saved locally without pushing an observation-only commit and repeating the same CI.",
-    "observedAt": "2026-10-06T09:34:04.787835+00:00"
+    "unavailableReferences": [],
+    "observedAt": "2026-10-06T10:43:24.820589+00:00",
+    "status": "passed",
+    "limits": "Mentions de collecte et conservation restent à compléter ; quatre champs définis directement par le responsable."
   },
   "technicalChecks": {
-    "node": {
-      "passed": 149,
-      "failed": 0,
-      "environmentCorrection": "Three PyYAML checks rerun with documented framework Python: 7 targeted tests passed."
-    },
-    "python": {
-      "run": 54,
-      "passed": 50,
-      "skipped": 4,
-      "incrementalTest": "New fifth SQL lock regression passed; complete previous 53 tests unchanged and fresh CI passed."
-    },
-    "phpSyntaxFiles": 24,
-    "actionlint": "passed",
-    "framework": {
-      "passed": 37,
-      "failed": 0
-    }
+    "supportRuntime": 18,
+    "supportHttp": 72,
+    "editorHttp": 16,
+    "phpSyntax": "passed",
+    "scope": "focused new form contract; full candidate CI pending"
   },
   "candidateKind": "Additive preproduction ZIP from committed source",
   "candidateManifest": "data/framework-candidate.json",
   "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/15",
   "github": {
-    "headRefOid": "60d00aa2570f0815fb7ba5f966bb5a1769bc9fa3",
-    "isDraft": true,
-    "state": "OPEN",
-    "statusCheckRollup": [
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:38:55Z",
-        "conclusion": "FAILURE",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380158/job/112205542217",
-        "name": "policy",
-        "startedAt": "2026-10-06T09:38:42Z",
-        "status": "COMPLETED",
-        "workflowName": "PR Policy"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:38:51Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543221",
-        "name": "delivery-safety",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:41:01Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205543279",
-        "name": "support-runtime",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      },
-      {
-        "__typename": "CheckRun",
-        "completedAt": "2026-10-06T09:41:19Z",
-        "conclusion": "SUCCESS",
-        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37444380201/job/112205542984",
-        "name": "technical-ci",
-        "startedAt": "2026-10-06T09:38:43Z",
-        "status": "COMPLETED",
-        "workflowName": "CI — TC Longages"
-      }
-    ],
     "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
-    "observedAt": "2026-10-06T09:44:11.645719+00:00"
+    "state": "OPEN",
+    "observedAt": "2026-10-06T10:43:24.820589+00:00",
+    "refreshRequired": true
   },
   "humanReview": {
     "status": "awaiting_personal_recipe_and_human_checklist",
     "source": "PR Policy exact-head annotations",
     "fourCheckboxesUnchecked": true
   },
-  "observationsWorkingTreeOnly": true,
+  "observationsWorkingTreeOnly": false,
   "previousCandidate": {
     "sourceSha": "e61c44a4ff16954be30ecd074e754ecdab7ae15e",
     "artifactSha256": "7987c546f887a17723367677f0550426bd3f2a4a565eb6a0245042d0450e1ed7",
@@ -837,13 +1442,715 @@
     }
   },
   "deliveryPackage": {
-    "manifestSha256": "34865960d6d249f87d29c3c97d019f871ac1a1a4b0ff9cbcaa3492605e19c3dd",
+    "manifestSha256": "7f30f490d9d95f473b301bedeaf5ba8c848c4d42cf5ff1a8691bb3ad3c8a1146",
     "files": 41,
-    "bytes": 816003
+    "bytes": 815925
   },
   "gitSourceManifest": {
-    "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
-    "artifactSha256": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060",
+    "sourceSha": "fa7dc2008182ca40430cd14be05dee20c7d0d49f",
+    "artifactSha256": "cb993d6b23772dc6d4c4b99dea7e109f66b9c2cd54f2fc52ba328dba915bff31",
     "manifest": "data/framework-candidate.json"
+  },
+  "cockpit": {
+    "phaseId": 1,
+    "status": "local_ready_for_personal_review",
+    "objective": "Raccorder les versions et changements au cockpit",
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/16",
+    "sourceSha": "be1c3e4748fbc7c78f439e8b14ffa2bbc37d4ae7",
+    "artifactSha256": "ac48e17a1c6d59d94f2afb81a5cc7a233d884b88f9e18a06657a3675b2476456",
+    "artifactKind": "Git source manifest, no Drupal ZIP",
+    "checks": {
+      "targetedNodePassed": 48,
+      "documentationDocuments": 8,
+      "resolvedInternalLinks": 297,
+      "ci": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448772470",
+      "technicalCiPassed": true,
+      "browserDraftPreservationVerified": true,
+      "v2NativeSourceVerified": true
+    },
+    "guide": "https://github.com/jpdandin44/TC_Longages/blob/feat/cockpit-iterations/docs/piloter-versions.md",
+    "target": "http://127.0.0.1:4181/",
+    "observedAt": "2026-10-06T10:23:52.976454+00:00",
+    "nextAction": "Recetter le cockpit ; examiner #16 après la PR #15, puis remettre sa base sur main.",
+    "humanValidationCreated": false,
+    "remoteActionExecuted": false
+  },
+  "candidateHistory": [
+    {
+      "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+      "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+      "checks": [
+        {
+          "observedAt": "2026-10-06T09:19:12+00:00",
+          "scope": "local-sqlite-only",
+          "outgoingMail": false,
+          "checks": [
+            {
+              "label": "Demande durable créée avec état Nouvelle",
+              "passed": true
+            },
+            {
+              "label": "Même soumission sans doublon ni écrasement",
+              "passed": true
+            },
+            {
+              "label": "Contenu initial conservé après doublon",
+              "passed": true
+            },
+            {
+              "label": "État, responsable et note enregistrés",
+              "passed": true
+            },
+            {
+              "label": "Révision périmée refusée",
+              "passed": true
+            },
+            {
+              "label": "Historique préservé après conflit",
+              "passed": true
+            },
+            {
+              "label": "État inventé refusé",
+              "passed": true
+            },
+            {
+              "label": "Courriel capturé sans envoi réseau",
+              "passed": true
+            },
+            {
+              "label": "Destinataire et expéditeur fixes",
+              "passed": true
+            },
+            {
+              "label": "Objet du courriel sans injection d’en-tête",
+              "passed": true
+            },
+            {
+              "label": "Courriel contient la page concernée",
+              "passed": true
+            },
+            {
+              "label": "Envoi fermé sans faux succès de livraison",
+              "passed": true
+            },
+            {
+              "label": "Demande conservée lorsque le transport est fermé",
+              "passed": true
+            },
+            {
+              "label": "Échec du transport enregistré",
+              "passed": true
+            },
+            {
+              "label": "Ticket intact après échec de courriel",
+              "passed": true
+            },
+            {
+              "label": "Notifications et traitement présents dans le journal privé",
+              "passed": true
+            },
+            {
+              "label": "Un collecteur de test ne peut pas qualifier un transport réel",
+              "passed": true
+            },
+            {
+              "label": "Limitation des soumissions après cinq demandes par heure",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "observedAt": "2026-10-06T09:22:25.566181+00:00",
+          "scope": "local-http-only",
+          "origin": "http://127.0.0.1:4183",
+          "outgoingMail": false,
+          "checks": [
+            {
+              "label": "Bouton unique sur index",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur index",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur competitions",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur competitions",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur calendrier",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur calendrier",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur disponibilites",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur disponibilites",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur equipes",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur equipes",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur espace",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur espace",
+              "passed": true
+            },
+            {
+              "label": "Bouton unique sur contact",
+              "passed": true
+            },
+            {
+              "label": "Cache privé et non-indexation sur contact",
+              "passed": true
+            },
+            {
+              "label": "Demande privée refusée au visiteur : /admin/reports/tcl-support",
+              "passed": true
+            },
+            {
+              "label": "Demande privée refusée au visiteur : /admin/reports/tcl-support/1",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Soumission sans CSRF refusée",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Origine étrangère refusée",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Champ piège renseigné refusé",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Page hors périmètre refusée",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Description trop longue refusée",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Confirmation personnelle obligatoire",
+              "passed": true
+            },
+            {
+              "label": "Formulaire anonyme accessible",
+              "passed": true
+            },
+            {
+              "label": "Jeton CSRF de session présent pour un visiteur anonyme",
+              "passed": true
+            },
+            {
+              "label": "Demande valide enregistrée puis confirmation affichée",
+              "passed": true
+            },
+            {
+              "label": "Double soumission renvoie la même demande",
+              "passed": true
+            },
+            {
+              "label": "Référence connue sans accès au contenu privé",
+              "passed": true
+            },
+            {
+              "label": "Connexion du compte local de recette",
+              "passed": true
+            },
+            {
+              "label": "Demande visible dans le suivi privé avec notification capturée",
+              "passed": true
+            },
+            {
+              "label": "Coordonnée consultable par le compte autorisé",
+              "passed": true
+            },
+            {
+              "label": "Description affichée comme texte, sans exécution de HTML",
+              "passed": true
+            },
+            {
+              "label": "Traitement enregistré depuis le formulaire privé",
+              "passed": true
+            },
+            {
+              "label": "Note visible dans le journal privé",
+              "passed": true
+            },
+            {
+              "label": "Modification concurrente refusée par le formulaire réel",
+              "passed": true
+            },
+            {
+              "label": "Filtre du suivi respecte l’état demandé",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "observedAt": "2026-10-06T09:22:34.966602+00:00",
+          "scope": "local-native-editor",
+          "outgoingMail": false,
+          "checks": [
+            {
+              "label": "Éditeur privé refusé au visiteur",
+              "passed": true
+            },
+            {
+              "label": "Session Drupal de recette ouverte",
+              "passed": true
+            },
+            {
+              "label": "Sept pages disponibles dans le répertoire natif",
+              "passed": true
+            },
+            {
+              "label": "Aucun bouton public de signalement dans l’administration",
+              "passed": true
+            },
+            {
+              "label": "Rubriques disponibles dans le formulaire Drupal",
+              "passed": true
+            },
+            {
+              "label": "Modification enregistrée par le vrai formulaire de contenu",
+              "passed": true
+            },
+            {
+              "label": "Texte publié et HTML saisi échappé",
+              "passed": true
+            },
+            {
+              "label": "Aucune injection de script dans la légende",
+              "passed": true
+            },
+            {
+              "label": "Texte et balisage public restaurés à l’identique",
+              "passed": true
+            },
+            {
+              "label": "Révisions des deux enregistrements conservées",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : competitions",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : calendrier",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : disponibilites",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : equipes",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : espace",
+              "passed": true
+            },
+            {
+              "label": "Page publique préservée : contact",
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "ci": {
+        "status": "passed",
+        "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+        "headSha": "a5adb14a0aec5b3ad0d7578cbc9ed9b9fa4df898",
+        "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+        "observedAt": "2026-10-06T10:23:52.976454+00:00",
+        "jobs": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:12:09Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217957009",
+            "name": "delivery-safety",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:14:15Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217957086",
+            "name": "support-runtime",
+            "startedAt": "2026-10-06T10:12:00Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:15:14Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217956865",
+            "name": "technical-ci",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          }
+        ]
+      },
+      "github": {
+        "headRefOid": "a5adb14a0aec5b3ad0d7578cbc9ed9b9fa4df898",
+        "isDraft": false,
+        "state": "OPEN",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:12:16Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175248/job/112217957163",
+            "name": "policy",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:12:16Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175869/job/112217958881",
+            "name": "policy",
+            "startedAt": "2026-10-06T10:12:02Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:12:14Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448176598/job/112217961298",
+            "name": "policy",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:17:34Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448779379/job/112219929578",
+            "name": "policy",
+            "startedAt": "2026-10-06T10:17:22Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:12:09Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217957009",
+            "name": "delivery-safety",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:14:15Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217957086",
+            "name": "support-runtime",
+            "startedAt": "2026-10-06T10:12:00Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-06T10:15:14Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448175255/job/112217956865",
+            "name": "technical-ci",
+            "startedAt": "2026-10-06T10:12:01Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          }
+        ],
+        "url": "https://github.com/jpdandin44/TC_Longages/pull/15",
+        "observedAt": "2026-10-06T10:23:52.976454+00:00"
+      },
+      "preproduction": {
+        "installed": true,
+        "mailTransportQualified": true,
+        "gate": {
+          "status": "authorized_apply_completed",
+          "evidence": ".local/support-preproduction-gate.json",
+          "reasons": []
+        },
+        "recovery": {
+          "operation": "staged_with_recovery",
+          "checkedAt": "2026-10-06T09:40:33.514887+00:00",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+          "target": "https://preprod.tclongages.fr/",
+          "before": {
+            "checkedAt": "2026-10-06T09:40:03+00:00",
+            "operation": "check",
+            "environment": "preproduction",
+            "databaseConnectionVerified": true,
+            "maintenanceEnabled": true,
+            "drupalVersion": "11.4.8",
+            "phpVersion": "8.3.33",
+            "registration": "admin_only",
+            "supportEnabled": false,
+            "mailMode": "disabled",
+            "publicOpeningExecuted": false,
+            "restorationPrefixVerified": false
+          },
+          "backup": {
+            "format": "tcl-private-backup-v1",
+            "createdAt": "2026-10-06T09:40:23.649080+00:00",
+            "target": "https://preprod.tclongages.fr/",
+            "account": "daje5127",
+            "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
+            "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
+            "sqlUncompressedBytes": 5497124,
+            "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
+            "integrityVerified": true,
+            "restorationTested": true,
+            "deploymentExecuted": false
+          },
+          "restoredFiles": {
+            "format": "tcl-private-file-restore-v1",
+            "checkedAt": "2026-10-06T09:40:31.408192+00:00",
+            "directory": "/home2/daje5127/tcl-preproduction/private/restorations/restore-avr4j8g0",
+            "backupDirectory": "/home2/daje5127/tcl-preproduction/private/backups/20261006T094004Z",
+            "sqlSha256": "a8f076096a78b3e0c5729cbbd4e6232540b19076a77a00efc9d02f257a9adbc5",
+            "filesSha256": "a0609d14d6d13dc28fdb904d4dbd233ac86b93115ae78fcdf1fc647aff7370cd",
+            "regularFiles": 26833,
+            "filesRestoredAndVerified": true,
+            "databaseRestored": false,
+            "drupalBootstrapped": false,
+            "restorationTested": false,
+            "deploymentExecuted": false
+          },
+          "restoredDrupal": {
+            "checkedAt": "2026-10-06T09:40:33+00:00",
+            "operation": "restore-check",
+            "environment": "preproduction",
+            "databaseConnectionVerified": true,
+            "maintenanceEnabled": true,
+            "drupalVersion": "11.4.8",
+            "phpVersion": "8.3.33",
+            "registration": "admin_only",
+            "supportEnabled": false,
+            "mailMode": "disabled",
+            "publicOpeningExecuted": false,
+            "restorationPrefixVerified": true
+          },
+          "databaseRestoration": {
+            "namespace": "sr_0a623d9bec3e_",
+            "tables": 44,
+            "originalTablesOverwritten": false
+          },
+          "deploymentExecuted": false,
+          "productionWritten": false
+        },
+        "installation": {
+          "operation": "installed_closed_preproduction",
+          "checkedAt": "2026-10-06T09:43:13.032499+00:00",
+          "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+          "artifactSha256": "0a623d9bec3e03eca33432b077970e14eeec97b0ee915e2f749cf0fb5431601e",
+          "target": "https://preprod.tclongages.fr/",
+          "candidateFilesVerified": 41,
+          "initialized": {
+            "checkedAt": "2026-10-06T09:43:12+00:00",
+            "operation": "initialize",
+            "environment": "preproduction",
+            "databaseConnectionVerified": true,
+            "maintenanceEnabled": true,
+            "drupalVersion": "11.4.8",
+            "phpVersion": "8.3.33",
+            "registration": "admin_only",
+            "supportEnabled": true,
+            "mailMode": "capture",
+            "publicOpeningExecuted": false,
+            "restorationPrefixVerified": false,
+            "editablePages": 7
+          },
+          "checked": {
+            "checkedAt": "2026-10-06T09:43:12+00:00",
+            "operation": "check",
+            "environment": "preproduction",
+            "databaseConnectionVerified": true,
+            "maintenanceEnabled": true,
+            "drupalVersion": "11.4.8",
+            "phpVersion": "8.3.33",
+            "registration": "admin_only",
+            "supportEnabled": true,
+            "mailMode": "capture",
+            "publicOpeningExecuted": false,
+            "restorationPrefixVerified": false,
+            "editablePages": 7
+          },
+          "backupReceipt": "stage-receipt.json",
+          "maintenancePreserved": true,
+          "productionWritten": false
+        },
+        "mailQualification": {
+          "checkedAt": "2026-10-06T09:43:51+00:00",
+          "operation": "mail-test",
+          "environment": "preproduction",
+          "databaseConnectionVerified": true,
+          "maintenanceEnabled": true,
+          "drupalVersion": "11.4.8",
+          "phpVersion": "8.3.33",
+          "registration": "admin_only",
+          "supportEnabled": true,
+          "mailMode": "transport",
+          "publicOpeningExecuted": false,
+          "restorationPrefixVerified": false,
+          "editablePages": 7,
+          "testTicketId": 1,
+          "testRecipient": "support@tclongages.fr",
+          "transportAccepted": true,
+          "inboxReceptionVerified": true,
+          "receptionObservedAt": "2026-10-06T10:05:09.973538+00:00",
+          "receptionEvidence": ".local/support-preprod-mail-received.jpg",
+          "webModeRemains": "capture"
+        },
+        "browserRecipe": {
+          "observedAt": "2026-10-06T10:05:09.973538+00:00",
+          "caption": "Le court de Longages · photo fournie par le club",
+          "editablePages": 7,
+          "nativeEditSavedDisplayedAndReverted": true,
+          "revisionsPreserved": true,
+          "publicButtonCount": 1,
+          "reportFormAccessibleAuthenticated": true,
+          "privateTrackerDisplaysFictitiousProbe": true,
+          "evidence": [
+            ".local/support-preprod-site.jpg",
+            ".local/support-preprod-mail-received.jpg",
+            ".local/support-preprod-editor.jpg"
+          ],
+          "noHumanApprovalCreated": true
+        }
+      },
+      "deliveryPackage": {
+        "manifestSha256": "34865960d6d249f87d29c3c97d019f871ac1a1a4b0ff9cbcaa3492605e19c3dd",
+        "files": 41,
+        "bytes": 816003
+      },
+      "gitSourceManifest": {
+        "sourceSha": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+        "artifactSha256": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060",
+        "manifest": "data/framework-candidate.json"
+      },
+      "technicalChecks": {
+        "node": {
+          "passed": 149,
+          "failed": 0,
+          "environmentCorrection": "Three PyYAML checks rerun with documented framework Python: 7 targeted tests passed."
+        },
+        "python": {
+          "run": 54,
+          "passed": 50,
+          "skipped": 4,
+          "incrementalTest": "New fifth SQL lock regression passed; complete previous 53 tests unchanged and fresh CI passed."
+        },
+        "phpSyntaxFiles": 24,
+        "actionlint": "passed",
+        "framework": {
+          "passed": 37,
+          "failed": 0
+        }
+      }
+    }
+  ],
+  "formContract": {
+    "visibleFields": [
+      "Type de demande",
+      "Description de la demande",
+      "Votre adresse e-mail pour une réponse (facultatif)",
+      "Je confirme que ces informations peuvent être transmises au club pour traiter ma demande."
+    ],
+    "required": [
+      "category",
+      "description",
+      "information"
+    ],
+    "optional": [
+      "email"
+    ],
+    "originPage": "hidden allowlisted path",
+    "subject": "server-generated from category",
+    "schemaMigration": false,
+    "existingRequestsPreserved": true
   }
 }

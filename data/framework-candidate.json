@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "f6dafd80bbd2d767724b7f77b2e050d98af98a6e",
+  "sourceCommit": "fa7dc2008182ca40430cd14be05dee20c7d0d49f",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -140,9 +140,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "5b78dde6426bed9210fc2cb60794f297f0eceb0a",
-      "size": 45221,
-      "sha256": "6f1309ba13007cbde21486612c706c94ab9cc4a573fb982376736b48626552cf"
+      "gitBlob": "fc5829888d9203ff8ff57d4a914fb691a794ccef",
+      "size": 45381,
+      "sha256": "9fc26965c0c255c4b29d66b51858aaac355ea73ca5bdfb49ff0302eb2f6abf19"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -203,9 +203,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "ce85de54478375fd8fb995c70388b9d63f792285",
-      "size": 42320,
-      "sha256": "ad0d9428f897237c3604127f7388cf8538930359a5d01d03b2e1b1961d78f4a1"
+      "gitBlob": "606ab61462057daab9c63fe45d5a1b2fe35d6100",
+      "size": 42897,
+      "sha256": "fb0e2963a715c0f9f67aafc55907f32499302145ae81f27be98de2ca94bdb66f"
     },
     {
       "path": "config/first-install.example.json",
@@ -455,9 +455,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "5f7b7c80aed08af288465b43defc6a22584a4412",
-      "size": 61524,
-      "sha256": "d86cb2637eda6ef5853afc0980f685554a154ec5c4d813acca2536a48e965701"
+      "gitBlob": "3fb5bea49a9e214b648dc8c91cc026d1332eca04",
+      "size": 62507,
+      "sha256": "cbb3b799866c9070d0f75ae10422edc8801d93ae1833287d818a83fb1356af6e"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1582,9 +1582,9 @@
     {
       "path": "docs/signalements-support.md",
       "mode": "100644",
-      "gitBlob": "e2440dc09f77f5a7d1edc6a6394d0910989c4057",
-      "size": 8036,
-      "sha256": "a3e15caa2dae21180d861d3b9f9288aac63104892c82e736c0e96b446e39e9ee"
+      "gitBlob": "7ad867b16f684c68b39f6492eea5c0aee3accafc",
+      "size": 8471,
+      "sha256": "6bc5d7ac510d5cfa08bc5d572f4940b88fc84844d388ecc677cf93d651731cd6"
     },
     {
       "path": "docs/suivi-chantier/00-phase.md",
@@ -1946,9 +1946,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_support/src/Form/ReportForm.php",
       "mode": "100644",
-      "gitBlob": "07b528dcf6fe981c117445dc09f722d03f174ceb",
-      "size": 7644,
-      "sha256": "d1ada8f90bf0bbf20129577c2ebef79624560c99762b30d2888c7112b7cf2349"
+      "gitBlob": "c582eb4419deb89e7a4ce6c9ad93c3ccdb516f34",
+      "size": 7512,
+      "sha256": "044eca36796b91cf972ffc4bd1a315df4f2fd815bc562907bfb0324f70a71d5d"
     },
     {
       "path": "drupal/web/modules/custom/tcl_support/src/Form/RequestForm.php",
@@ -2177,9 +2177,9 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "d243e983f2ca4ec01aaecf8d147e59b4be46197d",
-      "size": 44071,
-      "sha256": "c63e4d24a25d9bbc2672002c7fa8e9709fd3d45410762d7a5178c6cf2be913da"
+      "gitBlob": "4ea33e7de2b9a341853a15f4d88686f8e60a7c80",
+      "size": 44448,
+      "sha256": "5334339f267c563044bde3ff8bce4cc61764b20ac85569ef08e7e6fa2ee18cc7"
     },
     {
       "path": "roadmap.md",
@@ -3087,9 +3087,9 @@
     {
       "path": "tests/test_support_http.py",
       "mode": "100644",
-      "gitBlob": "5d6abba45b819ca1256de72223b336b1b06557cb",
-      "size": 7387,
-      "sha256": "0bda496b2b892164ff118fb9babb4a573c25b73d73e99201a6d038b67d17b58a"
+      "gitBlob": "b76dff238ac7bb9225793771b9d7db238273d39f",
+      "size": 8620,
+      "sha256": "bd83122310dc4d06221a74a043443e2dca827c706d77512fbceb7f6ac1ba5569"
     },
     {
       "path": "tests/test_support_update.py",
@@ -3141,5 +3141,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "b441b924ff6615537e712ecb53d8ba23ff96bb93c25c5e9b98214e8b67103060"
+  "artifactDigest": "cb993d6b23772dc6d4c4b99dea7e109f66b9c2cd54f2fc52ba328dba915bff31"
 }
