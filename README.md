@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - site-internet
@@ -14,6 +14,35 @@ tags:
 ---
 
 # Tennis Club de Longages
+
+La [résolution des conflits de la PR #15](docs/resolution-conflits-pr15.md)
+réunit le correctif support/édition et les apports V2 déjà fusionnés dans `main`.
+Les reçus de préproduction restent attachés à leur version installée ; le
+candidat Git de cette réunion est contrôlé séparément avant revue.
+
+## Correctif V1 de signalement — 6 octobre
+
+Le responsable demande ensuite l'édition simple des textes dans Drupal et le
+dépôt du candidat en préproduction. [Pages du club](docs/modifier-textes-drupal.md)
+raccorde les sept pages aux contenus natifs avec révisions : titres, présentations,
+rubriques, questions et légendes. Le reçu distingue la recette locale de l'installation
+hébergée ; aucune intervention sur la production n'est incluse dans ce lot.
+
+Le site V1 est en production selon la confirmation du responsable du 5 octobre.
+Les descriptions de préparation datées plus bas restent historiques.
+Un correctif indépendant ajoute un bouton sur les sept pages Drupal et un
+[formulaire local](http://127.0.0.1:4183/signaler-un-probleme), avec un
+[suivi privé](http://127.0.0.1:4183/admin/reports/tcl-support) accessible après
+connexion Drupal. La V2 Bureau reste dans son checkout sur le port 4182.
+
+`support@tclongages.fr` est créée et vérifiée dans cPanel. Les courriels du
+correctif sont capturés en recette ; le reçu distingue réception réelle et
+installation effectivement observées. Le formulaire comprend seulement type,
+description, e-mail facultatif et confirmation obligatoire ; objet automatique
+et page d'origine cachée. Les mentions et la conservation restent à compléter
+depuis la stratégie annoncée, absente du dépôt. Le [guide support](docs/signalements-support.md)
+porte les commandes, limites et prochaines actions ; les [contrôles](data/support-v1-verification.json)
+portent la preuve courante.
 
 ## V2 — comptes et Bureau en local
 

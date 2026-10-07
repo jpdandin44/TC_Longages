@@ -5,7 +5,7 @@ title: Tableau de bord du développement piloté
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-05
+updated: 2026-10-07
 owner: jpdandin
 tags: [framework, suivi, vue-generee]
 ---
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `432a6c2b9cd0fdbb7b467fe899419c7e320a9b076ab9afe9138de6d6716e7f83`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `8e9e8df562a475dbc4292a1f235c3b3918a74efad94b29f016e5e71a8a4d6d5b`.

@@ -1,0 +1,30 @@
+tcl_support.report:
+  path: '/signaler-un-probleme'
+  defaults:
+    _form: '\Drupal\tcl_support\Form\ReportForm'
+    _title: 'Signaler un problème sur le site'
+  requirements:
+    _custom_access: '\Drupal\tcl_support\Access\SupportAccess::enabled'
+  options:
+    no_cache: true
+tcl_support.tracker:
+  path: '/admin/reports/tcl-support'
+  defaults:
+    _controller: '\Drupal\tcl_support\Controller\TrackerController::list'
+    _title: 'Suivi des demandes du site'
+  requirements:
+    _permission: 'manage tcl support'
+  options:
+    _admin_route: true
+    no_cache: true
+tcl_support.edit:
+  path: '/admin/reports/tcl-support/{request_id}'
+  defaults:
+    _form: '\Drupal\tcl_support\Form\RequestForm'
+    _title: 'Traiter une demande du site'
+  requirements:
+    _permission: 'manage tcl support'
+    request_id: '\d+'
+  options:
+    _admin_route: true
+    no_cache: true

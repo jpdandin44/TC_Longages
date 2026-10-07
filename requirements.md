@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,40 @@ tags:
 ---
 
 # Exigences
+
+## Édition et préproduction demandées le 6 octobre
+
+- Modifier facilement dans Drupal les titres, présentations, rubriques, questions
+  et légendes des sept pages ; préserver navigation, fonctions et sources métier.
+- Conserver les textes édités et leurs révisions lors d'une livraison de code.
+- Rendre l'édition et le suivi privés, sans nouveaux comptes ou grants automatiques.
+- Déposer le candidat support/édition sur la seule préproduction après sauvegarde
+  fraîche et restauration vérifiée ; conserver maintenance, HTTPS et non-indexation.
+- Garder les requêtes web de recette en capture ; qualifier séparément une réception
+  réelle à la boîte support. La production reste hors de cet accord.
+
+## Signalements du site V1 — demande du 6 octobre
+
+- Proposer depuis chacune des sept pages un bouton vers un formulaire de
+  problème ou besoin concernant le site.
+- Limiter le formulaire visible à quatre éléments : type de demande,
+  description, e-mail facultatif pour la réponse et confirmation obligatoire
+  de la transmission au club. Type et description restent obligatoires.
+- Conserver automatiquement la page d'origine et attribuer un objet selon
+  le type, sans nouvelle saisie ni modification des demandes existantes.
+- Adresser la notification à `support@tclongages.fr`, créée si absente.
+- Donner au responsable un suivi privé utilisable en développement, avec
+  état, responsable et journal de traitement.
+- Conserver une demande si le courriel échoue et distinguer enregistrement,
+  capture de test, acceptation par le transport et réception en boîte.
+- Ne pas exposer les coordonnées ni les notes sur le dépôt GitHub public.
+- Compléter les mentions et règles de conservation de la stratégie annoncée :
+  **TBD**, source absente des copies locales et de la branche principale
+  observée. Les quatre champs sont précisés directement par le responsable.
+
+Ces exigences sont traitées par un correctif V1 distinct de la V2 Bureau.
+Le [guide support](docs/signalements-support.md) décrit les contrôles et le
+périmètre réellement implémenté.
 
 ## Communication V2 — demande du 5 octobre
 

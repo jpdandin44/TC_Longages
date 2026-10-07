@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,24 @@ tags:
 ---
 
 # Feuille de route
+
+## Correctif V1 support — 6 octobre
+
+La demande suivante ajoute l'édition des textes à ce même correctif et autorise
+son dépôt en préproduction. L'édition native et son aller-retour réel sont
+recettés localement. Préparer le paquet exact, actualiser la PR, vérifier la CI,
+sauvegarder/restaurer puis appliquer sur la préproduction. La recette hébergée,
+le test de réception et la revue du responsable précèdent toute publication
+de production. Les comptes Bureau et la V2 restent dans leur lot indépendant.
+
+La V1 publique est confirmée par le responsable. Le correctif support est
+prioritaire dans une branche indépendante de la V2 Bureau : boîte créée,
+bouton/formulaire/suivi privé développés et recette locale effectuée.
+Retrouver la stratégie de bêta-test et arrêter les champs et mentions,
+examiner le candidat, qualifier le transport et la migration en
+préproduction, puis préparer sa publication autorisée. Aucun de ces
+passages n'est déduit de la création de la boîte ni des contrôles locaux.
+Voir [le dossier du correctif](docs/signalements-support.md).
 
 ## V2 locale — nouveaux adhérents en priorité
 

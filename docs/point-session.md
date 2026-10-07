@@ -5,12 +5,32 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 6 octobre 2026
+# Point de session — reprise au 7 octobre 2026
+
+## PR #15 — résolution des conflits du 7 octobre
+
+La demande du responsable autorise la correction des conflits de #15. Après
+fusion humaine de #14, `main` vaut `89489f3` et la comparaison compte quinze
+fichiers en conflit. La réunion conserve le formulaire à quatre éléments,
+l’édition native des textes, les apports V2, les deux itérations et les
+contrôles support/MariaDB. Le [dossier de résolution](resolution-conflits-pr15.md)
+et le [reçu support](../data/support-v1-verification.json) portent le candidat
+et les vérifications, distincts des preuves de préproduction déjà enregistrées.
+
+Le checkout `.worktrees/support-v1` contient des travaux non commis de bêta-test,
+de courriels et de suivi. Ils sont conservés. La correction utilise la copie
+isolée `.worktrees/pr15-conflicts` ; ne pas mettre à jour aveuglément le checkout
+opérationnel avec `git pull`. Le suivi opérationnel continue dans `support-v1`
+et référence la version corrigée ; le suivi de la PR est son instantané versionné.
+La PR #17 demeure un lot agenda/photo distinct dépendant de la branche support.
+
+Prochaine action : examiner #15 sur son nouveau candidat et ses contrôles.
+La correction de branche ne constitue ni fusion de PR ni livraison hébergée.
 
 ## Reprise active — Bureau mobile et recette MariaDB
 
@@ -148,6 +168,71 @@ notes de version restent dans le backlog après V1 ; aucune synchronisation
 automatique ni nouvelle permission GitHub n'a été installée.
 
 Les sections suivantes conservent les constats antérieurs à cette ouverture.
+
+## Dernière demande du 6 octobre — formulaire à quatre éléments
+
+Le responsable demande seulement le type, la description, le mail pour une
+réponse et la confirmation de transmission au club. Le mail reste facultatif ;
+type, description et confirmation restent obligatoires. L'objet est attribué
+par le serveur et la page d'origine conservée automatiquement. Aucun schéma
+de stockage, ticket existant ou contrôle d'accès n'est remplacé.
+
+Cette simplification reste dans le lot support/édition de la PR #15 et dans
+la recette privée déjà autorisée sur `preprod.tclongages.fr`. Le
+[reçu courant](../data/support-v1-verification.json) et l'itération canonique
+portent le nouveau candidat, ses contrôles et son état réel d'installation.
+Les validations historiques et la V2 locale restent conservées. La définition
+directe des quatre champs remplace leur ancien statut de proposition ; les
+mentions de collecte et règles de conservation restent à compléter.
+
+## Nouvelle demande du 6 octobre — édition et préproduction
+
+Le responsable accepte l'apparence locale du correctif, demande de vérifier
+la légende « photo fournie par le club », souhaite l'édition simple des textes
+dans Drupal et demande le dépôt de la nouvelle version en préproduction.
+Cet accord porte sur le candidat support/édition, la cible TC existante et
+sa recette privée ; il n'autorise ni merge, ni production, ni ouverture anonyme.
+
+Le raccordement éditorial préparé dans `feat/drupal-comptes-edition` est repris
+et complété dans `.worktrees/support-v1` : sept contenus natifs, titre,
+présentation, rubriques, questions, légendes, révisions. L'aller-retour réel
+du formulaire conserve l'affichage initial et échappe le HTML saisi.
+Le [guide d'édition](modifier-textes-drupal.md) donne le parcours.
+Le [reçu courant](../data/support-v1-verification.json) et l'itération
+`tcl-v1-signalements-support` du suivi portent les empreintes, résultats,
+accord de préproduction, sauvegarde/restauration et progression réelle.
+Le travail V2 sur 4182 et les décisions historiques sont préservés.
+
+Le premier contrôle distant de restauration a détecté les instructions de
+verrouillage de table présentes dans l'export MariaDB. Leur cible de récupération
+est maintenant préfixée comme celles des tables et insertions, avec un test de
+non-régression dédié. Cette tentative n'a pas appliqué le correctif aux fichiers
+actifs ; ses sauvegardes et copies privées restent conservées. Les reçus courants
+permettent de distinguer cette tentative du paquet corrigé et de sa recette.
+
+## Reprise du 6 octobre — support V1
+
+Constats du premier candidat local, antérieurs à la demande de dépôt ci-dessus.
+
+Le responsable demande un correctif V1 de signalement pendant le développement
+V2. Le checkout dédié est `.worktrees/support-v1`, branche
+`feat/v1-signalement-support`, issu de `origin/main` à `b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30`.
+Le checkout V2 et ses observations non commises sont conservés.
+
+La boîte `support@tclongages.fr` est créée personnellement et sa présence
+confirmée dans cPanel. Aucun secret n'est consigné. Bouton, formulaire proposé
+et suivi privé fonctionnent sur [la V1 locale](http://127.0.0.1:4183/), avec
+une base propre et des courriels capturés. Aucun correctif n'est installé sur
+les domaines hébergés. Le [reçu](../data/support-v1-verification.json) est
+l'autorité des résultats et du candidat ; le [guide](signalements-support.md)
+décrit les commandes et limites.
+
+Prochaine action : retrouver `docs/strategie-beta-test.md` ou son contenu,
+aligner les champs et mentions, puis recetter le candidat en préproduction
+avant toute demande de publication. L'emplacement de cette source a été
+demandé au responsable et reste inconnu. Les validations humaines V1 et
+les brouillons V2 ne sont pas réutilisés pour approuver ce correctif.
+
 
 ## Dernière correction du suivi — trois décisions et garde PR
 

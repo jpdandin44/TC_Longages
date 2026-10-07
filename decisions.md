@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,42 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-06 — Textes natifs et mise à jour bornée de préproduction
+
+**Contexte.** Le responsable souhaite modifier les textes dans Drupal, comme
+sur AVEREO, puis tester la nouvelle version sur la préproduction existante.
+La V1 actuelle sert des fichiers générés ; un raccordement titre/présentation
+avait été préparé séparément sans être livré dans la V1 officielle.
+
+**Décision.** Réutiliser et compléter ce raccordement avec des contenus natifs
+et révisions pour les sept pages et les principales rubriques/légendes.
+Conserver le modèle HTML et les sources métier ; éviter une refonte Paragraphs
+pour ce correctif. Promouvoir un paquet additionnel exact, avec sauvegarde et
+restauration isolée des fichiers et SQL avant application. Web de préproduction
+en capture ; un seul essai de transport réel identifié à la boîte support.
+
+**Conséquences.** Les textes édités deviennent des données à préserver. Un
+changement de modèle exige un rapprochement, pas une réinitialisation.
+L'accord humain de dépôt concerne la préproduction et ce périmètre ; il ne
+fusionne pas la PR et ne publie ni la production ni une bêta anonyme.
+
+## 2026-10-06 — Suivi des demandes dans Drupal privé
+
+**Contexte.** Le responsable demande des signalements V1, une boîte support
+et un suivi de type bug tracker disponible en développement. Le dépôt
+GitHub est public et la V2 Bureau est en cours dans un autre checkout.
+
+**Choix de mise en œuvre.** Développer un module Drupal et un journal en
+base, dans une branche V1 isolée. Conserver le suivi derrière une permission
+restreinte et traiter Jira comme exemple, sans ajouter de service ni coût.
+Enregistrer avant de notifier et capturer les messages en local.
+
+**Conséquences.** Les coordonnées restent dans le stockage privé du site ;
+un échec de mail ne perd pas la demande. Les champs proposés sont à aligner
+sur la stratégie annoncée mais absente. La boîte est créée et confirmée,
+la qualification réelle du transport et la publication restent distinctes.
+Le [guide support](docs/signalements-support.md) porte la recette et le retour.
 
 ## 2026-10-05 — Communication intégrée au Bureau V2
 

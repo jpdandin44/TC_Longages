@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,47 @@ tags:
 ---
 
 # Architecture
+
+## Réunion des contrôles V1 et V2 — 7 octobre
+
+La CI conserve quatre jobs techniques : `delivery-safety` pour les archives
+et la syntaxe PHP, `drupal-mysql` pour la recette V2/MariaDB, `support-runtime`
+pour le formulaire V1 et `technical-ci` pour les constructions, les tests et
+le candidat Git. Les deux runtimes utilisent chacun le checkout jetable de
+leur runner. Les permissions de lecture, les actions épinglées et le contrôle
+de politique humaine sont conservés. Le YAML exécutable et son contrat de test
+font autorité ; voir la [résolution de la PR #15](docs/resolution-conflits-pr15.md).
+
+## Édition native et correctif V1 du 6 octobre
+
+`tcl_site` rattache sept modèles de pages à des contenus `tcl_public_page`.
+La base Drupal porte les textes édités et leurs révisions ; les HTML gardent
+la présentation et les fonctions. Un widget à champs nommés stocke les rubriques
+dans `field_tcl_textes`, sans HTML libre. Le rendu conserve les régions non éditées
+et vérifie l'empreinte du modèle avant substitution. Voir [l'édition Drupal](docs/modifier-textes-drupal.md).
+Le paquet additionnel support/édition n'inclut pas core, vendor, base ou secrets.
+Les outils hébergés restent hors webroot, vérifient les empreintes et limitent
+les écritures à la préproduction TC, avec restauration privée qualifiée avant application.
+
+## Signalements V1 et suivi privé — 6 octobre
+
+Le module Drupal `tcl_support` ajoute le bouton aux réponses des sept pages
+servies par `tcl_site`, sans modifier manuellement les HTML générés. Le
+formulaire natif enregistre d'abord une demande dans `tcl_support_request` ;
+`tcl_support_event` conserve ensuite ses traitements et notifications.
+Le suivi paginé et les coordonnées exigent la permission restreinte du
+module. Les vues utilisent des textes échappés, des sessions et un cache
+privé ; les demandes ne sont ni exportées en configuration ni publiées en
+issues GitHub. Le formulaire anonyme possède un jeton lié à sa session,
+un champ piège et une limite de soumission.
+
+Le seul message `tcl_support_report` utilise `test_mail_collector` en local.
+Les autres courriels restent neutralisés. Le modèle hébergé ferme le
+formulaire et son transport par défaut. Le correctif dispose d'une base
+SQLite propre et d'un serveur boucle locale sur 4183 ; un suffixe de session
+propre au checkout évite les collisions avec d'autres développements.
+La boîte support existe ; son transport et les mentions de collecte restent
+à qualifier. Les détails et limites sont dans [le guide support](docs/signalements-support.md).
 
 ## V2 locale — comptes et Bureau
 

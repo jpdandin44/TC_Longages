@@ -16,7 +16,7 @@ export function validateOfficialConfig(config) {
   for (const key of ['name','wordmark','email','address','postalCity']) text(config.club?.[key], 'club.' + key);
   if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(config.club.email)) fail('e-mail officiel invalide.');
   text(config.contact.testSupport?.email, 'adresse de support des tests');
-  if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(config.contact.testSupport.email) || config.contact.testSupport.status !== 'planned') fail('adresse de support prévue, sans activation de messagerie dans cet aperçu.');
+  if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(config.contact.testSupport.email) || !['planned', 'mailbox-created'].includes(config.contact.testSupport.status)) fail('adresse de support prévue ou boîte créée, sans activation de messagerie dans cet aperçu.');
   for (const key of ['primary','dark','accent','soft','ink','muted','background','surface','border']) if (!/^#[a-f0-9]{6}$/i.test(config.theme?.[key])) fail('couleur ' + key);
   for (const key of ['tenup','offers','facebook','map']) https(config.links?.[key], 'lien ' + key);
   if (!Array.isArray(config.teams) || !Array.isArray(config.google?.forms)) fail('listes équipes/formulaires attendues.');

@@ -1,3 +1,13 @@
+tcl_site.editor:
+  path: '/admin/content/tcl-pages'
+  defaults:
+    _controller: '\Drupal\tcl_site\Controller\ClubPageController::editor'
+    _title: 'Pages du club'
+  requirements:
+    _permission: 'administer tcl public pages'
+  options:
+    _admin_route: TRUE
+
 tcl_site.front:
   path: '/club'
   methods: [GET, HEAD]

@@ -5,7 +5,7 @@ title: Intégration du cadrage officiel V1 et suivi des gates
 status: active
 version: git
 created: 2026-09-24
-updated: 2026-09-29
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - officiel
@@ -15,6 +15,14 @@ tags:
 ---
 
 # Intégration du site officiel V1
+
+## État du support au 6 octobre
+
+La boîte `support@tclongages.fr` est désormais créée et vérifiée dans cPanel.
+Les descriptions de boîte prévue ci-dessous conservent le cadrage historique
+du 24 septembre. La collecte du nouveau correctif V1 et son transport réel
+restent à recetter ; voir [le guide support](signalements-support.md).
+
 
 ## Reprise du 29 septembre
 

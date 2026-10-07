@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,50 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-07 — Résolution des conflits de la PR #15
+
+- Réunion de `main` après la fusion de #14 dans la branche du correctif V1.
+- Contenus documentaires et itérations support/V2 conservés ; décisions
+  historiques inchangées et sorties dérivées régénérées.
+- Recettes CI support et MariaDB conservées ensemble, avec contrat de test
+  et empreinte du workflow réalignés.
+- Nouveau candidat Git et preuves séparés du candidat déjà installé en
+  préproduction. Les travaux locaux de bêta-test restent préservés.
+
+## 2026-10-06 — Simplification du formulaire de signalement
+
+- Quatre éléments visibles : type, description, e-mail facultatif et
+  confirmation obligatoire de la transmission au club.
+- Retrait de la saisie d'objet et de l'affichage de la page concernée ;
+  objet déterminé par le serveur, page d'origine conservée automatiquement.
+- Demandes existantes et suivi privé conservés, sans migration de stockage.
+- Recette ciblée de l'enregistrement sans objet ni e-mail et des protections ;
+  candidat et installation privée de préproduction attestés par le reçu.
+
+## 2026-10-06 — Édition native des textes et préparation de préproduction
+
+- Réutilisation de l'éditeur préparé, complétée pour rubriques, questions et
+  légendes ; contenus natifs, révisions et rendu des textes sans HTML libre.
+- Légende « photo fournie par le club » vérifiée sur la page locale et éditable.
+- Recette HTTP d'enregistrement, affichage, échappement et restauration exacte.
+- Paquet additionnel, outils de sauvegarde/restauration isolée et installation
+  limitée à la préproduction, sans nouvelles ressources SQL ni écriture de production.
+- Collecteur de test explicitement exclu de la qualification du transport réel.
+
+## 2026-10-06 — Correctif V1 de signalement, en recette locale
+
+- Bouton sur les sept réponses de pages Drupal ; formulaire proposé de
+  problème/besoin avec confirmation et page d'origine sans paramètres.
+- Stockage privé durable, suivi paginé par état, responsable, notes et
+  historique ; protection des conflits et des doubles soumissions.
+- Courriel capturé en développement, échecs conservés dans le suivi et
+  transport hébergé fermé par défaut ; réception réelle non attestée.
+- Boîte `support@tclongages.fr` créée personnellement et présence confirmée
+  dans cPanel, sans modification des DNS ou redirections.
+- Runtime et session locaux séparés de la V2, nouvelle recette automatisée
+  du support dans un checkout CI jetable. Aucun déploiement du correctif.
+- Référence de stratégie manquante consignée, sans créer un faux document.
 
 ## 2026-10-06 — Reprise locale et qualification de la mise à jour Bureau
 

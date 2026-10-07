@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+/** Implements hook_install(). */
+function tcl_site_install(): void {
+  \Drupal\tcl_site\PublicPageEditor::initialize();
+}
+
+/** Adds the bounded editor to an existing local/qualified Drupal installation. */
+function tcl_site_update_11001(): void {
+  \Drupal\tcl_site\PublicPageEditor::initialize();
+}
