@@ -2331,5 +2331,107 @@
     "releaseNote": "docs/note-de-livraison.md",
     "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
     "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a"
+  },
+  "cockpitRecipeRecovery": {
+    "status": "local_verified_ci_pending",
+    "observedAt": "2026-10-07T12:10:02.700734+00:00",
+    "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/16",
+    "oldHead": "06298597b60f21b2212cb259422291d2b376a4c2",
+    "reconciliationMethod": "Merge published main history; no forced rewrite",
+    "base": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
+    "sourceSha": "3cb6c362cd042173be197c19c581b80763f18bcb",
+    "gitSourceDigest": "472049f1b11cbdbc1de71888693f42d11112411959c83c8002ec83dcb57be196",
+    "candidateManifest": "data/framework-candidate.json",
+    "worktree": ".worktrees/pr16-recette",
+    "previousPr15": {
+      "state": "MERGED",
+      "mergedAt": "2026-10-07T11:54:40Z",
+      "headSha": "7723b4de249f74938faaba821a2864c38ce45d6c",
+      "mainSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f"
+    },
+    "conflictedFiles": [
+      "README.md",
+      "architecture.md",
+      "changelog.md",
+      "data/framework-candidate.json"
+    ],
+    "runtime": {
+      "origin": "http://127.0.0.1:4181/",
+      "httpStatus": 200,
+      "codeRoot": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\pr16-recette",
+      "sessionId": 77710,
+      "candidateSourcesVerified": [
+        {
+          "id": "tcl-v1-signalements-support",
+          "sourcePassed": true,
+          "sourceIssues": [],
+          "prState": "merged"
+        },
+        {
+          "id": "tcl-v1-agenda-local",
+          "sourcePassed": true,
+          "sourceIssues": [],
+          "prState": "draft"
+        },
+        {
+          "id": "tcl-v2-bureau-calendrier-local",
+          "sourcePassed": true,
+          "sourceIssues": [],
+          "prState": "merged"
+        }
+      ],
+      "canonicalDataChangedByBrowser": false
+    },
+    "checks": {
+      "node": {
+        "passed": 164,
+        "failed": 0,
+        "skipped": 0,
+        "command": "npm.cmd run check",
+        "logSha256": "0c7ea9c7db749ce5d0176191dc8f94c5adcec1d58853e5785b2dabb54ec43b27"
+      },
+      "targetedNode": {
+        "passed": 40,
+        "failed": 0,
+        "skipped": 0
+      },
+      "documentation": {
+        "status": "passed",
+        "documents": [
+          "README.md",
+          "architecture.md",
+          "requirements.md",
+          "roadmap.md",
+          "decisions.md",
+          "changelog.md",
+          "docs/point-session.md",
+          "docs/piloter-versions.md"
+        ],
+        "foundationPresent": true,
+        "internalLinksChecked": 341,
+        "outsideReferences": [],
+        "errors": [],
+        "limits": "Changed documents only; beta strategy remains absent in the support source."
+      },
+      "framework": {
+        "status": "passed",
+        "referenceFiles": 28
+      },
+      "ci": "pending"
+    },
+    "drupalEditing": {
+      "codeIdenticalToMain": true,
+      "pages": 7,
+      "route": "/admin/content/tcl-pages",
+      "testedBy": "tests/test_editor_http.py via support-runtime CI",
+      "hostedUserReport": "Cannot change contents in preprod.tclongages.fr",
+      "browserCheck": "HTTP protection blocks the agent session before Drupal login",
+      "hostedAccountEditingVerified": false,
+      "hostedEditingMutationExecuted": false,
+      "nextAction": "Identify the result on Pages du club after HTTP and Drupal login."
+    },
+    "humanConfirmationsChanged": false,
+    "hostedDeploymentExecuted": false,
+    "previousDirtyCheckoutPreserved": true
   }
 }
