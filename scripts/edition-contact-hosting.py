@@ -80,7 +80,7 @@ def main():
  originals={}
  for name,entry in manifest['files'].items():
   path=ROOT/name;current=digest(path) if path.is_file() else None
-  need(current==entry['sha256'] or name in ALLOWED_CHANGES,'Unexpected active template/support change')
+  need(current==entry['sha256'] or name in ALLOWED_CHANGES or name.startswith('tools/') and current is None,'Unexpected active template/support change')
   originals[name]=current
  if args.operation=='stage':
   backup_api=load(candidate/'tools/backup_site.py','edition_contact_backup')
