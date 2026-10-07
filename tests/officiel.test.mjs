@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { loadOfficialConfig, validateOfficialConfig, officialPages } from '../scripts/official-config.mjs';
 import { actionPages } from '../src/officiel-pages.mjs';
+import { withoutCalendarEmbed } from '../scripts/calendar-embed.mjs';
 
 const root=new URL('../',import.meta.url);
 const read=file=>readFile(new URL(file,root),'utf8');
@@ -64,5 +65,27 @@ test('Une ressource Google renseignée doit être revue, liée à son équipe et
   assert.match(html,/Équipe &lt;test&gt;/);assert.ok(html.includes(form.url));
   for(const change of [c=>c.google.forms[0].sharingReviewed=false,c=>c.google.forms[0].teamId='b',c=>c.google.forms[0].url='https://docs.google.com/spreadsheets/d/reponses',c=>c.google.forms[0].url='https://docs.google.com/forms/d/EXEMPLE/edit#responses',c=>c.google.forms[0].players=['secret']]){
     const fixture=structuredClone(config);change(fixture);assert.throws(()=>validateOfficialConfig(fixture));
+  }
+});
+
+test('Le calendrier embarqué exige la revue de partage et limite sa source à Google Agenda',async()=>{
+  const config=await loadOfficialConfig();
+  assert.equal(config.google.calendarEmbedId,null);
+  const pending=structuredClone(config);
+  pending.google.calendarEmbedId='club-public@example.invalid';
+  assert.throws(()=>validateOfficialConfig(pending));
+  assert.doesNotMatch(actionPages(pending)['calendrier.html'].body,/<iframe/);
+  pending.google.calendarSharingReviewed=true;
+  assert.equal(validateOfficialConfig(pending),pending);
+  const html=actionPages(pending)['calendrier.html'].body;
+  assert.match(html,/<iframe class="club-calendar" title="Rendez-vous du Tennis Club de Longages"/);
+  assert.match(html,/https:\/\/calendar\.google\.com\/calendar\/embed\?src=club-public%40example.invalid/);
+  assert.match(html,/ctz=Europe%2FParis&amp;hl=fr&amp;mode=AGENDA/);
+  assert.doesNotMatch(withoutCalendarEmbed(html,'calendrier.html'),/<iframe/);
+  assert.throws(()=>withoutCalendarEmbed(html,'contact.html'));
+  assert.throws(()=>withoutCalendarEmbed(html.replace('https://calendar.google.com/','https://evil.invalid/'),'calendrier.html'));
+  for(const id of ['https://evil.invalid', 'secret/private-token', 'bad" onload="alert(1)', 'a@x.invalid?private=1']) {
+    const invalid=structuredClone(pending); invalid.google.calendarEmbedId=id;
+    assert.throws(()=>validateOfficialConfig(invalid));
   }
 });

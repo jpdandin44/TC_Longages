@@ -7,32 +7,32 @@
   "contact": "preview-only",
   "files": {
     "index.html": {
-      "bytes": 3084641,
-      "sha256": "ef0fbd86f910d434c8c862a9a3c8e52a0cfdc2b68494e8dc1de0ac41848b9279"
+      "bytes": 3084940,
+      "sha256": "88f6427198af703c6c8285acdcee2607cb5ac2239855adbecf850415d53bf2ed"
     },
     "competitions.html": {
-      "bytes": 155745,
-      "sha256": "b9aed86661311577c4dbecb9dcd86a557211f502bafd9c85ec1afcf64bfc4533"
+      "bytes": 156044,
+      "sha256": "426f7fdaea0577999348b207bc609387edddaebcc375bd3885839d5c4777b91e"
     },
     "calendrier.html": {
-      "bytes": 155152,
-      "sha256": "b4ef9482846a72bbef728872d6683e85a08d9ef5275282543543081ce6b0562f"
+      "bytes": 155451,
+      "sha256": "66ea8a46d99c1c5b1d9e2c8d36ea5e4307ce23be445f9bede533486617372fdc"
     },
     "disponibilites.html": {
-      "bytes": 155636,
-      "sha256": "fc8f39094a6bbeb0ca4a1845dbc9350975783ead89751b707e8a89cdc94c28f5"
+      "bytes": 155935,
+      "sha256": "484bee97f2342db7708a7d39784f10db319d497e2440148f133e3b14b06bea9d"
     },
     "equipes.html": {
-      "bytes": 155201,
-      "sha256": "082684143fd9fa26d5f75b07a3a793ff2062a31c302c2d5b4d314a2ed32f6c7d"
+      "bytes": 155500,
+      "sha256": "54c8c8effa6e6936de49d26e3967ea01383c84334af1a68367a01fcb232aef72"
     },
     "espace.html": {
-      "bytes": 155542,
-      "sha256": "f06714aef37509e077d043eb7b30bb33132f85b76122ca083550e625be22b20a"
+      "bytes": 155841,
+      "sha256": "351c2f0965cc1445072a1cb93e50936f27b6da43389c1bbe4c85a24844d9a4d0"
     },
     "contact.html": {
-      "bytes": 156797,
-      "sha256": "e26c5166d87d3f46b7961401bbf7d37cedba39d15a8eae022803e4286ba65c87"
+      "bytes": 157096,
+      "sha256": "a60c19ecae1874421db0b9f3725d10374c10bccc37aad3ef97a06ea5c0589a46"
     },
     "robots.txt": {
       "bytes": 26,

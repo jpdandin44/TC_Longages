@@ -1,10 +1,10 @@
 ---
 project: TC_Longages
-document_type: integration-reference
-title: Agenda partagé Google en aperçu local
+document_type: integration-guide
+title: Agenda partagé Google sur le site et en aperçu local
 status: active
 version: git
-created: 2026-10-07
+created: 2026-10-05
 updated: 2026-10-07
 owner: jpdandin
 tags: [agenda, google-calendar, iframe, local]
@@ -12,37 +12,48 @@ tags: [agenda, google-calendar, iframe, local]
 
 # Agenda partagé Google
 
-## Périmètre actuel
+## Périmètre actuel — 7 octobre
 
-La demande du 7 octobre autorise l’intégration locale de l’iframe fournie. La
-page Calendrier utilise le rendu V1 existant et affiche « Les évènements du
-club ». Les événements restent créés et modifiés dans Google Agenda par les
-personnes autorisées. Aucun événement, droit Google ou compte n’est modifié.
+Le responsable fournit le code d’intégration d’un agenda partagé et demande
+son intégration locale dans le site, avec la nouvelle photo d’accueil.
+La [PR #17](https://github.com/jpdandin44/TC_Longages/pull/17) porte ce lot.
+La PR #15 ayant été fusionnée, la branche agenda est réunie avec `main` et
+la PR est remise sur cette base. La PR #16 concerne le cockpit ; sa validation
+n’est pas une condition préalable à la revue du site.
 
-## Sources de vérité et rendu
+Les événements sont créés et modifiés dans Google Agenda par les personnes
+autorisées. Le navigateur les consulte au chargement : aucune clé API, copie
+d’événements, synchronisation serveur ou formulaire de gestion n’est ajouté.
+Aucun compte, événement ou droit Google n’est modifié par ce lot.
 
-- [config/agenda-local.json](../config/agenda-local.json) contient l’unique URL
-  fournie et le statut `local-preview-only`. `sharingReviewed` reste `false`.
-- [Le chargeur](../scripts/calendar-preview.mjs) vérifie l’origine HTTPS,
-  le chemin d’intégration, l’agenda partagé, les paramètres et Europe/Paris.
-  Il dérive la vue `AGENDA` en français et le lien d’ouverture sans numéro de compte.
-- Le modèle [officiel-pages.mjs](../src/officiel-pages.mjs) et sa feuille de
-  style produisent une seule iframe titrée, de largeur 100 %, avec un lien de secours.
-- Les sorties restent dans `.local/agenda-preview/` ; le manifeste dérivé
-  `.local/agenda-preview-manifest.json` est refusé par l’archive officielle.
-  La configuration et les sorties ordinaires `officiel/` restent séparées.
-- Le suivi opérationnel du cockpit dans `.worktrees/support-v1` porte le lot
-  `tcl-v1-agenda-local`. Le [suivi de cette branche](../docs/suivi-chantier/suivi-chantier.json)
-  en reçoit une projection dérivée, sur sa photographie Git de départ ; les
-  décisions des autres lots restent conservées dans leur source opérationnelle.
-  Son code demeure dans la branche `feat/v1-agenda-local`, checkout `.worktrees/agenda-local`.
+## Sources de vérité et deux usages du composant
 
-La PR du lot et son état observé sont référencés dans le reçu et le suivi.
-Sa base est `feat/v1-signalement-support`, tête `6696f39` de la
-[PR #15](https://github.com/jpdandin44/TC_Longages/pull/15), encore ouverte
-lors de la préparation. Cette base isole les changements agenda/photo de ceux
-du formulaire. Après fusion de #15, remettre la PR du lot sur `main` et
-requalifier son candidat si le contenu change.
+[config/agenda-local.json](../config/agenda-local.json) conserve l’URL fournie,
+le statut `local-preview-only` et `sharingReviewed: false`.
+[calendar-preview.mjs](../scripts/calendar-preview.mjs) contrôle l’origine HTTPS,
+le chemin d’intégration, l’ID d’agenda partagé et le fuseau Europe/Paris.
+Il dérive une vue Planning en français et le lien d’ouverture Google.
+
+Le modèle [officiel-pages.mjs](../src/officiel-pages.mjs) produit une seule iframe
+titrée sur Calendrier, de largeur 100 %, avec un lien de secours. L’aperçu explicite
+prime sur la configuration officielle pour cette construction seulement.
+Ses pages et son manifeste sont générés dans `.local/agenda-preview/` et
+`.local/agenda-preview-manifest.json` ; l’archive officielle refuse ce manifeste.
+
+Le composant officiel déjà intégré dans `main` reste disponible :
+[config/officiel.json](../config/officiel.json) conserve `calendarEmbedId: null`
+et `calendarSharingReviewed: false`. Quand l’ID et son partage auront été
+qualifiés, ce composant affichera l’agenda dans la construction officielle,
+en français et à l’heure de Paris. La construction locale ne modifie ni cette
+configuration, ni les sorties et le manifeste ordinaires `officiel/`.
+Les générateurs n’autorisent que l’iframe validée Google Calendar ; les
+autres ressources externes restent refusées.
+
+Le [suivi de branche](../docs/suivi-chantier/suivi-chantier.json) est une projection
+versionnée du lot `tcl-v1-agenda-local` depuis le suivi opérationnel conservé
+sous `.worktrees/support-v1`. Les décisions et brouillons des autres lots
+restent dans leur source opérationnelle. Le code de ce lot se trouve dans
+`feat/v1-agenda-local`, checkout `.worktrees/agenda-local`.
 
 ## Utilisation locale
 
@@ -52,22 +63,15 @@ Depuis le checkout du lot :
 npm.cmd run agenda
 ```
 
-Ouvrir [la page Calendrier](http://127.0.0.1:4184/calendrier.html). La commande
-`npm.cmd run agenda:build` régénère l’aperçu sans démarrer le serveur. Le serveur
-écoute uniquement sur la boucle locale. Seule sa route Calendrier permet une
-iframe de `https://calendar.google.com` ; les autres routes, écritures et
-chemins techniques gardent leurs restrictions.
+Ouvrir [Calendrier](http://127.0.0.1:4184/calendrier.html) ou
+[l’accueil avec la nouvelle photo](http://127.0.0.1:4184/index.html).
+`npm.cmd run agenda:build` régénère les pages sans lancer de serveur.
+Celui-ci écoute uniquement sur la boucle locale ; seule la route Calendrier
+permet un cadre Google Calendar. Les écritures et chemins techniques restent
+inaccessibles depuis cet aperçu.
 
-Le navigateur contacte Google pour charger l’agenda. Aucune clé API, synchronisation
-serveur, copie des événements ou formulaire de gestion n’est ajouté. La page
-dépend de la disponibilité de Google et des droits accordés aux visiteurs.
-
-## Qualification et suite
-
-Les vérifications automatiques utilisent les dépendances Node verrouillées et
-un environnement Python local avec `PyYAML` et `jsonschema`. Les dépendances
-absentes au premier passage ont été installées sous `.venv/`, sans modifier
-le Python global. Pour reproduire les contrôles dans PowerShell :
+Les contrôles utilisent les dépendances Node verrouillées, PHP et un environnement
+Python local avec `PyYAML` et `jsonschema` :
 
 ```powershell
 npm.cmd ci --ignore-scripts
@@ -77,29 +81,42 @@ $env:PATH = (Join-Path (Get-Location).Path '.venv\Scripts') + ';' + $env:PATH
 npm.cmd run check
 ```
 
-La nouvelle photo `Images_Photos/Image_terrain_OK.png` est reprise dans ce même
-lot local. Sa source et ses règles de conservation figurent dans le README et
-l’architecture ; le reçu ci-dessous rattache sa vérification au candidat.
+## Édition des textes Drupal et photo
 
-La première CI a détecté une régression de l’éditeur Drupal : la photo intégrée
-rend la page d’accueil supérieure à 3 Mo et dépassait la limite de recherche
-PCRE lors de l’extraction du contenu principal. `PublicPageText` utilise désormais
-les positions des balises pour cette extraction et conserve les octets de la
-photo au rendu. Le [contrôle de régression](../tests/public-page-text.php),
-exécuté par la suite Node lorsque PHP est disponible, vérifie la vraie page,
-ses rubriques, sa légende, l’échappement des titres et le rendu sans édition.
-La CI Drupal vérifie également une installation dans son seul environnement jetable.
+La source `Images_Photos/Image_terrain_OK.png` est reprise sans transformation.
+Elle porte la page d’accueil au-delà de 3 Mo. La première CI a révélé que
+l’extraction précédente de son contenu principal dépassait la limite PCRE.
+`PublicPageText` utilise désormais les positions des balises et conserve
+les octets de la photo au rendu. Le [contrôle de régression](../tests/public-page-text.php)
+vérifie la vraie page, ses rubriques, sa légende, l’échappement des titres et
+le rendu sans édition. La CI Drupal contrôle aussi l’édition dans son
+installation jetable. Ces contrôles ne prouvent pas l’installation du
+correctif ni la sauvegarde d’une modification sur `preprod.tclongages.fr`.
+La qualification de ce problème hébergé reste à terminer avec l’accès Drupal.
 
-Le [reçu local](../data/agenda-local-verification.json) porte les contrôles exécutés,
-les empreintes et les captures. L’ouverture directe de l’agenda a été constatée
-avec son titre et son fuseau ; aucun événement n’était affiché en octobre lors
-du premier contrôle. Cela ne qualifie ni le partage détaillé, ni les droits d’édition.
+## Qualification et suite
 
-TBD — vérifier les droits de consultation du public visé et les informations
-exposées, puis recetter une modification réelle autorisée d’événement. Avant
-raccordement hébergé, reporter la ressource qualifiée dans la configuration
-officielle et vérifier le rendu Drupal avec conservation des textes édités.
-La préparation de la PR relève du Développement local. La revue humaine,
-le merge, la préproduction et la production conservent leurs accords distincts.
+Le [reçu](../data/agenda-local-verification.json) conserve les contrôles,
+empreintes, captures et l’historique des candidats. L’ouverture de l’agenda
+avec son titre et son fuseau a été constatée ; aucun événement n’était affiché
+en octobre lors du premier contrôle. Ce constat ne qualifie pas le partage
+détaillé ni les droits d’édition.
+
+TBD — contrôler sans session Google les informations visibles par le public
+visé, puis recetter une modification d’événement autorisée. Avant raccordement
+hébergé, reporter la ressource qualifiée dans la configuration officielle et
+vérifier le rendu Drupal avec conservation des textes édités. Les accords
+de revue, merge, préproduction et production gardent leur portée distincte.
+
+## Historique du choix d’agenda
+
+Le 5 octobre, l’ancien lien visait `tclongages@gmail.com` et sa consultation
+sans connexion refusait l’accès ; le [reçu FFT/Google](../data/fft-sources-verification.json#googleCalendar)
+conserve ce constat. Le 6 octobre, le responsable choisissait un agenda dédié
+aux événements publics, encore non créé. L’iframe du 7 octobre fournit un
+nouvel ID partagé pour l’aperçu local ; elle ne constitue pas une confirmation
+supplémentaire de publication des détails. Une catégorie ou une couleur
+ne modifie aucun droit de partage. Le raccordement automatique des compétitions
+FFT et des présences reste à concevoir.
 
 Référence : [intégrer un agenda dans un site, Google](https://support.google.com/calendar/answer/41207?hl=fr).

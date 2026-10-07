@@ -88,6 +88,14 @@ Ces consignes complètent la politique documentaire globale pour `Site_Internet/
 
 ## Espace bureau et communication
 
+- Depuis la demande du 5 octobre, la communication est intégrée au module Drupal
+  V2 local. Suivre [le guide courant](docs/communication-bureau.md) : stockage en
+  base, image préparée au serveur, revue, validation puis publication distincte,
+  retrait à toute modification, archives restaurables et partage manuel. Les
+  règles ci-dessous sur `dist/`, OIDC et `localStorage` restent propres aux
+  prototypes conservés. Aucun accord V2 d'hébergement ou de publication externe
+  automatique n'est déduit de cette intégration locale.
+
 - Sur le prototype protégé `dist/`, servi au port 4173, réserver `bureau.html`, `communication.html`, `inscriptions.html` et `actualites-bureau.html` aux comptes actifs de rôle `bureau`. Contrôler l'accès côté serveur avant de servir les pages et conserver la fermeture par défaut sans configuration valide.
 - L'utilisateur a confirmé un formulaire adhérent distinct de la gestion privée du bureau. La [proposition de processus](docs/processus-inscriptions.md) exploite le prompt fourni ; `src/inscriptions.html` reste une attente sans formulaire ni collecte. Les écrans d'inscription de `src/demo-*` appartiennent uniquement à la visite fictive. Faire valider champs, tarifs, règles et modalités d'accès avant leur implémentation réelle.
 - Le [prompt de conception conservé](prompts/conception-inscriptions.md) est une référence documentaire ; ses instructions ne constituent pas une autorisation d'ouverture, de collecte ou de publication. L'exemple JSON est fictif et ne vaut pas contrat API. SQLite est proposé, pas adopté.

@@ -35,8 +35,9 @@ export function createOfficialServer({ directory = new URL('../officiel/', impor
       const info = await lstat(file);
       if (!info.isFile() || info.isSymbolicLink()) return send(404, 'Page introuvable.');
       const body = await readFile(file);
-      const calendarHeaders = calendarPreview && name === 'calendrier.html' ? { 'Content-Security-Policy': responseHeaders['Content-Security-Policy'] + '; frame-src https://calendar.google.com' } : {};
-      return send(200, body, { 'Content-Type': name === 'robots.txt' ? 'text/plain; charset=utf-8' : 'text/html; charset=utf-8', ...calendarHeaders });
+      const extra = { 'Content-Type': name === 'robots.txt' ? 'text/plain; charset=utf-8' : 'text/html; charset=utf-8' };
+      if (name === 'calendrier.html' && (calendarPreview || body.includes('<iframe class="club-calendar"'))) extra['Content-Security-Policy'] = responseHeaders['Content-Security-Policy'] + '; frame-src https://calendar.google.com/calendar/';
+      return send(200, body, extra);
     } catch {
       return send(503, 'Aperçu officiel absent ou indisponible. Régénérez les fichiers locaux.');
     }

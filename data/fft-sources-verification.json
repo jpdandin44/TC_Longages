@@ -1,0 +1,94 @@
+{
+  "project": "TC_Longages",
+  "document_type": "external-source-verification",
+  "observedAt": "2026-10-05T19:35:50.440596+00:00",
+  "method": "Read-only browser consultation without FFT or Google sign-in",
+  "tenup": {
+    "url": "https://tenup.fft.fr/club/60310230/competitions",
+    "status": "public_list_and_one_match_detail_read",
+    "clubName": "LONGAGES TENNIS CLUB",
+    "clubId": "60310230",
+    "fieldsObserved": [
+      "date",
+      "homeTeam",
+      "awayTeam",
+      "championship",
+      "ageCategory",
+      "sex",
+      "competitionLevel",
+      "matchUrl"
+    ],
+    "matches": [
+      {
+        "date": "2026-10-11",
+        "homeTeam": "BERAT TC 1",
+        "awayTeam": "LONGAGES TC 1",
+        "championship": "GAN 35 MESSIEURS (MPY)",
+        "ageCategory": "35 ans",
+        "sex": "Homme",
+        "level": "Régional",
+        "url": "https://tenup.fft.fr/championnat/82647633/division/142822/phase/231385/poule/510367/rencontre/9822965"
+      },
+      {
+        "date": "2026-10-18",
+        "homeTeam": "ASPET ENCAUSSE TC 2",
+        "awayTeam": "LONGAGES TC 1",
+        "championship": "Comminges Coupe Claude Bonnefont Senior Messieurs",
+        "ageCategory": "Senior",
+        "sex": "Homme",
+        "level": "Départemental",
+        "url": "https://tenup.fft.fr/championnat/82668000/division/145360/phase/235293/poule/514071/rencontre/9899918"
+      },
+      {
+        "date": "2026-11-01",
+        "homeTeam": "LONGAGES TC 1",
+        "awayTeam": "RIEUMES TC 1",
+        "championship": "GAN 35 MESSIEURS (MPY)"
+      },
+      {
+        "date": "2026-11-01",
+        "homeTeam": "LE FOUSSERET TC 2",
+        "awayTeam": "LONGAGES TC 1",
+        "championship": "Comminges Coupe Claude Bonnefont Senior Messieurs"
+      },
+      {
+        "date": "2026-11-08",
+        "homeTeam": "CARBONNE OLYMPIQUE TC 1",
+        "awayTeam": "LONGAGES TC 1",
+        "championship": "GAN 35 MESSIEURS (MPY)"
+      },
+      {
+        "date": "2026-11-15",
+        "homeTeam": "LONGAGES TC 1",
+        "awayTeam": "SAINTE CROIX TC 2",
+        "championship": "Comminges Coupe Claude Bonnefont Senior Messieurs"
+      }
+    ],
+    "detailLimit": "Division/poule not renseigné, match sheet not entered; complete player information requires licensed sign-in. Time and attendance not verified.",
+    "teamIdObserved": "2470090",
+    "oldWebsiteLinkObserved": "http://www.club.fft.fr/tclongages31/60310230_a/cms/index_public.php?us_action=sh",
+    "currentContactSourcePreserved": "config/officiel.json"
+  },
+  "adoc": {
+    "url": "https://adoc.app.fft.fr/adoc/gsEquipe.do?method=read&equipe.identifiant=2463261",
+    "status": "session_expired",
+    "message": "Votre session a expiré. Veuillez vous reconnecter.",
+    "privateTeamDataRead": false,
+    "mappingToTenupTeam": "not_verified"
+  },
+  "googleCalendar": {
+    "providedUrl": "https://calendar.google.com/calendar/u/2?cid=dGNsb25nYWdlc0BnbWFpbC5jb20",
+    "calendarIdFromProvidedLink": "tclongages@gmail.com",
+    "publicEmbedStatus": "permission_denied",
+    "message": "Les événements d'un ou de plusieurs agendas n'ont pas pu être affichés ici, car vous n'êtes pas autorisé à y accéder.",
+    "userChoice": "Dedicated public club-event calendar",
+    "publicCalendarId": null,
+    "sharingChanged": false,
+    "privateEventsRead": false,
+    "componentStatus": "prepared_disabled_pending_public_calendar"
+  },
+  "captainAttendanceRequirement": "Presence/absence entered by captain in FFT; read mechanism and private scope pending qualification",
+  "automaticSynchronizationInstalled": false,
+  "apiQualified": false,
+  "realPlayersImported": false
+}

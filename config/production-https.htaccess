@@ -1,0 +1,26 @@
+# TC Longages: production hosting overlay, outside the immutable ZIP identity.
+# Prepend to the ZIP's web/.htaccess after verifying its original SHA-256.
+# The production hosts and certificate must already be qualified.
+# Enable this flag only with the authorized public opening; restore 0 to close.
+SetEnv TCL_APACHE_PUBLIC_INDEXING 0
+ErrorDocument 403 default
+<FilesMatch "^(?:settings[^/]*\.php|hosting-input\.json|database\.json|profile\.json)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+  # THE_REQUEST preserves the visitor path across Drupal's internal rewrite.
+  Header onsuccess unset X-Robots-Tag "expr=reqenv('TCL_APACHE_PUBLIC_INDEXING') == '1' && %{REQUEST_STATUS} == 200 && %{THE_REQUEST} =~ m#^(GET|HEAD) /((club|index\.html|competitions\.html|calendrier\.html|disponibilites\.html|equipes\.html|espace\.html|contact\.html))?(\?[^ ]*)? HTTP/#"
+  Header always unset X-Robots-Tag "expr=reqenv('TCL_APACHE_PUBLIC_INDEXING') == '1' && %{REQUEST_STATUS} == 200 && %{THE_REQUEST} =~ m#^(GET|HEAD) /((club|index\.html|competitions\.html|calendrier\.html|disponibilites\.html|equipes\.html|espace\.html|contact\.html))?(\?[^ ]*)? HTTP/#"
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://tclongages.fr%{REQUEST_URI} [R=301,L,NE]
+  # Refuse deployment/private paths before Drupal's maintenance or routing.
+  # Match the requested URL: cPanel can add an internal domain-root prefix.
+  RewriteCond %{REQUEST_URI} (^|/)\.(?!well-known(?:/|$)) [OR]
+  RewriteCond %{REQUEST_URI} ^/sites/default/settings[^/]*\.php$ [OR]
+  RewriteCond %{REQUEST_URI} ^/(?:private|vendor|config|scripts|framework|docs)(?:/|$) [OR]
+  RewriteCond %{REQUEST_URI} (?:^|/)(?:hosting-input|database|profile)\.json$
+  RewriteRule ^ - [F,L]
+</IfModule>

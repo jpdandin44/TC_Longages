@@ -16,6 +16,14 @@ tags:
 
 # Feuille de route
 
+## Priorité et report du cockpit — 7 octobre
+
+Poursuivre le site avec la PR #17 remise sur `main`, l’agenda partagé et
+la nouvelle photo. Terminer la qualification de l’édition des textes sur
+`preprod.tclongages.fr`. Le responsable envisage un dépôt séparé pour
+le cockpit ; sa création et son raccordement sont reportés. URL : TBD.
+La PR #16 reste conservée ; sa validation n’est pas une dépendance du site.
+
 La demande complémentaire du 7 octobre remplace la photo d’accueil par
 [Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
 Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
@@ -30,8 +38,8 @@ Prochaine action : revue de la PR dédiée et de la page locale par le responsab
 des droits Google et préparation d’un candidat Drupal si le raccordement hébergé
 est demandé. Les phases Préproduction et Mise en production restent à venir.
 Le [guide](api/google-calendar.md) conserve les limites ; les autres lots restent distincts.
-La PR agenda dépend de #15 ; sa remise sur `main` et le contrôle du candidat
-suivent la fusion de cette dépendance.
+La PR agenda est réunie avec `main` après fusion de #15 ; ses contrôles
+sont renouvelés sur ce candidat.
 
 
 ## Correctif V1 support — 6 octobre
@@ -52,8 +60,36 @@ préproduction, puis préparer sa publication autorisée. Aucun de ces
 passages n'est déduit de la création de la boîte ni des contrôles locaux.
 Voir [le dossier du correctif](docs/signalements-support.md).
 
+## V2 locale — nouveaux adhérents en priorité
 
-## Priorité du 5 octobre : publier la V1
+Le responsable demande de commencer V2 en local, puis précise que le Bureau
+doit surtout enregistrer les nouveaux adhérents. Le premier candidat permet
+la saisie/modification des fiches Adultes/Mineurs, la recherche et le suivi du
+dossier, avec comptes Drupal et base fictive. Les équipes sont désactivées et
+reportées. La [recette du lot](docs/comptes-et-bureau.md) et son reçu sont liés
+à une nouvelle itération du suivi, sans remplacer les preuves de livraison V1.
+
+La communication est intégrée en local : brouillons et affiches en base,
+aperçus, validation, publication séparée, liens externes, retrait et archives
+restaurables. Examiner [ce lot](docs/communication-bureau.md) avant qualification
+du routage Apache et livraison hébergée V2. La mise à jour MariaDB et la
+sauvegarde/restauration sont qualifiées sur une fixture locale distincte,
+avec [preuves et limites](docs/recette-bureau-mysql.md).
+
+Suite : examiner le formulaire et les droits du candidat local, préciser les
+champs/consentements encore proposés dans le processus d'inscription, puis
+recetter la mise à jour en préproduction préservant les données. La recette
+mobile Bureau est effectuée ; le débordement des formulaires est corrigé.
+La CI native MariaDB doit réussir sur le candidat exact. Les observations
+[Ten’Up/ADOC](api/fft.md) servent au futur lot compétitions ; aucune API ni
+récupération automatique d'adhérents n'est déduite de ces pages.
+Le responsable ajoute l'affichage des compétitions et du calendrier Google,
+avec agenda public dédié, confirmé non créé le 6 octobre. Le composant attend
+l'ID et le partage de cet agenda ; cette attente ne bloque pas le Bureau local.
+Les présences saisies par le capitaine dans FFT suivent après examen des droits,
+des écrans et d'un mécanisme réel de lecture ; aucune synchronisation en place.
+
+## V1 publiée le 5 octobre ; préparer la suite
 
 La V1 publique existante est prioritaire. Le candidat installé et son reçu
 ont été revérifiés ; les comptes et droits par équipe sont reportés en V2
@@ -61,17 +97,19 @@ par décision du responsable. Le [dossier opérationnel](docs/parcours-mise-en-l
 et `developmentWorkflow.deliveryPlan` du suivi canonique portent les actions,
 leurs dépendances, les résultats attendus et l'effort restant.
 
-Ordre immédiat : recette du site, sauvegarde et restauration privée du Drupal
-actuel, préparation séparée de la production et de son certificat, présentation
-du lot exact, bascule sous maintenance, puis ouverture et contrôle anonyme.
-Le refus SQL de préproduction est résolu ; il ne faut pas le retravailler.
-La sauvegarde, les fichiers et les 43 tables SQL restaurées sont vérifiés ;
-HTTPS officiel et `www` sont reconnus. Le même paquet est préparé hors domaine
-et les deux copies de Drupal démarrent en français sous maintenance.
-Le blocage de saisie privée SQL est résolu. Qualifier maintenant les permissions
-Apache, PHP servi, HTTPS et le retour à `public_html` dans un lot réversible
-explicitement autorisé, puis présenter l'ouverture après contrôle. Le développement du cockpit et du lot de comptes ne
-conditionne pas cette V1.
+La sauvegarde, sa restauration privée, la cible distincte de production,
+HTTPS, PHP servi et le retour réel à `public_html` sont vérifiés. Le même
+paquet est ouvert sur [le domaine officiel](https://tclongages.fr/) après
+l'accord explicite du responsable. Les sept pages passent la recette anonyme ;
+les fichiers privés et l'administration sont refusés sans authentification.
+La [note de livraison](docs/note-de-livraison.md) conserve le périmètre et
+le retour arrière. La préproduction reste fermée aux visiteurs.
+
+Après cette livraison : qualifier l'adaptateur des mises à jour en conservant les
+données de production. La priorité V2 actuelle est précisée ci-dessus ; les
+équipes restent pour la suite. Les ressources Google et le transport
+de contact suivent leur qualification propre. Aucun de ces développements
+n'est livré ou déployé par cette publication V1.
 
 ## Processus de développement après la mise en production de la V1
 

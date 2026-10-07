@@ -31,6 +31,10 @@ export function validateOfficialConfig(config) {
     const url = https(config.google.calendarUrl, 'calendrier');
     if (url.hostname !== 'calendar.google.com' || config.google.calendarSharingReviewed !== true) fail('calendrier Google et revue de partage requis.');
   }
+  if (config.google.calendarEmbedId != null) {
+    const id = config.google.calendarEmbedId;
+    if (typeof id !== 'string' || id.length > 254 || !/^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+$/.test(id) || config.google.calendarSharingReviewed !== true) fail('identifiant d’agenda public et revue de partage requis.');
+  }
   const formIds = new Set();
   for (const form of config.google.forms) {
     if (!ids.has(form.teamId) || !/^[a-z0-9-]{1,60}$/.test(form.id) || formIds.has(form.id)) fail('formulaire sans équipe ou identifiant unique.');

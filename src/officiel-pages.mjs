@@ -7,6 +7,13 @@ const empty = (title, text, action = '') => `<section class="empty-state"><h2>${
 
 export function actionPages(config, { calendarPreview = null } = {}) {
   const calendar = config.google.calendarUrl;
+  const calendarId = config.google.calendarEmbedId;
+  const calendarEmbed = calendarId && config.google.calendarSharingReviewed === true
+    ? 'https://calendar.google.com/calendar/embed?' + new URLSearchParams({src: calendarId, ctz: 'Europe/Paris', hl: 'fr', mode: 'AGENDA', showPrint: '0', showCalendars: '0'})
+    : null;
+  const calendarPublic = calendarEmbed
+    ? 'https://calendar.google.com/calendar/u/0/r?' + new URLSearchParams({cid: calendarId})
+    : calendar;
   const teamCards = config.teams.map(team => card(e(team.name), `Catégorie : ${e(team.category)}${team.tags.length ? '<br>' + team.tags.map(e).join(' · ') : ''}`, link('./disponibilites.html#' + team.id, 'Disponibilités'))).join('');
   const formCards = config.teams.map(team => {
     const forms = config.google.forms.filter(form => form.teamId === team.id);
@@ -20,7 +27,7 @@ export function actionPages(config, { calendarPreview = null } = {}) {
     },
     'calendrier.html': {
       title:'Calendrier', body:intro('LES RENDEZ-VOUS','À vos agendas.','Les rencontres et les rendez-vous du club réunis dans un même calendrier.') +
-      (calendarPreview ? `<section class="calendar-section" aria-labelledby="calendar-title"><h2 id="calendar-title">Les événements du club</h2><p>Retrouvez les dates, les horaires et les lieux des prochains rendez-vous.</p><iframe class="club-calendar" src="${e(calendarPreview.embedUrl)}" title="Agenda des événements du Tennis Club de Longages" loading="lazy" referrerpolicy="no-referrer"></iframe><p class="calendar-help">Vous pouvez aussi consulter cet agenda dans une nouvelle fenêtre.</p>${link(calendarPreview.openUrl,'Ouvrir dans Google Agenda',true)}</section>` : calendar ? empty('Le calendrier du club','Consultez les événements, les lieux et les horaires sur Google Calendar. Le service s’ouvre dans un nouvel onglet.',link(calendar,'Ouvrir le calendrier',true)) : empty('Le calendrier arrive bientôt','Le calendrier du club n’a pas encore été relié à cette version. Pour connaître un prochain rendez-vous, contactez le club.',link('./contact.html','Se renseigner'))) +
+      (calendarPreview ? `<section class="calendar-section" aria-labelledby="calendar-title"><h2 id="calendar-title">Les événements du club</h2><p>Retrouvez les dates, les horaires et les lieux des prochains rendez-vous.</p><iframe class="club-calendar" src="${e(calendarPreview.embedUrl)}" title="Agenda des événements du Tennis Club de Longages" loading="lazy" referrerpolicy="no-referrer"></iframe><p class="calendar-help">Vous pouvez aussi consulter cet agenda dans une nouvelle fenêtre.</p>${link(calendarPreview.openUrl,'Ouvrir dans Google Agenda',true)}</section>` : calendarEmbed ? `<section class="calendar-panel" aria-labelledby="club-calendar-title"><h2 id="club-calendar-title">Le calendrier du club</h2><p>Les rendez-vous publics du club, mis à jour depuis Google Agenda. Horaires de Paris.</p><iframe class="club-calendar" title="Rendez-vous du Tennis Club de Longages" src="${e(calendarEmbed)}" loading="lazy" referrerpolicy="no-referrer"></iframe><p>${link(calendarPublic,'Ouvrir dans Google Agenda',true)}</p></section>` : calendar ? empty('Le calendrier du club','Consultez les événements, les lieux et les horaires sur Google Calendar. Le service s’ouvre dans un nouvel onglet.',link(calendar,'Ouvrir le calendrier',true)) : empty('Le calendrier arrive bientôt','Le calendrier du club n’a pas encore été relié à cette version. Pour connaître un prochain rendez-vous, contactez le club.',link('./contact.html','Se renseigner'))) +
       `<div class="action-links">${link('./competitions.html','Retour aux compétitions')}${link('./disponibilites.html','Mes disponibilités')}</div>`
     },
     'disponibilites.html': {

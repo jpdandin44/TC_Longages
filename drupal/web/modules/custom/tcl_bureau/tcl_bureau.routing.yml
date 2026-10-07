@@ -1,0 +1,165 @@
+tcl_bureau.home:
+  path: '/bureau'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\BureauController::home'
+    _title: 'Espace du club'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
+
+tcl_bureau.communication:
+  path: '/bureau/communication'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::overview'
+    _title: 'Communication du club'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_add:
+  path: '/bureau/communication/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationForm'
+    _title: 'Créer une actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_archives:
+  path: '/bureau/communication/archives'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::archives'
+    _title: 'Archives de communication'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.communication_edit:
+  path: '/bureau/communication/{post}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationForm'
+    _title: 'Modifier une actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_review:
+  path: '/bureau/communication/{post}/revue'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::review'
+    _title: 'Revue de l’actualité'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_image:
+  path: '/bureau/communication/{post}/image'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::image'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.communication_action:
+  path: '/bureau/communication/{post}/{action}'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\CommunicationActionForm'
+    _title: 'Confirmer l’action'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+    action: 'validate|publish|withdraw|archive|restore'
+
+tcl_bureau.public_news:
+  path: '/actualites'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::news'
+    _title: 'Actualités du club'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+tcl_bureau.public_post:
+  path: '/actualites/{post}'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::publicPost'
+    _title: 'Actualité du club'
+  requirements:
+    _access: 'TRUE'
+    post: '\d+'
+  options:
+    no_cache: TRUE
+
+tcl_bureau.public_image:
+  path: '/actualites/{post}/image'
+  methods: [GET, HEAD]
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\CommunicationController::publicImage'
+  requirements:
+    _access: 'TRUE'
+    post: '\d+'
+  options:
+    no_cache: TRUE
+tcl_bureau.registrations:
+  path: '/bureau/adherents'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\RegistrationController::overview'
+    _title: 'Enregistrement des adhérents'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\RegistrationController::access'
+tcl_bureau.registration_add:
+  path: '/bureau/adherents/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\RegistrationForm'
+    _title: 'Enregistrer un nouvel adhérent'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\RegistrationController::access'
+tcl_bureau.registration_edit:
+  path: '/bureau/adherents/{registration}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\RegistrationForm'
+    _title: 'Modifier le dossier'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\RegistrationController::access'
+    registration: '\d+'
+tcl_bureau.accounts:
+  path: '/bureau/comptes'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\BureauController::accounts'
+    _title: 'Gestion des comptes'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::accountsAccess'
+tcl_bureau.account_add:
+  path: '/bureau/comptes/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\AccountForm'
+    _title: 'Créer un compte'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::accountsAccess'
+tcl_bureau.account_edit:
+  path: '/bureau/comptes/{user}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\AccountForm'
+    _title: 'Modifier un compte'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::accountAccess'
+    user: '\d+'
+  options:
+    parameters:
+      user:
+        type: entity:user
+tcl_bureau.team_add:
+  path: '/bureau/equipes/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\TeamForm'
+    _title: 'Créer une équipe'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::teamCreateAccess'
+tcl_bureau.team_edit:
+  path: '/bureau/equipes/{team}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\TeamForm'
+    _title: 'Modifier une équipe'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::teamAccess'
+    team: '\d+'

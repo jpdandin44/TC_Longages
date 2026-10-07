@@ -1,0 +1,419 @@
+{
+  "project": "TC_Longages",
+  "document_type": "local-verification",
+  "checkedAt": "2026-10-05T20:56:26.343109+00:00",
+  "scope": "V2 local Communication integration only; fictitious data and neutralized mail",
+  "runtime": {
+    "drupal": "11.4.8",
+    "php": "8.4.23",
+    "database": "private local SQLite",
+    "origin": "http://127.0.0.1:4182"
+  },
+  "candidateReference": "docs/suivi-chantier/suivi-chantier.json#developmentIterations; immutable source hashes below",
+  "httpRecipe": {
+    "observedAt": "2026-10-05T20:40:16.631642+00:00",
+    "target": "http://127.0.0.1:4182",
+    "checks": [
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication/ajouter",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication/1/revue",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication/1/modifier",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication/1/image",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read or write communication /bureau/communication/1/publish",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication/ajouter",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication/1/revue",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication/1/modifier",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication/1/image",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write communication /bureau/communication/1/publish",
+        "passed": true
+      },
+      {
+        "label": "administrator and Bureau have access",
+        "passed": true
+      },
+      {
+        "label": "Bureau navigation includes communication",
+        "passed": true
+      },
+      {
+        "label": "missing title/body rejected",
+        "passed": true
+      },
+      {
+        "label": "unsafe external URL rejected",
+        "passed": true
+      },
+      {
+        "label": "invalid CSRF does not create a draft",
+        "passed": true
+      },
+      {
+        "label": "draft persisted in database",
+        "passed": true
+      },
+      {
+        "label": "double submission does not duplicate draft",
+        "passed": true
+      },
+      {
+        "label": "draft and draft image unavailable to visitors",
+        "passed": true
+      },
+      {
+        "label": "four previews, safe escaped text and no premature sharing",
+        "passed": true
+      },
+      {
+        "label": "private headers",
+        "passed": true
+      },
+      {
+        "label": "GET confirmation does not validate",
+        "passed": true
+      },
+      {
+        "label": "confirmation displays exact escaped content",
+        "passed": true
+      },
+      {
+        "label": "personal confirmation required",
+        "passed": true
+      },
+      {
+        "label": "CSRF protects validation",
+        "passed": true
+      },
+      {
+        "label": "publication without validation refused",
+        "passed": true
+      },
+      {
+        "label": "validation records exact revision and actor",
+        "passed": true
+      },
+      {
+        "label": "validation alone does not publish",
+        "passed": true
+      },
+      {
+        "label": "manual external services on reviewed revision",
+        "passed": true
+      },
+      {
+        "label": "explicit publication visible to anonymous visitors",
+        "passed": true
+      },
+      {
+        "label": "public content escaped and private data absent",
+        "passed": true
+      },
+      {
+        "label": "old edit cannot overwrite published revision",
+        "passed": true
+      },
+      {
+        "label": "editing withdraws publication and invalidates approval",
+        "passed": true
+      },
+      {
+        "label": "old confirmation cannot republish changed content",
+        "passed": true
+      },
+      {
+        "label": "forged image is rejected without changing revision",
+        "passed": true
+      },
+      {
+        "label": "image description required before saving",
+        "passed": true
+      },
+      {
+        "label": "real image upload normalized and persisted",
+        "passed": true
+      },
+      {
+        "label": "private normalized JPEG served with safe headers",
+        "passed": true
+      },
+      {
+        "label": "private image denied to anonymous and captain",
+        "passed": true
+      },
+      {
+        "label": "image becomes public only after explicit publication",
+        "passed": true
+      },
+      {
+        "label": "ADOC limit warns without truncating site content",
+        "passed": true
+      },
+      {
+        "label": "ADOC preparation blocked without affecting WhatsApp",
+        "passed": true
+      },
+      {
+        "label": "withdrawal removes content and image immediately",
+        "passed": true
+      },
+      {
+        "label": "removing image revokes approval and removes stored bytes",
+        "passed": true
+      },
+      {
+        "label": "archive preserves record and removes active/public views",
+        "passed": true
+      },
+      {
+        "label": "archived record cannot be edited",
+        "passed": true
+      },
+      {
+        "label": "archived record available for recovery by Bureau",
+        "passed": true
+      },
+      {
+        "label": "restoration returns to draft without publication or approval",
+        "passed": true
+      },
+      {
+        "label": "existing enrolments and account screens remain available",
+        "passed": true
+      }
+    ],
+    "result": {
+      "fixturePostId": 5,
+      "fictitiousDataOnly": true,
+      "externalPublication": false,
+      "productionModified": false
+    },
+    "status": "passed"
+  },
+  "bureauRegression": {
+    "checkedAt": "2026-10-05T20:36:48.836362+00:00",
+    "passed": true,
+    "count": 37,
+    "evidence": ".local/v2-bureau-http-results.json"
+  },
+  "technicalChecks": {
+    "node": {
+      "passed": true,
+      "tests": 151,
+      "failed": 0,
+      "evidence": ".local/communication-node-check.log"
+    },
+    "python": {
+      "passed": true,
+      "tests": 49,
+      "skipped": 4,
+      "executed": 45,
+      "evidence": ".local/communication-python-tests.log"
+    },
+    "php": {
+      "syntaxPassed": true,
+      "files": 16
+    },
+    "framework": {
+      "passed": true,
+      "tests": 37,
+      "failed": 0,
+      "evidence": ".local/communication-framework-check.log"
+    },
+    "yaml": {
+      "passed": true,
+      "files": [
+        "drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml",
+        "drupal/web/modules/custom/tcl_bureau/tcl_bureau.permissions.yml",
+        "drupal/web/modules/custom/tcl_bureau/tcl_bureau.services.yml",
+        "drupal/web/modules/custom/tcl_bureau/tcl_bureau.libraries.yml"
+      ]
+    },
+    "documentation": {
+      "passedForChangedContent": true,
+      "documents": [
+        "AGENTS.md",
+        "README.md",
+        "api/adoc.md",
+        "architecture.md",
+        "changelog.md",
+        "decisions.md",
+        "docs/communication-bureau.md",
+        "docs/comptes-et-bureau.md",
+        "docs/point-session.md",
+        "docs/suivi-chantier/tableau-de-bord.md",
+        "requirements.md",
+        "roadmap.md",
+        "workflows/publication-controlee.md"
+      ],
+      "localLinksChecked": 373,
+      "foundationPresent": true,
+      "newMissingReferences": [],
+      "historicalMissingReferences": []
+    },
+    "canonicalPreservation": {
+      "passed": true,
+      "v1Fields": [
+        "project",
+        "document_type",
+        "title",
+        "version",
+        "created",
+        "updated",
+        "owner",
+        "scope",
+        "currentPhase",
+        "state",
+        "baseline",
+        "statusLabels",
+        "measurementRules",
+        "phases",
+        "decisions",
+        "history",
+        "reviewEvents",
+        "reviewFollowUps",
+        "requirementChanges",
+        "reviewCommentResponses",
+        "publication",
+        "template",
+        "evidence",
+        "testRuns",
+        "exceptions",
+        "release",
+        "session",
+        "observations",
+        "developmentWorkflow",
+        "phaseModel",
+        "phaseHistorySnapshots",
+        "activeIterationId",
+        "phaseDisplayScope"
+      ],
+      "v2HumanFields": [
+        "phases",
+        "approvals",
+        "delivery",
+        "rollback"
+      ]
+    }
+  },
+  "browserRecipe": {
+    "page": "/fr/bureau/communication/4/revue",
+    "fixture": "Communication V2 — exemple de recette",
+    "state": "draft, not validated or published",
+    "widths": [
+      1280,
+      390
+    ],
+    "horizontalOverflow": false,
+    "clubLogoLoaded": true,
+    "fourPreviewsVisible": true,
+    "screenshots": [
+      ".local/communication-v2-desktop.png",
+      ".local/communication-v2-mobile.png"
+    ],
+    "completeBureauMobileRecipe": false
+  },
+  "localUpdate": {
+    "hook": "tcl_bureau_update_11001",
+    "result": "passed, additive and repeatable on private SQLite",
+    "backup": ".local/communication-before.sqlite",
+    "backupIntegrity": "ok",
+    "activeIntegrity": "ok",
+    "existingData": {
+      "tcl_bureau_registration": {
+        "priorRecords": 4,
+        "businessAndCredentialColumnsUnchanged": true,
+        "ignoredSessionMetadata": []
+      },
+      "users_field_data": {
+        "priorRecords": 11,
+        "businessAndCredentialColumnsUnchanged": true,
+        "ignoredSessionMetadata": [
+          "access",
+          "changed",
+          "login"
+        ]
+      }
+    },
+    "hostedRestoreProven": false
+  },
+  "maintenanceObservation": {
+    "source": "fresh anonymous HTTP read only, following user report",
+    "checkedAt": "2026-10-05T20:56:26.343109+00:00",
+    "urls": [
+      "https://tclongages.fr/",
+      "https://www.tclongages.fr/"
+    ],
+    "status": 503,
+    "message": "Site en maintenance",
+    "cacheControl": "no-store, max-age=0, private",
+    "changedByAgent": false,
+    "initialV1DeliveryReceiptModified": false
+  },
+  "sourceHashes": {
+    "drupal/bin/update-v2-communication-local.php": "bc7da6f666057b14364c9500f571808dac957ce31d275139bc2d895a487ff4d5",
+    "drupal/web/modules/custom/tcl_bureau/css/communication.css": "f752eb7e5cae95b50c3320fd4fd1e498512ad4d59adaec11dfc7a8afcc9e7a7b",
+    "drupal/web/modules/custom/tcl_bureau/src/CommunicationImage.php": "7eb6cd3dcd0f633fd9a37a243d23dc7bb74cd449901f71ce441f287b1651483f",
+    "drupal/web/modules/custom/tcl_bureau/src/CommunicationRepository.php": "8d18d4bd792477cb86c3252eb0b878969e59ac493cf006387e25d3ab71859bb1",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/BureauController.php": "6a854f65e3a753f58a47b786d9c7ce23d077be29a5a5e285a68a57adbea39b1b",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php": "21fa6ece6cf47bde3d127292b7bdfb69bb31dad29505cedd6ad3b2dba2506686",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/RegistrationController.php": "4b259a2b93a7f5fb9853781a97f967b66d088874e2acf7e9d4f3e8c04170c4f6",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/CommunicationActionForm.php": "47c312f99a42b57d0004acb991bdbc7917918e101f78c358bed1bd992939e765",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/CommunicationForm.php": "5d174623d1a95c35b976684cbfbbd82a71da0b6b2dfa25232ec01591f7150d3c",
+    "drupal/web/modules/custom/tcl_bureau/src/Routing/BureauRouteSubscriber.php": "5db7b7039540b95257e64c8bb5eb08cf0aab158790dce7452df73c2ba81b0eb7",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.install": "d32b0bb2aba33badc6a39be396c92af022e5ddafeccc3780cc178d421511b63b",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.libraries.yml": "115ab0229c42ff2f85deb3c621f171d1915c5256a0cd1703ecbfaa2ce41e3993",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.module": "4fd0f53bba959f92921f8743ec67418648a35de44162877dfb240242ca381f91",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.permissions.yml": "90a2b98def28353563d379c2b4a254ca08159e10ce7878dba3d194a1a3b501b8",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml": "d64c2c4acd47af81ffa5e50e565bc195a278c027c9154b68abfd2bf3721093c8",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.services.yml": "5eff54f0ddca485d7bb8589ed65b26c1ffe7bc0f1b920ef04e912fd8c78c8fe0",
+    "scripts/drupal-local.ps1": "5174737f51cb037fe30812e978948114ae04c9e1adba9a46898bc9eb712e2aa5",
+    "tests/drupal-communication-http.py": "5b2310a7fc5fee68d72213744200c333d64da64353a0167530bdf613478b831c"
+  },
+  "limits": [
+    "MySQL update and image storage not yet exercised",
+    "Apache routing for news and images not yet qualified on host",
+    "Full Bureau mobile recipe remains separate",
+    "Google dedicated public calendar ID/access still unqualified",
+    "No automatic Facebook, WhatsApp or FFT delivery",
+    "No automatic import of browser prototype drafts"
+  ],
+  "productionModified": false,
+  "v2Deployed": false,
+  "externalMessagesSent": false,
+  "humanPhaseApprovalCreated": false,
+  "status": "passed_local_only"
+}

@@ -34,3 +34,7 @@ __pycache__/
 /drupal/web/sites/default/settings.php
 /drupal/web/sites/default/services.yml
 /drupal/web/sites/default/files/
+
+# Multisite jetable réservé à la recette locale MariaDB
+/drupal/web/sites/tcl-mysql-recette/
+/drupal/web/sites/sites.php

@@ -1,0 +1,278 @@
+{
+  "project": "TC_Longages",
+  "document_type": "local-verification",
+  "checkedAt": "2026-10-05T19:35:50.440596+00:00",
+  "scope": "First local V2 Bureau registration lot; fresh SQLite and fictitious data only",
+  "runtime": {
+    "drupal": "11.4.8",
+    "php": "8.4.23",
+    "database": "SQLite, .local/drupal-runtime/site.sqlite",
+    "origin": "http://127.0.0.1:4182"
+  },
+  "httpRecipe": {
+    "checkedAt": "2026-10-05T19:24:51.635362+00:00",
+    "scope": "local native Drupal HTTP/forms/SQLite only",
+    "origin": "http://127.0.0.1:4182",
+    "checks": [
+      {
+        "label": "anonymous internal route denied /bureau",
+        "passed": true
+      },
+      {
+        "label": "anonymous internal route denied /bureau/adherents",
+        "passed": true
+      },
+      {
+        "label": "anonymous internal route denied /bureau/adherents/ajouter",
+        "passed": true
+      },
+      {
+        "label": "anonymous internal route denied /bureau/adherents/1/modifier",
+        "passed": true
+      },
+      {
+        "label": "anonymous internal route denied /bureau/comptes",
+        "passed": true
+      },
+      {
+        "label": "self-registration closed",
+        "passed": true
+      },
+      {
+        "label": "Bureau home focuses on new members",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write enrolments /bureau/adherents",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write enrolments /bureau/adherents/ajouter",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write enrolments /bureau/adherents/1/modifier",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read or write enrolments /bureau/comptes",
+        "passed": true
+      },
+      {
+        "label": "team management deferred for Bureau",
+        "passed": true
+      },
+      {
+        "label": "team management deferred for administrator",
+        "passed": true
+      },
+      {
+        "label": "Bureau opens a real native registration form",
+        "passed": true
+      },
+      {
+        "label": "required identity/contact fields reject incomplete record",
+        "passed": true
+      },
+      {
+        "label": "whitespace contact rejected before writing",
+        "passed": true
+      },
+      {
+        "label": "invalid registration CSRF does not write",
+        "passed": true
+      },
+      {
+        "label": "adult record persisted in real SQLite",
+        "passed": true
+      },
+      {
+        "label": "repeated submission does not duplicate a member",
+        "passed": true
+      },
+      {
+        "label": "another form detects same person and season",
+        "passed": true
+      },
+      {
+        "label": "anonymous cannot read actual record URL",
+        "passed": true
+      },
+      {
+        "label": "captain cannot read actual record URL",
+        "passed": true
+      },
+      {
+        "label": "Bureau updates the record and its revision",
+        "passed": true
+      },
+      {
+        "label": "notes rendered as text without executable script",
+        "passed": true
+      },
+      {
+        "label": "stale revision refused without overwriting record",
+        "passed": true
+      },
+      {
+        "label": "private member search works",
+        "passed": true
+      },
+      {
+        "label": "minor guardian and contact are required on server",
+        "passed": true
+      },
+      {
+        "label": "minor registration with guardian persists",
+        "passed": true
+      },
+      {
+        "label": "Bureau cannot edit administrator",
+        "passed": true
+      },
+      {
+        "label": "Bureau cannot edit itself",
+        "passed": true
+      },
+      {
+        "label": "Bureau cannot open native user administration",
+        "passed": true
+      },
+      {
+        "label": "Bureau creates native Capitaine account",
+        "passed": true
+      },
+      {
+        "label": "forged Bureau role is not applied",
+        "passed": true
+      },
+      {
+        "label": "administrator creates native Bureau account",
+        "passed": true
+      },
+      {
+        "label": "new Bureau can use enrolment interface",
+        "passed": true
+      },
+      {
+        "label": "blocking account denies its existing session",
+        "passed": true
+      },
+      {
+        "label": "private responses remain noindex and no-store",
+        "passed": true
+      }
+    ],
+    "priority": "Bureau enrolment of new members",
+    "liveProductionModified": false,
+    "fictitiousDataOnly": true,
+    "teamManagementEnabled": false,
+    "passed": true
+  },
+  "browserRecipe": {
+    "searchSubmittedInInterface": true,
+    "searchResult": "One matching adult record; no unrelated minor record",
+    "logoVerified": true,
+    "desktopScreenshot": ".local/v2-adherents-desktop.png",
+    "widthObserved": 1280,
+    "mobileStatus": "not_verified",
+    "mobileLimit": "Viewport override did not apply; actual observed width remained 1280."
+  },
+  "teamsEnabled": false,
+  "liveProductionModified": false,
+  "secretsIncluded": false,
+  "sourceHashesKind": "sha256 of working-tree bytes before candidate freeze",
+  "sourceHashes": {
+    "drupal/web/modules/custom/tcl_bureau/config/install/tcl_bureau.settings.yml": "b3fb73cbddd92dcd08dc12fa18b65855fc6996685262af346e9bc60cbaade969",
+    "drupal/web/modules/custom/tcl_bureau/config/schema/tcl_bureau.schema.yml": "36378d44664c1c1fd5f34aaca466fd94a274e9f778b98adc2a46b36206e06106",
+    "drupal/web/modules/custom/tcl_bureau/css/bureau.css": "f10339e9c18142d862b248a94270f058fbeef7ed36802035d0c54661257bf4c3",
+    "drupal/web/modules/custom/tcl_bureau/images/logo.jpeg": "f349812906a7352c82fc0130f9d42d9c934d581eba72c789f4b56bb3e29520de",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/BureauController.php": "2c1f647853e83927e90fe326c4c17cd13aa35b15f2422d7b1280b6c23ed08362",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/RegistrationController.php": "48e742c61c085ae365ea1f1fdb09ba30191770bb6b46a637e5eacf6f632b3256",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/AccountForm.php": "7df13ccc501283ea3a57e47901b00ca5112cffd732748c32de774a01de770016",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/RegistrationForm.php": "0ecb06fb8f0a7e6650ce6840d63ca4cb1bcf93c8a6d38b00c8eb1f76b19071e2",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/TeamForm.php": "454d7f28466a9ff0e602e68b2244d56a7b857eb3b2d26da265df206d71a2bdff",
+    "drupal/web/modules/custom/tcl_bureau/src/RegistrationRepository.php": "5c8cac32d1540e0ad5fa4e067756df073ab304b2de2354f2252afb1fdb4b0613",
+    "drupal/web/modules/custom/tcl_bureau/src/Routing/BureauRouteSubscriber.php": "6a442788dc0f1c2b9a8f5e1179ac5a7860e5ff7bb4451c48063bcf1fa74bb7c5",
+    "drupal/web/modules/custom/tcl_bureau/src/TeamRepository.php": "082c30d45ddbfbf39d173640989a731f674e90b890522c98bbcade346059ed79",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.info.yml": "e5ea71828f38e175a520c850f7c09877ebbaf2fcca5d0f46812e4473ac89d257",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.install": "522a09612fc226e90913096e1e81e567faf2f6d2dc37db78e460672875e4a4e8",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.libraries.yml": "8f619371f06fefe8100d35df950966876ebe51360e42a6ee96bec8053c5c3cad",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.module": "4eefd1cc8844abe50f821c6c32dbfacf0bcdf206ae35ca82fd263ee392e9aed6",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.permissions.yml": "c35f7b6d26ab6874da0b9ba211bb16a97e6b1e65fc2079110b8f321d195f8b05",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml": "34486e93fa9954509fb32c79afec47814fb589cbfa586a444604ec1fe4a4270e",
+    "drupal/web/modules/custom/tcl_bureau/tcl_bureau.services.yml": "b921e117e151702c4fbbc6ceba20ce26b7ddb6fb5b81d9df577dd5c5ba370696",
+    "drupal/web/modules/custom/tcl_bureau/.gitattributes": "89ef5a55bc8c5a25e0cce0e8a2afa07ef6e946e7bcfe50966d5ebb737d82ada4"
+  },
+  "limits": [
+    "MySQL and update of existing Drupal not qualified",
+    "No public registration, payment, FFT licence creation or real member import",
+    "Complete forms/consents, export/import and retention policy pending review",
+    "Full native administrator translation and email transport not qualified"
+  ],
+  "technicalChecks": {
+    "phpSyntax": {
+      "passed": true,
+      "files": 12
+    },
+    "pythonUnitTests": {
+      "passed": true,
+      "run": 49,
+      "skipped": 4
+    },
+    "nodeSuite": {
+      "initialRun": 151,
+      "initialPassed": 148,
+      "initialFailures": 3,
+      "failureCause": "Wrong local Python selected, PyYAML unavailable; no source failure",
+      "targetedRerun": {
+        "passed": true,
+        "tests": 19,
+        "files": [
+          "tests/ci-workflows.test.mjs",
+          "tests/delivery-shared.test.mjs",
+          "tests/officiel.test.mjs",
+          "tests/officiel-server.test.mjs"
+        ]
+      },
+      "fullSuiteInitialLog": ".local/v2-node-tests.log",
+      "targetedLog": ".local/v2-node-targeted.log"
+    },
+    "framework": {
+      "passed": true,
+      "tests": 37,
+      "referenceFiles": 28,
+      "activeWorkflowHashes": 3
+    },
+    "documentation": {
+      "checkedAt": "2026-10-05T19:39:55.673713+00:00",
+      "scope": [
+        "README.md",
+        "architecture.md",
+        "requirements.md",
+        "roadmap.md",
+        "decisions.md",
+        "changelog.md",
+        "docs/comptes-et-bureau.md",
+        "docs/note-de-livraison.md",
+        "docs/point-session.md",
+        "docs/parcours-mise-en-ligne.md",
+        "docs/processus-inscriptions.md",
+        "workflows/preparer-livraison.md",
+        "api/fft.md",
+        "api/google-calendar.md"
+      ],
+      "foundationFiles": 6,
+      "foundationDirectories": 6,
+      "markdownMetadataChecked": 14,
+      "localLinksChecked": 358,
+      "jsonFilesChecked": 6,
+      "historicalHumanRecordsUnchanged": true,
+      "approvedWorkflowsUnchanged": true,
+      "errors": [],
+      "passed": true
+    }
+  },
+  "externalIntegrationReceipt": "data/fft-sources-verification.json",
+  "logoSha256": "f349812906a7352c82fc0130f9d42d9c934d581eba72c789f4b56bb3e29520de"
+}

@@ -4,6 +4,7 @@ import { inline } from './inline-html.mjs';
 import { loadOfficialConfig, escapeHTML as e, officialPages } from './official-config.mjs';
 import { actionPages } from '../src/officiel-pages.mjs';
 import { loadCalendarPreview } from './calendar-preview.mjs';
+import { withoutCalendarEmbed } from './calendar-embed.mjs';
 
 const root = new URL('../',import.meta.url);
 const config = await loadOfficialConfig();
@@ -42,9 +43,7 @@ for (const name of officialPages) {
   let html=await inline(outputs[name]);
   html=html.replace('</head>',`<style data-official-theme>${variables}</style></head>`);
   html=html.replace("(min-width: 761px)","(min-width: 1101px)");
-  const calendarFrame = calendarPreview && name === 'calendrier.html' ? `<iframe class="club-calendar" src="${e(calendarPreview.embedUrl)}" title="Agenda des événements du Tennis Club de Longages" loading="lazy" referrerpolicy="no-referrer"></iframe>` : '';
-  const checkedHtml = calendarFrame ? html.replace(calendarFrame, '') : html;
-  if (/<script[^>]+src=|<link[^>]+rel="stylesheet"|src="(?!data:)/.test(checkedHtml)) throw new Error('Page officielle non autonome : '+name);
+  if (/<script[^>]+src=|<link[^>]+rel="stylesheet"|src="(?!data:)/.test(withoutCalendarEmbed(html, name))) throw new Error('Ressource externe non autorisée : '+name);
   if (/localStorage|TCLDemo|tcl\.demo\.|adherer\.html|inscriptions\.html|communication\.html/.test(html)) throw new Error('Contenu de démonstration métier inattendu : '+name);
   outputs[name]=html;
 }
@@ -75,4 +74,4 @@ for (const [name,html] of Object.entries(outputs)) {
   manifest.files[name]={bytes:Buffer.byteLength(html),sha256:sha(html)};
 }
 await writeFile(new URL(calendarPreview ? '.local/agenda-preview-manifest.json' : 'data/officiel-manifest.json',root),JSON.stringify(manifest,null,2)+'\n');
-console.log(calendarPreview ? 'Aperçu local de l’agenda généré dans .local/agenda-preview/. Le navigateur consulte Google Agenda ; aucun transfert du site.' : 'Aperçu officiel généré : 7 pages autonomes dans officiel/. Domaine prévu '+config.domain+' ; aucun transfert, compte ou service externe activé.');
+console.log(calendarPreview ? 'Aperçu local de l’agenda généré dans .local/agenda-preview/. Le navigateur consulte Google Agenda ; aucun transfert du site.' : 'Aperçu officiel généré : 7 pages dans officiel/. Agenda Google affiché seulement si son partage est qualifié. Domaine prévu '+config.domain+' ; aucun transfert, compte ou service externe activé.');

@@ -32,10 +32,10 @@ PR #5 fusionnée par le responsable ; Action de construction réussie sur le com
 
 | Phase | État | Livrable | Prochaine action |
 |---|---|---|---|
-| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | Examiner puis fusionner la nouvelle PR candidate ; utiliser Revue et confirmer personnellement Valider. Les critères et commentaires enregistrés sont conservés ; l’ancienne acceptation reste historique. |
-| 1 — Développement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | Après nouvelle acceptation courante du Cadrage et fusion de la nouvelle PR candidate, utiliser Revue puis Valider avec les douze critères, le commentaire et la confirmation personnelle. |
-| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Recetter les sept pages du site et examiner les réserves V1 ; sauvegarde et restauration privées vérifiées. Qualifier le routage et le retour arrière sous maintenance après accord sur le lot préparé. Les comptes, droits par équipe et édition relèvent de la V2. |
-| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Autoriser le lot réversible de raccordement du même ZIP au domaine officiel sous maintenance ; contrôler HTTPS/PHP/protections et retour à public\_html. Recueillir ensuite l’accord distinct d’ouverture et effectuer les contrôles publics. |
+| 0 — Cadrage | Validée historiquement — à requalifier | [Dossier](00-phase.md) | PR #13 fusionnée ; Revue puis confirmation personnelle Valider si une nouvelle acceptation de cette correction est souhaitée. Critères, commentaires et décisions antérieures conservés. |
+| 1 — Développement local | Validée historiquement — à requalifier | [Dossier](01-phase.md) | PR #13 fusionnée ; conserver les douze critères, le commentaire et la confirmation personnelle pour la revue de cette correction locale. Aucune opération d’hébergement ne découle de cette revue. |
+| 2 — Préproduction | En cours | [Dossier](04-phase.md) | Terminer la qualification de la racine officielle et du retour réel sous maintenance dans le lot autorisé, puis conserver les reçus. |
+| 3 — Mise en production | Non démarrée | [Dossier](06-phase.md) | Exécuter le raccordement autorisé sous maintenance ; qualifier la cible et le retour réel ; ouvrir le même candidat après réussite des contrôles. |
 
 ## Points à résoudre
 
@@ -57,4 +57,4 @@ Cette vue statique ne modifie aucune décision. Le moteur interactif en boucle l
 
 [Guide du framework](../framework-developpement.md) · [Point de session](../point-session.md) · [Suivi canonique](suivi-chantier.json) · [Profil](../../framework/profil-projet.json)
 
-Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `e67cdc5e216fb08e23350ae03a3b79ad22b3417517a006b95fea24f3bcc6cc74`.
+Empreinte du profil, du suivi, de l’état d’installation et de la revue courante : `8614785a23821c2a1b556d996d28dcc5f36546cfa53cd94a3668c58e339b342b`.
