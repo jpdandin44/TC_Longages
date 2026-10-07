@@ -5099,17 +5099,17 @@
       "status": "awaiting_review",
       "objective": "Afficher localement l’agenda partagé Google par iframe et remplacer la photo d’accueil par Image_terrain_OK.png.",
       "candidate": {
-        "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
-        "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
-        "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+        "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+        "baseSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
+        "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
         "sourceBranch": "feat/v1-agenda-local",
-        "worktree": ".worktrees/agenda-local",
+        "worktree": "../agenda-local",
         "sourceClean": true,
         "artifactKind": "Local calendar preview, no delivery package",
-        "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
-        "sourceFilesRef": "data/agenda-local-verification.json#candidate.sourceFiles",
-        "gitSourceManifest": "data/framework-candidate.json",
-        "gitSourceDigest": "dda50a63a0d53dcf0079e6bc9be9739fc41d6c25763984b51b23c70f132a1c13"
+        "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
+        "sourceFilesRef": "../agenda-local/data/agenda-local-verification.json#candidate.sourceFiles",
+        "gitSourceManifest": "../agenda-local/data/framework-candidate.json",
+        "gitSourceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4"
       },
       "phaseLabels": [
         "Cadrage",
@@ -5126,51 +5126,102 @@
       "github": {
         "repository": "https://github.com/jpdandin44/TC_Longages",
         "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/17",
-        "status": "OPEN",
+        "status": "awaiting_push_and_base_update",
         "humanAcceptanceVerified": false,
-        "observedAt": "2026-10-07T10:10:21.804839+00:00",
+        "observedAt": "2026-10-07T10:25:52.948790+00:00",
         "baseBranch": "feat/v1-signalement-support",
         "headBranch": "feat/v1-agenda-local",
         "dependencyPr": "https://github.com/jpdandin44/TC_Longages/pull/15",
-        "dependencyState": "OPEN",
+        "dependencyState": "MERGED",
         "number": 17,
         "isDraft": true,
-        "headShaAtObservation": "ffc499c23a759bf2ef82461e8330600e6e1e5d3f",
-        "checks": [],
-        "observationScope": "PR URL and last head observed before corrected candidate push; current CI observations retained in operational canonical tracker",
-        "checksStatus": "pending_corrected_candidate"
+        "headShaAtObservation": "83989cf17ffe83113c51b3c5e358d0744add75be",
+        "checks": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-07T10:19:56Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606643926/job/112743630770",
+            "name": "policy",
+            "startedAt": "2026-10-07T10:19:41Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-07T10:20:22Z",
+            "conclusion": "FAILURE",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606695665/job/112743804284",
+            "name": "policy",
+            "startedAt": "2026-10-07T10:20:09Z",
+            "status": "COMPLETED",
+            "workflowName": "PR Policy"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-07T10:19:47Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631940",
+            "name": "delivery-safety",
+            "startedAt": "2026-10-07T10:19:40Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-07T10:22:17Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631935",
+            "name": "support-runtime",
+            "startedAt": "2026-10-07T10:19:42Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-10-07T10:22:54Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631997",
+            "name": "technical-ci",
+            "startedAt": "2026-10-07T10:19:40Z",
+            "status": "COMPLETED",
+            "workflowName": "CI — TC Longages"
+          }
+        ],
+        "observationScope": "Final current PR head; technical CI passed, human policy not accepted",
+        "checksStatus": "pending_new_candidate",
+        "expectedBaseBranch": "main"
       },
       "checks": [
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
-          "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
-          "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+          "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+          "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
+          "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
           "target": "http://127.0.0.1:4184/calendrier.html",
           "evidence": "data/agenda-local-verification.json#checks",
-          "observedAt": "2026-10-07T10:20:31.934139+00:00"
+          "observedAt": "2026-10-07T13:24:10.877790+00:00"
         },
         {
           "kind": "documentation",
           "status": "passed",
-          "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
-          "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
-          "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+          "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+          "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
+          "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
           "target": "http://127.0.0.1:4184/calendrier.html",
           "evidence": "data/agenda-local-verification.json#checks",
-          "observedAt": "2026-10-07T10:20:31.934139+00:00"
+          "observedAt": "2026-10-07T13:24:10.877790+00:00"
         },
         {
           "kind": "ci",
           "status": "pending",
-          "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
-          "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+          "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+          "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
+          "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
           "target": "https://github.com/jpdandin44/TC_Longages/pull/17",
-          "evidence": "GitHub Actions for the current PR head",
-          "observedAt": "2026-10-07T10:20:31.934139+00:00",
-          "prHeadSha": "a01c4100c7251fa53632f7e61d003e6a78222353",
-          "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6"
+          "evidence": "data/agenda-local-verification.json#checks",
+          "observedAt": "2026-10-07T13:24:10.877790+00:00"
         }
       ],
       "approvals": [],
@@ -5180,17 +5231,18 @@
       },
       "blockers": [
         "Partage Google détaillé et droits du public visé à qualifier avant raccordement hébergé.",
-        "PR #17 dependante de #15 ; fusion et confirmations humaines en attente.",
-        "CI du candidat corrige en attente ; confirmations humaines de PR a completer."
+        "Édition des textes sur preprod.tclongages.fr à qualifier depuis une session Drupal accessible.",
+        "CI du nouveau candidat et confirmations humaines de la PR en attente."
       ],
-      "nextAction": "Examiner la PR #17 et le rendu local ; apres fusion de #15, remettre la base sur main et requalifier si le contenu change ; qualifier les droits Google avant raccordement Drupal.",
-      "guide": "api/google-calendar.md",
-      "evidence": "data/agenda-local-verification.json",
+      "nextAction": "Examiner le site local et la PR #17 sur main ; terminer la qualification Google et de l édition Drupal en préproduction. Le cockpit est reporté.",
+      "guide": "../agenda-local/api/google-calendar.md",
+      "evidence": "../agenda-local/data/agenda-local-verification.json",
       "projection": {
-        "canonicalSource": ".worktrees/support-v1/docs/suivi-chantier/suivi-chantier.json",
-        "scope": "Derived agenda iteration only; other iterations retain their base Git snapshot",
-        "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
-        "generatedAt": "2026-10-07T10:20:31.934139+00:00"
+        "canonicalSource": "support-v1/docs/suivi-chantier/suivi-chantier.json",
+        "historicalDecisionsPreserved": true,
+        "recordedAt": "2026-10-07T09:43:15.021697+00:00",
+        "baseSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
+        "generatedAt": "2026-10-07T13:24:10.877790+00:00"
       },
       "nextIteration": [],
       "changes": [
@@ -5201,7 +5253,8 @@
       "reservations": [
         "Google sharing settings and intended public access are not fully qualified.",
         "No authorized event was created to check an update; agenda loads with no listed event in the inspected window.",
-        "Rendering and editorial reconciliation inside Drupal remain to qualify before hosted installation."
+        "Rendering and editorial reconciliation inside Drupal remain to qualify before hosted installation.",
+        "Les trois controles techniques GitHub ont reussi sur la tete observee ; policy attend les quatre confirmations humaines, sans accord de fusion ou livraison."
       ],
       "candidateHistory": [
         {
@@ -5214,8 +5267,8 @@
             "sourceClean": true,
             "artifactKind": "Local calendar preview, no delivery package",
             "workspaceDigest": "0f428066a20a1fbb294bd11cac51be866d725a81b56b20a360f923dc56545f0f",
-            "sourceFilesRef": "data/agenda-local-verification.json#candidate.sourceFiles",
-            "gitSourceManifest": "data/framework-candidate.json",
+            "sourceFilesRef": "../agenda-local/data/agenda-local-verification.json#candidate.sourceFiles",
+            "gitSourceManifest": "../agenda-local/data/framework-candidate.json",
             "gitSourceDigest": "6e946c3a8acdfe80f564a5e7f316b95aeb237cf2ccbd33df3106f2980da6b77c"
           },
           "github": {
@@ -5269,6 +5322,124 @@
             "url": "https://github.com/jpdandin44/TC_Longages/pull/17"
           },
           "reason": "Nouvelle photo : limite PCRE dans la lecture du contenu principal, detectee en CI ; correction et nouveau candidat."
+        },
+        {
+          "candidate": {
+            "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
+            "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
+            "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+            "sourceBranch": "feat/v1-agenda-local",
+            "worktree": "../agenda-local",
+            "sourceClean": true,
+            "artifactKind": "Local calendar preview, no delivery package",
+            "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
+            "sourceFilesRef": "../agenda-local/data/agenda-local-verification.json#candidate.sourceFiles",
+            "gitSourceManifest": "../agenda-local/data/framework-candidate.json",
+            "gitSourceDigest": "dda50a63a0d53dcf0079e6bc9be9739fc41d6c25763984b51b23c70f132a1c13"
+          },
+          "github": {
+            "repository": "https://github.com/jpdandin44/TC_Longages",
+            "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/17",
+            "status": "OPEN",
+            "humanAcceptanceVerified": false,
+            "observedAt": "2026-10-07T10:25:52.948790+00:00",
+            "baseBranch": "feat/v1-signalement-support",
+            "headBranch": "feat/v1-agenda-local",
+            "dependencyPr": "https://github.com/jpdandin44/TC_Longages/pull/15",
+            "dependencyState": "OPEN",
+            "number": 17,
+            "isDraft": true,
+            "headShaAtObservation": "83989cf17ffe83113c51b3c5e358d0744add75be",
+            "checks": [
+              {
+                "__typename": "CheckRun",
+                "completedAt": "2026-10-07T10:19:56Z",
+                "conclusion": "FAILURE",
+                "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606643926/job/112743630770",
+                "name": "policy",
+                "startedAt": "2026-10-07T10:19:41Z",
+                "status": "COMPLETED",
+                "workflowName": "PR Policy"
+              },
+              {
+                "__typename": "CheckRun",
+                "completedAt": "2026-10-07T10:20:22Z",
+                "conclusion": "FAILURE",
+                "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606695665/job/112743804284",
+                "name": "policy",
+                "startedAt": "2026-10-07T10:20:09Z",
+                "status": "COMPLETED",
+                "workflowName": "PR Policy"
+              },
+              {
+                "__typename": "CheckRun",
+                "completedAt": "2026-10-07T10:19:47Z",
+                "conclusion": "SUCCESS",
+                "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631940",
+                "name": "delivery-safety",
+                "startedAt": "2026-10-07T10:19:40Z",
+                "status": "COMPLETED",
+                "workflowName": "CI — TC Longages"
+              },
+              {
+                "__typename": "CheckRun",
+                "completedAt": "2026-10-07T10:22:17Z",
+                "conclusion": "SUCCESS",
+                "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631935",
+                "name": "support-runtime",
+                "startedAt": "2026-10-07T10:19:42Z",
+                "status": "COMPLETED",
+                "workflowName": "CI — TC Longages"
+              },
+              {
+                "__typename": "CheckRun",
+                "completedAt": "2026-10-07T10:22:54Z",
+                "conclusion": "SUCCESS",
+                "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022/job/112743631997",
+                "name": "technical-ci",
+                "startedAt": "2026-10-07T10:19:40Z",
+                "status": "COMPLETED",
+                "workflowName": "CI — TC Longages"
+              }
+            ],
+            "observationScope": "Final current PR head; technical CI passed, human policy not accepted",
+            "checksStatus": "technical_passed_human_pending"
+          },
+          "checks": [
+            {
+              "kind": "local",
+              "status": "passed",
+              "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
+              "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
+              "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+              "target": "http://127.0.0.1:4184/calendrier.html",
+              "evidence": "../agenda-local/data/agenda-local-verification.json#checks",
+              "observedAt": "2026-10-07T10:20:31.934139+00:00"
+            },
+            {
+              "kind": "documentation",
+              "status": "passed",
+              "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
+              "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
+              "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+              "target": "http://127.0.0.1:4184/calendrier.html",
+              "evidence": "../agenda-local/data/agenda-local-verification.json#checks",
+              "observedAt": "2026-10-07T10:20:31.934139+00:00"
+            },
+            {
+              "kind": "ci",
+              "status": "passed",
+              "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
+              "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+              "target": "GitHub PR #17 head 83989cf17ffe83113c51b3c5e358d0744add75be",
+              "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/37606644022",
+              "observedAt": "2026-10-07T10:25:52.948790+00:00",
+              "prHeadSha": "83989cf17ffe83113c51b3c5e358d0744add75be",
+              "workspaceDigest": "ae1c91df56ae3c6296f4a18fe121e3b96a7d037edbf9775d9d86a149668d88f6",
+              "scope": "Three technical jobs only; policy requires four human confirmations"
+            }
+          ],
+          "reason": "Reunion with main after PR 15 merged."
         }
       ]
     }
