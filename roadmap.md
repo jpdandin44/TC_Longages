@@ -16,6 +16,42 @@ tags:
 
 # Feuille de route
 
+## Suite courante — site sur la PR #17
+
+Cadrage : demandes agenda/photo et vue Mois reçues. Développement local :
+rapprochement avec `main` après fusion de #16, vérifications et mise à jour
+de la PR #17. Préproduction : passage demandé le 7 octobre, préparation en
+cours, conservation des contenus Drupal et recette des signalements à faire.
+Mise en production : aucune livraison autorisée pour ce candidat.
+
+Le cockpit et son éventuel dépôt séparé restent reportés.
+
+
+## Priorité et report du cockpit — 7 octobre
+
+Poursuivre le site avec la PR #17 remise sur `main`, l’agenda partagé et
+la nouvelle photo. Terminer la qualification de l’édition des textes sur
+`preprod.tclongages.fr`. Le responsable envisage un dépôt séparé pour
+le cockpit ; sa création et son raccordement sont reportés. URL : TBD.
+La PR #16 reste conservée ; sa validation n’est pas une dépendance du site.
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — 7 octobre
+
+L’intégration de l’iframe est engagée localement dans un lot dédié. Le rendu
+et ses contrôles sont consignés dans le [reçu](data/agenda-local-verification.json).
+Prochaine action : revue de la PR dédiée et de la page locale par le responsable, puis qualification
+des droits Google et préparation d’un candidat Drupal si le raccordement hébergé
+est demandé. Les phases Préproduction et Mise en production restent à venir.
+Le [guide](api/google-calendar.md) conserve les limites ; les autres lots restent distincts.
+La PR agenda est réunie avec `main` après fusion de #15 ; ses contrôles
+sont renouvelés sur ce candidat.
+
 ## Lots raccordés et V1.1 partenaires — 6 octobre
 
 Le cockpit local présente les versions, changements, recette, PR et observations

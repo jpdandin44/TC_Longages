@@ -14,6 +14,44 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-07 — Vue Mois et rapprochement de la PR #17
+
+- Calendrier local et composant officiel réglés sur Mois.
+- Construction explicite des modèles Drupal pour la seule préproduction
+  protégée, avec contrôle du manifeste et de l'unique iframe.
+- Onze conflits documentaires et de suivi rapprochés après fusion de #16 dans
+  `main` ; les apports antérieurs restent conservés dans la même PR #17.
+- Préparation du passage hébergé demandé ; installation et recette non
+  déclarées réussies par les seuls contrôles locaux.
+
+
+## 2026-10-07 — PR agenda réunie avec main
+
+- Conflits de la PR #17 résolus après fusion de #15, en conservant le composant
+  agenda officiel et l’aperçu local distinct, la nouvelle photo et l’éditeur Drupal.
+- Priorité au site ; dépôt séparé du cockpit envisagé et reporté par le responsable.
+- Preuves de recette et documentation requalifiées sur le candidat réuni.
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## 2026-10-07 — Agenda partagé en aperçu local
+
+- Iframe Google sur Calendrier, vue en liste en français et fuseau Paris.
+- Largeur adaptative, titre accessible et lien d’ouverture indépendant du compte connecté.
+- Construction et serveur dédiés au port 4184 ; configuration officielle conservée.
+- Contrôles de ressource, restriction du cadre à Google et manifeste réservé à l’aperçu local.
+- [Guide](api/google-calendar.md) et [reçu](data/agenda-local-verification.json) du lot.
+- Préparation d’une PR dédiée depuis la branche de #15 pour isoler le diff,
+  candidat Git et projection dérivée du seul lot agenda dans le suivi de branche.
+- Régression révélée par la CI sur la nouvelle photo : extraction du contenu
+  principal de l’éditeur Drupal adaptée aux grandes images intégrées, avec
+  contrôle de la vraie page et conservation des octets au rendu.
+
+
 ## 2026-10-07 — Recette locale et réalignement de la PR #16
 
 - Réunion de la branche cockpit avec `main` après la fusion de #15 ; quatre

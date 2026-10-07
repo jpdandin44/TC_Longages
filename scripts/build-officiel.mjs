@@ -3,10 +3,12 @@ import { createHash } from 'node:crypto';
 import { inline } from './inline-html.mjs';
 import { loadOfficialConfig, escapeHTML as e, officialPages } from './official-config.mjs';
 import { actionPages } from '../src/officiel-pages.mjs';
+import { loadCalendarPreview } from './calendar-preview.mjs';
 import { withoutCalendarEmbed } from './calendar-embed.mjs';
 
 const root = new URL('../',import.meta.url);
 const config = await loadOfficialConfig();
+const calendarPreview = process.argv.includes('--calendar-preview') ? await loadCalendarPreview() : null;
 const sha = data => createHash('sha256').update(data).digest('hex');
 let base = (await readFile(new URL('src/index.html',root),'utf8')).replace(/<!-- PROTOTYPE:START -->[\s\S]*?<!-- PROTOTYPE:END -->/g,'');
 // Un contenu partagé avec la démonstration historique ; seules les présentations divergent.
@@ -28,7 +30,7 @@ const quick = `<section class="container quick-access" id="acces-rapides" aria-l
 base=base.replace('<div class="values-strip">',()=>quick+'\n<div class="values-strip">');
 base=base.replace('Rejoindre le club <span','Jouer au club <span');
 const outputs = {'index.html':base};
-for (const [name,page] of Object.entries(actionPages(config))) {
+for (const [name,page] of Object.entries(actionPages(config, { calendarPreview }))) {
   let html=base.replace(/<main id="contenu">[\s\S]*?<\/main>/,()=>`<main id="contenu" class="container action-page">${page.body}</main>`);
   html=html.replace(/<title>[\s\S]*?<\/title>/,()=>`<title>${e(page.title)} · ${e(config.club.name)}</title>`);
   html=html.replace(/href="#([a-z-]+)"/g,'href="./index.html#$1"');
@@ -62,14 +64,14 @@ ErrorDocument 503 "Site en preparation. Ouverture apres validation du club."
   Header always set X-Robots-Tag "noindex, nofollow"
 </IfModule>
 `;
-const destination=new URL('officiel/',root);
+const destination=new URL(calendarPreview ? '.local/agenda-preview/' : 'officiel/',root);
 await mkdir(destination,{recursive:true});
 const unexpected=(await readdir(destination)).filter(name=>!Object.hasOwn(outputs,name));
 if (unexpected.length) throw new Error('Fichiers inattendus dans officiel/ : '+unexpected.join(', '));
-const manifest={mode:'local-review-only',domain:config.domain,domainStatus:config.domainStatus,files:{}};
+const manifest={mode:calendarPreview ? 'local-calendar-preview-only' : 'local-review-only',domain:config.domain,domainStatus:config.domainStatus,files:{}};
 for (const [name,html] of Object.entries(outputs)) {
   await writeFile(new URL(name,destination),html,'utf8');
   manifest.files[name]={bytes:Buffer.byteLength(html),sha256:sha(html)};
 }
-await writeFile(new URL('data/officiel-manifest.json',root),JSON.stringify(manifest,null,2)+'\n');
-console.log('Aperçu officiel généré : 7 pages dans officiel/. Agenda Google affiché seulement si son partage est qualifié. Aucun transfert ou déploiement.');
+await writeFile(new URL(calendarPreview ? '.local/agenda-preview-manifest.json' : 'data/officiel-manifest.json',root),JSON.stringify(manifest,null,2)+'\n');
+console.log(calendarPreview ? 'Aperçu local de l’agenda généré dans .local/agenda-preview/. Le navigateur consulte Google Agenda ; aucun transfert du site.' : 'Aperçu officiel généré : 7 pages dans officiel/. Agenda Google affiché seulement si son partage est qualifié. Domaine prévu '+config.domain+' ; aucun transfert, compte ou service externe activé.');

@@ -15,6 +15,51 @@ tags:
 
 # Tennis Club de Longages
 
+## Lot courant — PR #17 et préproduction privée
+
+La PR #17 existante reste le support du site. Sa branche est rapprochée de
+`main` après fusion de #16, en conservant les deux historiques. Le calendrier
+s'ouvre en **Mois**, en français et à l'heure de Paris. La demande du 7 octobre
+autorise la préparation puis la livraison sur `preprod.tclongages.fr` ; la
+mise à jour hébergée reste à vérifier. Le bouton Signaler un problème et les
+textes enregistrés dans Drupal doivent être conservés.
+
+`npm.cmd run drupal:preproduction:build` prépare les sept modèles avec l'agenda
+pour cette cible protégée. Voir le [guide](api/google-calendar.md). Le cockpit
+reste reporté ; aucune nouvelle PR ni validation du cockpit n'est demandée.
+
+
+## Priorité du 7 octobre — avancer sur le site
+
+Le lot agenda/photo de la [PR #17](https://github.com/jpdandin44/TC_Longages/pull/17)
+est remis sur `main` après fusion de #15. Examiner [le site local](http://127.0.0.1:4184/index.html)
+et [son calendrier](http://127.0.0.1:4184/calendrier.html). La validation du cockpit
+de la PR #16 n’est pas une condition préalable à cette revue. Un dépôt dédié
+au cockpit est envisagé par le responsable pour plus tard ; il n’est pas créé
+ou déplacé dans ce lot.
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — aperçu local du 7 octobre
+
+L’iframe fournie est intégrée à la page Calendrier dans un aperçu local dédié,
+avec une vue en liste, le fuseau Paris et un lien d’ouverture dans Google.
+Depuis ce checkout : `npm.cmd run agenda`, puis
+[Calendrier local](http://127.0.0.1:4184/calendrier.html).
+Le [guide de l’intégration](api/google-calendar.md) décrit les sources et les limites.
+Les sorties et paquets habituels ne sont pas remplacés ; le partage Google
+et le raccordement hébergé restent à qualifier.
+
+La PR et la version du lot figurent dans le [reçu](data/agenda-local-verification.json)
+et le [suivi de branche](docs/suivi-chantier/suivi-chantier.json), projection du
+lot agenda depuis le cockpit opérationnel. Le [guide](api/google-calendar.md)
+précise la base `main` après fusion de la PR #15 et la suite de la revue.
+
+
 ## Cockpit des versions — 6 octobre
 
 Le cockpit raccordé affiche désormais les lots V1.1 et V2 depuis leurs suivis
@@ -228,7 +273,7 @@ L'ancienne archive de vitrine seule `livrables/tc-longages-vitrine-o2switch.zip`
 
 Le dernier HTML autonome de 449 087 octets annoncé dans le dossier de reprise n'était pas présent dans les pièces locales examinées. La reprise utilise les sources et images réellement disponibles dans l'ancien pack, en réappliquant la correction de contact et l'intégration des ressources. Les empreintes du HTML ancien et des deux images correspondent à celles de la passation ; elles sont consignées dans [la provenance des sources](data/source-provenance.json). Le nouveau livrable ne doit pas être présenté comme identique à l'archive corrigée manquante.
 
-L'adresse de contact retenue est **tclongages@gmail.com** ; l'ancienne adresse FFT n'est plus la consigne courante. Les liens Ten'Up et Facebook sont conservés. La FAQ et les formules de démonstration sont générées depuis le [relevé tarifaire commun](data/tarifs-inscription.json), transcrit des deux fiches PDF 2026–2027 fournies. Il ne tranche pas le choix de 125 ou 150 € pour les cours adultes et n'invente ni remise familiale ni tarif de terrain. Le [processus d'inscription](docs/processus-inscriptions.md) conserve le cadrage métier ; les horaires et groupes de la visite restent des exemples fictifs. Le [logo JPEG fourni](Images_Photos/Logo.jpeg) reste temporaire en attendant le vectoriel. La [photo réelle du court](Images_Photos/Image_terrain.jpg) remplace l'illustration d'accueil, avec attribution « photo fournie par le club », sans auteur supposé. La seconde photographie demeure une illustration de Nicholas Bullett, créditée comme telle. Aucune redirection depuis l'ancienne adresse n'est présumée configurée.
+L'adresse de contact retenue est **tclongages@gmail.com** ; l'ancienne adresse FFT n'est plus la consigne courante. Les liens Ten'Up et Facebook sont conservés. La FAQ et les formules de démonstration sont générées depuis le [relevé tarifaire commun](data/tarifs-inscription.json), transcrit des deux fiches PDF 2026–2027 fournies. Il ne tranche pas le choix de 125 ou 150 € pour les cours adultes et n'invente ni remise familiale ni tarif de terrain. Le [processus d'inscription](docs/processus-inscriptions.md) conserve le cadrage métier ; les horaires et groupes de la visite restent des exemples fictifs. Le [logo JPEG fourni](Images_Photos/Logo.jpeg) reste temporaire en attendant le vectoriel. La [photo réelle du court](Images_Photos/Image_terrain_OK.png) remplace l'illustration d'accueil, avec attribution « photo fournie par le club », sans auteur supposé. La seconde photographie demeure une illustration de Nicholas Bullett, créditée comme telle. Aucune redirection depuis l'ancienne adresse n'est présumée configurée.
 
 ## Prérequis et installation
 
@@ -329,7 +374,8 @@ Les images enregistrées occupent aussi ce stockage et sont incluses dans l'expo
 | `src/communication-adoc.js` | Préparation locale de l'aperçu ADOC après validation, sans appel au service réel. |
 | `Images_Photos/Logo.jpeg`, `Affiche.jpeg` | Originaux fournis conservés : logo JPEG temporaire et affiche utilisable comme exemple dans l'éditeur de démonstration. |
 | `data/tarifs-inscription.json`, `scripts/tariffs.mjs` | Relevé des deux PDF et génération commune des tableaux, notes de FAQ et formules fictives ; conditions inconnues conservées. |
-| `Images_Photos/Image_terrain.jpg` | Photo réelle du court fournie par le club et intégrée à l'accueil, sans auteur inventé. |
+| `Images_Photos/Image_terrain_OK.png` | Photo actuelle du court fournie par le club et intégrée à l'accueil, sans auteur inventé. |
+| `Images_Photos/Image_terrain.jpg` | Photo antérieure du court conservée intacte. |
 | `src/brand.css`, `src/demo-communication-example.js` | Présentation du logo et chargement volontaire de l'affiche exemple dans la démonstration. |
 | `scripts/` | Construction, serveur d'aperçu local et contrôle des accès bureau. |
 | `server/`, `app.cjs` | Service de connexion OIDC distinct ; vérification des identités, autorisations et sessions côté serveur. |

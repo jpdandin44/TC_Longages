@@ -15,6 +15,50 @@ tags:
 
 # Décisions
 
+## 2026-10-07 — Réutiliser #17 pour la recette en vue Mois
+
+**Contexte.** Le responsable demande le calendrier en Mois puis le passage
+en préproduction ; il signale les conflits de #17 avant toute nouvelle PR.
+
+**Décision.** Conserver la branche de #17 et rapprocher `main` sans réécrire
+l'historique. Préparer explicitement l'agenda pour la cible de recette privée.
+
+**Conséquences.** Les travaux de #16 fusionnés dans `main` sont conservés.
+Leur validation n'est pas demandée ici. Le partage Google public, la fusion
+de #17 et la mise en production restent distincts de la livraison demandée.
+
+
+## 2026-10-07 — Séparation du cockpit prévue et site prioritaire
+
+**Contexte.** Le responsable veut avancer sur le site et indique qu’il créera
+un nouveau dépôt pour le cockpit, dont la relance n’est pas prioritaire.
+
+**Décision.** Reporter ce chantier et poursuivre la PR agenda/photo et la
+qualification de l’édition Drupal. Ne pas demander une validation du cockpit
+comme condition préalable à l’avancement du site.
+
+**Conséquences.** Aucun dépôt n’est créé, aucune source ni décision n’est
+déplacée dans ce lot. La PR #16 et le suivi existant sont conservés. Le futur
+raccordement par configuration et la reprise des données seront à qualifier
+quand le dépôt existera ; son URL reste TBD.
+
+## 2026-10-07 — Afficher l’agenda partagé par iframe en local
+
+**Contexte.** Le responsable fournit un agenda puis son code d’intégration et
+confirme le démarrage de l’intégration locale.
+
+**Décision.** Réutiliser la page Calendrier V1, avec une iframe Google en vue liste,
+Europe/Paris et un lien d’ouverture. Garder la création et l’édition dans Google.
+L’aperçu dédié est généré sous `.local/` depuis une configuration de ressource unique.
+
+**Raisons.** Éviter la double saisie des événements, permettre une lecture sur
+petit écran et conserver le périmètre local demandé.
+
+**Conséquences.** Dépendance au service Google et à ses droits de partage. La revue
+de partage reste en attente. Les sorties officielles et leurs paquets restent
+séparés de cet aperçu ; le raccordement hébergé fera l’objet de sa qualification.
+Voir [la référence d’intégration](api/google-calendar.md).
+
 ## 2026-10-06 — Revue par version sans écraser l'historique
 
 **Contexte.** Le responsable doit maîtriser les changements ; l'accueil du

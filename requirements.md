@@ -15,6 +15,34 @@ tags:
 
 # Exigences
 
+## Demande complémentaire du 7 octobre — recette du site
+
+- Afficher par défaut le calendrier en vue Mois, en français, Europe/Paris.
+- Réutiliser la PR #17 et résoudre ses conflits avec `main` avant la livraison.
+- Livrer le candidat vérifié à la préproduction protégée, avec conservation
+  des textes édités dans Drupal.
+- Conserver Signaler un problème et vérifier l'enregistrement du message et
+  son acheminement. La réussite des tests locaux ne vaut pas recette hébergée.
+
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — demande locale du 7 octobre
+
+- Afficher l’agenda fourni dans la page Calendrier, avec Europe/Paris.
+- Conserver la gestion des événements dans Google Agenda et proposer un lien d’ouverture.
+- Garder une largeur adaptée au téléphone et un titre accessible pour l’iframe.
+- Isoler cet aperçu des sorties officielles et des autres lots en cours.
+- Conserver la revue des droits de partage en attente ; aucune modification Google.
+- Limiter ce lot au développement local. Le rendu Drupal hébergé, les droits des
+  visiteurs et la visibilité des informations restent à qualifier avant livraison.
+
+Voir [l’intégration Google](api/google-calendar.md).
+
 ## Cockpit et partenaires V1.1 — demandes du 6 octobre
 
 - Rendre visibles les lots actuels, leurs changements, PR, contrôles et sites

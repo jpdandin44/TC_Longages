@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - codex
@@ -14,6 +14,14 @@ tags:
 ---
 
 # Consignes locales
+
+## Photo d’accueil — demande du 7 octobre
+
+La demande complémentaire remplace la photo d’accueil active par
+`Images_Photos/Image_terrain_OK.png`, fournie par le responsable. Préserver
+ce PNG exact et conserver `Image_terrain.jpg` ; les mentions datées de cette
+ancienne source restent historiques. Le lot courant reste local dans
+`.worktrees/agenda-local`, séparé des autorisations des autres candidats.
 
 ## Correctif support V1 — 6 octobre
 

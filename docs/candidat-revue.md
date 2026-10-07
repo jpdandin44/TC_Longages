@@ -5,7 +5,7 @@ title: Candidat Git et portée des preuves de revue
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-05
+updated: 2026-10-07
 owner: jpdandin
 tags: [framework, git, preuves, revue]
 ---
@@ -18,12 +18,14 @@ Le [contrôle du candidat](../scripts/framework-candidate.mjs) relie la revue lo
 
 Le manifeste `data/framework-candidate.json` contient le commit source, la liste triée de ses fichiers réguliers, leurs modes Git, identifiants de blobs, tailles et empreintes SHA256. Son empreinte globale est calculée sur une représentation JSON déterministe. Il n’existe pas d’exclusion générale des documents ou des résultats de tests.
 
-Les cinq seules exclusions permettent d’enregistrer ensuite la revue du candidat sans changer son code :
+Les sept seules exclusions permettent d’enregistrer ensuite la revue du candidat sans changer son code :
 
 - `docs/suivi-chantier/suivi-chantier.json` : décisions et contexte de la revue ;
 - `docs/suivi-chantier/tableau-de-bord.md` et `docs/suivi-chantier/tableau-de-bord.html` : vues générées de ce registre ;
 - `data/framework-candidate.json` : manifeste qui ne peut pas s’inclure lui-même ;
 - `data/framework-revue-verification.json` : reçu technique des contrôles exécutés sur le commit source.
+- `data/support-v1-verification.json` : reçu du lot support ;
+- `data/agenda-local-verification.json` : reçu du lot agenda, avec version, contrôles et observation de PR.
 
 Un changement de README, de dossier de phase, de configuration, de test, de dépendance verrouillée ou de code produit donc un autre candidat. Les fichiers privés et sorties déjà ignorés par Git restent hors de la liste des sources.
 
@@ -38,7 +40,7 @@ node scripts/framework-candidate.mjs verify
 
 La première commande prépare seulement un manifeste technique. Elle refuse un état source différent du commit ou des fichiers nouveaux non ignorés qui n’y sont pas inclus. La seconde ne modifie aucun fichier et retourne un échec si le candidat ne correspond plus.
 
-Ordre de travail : commit source **C1**, vérification et exécution des tests sur C1, puis reçu et contexte de revue dans un commit **C2** limité aux cinq exclusions. Les résultats désignent C1, et ne prétendent pas que C2 ou l’hébergement ont été testés. Le reçu conserve les dates réelles, les commandes, les résultats et leurs limites ; les résultats historiques ne reçoivent pas rétroactivement un nouveau SHA.
+Ordre de travail : commit source **C1**, vérification et exécution des tests sur C1, puis reçu et contexte de revue dans un commit **C2** limité aux sept exclusions. Les résultats désignent C1, et ne prétendent pas que C2 ou l’hébergement ont été testés. Le reçu conserve les dates réelles, les commandes, les résultats et leurs limites ; les résultats historiques ne reçoivent pas rétroactivement un nouveau SHA.
 
 Le champ `reviewContext.candidateManifest` doit désigner exactement `data/framework-candidate.json`. `sourceCommit` et `artifactDigest` doivent correspondre au manifeste, ainsi qu’aux preuves et exécutions de tests référencées. Les empreintes des critères et documents sont calculées séparément par le [moteur de revue](../scripts/framework-store.mjs).
 

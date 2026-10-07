@@ -15,8 +15,8 @@ test('La V1 conserve les visuels exacts et les tarifs actuels tout en appliquant
   assert.equal(config.theme.primary,'#a6192e');
   assert.equal((html.match(/class="quick-card"/g)||[]).length,6);
   for(const item of config.quickAccess) assert.ok(html.includes(`href="${item.href}"`));
-  const img=html.match(/class="hero-photo"><img src="data:image\/jpeg;base64,([^"]+)"/);
-  assert.equal(sha(Buffer.from(img[1],'base64')),sha(await readFile(new URL('Images_Photos/Image_terrain.jpg',root))));
+  const img=html.match(/class="hero-photo"><img src="data:image\/png;base64,([^"]+)"/);
+  assert.equal(sha(Buffer.from(img[1],'base64')),sha(await readFile(new URL('Images_Photos/Image_terrain_OK.png',root))));
   const logo=html.match(/class="club-logo-image" src="data:image\/jpeg;base64,([^"]+)"/);
   assert.equal(sha(Buffer.from(logo[1],'base64')),sha(await readFile(new URL('Images_Photos/Logo.jpeg',root))));
   assert.equal((html.match(/scope="row"/g)||[]).length,9);
@@ -80,7 +80,7 @@ test('Le calendrier embarqué exige la revue de partage et limite sa source à G
   const html=actionPages(pending)['calendrier.html'].body;
   assert.match(html,/<iframe class="club-calendar" title="Rendez-vous du Tennis Club de Longages"/);
   assert.match(html,/https:\/\/calendar\.google\.com\/calendar\/embed\?src=club-public%40example.invalid/);
-  assert.match(html,/ctz=Europe%2FParis&amp;hl=fr&amp;mode=AGENDA/);
+  assert.match(html,/ctz=Europe%2FParis&amp;hl=fr&amp;mode=MONTH/);
   assert.doesNotMatch(withoutCalendarEmbed(html,'calendrier.html'),/<iframe/);
   assert.throws(()=>withoutCalendarEmbed(html,'contact.html'));
   assert.throws(()=>withoutCalendarEmbed(html.replace('https://calendar.google.com/','https://evil.invalid/'),'calendrier.html'));

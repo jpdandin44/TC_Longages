@@ -37,9 +37,11 @@ export async function inline(html) {
     const photo = await readFile(new URL(`assets/${match[1]}`, source));
     html = html.replace(match[0], `src="data:image/webp;base64,${photo.toString('base64')}"`);
   }
-  if (html.includes('src="../Images_Photos/Image_terrain.jpg"')) {
-    const court = await readFile(new URL('../Images_Photos/Image_terrain.jpg', source));
-    html = html.replaceAll('src="../Images_Photos/Image_terrain.jpg"', `src="data:image/jpeg;base64,${court.toString('base64')}"`);
+  for (const [filename, mime] of [['Image_terrain.jpg', 'image/jpeg'], ['Image_terrain_OK.png', 'image/png']]) {
+    const marker = `src="../Images_Photos/${filename}"`;
+    if (!html.includes(marker)) continue;
+    const court = await readFile(new URL('../Images_Photos/' + filename, source));
+    html = html.replaceAll(marker, `src="data:${mime};base64,${court.toString('base64')}"`);
   }
   return html.replaceAll('\r\n', '\n');
 }

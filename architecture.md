@@ -15,6 +15,35 @@ tags:
 
 # Architecture
 
+## Construction agenda pour la recette privée
+
+La construction explicite `drupal:preproduction:build` vérifie le manifeste
+de l'aperçu puis prépare sept modèles Drupal, avec une seule iframe en vue
+Mois. Le manifeste borne la cible à `preprod.tclongages.fr` et interdit la
+production. Les réglages officiels de partage Google restent non qualifiés.
+Les contenus Drupal et la configuration du transport support sont conservés
+lors de la future mise à jour ; le rapprochement éditorial reste à qualifier.
+
+
+## Photo d’accueil — source du 7 octobre
+
+`src/index.html` référence désormais `Images_Photos/Image_terrain_OK.png`.
+Le générateur commun l’intègre au format PNG sans transformation. Les sorties
+actives sont régénérées depuis cette source, tandis que le JPEG antérieur
+et les archives restent conservés.
+
+## Agenda partagé — intégration locale du 7 octobre
+
+Le [chargeur de l’agenda](scripts/calendar-preview.mjs) lit la
+[configuration locale](config/agenda-local.json), valide la ressource puis dérive
+la vue en liste et le lien Google. Le même modèle de page V1 reçoit cette option
+uniquement lors de la construction `--calendar-preview`. Les sept pages restent
+dérivées ; une seule iframe est insérée sur Calendrier. Le serveur dédié au port
+4184 autorise cette origine de cadre pour cette route. L’aperçu et son manifeste
+restent sous `.local/`, sans remplacer `officiel/` ni son manifeste de livraison.
+Le [guide](api/google-calendar.md) précise la dépendance à Google et le suivi canonique.
+
+
 ## Raccordement du cockpit aux lots — 6 octobre
 
 `framework-iterations.mjs` lit les suivis canoniques explicitement déclarés au
@@ -276,7 +305,7 @@ Le prototype repose sur des pages HTML, CSS et JavaScript sans framework et sur 
 
 `Images_Photos/Logo.jpeg` est l'original fourni pour le logo temporaire, conservé sans modification ; son affichage est défini dans `src/brand.css` et sa ressource est intégrée aux HTML par la construction. La version vectorielle reste future. `Affiche.jpeg`, également conservé, est intégré comme exemple volontaire dans la communication de démonstration par `src/demo-communication-example.js`. Le bouton le charge dans l'éditeur ; il n'alimente pas automatiquement une actualité validée ni une annonce publique. Les tailles et empreintes des deux originaux sont consignées dans la [provenance des sources](data/source-provenance.json).
 
-La photo d'accueil utilise désormais `Images_Photos/Image_terrain.jpg`, photo réelle du court fournie par le club. Son fichier reste une source conservée, son affichage est intégré aux HTML et aucun auteur n'est inventé. L'autre photographie visible reste l'illustration de Nicholas Bullett avec son crédit ; les crédits du pack historique demeurent archivés et ne décrivent plus à eux seuls les deux images affichées aujourd'hui.
+La photo d'accueil utilise désormais `Images_Photos/Image_terrain_OK.png`, photo réelle du court fournie par le club le 7 octobre. `Image_terrain.jpg` reste conservée intacte comme source antérieure. Son fichier reste une source conservée, son affichage est intégré aux HTML et aucun auteur n'est inventé. L'autre photographie visible reste l'illustration de Nicholas Bullett avec son crédit ; les crédits du pack historique demeurent archivés et ne décrivent plus à eux seuls les deux images affichées aujourd'hui.
 
 `scripts/preview.mjs` démarre `scripts/preview-server.mjs` sur la boucle locale `127.0.0.1:4173`. Le serveur distingue la vitrine publique des quatre routes internes, avant de lire leur HTML. `scripts/bureau-auth.mjs` relit la configuration des comptes à chaque requête et vérifie le mot de passe avec scrypt, le rôle `bureau` et l'état actif. Ce serveur n'est pas une solution d'hébergement en production.
 

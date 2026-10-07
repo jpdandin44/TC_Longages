@@ -6,6 +6,8 @@
     "node": ">=22.9.0"
   },
   "scripts": {
+    "agenda:build": "node scripts/build-officiel.mjs --calendar-preview",
+    "agenda": "npm run agenda:build && node scripts/agenda-local.mjs",
     "framework": "node scripts/framework-server.mjs",
     "framework:build": "node scripts/framework.mjs build",
     "framework:check": "node scripts/framework.mjs check && node --test tests/framework.test.mjs tests/framework-server.test.mjs",
@@ -26,7 +28,8 @@
     "officiel": "node scripts/build-officiel.mjs && node scripts/official-server.mjs",
     "officiel:package": "node scripts/build-officiel.mjs && node scripts/package-officiel.mjs",
     "officiel:demo:build": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs",
-    "officiel:demo:package": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs && node scripts/package-officiel-hosted-demo.mjs"
+    "officiel:demo:package": "node scripts/build-officiel.mjs && node scripts/build-officiel-hosted-demo.mjs && node scripts/package-officiel-hosted-demo.mjs",
+    "drupal:preproduction:build": "node scripts/build-officiel.mjs --calendar-preview && node scripts/build-drupal-public-pages.mjs --calendar-preproduction"
   },
   "dependencies": {
     "openid-client": "6.8.8"

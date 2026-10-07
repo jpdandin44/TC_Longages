@@ -17,9 +17,9 @@ test('La vitrine intègre la photo réelle du court, conserve l’illustration s
   assert.deepEqual(photos.map(match => hash(Buffer.from(match[1], 'base64'))), [
     'af1d7ac46b533fe7f2fb734f0afe921bf86e46a542cd4b7a000e95d618d7772c'
   ]);
-  const court = html.match(/class="hero-photo"><img src="data:image\/jpeg;base64,([^"]+)"/);
+  const court = html.match(/class="hero-photo"><img src="data:image\/png;base64,([^"]+)"/);
   assert.ok(court);
-  assert.equal(hash(Buffer.from(court[1], 'base64')), hash(await readFile(new URL('Images_Photos/Image_terrain.jpg', root))));
+  assert.equal(hash(Buffer.from(court[1], 'base64')), hash(await readFile(new URL('Images_Photos/Image_terrain_OK.png', root))));
   assert.match(html, /ne représente pas les installations/);
   assert.match(html, /https:\/\/tenup.fft.fr\/club\/60310230/);
   assert.match(html, /https:\/\/www.facebook.com\/tc.longages.31/);

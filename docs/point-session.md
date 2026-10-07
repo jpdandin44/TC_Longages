@@ -12,6 +12,40 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 7 octobre 2026
 
+## Reprise courante — conflits de #17 et calendrier Mois
+
+`main` contient désormais #16 (`c0fa31b4c886695843668d3bf336230df6c1dfc2`).
+La demande actuelle conserve la PR #17, ouverte en brouillon, et corrige ses
+onze conflits documentaires et de suivi par merge sur sa branche existante.
+La vue Mois et la construction de recette privée sont préparées localement.
+Le passage en préproduction est demandé ; aucune installation de ce nouveau
+candidat n'est encore attestée. Le support existe déjà sur l'hébergement :
+ne pas réinitialiser son transport ni les contenus Drupal. Prochaine action :
+contrôler et publier la branche rapprochée, puis qualifier le rapprochement
+éditorial et le retour arrière avant la mise à jour hébergée.
+
+Les rubriques suivantes sont les observations antérieures conservées.
+
+
+## Reprise prioritaire — site, agenda et édition Drupal
+
+La PR #15 est fusionnée le 7 octobre ; la [PR #17](https://github.com/jpdandin44/TC_Longages/pull/17)
+réunit désormais sa branche avec `main`, conserve l’agenda et la photo, puis
+requalifie le candidat. Le résultat à examiner est [le site local](http://127.0.0.1:4184/index.html),
+avec [Calendrier](http://127.0.0.1:4184/calendrier.html). Le responsable reporte
+le cockpit et envisage de créer son dépôt séparé. URL de ce dépôt : TBD.
+Aucune migration n’est lancée ; la PR #16 et ses preuves restent conservées.
+
+Le défaut d’édition signalé concerne `preprod.tclongages.fr`. Le correctif
+`PublicPageText` de ce lot est vérifié avec la vraie photo volumineuse et par
+la CI native. Le contrôle navigateur hébergé s’arrête à l’authentification
+d’accès, avant Drupal ; une modification enregistrée en préproduction n’a
+pas été démontrée dans cette reprise. Prochaine action : terminer cette
+qualification avec l’accès Drupal, puis préparer le candidat hébergé autorisé.
+Les sections suivantes conservent les observations historiques datées.
+
+## Historique — PR #15, résolution des conflits du 7 octobre
+
 ## PR #16 — recette et base actualisées au 7 octobre
 
 Le responsable signale le cockpit de recette inaccessible et interroge son
@@ -55,7 +89,7 @@ La PR #17 demeure un lot agenda/photo distinct dépendant de la branche support.
 Prochaine action : examiner #15 sur son nouveau candidat et ses contrôles.
 La correction de branche ne constitue ni fusion de PR ni livraison hébergée.
 
-## Reprise active — Bureau mobile et recette MariaDB
+## Historique — Bureau mobile et recette MariaDB
 
 Le responsable demande la reprise de V2 en local. Drupal est relancé sur
 `127.0.0.1:4182` avec sa base conservée. La PR #14 est toujours le candidat
@@ -191,6 +225,41 @@ notes de version restent dans le backlog après V1 ; aucune synchronisation
 automatique ni nouvelle permission GitHub n'a été installée.
 
 Les sections suivantes conservent les constats antérieurs à cette ouverture.
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](../Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — démarrage local du 7 octobre
+
+Demande directe : intégrer localement l’iframe Google fournie. Checkout dédié
+`.worktrees/agenda-local`, branche `feat/v1-agenda-local`, depuis `6696f39`.
+L’état de préproduction et les travaux documentaires récents ont été lus dans
+`support-v1` ; leurs décisions, données et sources ne sont pas remplacées.
+Le suivi canonique de ce cockpit demeure dans `support-v1`, avec ajout du seul lot
+`tcl-v1-agenda-local`. Le suivi de ce checkout conserve la photographie Git de
+départ des autres lots et reçoit seulement une projection dérivée du lot agenda.
+La PR du lot, son candidat et sa dernière observation figurent dans ce suivi
+et dans le reçu. Sa base `feat/v1-signalement-support` correspond à la PR #15
+encore ouverte ; après sa fusion, remettre la PR agenda sur `main` et vérifier
+de nouveau le candidat si le contenu change.
+
+La première CI de la PR #17 a réussi les contrôles généraux mais échoué dans
+l’installation Drupal : la nouvelle photo dépassait la limite de recherche
+du contenu principal. L’extraction et le rendu de `PublicPageText` ont été
+corrigés pour les grandes images intégrées. Le reçu conserve cette première
+observation et les contrôles du candidat corrigé ; ne pas réutiliser le succès
+technique de la première version comme preuve du nouveau candidat.
+
+`npm.cmd run agenda` ouvre l’aperçu sur
+[Calendrier local](http://127.0.0.1:4184/calendrier.html).
+Le [guide](../api/google-calendar.md) et le [reçu](../data/agenda-local-verification.json)
+portent le contenu et les résultats du lot. Aucune installation Drupal ni écriture
+hébergée n’est incluse. Prochaine action : revue locale, droits Google puis
+préparation du raccordement Drupal si demandé. Aucun accord de livraison n’est ajouté.
+
 
 ## Dernière demande du 6 octobre — formulaire à quatre éléments
 
