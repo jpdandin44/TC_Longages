@@ -15,6 +15,20 @@ tags:
 
 # Exigences
 
+
+## Correction demandée — édition et contact, 7 octobre
+
+- Montrer **Modifier cette page** sur les sept pages lorsque la session Drupal
+  possède le droit natif de modification ; aucun nouveau compte ou droit.
+- Ouvrir le formulaire éditorial et revenir sur la page après sauvegarde.
+- Envoyer le formulaire de contact uniquement à `tclongages@gmail.com`, avec
+  validation côté serveur, information de transmission, antispam et gestion
+  des erreurs sans perte de saisie ni double envoi du même POST.
+- Préserver les textes, révisions, photo, calendrier Mois et signalements.
+- Réserver l'activation demandée à la préproduction protégée ; sauvegarde et
+  restauration testées avant remplacement. Réception Gmail à constater
+  séparément du succès du transport.
+
 ## Demande complémentaire du 7 octobre — recette du site
 
 - Afficher par défaut le calendrier en vue Mois, en français, Europe/Paris.

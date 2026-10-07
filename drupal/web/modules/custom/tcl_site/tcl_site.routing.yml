@@ -86,7 +86,7 @@ tcl_site.espace:
     no_cache: TRUE
 tcl_site.contact:
   path: '/contact.html'
-  methods: [GET, HEAD]
+  methods: [GET, HEAD, POST]
   defaults:
     _controller: '\Drupal\tcl_site\Controller\ClubPageController::page'
     _title: 'Contact'

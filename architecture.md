@@ -15,6 +15,22 @@ tags:
 
 # Architecture
 
+
+## Édition et contact — correctif du 7 octobre
+
+Les réponses HTML de `ClubPageController` restent autonomes. Une barre
+d'édition utilise le contrôle d'accès natif du contenu Drupal et ouvre son
+formulaire avec retour sur la page. Elle ne remplace ni les révisions ni les
+permissions existantes ; les réponses restent privées sans cache.
+
+`ClubContactPage` remplace la région d'aperçu à l'affichage par
+`ClubContactForm`, sans modifier les sept modèles ni les données éditées.
+Drupal Form API gère la saisie ; Drupal Mail utilise une clé de transport
+distincte du signalement. Les paramètres privés activent le contact en capture
+locale ou par le transport PHP qualifié. Les messages ne créent pas de ticket.
+Le [contrat contact](api/contact-club.md) est la référence des champs, réglages,
+limites et métadonnées de session/antispam.
+
 ## Construction agenda pour la recette privée
 
 La construction explicite `drupal:preproduction:build` vérifie le manifeste

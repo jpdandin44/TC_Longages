@@ -14,6 +14,19 @@ tags:
 
 # Journal des évolutions
 
+
+## 2026-10-07 — Commandes d’édition et contact du club
+
+- Commande **Modifier cette page** reliée aux sept contenus Drupal et à leurs
+  droits existants ; visiteurs et comptes en lecture sans commande d'édition.
+- Contact natif vers `tclongages@gmail.com`, destinataire fixe, protections et
+  refus explicites ; signalement conservé séparément.
+- 76 contrôles HTTP du contact/édition réussis en capture, enregistrement
+  éditorial natif vérifié et valeurs initiales rétablies en local.
+- [Workflow](workflows/edition-contact-preproduction.md) et
+  [reçu](data/edition-contact-verification.json) créés ; livraison hébergée
+  et réception Gmail encore à qualifier.
+
 ## 2026-10-07 — Vue Mois et rapprochement de la PR #17
 
 - Calendrier local et composant officiel réglés sur Mois.

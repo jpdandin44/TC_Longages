@@ -12,7 +12,28 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 7 octobre 2026
 
-## Reprise courante — conflits de #17 et calendrier Mois
+## Reprise courante — édition visible et contact du club
+
+Le responsable confirme les améliorations installées après fusion de #17 et
+la réception des signalements. Il demande les commandes de modification sur
+les pages Drupal et l'envoi du contact à `tclongages@gmail.com`.
+Le contrôle actuel constate la préproduction hors maintenance, non-indexée,
+avec support transport qualifié et droits éditoriaux du compte administrateur.
+
+La branche `fix/edition-contact-preprod` ajoute la barre d'édition native et
+le contact intégré. Les tests locaux couvrent le vrai formulaire, les erreurs,
+les doublons et la sauvegarde des textes. La cible est uniquement la
+préproduction protégée, après sauvegarde restaurée et contrôles du candidat.
+Le bloc `editionContactPreproduction` du [reçu framework](../data/framework-revue-verification.json)
+conserve les empreintes, la PR, l’installation réelle, les limites et la prochaine
+action ; l’itération `tcl-v1-edition-contact` du suivi canonique lui est raccordée.
+Compte réellement utilisé et réception Gmail restent à qualifier.
+Le [workflow](../workflows/edition-contact-preproduction.md) et le
+[reçu local](../data/edition-contact-verification.json) conservent la qualification
+initiale, avant fixation du candidat ; ils ne certifient pas son installation.
+Les observations suivantes sont historiques ; le cockpit reste reporté.
+
+## Observation précédente — conflits de #17 et calendrier Mois
 
 `main` contient désormais #16 (`c0fa31b4c886695843668d3bf336230df6c1dfc2`).
 La demande actuelle conserve la PR #17, ouverte en brouillon, et corrige ses

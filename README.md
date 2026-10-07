@@ -15,7 +15,21 @@ tags:
 
 # Tennis Club de Longages
 
-## Lot courant — PR #17 et préproduction privée
+
+## Correctif courant — édition visible et contact du club
+
+Le responsable confirme les améliorations installées après la PR #17 et la
+réception des signalements. Le correctif suivant ajoute **Modifier cette page**
+sur les sept pages pour les comptes Drupal déjà autorisés et remplace l'aperçu
+de contact par un formulaire natif vers `tclongages@gmail.com`.
+Les contrôles locaux sont réussis. Le statut exact du candidat, de son
+installation hébergée et de la recette figure dans le bloc
+`editionContactPreproduction` du [reçu framework](data/framework-revue-verification.json).
+La réception Gmail et le compte réellement utilisé restent à qualifier. Voir [l'édition](docs/modifier-textes-drupal.md),
+le [contact](api/contact-club.md), le [workflow](workflows/edition-contact-preproduction.md)
+et le [reçu de qualification locale](data/edition-contact-verification.json).
+
+## Observation précédente — PR #17 et préproduction privée
 
 La PR #17 existante reste le support du site. Sa branche est rapprochée de
 `main` après fusion de #16, en conservant les deux historiques. Le calendrier

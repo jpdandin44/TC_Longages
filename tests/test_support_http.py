@@ -149,3 +149,5 @@ if __name__ == '__main__':
     main()
     from test_editor_http import main as editor_main
     editor_main()
+    from test_contact_http import main as contact_main
+    contact_main()

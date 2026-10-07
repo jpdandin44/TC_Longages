@@ -1,0 +1,444 @@
+{
+  "project": "TC_Longages",
+  "iterationId": "tcl-v1-edition-contact",
+  "observedAt": "2026-10-07T17:17:44.737071+00:00",
+  "status": "local_passed_hosted_preparation_pending",
+  "sourceSha": null,
+  "artifactSha256": null,
+  "baseSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+  "branch": "fix/edition-contact-preprod",
+  "target": "https://preprod.tclongages.fr/",
+  "recipient": "tclongages@gmail.com",
+  "nativeContactHttp": {
+    "observedAt": "2026-10-07T16:59:40.424944+00:00",
+    "scope": "local-native-form-and-editor-links",
+    "outgoingMail": false,
+    "checks": [
+      {
+        "label": "Aucune commande d’édition anonyme : index",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : index",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : competitions",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : competitions",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : equipes",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : equipes",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : espace",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : espace",
+        "passed": true
+      },
+      {
+        "label": "Aucune commande d’édition anonyme : contact",
+        "passed": true
+      },
+      {
+        "label": "Signalement conservé : contact",
+        "passed": true
+      },
+      {
+        "label": "Session éditoriale de recette ouverte",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : index",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : index",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : index",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : competitions",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : competitions",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : competitions",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : equipes",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : equipes",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : equipes",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : espace",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : espace",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : espace",
+        "passed": true
+      },
+      {
+        "label": "Commandes d’édition visibles : contact",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif et retour sur la page : contact",
+        "passed": true
+      },
+      {
+        "label": "Réponse administrateur privée : contact",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "CSRF absent refusé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Origine étrangère refusée",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Piège antispam refusé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Message trop long refusé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Coordonnée invalide refusée",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Injection d’en-tête refusée",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Accord de transmission obligatoire",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Message valide accepté et capturé sans envoi réel",
+        "passed": true
+      },
+      {
+        "label": "Double soumission confirmée sans nouvel envoi",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Contact par téléphone accepté sans Reply-To invalide",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Quota de cinq messages autorisé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Quota de cinq messages autorisé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Quota de cinq messages autorisé",
+        "passed": true
+      },
+      {
+        "label": "Formulaire natif affiché dans la page du site",
+        "passed": true
+      },
+      {
+        "label": "Protection CSRF de session anonyme présente",
+        "passed": true
+      },
+      {
+        "label": "Sixième message limité par le serveur",
+        "passed": true
+      }
+    ]
+  },
+  "nativeEditorHttp": {
+    "observedAt": "2026-10-07T17:02:51.644107+00:00",
+    "scope": "local-native-editor",
+    "outgoingMail": false,
+    "checks": [
+      {
+        "label": "Éditeur privé refusé au visiteur",
+        "passed": true
+      },
+      {
+        "label": "Session Drupal de recette ouverte",
+        "passed": true
+      },
+      {
+        "label": "Sept pages disponibles dans le répertoire natif",
+        "passed": true
+      },
+      {
+        "label": "Aucun bouton public de signalement dans l’administration",
+        "passed": true
+      },
+      {
+        "label": "Rubriques disponibles dans le formulaire Drupal",
+        "passed": true
+      },
+      {
+        "label": "Modification enregistrée par le vrai formulaire de contenu",
+        "passed": true
+      },
+      {
+        "label": "Texte publié et HTML saisi échappé",
+        "passed": true
+      },
+      {
+        "label": "Aucune injection de script dans la légende",
+        "passed": true
+      },
+      {
+        "label": "Texte et balisage public restaurés à l’identique",
+        "passed": true
+      },
+      {
+        "label": "Révisions des deux enregistrements conservées",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : competitions",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : calendrier",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : disponibilites",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : equipes",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : espace",
+        "passed": true
+      },
+      {
+        "label": "Page publique préservée : contact",
+        "passed": true
+      }
+    ]
+  },
+  "operatorSyntax": "passed",
+  "phpFailedTransportTest": "passed",
+  "localChecks": {
+    "nodeChecks": 170,
+    "nodeFailedChecksRetested": 3,
+    "status": "passed"
+  },
+  "hostedReadOnlyObservation": {
+    "maintenanceEnabled": false,
+    "supportMode": "transport",
+    "supportQualified": true,
+    "adminNativeUpdatePermission": true,
+    "adminEditorDirectoryPermission": true
+  },
+  "userFeedback": {
+    "source": "direct_user_chat",
+    "agendaAndPhotoWork": true,
+    "supportInboxReceived": true,
+    "editorCommandsMissing": true,
+    "contactRequest": "Enable transmission to tclongages@gmail.com"
+  },
+  "messagesSentByAgent": 0,
+  "productionWritten": false,
+  "deploymentExecuted": false,
+  "remainingChecks": [
+    "Fresh backup/restoration and exact candidate installation",
+    "Actual Drupal account/browser session",
+    "Gmail reception of contact message"
+  ],
+  "documentaryVerification": {
+    "foundation": true,
+    "documents": [
+      "README.md",
+      "architecture.md",
+      "requirements.md",
+      "roadmap.md",
+      "decisions.md",
+      "changelog.md",
+      "docs/point-session.md",
+      "docs/modifier-textes-drupal.md",
+      "api/contact-club.md",
+      "workflows/edition-contact-preproduction.md"
+    ],
+    "internalLinksChecked": 380,
+    "brokenLinks": 0,
+    "externalUrlsAndAnchors": "not_checked",
+    "frameworkBuildAndStructuredCheck": "passed"
+  },
+  "evidenceRole": "initial_local_qualification_before_source_freeze",
+  "currentDeliveryEvidence": "data/framework-revue-verification.json#editionContactPreproduction"
+}
