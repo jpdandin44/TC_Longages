@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - architecture
@@ -25,6 +25,12 @@ de validation dépendent des décisions précédentes exactes ; leur remplacemen
 ou une correction les rend historiques sans les effacer. La dernière phase
 exige un accord et une livraison de production attestés séparément.
 
+Les sources de revue et celles du candidat peuvent être séparées par le
+raccordement privé `candidateRoots` : la vérification utilise le manifeste
+et le vérificateur natif de la copie candidate explicitement déclarée au lancement,
+alors que les événements restent dans le suivi opérationnel. Aucun chemin reçu
+par HTTP ou déduit du champ `worktree` du suivi n’est exécuté.
+
 `framework-iterations-ui.mjs` présente les versions et les trois décisions ;
 les commentaires et critères sont conservés dans la session de l'onglet,
 sans conserver une confirmation personnelle après rechargement. Le serveur
@@ -32,6 +38,15 @@ reste en boucle locale avec contrôle d'origine et de jeton, écritures sériali
 contrôle de révision et sauvegarde privée. Le moteur historique reste accessible
 et ses données sont préservées. Voir le [guide](docs/piloter-versions.md).
 
+## Réunion des contrôles V1 et V2 — 7 octobre
+
+La CI conserve quatre jobs techniques : `delivery-safety` pour les archives
+et la syntaxe PHP, `drupal-mysql` pour la recette V2/MariaDB, `support-runtime`
+pour le formulaire V1 et `technical-ci` pour les constructions, les tests et
+le candidat Git. Les deux runtimes utilisent chacun le checkout jetable de
+leur runner. Les permissions de lecture, les actions épinglées et le contrôle
+de politique humaine sont conservés. Le YAML exécutable et son contrat de test
+font autorité ; voir la [résolution de la PR #15](docs/resolution-conflits-pr15.md).
 
 ## Édition native et correctif V1 du 6 octobre
 
@@ -64,6 +79,45 @@ propre au checkout évite les collisions avec d'autres développements.
 La boîte support existe ; son transport et les mentions de collecte restent
 à qualifier. Les détails et limites sont dans [le guide support](docs/signalements-support.md).
 
+## V2 locale — comptes et Bureau
+
+Le module [tcl_bureau](drupal/web/modules/custom/tcl_bureau/tcl_bureau.info.yml)
+complète `tcl_site` avec comptes, sessions et formulaires Drupal. Le schéma
+définit une table de dossiers d'adhésion, avec identité/saison unique, état,
+détails privés, auteur et révision. Deux tables d'équipes/attributions restent
+conservées pour la suite, avec `teams_enabled: false`. La base de recette est
+un SQLite neuf dans `.local/drupal-runtime/`, distinct des bases hébergées.
+Comptes et rôles sont relus avant accès et écriture ; les formulaires contrôlent
+CSRF, doublons et révision avant une mise à jour atomique. Les valeurs sont
+restituées comme texte. Aucun dossier n'est stocké dans le navigateur.
+Le [guide du lot](docs/comptes-et-bureau.md) détaille règles et recette.
+
+La [communication V2](docs/communication-bureau.md) ajoute `tcl_bureau_post` :
+contenu, copie JPEG, auteur/date, révision et validation. Le service serveur
+compare atomiquement la révision pour enregistrer, valider, publier, retirer,
+archiver ou restaurer. Modifier un contenu le remet en brouillon. Les routes
+publiques lisent uniquement une révision publiée et validée ; les images privées
+passent par le contrôle Bureau. L'accueil reçoit les actualités via le contrôleur
+V2, sans modifier les pages immuables V1. Les liens externes sont préparés après
+validation, sans service de diffusion automatique. Le helper d'update est borné
+au SQLite local. Une fixture MariaDB distincte qualifie maintenant installation
+additive, update native `11001`, révisions et octets JPEG : voir la
+[recette](docs/recette-bureau-mysql.md). La cible hébergée reste à recetter.
+
+Les helpers CLI, hors de `web/`, refusent toute base hébergée. L'installation
+du module seule crée le schéma/rôles sans compte ni donnée fictive. Le menu
+Espace est raccordé uniquement lorsque ce module est activé. Le test MariaDB
+utilise un multisite jetable, un serveur autonome lié à `127.0.0.1:33080`, des
+bases nouvelles et un réglage privé ; le bootstrap SQLite conserve son refus
+de MySQL. Le serveur de test est arrêté en fin de recette. Aucun outil de
+première installation n'est appliqué à une base hébergée existante.
+Les observations [FFT](api/fft.md) sont documentaires : aucune API ni
+synchronisation automatique ADOC/Ten’Up n'est raccordée à ces dossiers.
+Le calendrier est affiché depuis un cadre Google limité à `calendar.google.com`,
+sur la page Calendrier, après configuration d'un ID public et revue du partage.
+Le générateur et les aperçus contrôlent cette source ; aucune clé API ni
+identification Google n'est enregistrée. L'agenda n'étant pas qualifié, son ID
+reste vide et aucun cadre n'est chargé dans les pages actuelles.
 
 ## Livraison reproductible — 5 octobre
 
@@ -77,14 +131,25 @@ au club est également contrôlée. Aucun déploiement n'est déclenché par mer
 Les paramètres, comptes, fichiers de fonctionnement et bases restent hors du
 paquet. Préproduction et production doivent garder des bases et racines
 distinctes. Le même ZIP est préparé sous
-`tcl-production/releases/14c270431af12397/drupal/`, sans raccordement HTTP.
+`tcl-production/releases/14c270431af12397/drupal/` ; son sous-répertoire
+`web` sert désormais `tclongages.fr` et `www`.
 La base dédiée `daje5127_tclprod` reçoit les 43 tables de la sauvegarde
 vérifiée après contrôle de sa vacuité et de ses dix droits. Le mot de passe
 reste hors racine web. Le certificat officiel, initialement autosigné, est
 remplacé par un certificat gratuit reconnu sur le domaine et `www`.
-La copie restaurée et la copie de production démarrent en français sous
-maintenance. Les permissions Apache et le routage HTTP de cette nouvelle
-racine restent à qualifier ; le domaine conserve sa page d'attente. Les outils de préparation et restauration
+La copie restaurée démarre en français sous maintenance. La production est
+ouverte après qualification HTTP/PHP et retour réel à `public_html`. Sa base
+conserve les données restaurées ; une table de cache Drupal a été créée lors
+de la reconstruction native des caches. Les pages viennent du ZIP immuable.
+La configuration [Apache de production](config/production-https.htaccess)
+est superposée au `.htaccess` original vérifié : HTTPS, refus des fichiers
+privés et retrait de non-indexation uniquement pour une réponse 200 sur les
+chemins publics explicitement autorisés. Son drapeau Apache est activé avec
+le drapeau PHP lors de l'ouverture et remis à zéro lors de la fermeture.
+Les paramètres restent hors webroot en 0600 ; `vendor` reste hors de la
+racine publique. Le [reçu de publication](data/industrialisation-verification.json#publication)
+sépare l'identité du ZIP de celle de la configuration hébergée.
+Les outils de préparation et restauration
 refusent l'écrasement d'une version ou d'une base existante. L'adaptateur de
 mise à jour récurrent reste à qualifier. Les versions futures préserveront
 les données de production et appliqueront les migrations examinées.

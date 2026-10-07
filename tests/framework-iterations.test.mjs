@@ -68,3 +68,24 @@ test('La dernière phase exige accord, livraison et contrôles réels sans les c
 test('L’interface conserve les brouillons, trois décisions et liens de recette ; aucune action de publication',()=>{
   assert.match(renderIterations('safe'),/Versions et changements du site/);assert.match(iterationsClient,/confirmed:false/);assert.match(iterationsClient,/Demander des corrections/);assert.match(iterationsClient,/Tester le site/);assert.doesNotMatch(iterationsClient,/data-action="(?:deploy|start|authorize)"/);new Function(iterationsClient);
 });
+
+
+test('Un candidat isolé déclaré est vérifié dans sa copie ; la revue reste dans sa source canonique',async t=>{
+ const f=await fixture(t),candidateRoot=resolve(f.root,'isolated-candidate');
+ await mkdir(resolve(candidateRoot,'scripts'),{recursive:true});
+ await writeFile(resolve(candidateRoot,'scripts/framework-candidate.mjs'),"export const CANDIDATE_EXCLUSIONS=['isolated-proof.json']; export async function readCandidateVerification(root,context){return {passed:root.endsWith('isolated-candidate')&&context.artifactDigest==='"+'d'.repeat(64)+"',protocol:'isolated-native-fixture'};}");
+ const untouched=resolve(candidateRoot,'sentinel.json');await writeFile(untouched,'{"preserved":true}');
+ const canonical=JSON.parse(await readFile(f.file));canonical.developmentIterations[0].candidate.worktree='untrusted-http-input-is-not-used';await writeFile(f.file,JSON.stringify(canonical));
+ let exclusions;
+ const store=await createIterationStore({roots:[f.root],candidateRoots:{'fixture-v1':candidateRoot},verifyPullRequest:async options=>{exclusions=options.excludedPaths;return {passed:false,status:'open',issues:['Fixture PR ouverte']};}});
+ const state=await store.read();assert.equal(state.iterations[0].sourceCheck.passed,true);assert.equal(state.iterations[0].sourceCheck.protocol,'isolated-native-fixture');assert.deepEqual(exclusions,['isolated-proof.json']);
+ await store.mutate({revision:state.revision,iterationId:'fixture-v1',phaseId:0,sourceSha:f.tracker.developmentIterations[0].candidate.sourceSha,artifactSha256:f.tracker.developmentIterations[0].candidate.artifactSha256,actor:'jpdandin',confirmed:true,comment:'Revue fictive de sources isolées',checkedCriteria:[0],action:'submit'});
+ const saved=JSON.parse(await readFile(f.file));assert.equal(saved.developmentIterations[0].reviewEvents.length,1);assert.equal(await readFile(untouched,'utf8'),'{"preserved":true}');
+ for(const key of ['phases','decisions','history'])assert.deepEqual(saved[key],f.historical[key]);
+ await assert.rejects(store.mutate({revision:(await store.read()).revision,iterationId:'fixture-v1',phaseId:0,sourceSha:f.tracker.developmentIterations[0].candidate.sourceSha,artifactSha256:f.tracker.developmentIterations[0].candidate.artifactSha256,actor:'jpdandin',confirmed:true,comment:'Approbation fictive refusée',checkedCriteria:[0],action:'approve'}),/PR ouverte/);
+});
+
+test('Un raccordement de candidats invalide est refusé avant lecture des sources',async t=>{
+ const f=await fixture(t);
+ for(const candidateRoots of [[],null,{'fixture-v1':42},{'invalid/id':f.root}])await assert.rejects(createIterationStore({roots:[f.root],candidateRoots,verifyPullRequest:async()=>({passed:true})}),/candidat|Source candidate/);
+});

@@ -2197,21 +2197,37 @@
     "publicOpeningExecuted": false
   },
   "goalControlObservation": {
+    "recordedAt": "2026-10-05T17:00:51.028981+00:00",
     "status": "blocked",
-    "observedAt": "2026-10-05T14:55:43+00:00",
     "condition": "official_domain_root_qualification_authorization_pending",
-    "consecutiveResumedGoalTurnsObserved": 3,
-    "previousTurnClassification": "progress",
-    "currentTurnClassification": "no_progress_authorization_block_revalidated",
-    "privateProductionPreparationCompleted": true,
-    "cliPagesVerified": 7,
+    "resumedAuditStartedAt": "2026-10-05T15:39:53.670988+00:00",
+    "consecutiveGoalTurns": 3,
+    "previousGoalTurnClassification": "no_progress",
+    "previousTurnEvidence": "Racine public_html et page d’attente confirmées ; aucun nouvel accord humain sur le raccordement.",
+    "currentTurnClassification": "readiness_assessment_completed_official_root_authorization_still_pending",
+    "currentEvidenceRef": "data/framework-revue-verification.json#productionReadinessAssessment",
+    "nativeGoalObservedActive": false,
     "rootQualificationAuthorized": false,
-    "publicOpeningAuthorized": false,
-    "officialRootChanged": false,
+    "rootChangeExecuted": false,
+    "publicOpeningExecuted": false,
     "objectiveAchieved": false,
     "humanPhaseStatusesChanged": false,
-    "nextRequiredHumanAction": "Autoriser le raccordement sous maintenance dans la demande existante.",
-    "reason": "La préparation et les contrôles privés sont terminés. Le lot autorisé excluait la racine officielle ; aucun accord nouveau n’a été reçu. Aucune autre mutation nécessaire ne peut être effectuée dans le périmètre actuellement autorisé."
+    "nextRequiredHumanAction": "Répondre à la demande existante sur le raccordement sous maintenance ; ouverture distincte après contrôles.",
+    "httpChecks": [
+      {
+        "url": "https://tclongages.fr/",
+        "status": 200,
+        "waitingPage": true,
+        "bodySha256": "ed04e1f9c31b7b553f46ab0a988755c945408234f9827070242ddbb0c0cf6b6b"
+      },
+      {
+        "url": "https://www.tclongages.fr/",
+        "status": 200,
+        "waitingPage": true,
+        "bodySha256": "ed04e1f9c31b7b553f46ab0a988755c945408234f9827070242ddbb0c0cf6b6b"
+      }
+    ],
+    "nativeGoalObservedStatus": "blocked"
   },
   "threeActionReviewQualification": {
     "recordedAt": "2026-10-05T15:29:43.871Z",
@@ -2245,6 +2261,75 @@
       "status": "merged",
       "mergedAt": "2026-10-05T15:23:37Z",
       "mergeCommit": "76198eed0208e022c7007b4b17e577254c0108ed"
+    },
+    "pullRequestOutcome": {
+      "url": "https://github.com/jpdandin44/TC_Longages/pull/13",
+      "state": "merged",
+      "mergedAt": "2026-10-05T16:42:31Z",
+      "mergeCommit": "b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30",
+      "headSha": "ab8925645c6f68c18d051d8906c409d618e4e9c5",
+      "observedAt": "2026-10-05T16:58:03.931018+00:00",
+      "source": "GitHub API via gh; no merge or human approval generated"
     }
+  },
+  "officialRuntimeObservation": {
+    "recordedAt": "2026-10-05T18:34:58.422369+00:00",
+    "source": "Native cPanel plus current external anonymous HTTP and browser observations",
+    "evidence": "data/industrialisation-verification.json#publication",
+    "cpanelDocumentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
+    "officialDrupalRootConnected": true,
+    "publicOpeningExecuted": true,
+    "hostingMutationExecuted": true,
+    "siteCandidate": "49b4ef7b975b8edff4308373732033630582da6b",
+    "nextAction": "Cadrer V2 et qualifier les mises à jour qui conservent les données de production ; les validations personnelles du suivi restent distinctes de la livraison observée."
+  },
+  "claudeCapabilityObservation": {
+    "recordedAt": "2026-10-05T15:39:53.670988+00:00",
+    "matchingCallableTools": 0,
+    "source": "Enabled tool metadata searched for Claude and Anthropic",
+    "claudeUsed": false,
+    "creditsSpentThroughClaude": false
+  },
+  "productionReadinessAssessment": {
+    "recordedAt": "2026-10-05T18:34:58.422369+00:00",
+    "status": "public_v1_delivered_and_verified",
+    "readyForPrivatePreparation": true,
+    "readyForOfficialRootQualification": true,
+    "readyForPublicOpening": true,
+    "siteSourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+    "siteArtifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "productionRestoreEvidence": "data/industrialisation-verification.json#productionStage",
+    "productionPagesEvidence": "data/framework-revue-verification.json#productionPagesCliInspection",
+    "currentHttpEvidence": "data/framework-revue-verification.json#officialRuntimeObservation",
+    "candidateReviewPullRequest": "https://github.com/jpdandin44/TC_Longages/pull/13",
+    "candidateReviewPullRequestState": "merged",
+    "humanRecipeCriteriaEvent": "TCL-UI-17fac2d5-143c-4fe4-a1a7-45957c80ff78",
+    "humanRecipeCriteriaRecordedAt": "2026-10-05T16:45:24.810Z",
+    "humanRecipeCriteriaCount": 8,
+    "humanRecipePhaseValidationRecorded": false,
+    "officialRootQualificationAuthorized": true,
+    "publicOpeningAuthorized": true,
+    "hostingMutationExecuted": true,
+    "nativeGoalObservedActive": true,
+    "humanDecisionsAndCriteriaPreserved": true,
+    "remainingActions": [],
+    "functionalReserves": [
+      "Calendar et Forms non raccordés.",
+      "Noms et catégories des équipes non renseignés.",
+      "Contact de prévisualisation ; aucun envoi ou collecte qualifié.",
+      "Espace en attente ; comptes et droits par équipe reportés en V2."
+    ],
+    "authorizationObservedAt": "2026-10-05T17:15:38.508566+00:00",
+    "authorizationRef": "TCL-PROD-EXECUTION-20261005",
+    "evidence": "data/industrialisation-verification.json#publication",
+    "publicOpeningExecuted": true
+  },
+  "productionPublication": {
+    "status": "delivered",
+    "recordedAt": "2026-10-05T18:34:58.422369+00:00",
+    "evidence": "data/industrialisation-verification.json#publication",
+    "releaseNote": "docs/note-de-livraison.md",
+    "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+    "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a"
   }
 }

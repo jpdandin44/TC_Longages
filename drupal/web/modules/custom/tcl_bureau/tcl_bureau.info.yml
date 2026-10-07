@@ -1,0 +1,8 @@
+name: TC Longages — comptes et Bureau
+type: module
+description: Comptes internes Drupal, gestion du Bureau et accès limité par équipe.
+package: TC Longages
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:user
+  - tcl_site:tcl_site

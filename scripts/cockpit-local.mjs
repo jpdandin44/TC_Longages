@@ -8,6 +8,6 @@ if(!argument)throw new Error('Indiquez le fichier local de configuration du cock
 const config=JSON.parse(await readFile(await realpath(resolve(argument)),'utf8'));
 if(config.project!=='tclongages'||!Array.isArray(config.iterationRoots)||!config.iterationRoots.length)throw new Error('Configuration TC du cockpit attendue.');
 const root=await realpath(config.historyRoot),iterationRoots=await Promise.all(config.iterationRoots.map(p=>realpath(p)));
-const app=await startFrameworkServer({root,iterationRoots,port:config.port??4181});
+const app=await startFrameworkServer({root,iterationRoots,candidateRoots:config.candidateRoots??{},port:config.port??4181});
 console.log('Cockpit local des versions : '+app.origin+'/');
 for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>app.close().then(()=>process.exit(0)));

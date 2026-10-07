@@ -54,10 +54,12 @@ def form(opener):
     fields = Fields()
     fields.feed(html)
     check(bool(fields.hidden.get('support_token')), 'Jeton CSRF de session présent pour un visiteur anonyme')
+    check('name="subject"' not in html and fields.hidden.get('page') == '/calendrier.html',
+          'Objet supprimé et page d’origine conservée automatiquement dans un champ caché')
     return fields.hidden | {
-        'category': 'problem', 'subject': 'Recette locale fictive — calendrier',
-        'description': '<script>window.tclSupportXss=true</script>\nDonnées fictives. Étapes : ouvrir le calendrier. Attendu : liste des événements. Constat : exemple de test.',
-        'page': '/calendrier.html', 'email': 'testeur@example.invalid',
+        'category': 'problem',
+        'description': '<script>window.tclSupportXss=true</script>\nRecette locale fictive. Étapes : ouvrir le calendrier. Attendu : liste des événements. Constat : exemple de test.',
+        'email': 'testeur@example.invalid',
         'website': '', 'information': '1', 'op': 'Envoyer ma demande',
     }
 
@@ -86,6 +88,9 @@ def main():
         ({'website': 'spam'}, 'Champ piège renseigné refusé', 'ne peut pas être accepté', ORIGIN),
         ({'page': 'https://example.invalid/?token=private'}, 'Page hors périmètre refusée', 'ne peut pas être accepté', ORIGIN),
         ({'description': 'x' * 4001}, 'Description trop longue refusée', '4000', ORIGIN),
+        ({'description': '   '}, 'Description vide refusée', 'Décrivez votre demande', ORIGIN),
+        ({'category': ''}, 'Type de demande obligatoire', 'Choisissez le type', ORIGIN),
+        ({'email': 'adresse-invalide'}, 'Adresse de réponse invalide refusée', 'adresse', ORIGIN),
         ({'information': ''}, 'Confirmation personnelle obligatoire', 'Confirmez', ORIGIN),
     ]:
         payload = form(anonymous) | values
@@ -100,6 +105,10 @@ def main():
     check(f'Votre demande n° {number} est enregistrée' in duplicate, 'Double soumission renvoie la même demande')
     check(request(client(), '/admin/reports/tcl-support/' + number)[0] == 403,
           'Référence connue sans accès au contenu privé')
+    optional_payload = form(anonymous) | {'category': 'need', 'email': '', 'subject': 'Titre injecté à ignorer'}
+    status, body, _ = request(anonymous, '/signaler-un-probleme', optional_payload)
+    optional_match = re.search(r'Votre demande n° (\d+) est enregistrée', body)
+    check(status == 200 and bool(optional_match), 'Besoin enregistré sans adresse e-mail ni objet à saisir')
     admin = client()
     status, body, _ = request(admin, '/user/login')
     fields = Fields()
@@ -110,11 +119,15 @@ def main():
     del private_credentials, payload
     check(status == 200, 'Connexion du compte local de recette')
     status, body, _ = request(admin, '/admin/reports/tcl-support')
-    check(status == 200 and 'Recette locale fictive' in body and 'capturé en local' in body, 'Demande visible dans le suivi privé avec notification capturée')
+    check(status == 200 and 'Problème sur le site' in body and 'capturé en local' in body, 'Titre automatique visible dans le suivi privé avec notification capturée')
+    status, optional_body, _ = request(admin, '/admin/reports/tcl-support/' + optional_match.group(1))
+    check(status == 200 and 'Besoin ou amélioration' in optional_body and 'Titre injecté à ignorer' not in optional_body,
+          'Objet dérivé du type par le serveur, objet fourni par le navigateur ignoré')
     status, body, _ = request(admin, '/admin/reports/tcl-support/' + number)
     fields = Fields()
     fields.feed(body)
     check(status == 200 and 'testeur@example.invalid' in body, 'Coordonnée consultable par le compte autorisé')
+    check('/calendrier.html' in body, 'Page d’origine conservée dans le suivi privé')
     check('&lt;script&gt;window.tclSupportXss=true&lt;/script&gt;' in body and '<script>window.tclSupportXss=true</script>' not in body,
           'Description affichée comme texte, sans exécution de HTML')
     payload = fields.hidden | {'status': 'in_progress', 'owner': 'Responsable fictif', 'note': 'Analyse de recette locale, aucune demande réelle.', 'op': 'Enregistrer le traitement'}
@@ -125,7 +138,7 @@ def main():
     status, body, _ = request(admin, '/admin/reports/tcl-support/' + number, payload)
     check(status == 200 and 'modifiée entre-temps' in body, 'Modification concurrente refusée par le formulaire réel')
     status, body, _ = request(admin, '/admin/reports/tcl-support?etat=resolved')
-    check(status == 200 and 'Recette locale fictive' not in body, 'Filtre du suivi respecte l’état demandé')
+    check(status == 200 and f'href="/admin/reports/tcl-support/{number}"' not in body, 'Filtre du suivi respecte l’état demandé')
     report = {'observedAt': datetime.now(timezone.utc).isoformat(), 'scope': 'local-http-only',
               'origin': ORIGIN, 'outgoingMail': False, 'checks': CHECKS}
     (PROJECT / '.local/support-http-verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

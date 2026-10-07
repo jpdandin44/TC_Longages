@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,17 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-07 — Recette locale et réalignement de la PR #16
+
+- Réunion de la branche cockpit avec `main` après la fusion de #15 ; quatre
+  conflits documentaires et de manifeste résolus en conservant les deux apports.
+- Recette locale 4181 relancée dans une copie isolée ; sources opérationnelles,
+  données, brouillons et observations non commises conservés.
+- Sources candidates déclarées séparément du suivi opérationnel ; contrôle natif
+  et garde de fusion conservés, tests de séparation des lectures/écritures.
+- Guide clarifiant le cockpit, l’édition Drupal et leurs environnements distincts.
+- Aucun merge de #16, déploiement ni nouvelle confirmation humaine.
 
 ## 2026-10-06 — Cockpit des versions et périmètre partenaires
 
@@ -27,6 +38,25 @@ tags:
 - Exigence de bannière partenaires V1.1 ajoutée ; réalisation et assets attendus.
 - Aucun déclenchement de workflow, merge ou déploiement par ces boutons.
 
+## 2026-10-07 — Résolution des conflits de la PR #15
+
+- Réunion de `main` après la fusion de #14 dans la branche du correctif V1.
+- Contenus documentaires et itérations support/V2 conservés ; décisions
+  historiques inchangées et sorties dérivées régénérées.
+- Recettes CI support et MariaDB conservées ensemble, avec contrat de test
+  et empreinte du workflow réalignés.
+- Nouveau candidat Git et preuves séparés du candidat déjà installé en
+  préproduction. Les travaux locaux de bêta-test restent préservés.
+
+## 2026-10-06 — Simplification du formulaire de signalement
+
+- Quatre éléments visibles : type, description, e-mail facultatif et
+  confirmation obligatoire de la transmission au club.
+- Retrait de la saisie d'objet et de l'affichage de la page concernée ;
+  objet déterminé par le serveur, page d'origine conservée automatiquement.
+- Demandes existantes et suivi privé conservés, sans migration de stockage.
+- Recette ciblée de l'enregistrement sans objet ni e-mail et des protections ;
+  candidat et installation privée de préproduction attestés par le reçu.
 
 ## 2026-10-06 — Édition native des textes et préparation de préproduction
 
@@ -52,6 +82,63 @@ tags:
   du support dans un checkout CI jetable. Aucun déploiement du correctif.
 - Référence de stratégie manquante consignée, sans créer un faux document.
 
+## 2026-10-06 — Reprise locale et qualification de la mise à jour Bureau
+
+- Correction du débordement des formulaires sur téléphone ; neuf observations
+  Bureau à 390/1 280 pixels, libellés et champs obligatoires conservés.
+- Fixture MariaDB autonome et isolée : 26 contrôles de l'installation additive,
+  de l'update native, des révisions et des images ; dossiers/comptes préservés.
+- Sauvegarde restaurée dans une deuxième base fictive : 39 tables, schémas et
+  toutes les lignes comparés, valeurs binaires comprises.
+- Job CI natif PHP 8.3/MariaDB et syntaxe PHP élargie aux helpers/tests ; résultats
+  GitHub à vérifier sur le nouveau candidat. Recettes locales et clôture conservées.
+- Contrat des tests CI actualisé pour le job MariaDB et l'action PHP épinglée,
+  après constat GitHub de l'ancienne liste de jobs ; droits de lecture conservés.
+- Agenda public confirmé non créé : affichage désactivé, ID attendu.
+- Aucune livraison hébergée ni validation humaine créée par cette reprise.
+
+## 2026-10-05 — Communication du Bureau intégrée en V2 locale
+
+- Brouillons, copie d'affiche et révisions conservés en base Drupal.
+- Quatre aperçus et confirmations séparées de validation/publication ; modification
+  retirant la publication, anciennes révisions et URL privées contrôlées.
+- Actualités publiées dans l'accueil et les pages publiques de la V2 locale.
+- Liens et partage manuel WhatsApp, Facebook, ADOC et Ten'Up, limite ADOC,
+  retrait du site et archives restaurables.
+- Update additive, recette HTTP, guide et suivi V2 ; aucun déploiement.
+
+## 2026-10-05 — Première réalisation locale V2 des comptes et du Bureau
+
+- Module Drupal centré sur la saisie Bureau des nouveaux adhérents Adultes/Mineurs,
+  recherche, coordonnées, responsable légal et suivi du dossier.
+- Gestion des équipes différée et désactivée par configuration ; comptes natifs
+  Bureau/Capitaine conservés, sans accès des capitaines aux dossiers d'adhésion.
+- Formulaires de création/modification, blocage et remplacement de mot de passe,
+  droits serveur, CSRF et refus d'une ancienne fiche.
+- Base SQLite et fixtures locales séparées ; recette HTTP des inscriptions,
+  doublons, révisions, comptes et refus d'accès conservée dans le reçu du lot.
+- Itération canonique distincte, guide de recette et reçu technique.
+  Aucun déploiement V2 ni changement de données de production.
+- Ten’Up public et ADOC consultés en lecture : relevé de compétition disponible,
+  session ADOC expirée, aucune API ou synchronisation qualifiée.
+- Composant de calendrier intégré préparé en français, horaires Paris ; activation
+  conditionnée au partage de l'agenda public dédié choisi par le responsable.
+  L'agenda principal fourni refuse l'accès public ; son partage est inchangé.
+
+## 2026-10-05 — V1 officielle publiée
+
+- Accord explicite de production consigné ; même ZIP `14c270431af12397…` issu
+  de `49b4ef7` raccordé au domaine officiel, puis ouvert à 18:14 UTC.
+- Sept pages contrôlées en visite anonyme, français, HTTPS et `www` vérifiés ;
+  préproduction toujours sous maintenance, courriels automatiques neutralisés.
+- Retour réel à l'ancienne racine éprouvé sur les deux noms, sauvegardes privées
+  et base de production distincte conservées.
+- Configuration Apache de production identifiée et vérifiée : redirection HTTPS,
+  refus 403 des fichiers privés, indexation des seules réponses publiques 200.
+- Note de livraison et preuves opérationnelles rattachées au suivi canonique ;
+  critères, commentaires et validations humaines préservés.
+- Comptes et permissions par équipe conservés pour V2 ; aucune automatisation
+  de mise à jour d'une production existante déclarée opérationnelle.
 
 ## 2026-10-05 — Revue simplifiée et PR candidate obligatoire
 

@@ -10,12 +10,12 @@ import {renderIterations,iterationsClient} from './framework-iterations-ui.mjs';
 
 export const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const safeToken=(given,expected)=>typeof given==='string'&&Buffer.byteLength(given)===Buffer.byteLength(expected)&&timingSafeEqual(Buffer.from(given),Buffer.from(expected));
-export async function startFrameworkServer({root=projectRoot,port=4181,regenerate,getPullRequests=createPullRequestFeed(),verifyPullRequest=createCandidatePullRequestCheck(),iterationRoots=[]}={}) {
+export async function startFrameworkServer({root=projectRoot,port=4181,regenerate,getPullRequests=createPullRequestFeed(),verifyPullRequest=createCandidatePullRequestCheck(),iterationRoots=[],candidateRoots={}}={}) {
   if(!Number.isInteger(port)||port<0||port>65535) throw new Error('Port incorrect.');
   const store=await createReviewStore(root,{regenerate,verifyPullRequest});
   try {await store.read();}catch(error){await store.close();throw error;}
   let iterationStore;
-  try{iterationStore=await createIterationStore({roots:iterationRoots,verifyPullRequest});}catch(error){await store.close();throw error;}
+  try{iterationStore=await createIterationStore({roots:iterationRoots,candidateRoots,verifyPullRequest});}catch(error){await store.close();throw error;}
   const token=randomBytes(32).toString('hex');let origin,closing=false;
   let mutationBusy=false;
   const server=createServer(async(req,res)=>{

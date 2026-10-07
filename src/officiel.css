@@ -268,6 +268,9 @@ a.quick-card:hover {
   .action-links > .button,
   .form-actions > .button { width: 100%; }
 }
+.calendar-panel { padding: 24px; background: #fff; border: 1px solid #e3e5e8; border-radius: 12px; }
+.club-calendar { display: block; width: 100%; height: 650px; border: 0; }
+@media (max-width: 600px) { .calendar-panel { padding: 12px; } .club-calendar { height: 560px; } }
 @media (max-width: 380px) {
   .site-header .brand { gap: 9px; }
   .site-header .brand-name { font-size: 13px; letter-spacing: 1.4px; }

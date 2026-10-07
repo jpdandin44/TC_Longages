@@ -35,12 +35,18 @@ export function reviewIssues(i,phase,pr,source) {
   }
   return [...new Set(errors)];
 }
-export async function createIterationStore({roots=[],verifyPullRequest,verifySource}) {
+export async function createIterationStore({roots=[],candidateRoots={},verifyPullRequest,verifySource}) {
   const sources=[];
   for(const input of roots){
     const root=await realpath(input),file=resolve(root,'docs/suivi-chantier/suivi-chantier.json');
     need(!(await lstat(file)).isSymbolicLink()&&(await realpath(file)).startsWith(root+sep),'Source du cockpit redirigée.');
     sources.push({root,file});
+  }
+  need(candidateRoots&&typeof candidateRoots==='object'&&!Array.isArray(candidateRoots),'Raccordement des candidats incorrect.');
+  const candidateSources=new Map();
+  for(const [id,input] of Object.entries(candidateRoots)){
+    need(/^[a-z0-9-]+$/.test(id)&&typeof input==='string'&&input.length>0,'Source candidate locale incorrecte.');
+    candidateSources.set(id,{root:await realpath(input)});
   }
   let writing=false;
   const nativeReaders=new Map();
@@ -67,9 +73,10 @@ export async function createIterationStore({roots=[],verifyPullRequest,verifySou
         need(criteria.length===4&&criteria.every(c=>Array.isArray(c)&&c.length&&c.every(t=>typeof t==='string')),'Critères obligatoires incomplets.');
         const item={...i,reviewCriteria:criteria};
         const git=i.candidate?.gitSourceDigest;
-        const native=git?await reader(source):{verify:readCandidateVerification,exclusions:CANDIDATE_EXCLUSIONS};
+        const candidateSource=candidateSources.get(i.iterationId)||source;
+        const native=git?await reader(candidateSource):{verify:readCandidateVerification,exclusions:CANDIDATE_EXCLUSIONS};
         const pr=/^[a-f0-9]{40}$/.test(i.candidate?.sourceSha||'')?await verifyPullRequest({url:i.github?.prUrl,sourceCommit:i.candidate.sourceSha,excludedPaths:native.exclusions,force}):{passed:false,status:'not_ready',url:i.github?.prUrl,issues:['La version locale doit être figée avant vérification de la PR.']};
-        const check=git?await native.verify(source.root,{sourceCommit:i.candidate.sourceSha,artifactDigest:git,candidateManifest:'data/framework-candidate.json'}):{passed:false,issues:['Candidat local non figé.']};
+        const check=git?await native.verify(candidateSource.root,{sourceCommit:i.candidate.sourceSha,artifactDigest:git,candidateManifest:'data/framework-candidate.json'}):{passed:false,issues:['Candidat local non figé.']};
         const events=currentEvents(item);
         rows.push({...item,phaseIndex:knownStage(i),phaseLabels:ITERATION_PHASES,sourceCheck:check,pullRequestCheck:pr,
           phaseViews:criteria.map((labels,id)=>{

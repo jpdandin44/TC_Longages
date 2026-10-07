@@ -306,7 +306,7 @@
     "preparedAt": "2026-10-05T08:27:32.759204+00:00",
     "composerRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal",
     "documentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
-    "status": "private_drupal_restore_verified_http_routing_pending",
+    "status": "public_v1_delivered_and_verified",
     "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
     "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
     "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
@@ -314,11 +314,11 @@
     "receiptVerified": true,
     "configurationActivated": true,
     "databaseRestored": true,
-    "officialRootChanged": false,
-    "publicOpeningExecuted": false,
+    "officialRootChanged": true,
+    "publicOpeningExecuted": true,
     "restorationTested": true,
     "drupalBootstrapped": true,
-    "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+    "checkedAt": "2026-10-05T18:34:58.422369+00:00",
     "privateProtection": {
       "checkedAt": "2026-10-05T11:30:14.007630+00:00",
       "privateRootOutsideWeb": true,
@@ -339,7 +339,47 @@
       "currentOfficialRootMatchesBackup": true,
       "restoredWaitingRootMatchesBackup": true,
       "realDomainRollbackTested": false
-    }
+    },
+    "previousObservationBeforePublicDelivery": {
+      "preparedAt": "2026-10-05T08:27:32.759204+00:00",
+      "composerRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal",
+      "documentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
+      "status": "private_drupal_restore_verified_http_routing_pending",
+      "sourceCommit": "49b4ef7b975b8edff4308373732033630582da6b",
+      "archiveSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "manifestSha256": "a6b9ab0ca57d82ce647e85c9141ff4aa4a89ec1b47bde9f038d86427308ab4e4",
+      "regularFiles": 26687,
+      "receiptVerified": true,
+      "configurationActivated": true,
+      "databaseRestored": true,
+      "officialRootChanged": false,
+      "publicOpeningExecuted": false,
+      "restorationTested": true,
+      "drupalBootstrapped": true,
+      "checkedAt": "2026-10-05T11:26:13.060309+00:00",
+      "privateProtection": {
+        "checkedAt": "2026-10-05T11:30:14.007630+00:00",
+        "privateRootOutsideWeb": true,
+        "privateRootMode": "0700",
+        "privateFilesMode600": true,
+        "privateInputsAbsentUnderWeb": true,
+        "settingsLoaderMode": "0600",
+        "webRootMode": "0700",
+        "frontControllerMode": "0600",
+        "drupalRewritePresent": true,
+        "settingsDenyRulePresent": true,
+        "defaultFilesHtaccessExists": true,
+        "scope": "Filesystem checks only; Apache permissions, routing and served PHP not qualified for this new root."
+      },
+      "waitingRootVerification": {
+        "checkedAt": "2026-10-05T11:31:03.611166+00:00",
+        "expectedFiles": 1,
+        "currentOfficialRootMatchesBackup": true,
+        "restoredWaitingRootMatchesBackup": true,
+        "realDomainRollbackTested": false
+      }
+    },
+    "publicationEvidence": "data/industrialisation-verification.json#publication"
   },
   "documentation": {
     "foundationPresent": true,
@@ -375,5 +415,699 @@
     "linuxPythonPassed": 49,
     "linuxPythonSkipped": 0,
     "policy": "human_confirmations_unchecked"
+  },
+  "officialRootQualification": {
+    "checkedAt": "2026-10-05T17:49:18.892008+00:00",
+    "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+    "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "authorizationRef": "TCL-PROD-EXECUTION-20261005",
+    "documentRoot": "/home2/daje5127/tcl-production/releases/14c270431af12397/drupal/web",
+    "previousRoot": "/home2/daje5127/public_html",
+    "rootChanged": true,
+    "maintenanceActive": true,
+    "publicOpeningExecuted": false,
+    "closedHttp": {
+      "checkedAt": "2026-10-05T17:37:08.909594+00:00",
+      "passed": false,
+      "phpVersionServedVerified": "8.3.33",
+      "phpVersionEvidence": "http-redirection-diagnosis.json",
+      "checks": [
+        {
+          "url": "https://tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://www.tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "https://www.tclongages.fr/",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "http://tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "http://www.tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "http://tclongages.fr/core/misc/drupal.js",
+          "status": 200,
+          "effectiveUrl": "https://tclongages.fr/core/misc/drupal.js",
+          "diagnosticRemoved": true,
+          "maintenance": false,
+          "french": false,
+          "noindex": false
+        },
+        {
+          "url": "https://tclongages.fr/user/login",
+          "status": 200,
+          "effectiveUrl": "https://tclongages.fr/user/login",
+          "diagnosticRemoved": true,
+          "maintenance": false,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://tclongages.fr/sites/default/settings.php",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/sites/default/settings.php",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://tclongages.fr/private/hosting-input.json",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/private/hosting-input.json",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://tclongages.fr/vendor/autoload.php",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/vendor/autoload.php",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://tclongages.fr/.git/config",
+          "status": 403,
+          "effectiveUrl": "https://tclongages.fr/.git/config",
+          "diagnosticRemoved": true,
+          "maintenance": false,
+          "french": false,
+          "noindex": false
+        },
+        {
+          "url": "https://tclongages.fr/framework/",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/framework/",
+          "diagnosticRemoved": true,
+          "maintenance": true,
+          "french": true,
+          "noindex": true
+        },
+        {
+          "url": "https://tclongages.fr/robots.txt",
+          "status": 200,
+          "effectiveUrl": "https://tclongages.fr/robots.txt",
+          "diagnosticRemoved": true,
+          "maintenance": false,
+          "french": false,
+          "noindex": false,
+          "disallowAll": false,
+          "bodySha256": "8e8cb58d810473a52cce903be5ffb73d948eef981bbd101cffbf8dc2c02fcf4e"
+        }
+      ],
+      "publicOpeningExecuted": false
+    },
+    "realRootRollback": {
+      "checkedAt": "2026-10-05T17:22:21.092855+00:00",
+      "root": "/home2/daje5127/public_html",
+      "checks": [
+        {
+          "url": "https://tclongages.fr/",
+          "status": 200,
+          "waitingPage": true,
+          "bodySha256": "ed04e1f9c31b7b553f46ab0a988755c945408234f9827070242ddbb0c0cf6b6b",
+          "tlsVerified": true
+        },
+        {
+          "url": "https://www.tclongages.fr/",
+          "status": 200,
+          "waitingPage": true,
+          "bodySha256": "ed04e1f9c31b7b553f46ab0a988755c945408234f9827070242ddbb0c0cf6b6b",
+          "tlsVerified": true
+        }
+      ],
+      "passed": true
+    },
+    "privateHttpWhileClosed": {
+      "checkedAt": "2026-10-05T17:44:50.045248+00:00",
+      "checks": [
+        {
+          "url": "https://tclongages.fr/sites/default/settings.php",
+          "status": 503,
+          "bodySha256": "4eb674e7d751bd1f8ac3e7b8053f3dc3f8810dd6c427d410cc41c511931726ed",
+          "bytes": 1921
+        },
+        {
+          "url": "https://tclongages.fr/private/hosting-input.json",
+          "status": 503,
+          "bodySha256": "4eb674e7d751bd1f8ac3e7b8053f3dc3f8810dd6c427d410cc41c511931726ed",
+          "bytes": 1921
+        },
+        {
+          "url": "https://tclongages.fr/vendor/autoload.php",
+          "status": 503,
+          "bodySha256": "4eb674e7d751bd1f8ac3e7b8053f3dc3f8810dd6c427d410cc41c511931726ed",
+          "bytes": 1921
+        },
+        {
+          "url": "https://tclongages.fr/framework/",
+          "status": 503,
+          "bodySha256": "4eb674e7d751bd1f8ac3e7b8053f3dc3f8810dd6c427d410cc41c511931726ed",
+          "bytes": 1921
+        },
+        {
+          "url": "https://tclongages.fr/.git/config",
+          "status": 403,
+          "bodySha256": "cce4261ebb26dd41f5077d90435741ab947c960484d2bb637b80608f5f462cbf",
+          "bytes": 5927
+        }
+      ],
+      "passed": false,
+      "interpretation": "Private routes return the maintenance response or 403; no private content returned. Denied status is also checked immediately after opening."
+    },
+    "privateFilesystem": {
+      "checkedAt": "2026-10-05T17:45:23.991115+00:00",
+      "privateRootOutsideWeb": true,
+      "privateRootMode": "0700",
+      "privateFilesMode": "0600",
+      "privateInputsAbsentUnderWeb": true,
+      "settingsLoaderMode": "0600",
+      "diagnosticsRemoved": true,
+      "evidence": "/home2/daje5127/tcl-production/private/closed-publication-evidence.json",
+      "method": "Safe native cPanel Terminal result read; no private values displayed."
+    },
+    "phpVersionServed": "8.3.33",
+    "phpEvidence": {
+      "checkedAt": "2026-10-05T17:28:17.337607+00:00",
+      "checks": [
+        {
+          "url": "http://tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "http://tclongages.fr/",
+          "phpVersion": "8.3.33",
+          "httpsFlag": "off",
+          "serverPort": "80"
+        },
+        {
+          "url": "https://tclongages.fr/",
+          "status": 503,
+          "effectiveUrl": "https://tclongages.fr/",
+          "phpVersion": "8.3.33",
+          "httpsFlag": "on",
+          "serverPort": "443"
+        }
+      ]
+    },
+    "permissions": {
+      "productionAncestors": "0711",
+      "webDirectories": "0755",
+      "webFiles": "0644",
+      "settingsLoader": "0600"
+    },
+    "freshBackup": {
+      "directory": "/home2/daje5127/tcl-production/private/deployment-backups/20261005T171758Z",
+      "createdAndIntegrityVerified": true,
+      "latestSqlSnapshotRestored": false,
+      "restoredBaselineEvidence": "data/industrialisation-verification.json#backup",
+      "receipt": "/home2/daje5127/tcl-production/private/deployment-backups/20261005T171758Z/permissions-applied.json"
+    },
+    "hostingConfiguration": {
+      "source": "config/production-https.htaccess",
+      "overlaySha256": "7382f7f9c4bb7b1d157ce5d77c842299a63a96c385b60ea1bb5b4515ecf57a83",
+      "immutableZipRebuilt": false,
+      "receipt": "/home2/daje5127/tcl-production/private/deployment-backups/20261005T171758Z/https-url-protection-overlay.json",
+      "scope": "One Apache hosting configuration overlay; application pages and immutable ZIP unchanged."
+    },
+    "preproductionBrowserRecipe": {
+      "checkedAt": "2026-10-05T17:36:26.088Z",
+      "authenticatedExistingSession": true,
+      "pages": [
+        {
+          "url": "https://preprod.tclongages.fr/",
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/competitions.html",
+          "title": "Compétitions · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/calendrier.html",
+          "title": "Calendrier · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/disponibilites.html",
+          "title": "Mes disponibilités · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/equipes.html",
+          "title": "Équipes · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/espace.html",
+          "title": "Bureau / Capitaine · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        },
+        {
+          "url": "https://preprod.tclongages.fr/contact.html",
+          "title": "Contact · Tennis Club de Longages",
+          "headingPresent": true,
+          "maintenancePage": false
+        }
+      ],
+      "formSubmitted": false
+    },
+    "conditionsBeforeAndAfterOpening": "Closed root, HTTPS, served PHP, private filesystem and real root rollback qualified. Opening checks the seven anonymous pages and 403/404 of private routes; reclose on failure."
+  },
+  "publication": {
+    "versionLabel": "TC Longages V1",
+    "status": "delivered",
+    "recordedAt": "2026-10-05T18:34:58.422369+00:00",
+    "openedAt": "2026-10-05T18:14:45.353535+00:00",
+    "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+    "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+    "target": "https://tclongages.fr/",
+    "additionalHost": "https://www.tclongages.fr/",
+    "authorizationRef": "TCL-PROD-EXECUTION-20261005",
+    "authorizationEvidence": "docs/suivi-chantier/suivi-chantier.json#developmentWorkflow.productionExecutionAuthorization",
+    "productionDeploymentExecuted": true,
+    "publicOpeningExecuted": true,
+    "externalHttpVerification": {
+      "checkedAt": "2026-10-05T18:18:43.386186+00:00",
+      "passed": true,
+      "sourceSha": "49b4ef7b975b8edff4308373732033630582da6b",
+      "artifactSha256": "14c270431af12397eb882c1a3e029e05f4beaf5e2dfc0f728bbc31aafcf5f86a",
+      "scope": "External anonymous HTTP verification after authorized publication; no cookies, credentials, form submission or production-data change.",
+      "checks": [
+        {
+          "url": "https://tclongages.fr/",
+          "effectiveUrl": "https://tclongages.fr/",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 567038,
+          "bodySha256": "d74e79277bacdb9419a3cfeb1730a13c96a39f032da020076b081b42ea6f47fa",
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/competitions.html",
+          "effectiveUrl": "https://tclongages.fr/competitions.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 154757,
+          "bodySha256": "92d87e924ef84bb21eb94e30f97edc9f22a921969beba0a5c0da466a5ef883b5",
+          "title": "Compétitions · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/calendrier.html",
+          "effectiveUrl": "https://tclongages.fr/calendrier.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 154164,
+          "bodySha256": "da2e3e1d831f4c3784e252ad9d379e10d74bf03afe9351f96d8395f94c534f2b",
+          "title": "Calendrier · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/disponibilites.html",
+          "effectiveUrl": "https://tclongages.fr/disponibilites.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 154648,
+          "bodySha256": "2f7de9ebe7239b26aa0c2f6ae8756741a7e61c397b1d837d9b73e3fe190275c6",
+          "title": "Mes disponibilités · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/equipes.html",
+          "effectiveUrl": "https://tclongages.fr/equipes.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 154213,
+          "bodySha256": "7bde6b082acd8cf20436afd8002306d47154fbd20214fe518b1c9b804484cacf",
+          "title": "Équipes · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/espace.html",
+          "effectiveUrl": "https://tclongages.fr/espace.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 154554,
+          "bodySha256": "89120c896c14120c4e71911448cb9ab7934658b9969a0d6501632a6d578fc898",
+          "title": "Bureau / Capitaine · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/contact.html",
+          "effectiveUrl": "https://tclongages.fr/contact.html",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 155772,
+          "bodySha256": "13176dea37363df5aceb19a6485bfc40b749debdb51ccad8433e2bdd42bbc7bf",
+          "title": "Contact · Tennis Club de Longages",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://www.tclongages.fr/",
+          "effectiveUrl": "https://www.tclongages.fr/",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 567038,
+          "bodySha256": "d74e79277bacdb9419a3cfeb1730a13c96a39f032da020076b081b42ea6f47fa",
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "http://tclongages.fr/",
+          "effectiveUrl": "https://tclongages.fr/",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 567038,
+          "bodySha256": "d74e79277bacdb9419a3cfeb1730a13c96a39f032da020076b081b42ea6f47fa",
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "http://www.tclongages.fr/",
+          "effectiveUrl": "https://tclongages.fr/",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 567038,
+          "bodySha256": "d74e79277bacdb9419a3cfeb1730a13c96a39f032da020076b081b42ea6f47fa",
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "french": true,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/sites/default/settings.php",
+          "effectiveUrl": "https://tclongages.fr/sites/default/settings.php",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 239,
+          "bodySha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+          "title": "403 Forbidden",
+          "french": false,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/private/hosting-input.json",
+          "effectiveUrl": "https://tclongages.fr/private/hosting-input.json",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 239,
+          "bodySha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+          "title": "403 Forbidden",
+          "french": false,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/vendor/autoload.php",
+          "effectiveUrl": "https://tclongages.fr/vendor/autoload.php",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 239,
+          "bodySha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+          "title": "403 Forbidden",
+          "french": false,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/.git/config",
+          "effectiveUrl": "https://tclongages.fr/.git/config",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 5927,
+          "bodySha256": "306fcd425aa04c71e789f2976fa2be3c276babb9245d2d0bb17a228093b61f30",
+          "title": "HTTP 403",
+          "french": false,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/framework/",
+          "effectiveUrl": "https://tclongages.fr/framework/",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 239,
+          "bodySha256": "ab768623070128ccef048c88def86155dbe776c3d8db423cc8fa89432673d8a8",
+          "title": "403 Forbidden",
+          "french": false,
+          "noindex": false,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/user/login",
+          "effectiveUrl": "https://tclongages.fr/user/login",
+          "status": 200,
+          "tlsVerified": true,
+          "bytes": 3686,
+          "bodySha256": "69f7d032375824e0e2083f4bad77fd5a2b863eb0e5e2cebd3bd60244efbd17b5",
+          "title": "Se connecter | Tennis Club de Longages",
+          "french": true,
+          "noindex": true,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/user/register",
+          "effectiveUrl": "https://tclongages.fr/user/register",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 1736,
+          "bodySha256": "05a38e78d6551df391806a551ac0e1febf799d5e3ecaf7319badb7b9ed71aab8",
+          "title": "Accès refusé | Tennis Club de Longages",
+          "french": true,
+          "noindex": true,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://tclongages.fr/admin",
+          "effectiveUrl": "https://tclongages.fr/admin",
+          "status": 403,
+          "tlsVerified": true,
+          "bytes": 1736,
+          "bodySha256": "05a38e78d6551df391806a551ac0e1febf799d5e3ecaf7319badb7b9ed71aab8",
+          "title": "Accès refusé | Tennis Club de Longages",
+          "french": true,
+          "noindex": true,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        },
+        {
+          "url": "https://preprod.tclongages.fr/",
+          "effectiveUrl": "https://preprod.tclongages.fr/",
+          "status": 503,
+          "tlsVerified": true,
+          "bytes": 1921,
+          "bodySha256": "4eb674e7d751bd1f8ac3e7b8053f3dc3f8810dd6c427d410cc41c511931726ed",
+          "title": "Site en maintenance | Tennis Club de Longages",
+          "french": true,
+          "noindex": true,
+          "diagnosticsAbsent": true,
+          "trackerLinkAbsent": true
+        }
+      ],
+      "nativeApache403Scope": "Five private paths are denied by Apache before Drupal. Its native 403 response has no X-Robots-Tag; privacy is verified by rejection, without any private file content. Login, registration, admin and preproduction retain noindex.",
+      "expectationCorrection": "The initial verification also required an application noindex header on native Apache 403 responses. This exceeded the exposure check; the successful denial remains required. The earlier failed expectation is retained in an ignored diagnostic record."
+    },
+    "browserVisualVerification": {
+      "checkedAt": "2026-10-05T18:27:28.437Z",
+      "desktop": {
+        "images": [
+          {
+            "alt": "",
+            "loaded": true
+          },
+          {
+            "alt": "Le court extérieur et le club-house du Tennis Club de Longages",
+            "loaded": true
+          },
+          {
+            "alt": "Lignes blanches et ombres sur un court de tennis vert, photographie d’illustration",
+            "loaded": false
+          },
+          {
+            "alt": "",
+            "loaded": true
+          }
+        ],
+        "scrollWidth": 1265,
+        "url": "https://tclongages.fr/",
+        "width": 1280
+      },
+      "mobilePages": [
+        {
+          "heading": "Le tennisse partage.",
+          "scrollWidth": 375,
+          "title": "Tennis Club de Longages — Le tennis se partage",
+          "url": "https://tclongages.fr/",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "Le plaisir du match,l’esprit du club.",
+          "scrollWidth": 375,
+          "title": "Compétitions · Tennis Club de Longages",
+          "url": "https://tclongages.fr/competitions.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "À vos agendas.",
+          "scrollWidth": 375,
+          "title": "Calendrier · Tennis Club de Longages",
+          "url": "https://tclongages.fr/calendrier.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "Votre réponse compte.",
+          "scrollWidth": 375,
+          "title": "Mes disponibilités · Tennis Club de Longages",
+          "url": "https://tclongages.fr/disponibilites.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "Les équipes du club.",
+          "scrollWidth": 375,
+          "title": "Équipes · Tennis Club de Longages",
+          "url": "https://tclongages.fr/equipes.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "Un espace pourfaire vivre les équipes.",
+          "scrollWidth": 375,
+          "title": "Bureau / Capitaine · Tennis Club de Longages",
+          "url": "https://tclongages.fr/espace.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        },
+        {
+          "heading": "Écrivez au club.",
+          "scrollWidth": 375,
+          "title": "Contact · Tennis Club de Longages",
+          "url": "https://tclongages.fr/contact.html",
+          "visibleImagesLoaded": true,
+          "width": 390
+        }
+      ],
+      "mobileMenuVerified": true,
+      "viewportReset": true,
+      "formSubmitted": false
+    },
+    "nativeIntegrity": {
+      "checkedAt": "2026-10-05T18:25:08.948800+00:00",
+      "status": "passed",
+      "manifestFiles": 26687,
+      "immutableApplicationFilesVerified": 26686,
+      "hostingOverlayFiles": 1,
+      "immutableZipRebuilt": false,
+      "sevenPagesExactlyMatchCandidate": true,
+      "temporaryDiagnosticsRemoved": true,
+      "runtime": {
+        "coreVersion": "11.4.8",
+        "environment": "production",
+        "defaultLanguage": "fr",
+        "maintenanceActive": false,
+        "publicIndexing": "1",
+        "mailBackend": "tcl_null_mail",
+        "registration": "admin_only",
+        "tableCount": 44
+      },
+      "receipt": "/home2/daje5127/tcl-production/private/publication-v1-integrity-final.json",
+      "method": "Safe native cPanel Terminal result read; archive SHA and all manifest files verified, with the one identified Apache overlay."
+    },
+    "hostingConfiguration": {
+      "source": "config/production-https.htaccess",
+      "templateSha256": "3ab3b5db2dd22e7685c4c2be1e60da70c30b9c9660b5823a6534dccb5c3639b9",
+      "baseHtaccessSha256": "205a884f5509924e904afcca5621088160bd8562cc08cb41a52febd6f624e62c",
+      "effectivePublicHtaccessSha256": "7cf7b3fe590d3b13a55b3f07a75e852c5d2544a6e0107f82861d038abd1100a5",
+      "templatePublicFlag": "0",
+      "activePublicFlag": "1",
+      "receipt": "/home2/daje5127/tcl-production/private/deployment-backups/20261005T171758Z/final-hosting-overlay.json",
+      "scope": "Prepend the verified template to original Drupal .htaccess; activate the separate Apache flag only with the explicit public opening."
+    },
+    "rootRollbackEvidence": "data/industrialisation-verification.json#officialRootQualification.realRootRollback",
+    "baselineBackupRestoreEvidence": "data/industrialisation-verification.json#backup",
+    "freshBackupEvidence": "data/industrialisation-verification.json#officialRootQualification.freshBackup",
+    "hostedOpeningReceipt": "/home2/daje5127/tcl-production/private/publication-v1-receipt.json",
+    "functionalReserves": [
+      "Calendar et Forms non raccordés.",
+      "Noms et catégories des équipes non renseignés.",
+      "Contact de prévisualisation ; aucun envoi ou collecte qualifié.",
+      "Espace en attente ; comptes et droits par équipe reportés en V2."
+    ],
+    "phaseChecklistApprovalGenerated": false,
+    "nextIteration": "V2: accounts and team permissions; qualify production updates and the requested cockpit improvements separately."
   }
 }

@@ -1,0 +1,10 @@
+.tcl-communication > a { display: inline-block; margin: .5rem .8rem .5rem 0; padding: .6rem .9rem; border: 1px solid #a6192e; border-radius: 4px; }
+.tcl-preview-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.tcl-preview-card { min-width: 0; padding: 1rem; border: 1px solid #ded5d7; border-radius: 8px; }
+.tcl-post-body { white-space: pre-wrap; overflow-wrap: anywhere; }
+.tcl-post-image { display: block; width: auto; max-width: 100%; height: auto; margin: 1rem 0; }
+.tcl-communication a { overflow-wrap: anywhere; }
+.tcl-communication details { margin: 1.5rem 0; padding: 1rem; background: #f7f3f4; }
+.tcl-communication details a { display: inline-block; margin: .7rem 1rem .7rem 0; }
+.tcl-bureau .form-checkboxes label, .tcl-bureau .form-radios label, .tcl-bureau .form-type-checkbox label { display: inline; }
+@media (max-width: 650px) { .tcl-preview-grid { grid-template-columns: 1fr; } }

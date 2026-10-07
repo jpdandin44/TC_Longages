@@ -22,6 +22,46 @@ jobs:
         run: |
           set -euo pipefail
           find drupal/web/modules/custom drupal/config drupal/bin scripts tests -type f \( -name '*.php' -o -name '*.install' -o -name '*.module' \) -print0 | xargs -0 -r -n1 php -l
+  drupal-mysql:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.18.0'
+      - name: Préparer PHP et Composer pour la recette Drupal native
+        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2, commit vérifié
+        with:
+          php-version: '8.3'
+          extensions: pdo_mysql, pdo_sqlite, mbstring, intl, gd, zip, sodium
+          coverage: none
+          tools: composer:2.10.3
+      - name: Préparer uniquement le checkout jetable du runner
+        run: |
+          npm.cmd ci --ignore-scripts
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm.cmd run officiel:build
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          ./scripts/drupal-local.ps1 prepare
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:PHPRC = (Resolve-Path '.local/drupal-tools/php.ini').Path
+          composer install --working-dir=drupal --no-interaction --prefer-dist --no-progress
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Vérifier installation additive, mise à jour et restauration MariaDB
+        run: |
+          ./scripts/drupal-mysql-recette.ps1 -PhpPath (Get-Command php.exe).Source
+      - name: Montrer uniquement le diagnostic nettoyé en cas d'échec
+        if: failure()
+        run: |
+          if (Test-Path '.local/mysql-recette/test-error.log') {
+            Get-Content '.local/mysql-recette/test-error.log' -Tail 60
+          }
   support-runtime:
     runs-on: windows-2025
     timeout-minutes: 20

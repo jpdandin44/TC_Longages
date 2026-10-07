@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - exigences
@@ -48,20 +48,65 @@ Le [guide du cockpit](docs/piloter-versions.md) précise l'état des fonctions.
 
 - Proposer depuis chacune des sept pages un bouton vers un formulaire de
   problème ou besoin concernant le site.
+- Limiter le formulaire visible à quatre éléments : type de demande,
+  description, e-mail facultatif pour la réponse et confirmation obligatoire
+  de la transmission au club. Type et description restent obligatoires.
+- Conserver automatiquement la page d'origine et attribuer un objet selon
+  le type, sans nouvelle saisie ni modification des demandes existantes.
 - Adresser la notification à `support@tclongages.fr`, créée si absente.
 - Donner au responsable un suivi privé utilisable en développement, avec
   état, responsable et journal de traitement.
 - Conserver une demande si le courriel échoue et distinguer enregistrement,
   capture de test, acceptation par le transport et réception en boîte.
 - Ne pas exposer les coordonnées ni les notes sur le dépôt GitHub public.
-- Respecter les éléments du fichier de stratégie annoncé : **TBD**, source
-  absente des copies locales et de la branche principale observée. Les
-  champs actuels sont une proposition locale à aligner avant publication.
+- Compléter les mentions et règles de conservation de la stratégie annoncée :
+  **TBD**, source absente des copies locales et de la branche principale
+  observée. Les quatre champs sont précisés directement par le responsable.
 
 Ces exigences sont traitées par un correctif V1 distinct de la V2 Bureau.
 Le [guide support](docs/signalements-support.md) décrit les contrôles et le
 périmètre réellement implémenté.
 
+## Communication V2 — demande du 5 octobre
+
+Intégrer la communication du prototype au Bureau Drupal, liens externes compris.
+Conserver brouillons et affiches en base ; réserver édition, validation et
+publication au Bureau/administrateur actif. Relire les quatre aperçus avant
+validation ; confirmer séparément la publication sur le site. Retirer la
+publication à toute modification et refuser une ancienne révision. Exiger titre,
+texte ou affiche, description d'image et confirmation personnelle des actions.
+Permettre retrait, archivage et restauration sans publication. Préparer le
+partage manuel de la révision validée, sans envoi automatique ni statut de
+livraison inventé ; respecter la limite ADOC sans tronquer. Le
+[guide V2](docs/communication-bureau.md) décrit réalisation et limites.
+
+## V2 locale — comptes et Bureau, après livraison V1
+
+La demande du 5 octobre ouvre une itération locale avec comptes Drupal et
+espace Bureau. La précision suivante donne priorité à **l'enregistrement des
+nouveaux adhérents** et reporte les équipes. Permettre au Bureau de créer et
+modifier un dossier Adulte/Mineur par saison, rechercher une personne et suivre
+les états Reçu, À compléter et Vérifié par le Bureau. Pour un mineur, demander
+responsable légal et moyen de contact. Ne pas identifier une personne par son
+seul email familial ni créer automatiquement une licence FFT ou un paiement.
+
+Contrôler URL directes, CSRF, blocage de compte, doublons et anciennes fiches ;
+refuser les dossiers aux visiteurs et capitaines. Stocker en base et recetter sur
+des exemples fictifs. La gestion native des comptes permet création, modification,
+blocage/réactivation et remplacement administratif du mot de passe : le Bureau
+gère seulement les capitaines ; l'administrateur peut aussi gérer le Bureau.
+Aucune élévation de rôle ni modification de soi-même par ces formulaires métier.
+Le [guide du candidat](docs/comptes-et-bureau.md) précise les limites. Les champs
+complets, habilitations réelles, consentements, import/export et modalités de
+collecte restent à examiner avant utilisation avec des dossiers réels.
+
+Afficher les compétitions publiques et les événements de l'agenda Google sur
+le site. Le responsable choisit un agenda dédié aux événements publics ; le
+compte Gmail peut rester identique à celui du club. Le calendrier principal
+fourni refuse aujourd'hui l'accès public. Le composant doit rester désactivé
+tant que l'ID et le partage du nouvel agenda ne sont pas vérifiés. Pour la suite,
+les capitaines renseignent présence/absence dans FFT ; qualifier sa lecture et
+son périmètre privé avant raccordement, sans déduire une API de pages visibles.
 
 ## Priorité V1 publique — 5 octobre
 

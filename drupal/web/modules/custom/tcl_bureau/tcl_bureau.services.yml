@@ -1,0 +1,14 @@
+services:
+  tcl_bureau.communication:
+    class: Drupal\tcl_bureau\CommunicationRepository
+    arguments: ['@database', '@tcl_bureau.repository']
+  tcl_bureau.registrations:
+    class: Drupal\tcl_bureau\RegistrationRepository
+    arguments: ['@database', '@tcl_bureau.repository']
+  tcl_bureau.repository:
+    class: Drupal\tcl_bureau\TeamRepository
+    arguments: ['@database', '@entity_type.manager']
+  tcl_bureau.route_subscriber:
+    class: Drupal\tcl_bureau\Routing\BureauRouteSubscriber
+    tags:
+      - { name: event_subscriber }

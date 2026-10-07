@@ -5,12 +5,208 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 5 octobre 2026
+# Point de session — reprise au 7 octobre 2026
+
+## PR #16 — recette et base actualisées au 7 octobre
+
+Le responsable signale le cockpit de recette inaccessible et interroge son
+réalignement. Le port 4181 était arrêté et la branche n’était pas actualisée ;
+#15 est maintenant fusionnée dans `main`. Quatre conflits documentaires/de
+manifeste sont réunis depuis la tête publiée de #16 dans une copie isolée
+`pr16-recette`, sans forçage ni perte des observations locales antérieures.
+Le [guide de pilotage](piloter-versions.md) donne le lancement et les limites.
+Les contrôles et le candidat sont dans le bloc `cockpitRecipeRecovery` du
+[reçu framework](../data/framework-revue-verification.json).
+
+La modification des sept contenus Drupal provient de #15 et reste présente.
+Le responsable précise que sa difficulté d’édition concerne la préproduction.
+Le navigateur de l’agent est refusé par la protection HTTP ; il ne permet pas
+de conclure sur les droits ou le formulaire du compte Drupal du responsable.
+Le parcours est [Contenu → Pages du club](modifier-textes-drupal.md) après
+connexion Drupal, puis Modifier et Enregistrer. La recette locale et sa CI
+restent distinctes d’un contrôle du compte hébergé. Aucun accord humain,
+compte, transport, contenu hébergé ou déploiement n’est modifié.
+
+Prochaine action : tester le cockpit sur 4181 et préciser le résultat rencontré
+sur Pages du club en préproduction pour qualifier l’accès Drupal.
+
+## PR #15 — résolution des conflits du 7 octobre
+
+La demande du responsable autorise la correction des conflits de #15. Après
+fusion humaine de #14, `main` vaut `89489f3` et la comparaison compte quinze
+fichiers en conflit. La réunion conserve le formulaire à quatre éléments,
+l’édition native des textes, les apports V2, les deux itérations et les
+contrôles support/MariaDB. Le [dossier de résolution](resolution-conflits-pr15.md)
+et le [reçu support](../data/support-v1-verification.json) portent le candidat
+et les vérifications, distincts des preuves de préproduction déjà enregistrées.
+
+Le checkout `.worktrees/support-v1` contient des travaux non commis de bêta-test,
+de courriels et de suivi. Ils sont conservés. La correction utilise la copie
+isolée `.worktrees/pr15-conflicts` ; ne pas mettre à jour aveuglément le checkout
+opérationnel avec `git pull`. Le suivi opérationnel continue dans `support-v1`
+et référence la version corrigée ; le suivi de la PR est son instantané versionné.
+La PR #17 demeure un lot agenda/photo distinct dépendant de la branche support.
+
+Prochaine action : examiner #15 sur son nouveau candidat et ses contrôles.
+La correction de branche ne constitue ni fusion de PR ni livraison hébergée.
+
+## Reprise active — Bureau mobile et recette MariaDB
+
+Le responsable demande la reprise de V2 en local. Drupal est relancé sur
+`127.0.0.1:4182` avec sa base conservée. La PR #14 est toujours le candidat
+de l'itération ; les accords V1 ne couvrent aucun hébergement V2.
+
+Le débordement des formulaires Bureau sur mobile est corrigé. La
+[recette complémentaire](recette-bureau-mysql.md) et son
+[reçu](../data/reprise-bureau-verification.json) portent les neuf observations
+à 390/1 280 pixels, les 26 contrôles MariaDB et la restauration comparée des
+39 tables, schémas et données compris. La fixture MariaDB est autonome, locale
+et fictive ; son serveur est arrêté après contrôle. Docker a d'abord échoué
+au démarrage ; le responsable le redémarre, puis le contrôle confirme son moteur
+Linux 29.7.2 disponible. Aucun reset ni changement de ses conteneurs n'est effectué.
+
+Le job CI natif PHP 8.3/MariaDB est ajouté à la PR ; son état courant est
+enregistré dans l'itération canonique. Les tests locaux ne constituent pas
+une réussite GitHub ni une validation humaine. L'agenda public n'est pas encore
+créé, réponse explicite du responsable ; l'affichage reste désactivé.
+
+La première exécution GitHub réussit pour la recette native et la sécurité
+de livraison, puis révèle le test CI resté sur l'ancienne liste de jobs.
+Le contrat de test est corrigé, y compris l'action PHP épinglée et ses
+limites. Les quatre confirmations personnelles de la PR restent décochées ;
+le contrôle de politique attend leur déclaration par le responsable.
+
+**Suite :** examiner le Bureau et la Communication de la PR #14 ; après réussite
+des contrôles et accord propre à V2, préparer la livraison et la mise à jour
+en préproduction sous maintenance. Qualifier les nouvelles routes/images
+Apache, la reprise de la base hébergée et son retour arrière sur le même paquet.
+Les champs/consentements du processus d'inscription restent à examiner avant
+collecte réelle. Aucun effet distant n'est déduit de cette reprise.
+
+## Clôture précédente du 6 octobre — historique conservé
+
+La session est arrêtée le 6 octobre. Drupal local (4182), le suivi (4181) et
+le prototype Communication (4174) sont arrêtés ; leurs ports ne sont plus en
+écoute. Le verrou du suivi a été retiré seulement après vérification de l'arrêt
+de son propriétaire. La base SQLite, les dossiers fictifs, l'exemple de
+communication et les brouillons du prototype sont conservés. Les sessions
+Drupal de préproduction et du Bureau local ont été déconnectées ; la
+préproduction affiche « Site en maintenance ». Aucun réglage de production
+n'est modifié lors de cette clôture.
+
+La [PR #14](https://github.com/jpdandin44/TC_Longages/pull/14) reste ouverte en
+brouillon sur `aedc85d`. Au relevé de clôture, `delivery-safety` réussit ;
+`technical-ci` et `policy` sont annulés. Leur cause n'est pas déterminée par ce
+relevé et ils ne sont pas relancés pendant la clôture. Les contrôles locaux
+précédents restent consignés : 50 HTTP Communication, 37 HTTP Bureau,
+151 Node, 49 Python dont 4 ignorés, 16 fichiers PHP et 37 contrôles framework.
+Les quatre aperçus Communication ont été examinés à 1 280 et 390 pixels.
+
+**Reprise exacte :** relire ce point et `developmentIterations` du
+[suivi canonique](suivi-chantier/suivi-chantier.json), relancer les services
+selon les guides [Drupal](installation-drupal.md) et
+[suivi](installation-framework.md), puis se reconnecter au Bureau. Examiner
+les dossiers et la communication de la PR #14 et relancer ses contrôles annulés.
+Avant recette hébergée V2, qualifier update MySQL, images, routes Apache,
+sauvegarde/restauration et recette mobile complète des dossiers. L'ID et
+l'accès de l'agenda public dédié restent attendus.
+
+Cette clôture ne valide aucune phase, ne fusionne pas la PR et ne livre pas V2.
+Aucune reprise automatique n'est programmée. Le candidat produit testé
+`a605a2e` et ses preuves restent conservés ; les modifications documentaires de
+clôture sont locales, à intégrer au prochain candidat avant sa remise en revue.
+
+## Candidat conservé du 5 octobre — Bureau et nouveaux adhérents
+
+Après confirmation de l'objectif V1 atteint, le responsable demande V2 en local,
+puis donne priorité à l'enregistrement des nouveaux adhérents par le Bureau.
+Checkout `.worktrees/livraison-fiable`, branche `feat/v2-comptes-bureau-local`.
+Le [site local](http://127.0.0.1:4182/) utilise Drupal 11.4.8 et une base SQLite
+neuve avec dossiers/comptes fictifs et courriels neutralisés. Le Bureau permet
+création/modification Adultes/Mineurs, recherche et état du dossier ; les équipes
+restent désactivées. Le [guide](comptes-et-bureau.md), le
+[reçu](../data/bureau-local-verification.json) et `developmentIterations` du
+suivi canonique portent ce lot distinct. La session navigateur locale Bureau
+est déconnectée à la clôture. Les mots de passe de recette restent dans `.local/`.
+
+La communication du prototype est intégrée au Bureau V2, liens externes compris :
+brouillons/affiches en base, quatre aperçus, validation puis publication distincte
+sur le site local, retrait, archives et restauration. Le [guide](communication-bureau.md)
+et le [reçu](../data/communication-local-verification.json) portent les contrôles.
+La PR #14 reste le candidat de cette itération. Les anciens brouillons de 4174
+ne sont pas importés automatiquement. Qualifier MySQL, les nouvelles routes
+Apache et les images avant une livraison hébergée.
+
+Les [sources FFT](../api/fft.md) sont examinées : Ten’Up fournit des rencontres
+publiques ; ADOC demande une reconnexion. Aucune intégration ou donnée réelle
+d'adhérent n'est importée. Prochaine action : examiner le candidat local et ses
+champs, puis qualifier la mise à jour/MySQL avant une recette hébergée V2.
+La qualification mobile du nouveau Bureau reste à faire. Les accords de V1
+conservent leur portée ; aucun déploiement V2 ni validation humaine nouvelle.
+
+## État courant — V1 livrée, maintenance activée par le responsable
+
+**Observation d'exploitation ultérieure du 5 octobre.** Le responsable indique
+avoir activé la maintenance. Les contrôles anonymes de `http://tclongages.fr/`,
+`https://tclongages.fr/`, `https://www.tclongages.fr/` et d'une requête avec
+paramètre neuf rendent tous 503 et « Site en maintenance », avec `no-store`.
+La préproduction rend aussi 503. Les administrateurs connectés peuvent continuer
+à voir le site ; le prototype 4174 est indépendant. Aucune modification de
+maintenance ou déconnexion distante n'est effectuée par l'agent. Le reçu
+initial d'ouverture ci-dessous reste historique et inchangé.
+
+Le responsable autorise explicitement la mise en production de V1 dans la
+conversation (`TCL-PROD-EXECUTION-20261005`). Le même candidat site `49b4ef7`,
+ZIP `14c270431af12397…`, est ouvert sur [tclongages.fr](https://tclongages.fr/)
+le 5 octobre à 18:14:45 UTC. Les sept pages anonymes, HTTPS, `www`, les cinq
+refus de chemins privés, l'administration et l'inscription anonymes, ainsi que
+la non-indexation de la connexion et de la préproduction sont contrôlés.
+La configuration Apache d'hébergement est identifiée séparément du ZIP ; les
+26 686 autres fichiers du manifeste sont revérifiés après retrait des diagnostics.
+Le retour réel à `/home2/daje5127/public_html` a rendu la page d'attente attendue
+sur les deux noms avant la reconnexion du Drupal. Les copies et sauvegardes
+privées sont conservées. Le site a aussi été examiné sur bureau et à 390 pixels.
+
+Les paramètres privés et la base dédiée de production restent séparés de la
+préproduction, qui conserve sa maintenance. Aucun compte Bureau/Capitaine,
+transport de contact ni raccordement Calendar/Forms n'est activé. Ces réserves
+V1 sont conservées dans la [note de livraison](note-de-livraison.md).
+Le [reçu technique](../data/industrialisation-verification.json#publication)
+et le suivi canonique portent la livraison réelle. Les critères, commentaires
+et statuts de validation humaine des phases ne sont pas modifiés par cette
+exécution ; l'accord de production est enregistré avec sa provenance dans le chat.
+
+Checkout opératoire : `.worktrees/livraison-fiable`, branche
+`fix/revue-pr-candidate`, HEAD `ab89256`, PR #13 fusionnée **au constat de livraison V1**. Les documents,
+configuration d'hébergement et reçus de cette publication sont conservés dans
+ce checkout. Les anciens checkouts et le lot de comptes restent intacts.
+La reprise V2 est décrite en tête de ce document. Les mises à jour doivent
+préserver la base de production. Les exigences de versioning, cockpit, GitHub Actions et
+notes de version restent dans le backlog après V1 ; aucune synchronisation
+automatique ni nouvelle permission GitHub n'a été installée.
+
+Les sections suivantes conservent les constats antérieurs à cette ouverture.
+
+## Dernière demande du 6 octobre — formulaire à quatre éléments
+
+Le responsable demande seulement le type, la description, le mail pour une
+réponse et la confirmation de transmission au club. Le mail reste facultatif ;
+type, description et confirmation restent obligatoires. L'objet est attribué
+par le serveur et la page d'origine conservée automatiquement. Aucun schéma
+de stockage, ticket existant ou contrôle d'accès n'est remplacé.
+
+Cette simplification reste dans le lot support/édition de la PR #15 et dans
+la recette privée déjà autorisée sur `preprod.tclongages.fr`. Le
+[reçu courant](../data/support-v1-verification.json) et l'itération canonique
+portent le nouveau candidat, ses contrôles et son état réel d'installation.
+Les validations historiques et la V2 locale restent conservées. La définition
+directe des quatre champs remplace leur ancien statut de proposition ; les
+mentions de collecte et règles de conservation restent à compléter.
 
 ## Raccordement du cockpit et recette V1.1 — 6 octobre
 

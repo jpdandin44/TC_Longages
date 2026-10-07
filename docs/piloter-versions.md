@@ -5,7 +5,7 @@ title: Piloter les versions et leur recette dans le cockpit
 status: active
 version: git
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags: [cockpit, versions, recette, github]
 ---
@@ -49,6 +49,28 @@ changent pas les permissions et n'exécutent pas de déploiement. En production,
 l'accord explicite, la livraison et ses contrôles doivent être consignés
 séparément sur le candidat et la cible avant validation de la dernière phase.
 
+## Recette de la PR #16 — reprise du 7 octobre
+
+Le serveur de recette du cockpit est local et ne démarre pas avec une PR. Le port
+4181 était arrêté lors de la reprise ; le port 4184 sert uniquement l’aperçu
+agenda/photo. La PR #15 est fusionnée le 7 octobre : la branche cockpit est
+réalignée sur `main` par une réunion des historiques publiés, sans réécriture
+forcée. La PR #16 passe sur cette base ; ses quatre confirmations humaines
+restent inchangées.
+
+La recette est relancée depuis la copie isolée `.worktrees/pr16-recette`, avec
+les sources opérationnelles `support-v1` et `livraison-fiable` déjà déclarées.
+Le checkout cockpit précédent et ses observations non commises sont conservés.
+Après redémarrage, recharger l’onglet du cockpit : le jeton change, les brouillons
+restent dans la session et la confirmation personnelle doit être renouvelée.
+
+L’édition des contenus se fait dans [Pages du club](modifier-textes-drupal.md)
+sur Drupal, pas dans l’interface de revue du cockpit. Son code vient de #15
+déjà fusionnée, et reste présent dans la branche réunie de #16. La protection
+HTTP de la préproduction et la connexion Drupal sont deux accès distincts ;
+un accès au site ne prouve pas les droits de modification des contenus.
+La nouvelle recette du cockpit ne réinstalle ni préproduction ni production.
+
 ## Sources et lancement
 
 Le code du cockpit lit `developmentIterations` dans le
@@ -72,6 +94,15 @@ Créer un fichier privé `.local/cockpit-sources.json` dans le checkout du cockp
 
 Les chemins doivent être remplacés par les checkouts existants ; aucun chemin
 n'est accepté depuis le navigateur. Le lancement lie le serveur à `127.0.0.1` :
+
+Si les données opérationnelles restent dans un checkout contenant d’autres travaux,
+la configuration privée peut déclarer `candidateRoots`, un objet associant chaque
+identifiant de lot au chemin absolu de sa copie candidate. Le contrôle du manifeste
+et ses exclusions viennent de cette copie ; les revues continuent à être écrites
+dans le suivi canonique déclaré par `iterationRoots`. Le navigateur ne choisit
+aucun chemin, et le champ `worktree` des données ne constitue pas cette autorisation.
+Une copie candidate modifiée échoue toujours au contrôle ; cette séparation
+ne dispense d’aucune preuve ni décision humaine.
 
 Chaque checkout utilise son vérificateur Git natif et ses exclusions de reçus,
 pour conserver la compatibilité des manifestes entre branches. Seuls les scripts
