@@ -16,6 +16,17 @@ tags:
 
 # Feuille de route
 
+## Suite courante — site sur la PR #17
+
+Cadrage : demandes agenda/photo et vue Mois reçues. Développement local :
+rapprochement avec `main` après fusion de #16, vérifications et mise à jour
+de la PR #17. Préproduction : passage demandé le 7 octobre, préparation en
+cours, conservation des contenus Drupal et recette des signalements à faire.
+Mise en production : aucune livraison autorisée pour ce candidat.
+
+Le cockpit et son éventuel dépôt séparé restent reportés.
+
+
 ## Priorité et report du cockpit — 7 octobre
 
 Poursuivre le site avec la PR #17 remise sur `main`, l’agenda partagé et
@@ -40,6 +51,20 @@ est demandé. Les phases Préproduction et Mise en production restent à venir.
 Le [guide](api/google-calendar.md) conserve les limites ; les autres lots restent distincts.
 La PR agenda est réunie avec `main` après fusion de #15 ; ses contrôles
 sont renouvelés sur ce candidat.
+
+## Lots raccordés et V1.1 partenaires — 6 octobre
+
+Le cockpit local présente les versions, changements, recette, PR et observations
+de chaque lot avec les trois décisions personnelles ; l'historique est conservé.
+Le code de ce raccordement constitue un lot distinct à examiner dans sa PR.
+Les résultats hébergés support/édition restent dans le reçu opérationnel de V1.1,
+avec recette privée autorisée ; la publication de ce correctif attend son accord.
+
+Prochain développement V1.1 : bandeau **Nos partenaires** administrable dans
+Drupal, en bas des pages publiques. Logos, noms et liens attendus ; pas de logo
+fictif livré. Le travail Bureau/Communication V2 reste local et distinct.
+Le pilotage des workflows GitHub, leur synchronisation continue et les notes de
+version distribuées restent à réaliser. Voir [le guide](docs/piloter-versions.md).
 
 
 ## Correctif V1 support — 6 octobre

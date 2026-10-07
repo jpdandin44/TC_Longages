@@ -80,7 +80,7 @@ test('Le calendrier embarqué exige la revue de partage et limite sa source à G
   const html=actionPages(pending)['calendrier.html'].body;
   assert.match(html,/<iframe class="club-calendar" title="Rendez-vous du Tennis Club de Longages"/);
   assert.match(html,/https:\/\/calendar\.google\.com\/calendar\/embed\?src=club-public%40example.invalid/);
-  assert.match(html,/ctz=Europe%2FParis&amp;hl=fr&amp;mode=AGENDA/);
+  assert.match(html,/ctz=Europe%2FParis&amp;hl=fr&amp;mode=MONTH/);
   assert.doesNotMatch(withoutCalendarEmbed(html,'calendrier.html'),/<iframe/);
   assert.throws(()=>withoutCalendarEmbed(html,'contact.html'));
   assert.throws(()=>withoutCalendarEmbed(html.replace('https://calendar.google.com/','https://evil.invalid/'),'calendrier.html'));

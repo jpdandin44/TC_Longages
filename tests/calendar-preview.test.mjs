@@ -16,7 +16,7 @@ const run = promisify(execFile);
 test('L’agenda local conserve une revue de partage en attente et refuse une autre origine ou des paramètres privés', async () => {
   const config = JSON.parse(await read('config/agenda-local.json'));
   const calendar = await loadCalendarPreview();
-  assert.equal(new URL(calendar.embedUrl).searchParams.get('mode'), 'AGENDA');
+  assert.equal(new URL(calendar.embedUrl).searchParams.get('mode'), 'MONTH');
   assert.equal(new URL(calendar.embedUrl).searchParams.get('ctz'), 'Europe/Paris');
   for (const change of [
     c => c.status = 'published', c => c.sharingReviewed = true,
@@ -46,7 +46,7 @@ test('La construction de l’agenda reste isolée : une iframe titrée sur Calen
     assert.doesNotMatch(html, /ownerAccount|sharingReviewed|localStorage/);
     if (name === 'calendrier') {
       assert.match(html, /title="Agenda des événements du Tennis Club de Longages"/);
-      assert.match(html, /mode=AGENDA&amp;hl=fr/);
+      assert.match(html, /mode=MONTH&amp;hl=fr/);
       assert.match(html, /width: 100%/);
       assert.match(html, /Ouvrir dans Google Agenda/);
     }

@@ -15,6 +15,19 @@ tags:
 
 # Décisions
 
+## 2026-10-07 — Réutiliser #17 pour la recette en vue Mois
+
+**Contexte.** Le responsable demande le calendrier en Mois puis le passage
+en préproduction ; il signale les conflits de #17 avant toute nouvelle PR.
+
+**Décision.** Conserver la branche de #17 et rapprocher `main` sans réécrire
+l'historique. Préparer explicitement l'agenda pour la cible de recette privée.
+
+**Conséquences.** Les travaux de #16 fusionnés dans `main` sont conservés.
+Leur validation n'est pas demandée ici. Le partage Google public, la fusion
+de #17 et la mise en production restent distincts de la livraison demandée.
+
+
 ## 2026-10-07 — Séparation du cockpit prévue et site prioritaire
 
 **Contexte.** Le responsable veut avancer sur le site et indique qu’il créera
@@ -45,6 +58,23 @@ petit écran et conserver le périmètre local demandé.
 de partage reste en attente. Les sorties officielles et leurs paquets restent
 séparés de cet aperçu ; le raccordement hébergé fera l’objet de sa qualification.
 Voir [la référence d’intégration](api/google-calendar.md).
+
+## 2026-10-06 — Revue par version sans écraser l'historique
+
+**Contexte.** Le responsable doit maîtriser les changements ; l'accueil du
+cockpit historique ne consommait pas les itérations support/édition et Bureau.
+
+**Décision.** Raccorder les sources canoniques existantes par configuration
+locale explicite, présenter chaque version, ses changements et sa recette,
+conserver quatre phases et trois décisions personnelles. Lier la validation
+à la PR fusionnée, aux empreintes et à la validation précédente exacte.
+Conserver une sauvegarde privée avant écriture et refuser les révisions périmées.
+
+**Conséquences.** Les anciennes décisions restent accessibles et ne sont pas
+réutilisées pour un autre candidat. La revue ne constitue aucun ordre de
+publication ; les faits et accords distants se consignent séparément. Le
+déclenchement GitHub et les notes de version restent des capacités prévues.
+Le besoin de bannière partenaires V1.1 est enregistré, sans inventer de logos.
 
 
 ## 2026-10-06 — Textes natifs et mise à jour bornée de préproduction

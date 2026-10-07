@@ -15,6 +15,20 @@ tags:
 
 # Tennis Club de Longages
 
+## Lot courant — PR #17 et préproduction privée
+
+La PR #17 existante reste le support du site. Sa branche est rapprochée de
+`main` après fusion de #16, en conservant les deux historiques. Le calendrier
+s'ouvre en **Mois**, en français et à l'heure de Paris. La demande du 7 octobre
+autorise la préparation puis la livraison sur `preprod.tclongages.fr` ; la
+mise à jour hébergée reste à vérifier. Le bouton Signaler un problème et les
+textes enregistrés dans Drupal doivent être conservés.
+
+`npm.cmd run drupal:preproduction:build` prépare les sept modèles avec l'agenda
+pour cette cible protégée. Voir le [guide](api/google-calendar.md). Le cockpit
+reste reporté ; aucune nouvelle PR ni validation du cockpit n'est demandée.
+
+
 ## Priorité du 7 octobre — avancer sur le site
 
 Le lot agenda/photo de la [PR #17](https://github.com/jpdandin44/TC_Longages/pull/17)
@@ -45,6 +59,16 @@ et le [suivi de branche](docs/suivi-chantier/suivi-chantier.json), projection du
 lot agenda depuis le cockpit opérationnel. Le [guide](api/google-calendar.md)
 précise la base `main` après fusion de la PR #15 et la suite de la revue.
 
+
+## Cockpit des versions — 6 octobre
+
+Le cockpit raccordé affiche désormais les lots V1.1 et V2 depuis leurs suivis
+canoniques, leurs changements, PR, contrôles et liens de recette vers le site.
+Les trois décisions conservent critères, commentaire et confirmation personnelle.
+Le [guide de pilotage](docs/piloter-versions.md) décrit le lancement, les sources
+et les limites : consultation/actualisation GitHub disponibles, déclenchement
+des workflows et synchronisation continue encore prévus. Le suivi historique
+reste consultable ; aucune décision n'est importée comme validation d'un nouveau lot.
 
 La [résolution des conflits de la PR #15](docs/resolution-conflits-pr15.md)
 réunit le correctif support/édition et les apports V2 déjà fusionnés dans `main`.

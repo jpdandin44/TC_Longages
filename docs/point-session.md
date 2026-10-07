@@ -12,6 +12,21 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session — reprise au 7 octobre 2026
 
+## Reprise courante — conflits de #17 et calendrier Mois
+
+`main` contient désormais #16 (`c0fa31b4c886695843668d3bf336230df6c1dfc2`).
+La demande actuelle conserve la PR #17, ouverte en brouillon, et corrige ses
+onze conflits documentaires et de suivi par merge sur sa branche existante.
+La vue Mois et la construction de recette privée sont préparées localement.
+Le passage en préproduction est demandé ; aucune installation de ce nouveau
+candidat n'est encore attestée. Le support existe déjà sur l'hébergement :
+ne pas réinitialiser son transport ni les contenus Drupal. Prochaine action :
+contrôler et publier la branche rapprochée, puis qualifier le rapprochement
+éditorial et le retour arrière avant la mise à jour hébergée.
+
+Les rubriques suivantes sont les observations antérieures conservées.
+
+
 ## Reprise prioritaire — site, agenda et édition Drupal
 
 La PR #15 est fusionnée le 7 octobre ; la [PR #17](https://github.com/jpdandin44/TC_Longages/pull/17)
@@ -30,6 +45,31 @@ qualification avec l’accès Drupal, puis préparer le candidat hébergé autor
 Les sections suivantes conservent les observations historiques datées.
 
 ## Historique — PR #15, résolution des conflits du 7 octobre
+
+## PR #16 — recette et base actualisées au 7 octobre
+
+Le responsable signale le cockpit de recette inaccessible et interroge son
+réalignement. Le port 4181 était arrêté et la branche n’était pas actualisée ;
+#15 est maintenant fusionnée dans `main`. Quatre conflits documentaires/de
+manifeste sont réunis depuis la tête publiée de #16 dans une copie isolée
+`pr16-recette`, sans forçage ni perte des observations locales antérieures.
+Le [guide de pilotage](piloter-versions.md) donne le lancement et les limites.
+Les contrôles et le candidat sont dans le bloc `cockpitRecipeRecovery` du
+[reçu framework](../data/framework-revue-verification.json).
+
+La modification des sept contenus Drupal provient de #15 et reste présente.
+Le responsable précise que sa difficulté d’édition concerne la préproduction.
+Le navigateur de l’agent est refusé par la protection HTTP ; il ne permet pas
+de conclure sur les droits ou le formulaire du compte Drupal du responsable.
+Le parcours est [Contenu → Pages du club](modifier-textes-drupal.md) après
+connexion Drupal, puis Modifier et Enregistrer. La recette locale et sa CI
+restent distinctes d’un contrôle du compte hébergé. Aucun accord humain,
+compte, transport, contenu hébergé ou déploiement n’est modifié.
+
+Prochaine action : tester le cockpit sur 4181 et préciser le résultat rencontré
+sur Pages du club en préproduction pour qualifier l’accès Drupal.
+
+## PR #15 — résolution des conflits du 7 octobre
 
 La demande du responsable autorise la correction des conflits de #15. Après
 fusion humaine de #14, `main` vaut `89489f3` et la comparaison compte quinze
@@ -236,6 +276,29 @@ portent le nouveau candidat, ses contrôles et son état réel d'installation.
 Les validations historiques et la V2 locale restent conservées. La définition
 directe des quatre champs remplace leur ancien statut de proposition ; les
 mentions de collecte et règles de conservation restent à compléter.
+
+## Raccordement du cockpit et recette V1.1 — 6 octobre
+
+Le correctif support/édition est installé sous maintenance en préproduction.
+Le reçu opérationnel du checkout `support-v1` atteste les empreintes, la sauvegarde
+restaurée avant application, les sept pages éditables et la réception du message
+fictif dans la boîte support. La modification par le formulaire Drupal, son
+affichage et sa restauration ont été vérifiés, avec révisions conservées.
+Les courriels des formulaires de recette restent capturés. Aucun correctif
+de production ni validation personnelle de phase n'est exécuté par l'agent.
+
+Le code du cockpit évolue dans `.worktrees/cockpit-iterations`, branche
+`feat/cockpit-iterations`. Sa configuration privée raccorde les sources
+`support-v1` et `livraison-fiable` ; l'historique et le brouillon précédent du
+suivi 4181 sont sauvegardés avant remplacement de son seul processus vérifié.
+Les runtimes Drupal 4182/4183 et les données/brouillons V2 sont conservés.
+Le [guide](piloter-versions.md) précise la procédure de reprise et les limites.
+
+Prochaine action : recette personnelle support/édition, examen des PR et des
+critères. La stratégie de bêta-test demeure absente, réserve avant production.
+Le besoin **Nos partenaires** V1.1 est inscrit comme prévu ; noms, logos et liens
+restent à fournir. Le pilotage des Actions et les notes de version restent futurs.
+
 
 ## Nouvelle demande du 6 octobre — édition et préproduction
 

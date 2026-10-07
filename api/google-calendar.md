@@ -32,7 +32,7 @@ Aucun compte, événement ou droit Google n’est modifié par ce lot.
 le statut `local-preview-only` et `sharingReviewed: false`.
 [calendar-preview.mjs](../scripts/calendar-preview.mjs) contrôle l’origine HTTPS,
 le chemin d’intégration, l’ID d’agenda partagé et le fuseau Europe/Paris.
-Il dérive une vue Planning en français et le lien d’ouverture Google.
+Il dérive une vue Mois en français et le lien d’ouverture Google.
 
 Le modèle [officiel-pages.mjs](../src/officiel-pages.mjs) produit une seule iframe
 titrée sur Calendrier, de largeur 100 %, avec un lien de secours. L’aperçu explicite
@@ -54,6 +54,22 @@ versionnée du lot `tcl-v1-agenda-local` depuis le suivi opérationnel conservé
 sous `.worktrees/support-v1`. Les décisions et brouillons des autres lots
 restent dans leur source opérationnelle. Le code de ce lot se trouve dans
 `feat/v1-agenda-local`, checkout `.worktrees/agenda-local`.
+
+## Préparation de la préproduction privée
+
+La demande du 7 octobre autorise le passage du site en recette protégée.
+`npm.cmd run drupal:preproduction:build` dérive les sept modèles de l'aperçu
+validé, avec vue `MONTH`, vers `.local/drupal-public-candidate/site-pages/`.
+Le manifeste précise `targetHost: preprod.tclongages.fr`,
+`productionAllowed: false` et `calendarSharingReviewed: false`.
+Les octets sources sont comparés au manifeste d'aperçu avant construction ;
+un cadre est autorisé uniquement sur Calendrier. La construction ne livre
+rien sur l'hébergement. Le partage Google public demeure à qualifier.
+
+Avant installation : sauvegarde et restauration vérifiées, rapprochement
+avec les textes Drupal enregistrés, conservation du transport support,
+puis recette de la cible. La PR #17 reste la même ; aucune PR supplémentaire
+n'est créée pour cette livraison.
 
 ## Utilisation locale
 

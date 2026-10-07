@@ -2,5 +2,6 @@
   "project": "TC_Longages",
   "status": "local-preview-only",
   "embedUrl": "https://calendar.google.com/calendar/embed?src=75d5afe9823a235d5c9598ea4a9f2b36aab305b8d21e4eecd82b94dfd654b16a%40group.calendar.google.com&ctz=Europe%2FParis",
-  "sharingReviewed": false
+  "sharingReviewed": false,
+  "view": "MONTH"
 }

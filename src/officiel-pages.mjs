@@ -9,7 +9,7 @@ export function actionPages(config, { calendarPreview = null } = {}) {
   const calendar = config.google.calendarUrl;
   const calendarId = config.google.calendarEmbedId;
   const calendarEmbed = calendarId && config.google.calendarSharingReviewed === true
-    ? 'https://calendar.google.com/calendar/embed?' + new URLSearchParams({src: calendarId, ctz: 'Europe/Paris', hl: 'fr', mode: 'AGENDA', showPrint: '0', showCalendars: '0'})
+    ? 'https://calendar.google.com/calendar/embed?' + new URLSearchParams({src: calendarId, ctz: 'Europe/Paris', hl: 'fr', mode: 'MONTH', showPrint: '0', showCalendars: '0'})
     : null;
   const calendarPublic = calendarEmbed
     ? 'https://calendar.google.com/calendar/u/0/r?' + new URLSearchParams({cid: calendarId})

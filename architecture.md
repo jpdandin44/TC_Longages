@@ -15,6 +15,16 @@ tags:
 
 # Architecture
 
+## Construction agenda pour la recette privée
+
+La construction explicite `drupal:preproduction:build` vérifie le manifeste
+de l'aperçu puis prépare sept modèles Drupal, avec une seule iframe en vue
+Mois. Le manifeste borne la cible à `preprod.tclongages.fr` et interdit la
+production. Les réglages officiels de partage Google restent non qualifiés.
+Les contenus Drupal et la configuration du transport support sont conservés
+lors de la future mise à jour ; le rapprochement éditorial reste à qualifier.
+
+
 ## Photo d’accueil — source du 7 octobre
 
 `src/index.html` référence désormais `Images_Photos/Image_terrain_OK.png`.
@@ -33,6 +43,29 @@ dérivées ; une seule iframe est insérée sur Calendrier. Le serveur dédié a
 restent sous `.local/`, sans remplacer `officiel/` ni son manifeste de livraison.
 Le [guide](api/google-calendar.md) précise la dépendance à Google et le suivi canonique.
 
+
+## Raccordement du cockpit aux lots — 6 octobre
+
+`framework-iterations.mjs` lit les suivis canoniques explicitement déclarés au
+lancement. La même source porte les événements du lot ; aucune base parallèle
+de pilotage n'est créée. Le candidat, le manifeste Git, les empreintes du paquet
+et la PR sont vérifiés, les preuves attachées au même candidat. Les événements
+de validation dépendent des décisions précédentes exactes ; leur remplacement
+ou une correction les rend historiques sans les effacer. La dernière phase
+exige un accord et une livraison de production attestés séparément.
+
+Les sources de revue et celles du candidat peuvent être séparées par le
+raccordement privé `candidateRoots` : la vérification utilise le manifeste
+et le vérificateur natif de la copie candidate explicitement déclarée au lancement,
+alors que les événements restent dans le suivi opérationnel. Aucun chemin reçu
+par HTTP ou déduit du champ `worktree` du suivi n’est exécuté.
+
+`framework-iterations-ui.mjs` présente les versions et les trois décisions ;
+les commentaires et critères sont conservés dans la session de l'onglet,
+sans conserver une confirmation personnelle après rechargement. Le serveur
+reste en boucle locale avec contrôle d'origine et de jeton, écritures sérialisées,
+contrôle de révision et sauvegarde privée. Le moteur historique reste accessible
+et ses données sont préservées. Voir le [guide](docs/piloter-versions.md).
 
 ## Réunion des contrôles V1 et V2 — 7 octobre
 
