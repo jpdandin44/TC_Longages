@@ -4556,15 +4556,16 @@
       "status": "awaiting_review",
       "objective": "Ajouter le signalement V1, le suivi privé et l’édition native des textes des sept pages ; livrer ce correctif sur la préproduction TC.",
       "candidate": {
-        "sourceSha": null,
+        "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
         "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
         "mainSha": "89489f37de748b012ce150d3618fb0139c5a54ee",
-        "artifactSha256": null,
+        "artifactSha256": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6",
         "artifactKind": "Git source snapshot only; no hosted delivery package",
         "gitSourceManifest": "data/framework-candidate.json",
-        "gitSourceDigest": null,
+        "gitSourceDigest": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6",
         "worktree": ".worktrees/pr15-conflicts",
-        "sourceBranch": "feat/v1-signalement-support"
+        "sourceBranch": "feat/v1-signalement-support",
+        "sourceClean": true
       },
       "targets": {
         "preproduction": {
@@ -4592,7 +4593,7 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": null,
-        "observedAt": "2026-10-06T10:46:55.754680+00:00",
+        "observedAt": "2026-10-07T11:45:06.547667+00:00",
         "prNumber": 15,
         "state": "OPEN",
         "isDraft": false,
@@ -4655,9 +4656,37 @@
           "reason": "Four mandatory human declarations unchecked; no declaration changed."
         },
         "refreshRequired": false,
-        "observationScope": "Previous PR snapshot preserved; new head and CI pending after reconciliation"
+        "observationScope": "Source candidate corrected; remote head and CI pending"
       },
-      "checks": [],
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
+          "artifactSha256": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6",
+          "target": "GitHub PR #15 reconciled source",
+          "evidence": "data/support-v1-verification.json#conflictResolution",
+          "observedAt": "2026-10-07T11:45:06.547667+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
+          "artifactSha256": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6",
+          "target": "GitHub PR #15 reconciled source",
+          "evidence": "data/support-v1-verification.json#conflictResolution",
+          "observedAt": "2026-10-07T11:45:06.547667+00:00"
+        },
+        {
+          "kind": "ci",
+          "status": "pending",
+          "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
+          "artifactSha256": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6",
+          "target": "GitHub PR #15 reconciled source",
+          "evidence": "data/support-v1-verification.json#conflictResolution",
+          "observedAt": "2026-10-07T11:45:06.547667+00:00"
+        }
+      ],
       "approvals": [
         {
           "scope": "preproduction",
@@ -5054,7 +5083,9 @@
         "requestedAt": "2026-10-07",
         "mainSha": "89489f37de748b012ce150d3618fb0139c5a54ee",
         "conflictsResolved": 15,
-        "hostedInstallationExecuted": false
+        "hostedInstallationExecuted": false,
+        "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
+        "gitSourceDigest": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6"
       }
     }
   ],
