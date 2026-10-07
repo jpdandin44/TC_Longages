@@ -112,6 +112,10 @@ def main():
   for name in active:
    if name.startswith('cache_'):native.run(mysql+['--execute=TRUNCATE TABLE `'+prefix+name+'`'])
   for name in manifest['files']:atomic(copy_root/name,(candidate/name).read_bytes())
+  copy_rt=recovery/'runtime/runtime-settings.php'
+  need(copy_rt.is_file() and digest(copy_rt)==runtime_hash,'Restored runtime bytes')
+  settings.write_text(settings.read_text().replace(str(rt),str(copy_rt)))
+  copy_rt.write_text(copy_rt.read_text().replace(str(rt.parent),str(copy_rt.parent)).replace(str(ROOT),str(copy_root)).replace(str(PRIVATE),str(recovery)))
   copy_rt=runtime(copy_root,recovery);contact_settings(copy_rt,True)
   env=os.environ.copy();env['TCL_SUPPORT_RESTORE_PREFIX']=prefix
   php('rebuild',copy_root,env);rehearsal=php('rehearse',copy_root,env)
