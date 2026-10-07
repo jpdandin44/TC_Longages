@@ -5,7 +5,7 @@ title: Préparation simulée des actualités pour ADOC
 status: active
 version: git
 created: 2026-09-17
-updated: 2026-09-17
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - adoc
@@ -15,6 +15,16 @@ tags:
 ---
 
 # Préparation ADOC
+
+## Périmètre V2 locale — 5 octobre
+
+La [communication Drupal du Bureau](../docs/communication-bureau.md) reprend
+ces champs et le compteur prudent de 2 000 unités UTF-16. Après validation,
+elle permet d'ouvrir ADOC pour une saisie manuelle et de télécharger l'affiche
+JPEG. Un dépassement bloque cette préparation, sans tronquer. Le choix Ten'Up
+est conservé dans la révision et à reporter personnellement dans ADOC.
+Aucune API, session FFT ou publication automatique n'est raccordée.
+La description suivante conserve le comportement du prototype navigateur.
 
 ADOC est le quatrième aperçu de la page Communication, après Site, Facebook et WhatsApp. Il prépare localement la représentation d'une actualité validée. **Aucun article n'est envoyé à ADOC ou Ten'Up** : aucun compte, connexion, API, automatisation de navigateur ou presse-papiers réel n'est utilisé par ce bouton.
 

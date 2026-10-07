@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,64 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-06 — Reprise locale et qualification de la mise à jour Bureau
+
+- Correction du débordement des formulaires sur téléphone ; neuf observations
+  Bureau à 390/1 280 pixels, libellés et champs obligatoires conservés.
+- Fixture MariaDB autonome et isolée : 26 contrôles de l'installation additive,
+  de l'update native, des révisions et des images ; dossiers/comptes préservés.
+- Sauvegarde restaurée dans une deuxième base fictive : 39 tables, schémas et
+  toutes les lignes comparés, valeurs binaires comprises.
+- Job CI natif PHP 8.3/MariaDB et syntaxe PHP élargie aux helpers/tests ; résultats
+  GitHub à vérifier sur le nouveau candidat. Recettes locales et clôture conservées.
+- Contrat des tests CI actualisé pour le job MariaDB et l'action PHP épinglée,
+  après constat GitHub de l'ancienne liste de jobs ; droits de lecture conservés.
+- Agenda public confirmé non créé : affichage désactivé, ID attendu.
+- Aucune livraison hébergée ni validation humaine créée par cette reprise.
+
+## 2026-10-05 — Communication du Bureau intégrée en V2 locale
+
+- Brouillons, copie d'affiche et révisions conservés en base Drupal.
+- Quatre aperçus et confirmations séparées de validation/publication ; modification
+  retirant la publication, anciennes révisions et URL privées contrôlées.
+- Actualités publiées dans l'accueil et les pages publiques de la V2 locale.
+- Liens et partage manuel WhatsApp, Facebook, ADOC et Ten'Up, limite ADOC,
+  retrait du site et archives restaurables.
+- Update additive, recette HTTP, guide et suivi V2 ; aucun déploiement.
+
+## 2026-10-05 — Première réalisation locale V2 des comptes et du Bureau
+
+- Module Drupal centré sur la saisie Bureau des nouveaux adhérents Adultes/Mineurs,
+  recherche, coordonnées, responsable légal et suivi du dossier.
+- Gestion des équipes différée et désactivée par configuration ; comptes natifs
+  Bureau/Capitaine conservés, sans accès des capitaines aux dossiers d'adhésion.
+- Formulaires de création/modification, blocage et remplacement de mot de passe,
+  droits serveur, CSRF et refus d'une ancienne fiche.
+- Base SQLite et fixtures locales séparées ; recette HTTP des inscriptions,
+  doublons, révisions, comptes et refus d'accès conservée dans le reçu du lot.
+- Itération canonique distincte, guide de recette et reçu technique.
+  Aucun déploiement V2 ni changement de données de production.
+- Ten’Up public et ADOC consultés en lecture : relevé de compétition disponible,
+  session ADOC expirée, aucune API ou synchronisation qualifiée.
+- Composant de calendrier intégré préparé en français, horaires Paris ; activation
+  conditionnée au partage de l'agenda public dédié choisi par le responsable.
+  L'agenda principal fourni refuse l'accès public ; son partage est inchangé.
+
+## 2026-10-05 — V1 officielle publiée
+
+- Accord explicite de production consigné ; même ZIP `14c270431af12397…` issu
+  de `49b4ef7` raccordé au domaine officiel, puis ouvert à 18:14 UTC.
+- Sept pages contrôlées en visite anonyme, français, HTTPS et `www` vérifiés ;
+  préproduction toujours sous maintenance, courriels automatiques neutralisés.
+- Retour réel à l'ancienne racine éprouvé sur les deux noms, sauvegardes privées
+  et base de production distincte conservées.
+- Configuration Apache de production identifiée et vérifiée : redirection HTTPS,
+  refus 403 des fichiers privés, indexation des seules réponses publiques 200.
+- Note de livraison et preuves opérationnelles rattachées au suivi canonique ;
+  critères, commentaires et validations humaines préservés.
+- Comptes et permissions par équipe conservés pour V2 ; aucune automatisation
+  de mise à jour d'une production existante déclarée opérationnelle.
 
 ## 2026-10-05 — Revue simplifiée et PR candidate obligatoire
 

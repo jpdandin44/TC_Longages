@@ -41,12 +41,18 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.equal(ci.jobs['technical-ci'].steps.find(step=>step.uses?.startsWith('actions/checkout@')).with['fetch-depth'],0);
   for(const flow of [ci,policy]) {
     assert.deepEqual(flow.permissions,{contents:'read'});
-    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','technical-ci'] : ['policy']);
+    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','drupal-mysql','technical-ci'] : ['policy']);
     for(const job of Object.values(flow.jobs)) {
       assert.equal(job.environment,undefined);
       assert.equal(job.permissions,undefined);
       for(const step of job.steps) {
-        if(step.uses) assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
+        if(step.uses) {
+          if(step.uses.startsWith('shivammathur/setup-php@')) {
+            assert.equal(flow,ci);
+            assert.equal(job,ci.jobs['drupal-mysql']);
+            assert.equal(step.uses,'shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45');
+          } else assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
+        }
         if(step.uses?.startsWith('actions/checkout@')) assert.equal(step.with['persist-credentials'],false);
         assert.doesNotMatch(step.run || '',/secrets\.|gh\s|git\s+(push|commit)|ssh\s|scp\s|sftp\s|curl\s|\$\{\{/);
       }
@@ -58,6 +64,18 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.match(safety.steps[1].run,/unittest discover.*test_\*\.py/);
   assert.match(safety.steps[2].run,/set -euo pipefail/);
   assert.match(safety.steps[2].run,/php -l/);
+  const mysql=ci.jobs['drupal-mysql'];
+  assert.equal(mysql['runs-on'],'windows-2025');
+  assert.ok(mysql['timeout-minutes']<=20);
+  const php=mysql.steps.find(step=>step.uses?.startsWith('shivammathur/setup-php@'));
+  assert.equal(php.with['php-version'],'8.3');
+  assert.equal(php.with.coverage,'none');
+  assert.ok(php.with.extensions.includes('pdo_mysql'));
+  assert.ok(php.with.tools.startsWith('composer:'));
+  assert.ok(mysql.steps.some(step=>/drupal-mysql-recette\.ps1 -PhpPath \(Get-Command php\.exe\)\.Source/.test(step.run || '')));
+  const diagnostic=mysql.steps.at(-1);
+  assert.equal(diagnostic.if,'failure()');
+  assert.match(diagnostic.run,/test-error\.log/);
   const ciRuns=ci.jobs['technical-ci'].steps.filter(s=>s.run).map(s=>s.run);
   assert.ok(ciRuns[0].includes('npm.cmd ci --ignore-scripts'));
   assert.ok(ciRuns[0].includes('requirements-verification.txt'));

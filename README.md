@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-05
+updated: 2026-10-06
 owner: jpdandin
 tags:
   - site-internet
@@ -15,12 +15,45 @@ tags:
 
 # Tennis Club de Longages
 
-## Mise en ligne V1 — parcours actuel
+## V2 — comptes et Bureau en local
+
+La V1 est livrée ; le premier lot V2 fonctionne dans un Drupal local avec base
+SQLite privée. La priorité précisée par le responsable est **l'enregistrement des
+nouveaux adhérents par le Bureau** : fiches Adultes/Mineurs, coordonnées,
+responsable légal, recherche et état du dossier. Les comptes utilisent Drupal ;
+les équipes sont désactivées et reportées à un lot ultérieur.
+La [recette locale](docs/comptes-et-bureau.md) explique les droits et limites.
+[Ouvrir le site local](http://127.0.0.1:4182/), puis **Bureau / Capitaine**.
+Les données de recette sont fictives ; la production conserve son candidat V1.
+La [communication du Bureau](docs/communication-bureau.md) est intégrée :
+brouillons et affiches en base, quatre aperçus, validation puis publication
+séparée sur le site local, retrait et archives restaurables. Les liens Facebook,
+WhatsApp et ADOC permettent un partage manuel après validation.
+[Ouvrir Communication](http://127.0.0.1:4182/fr/bureau/communication).
+La [recette complémentaire](docs/recette-bureau-mysql.md) qualifie les écrans
+Bureau à 390/1 280 pixels, la mise à jour native sur MariaDB et la restauration
+d'une sauvegarde locale fictive. La CI reprend désormais ce test de base ; son
+résultat GitHub doit être vérifié sur le candidat courant avant recette hébergée.
+Le [relevé FFT](api/fft.md) décrit les informations de compétition accessibles
+sur Ten’Up et la connexion requise pour ADOC, sans import ni synchronisation.
+V2 inclut aussi l'affichage direct du [calendrier Google](api/google-calendar.md)
+depuis un agenda public dédié, choisi par le responsable. Le composant est
+préparé ; le responsable confirme le 6 octobre que cet agenda n'est pas encore
+créé. Le calendrier fourni refuse l'accès public. Son nouvel ID et son
+partage restent à qualifier. Les présences saisies dans FFT par les capitaines
+sont prévues pour un lot ultérieur, sans récupération actuellement qualifiée.
+
+## Livraison V1 et état d'exploitation
 
 Le lot du compte principal TC est explicitement autorisé puis terminé le
 4 octobre : préproduction dédiée fermée, DNS public, certificat reconnu,
 PHP CLI/HTTP 8.3.33 et 18 extensions, base vide UTF-8 et dix droits SQL relus.
-Le PHP est partagé au compte ; la page d’attente officielle est conservée.
+Le PHP est partagé au compte ; la page d’attente officielle est conservée
+pour le retour arrière. Le domaine sert la V1 livrée ; le responsable a ensuite
+activé sa maintenance. Au contrôle anonyme du 5 octobre, le domaine officiel et
+`www` répondent 503 avec « Site en maintenance » et `no-store`. Un administrateur
+connecté peut encore consulter le site. Le [point de session](docs/point-session.md)
+distingue ce constat d'exploitation du reçu initial d'ouverture.
 La Lune reste active, avec ses ressources. Le [reçu courant](data/framework-revue-verification.json#hostingPrimaryConfiguration)
 porte les résultats datés de configuration ; les preuves d’installation
 et de connexion applicative sont désormais distinctes.
@@ -39,14 +72,19 @@ porte les résultats réels. L’accueil et les six autres pages ont été parco
 en session connectée. Le 5 octobre, le responsable reporte comptes et droits
 par équipe en V2 pour prioriser la V1 publique. La sauvegarde est intègre et
 ses fichiers et ses 43 tables SQL sont restaurés et vérifiés en copie privée.
-Le même ZIP est préparé dans une racine de production distincte, non servie ;
-le Drupal restauré et celui de production démarrent en français sous maintenance.
-Le certificat gratuit officiel et `www` sont reconnus. Les dix droits SQL
-restent limités à la base dédiée. Les permissions Apache, le fonctionnement
-HTTP de cette nouvelle racine et son retour arrière restent à qualifier
-avant bascule ; aucune ouverture de production n'est exécutée.
-Le [point courant](docs/point-session.md) porte la reprise exacte ; le domaine
-officiel et la Lune sont conservés.
+**La V1 a été ouverte sur [tclongages.fr](https://tclongages.fr/) le
+5 octobre à 18:14 UTC**, après l'accord explicite `TCL-PROD-EXECUTION-20261005`.
+Le même ZIP est servi depuis une racine de production distincte, avec sa base
+dédiée. Au contrôle de cette ouverture, les sept pages répondaient 200 anonymement, HTTPS et `www` fonctionnaient,
+les paramètres privés sont refusés 403 et le retour réel à la page d'attente
+a été testé. Les pages publiques étaient indexables ; connexion et administration
+restent non indexables. Une configuration Apache propre à l'hébergement est
+ajoutée au `.htaccess` vérifié ; le ZIP et les pages ne sont pas reconstruits.
+La préproduction conserve sa maintenance. Les réserves Calendar, Forms,
+équipes et contact simulé, acceptées pour V1, restent visibles ; comptes et
+droits par équipe suivent en V2. La [note de livraison](docs/note-de-livraison.md)
+et le [reçu technique](data/industrialisation-verification.json#publication)
+décrivent les contrôles et le retour arrière. La Lune est conservée.
 
 Le [parcours V1](docs/parcours-mise-en-ligne.md) donne les actions et l'effort
 restant. La [chaîne de préparation](workflows/preparer-livraison.md) construit
@@ -64,7 +102,9 @@ Le lot de configuration de la lune a été autorisé et partiellement réalisé 
 
 Pour revoir les sept pages publiques, lancer `npm.cmd run officiel`, puis ouvrir [l'aperçu local](http://127.0.0.1:4180/). Le lien de validation de la PR #5 y pointe désormais ; les libellés obligatoires et les coches humaines ont été conservés. Cet aperçu ne qualifie pas les comptes, les services connectés ou l'installation distante. Le [point de session courant](docs/point-session.md) et le bloc `developmentWorkflow` du [suivi canonique](docs/suivi-chantier/suivi-chantier.json) portent la prochaine action.
 
-Les paragraphes datés du 1er octobre ci-dessous conservent l'historique de préparation et de clôture ; leur état de lune en attente est remplacé par le reçu courant.
+Les paragraphes de préparation ci-dessous conservent l'historique de leurs
+interventions ; les prérequis qui y restaient ouverts ne remplacent pas l'état
+de livraison courant ci-dessus.
 
 
 Reprise le 1er octobre à la demande du responsable : [préparation GitHub et composants o2switch réutilisables](workflows/preparer-livraison.md), issus de la chaîne du site Drupal AVEREO. Une seule revue Claude avec Sonnet Moyen ; accès GitHub rétabli sur le compte déjà connecté. Le [reçu daté](data/actions-mutualisees-verification.json) distingue résultats locaux, PR et prérequis distants. Aucun site installé ou ouvert par cette reprise.
@@ -75,7 +115,11 @@ La journée du 1er octobre est close à la demande du responsable : formulaire a
 
 La [qualification de préproduction](docs/qualification-preproduction.md) prépare la prochaine intervention après la revue ciblée avec Claude. `npm.cmd run hosting:probe:build` génère une sonde sans secret et fermée par défaut dans `.local/qualification-preproduction/`. Le [reçu de reprise](data/reprise-deploiement-verification.json) distingue vérifications locales, lectures publiques et prérequis distants encore ouverts. Aucun transfert ne découle de cette commande.
 
-Le parcours opérationnel demandé est maintenant ramené à quatre étapes : initialisation, recette locale, recette sur `preprod.tclongages.fr`, puis mise en production sur `tclongages.fr` après accord explicite. Le [registre](data/parcours-mise-en-ligne.json) et le [guide](docs/parcours-mise-en-ligne.md) décrivent les quatre étapes, leurs critères et les décisions sensibles. Le suivi HTML existant conserve l'historique des revues déjà saisies, sans nouvelle interface pour ce parcours. Aucune livraison distante n'a été exécutée.
+Le parcours opérationnel suit quatre phases : Cadrage, Développement local,
+Préproduction et Mise en production. Le [registre](data/parcours-mise-en-ligne.json)
+et le [guide](docs/parcours-mise-en-ligne.md) raccordent les dossiers au suivi
+canonique et conservent l'historique des anciens découpages. La livraison
+réelle est consignée séparément des validations humaines des phases.
 
 `npm.cmd run drupal:public:build` prépare localement les sept pages du candidat Drupal dans `.local/drupal-public-candidate/`, sans inclure de compte ni de configuration privée. Le mode maintenance du futur site reste géré par Drupal. La préproduction, son certificat, ses ressources et sa sauvegarde doivent encore être qualifiés.
 

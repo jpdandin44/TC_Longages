@@ -1,0 +1,10 @@
+tcl_bureau.settings:
+  type: config_object
+  label: Paramètres de l'espace Bureau
+  mapping:
+    teams_enabled:
+      type: boolean
+      label: Gestion des équipes active
+    season:
+      type: string
+      label: Saison d'inscription

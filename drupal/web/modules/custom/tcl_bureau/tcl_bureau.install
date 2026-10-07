@@ -1,0 +1,116 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\user\Entity\Role;
+
+/** Implements hook_schema(). */
+function tcl_bureau_schema(): array {
+  return [
+    'tcl_bureau_post' => tcl_bureau_post_schema(),
+    'tcl_bureau_registration' => [
+      'description' => 'Dossiers d’adhésion privés saisis par le Bureau.',
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'submission_key' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE],
+        'identity_key' => ['type' => 'varchar', 'length' => 64, 'not null' => TRUE],
+        'first_name' => ['type' => 'varchar', 'length' => 120, 'not null' => TRUE],
+        'last_name' => ['type' => 'varchar', 'length' => 120, 'not null' => TRUE],
+        'season' => ['type' => 'varchar', 'length' => 9, 'not null' => TRUE],
+        'status' => ['type' => 'varchar', 'length' => 20, 'not null' => TRUE],
+        'details' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
+        'revision' => ['type' => 'int', 'not null' => TRUE, 'default' => 1],
+        'created' => ['type' => 'int', 'not null' => TRUE],
+        'changed' => ['type' => 'int', 'not null' => TRUE],
+        'created_by' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+        'changed_by' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+      'unique keys' => ['submission' => ['submission_key'], 'identity_season' => ['identity_key']],
+      'indexes' => ['season_status' => ['season', 'status']],
+    ],
+    'tcl_bureau_team' => [
+      'description' => 'Équipes internes du club, sans liste de joueurs.',
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'name' => ['type' => 'varchar', 'length' => 120, 'not null' => TRUE],
+        'category' => ['type' => 'varchar', 'length' => 120, 'not null' => TRUE, 'default' => ''],
+        'notes' => ['type' => 'text', 'size' => 'normal', 'not null' => TRUE],
+        'changed' => ['type' => 'int', 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+    ],
+    'tcl_bureau_assignment' => [
+      'description' => 'Attribution explicite des équipes aux comptes Capitaine.',
+      'fields' => [
+        'team_id' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+        'uid' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+      ],
+      'primary key' => ['team_id', 'uid'],
+      'indexes' => ['uid' => ['uid']],
+    ],
+  ];
+}
+
+/** Implements hook_install(). No account or team is created by installation. */
+function tcl_bureau_install(): void {
+  $roles = [
+    'tcl_bureau' => ['Bureau', ['access tcl bureau', 'manage tcl captain accounts', 'manage tcl registrations', 'manage tcl communication', 'manage tcl teams', 'view assigned tcl teams']],
+    'tcl_capitaine' => ['Capitaine', ['access tcl bureau', 'view assigned tcl teams']],
+  ];
+  // Check every role before creating any, including a collision on the second.
+  foreach (array_keys($roles) as $id) {
+    if (Role::load($id)) {
+      throw new \RuntimeException('Un rôle TC existe déjà : installation à qualifier.');
+    }
+  }
+  foreach ($roles as $id => [$label, $permissions]) {
+    $role = Role::create(['id' => $id, 'label' => $label]);
+    foreach ($permissions as $permission) {
+      $role->grantPermission($permission);
+    }
+    $role->save();
+  }
+}
+
+/** Shared definition for fresh installs and the additive V2 update. */
+function tcl_bureau_post_schema(): array {
+  return [
+    'description' => 'Actualités du club, révisions et validation avant publication.',
+    'fields' => [
+      'id' => ['type' => 'serial', 'not null' => TRUE],
+      'submission_key' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE],
+      'title' => ['type' => 'varchar', 'length' => 160, 'not null' => TRUE],
+      'category' => ['type' => 'varchar', 'length' => 20, 'not null' => TRUE],
+      'body' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
+      'link' => ['type' => 'varchar', 'length' => 1000, 'not null' => TRUE],
+      'tenup_visible' => ['type' => 'varchar', 'length' => 3, 'not null' => TRUE, 'default' => 'no'],
+      'image_alt' => ['type' => 'varchar', 'length' => 240, 'not null' => TRUE],
+      'image_data' => ['type' => 'blob', 'size' => 'big', 'not null' => TRUE],
+      'status' => ['type' => 'varchar', 'length' => 16, 'not null' => TRUE, 'default' => 'draft'],
+      'revision' => ['type' => 'int', 'not null' => TRUE, 'default' => 1],
+      'approved_revision' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+      'validated_by' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+      'validated_at' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+      'published_at' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+      'created' => ['type' => 'int', 'not null' => TRUE],
+      'changed' => ['type' => 'int', 'not null' => TRUE],
+      'changed_by' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => ['submission' => ['submission_key']],
+    'indexes' => ['publication' => ['status', 'published_at']],
+  ];
+}
+
+/** Add communication without reinstalling Drupal or altering enrolments. */
+function tcl_bureau_update_11001(): string {
+  $schema = \Drupal::database()->schema();
+  if (!$schema->tableExists('tcl_bureau_post')) {
+    $schema->createTable('tcl_bureau_post', tcl_bureau_post_schema());
+  }
+  if ($role = Role::load('tcl_bureau')) {
+    $role->grantPermission('manage tcl communication')->save();
+  }
+  return 'Communication ajoutée ; dossiers et comptes existants conservés.';
+}
