@@ -6162,11 +6162,11 @@
       "status": "local_passed_preproduction_preparation_pending",
       "objective": "Rendre l’édition native visible et activer le contact vers tclongages@gmail.com en préproduction protégée.",
       "candidate": {
-        "sourceSha": "1ac1e6b9130937a325d516865dde1f652d1cf45b",
-        "artifactSha256": "e61dd56f941d8475e6a7385af2b2c9780db11d35d278d1c09f2f6791a9b98687",
-        "gitSourceDigest": "915091bdf465b81ed72262d3324386806c7c39a1708545eefb334d6ba2fbe644",
+        "sourceSha": "95925d0be3fd9d1970496a4de89d151db32481b3",
+        "artifactSha256": "7898b0cb5bdc3e62fa5dfc4f3d01f208bb4000595e82f964c7fa31aed932b09f",
+        "gitSourceDigest": "816cbe863b4db0a7438216398353a53d69a811990d8a320d43ee65147c7eab27",
         "label": "Edition native et contact du club",
-        "recordedAt": "2026-10-07T17:28:14.257058+00:00"
+        "recordedAt": "2026-10-07T17:35:07.978993+00:00"
       },
       "targets": {
         "preproduction": {
@@ -6186,7 +6186,7 @@
       },
       "github": {
         "repository": "https://github.com/jpdandin44/TC_Longages",
-        "prUrl": null,
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/18",
         "acceptedSourceSha": null,
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
