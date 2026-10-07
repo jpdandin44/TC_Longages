@@ -81,6 +81,15 @@ La nouvelle photo `Images_Photos/Image_terrain_OK.png` est reprise dans ce même
 lot local. Sa source et ses règles de conservation figurent dans le README et
 l’architecture ; le reçu ci-dessous rattache sa vérification au candidat.
 
+La première CI a détecté une régression de l’éditeur Drupal : la photo intégrée
+rend la page d’accueil supérieure à 3 Mo et dépassait la limite de recherche
+PCRE lors de l’extraction du contenu principal. `PublicPageText` utilise désormais
+les positions des balises pour cette extraction et conserve les octets de la
+photo au rendu. Le [contrôle de régression](../tests/public-page-text.php),
+exécuté par la suite Node lorsque PHP est disponible, vérifie la vraie page,
+ses rubriques, sa légende, l’échappement des titres et le rendu sans édition.
+La CI Drupal vérifie également une installation dans son seul environnement jetable.
+
 Le [reçu local](../data/agenda-local-verification.json) porte les contrôles exécutés,
 les empreintes et les captures. L’ouverture directe de l’agenda a été constatée
 avec son titre et son fuseau ; aucun événement n’était affiché en octobre lors

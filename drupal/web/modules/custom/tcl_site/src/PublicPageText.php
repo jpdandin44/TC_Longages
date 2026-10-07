@@ -42,10 +42,8 @@ final class PublicPageText {
 
   /** Named text blocks inside main; navigation, links and controls stay intact. */
   public static function blocks(string $html): array {
-    if (!preg_match('~<main\b[^>]*>([\s\S]*?)</main>~i', $html, $main)) {
-      throw new \RuntimeException('Contenu principal absent.');
-    }
-    preg_match_all('~<(h[2-4]|p|figcaption|summary)\b[^>]*>([\s\S]*?)</\1>~i', $main[1], $matches, PREG_SET_ORDER);
+    $main = self::mainRegion($html);
+    preg_match_all('~<(h[2-4]|p|figcaption|summary)\b[^>]*>([\s\S]*?)</\1>~i', $main['body'], $matches, PREG_SET_ORDER);
     $blocks = [];
     $firstIntro = TRUE;
     $intro = self::regions($html)['intro'];
@@ -72,6 +70,19 @@ final class PublicPageText {
     return hash('sha256', json_encode(self::blocks($html), JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR));
   }
 
+  /** Locate main without backtracking across large inline photo data. */
+  private static function mainRegion(string $html): array {
+    if (!preg_match('~<main\b[^>]*>~i', $html, $opening, PREG_OFFSET_CAPTURE)) {
+      throw new \RuntimeException('Contenu principal absent.');
+    }
+    $offset = $opening[0][1] + strlen($opening[0][0]);
+    $end = stripos($html, '</main>', $offset);
+    if ($end === FALSE) {
+      throw new \RuntimeException('Contenu principal absent.');
+    }
+    return ['offset' => $offset, 'length' => $end - $offset, 'body' => substr($html, $offset, $end - $offset)];
+  }
+
   public static function renderBlocks(string $html, array $values, string $digest): string {
     if (!hash_equals(self::blocksDigest($html), $digest)) {
       throw new \RuntimeException('Les rubriques du modèle ont changé ; rapprocher les textes avant reprise.');
@@ -82,16 +93,18 @@ final class PublicPageText {
         throw new \RuntimeException('Texte éditorial invalide.');
       }
     }
-    return preg_replace_callback('~(<main\b[^>]*>)([\s\S]*?)(</main>)~i', static function(array $main) use ($blocks, $values): string {
-      $index = 0;
-      $body = preg_replace_callback('~(<(h[2-4]|p|figcaption|summary)\b[^>]*>)([\s\S]*?)(</\2>)~i', static function(array $match) use (&$index, $blocks, $values): string {
-        $key = 'text_' . $index++;
-        if (!isset($blocks[$key], $values[$key]) || $values[$key] === $blocks[$key]['text']) { return $match[0]; }
-        preg_match_all('~<span\b[^>]*aria-hidden=["\x27]true["\x27][^>]*>[\s\S]*?</span>~i', $match[3], $decorations);
-        return $match[1] . nl2br(htmlspecialchars($values[$key], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'), FALSE) . implode('', $decorations[0]) . $match[4];
-      }, $main[2]);
-      return $main[1] . $body . $main[3];
-    }, $html, 1);
+    $main = self::mainRegion($html);
+    $index = 0;
+    $body = preg_replace_callback('~(<(h[2-4]|p|figcaption|summary)\b[^>]*>)([\s\S]*?)(</\2>)~i', static function(array $match) use (&$index, $blocks, $values): string {
+      $key = 'text_' . $index++;
+      if (!isset($blocks[$key], $values[$key]) || $values[$key] === $blocks[$key]['text']) { return $match[0]; }
+      preg_match_all('~<span\b[^>]*aria-hidden=["\x27]true["\x27][^>]*>[\s\S]*?</span>~i', $match[3], $decorations);
+      return $match[1] . nl2br(htmlspecialchars($values[$key], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'), FALSE) . implode('', $decorations[0]) . $match[4];
+    }, $main['body']);
+    if ($body === NULL) {
+      throw new \RuntimeException('Lecture des textes impossible ; aucune édition appliquée.');
+    }
+    return substr_replace($html, $body, $main['offset'], $main['length']);
   }
 
 }

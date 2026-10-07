@@ -32,6 +32,13 @@ et dans le reçu. Sa base `feat/v1-signalement-support` correspond à la PR #15
 encore ouverte ; après sa fusion, remettre la PR agenda sur `main` et vérifier
 de nouveau le candidat si le contenu change.
 
+La première CI de la PR #17 a réussi les contrôles généraux mais échoué dans
+l’installation Drupal : la nouvelle photo dépassait la limite de recherche
+du contenu principal. L’extraction et le rendu de `PublicPageText` ont été
+corrigés pour les grandes images intégrées. Le reçu conserve cette première
+observation et les contrôles du candidat corrigé ; ne pas réutiliser le succès
+technique de la première version comme preuve du nouveau candidat.
+
 `npm.cmd run agenda` ouvre l’aperçu sur
 [Calendrier local](http://127.0.0.1:4184/calendrier.html).
 Le [guide](../api/google-calendar.md) et le [reçu](../data/agenda-local-verification.json)

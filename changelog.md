@@ -29,6 +29,9 @@ reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette s
 - [Guide](api/google-calendar.md) et [reçu](data/agenda-local-verification.json) du lot.
 - Préparation d’une PR dédiée depuis la branche de #15 pour isoler le diff,
   candidat Git et projection dérivée du seul lot agenda dans le suivi de branche.
+- Régression révélée par la CI sur la nouvelle photo : extraction du contenu
+  principal de l’éditeur Drupal adaptée aux grandes images intégrées, avec
+  contrôle de la vraie page et conservation des octets au rendu.
 
 
 ## 2026-10-06 — Simplification du formulaire de signalement
