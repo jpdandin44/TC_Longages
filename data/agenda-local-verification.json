@@ -6,8 +6,8 @@
   "scope": "Local calendar iframe preview and supplied home photograph; dedicated dependent draft PR. No hosted installation or Google write.",
   "candidate": {
     "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
-    "sourceSha": null,
-    "sourceClean": false,
+    "sourceSha": "ffc499c23a759bf2ef82461e8330600e6e1e5d3f",
+    "sourceClean": true,
     "branch": "feat/v1-agenda-local",
     "workspaceDigest": "0f428066a20a1fbb294bd11cac51be866d725a81b56b20a360f923dc56545f0f",
     "sourceFiles": {
@@ -71,7 +71,10 @@
         "bytes": 567,
         "sha256": "c2351be0f9695480eb796488e05449a1cb972a86b499f38bf1e8231390a23c30"
       }
-    }
+    },
+    "gitSourceManifest": "data/framework-candidate.json",
+    "gitSourceDigest": "6e946c3a8acdfe80f564a5e7f316b95aeb237cf2ccbd33df3106f2980da6b77c",
+    "sourceFrozenAt": "2026-10-07T10:10:21.804839+00:00"
   },
   "localTarget": "http://127.0.0.1:4184/calendrier.html",
   "checks": {
@@ -83,7 +86,9 @@
       "failed": 0,
       "skipped": 0,
       "logSha256": "42c52ad38f9b22190589a60c30e8df92e6d276fb414c54bebac815fbd2509a45",
-      "log": ".local/agenda-pr-check.log"
+      "log": ".local/agenda-pr-check.log",
+      "sourceSha": "ffc499c23a759bf2ef82461e8330600e6e1e5d3f",
+      "sourceBinding": "153 tests executed before source commit; committed source identities verified unchanged by the Git candidate manifest."
     },
     "browser": {
       "status": "passed",
@@ -279,6 +284,14 @@
         "roadmap.md": "b8ba800006a00a998e778aa01b74c9262ade0b715aa33916870739ee2ba0afbc"
       },
       "verifiedAt": "2026-10-07T10:05:38.933371+00:00"
+    },
+    "candidate": {
+      "status": "passed",
+      "sourceSha": "ffc499c23a759bf2ef82461e8330600e6e1e5d3f",
+      "artifactDigest": "6e946c3a8acdfe80f564a5e7f316b95aeb237cf2ccbd33df3106f2980da6b77c",
+      "manifest": "data/framework-candidate.json",
+      "command": "node scripts/framework-candidate.mjs verify",
+      "observedAt": "2026-10-07T10:10:21.804839+00:00"
     }
   },
   "photo": {
@@ -328,13 +341,59 @@
   "humanPhaseApprovalGenerated": false,
   "github": {
     "repository": "https://github.com/jpdandin44/TC_Longages",
-    "prUrl": null,
-    "status": "preparing_draft",
+    "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/17",
+    "status": "OPEN",
     "humanAcceptanceVerified": false,
-    "observedAt": "2026-10-07T10:04:08.084839+00:00",
+    "observedAt": "2026-10-07T10:10:21.804839+00:00",
     "baseBranch": "feat/v1-signalement-support",
     "headBranch": "feat/v1-agenda-local",
     "dependencyPr": "https://github.com/jpdandin44/TC_Longages/pull/15",
-    "dependencyState": "OPEN"
+    "dependencyState": "OPEN",
+    "number": 17,
+    "isDraft": true,
+    "headShaAtObservation": "ffc499c23a759bf2ef82461e8330600e6e1e5d3f",
+    "checks": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37605326090/job/112739273137",
+        "name": "delivery-safety",
+        "startedAt": "2026-10-07T10:07:48Z",
+        "status": "IN_PROGRESS",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37605326094/job/112739273066",
+        "name": "policy",
+        "startedAt": "2026-10-07T10:07:48Z",
+        "status": "IN_PROGRESS",
+        "workflowName": "PR Policy"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37605326090/job/112739273688",
+        "name": "support-runtime",
+        "startedAt": "2026-10-07T10:07:46Z",
+        "status": "QUEUED",
+        "workflowName": "CI — TC Longages"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37605326090/job/112739273560",
+        "name": "technical-ci",
+        "startedAt": "2026-10-07T10:07:46Z",
+        "status": "QUEUED",
+        "workflowName": "CI — TC Longages"
+      }
+    ],
+    "observationScope": "PR creation; later CI observations retained in the operational canonical tracker"
   }
 }
