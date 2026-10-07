@@ -84,6 +84,18 @@ test('Aperçu officiel : chemins privés, anciens écrans, encodage et fichiers 
   assert.equal((await request(origin, '//outside.example/index.html')).status, 400);
 });
 
+test('Le calendrier configuré peut charger Google sans ouvrir les cadres des autres pages', async t => {
+  const { directory } = await fixture(t);
+  await writeFile(path.join(directory, 'calendrier.html'), '<!doctype html><iframe class="club-calendar" src="https://calendar.google.com/calendar/embed?src=club%40example.invalid"></iframe>');
+  const { origin } = await start(t, directory);
+  const calendar = await request(origin, '/calendrier.html');
+  assert.equal(calendar.status, 200);
+  assert.match(calendar.headers['content-security-policy'], /frame-src https:\/\/calendar\.google\.com\/calendar\//);
+  const contact = await request(origin, '/contact.html');
+  assert.doesNotMatch(contact.headers['content-security-policy'], /frame-src/);
+  assert.match(contact.headers['content-security-policy'], /default-src 'none'/);
+});
+
 test('Aperçu officiel : méthodes d’écriture et hôte externe refusés, erreur sans fuite de chemin', async t => {
   const { directory } = await fixture(t);
   const { origin } = await start(t, directory);

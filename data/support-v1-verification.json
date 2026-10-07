@@ -2417,5 +2417,89 @@
     "subject": "server-generated from category",
     "schemaMigration": false,
     "existingRequestsPreserved": true
+  },
+  "conflictResolution": {
+    "status": "local_verified_ci_pending",
+    "requestedAt": "2026-10-07",
+    "observedAt": "2026-10-07T11:43:10.870882+00:00",
+    "scope": "Branch reconciliation only; no PR merge or hosted installation",
+    "oldHeadSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
+    "mainSha": "89489f37de748b012ce150d3618fb0139c5a54ee",
+    "mergeBaseSha": "b4f8a53593b84c4f4a4c7610fa58d0ef8e90de30",
+    "conflictedFiles": [
+      ".github/workflows/ci.yml",
+      "README.md",
+      "architecture.md",
+      "changelog.md",
+      "data/framework-candidate.json",
+      "data/officiel-hosted-demo-manifest.json",
+      "data/officiel-manifest.json",
+      "decisions.md",
+      "docs/suivi-chantier/suivi-chantier.json",
+      "docs/suivi-chantier/tableau-de-bord.html",
+      "docs/suivi-chantier/tableau-de-bord.md",
+      "requirements.md",
+      "roadmap.md",
+      "scripts/framework.mjs",
+      "tests/ci-workflows.test.mjs"
+    ],
+    "sourceSha": null,
+    "sourceManifest": "data/framework-candidate.json",
+    "gitSourceDigest": null,
+    "workspace": ".worktrees/pr15-conflicts",
+    "branch": "feat/v1-signalement-support",
+    "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/15",
+    "checks": {
+      "node": {
+        "status": "passed",
+        "tests": 151,
+        "passed": 151,
+        "failed": 0,
+        "skipped": 0,
+        "command": "npm.cmd run check",
+        "log": ".local/pr15-check.log",
+        "logSha256": "7585d4ce35b7691991f3702e78a4294060cfbf066da8ed289b6707dfa337be98"
+      },
+      "documentation": {
+        "status": "passed",
+        "documents": [
+          "README.md",
+          "architecture.md",
+          "requirements.md",
+          "roadmap.md",
+          "decisions.md",
+          "changelog.md",
+          "docs/point-session.md",
+          "docs/resolution-conflits-pr15.md"
+        ],
+        "linksChecked": 334,
+        "sha256": {
+          "README.md": "9aad8dacc8b53560164b1af6512c5efc0c8c92eb27248f7b3cac323657bca4d1",
+          "architecture.md": "8462462038e20c977ec39a48a6d8342e3cb1b8881c8cde09755214964c81c300",
+          "requirements.md": "b32d40c17432d327c99ee4dfac2de3f75cef8661a2a694d3de5c49583c946d29",
+          "roadmap.md": "b09e09f440ccd14519271671863c8b7eab7792f5428771351c405cc8623066d7",
+          "decisions.md": "b9d3e2978d92cb1e68282c13255b481f6879dcae080d3532eda3952f3a728ed1",
+          "changelog.md": "838ce3fefd21400e20ae48ec6c1b232fa619c55427e24c6bda487211682ec8e3",
+          "docs/point-session.md": "f179abdf40d4deb95ac1ac19b1f2e9504f156baa4fc4b5f5264bdfd83e779ec6",
+          "docs/resolution-conflits-pr15.md": "92680b0a22f5c2fccd0478cb4f159e1bc497272a54266beb50b514f31820ca21"
+        }
+      },
+      "framework": {
+        "status": "passed",
+        "referenceFiles": 28
+      },
+      "unmergedFiles": 0,
+      "ci": "pending"
+    },
+    "preserved": {
+      "supportForm": "four visible fields",
+      "nativeTextEditor": true,
+      "v2FromMergedPr14": true,
+      "bothIterationRecords": true,
+      "existingPrChecklist": "four checked human items retained as observed, no new approval asserted",
+      "hostedReceiptsUnchanged": true,
+      "localUncommittedFiles": 47
+    },
+    "deliveryExecuted": false
   }
 }

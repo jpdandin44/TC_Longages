@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { officialPages } from './official-config.mjs';
 import { validateOfficialPackage } from './package-officiel.mjs';
+import { withoutCalendarEmbed } from './calendar-embed.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 export const hostedOfficialNames = Object.freeze([...officialPages, 'robots.txt', '.htaccess', 'maintenance.active']);
@@ -72,13 +73,14 @@ export async function buildOfficialHostedDemo({
     const pattern = /<aside class="official-ribbon"[^>]*>[\s\S]*?<\/aside>/g;
     if ([...html.matchAll(pattern)].length !== 1 || !html.includes('SITE EN PRÉPARATION')) throw new Error('Bannière officielle source inattendue : ' + name);
     const result = html.replace(pattern, () => ribbon);
-    if (/<script[^>]+src=|<link[^>]+rel="stylesheet"|src="(?!data:)/.test(result)) throw new Error('Page non autonome : ' + name);
+    if (/<script[^>]+src=|<link[^>]+rel="stylesheet"|src="(?!data:)/.test(withoutCalendarEmbed(result, name))) throw new Error('Ressource externe non autorisée : ' + name);
     if (/localStorage|sessionStorage|TCLDemo|type="password"|(?:bureau|inscriptions|communication|adherer)\.html|XMLHttpRequest|navigator\.sendBeacon|\bfetch\(/.test(result)) throw new Error('Donnée ou fonction privée inattendue : ' + name);
     if (!result.includes('<meta name="robots" content="noindex,nofollow">')) throw new Error('Consigne noindex absente : ' + name);
     outputs.set(name, Buffer.from(result, 'utf8'));
   }
   outputs.set('robots.txt', Buffer.from('User-agent: *\nDisallow: /\n'));
-  outputs.set('.htaccess', Buffer.from(hostedOfficialHtaccess));
+  const hasCalendar = outputs.get('calendrier.html').toString('utf8').includes('<iframe class="club-calendar"');
+  outputs.set('.htaccess', Buffer.from(hasCalendar ? hostedOfficialHtaccess.replace("frame-ancestors 'none'", "frame-src https://calendar.google.com/calendar/; frame-ancestors 'none'") : hostedOfficialHtaccess));
   outputs.set('maintenance.active', Buffer.from('Demonstration V1 fermee par defaut. Renommer ce fichier en maintenance.inactive pour ouvrir volontairement.\n'));
   await mkdir(destination, { recursive: true });
   await regularDirectory(destination, 'La destination');

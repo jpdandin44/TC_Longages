@@ -1,0 +1,10 @@
+bureau:
+  css:
+    theme:
+      css/bureau.css: {}
+communication:
+  css:
+    theme:
+      css/communication.css: {}
+  dependencies:
+    - tcl_bureau/bureau

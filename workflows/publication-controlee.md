@@ -5,7 +5,7 @@ title: Validation et publication contrôlée
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-09-17
+updated: 2026-10-05
 owner: jpdandin
 tags:
   - workflow
@@ -15,6 +15,18 @@ tags:
 ---
 
 # Validation et publication contrôlée
+
+## Parcours actuel V2 locale — 5 octobre
+
+La [communication du Bureau Drupal](../docs/communication-bureau.md) utilise la
+base serveur et les comptes existants : brouillon → revue → validation de révision
+→ confirmation de publication sur le site local. Modifier retire la publication
+et annule la validation. Retrait, archivage et restauration sont explicites.
+Les liens et messages externes servent au partage manuel, sans publication
+automatique. Le guide décrit entrées, sorties, permissions, dépendances et recette.
+
+Les sections suivantes conservent le parcours des prototypes de septembre,
+avec leurs stockages navigateur et simulations distincts de cette V2.
 
 ## Objectif
 
