@@ -2,37 +2,18 @@
   "project": "TC_Longages",
   "iterationId": "tcl-v1-agenda-local",
   "status": "local_verified_ci_pending",
-  "observedAt": "2026-10-07T13:24:10.877790+00:00",
-  "scope": "Website agenda/photo and large-image Drupal editor regression, reunited with main; no hosted installation or cockpit validation required.",
+  "observedAt": "2026-10-07T13:58:59.295654+00:00",
+  "scope": "PR17 conflict resolution on same branch, MONTH view, protected preproduction preparation; no hosted installation yet.",
   "candidate": {
-    "baseSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
-    "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
-    "sourceClean": true,
+    "sourceSha": "cb79fe0d3979824bd3eaadcffb4fcd07588f4a53",
+    "baseSha": "c0fa31b4c886695843668d3bf336230df6c1dfc2",
     "branch": "feat/v1-agenda-local",
-    "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
-    "sourceFiles": {
-      "config/agenda-local.json": "d9df41b54193896809124509673462b12a7d64fbb4e7477e4c23c83047b55371",
-      "package.json": "1bb7250631767bbb1bbf3dc3337606e388c580b8f53fca146051ac762422aa83",
-      "scripts/calendar-preview.mjs": "b623eaecfa69bd8bc2b1be1b60744879405a1a353ad8a7c8bf896a2f7802f3c6",
-      "scripts/agenda-local.mjs": "264edde1d4de2007fc56fc16b072101046ef2d4e68803825e459b951a81f7f12",
-      "scripts/build-officiel.mjs": "105a3e08652e546f6944d42bc88f8568110dade0ffbbab780b9ad056d88b49c3",
-      "scripts/inline-html.mjs": "6afed9fcf4755699d1b17d5980fae4d9d6403e71adc54b113b260f2d49721430",
-      "scripts/official-server.mjs": "be0deda244f1ee045966bab8a4d2250143667be3aae0f0bc7427cef492ae08fb",
-      "src/index.html": "4551f486bfdc98a05cb5098ec512e311f52950c02cba313972019f954d0ad244",
-      "src/officiel-pages.mjs": "b89a98e7ca3b9acda88c2eaa43b19d81433632f444fd38b8c938f5c7b48563d6",
-      "src/officiel.css": "a191fc919ba3574f1929299543db010e641ad1cffd8008f689147bb8983a2f25",
-      "tests/calendar-preview.test.mjs": "2958fcaa4f8c81d70b76264599360f56a89895e0316296a205d9e519aed7954b",
-      "tests/build.test.mjs": "8b57815ac1489e22ae01dd352e5aecc4d9500518dcea8207f0bef7c93f6dd366",
-      "tests/officiel.test.mjs": "92f3f163191da41779780b68c496179c8df160324b5a38e16e298c3e2443da0d",
-      "tests/logo.test.mjs": "f5b79dc4136cf87e925ee1ffd80d739cbf9a9f94c89902ff6655f09bbf6fd36f",
-      "Images_Photos/Image_terrain_OK.png": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
-      "scripts/framework-candidate.mjs": "e342ce87f537ec3aaae716872a0ef0e2c1ba2e2ada41c48b66171abba6c477a1",
-      "drupal/web/modules/custom/tcl_site/src/PublicPageText.php": "17604edd4d4bd8570e4bb94eb0b84babdbca593df60ba5b996e8f8ab304fec69",
-      "tests/public-page-text.php": "a54a3d167d1aa90e4b9cda9c134d5d1c74136f52c28a9b3d29ff3e870ff876f5",
-      "tests/public-page-text.test.mjs": "70cc84c591d97abb17f19f0dfe1848318728ab88025701a6465a0901278f6ef3"
-    },
-    "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
-    "artifactKind": "Ten-file local preview manifest and generated pages",
+    "sourceClean": true,
+    "artifactSha256": "65a5da392aba6ee5dfb7a9ed02ece0a963c974204272ecc2c6e9ac030dfa0b5d",
+    "artifactKind": "Local calendar preview manifest",
+    "gitSourceManifest": "data/framework-candidate.json",
+    "gitSourceDigest": "980a21cbbf16ce8234cc5cc9767fb67498ebe59e01cf3d1494d3a7abfc93d0f3",
+    "workspaceDigest": "980a21cbbf16ce8234cc5cc9767fb67498ebe59e01cf3d1494d3a7abfc93d0f3",
     "files": {
       "index.html": {
         "bytes": 3084927,
@@ -43,8 +24,8 @@
         "sha256": "d373ba58b271a59acf1c380716a5e481e3479ea68c919489a73f187716a05dad"
       },
       "calendrier.html": {
-        "bytes": 156070,
-        "sha256": "cede56defa727e0beaf4b06e07c368485680663c2d74e3e897f352a908927df5"
+        "bytes": 156069,
+        "sha256": "094731abd38952b4bebe04b9030622bc50ca7cef037ab6d6a65ca4baa79e277a"
       },
       "disponibilites.html": {
         "bytes": 155922,
@@ -74,66 +55,30 @@
         "bytes": 567,
         "sha256": "c2351be0f9695480eb796488e05449a1cb972a86b499f38bf1e8231390a23c30"
       }
-    },
-    "gitSourceManifest": "data/framework-candidate.json",
-    "gitSourceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
-    "sourceFrozenAt": "2026-10-07T13:24:10.877790+00:00"
+    }
   },
   "localTarget": "http://127.0.0.1:4184/calendrier.html",
   "checks": {
     "automated": {
       "command": "npm.cmd run check",
       "status": "passed",
-      "tests": 156,
-      "passed": 156,
+      "tests": 170,
+      "passed": 170,
       "failed": 0,
       "skipped": 0,
-      "log": ".local/agenda-main-corrected-check.log",
-      "logSha256": "17f25ee1b4a16d0ec266b89513c4f0500f749141c8197533d59695b5c79ae00b",
-      "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
-      "sourceBinding": "Checked source tree committed as merge; candidate manifest verifies unchanged source bytes."
+      "sourceSha": "cb79fe0d3979824bd3eaadcffb4fcd07588f4a53",
+      "log": ".local/pr17-main-month-check.log",
+      "logSha256": "424d1b3a27c1d1e492427062f98a14801334b590aa17ac4ebc9450e99ffb2d28"
     },
     "browser": {
       "status": "passed",
-      "calendarTitle": "Les évènements du club",
-      "calendarView": "Planning",
+      "target": "http://127.0.0.1:4184/calendrier.html",
+      "calendarView": "Mois",
       "timeZone": "Europe/Paris",
-      "eventMutationExecuted": false,
-      "desktop": {
-        "viewportWidth": 1440,
-        "pageWidth": 1425,
-        "iframeWidth": 1218
-      },
-      "mobile": {
-        "viewportWidth": 390,
-        "pageWidth": 375,
-        "iframeWidth": 313,
-        "iframeHeight": 560
-      },
-      "homePhoto": {
-        "loaded": true,
-        "mime": "image/png",
-        "naturalWidth": 1448,
-        "naturalHeight": 1086,
-        "desktopViewportWidth": 1440,
-        "desktopPageWidth": 1425,
-        "mobileViewportWidth": 390,
-        "mobilePageWidth": 375,
-        "mobileImageWidth": 322
-      },
-      "sourceBinding": "272881b99a7453389f3c92231cd8187d0b2ebff5",
-      "observedAt": "2026-10-07T13:24:10.877790+00:00",
-      "capturesCurrent": [
-        ".local/agenda-main-home.png",
-        ".local/agenda-main-mobile.png"
-      ]
-    },
-    "canonicalTracker": {
-      "historicalDecisionsPreserved": true,
-      "frameworkBuild": "passed",
-      "frameworkCheck": "passed"
+      "observedAt": "2026-10-07T13:58:59.295654+00:00"
     },
     "documentation": {
+      "status": "passed",
       "documents": [
         "README.md",
         "architecture.md",
@@ -144,30 +89,10 @@
         "api/google-calendar.md",
         "docs/point-session.md"
       ],
-      "linksChecked": 359,
-      "issues": [],
-      "photoSha256": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
-      "requiredBasePresent": true,
-      "status": "passed",
-      "scope": "Required base, metadata and all local Markdown file targets in eight impacted structural documents; external links and anchors not tested."
-    },
-    "candidate": {
-      "status": "passed",
-      "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
-      "artifactDigest": "dda50a63a0d53dcf0079e6bc9be9739fc41d6c25763984b51b23c70f132a1c13",
-      "manifest": "data/framework-candidate.json",
-      "command": "node scripts/framework-candidate.mjs verify",
-      "observedAt": "2026-10-07T10:20:31.934139+00:00"
-    },
-    "editorRegression": {
-      "status": "passed",
-      "command": "php tests/public-page-text.php",
-      "reproducedBeforeCorrection": true,
-      "bytes": 3084628,
-      "textBlocks": 67,
-      "roundTripPreserved": true,
-      "observedAt": "2026-10-07T10:18:55.750210+00:00",
-      "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f"
+      "localLinksChecked": 369,
+      "scope": "Required base, YAML metadata and local file link targets in eight impacted documents; remote links and anchors not checked.",
+      "globalPolicyApplied": true,
+      "observedAt": "2026-10-07T13:58:59.295654+00:00"
     }
   },
   "photo": {
@@ -687,6 +612,182 @@
         "checksStatus": "pending_corrected_candidate"
       },
       "reason": "PR #15 merged; source reunited with main, preserving official calendar and local preview."
+    },
+    {
+      "candidate": {
+        "baseSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
+        "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+        "sourceClean": true,
+        "branch": "feat/v1-agenda-local",
+        "workspaceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
+        "sourceFiles": {
+          "config/agenda-local.json": "d9df41b54193896809124509673462b12a7d64fbb4e7477e4c23c83047b55371",
+          "package.json": "1bb7250631767bbb1bbf3dc3337606e388c580b8f53fca146051ac762422aa83",
+          "scripts/calendar-preview.mjs": "b623eaecfa69bd8bc2b1be1b60744879405a1a353ad8a7c8bf896a2f7802f3c6",
+          "scripts/agenda-local.mjs": "264edde1d4de2007fc56fc16b072101046ef2d4e68803825e459b951a81f7f12",
+          "scripts/build-officiel.mjs": "105a3e08652e546f6944d42bc88f8568110dade0ffbbab780b9ad056d88b49c3",
+          "scripts/inline-html.mjs": "6afed9fcf4755699d1b17d5980fae4d9d6403e71adc54b113b260f2d49721430",
+          "scripts/official-server.mjs": "be0deda244f1ee045966bab8a4d2250143667be3aae0f0bc7427cef492ae08fb",
+          "src/index.html": "4551f486bfdc98a05cb5098ec512e311f52950c02cba313972019f954d0ad244",
+          "src/officiel-pages.mjs": "b89a98e7ca3b9acda88c2eaa43b19d81433632f444fd38b8c938f5c7b48563d6",
+          "src/officiel.css": "a191fc919ba3574f1929299543db010e641ad1cffd8008f689147bb8983a2f25",
+          "tests/calendar-preview.test.mjs": "2958fcaa4f8c81d70b76264599360f56a89895e0316296a205d9e519aed7954b",
+          "tests/build.test.mjs": "8b57815ac1489e22ae01dd352e5aecc4d9500518dcea8207f0bef7c93f6dd366",
+          "tests/officiel.test.mjs": "92f3f163191da41779780b68c496179c8df160324b5a38e16e298c3e2443da0d",
+          "tests/logo.test.mjs": "f5b79dc4136cf87e925ee1ffd80d739cbf9a9f94c89902ff6655f09bbf6fd36f",
+          "Images_Photos/Image_terrain_OK.png": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
+          "scripts/framework-candidate.mjs": "e342ce87f537ec3aaae716872a0ef0e2c1ba2e2ada41c48b66171abba6c477a1",
+          "drupal/web/modules/custom/tcl_site/src/PublicPageText.php": "17604edd4d4bd8570e4bb94eb0b84babdbca593df60ba5b996e8f8ab304fec69",
+          "tests/public-page-text.php": "a54a3d167d1aa90e4b9cda9c134d5d1c74136f52c28a9b3d29ff3e870ff876f5",
+          "tests/public-page-text.test.mjs": "70cc84c591d97abb17f19f0dfe1848318728ab88025701a6465a0901278f6ef3"
+        },
+        "artifactSha256": "50270b080d4a9d3a979a2e6b265b59dd5c3d22a672bba5e9f8c4c8ec938c8fc1",
+        "artifactKind": "Ten-file local preview manifest and generated pages",
+        "files": {
+          "index.html": {
+            "bytes": 3084927,
+            "sha256": "011523649211bb591f06ec6594eec2caac3e7e125629154629f63512f2ebabcc"
+          },
+          "competitions.html": {
+            "bytes": 156031,
+            "sha256": "d373ba58b271a59acf1c380716a5e481e3479ea68c919489a73f187716a05dad"
+          },
+          "calendrier.html": {
+            "bytes": 156070,
+            "sha256": "cede56defa727e0beaf4b06e07c368485680663c2d74e3e897f352a908927df5"
+          },
+          "disponibilites.html": {
+            "bytes": 155922,
+            "sha256": "6be2207d264c31a1e193ab2d0c2e54be390e6215a6a02ead7ba2293e8230b0a9"
+          },
+          "equipes.html": {
+            "bytes": 155487,
+            "sha256": "497e346b684624944411247c4c4497b30e8aec7c53b5fcc431349b68ef7e18b5"
+          },
+          "espace.html": {
+            "bytes": 155828,
+            "sha256": "c17a74e2a77d2a3af666b59dcfc5a3097e8488271d035f27f7e1178a0300c073"
+          },
+          "contact.html": {
+            "bytes": 157083,
+            "sha256": "769cd99ff32335af0d69e090ff80a2fabddb7ba55d56dc47ab69e3f250379c1a"
+          },
+          "robots.txt": {
+            "bytes": 26,
+            "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+          },
+          "maintenance.active": {
+            "bytes": 66,
+            "sha256": "1a542fc65b9724b783b52104c6d342c41fa936a42694ee081820f05b6789b968"
+          },
+          ".htaccess": {
+            "bytes": 567,
+            "sha256": "c2351be0f9695480eb796488e05449a1cb972a86b499f38bf1e8231390a23c30"
+          }
+        },
+        "gitSourceManifest": "data/framework-candidate.json",
+        "gitSourceDigest": "fa155375d4e03b5be59ff1213b6617355bd055fc3bec182ba16fe77eda211ee4",
+        "sourceFrozenAt": "2026-10-07T13:24:10.877790+00:00"
+      },
+      "checks": {
+        "automated": {
+          "command": "npm.cmd run check",
+          "status": "passed",
+          "tests": 156,
+          "passed": 156,
+          "failed": 0,
+          "skipped": 0,
+          "log": ".local/agenda-main-corrected-check.log",
+          "logSha256": "17f25ee1b4a16d0ec266b89513c4f0500f749141c8197533d59695b5c79ae00b",
+          "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+          "sourceBinding": "Checked source tree committed as merge; candidate manifest verifies unchanged source bytes."
+        },
+        "browser": {
+          "status": "passed",
+          "calendarTitle": "Les évènements du club",
+          "calendarView": "Planning",
+          "timeZone": "Europe/Paris",
+          "eventMutationExecuted": false,
+          "desktop": {
+            "viewportWidth": 1440,
+            "pageWidth": 1425,
+            "iframeWidth": 1218
+          },
+          "mobile": {
+            "viewportWidth": 390,
+            "pageWidth": 375,
+            "iframeWidth": 313,
+            "iframeHeight": 560
+          },
+          "homePhoto": {
+            "loaded": true,
+            "mime": "image/png",
+            "naturalWidth": 1448,
+            "naturalHeight": 1086,
+            "desktopViewportWidth": 1440,
+            "desktopPageWidth": 1425,
+            "mobileViewportWidth": 390,
+            "mobilePageWidth": 375,
+            "mobileImageWidth": 322
+          },
+          "sourceBinding": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+          "observedAt": "2026-10-07T13:24:10.877790+00:00",
+          "capturesCurrent": [
+            ".local/agenda-main-home.png",
+            ".local/agenda-main-mobile.png"
+          ]
+        },
+        "canonicalTracker": {
+          "historicalDecisionsPreserved": true,
+          "frameworkBuild": "passed",
+          "frameworkCheck": "passed"
+        },
+        "documentation": {
+          "documents": [
+            "README.md",
+            "architecture.md",
+            "requirements.md",
+            "roadmap.md",
+            "decisions.md",
+            "changelog.md",
+            "api/google-calendar.md",
+            "docs/point-session.md"
+          ],
+          "linksChecked": 359,
+          "issues": [],
+          "photoSha256": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
+          "requiredBasePresent": true,
+          "status": "passed",
+          "scope": "Required base, metadata and all local Markdown file targets in eight impacted structural documents; external links and anchors not tested."
+        },
+        "candidate": {
+          "status": "passed",
+          "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f",
+          "artifactDigest": "dda50a63a0d53dcf0079e6bc9be9739fc41d6c25763984b51b23c70f132a1c13",
+          "manifest": "data/framework-candidate.json",
+          "command": "node scripts/framework-candidate.mjs verify",
+          "observedAt": "2026-10-07T10:20:31.934139+00:00"
+        },
+        "editorRegression": {
+          "status": "passed",
+          "command": "php tests/public-page-text.php",
+          "reproducedBeforeCorrection": true,
+          "bytes": 3084628,
+          "textBlocks": 67,
+          "roundTripPreserved": true,
+          "observedAt": "2026-10-07T10:18:55.750210+00:00",
+          "sourceSha": "b0863b26630fceacae591433d36b53a189d5548f"
+        }
+      },
+      "github": {
+        "url": "https://github.com/jpdandin44/TC_Longages/pull/17",
+        "expectedBaseBranch": "main",
+        "status": "awaiting_push_and_base_update",
+        "ciStatus": "pending",
+        "observedAt": "2026-10-07T13:24:10.877790+00:00",
+        "historicalObservationsRef": "candidateHistory"
+      },
+      "reason": "New main after PR16 merge; monthly view and protected preproduction builder."
     }
   ],
   "ciHistory": [
@@ -741,13 +842,13 @@
   ],
   "reconciliation": {
     "baseBranch": "main",
-    "baseSha": "cfab674e3ddb598beb7b7a16a81014c9c3514e4f",
-    "sourceSha": "272881b99a7453389f3c92231cd8187d0b2ebff5",
+    "baseSha": "c0fa31b4c886695843668d3bf336230df6c1dfc2",
+    "sourceSha": "cb79fe0d3979824bd3eaadcffb4fcd07588f4a53",
     "strategy": "merge, no history rewrite",
-    "conflictsResolved": 13,
+    "conflictsResolved": 11,
     "dependencyPr15": "merged",
-    "cockpitPr16": "deferred; repository split planned by user",
-    "hostedEditing": "Not requalified: browser stopped at access authentication before Drupal.",
-    "initialCheckFailure": "Three YAML tests used global Python without PyYAML; rerun with existing .venv: all 156 passed."
+    "cockpitPr16": "merged into main; retained, cockpit work deferred",
+    "newPullRequestCreated": false,
+    "hostedEditing": "Not yet requalified on this candidate."
   }
 }
