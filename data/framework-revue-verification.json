@@ -2435,14 +2435,14 @@
     "previousDirtyCheckoutPreserved": true
   },
   "editionContactPreproduction": {
-    "sourceSha": "c3f2877c67c7a49d8d1f78ef7b1f0235d70def36",
-    "artifactSha256": "6c4ba6a86eb2b19825a663068fbfccd667eef9e4794f84ea6f945962adeb545f",
-    "manifestSha256": "1def0e20d59960992c28308fda6182ab9cf8d3542c88e97b81abead618ff4873",
+    "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+    "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+    "manifestSha256": "762b7484293574b43fd2b67a46775af3eb75907eb54c0afea4f395b554587f49",
     "files": 44,
     "bytes": 2620308,
     "status": "candidate_frozen_local_passed_hosted_preparation_pending",
-    "observedAt": "2026-10-07T17:39:52.062324+00:00",
-    "gitSourceDigest": "8f02070d0dce2d16f5969a2147251b0f94a87e380f0f2a8ca02a5bf44a728d8b",
+    "observedAt": "2026-10-07T17:48:09.102988+00:00",
+    "gitSourceDigest": "66af576f17098bdab2cdd8f2765c58b89b41dcbfe94377e9166d1a748ab749a5",
     "localEvidence": "data/edition-contact-verification.json",
     "recipient": "tclongages@gmail.com",
     "branch": "fix/edition-contact-preprod",
@@ -2466,6 +2466,12 @@
         "artifactSha256": "7898b0cb5bdc3e62fa5dfc4f3d01f208bb4000595e82f964c7fa31aed932b09f",
         "status": "stopped_before_active_changes",
         "reason": "Restored runtime loader still referenced active settings. Explicit private retargeting added; active runtime unchanged."
+      },
+      {
+        "sourceSha": "c3f2877c67c7a49d8d1f78ef7b1f0235d70def36",
+        "artifactSha256": "6c4ba6a86eb2b19825a663068fbfccd667eef9e4794f84ea6f945962adeb545f",
+        "status": "stopped_before_active_changes",
+        "reason": "Empty private temp directory missing in file archive; copied profile still pointed to active root. Private directories and profile now explicitly qualified."
       }
     ]
   }

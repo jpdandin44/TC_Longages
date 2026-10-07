@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "c3f2877c67c7a49d8d1f78ef7b1f0235d70def36",
+  "sourceCommit": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -2703,9 +2703,9 @@
     {
       "path": "scripts/edition-contact-hosting.py",
       "mode": "100644",
-      "gitBlob": "35dbad510ebe02ccec535b1a1126c2d56730756a",
-      "size": 12589,
-      "sha256": "e69177a13ba0d2bc737f881077da875063d26cd3a995c2d666dc9b107e0ae55d"
+      "gitBlob": "e0a9952fc7c4931e90fbd9fb66bec2ca56814e34",
+      "size": 13150,
+      "sha256": "3a881221a381b548cd9eba4f8e185f7fb19119fd7b41ec2018db342d9f334ed1"
     },
     {
       "path": "scripts/first-install-hosting.php",
@@ -3634,9 +3634,9 @@
     {
       "path": "workflows/edition-contact-preproduction.md",
       "mode": "100644",
-      "gitBlob": "7c4a85e10c112239967216c87cc7259d4ad0cc38",
-      "size": 4573,
-      "sha256": "7ec05d478fddc2df2c330443b125babd853029c626e86474447019b84deaeb8f"
+      "gitBlob": "efcd77bce20864bce663bc4988a0c5d85b3c4660",
+      "size": 4778,
+      "sha256": "a1850a8c9c5dbd7ac397f3964aa8d3fcbc76ad43c190ef58562ff97301508fe0"
     },
     {
       "path": "workflows/preparer-livraison.md",
@@ -3660,5 +3660,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "8f02070d0dce2d16f5969a2147251b0f94a87e380f0f2a8ca02a5bf44a728d8b"
+  "artifactDigest": "66af576f17098bdab2cdd8f2765c58b89b41dcbfe94377e9166d1a748ab749a5"
 }
