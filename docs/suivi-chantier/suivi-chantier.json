@@ -6162,8 +6162,11 @@
       "status": "local_passed_preproduction_preparation_pending",
       "objective": "Rendre l’édition native visible et activer le contact vers tclongages@gmail.com en préproduction protégée.",
       "candidate": {
-        "sourceSha": null,
-        "artifactSha256": null
+        "sourceSha": "1ac1e6b9130937a325d516865dde1f652d1cf45b",
+        "artifactSha256": "e61dd56f941d8475e6a7385af2b2c9780db11d35d278d1c09f2f6791a9b98687",
+        "gitSourceDigest": "915091bdf465b81ed72262d3324386806c7c39a1708545eefb334d6ba2fbe644",
+        "label": "Edition native et contact du club",
+        "recordedAt": "2026-10-07T17:28:14.257058+00:00"
       },
       "targets": {
         "preproduction": {
