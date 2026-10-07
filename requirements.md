@@ -15,6 +15,24 @@ tags:
 
 # Exigences
 
+## Cockpit et partenaires V1.1 — demandes du 6 octobre
+
+- Rendre visibles les lots actuels, leurs changements, PR, contrôles et sites
+  de recette ; ne pas confondre l'historique V1 avec l'acceptation de V1.1 ou V2.
+- Conserver exactement quatre phases et les critères obligatoires existants.
+  Revue, Valider et Demander des corrections exigent commentaire et confirmation ;
+  Valider exige tous les critères et les prérequis du candidat exact.
+- Garder les accords de merge, déploiement et ouverture distincts des revues.
+- Prévoir dans **V1.1** une zone **Nos partenaires** en bas des pages publiques.
+  Chaque partenaire aura nom, logo, description accessible, lien facultatif,
+  ordre et visibilité gérés dans Drupal ; masquer la zone sans partenaire actif.
+  Conserver les proportions des logos et vérifier mobile/ordinateur.
+- Logos, noms définitifs, liens et accord d'affichage : **TBD — non fournis**.
+  La bannière est prévue, pas encore implémentée dans le candidat support/édition.
+
+Le [guide du cockpit](docs/piloter-versions.md) précise l'état des fonctions.
+
+
 ## Édition et préproduction demandées le 6 octobre
 
 - Modifier facilement dans Drupal les titres, présentations, rubriques, questions

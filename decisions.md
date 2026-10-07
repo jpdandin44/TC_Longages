@@ -15,6 +15,24 @@ tags:
 
 # Décisions
 
+## 2026-10-06 — Revue par version sans écraser l'historique
+
+**Contexte.** Le responsable doit maîtriser les changements ; l'accueil du
+cockpit historique ne consommait pas les itérations support/édition et Bureau.
+
+**Décision.** Raccorder les sources canoniques existantes par configuration
+locale explicite, présenter chaque version, ses changements et sa recette,
+conserver quatre phases et trois décisions personnelles. Lier la validation
+à la PR fusionnée, aux empreintes et à la validation précédente exacte.
+Conserver une sauvegarde privée avant écriture et refuser les révisions périmées.
+
+**Conséquences.** Les anciennes décisions restent accessibles et ne sont pas
+réutilisées pour un autre candidat. La revue ne constitue aucun ordre de
+publication ; les faits et accords distants se consignent séparément. Le
+déclenchement GitHub et les notes de version restent des capacités prévues.
+Le besoin de bannière partenaires V1.1 est enregistré, sans inventer de logos.
+
+
 ## 2026-10-06 — Textes natifs et mise à jour bornée de préproduction
 
 **Contexte.** Le responsable souhaite modifier les textes dans Drupal, comme

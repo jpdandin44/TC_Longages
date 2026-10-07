@@ -5047,27 +5047,58 @@
       "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/37451556464",
       "cockpitWork": {
         "phaseId": 1,
-        "status": "local_ready_for_personal_review",
-        "objective": "Raccorder les versions et changements au cockpit",
+        "status": "local_verified_ci_pending",
+        "objective": "Rétablir la recette du cockpit et séparer les sources candidates des données opérationnelles",
         "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/16",
-        "sourceSha": "be1c3e4748fbc7c78f439e8b14ffa2bbc37d4ae7",
-        "artifactSha256": "ac48e17a1c6d59d94f2afb81a5cc7a233d884b88f9e18a06657a3675b2476456",
-        "artifactKind": "Git source manifest, no Drupal ZIP",
-        "checks": {
-          "targetedNodePassed": 48,
-          "documentationDocuments": 8,
-          "resolvedInternalLinks": 297,
-          "ci": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448772470",
-          "technicalCiPassed": true,
-          "browserDraftPreservationVerified": true,
-          "v2NativeSourceVerified": true
-        },
-        "guide": "https://github.com/jpdandin44/TC_Longages/blob/feat/cockpit-iterations/docs/piloter-versions.md",
+        "sourceSha": "3cb6c362cd042173be197c19c581b80763f18bcb",
+        "artifactSha256": "472049f1b11cbdbc1de71888693f42d11112411959c83c8002ec83dcb57be196",
+        "artifactKind": "Git source manifest; no Drupal delivery ZIP",
+        "candidateManifest": "data/framework-candidate.json",
+        "worktree": ".worktrees/pr16-recette",
         "target": "http://127.0.0.1:4181/",
-        "observedAt": "2026-10-06T10:23:52.976454+00:00",
-        "nextAction": "Recetter le cockpit ; examiner #16 après la PR #15, puis remettre sa base sur main.",
+        "checks": {
+          "node": {
+            "passed": 164,
+            "failed": 0,
+            "skipped": 0,
+            "command": "npm.cmd run check",
+            "logSha256": "0c7ea9c7db749ce5d0176191dc8f94c5adcec1d58853e5785b2dabb54ec43b27"
+          },
+          "targetedNode": {
+            "passed": 40,
+            "failed": 0,
+            "skipped": 0
+          },
+          "documentation": {
+            "status": "passed",
+            "documents": [
+              "README.md",
+              "architecture.md",
+              "requirements.md",
+              "roadmap.md",
+              "decisions.md",
+              "changelog.md",
+              "docs/point-session.md",
+              "docs/piloter-versions.md"
+            ],
+            "foundationPresent": true,
+            "internalLinksChecked": 341,
+            "outsideReferences": [],
+            "errors": [],
+            "limits": "Changed documents only; beta strategy remains absent in the support source."
+          },
+          "framework": {
+            "status": "passed",
+            "referenceFiles": 28
+          },
+          "ci": "pending"
+        },
+        "guide": "docs/piloter-versions.md",
+        "receipt": "data/framework-revue-verification.json#cockpitRecipeRecovery",
+        "observedAt": "2026-10-07T12:10:02.700734+00:00",
+        "nextAction": "Recetter le cockpit #16 ; préciser la difficulté d’édition Drupal sur la préproduction.",
         "humanValidationCreated": false,
-        "remoteActionExecuted": false
+        "hostedDeploymentExecuted": false
       },
       "installedCandidate": {
         "sourceSha": "fa7dc2008182ca40430cd14be05dee20c7d0d49f",
@@ -5086,7 +5117,33 @@
         "hostedInstallationExecuted": false,
         "sourceSha": "935f4e0a736b90229c4d0143a78d45003dffda6f",
         "gitSourceDigest": "334d3263a13b4384da5fddb45f82a6c7eafe661f1e5768ad3b2f9a32f74e7dd6"
-      }
+      },
+      "cockpitWorkHistory": [
+        {
+          "phaseId": 1,
+          "status": "local_ready_for_personal_review",
+          "objective": "Raccorder les versions et changements au cockpit",
+          "pullRequest": "https://github.com/jpdandin44/TC_Longages/pull/16",
+          "sourceSha": "be1c3e4748fbc7c78f439e8b14ffa2bbc37d4ae7",
+          "artifactSha256": "ac48e17a1c6d59d94f2afb81a5cc7a233d884b88f9e18a06657a3675b2476456",
+          "artifactKind": "Git source manifest, no Drupal ZIP",
+          "checks": {
+            "targetedNodePassed": 48,
+            "documentationDocuments": 8,
+            "resolvedInternalLinks": 297,
+            "ci": "https://github.com/jpdandin44/TC_Longages/actions/runs/37448772470",
+            "technicalCiPassed": true,
+            "browserDraftPreservationVerified": true,
+            "v2NativeSourceVerified": true
+          },
+          "guide": "https://github.com/jpdandin44/TC_Longages/blob/feat/cockpit-iterations/docs/piloter-versions.md",
+          "target": "http://127.0.0.1:4181/",
+          "observedAt": "2026-10-06T10:23:52.976454+00:00",
+          "nextAction": "Recetter le cockpit ; examiner #16 après la PR #15, puis remettre sa base sur main.",
+          "humanValidationCreated": false,
+          "remoteActionExecuted": false
+        }
+      ]
     }
   ],
   "activeIterationId": "tcl-v2-bureau-calendrier-local",

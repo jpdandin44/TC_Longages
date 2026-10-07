@@ -14,6 +14,30 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-07 — Recette locale et réalignement de la PR #16
+
+- Réunion de la branche cockpit avec `main` après la fusion de #15 ; quatre
+  conflits documentaires et de manifeste résolus en conservant les deux apports.
+- Recette locale 4181 relancée dans une copie isolée ; sources opérationnelles,
+  données, brouillons et observations non commises conservés.
+- Sources candidates déclarées séparément du suivi opérationnel ; contrôle natif
+  et garde de fusion conservés, tests de séparation des lectures/écritures.
+- Guide clarifiant le cockpit, l’édition Drupal et leurs environnements distincts.
+- Aucun merge de #16, déploiement ni nouvelle confirmation humaine.
+
+## 2026-10-06 — Cockpit des versions et périmètre partenaires
+
+- Lecture des itérations canoniques de checkouts déclarés ; accueil par version,
+  changements, PR, liens du site et résultats de contrôle.
+- Revue, Valider et Demander des corrections avec critères, commentaire,
+  confirmation, vérification du candidat et nouvelle lecture GitHub à la validation.
+- Conservation des événements historiques, sauvegardes avant écriture et
+  invalidation des validations dépendantes après correction/changement de candidat.
+- Brouillons de critères/commentaires conservés dans la session de l'onglet ;
+  aucune confirmation réutilisée après rechargement ou changement du dossier.
+- Exigence de bannière partenaires V1.1 ajoutée ; réalisation et assets attendus.
+- Aucun déclenchement de workflow, merge ou déploiement par ces boutons.
+
 ## 2026-10-07 — Résolution des conflits de la PR #15
 
 - Réunion de `main` après la fusion de #14 dans la branche du correctif V1.
