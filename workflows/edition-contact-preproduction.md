@@ -58,7 +58,9 @@ la base complète et les fichiers, restaure les fichiers, copie les 50 tables
 actives dans un préfixe de récupération neuf et compare toutes les lignes et
 tous les schémas. Les restaurations précédentes restent intactes. Après cette
 comparaison, seuls les caches de la copie sont vidés pour retirer les chemins
-absolus de l'ancien conteneur. Le candidat y est installé avec le contact en
+absolus de l'ancien conteneur. Les chemins du profil et du runtime de la copie
+sont raccordés à sa propre racine ; les répertoires privés vides requis sont
+recréés, notamment le dossier temporaire absent des archives de fichiers. Le candidat y est installé avec le contact en
 capture ; un message fictif et sa double soumission produisent une seule
 capture. Les sept pages, commandes d'édition, photo, vue Mois, contenus et
 bouton support sont vérifiés. Aucun courriel réel n'est envoyé.

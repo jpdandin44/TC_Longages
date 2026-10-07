@@ -74,8 +74,10 @@ def main():
  native=load(candidate/'tools/support-update-hosting.py','edition_contact_native')
  manifest=native.verify_candidate(candidate,args.source,args.sha256)
  def php(operation,root,env=None):
-  result=json.loads(native.run([str(PHP),'-d','zend.exception_ignore_args=1',str(PRIVATE/'edition-contact-hosting.php'),operation,str(root),str(candidate)],env=env).decode())
-  need(result.get('success') is True,'PHP verification failed');return result
+  process=subprocess.run([str(PHP),'-d','zend.exception_ignore_args=1',str(PRIVATE/'edition-contact-hosting.php'),operation,str(root),str(candidate)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=env)
+  result=json.loads(process.stdout.decode())
+  details={key:result.get(key) for key in ['phase','errorType','errorFile','errorLine']}
+  need(process.returncode==0 and result.get('success') is True,'PHP verification failed: '+json.dumps(details));return result
  before=php('before',ROOT);rt=runtime(ROOT);runtime_hash=digest(rt)
  originals={}
  for name,entry in manifest['files'].items():
@@ -112,6 +114,10 @@ def main():
   for name in active:
    if name.startswith('cache_'):native.run(mysql+['--execute=TRUNCATE TABLE `'+prefix+name+'`'])
   for name in manifest['files']:atomic(copy_root/name,(candidate/name).read_bytes())
+  for name in ['files','temp','config-sync']:(recovery/name).mkdir(mode=0o700,exist_ok=True)
+  copied_profile=recovery/'runtime/profile.json';profile=json.loads(copied_profile.read_text())
+  need(profile.get('composerRoot')==str(ROOT),'Restored profile scope')
+  profile['composerRoot']=str(copy_root);copied_profile.write_text(json.dumps(profile))
   copy_rt=recovery/'runtime/runtime-settings.php'
   need(copy_rt.is_file() and digest(copy_rt)==runtime_hash,'Restored runtime bytes')
   settings.write_text(settings.read_text().replace(str(rt),str(copy_rt)))
