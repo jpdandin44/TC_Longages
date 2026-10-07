@@ -14,7 +14,7 @@ const responseHeaders = {
   'Content-Security-Policy': "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
 };
 
-export function createOfficialServer({ directory = new URL('../officiel/', import.meta.url) } = {}) {
+export function createOfficialServer({ directory = new URL('../officiel/', import.meta.url), calendarPreview = false } = {}) {
   const folder = path.resolve(directory instanceof URL ? fileURLToPath(directory) : directory);
   const server = http.createServer(async (req, res) => {
     const send = (status, body = '', extra = {}) => {
@@ -35,7 +35,8 @@ export function createOfficialServer({ directory = new URL('../officiel/', impor
       const info = await lstat(file);
       if (!info.isFile() || info.isSymbolicLink()) return send(404, 'Page introuvable.');
       const body = await readFile(file);
-      return send(200, body, { 'Content-Type': name === 'robots.txt' ? 'text/plain; charset=utf-8' : 'text/html; charset=utf-8' });
+      const calendarHeaders = calendarPreview && name === 'calendrier.html' ? { 'Content-Security-Policy': responseHeaders['Content-Security-Policy'] + '; frame-src https://calendar.google.com' } : {};
+      return send(200, body, { 'Content-Type': name === 'robots.txt' ? 'text/plain; charset=utf-8' : 'text/html; charset=utf-8', ...calendarHeaders });
     } catch {
       return send(503, 'Aperçu officiel absent ou indisponible. Régénérez les fichiers locaux.');
     }

@@ -6,6 +6,8 @@
     "node": ">=22.9.0"
   },
   "scripts": {
+    "agenda:build": "node scripts/build-officiel.mjs --calendar-preview",
+    "agenda": "npm run agenda:build && node scripts/agenda-local.mjs",
     "framework": "node scripts/framework-server.mjs",
     "framework:build": "node scripts/framework.mjs build",
     "framework:check": "node scripts/framework.mjs check && node --test tests/framework.test.mjs tests/framework-server.test.mjs",

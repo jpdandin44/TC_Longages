@@ -9,6 +9,7 @@ export const CANDIDATE_EXCLUSIONS = Object.freeze([
   'data/framework-candidate.json',
   'data/framework-revue-verification.json',
   'data/support-v1-verification.json',
+  'data/agenda-local-verification.json',
   'docs/suivi-chantier/suivi-chantier.json',
   'docs/suivi-chantier/tableau-de-bord.html',
   'docs/suivi-chantier/tableau-de-bord.md',

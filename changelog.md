@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,23 @@ tags:
 ---
 
 # Journal des évolutions
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## 2026-10-07 — Agenda partagé en aperçu local
+
+- Iframe Google sur Calendrier, vue en liste en français et fuseau Paris.
+- Largeur adaptative, titre accessible et lien d’ouverture indépendant du compte connecté.
+- Construction et serveur dédiés au port 4184 ; configuration officielle conservée.
+- Contrôles de ressource, restriction du cadre à Google et manifeste réservé à l’aperçu local.
+- [Guide](api/google-calendar.md) et [reçu](data/agenda-local-verification.json) du lot.
+- Préparation d’une PR dédiée depuis la branche de #15 pour isoler le diff,
+  candidat Git et projection dérivée du seul lot agenda dans le suivi de branche.
+
 
 ## 2026-10-06 — Simplification du formulaire de signalement
 

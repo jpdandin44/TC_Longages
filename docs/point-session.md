@@ -5,12 +5,40 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
 # Point de session — reprise au 5 octobre 2026
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](../Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — démarrage local du 7 octobre
+
+Demande directe : intégrer localement l’iframe Google fournie. Checkout dédié
+`.worktrees/agenda-local`, branche `feat/v1-agenda-local`, depuis `6696f39`.
+L’état de préproduction et les travaux documentaires récents ont été lus dans
+`support-v1` ; leurs décisions, données et sources ne sont pas remplacées.
+Le suivi canonique de ce cockpit demeure dans `support-v1`, avec ajout du seul lot
+`tcl-v1-agenda-local`. Le suivi de ce checkout conserve la photographie Git de
+départ des autres lots et reçoit seulement une projection dérivée du lot agenda.
+La PR du lot, son candidat et sa dernière observation figurent dans ce suivi
+et dans le reçu. Sa base `feat/v1-signalement-support` correspond à la PR #15
+encore ouverte ; après sa fusion, remettre la PR agenda sur `main` et vérifier
+de nouveau le candidat si le contenu change.
+
+`npm.cmd run agenda` ouvre l’aperçu sur
+[Calendrier local](http://127.0.0.1:4184/calendrier.html).
+Le [guide](../api/google-calendar.md) et le [reçu](../data/agenda-local-verification.json)
+portent le contenu et les résultats du lot. Aucune installation Drupal ni écriture
+hébergée n’est incluse. Prochaine action : revue locale, droits Google puis
+préparation du raccordement Drupal si demandé. Aucun accord de livraison n’est ajouté.
+
 
 ## Dernière demande du 6 octobre — formulaire à quatre éléments
 

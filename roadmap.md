@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,24 @@ tags:
 ---
 
 # Feuille de route
+
+La demande complémentaire du 7 octobre remplace la photo d’accueil par
+[Image_terrain_OK.png](Images_Photos/Image_terrain_OK.png), fournie dans le dossier de la photo originale.
+Le PNG de 1448 × 1086 pixels est intégré sans modification ; l’original JPEG
+reste conservé. Les contrôles d’empreinte des pages sont adaptés à cette source.
+
+
+## Agenda partagé — 7 octobre
+
+L’intégration de l’iframe est engagée localement dans un lot dédié. Le rendu
+et ses contrôles sont consignés dans le [reçu](data/agenda-local-verification.json).
+Prochaine action : revue de la PR dédiée et de la page locale par le responsable, puis qualification
+des droits Google et préparation d’un candidat Drupal si le raccordement hébergé
+est demandé. Les phases Préproduction et Mise en production restent à venir.
+Le [guide](api/google-calendar.md) conserve les limites ; les autres lots restent distincts.
+La PR agenda dépend de #15 ; sa remise sur `main` et le contrôle du candidat
+suivent la fusion de cette dépendance.
+
 
 ## Correctif V1 support — 6 octobre
 

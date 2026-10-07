@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,24 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-07 — Afficher l’agenda partagé par iframe en local
+
+**Contexte.** Le responsable fournit un agenda puis son code d’intégration et
+confirme le démarrage de l’intégration locale.
+
+**Décision.** Réutiliser la page Calendrier V1, avec une iframe Google en vue liste,
+Europe/Paris et un lien d’ouverture. Garder la création et l’édition dans Google.
+L’aperçu dédié est généré sous `.local/` depuis une configuration de ressource unique.
+
+**Raisons.** Éviter la double saisie des événements, permettre une lecture sur
+petit écran et conserver le périmètre local demandé.
+
+**Conséquences.** Dépendance au service Google et à ses droits de partage. La revue
+de partage reste en attente. Les sorties officielles et leurs paquets restent
+séparés de cet aperçu ; le raccordement hébergé fera l’objet de sa qualification.
+Voir [la référence d’intégration](api/google-calendar.md).
+
 
 ## 2026-10-06 — Textes natifs et mise à jour bornée de préproduction
 

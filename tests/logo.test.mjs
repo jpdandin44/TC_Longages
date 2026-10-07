@@ -24,7 +24,7 @@ test('Les marques de pied de page et les avatars utilisent le même logo, sans r
   const home = await inline(await readFile(new URL('src/index.html', root), 'utf8'));
   assert.equal((home.match(/class="club-logo-image"/g) || []).length, 2);
   assert.equal((home.match(/src="data:image\/webp;base64,/g) || []).length, 1);
-  assert.match(home, /class="hero-photo"><img src="data:image\/jpeg;base64,/);
+  assert.match(home, /class="hero-photo"><img src="data:image\/png;base64,/);
   const sample = await inline('<html><head></head><body><span class="avatar" aria-hidden="true">TCL</span><span class="club-logo club-logo-avatar" aria-hidden="true"></span></body></html>');
   assert.equal((sample.match(/class="club-logo club-logo-avatar"/g) || []).length, 2);
   assert.equal((sample.match(/class="club-logo-image"/g) || []).length, 2);

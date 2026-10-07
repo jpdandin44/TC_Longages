@@ -5,7 +5,7 @@ title: Intégration du cadrage officiel V1 et suivi des gates
 status: active
 version: git
 created: 2026-09-24
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags:
   - officiel
@@ -15,6 +15,17 @@ tags:
 ---
 
 # Intégration du site officiel V1
+
+## Agenda fourni le 7 octobre — aperçu local
+
+Le responsable a désormais fourni la ressource Google et demandé son intégration
+locale par iframe. Le [guide courant](../api/google-calendar.md) et la
+[configuration locale](../config/agenda-local.json) en conservent la référence.
+`config/officiel.json` reste en attente de qualification : les descriptions datées
+ci-dessous concernant une URL absente décrivent le cadrage antérieur et la
+configuration officielle, pas l’absence de cette nouvelle ressource locale.
+Les droits de partage et le raccordement Drupal restent à vérifier séparément.
+
 
 ## État du support au 6 octobre
 

@@ -14,8 +14,8 @@ test('La V1 conserve les visuels exacts et les tarifs actuels tout en appliquant
   assert.equal(config.theme.primary,'#a6192e');
   assert.equal((html.match(/class="quick-card"/g)||[]).length,6);
   for(const item of config.quickAccess) assert.ok(html.includes(`href="${item.href}"`));
-  const img=html.match(/class="hero-photo"><img src="data:image\/jpeg;base64,([^"]+)"/);
-  assert.equal(sha(Buffer.from(img[1],'base64')),sha(await readFile(new URL('Images_Photos/Image_terrain.jpg',root))));
+  const img=html.match(/class="hero-photo"><img src="data:image\/png;base64,([^"]+)"/);
+  assert.equal(sha(Buffer.from(img[1],'base64')),sha(await readFile(new URL('Images_Photos/Image_terrain_OK.png',root))));
   const logo=html.match(/class="club-logo-image" src="data:image\/jpeg;base64,([^"]+)"/);
   assert.equal(sha(Buffer.from(logo[1],'base64')),sha(await readFile(new URL('Images_Photos/Logo.jpeg',root))));
   assert.equal((html.match(/scope="row"/g)||[]).length,9);

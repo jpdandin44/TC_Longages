@@ -5,7 +5,7 @@ const card = (title, text, action = '') => `<article class="action-card"><h2>${t
 const intro = (kicker, title, description) => `<header class="action-heading"><p class="eyebrow">${kicker}</p><h1>${title}</h1><p>${description}</p></header>`;
 const empty = (title, text, action = '') => `<section class="empty-state"><h2>${title}</h2><p>${text}</p>${action}</section>`;
 
-export function actionPages(config) {
+export function actionPages(config, { calendarPreview = null } = {}) {
   const calendar = config.google.calendarUrl;
   const teamCards = config.teams.map(team => card(e(team.name), `Catégorie : ${e(team.category)}${team.tags.length ? '<br>' + team.tags.map(e).join(' · ') : ''}`, link('./disponibilites.html#' + team.id, 'Disponibilités'))).join('');
   const formCards = config.teams.map(team => {
@@ -20,7 +20,7 @@ export function actionPages(config) {
     },
     'calendrier.html': {
       title:'Calendrier', body:intro('LES RENDEZ-VOUS','À vos agendas.','Les rencontres et les rendez-vous du club réunis dans un même calendrier.') +
-      (calendar ? empty('Le calendrier du club','Consultez les événements, les lieux et les horaires sur Google Calendar. Le service s’ouvre dans un nouvel onglet.',link(calendar,'Ouvrir le calendrier',true)) : empty('Le calendrier arrive bientôt','Le calendrier du club n’a pas encore été relié à cette version. Pour connaître un prochain rendez-vous, contactez le club.',link('./contact.html','Se renseigner'))) +
+      (calendarPreview ? `<section class="calendar-section" aria-labelledby="calendar-title"><h2 id="calendar-title">Les événements du club</h2><p>Retrouvez les dates, les horaires et les lieux des prochains rendez-vous.</p><iframe class="club-calendar" src="${e(calendarPreview.embedUrl)}" title="Agenda des événements du Tennis Club de Longages" loading="lazy" referrerpolicy="no-referrer"></iframe><p class="calendar-help">Vous pouvez aussi consulter cet agenda dans une nouvelle fenêtre.</p>${link(calendarPreview.openUrl,'Ouvrir dans Google Agenda',true)}</section>` : calendar ? empty('Le calendrier du club','Consultez les événements, les lieux et les horaires sur Google Calendar. Le service s’ouvre dans un nouvel onglet.',link(calendar,'Ouvrir le calendrier',true)) : empty('Le calendrier arrive bientôt','Le calendrier du club n’a pas encore été relié à cette version. Pour connaître un prochain rendez-vous, contactez le club.',link('./contact.html','Se renseigner'))) +
       `<div class="action-links">${link('./competitions.html','Retour aux compétitions')}${link('./disponibilites.html','Mes disponibilités')}</div>`
     },
     'disponibilites.html': {

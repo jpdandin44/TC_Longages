@@ -4,7 +4,7 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "owner": "jpdandin",
   "scope": "V1 publique des sept pages Drupal ; comptes Bureau/Capitaine et droits par equipe reportes en V2 par demande du 5 octobre. Preproduction installee, sauvegarde/restauration et HTTPS officiel a qualifier ; aucune bascule ni ouverture executee.",
   "currentPhase": 2,
@@ -3948,6 +3948,101 @@
         "humanValidationCreated": false,
         "remoteActionExecuted": false
       }
+    },
+    {
+      "protocol": "developpement-github-cockpit",
+      "version": "git",
+      "iterationId": "tcl-v1-agenda-local",
+      "project": "TC_Longages",
+      "owner": "jpdandin",
+      "kind": "site",
+      "stage": "developpement_local",
+      "status": "awaiting_review",
+      "objective": "Afficher localement l’agenda partagé Google par iframe et remplacer la photo d’accueil par Image_terrain_OK.png.",
+      "candidate": {
+        "sourceSha": null,
+        "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
+        "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+        "sourceBranch": "feat/v1-agenda-local",
+        "worktree": ".worktrees/agenda-local",
+        "sourceClean": false,
+        "artifactKind": "Local calendar preview, no delivery package",
+        "workspaceDigest": "e60cf8d12b17f59ed67e71db27f0ca2227e20ed1e4badb67e7f6bd47305e071d",
+        "sourceFilesRef": "data/agenda-local-verification.json#candidate.sourceFiles"
+      },
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ],
+      "authorization": {
+        "scope": "local development and pull request preparation",
+        "source": "Demande directe du 7 octobre : integration locale puis PR attendue ; preparation de PR prevue par le protocole commun.",
+        "recordedAt": "2026-10-07T09:43:15.021697+00:00"
+      },
+      "localTarget": "http://127.0.0.1:4184/calendrier.html",
+      "github": {
+        "repository": "https://github.com/jpdandin44/TC_Longages",
+        "prUrl": null,
+        "status": "preparing_draft",
+        "humanAcceptanceVerified": false,
+        "observedAt": "2026-10-07T10:04:08.084839+00:00",
+        "baseBranch": "feat/v1-signalement-support",
+        "headBranch": "feat/v1-agenda-local",
+        "dependencyPr": "https://github.com/jpdandin44/TC_Longages/pull/15",
+        "dependencyState": "OPEN"
+      },
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": null,
+          "workspaceDigest": "e60cf8d12b17f59ed67e71db27f0ca2227e20ed1e4badb67e7f6bd47305e071d",
+          "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+          "target": "http://127.0.0.1:4184/calendrier.html",
+          "evidence": "data/agenda-local-verification.json#checks",
+          "observedAt": "2026-10-07T09:54:31.162491+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": null,
+          "workspaceDigest": "e60cf8d12b17f59ed67e71db27f0ca2227e20ed1e4badb67e7f6bd47305e071d",
+          "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+          "target": "http://127.0.0.1:4184/calendrier.html",
+          "evidence": "data/agenda-local-verification.json#checks",
+          "observedAt": "2026-10-07T09:54:31.162491+00:00"
+        }
+      ],
+      "approvals": [],
+      "backups": [],
+      "delivery": {
+        "status": "not_delivered"
+      },
+      "blockers": [
+        "Partage Google détaillé et droits du public visé à qualifier avant raccordement hébergé.",
+        "PR dependante de #15 ; revue humaine et CI du nouveau candidat a observer."
+      ],
+      "nextAction": "Examiner la PR agenda et la page locale ; apres fusion de #15, remettre la base sur main et requalifier si le contenu change ; qualifier les droits Google avant raccordement Drupal.",
+      "guide": "api/google-calendar.md",
+      "evidence": "data/agenda-local-verification.json",
+      "projection": {
+        "canonicalSource": ".worktrees/support-v1/docs/suivi-chantier/suivi-chantier.json",
+        "scope": "Derived agenda iteration only; other iterations retain their base Git snapshot",
+        "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
+        "generatedAt": "2026-10-07T10:04:08.084839+00:00"
+      },
+      "nextIteration": [],
+      "changes": [
+        "Iframe Google sur Calendrier avec vue en liste, fuseau Paris et lien d’ouverture.",
+        "Photo d’accueil remplacée par le PNG fourni, original JPEG conservé."
+      ],
+      "reservations": [
+        "Google sharing settings and intended public access are not fully qualified.",
+        "No authorized event was created to check an update; agenda loads with no listed event in the inspected window.",
+        "Rendering and editorial reconciliation inside Drupal remain to qualify before hosted installation."
+      ]
     }
   ]
 }

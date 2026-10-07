@@ -1,0 +1,340 @@
+{
+  "project": "TC_Longages",
+  "iterationId": "tcl-v1-agenda-local",
+  "status": "local_verified",
+  "observedAt": "2026-10-07T09:54:31.162491+00:00",
+  "scope": "Local calendar iframe preview and supplied home photograph; dedicated dependent draft PR. No hosted installation or Google write.",
+  "candidate": {
+    "baseSha": "6696f39b4a1c2d3559976b630319e81ad4d0fdd4",
+    "sourceSha": null,
+    "sourceClean": false,
+    "branch": "feat/v1-agenda-local",
+    "workspaceDigest": "0f428066a20a1fbb294bd11cac51be866d725a81b56b20a360f923dc56545f0f",
+    "sourceFiles": {
+      "config/agenda-local.json": "d9df41b54193896809124509673462b12a7d64fbb4e7477e4c23c83047b55371",
+      "package.json": "1bb7250631767bbb1bbf3dc3337606e388c580b8f53fca146051ac762422aa83",
+      "scripts/calendar-preview.mjs": "b623eaecfa69bd8bc2b1be1b60744879405a1a353ad8a7c8bf896a2f7802f3c6",
+      "scripts/agenda-local.mjs": "264edde1d4de2007fc56fc16b072101046ef2d4e68803825e459b951a81f7f12",
+      "scripts/build-officiel.mjs": "70292c3d6b1ff65ad54f4668663155d8673af418883afd9e9578b91c8135d0f5",
+      "scripts/inline-html.mjs": "6afed9fcf4755699d1b17d5980fae4d9d6403e71adc54b113b260f2d49721430",
+      "scripts/official-server.mjs": "2a8ed65916ffa0a0b7c4a78e83f7dccd74fb2bd8d166913fd2de4ab45eb9a396",
+      "src/index.html": "4551f486bfdc98a05cb5098ec512e311f52950c02cba313972019f954d0ad244",
+      "src/officiel-pages.mjs": "9a2cc0d68ede6f9547fda400370a958ad13f478724fa6a7d79097b5bcdc4eca5",
+      "src/officiel.css": "703c7457fdadffd7ab7ed5aca9d4a651fc797de6aa8a30cd72e5a36b57b6d5e0",
+      "tests/calendar-preview.test.mjs": "2958fcaa4f8c81d70b76264599360f56a89895e0316296a205d9e519aed7954b",
+      "tests/build.test.mjs": "8b57815ac1489e22ae01dd352e5aecc4d9500518dcea8207f0bef7c93f6dd366",
+      "tests/officiel.test.mjs": "acbff8a64a58a5860c9febf57ee7820d5a5afda7f41fbbc0808875ab680cbe4e",
+      "tests/logo.test.mjs": "f5b79dc4136cf87e925ee1ffd80d739cbf9a9f94c89902ff6655f09bbf6fd36f",
+      "Images_Photos/Image_terrain_OK.png": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
+      "scripts/framework-candidate.mjs": "e342ce87f537ec3aaae716872a0ef0e2c1ba2e2ada41c48b66171abba6c477a1"
+    },
+    "artifactSha256": "f0ccd6a8f25c7e43f7cd52769e51e42d6d7cc70c051f4bbfb3e7f062a112c5d9",
+    "artifactKind": "Ten-file local preview manifest and generated pages",
+    "files": {
+      "index.html": {
+        "bytes": 3084628,
+        "sha256": "a755395ae4b8ca46fd2f7b0257c8257ad1122b4058a111e687e629e0c54ab764"
+      },
+      "competitions.html": {
+        "bytes": 155732,
+        "sha256": "dbd0216c2ea6ce203d30ad96d1fab1dc4f453d8cb60fc215e965b055fe2f8446"
+      },
+      "calendrier.html": {
+        "bytes": 155771,
+        "sha256": "831bdb7b60e292c47f1f06b44482d579b0ee0c3438c197bd22faf5a0bd39a5f6"
+      },
+      "disponibilites.html": {
+        "bytes": 155623,
+        "sha256": "c8df6d545137b4dd472207c69e6572205d2c5376d42f74e304286273123c2908"
+      },
+      "equipes.html": {
+        "bytes": 155188,
+        "sha256": "33eb529397333b3247969a104ace1990c5b87756fd58b619a8eec28b58c29ebb"
+      },
+      "espace.html": {
+        "bytes": 155529,
+        "sha256": "2a4c84a48a6dc3452d8693b66e4c3abdb661edf2bdb4eaf9756a299480ca85b3"
+      },
+      "contact.html": {
+        "bytes": 156784,
+        "sha256": "9d86482d888428867db78a32aaf4a806ad407ebbabe5cf9c18ba7de1064dd0a7"
+      },
+      "robots.txt": {
+        "bytes": 26,
+        "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+      },
+      "maintenance.active": {
+        "bytes": 66,
+        "sha256": "1a542fc65b9724b783b52104c6d342c41fa936a42694ee081820f05b6789b968"
+      },
+      ".htaccess": {
+        "bytes": 567,
+        "sha256": "c2351be0f9695480eb796488e05449a1cb972a86b499f38bf1e8231390a23c30"
+      }
+    }
+  },
+  "localTarget": "http://127.0.0.1:4184/calendrier.html",
+  "checks": {
+    "automated": {
+      "command": "npm.cmd run check",
+      "status": "passed",
+      "tests": 153,
+      "passed": 153,
+      "failed": 0,
+      "skipped": 0,
+      "logSha256": "42c52ad38f9b22190589a60c30e8df92e6d276fb414c54bebac815fbd2509a45",
+      "log": ".local/agenda-pr-check.log"
+    },
+    "browser": {
+      "status": "passed",
+      "calendarTitle": "Les évènements du club",
+      "calendarView": "Planning",
+      "timeZone": "Europe/Paris",
+      "eventMutationExecuted": false,
+      "desktop": {
+        "viewportWidth": 1440,
+        "pageWidth": 1425,
+        "iframeWidth": 1218
+      },
+      "mobile": {
+        "viewportWidth": 390,
+        "pageWidth": 375,
+        "iframeWidth": 313,
+        "iframeHeight": 560
+      },
+      "homePhoto": {
+        "loaded": true,
+        "mime": "image/png",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086,
+        "desktopViewportWidth": 1440,
+        "desktopPageWidth": 1425,
+        "mobileViewportWidth": 390,
+        "mobilePageWidth": 375,
+        "mobileImageWidth": 322
+      },
+      "sourceBinding": "Initial visual checks; subsequent source change preserves original HTML line endings and adds candidate/PR tracking without changing rendered content."
+    },
+    "canonicalTracker": {
+      "historicalDecisionsPreserved": true,
+      "frameworkBuild": "passed",
+      "frameworkCheck": "passed"
+    },
+    "documentation": {
+      "status": "passed",
+      "documents": [
+        "AGENTS.md",
+        "README.md",
+        "api/google-calendar.md",
+        "architecture.md",
+        "changelog.md",
+        "decisions.md",
+        "docs/candidat-revue.md",
+        "docs/integration-officiel.md",
+        "docs/point-session.md",
+        "requirements.md",
+        "roadmap.md"
+      ],
+      "newOrChangedLocalLinksChecked": 31,
+      "scope": "Metadata of 11 changed structural documents and 31 added/changed local links; required documentation base and preview file hashes verified.",
+      "links": [
+        {
+          "document": "README.md",
+          "target": "Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "README.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "README.md",
+          "target": "data/agenda-local-verification.json"
+        },
+        {
+          "document": "README.md",
+          "target": "docs/suivi-chantier/suivi-chantier.json"
+        },
+        {
+          "document": "README.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "README.md",
+          "target": "data/tarifs-inscription.json"
+        },
+        {
+          "document": "README.md",
+          "target": "docs/processus-inscriptions.md"
+        },
+        {
+          "document": "README.md",
+          "target": "Images_Photos/Logo.jpeg"
+        },
+        {
+          "document": "README.md",
+          "target": "Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "api/google-calendar.md",
+          "target": "../config/agenda-local.json"
+        },
+        {
+          "document": "api/google-calendar.md",
+          "target": "../scripts/calendar-preview.mjs"
+        },
+        {
+          "document": "api/google-calendar.md",
+          "target": "../src/officiel-pages.mjs"
+        },
+        {
+          "document": "api/google-calendar.md",
+          "target": "../docs/suivi-chantier/suivi-chantier.json"
+        },
+        {
+          "document": "api/google-calendar.md",
+          "target": "../data/agenda-local-verification.json"
+        },
+        {
+          "document": "architecture.md",
+          "target": "scripts/calendar-preview.mjs"
+        },
+        {
+          "document": "architecture.md",
+          "target": "config/agenda-local.json"
+        },
+        {
+          "document": "architecture.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "changelog.md",
+          "target": "Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "changelog.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "changelog.md",
+          "target": "data/agenda-local-verification.json"
+        },
+        {
+          "document": "decisions.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "docs/integration-officiel.md",
+          "target": "../api/google-calendar.md"
+        },
+        {
+          "document": "docs/integration-officiel.md",
+          "target": "../config/agenda-local.json"
+        },
+        {
+          "document": "docs/point-session.md",
+          "target": "../Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "docs/point-session.md",
+          "target": "../api/google-calendar.md"
+        },
+        {
+          "document": "docs/point-session.md",
+          "target": "../data/agenda-local-verification.json"
+        },
+        {
+          "document": "requirements.md",
+          "target": "Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "requirements.md",
+          "target": "api/google-calendar.md"
+        },
+        {
+          "document": "roadmap.md",
+          "target": "Images_Photos/Image_terrain_OK.png"
+        },
+        {
+          "document": "roadmap.md",
+          "target": "data/agenda-local-verification.json"
+        },
+        {
+          "document": "roadmap.md",
+          "target": "api/google-calendar.md"
+        }
+      ],
+      "globalPolicyApplied": true,
+      "remainingErrors": [],
+      "sha256": {
+        "AGENTS.md": "84f629ed601458279f8634df0941297bd942516aaa9a02693ccaad669e8bd482",
+        "README.md": "6b50aad64f18ce81d844f8f6282e1538754a2f27f98e13a18b1459357253f683",
+        "api/google-calendar.md": "edb04bf53b28aad2da1fde000d6f2953772ee504a8c04cb53fb0d3758388d248",
+        "architecture.md": "a2eb74a649b39b55b70a36454fab62a7267505b52933b4d335a080bb7ee33f4f",
+        "changelog.md": "ee4853c8fa352456c106af377c8b4f6ee66b87ec2813e21583784f78e69f48a7",
+        "decisions.md": "a37ab75053180e5cbb12d8a864dc0f4d3054dca94404580bf2ed1b66d8f2271e",
+        "docs/candidat-revue.md": "7e241ac32eb4bf5be4887b223869a08f272a3c7d1ae77f6fc39cc20f7cc05255",
+        "docs/integration-officiel.md": "6fc002bbc8cf23fdb9c6c268c597b6f2c52737ff1209c5a9dc1980bf2cf460cf",
+        "docs/point-session.md": "9fe928d2cb2ae4edb23321235ff72522f5acff982a51c1f0d7ff0917c2adfd64",
+        "requirements.md": "b90e6ffd2020ae7a959ebda21c9f8504cd136a30860ecc41bc5777f6d0ad1265",
+        "roadmap.md": "b8ba800006a00a998e778aa01b74c9262ade0b715aa33916870739ee2ba0afbc"
+      },
+      "verifiedAt": "2026-10-07T10:05:38.933371+00:00"
+    }
+  },
+  "photo": {
+    "source": "Images_Photos/Image_terrain_OK.png",
+    "sha256": "51239f80aa0bc3ca2428888fd71196ca92a22faee1bb568d0753c6b653a4eed7",
+    "suppliedBytesPreserved": true,
+    "bytes": 2116497,
+    "width": 1448,
+    "height": 1086,
+    "previousImagePreserved": "Images_Photos/Image_terrain.jpg"
+  },
+  "captures": {
+    "calendrier-1440.jpg": {
+      "path": "docs/recette/agenda/captures/calendrier-1440.jpg",
+      "sha256": "af7134df1d4e8501dfb9599535dbab59723f5da4031de2aef297f801251a3157"
+    },
+    "calendrier-390.jpg": {
+      "path": "docs/recette/agenda/captures/calendrier-390.jpg",
+      "sha256": "fb679305644ec1f843a5a8c16ff0b6373fe12673c4f75baf4f3a8cc0fab5c080"
+    },
+    "accueil-1440.jpg": {
+      "path": "docs/recette/agenda/captures/accueil-1440.jpg",
+      "sha256": "78bc0649b043eee8af2866c90855961bc2b607dbf85046deb672d4d621ba8693"
+    },
+    "accueil-390.jpg": {
+      "path": "docs/recette/agenda/captures/accueil-390.jpg",
+      "sha256": "f97fbe1f75ffca23a68f849bd0eae1201b4bba096cec18b8596dbad8085c8ac6"
+    }
+  },
+  "environment": {
+    "nodeVersion": "v24.18.0",
+    "pythonDependencies": [
+      "PyYAML",
+      "jsonschema"
+    ],
+    "isolation": ".venv/",
+    "initialFailures": "Three tests lacked PyYAML; schema generation lacked jsonschema. Dependencies installed in the local virtual environment, all checks then passed."
+  },
+  "reservations": [
+    "Google sharing settings and intended public access are not fully qualified.",
+    "No authorized event was created to check an update; agenda loads with no listed event in the inspected window.",
+    "Rendering and editorial reconciliation inside Drupal remain to qualify before hosted installation.",
+    "PR targets the unmerged support branch (#15); re-target main after its merge and re-verify if source changes."
+  ],
+  "hostedDeploymentExecuted": false,
+  "googleSettingsChanged": false,
+  "humanPhaseApprovalGenerated": false,
+  "github": {
+    "repository": "https://github.com/jpdandin44/TC_Longages",
+    "prUrl": null,
+    "status": "preparing_draft",
+    "humanAcceptanceVerified": false,
+    "observedAt": "2026-10-07T10:04:08.084839+00:00",
+    "baseBranch": "feat/v1-signalement-support",
+    "headBranch": "feat/v1-agenda-local",
+    "dependencyPr": "https://github.com/jpdandin44/TC_Longages/pull/15",
+    "dependencyState": "OPEN"
+  }
+}

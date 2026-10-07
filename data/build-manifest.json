@@ -2,16 +2,16 @@
   "mode": "local-only",
   "outputs": {
     "dist/index.html": {
-      "bytes": 553936,
-      "sha256": "6a48e77ca37fd9dbc6f885d31660d4a7de77db320df015f398debcb5246c97b3"
+      "bytes": 3070551,
+      "sha256": "4a411770ab5d4ad64e734dd612de9653a9a94fe3992c7b4803a7a8bd37b0f46c"
     },
     "dist/communication.html": {
       "bytes": 249162,
       "sha256": "3b735883c994c0820af86388f9e712ce488f833a1c754c886d319cda2251727b"
     },
     "release/index.html": {
-      "bytes": 551926,
-      "sha256": "4359bf0b0c5676e607b7f9a47a7eb09766bda21f87f9999383fe887670ef3255"
+      "bytes": 3068541,
+      "sha256": "15b2e5a6b59642a867238d70912499c8b4a2095ab350587f67152ebe4e9081b2"
     },
     "dist/bureau.html": {
       "bytes": 70168,

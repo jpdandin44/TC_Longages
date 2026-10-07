@@ -4,32 +4,32 @@
   "domainStatus": "obtained-user-confirmed",
   "files": {
     "index.html": {
-      "bytes": 567298,
-      "sha256": "da6217c7141cca04b4252fb2c866ec9aa21981252041220d7f1be47ef83faf87"
+      "bytes": 3084628,
+      "sha256": "a755395ae4b8ca46fd2f7b0257c8257ad1122b4058a111e687e629e0c54ab764"
     },
     "competitions.html": {
-      "bytes": 155017,
-      "sha256": "f2da9bb371948bb801ec5e4251c2ce807008d82ccc5a300c76f5215a9c2ae2e5"
+      "bytes": 155732,
+      "sha256": "dbd0216c2ea6ce203d30ad96d1fab1dc4f453d8cb60fc215e965b055fe2f8446"
     },
     "calendrier.html": {
-      "bytes": 154424,
-      "sha256": "ade4edc3c057295fd5bbd6c51a155d1cfeee001680c3707b3eace67507b1066a"
+      "bytes": 155139,
+      "sha256": "beac805014b26dbff3f7d84294bff55ee5d44baded4bf755bd5371c40b6afbab"
     },
     "disponibilites.html": {
-      "bytes": 154908,
-      "sha256": "6e8b8fd6c42d95a2baad08f09f7eca9191001fe7144387e1d4d5d8d272dfa2fe"
+      "bytes": 155623,
+      "sha256": "c8df6d545137b4dd472207c69e6572205d2c5376d42f74e304286273123c2908"
     },
     "equipes.html": {
-      "bytes": 154473,
-      "sha256": "df1b2262bd34e00147688078868bcb4c5a740b9013cfa383d7ad80b8cd0b357d"
+      "bytes": 155188,
+      "sha256": "33eb529397333b3247969a104ace1990c5b87756fd58b619a8eec28b58c29ebb"
     },
     "espace.html": {
-      "bytes": 154814,
-      "sha256": "dfc48677100a12ae65e2bac4ada1e7aa8aef13d46a8242df656443c1dad0bf6c"
+      "bytes": 155529,
+      "sha256": "2a4c84a48a6dc3452d8693b66e4c3abdb661edf2bdb4eaf9756a299480ca85b3"
     },
     "contact.html": {
-      "bytes": 156069,
-      "sha256": "90429eb0e65733eb62010e98cf2bd85d21e792e08c8d26b4c71cd9769ec66797"
+      "bytes": 156784,
+      "sha256": "9d86482d888428867db78a32aaf4a806ad407ebbabe5cf9c18ba7de1064dd0a7"
     },
     "robots.txt": {
       "bytes": 26,
