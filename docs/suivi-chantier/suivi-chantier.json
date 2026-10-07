@@ -6158,8 +6158,8 @@
       "project": "TC_Longages",
       "owner": "jpdandin",
       "kind": "site",
-      "stage": "local",
-      "status": "local_passed_preproduction_preparation_pending",
+      "stage": "preproduction",
+      "status": "installed_awaiting_user_recipe",
       "objective": "Rendre l’édition native visible et activer le contact vers tclongages@gmail.com en préproduction protégée.",
       "candidate": {
         "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
@@ -6171,11 +6171,11 @@
       "targets": {
         "preproduction": {
           "id": "https://preprod.tclongages.fr/",
-          "ready": false,
+          "ready": true,
           "isolated": true,
           "empty": false,
-          "evidence": "data/edition-contact-verification.json#hostedReadOnlyObservation",
-          "observedAt": "2026-10-07T17:17:44.737071+00:00"
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.stageReceipt",
+          "observedAt": "2026-10-07T17:50:26.548123+00:00"
         },
         "production": {
           "id": null,
@@ -6193,9 +6193,66 @@
         "evidence": null,
         "observedAt": null
       },
-      "checks": [],
-      "approvals": [],
-      "backups": [],
+      "checks": [
+        {
+          "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+          "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+          "kind": "local",
+          "status": "passed",
+          "evidence": "data/edition-contact-verification.json",
+          "observedAt": "2026-10-07T17:54:15.968232+00:00"
+        },
+        {
+          "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+          "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+          "kind": "ci",
+          "status": "passed",
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.technicalCi",
+          "observedAt": "2026-10-07T17:54:15.968232+00:00"
+        },
+        {
+          "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+          "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+          "kind": "documentation",
+          "status": "passed",
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.documentation",
+          "observedAt": "2026-10-07T17:54:15.968232+00:00"
+        },
+        {
+          "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+          "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+          "kind": "preproduction",
+          "status": "passed",
+          "target": "https://preprod.tclongages.fr/",
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.applyReceipt",
+          "observedAt": "2026-10-07T17:53:11.139708+00:00"
+        }
+      ],
+      "approvals": [
+        {
+          "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+          "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+          "scope": "preproduction",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "approved",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "evidence": "Current direct user request: repair missing Drupal editing controls and activate club contact to tclongages@gmail.com on the existing preproduction. This execution approval does not approve merge, production or public opening.",
+          "observedAt": "2026-10-07T17:54:15.968232+00:00"
+        }
+      ],
+      "backups": [
+        {
+          "id": "20261007T174948Z",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "verified",
+          "restoreStatus": "passed",
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.stageReceipt",
+          "observedAt": "2026-10-07T17:50:26.548123+00:00",
+          "sqlSha256": "7ab49de90f0da225577ecbaf2283ed90f6f0b10d9c3d4056af8b0bbb9411ead3",
+          "filesSha256": "aee34fef40d6f2ca7dddb44db986fb40eacff0085b190eb8f1c715571fd5a60e"
+        }
+      ],
       "rollback": {
         "status": "not_tested",
         "target": null,
@@ -6211,10 +6268,8 @@
         "evidence": null,
         "observedAt": null
       },
-      "blockers": [
-        "Exact committed candidate, CI and fresh restoration remain to qualify."
-      ],
-      "nextAction": "Prepare exact PR/candidate, fresh restoration rehearsal, qualify and install authorized private preproduction correction.",
+      "blockers": [],
+      "nextAction": "User checks own Drupal account and Gmail reception; review and merge remain human decisions.",
       "nextIteration": [],
       "budget": {
         "limit": null,
@@ -6227,7 +6282,20 @@
         "Développement local",
         "Préproduction",
         "Mise en production"
-      ]
+      ],
+      "preproductionDelivery": {
+        "status": "installed_verified",
+        "sourceSha": "bd129d9c91eb32fe51246ceb0f52746c2fb929f0",
+        "artifactSha256": "f2ad93fe607af9fca1fd6a02b531878c25b753d25acb2485265ca58503c2f335",
+        "target": "https://preprod.tclongages.fr/",
+        "evidence": "data/framework-revue-verification.json#editionContactPreproduction.applyReceipt",
+        "observedAt": "2026-10-07T17:53:11.139708+00:00",
+        "maintenancePreserved": true,
+        "editorialValuesPreserved": true,
+        "contactRecipient": "tclongages@gmail.com",
+        "productionWritten": false,
+        "messagesSentByAgent": 0
+      }
     }
   ],
   "activeIterationId": "tcl-v2-bureau-calendrier-local",
