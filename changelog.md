@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,30 @@ tags:
 ---
 
 # Journal des évolutions
+
+
+## 2026-10-08 — Choix du moyen de contact
+
+- Formulaire natif conservé en premier, avec explication du moyen de réponse.
+- Liens Gmail et messagerie habituelle ajoutés au contact Drupal.
+- Actions de contact de l'accueil et des autres pages raccordées à ce choix.
+- Liens externes limités au destinataire public ; aucun texte du formulaire
+  transféré et aucun compte Google connecté par le site.
+- Ajustements locaux et PR #18 ; le reçu `contactMailChoices` du
+  [suivi technique](data/framework-revue-verification.json) distingue ce candidat
+  de la version précédemment installée en préproduction.
+
+## 2026-10-07 — Commandes d’édition et contact du club
+
+- Commande **Modifier cette page** reliée aux sept contenus Drupal et à leurs
+  droits existants ; visiteurs et comptes en lecture sans commande d'édition.
+- Contact natif vers `tclongages@gmail.com`, destinataire fixe, protections et
+  refus explicites ; signalement conservé séparément.
+- 76 contrôles HTTP du contact/édition réussis en capture, enregistrement
+  éditorial natif vérifié et valeurs initiales rétablies en local.
+- [Workflow](workflows/edition-contact-preproduction.md) et
+  [reçu](data/edition-contact-verification.json) créés ; livraison hébergée
+  et réception Gmail encore à qualifier.
 
 ## 2026-10-07 — Vue Mois et rapprochement de la PR #17
 

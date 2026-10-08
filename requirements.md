@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,29 @@ tags:
 ---
 
 # Exigences
+
+
+## Choix de contact demandé — 8 octobre
+
+- Conserver le formulaire du site comme moyen principal.
+- Proposer Gmail dans un nouvel onglet et la messagerie habituelle de l'appareil.
+- Renvoyer toutes les actions de contact des sept pages Drupal vers ce choix.
+- Préremplir seulement le destinataire du lien Gmail ; compte et envoi restent
+  à l'utilisateur. Ne pas transférer le texte saisi dans le formulaire.
+- Préserver les contenus édités, les droits, le calendrier, la photo et le signalement.
+
+## Correction demandée — édition et contact, 7 octobre
+
+- Montrer **Modifier cette page** sur les sept pages lorsque la session Drupal
+  possède le droit natif de modification ; aucun nouveau compte ou droit.
+- Ouvrir le formulaire éditorial et revenir sur la page après sauvegarde.
+- Envoyer le formulaire de contact uniquement à `tclongages@gmail.com`, avec
+  validation côté serveur, information de transmission, antispam et gestion
+  des erreurs sans perte de saisie ni double envoi du même POST.
+- Préserver les textes, révisions, photo, calendrier Mois et signalements.
+- Réserver l'activation demandée à la préproduction protégée ; sauvegarde et
+  restauration testées avant remplacement. Réception Gmail à constater
+  séparément du succès du transport.
 
 ## Demande complémentaire du 7 octobre — recette du site
 

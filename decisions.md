@@ -15,6 +15,22 @@ tags:
 
 # Décisions
 
+
+## 2026-10-07 — Édition visible et contact natif
+
+Contexte : les pages publiques rendent un HTML autonome sans toolbar Drupal,
+malgré des contenus natifs éditables ; le contact est un aperçu sans transmission.
+Décision : ajouter des liens d'édition soumis aux droits natifs et intégrer un
+formulaire Drupal non Ajax dans la présentation existante. Le contact réutilise
+le transport PHP du domaine qualifié, avec destinataire fixe Gmail et clé de
+configuration propre.
+Raisons : conserver graphisme, contenus, révisions et signalements ; éviter
+l'élargissement des permissions et une dépendance à l'API Gmail.
+Conséquences : activation privée distincte, recette locale en capture, validation
+de la réception Gmail séparée du résultat du transport. Aucun stockage métier
+supplémentaire des messages de contact ; métadonnées de session et antispam
+décrites dans le [contrat](api/contact-club.md).
+
 ## 2026-10-07 — Réutiliser #17 pour la recette en vue Mois
 
 **Contexte.** Le responsable demande le calendrier en Mois puis le passage

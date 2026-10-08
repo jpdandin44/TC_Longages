@@ -5,14 +5,52 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 7 octobre 2026
+# Point de session — reprise au 8 octobre 2026
 
-## Reprise courante — conflits de #17 et calendrier Mois
+## Reprise courante — Gmail, messagerie habituelle et formulaire
+
+Le responsable accepte les trois moyens de contact et demande de raccorder
+tous les boutons des différentes pages. L'ajustement est réalisé sur la branche
+de la PR #18, encore ouverte. Le formulaire reste prioritaire ; les liens Gmail
+et messagerie habituelle sont insérés après le rendu des textes édités.
+Toutes les actions de contact des sept pages Drupal rejoignent `/contact.html`.
+
+Le bloc `contactMailChoices` du [reçu](../data/framework-revue-verification.json)
+et l'itération `tcl-v1-contact-choices` du suivi existant portent la qualification
+locale et la prochaine étape. Ce candidat ne remplace pas encore la version
+installée : les reçus d'installation du 7 octobre et leurs réserves de connexion
+personnelle/réception Gmail restent conservés. Aucun envoi réel, merge ou passage
+en production n'est réalisé. Le cockpit reste reporté.
+
+Les observations suivantes sont historiques.
+
+## Observation précédente — édition visible et contact du club
+
+Le responsable confirme les améliorations installées après fusion de #17 et
+la réception des signalements. Il demande les commandes de modification sur
+les pages Drupal et l'envoi du contact à `tclongages@gmail.com`.
+Le contrôle actuel constate la préproduction hors maintenance, non-indexée,
+avec support transport qualifié et droits éditoriaux du compte administrateur.
+
+La branche `fix/edition-contact-preprod` ajoute la barre d'édition native et
+le contact intégré. Les tests locaux couvrent le vrai formulaire, les erreurs,
+les doublons et la sauvegarde des textes. La cible est uniquement la
+préproduction protégée, après sauvegarde restaurée et contrôles du candidat.
+Le bloc `editionContactPreproduction` du [reçu framework](../data/framework-revue-verification.json)
+conserve les empreintes, la PR, l’installation réelle, les limites et la prochaine
+action ; l’itération `tcl-v1-edition-contact` du suivi canonique lui est raccordée.
+Compte réellement utilisé et réception Gmail restent à qualifier.
+Le [workflow](../workflows/edition-contact-preproduction.md) et le
+[reçu local](../data/edition-contact-verification.json) conservent la qualification
+initiale, avant fixation du candidat ; ils ne certifient pas son installation.
+Les observations suivantes sont historiques ; le cockpit reste reporté.
+
+## Observation précédente — conflits de #17 et calendrier Mois
 
 `main` contient désormais #16 (`c0fa31b4c886695843668d3bf336230df6c1dfc2`).
 La demande actuelle conserve la PR #17, ouverte en brouillon, et corrige ses

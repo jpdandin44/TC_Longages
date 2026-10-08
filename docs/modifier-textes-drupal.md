@@ -5,7 +5,7 @@ title: Modifier les textes du club dans Drupal
 status: in_progress
 version: git
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 owner: jpdandin
 tags: [drupal, edition, contenus, v1, preproduction]
 ---
@@ -14,13 +14,19 @@ tags: [drupal, edition, contenus, v1, preproduction]
 
 ## Utilisation
 
-1. Se connecter à Drupal sur l'instance concernée.
-2. Ouvrir **Contenu → Pages du club** : [recette locale](http://127.0.0.1:4183/admin/content/tcl-pages)
+1. Se connecter à Drupal sur l'instance concernée, via `/user/login`.
+   Le mot de passe de protection de préproduction est une étape distincte
+   et n'ouvre pas une session Drupal.
+2. Sur une page du site, utiliser **Modifier cette page** si le compte possède
+   le droit de modification. Après sauvegarde, le lien revient sur cette page.
+   Ce bouton est ajouté par le correctif édition/contact ; le reçu précise
+   sa livraison effective. Le répertoire ci-dessous reste un autre accès.
+3. Ouvrir **Contenu → Pages du club** : [recette locale](http://127.0.0.1:4183/admin/content/tcl-pages)
    ou [préproduction](https://preprod.tclongages.fr/admin/content/tcl-pages).
-3. Cliquer **Modifier** en face de la page.
-4. Modifier le titre, le texte de présentation ou un champ dans **Rubriques et légendes**.
-5. Décrire la modification dans le commentaire de révision puis **Enregistrer**.
-6. Utiliser **Voir** pour contrôler la page. **Révisions** conserve les versions précédentes.
+4. Cliquer **Modifier** en face de la page.
+5. Modifier le titre, le texte de présentation ou un champ dans **Rubriques et légendes**.
+6. Décrire la modification dans le commentaire de révision puis **Enregistrer**.
+7. Utiliser **Voir** pour contrôler la page. **Révisions** conserve les versions précédentes.
 
 Enregistrer un contenu publié change cette instance immédiatement. En préproduction,
 cela ne modifie pas la production. Les traductions Drupal existantes déterminent les
@@ -64,10 +70,12 @@ Le préfixe de restauration ne remplace aucune table existante. La copie privée
 les tables de récupération sont conservées pour le retour arrière ; leur nettoyage
 ultérieur doit être borné à cette seule tentative et décidé séparément.
 
-La configuration privée reste en capture pour les requêtes web de préproduction.
-Un seul essai CLI identifié peut qualifier le transport PHP vers `support@tclongages.fr`.
-L'acceptation du transport ne prouve pas la réception : celle-ci doit être constatée
-dans la boîte. La production et l'ouverture anonyme de la préproduction sont exclues.
+Le responsable confirme la réception des signalements sur la version installée
+après #17. Le transport privé de support est actif et qualifié ; les mentions
+antérieures de capture restent historiques. Le correctif courant le conserve.
+Le [contact du club](../api/contact-club.md) utilise un formulaire et un
+destinataire distincts. Son état hébergé est porté par le reçu du correctif.
+L'acceptation du transport ne prouve pas la réception dans la boîte.
 
 ## État et limites
 

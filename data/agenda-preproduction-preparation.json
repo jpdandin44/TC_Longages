@@ -1,0 +1,370 @@
+{
+  "project": "TC_Longages",
+  "iterationId": "tcl-v1-agenda-local",
+  "observedAt": "2026-10-07T15:18:58.491144+00:00",
+  "status": "installed_under_maintenance_browser_recipe_pending",
+  "mergedSourceSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+  "package": {
+    "sourceSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+    "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\agenda-local\\.local\\tcl-support-editor-90ec3c2ef229.zip",
+    "artifactSha256": "bb35325b61ad12bc6ef02a2c8481e8ee781ed5fdb678fbb707042eaef0ecf4f6",
+    "manifestSha256": "ef2fb513b2e1e7ec0e38ffdfe38c6844a6318a3480e6381364ee983bd9f2ba8c",
+    "files": 41,
+    "bytes": 2614730
+  },
+  "mergedTreeMatchesTestedTree": true,
+  "mergedCi": {
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/37633919062",
+    "status": "passed"
+  },
+  "operatorFiles": {
+    "preproduction-pr17.php": "53bad0cd506fb31111309ccc390b14717d9782e59f208fddb9da3b8cbb401f58",
+    "preproduction-pr17.py": "367509ec1fa466b6fd590815e4779d67c20f42694a87fcd2b1291f7bf7355eda",
+    "pr17-editor-rehearsal.php": "813b378dc13f16e57883b8e52244c338029b27a39eaf4f2de88ba78e50bdd277"
+  },
+  "target": "https://preprod.tclongages.fr/",
+  "productionWritten": false,
+  "deploymentExecuted": true,
+  "editorSelfTest": {
+    "status": "passed",
+    "pages": 7,
+    "defaultsMigrated": true,
+    "customTextsPreserved": true
+  },
+  "backupRestoration": "passed",
+  "preparationErrors": {
+    "resolved": [
+      "Reserved Drupal global config variable renamed",
+      "Schema comparison preserves batch column name",
+      "Cache rebuilding finishes before editorial transaction",
+      "Restored cache containers held absolute original paths; isolated caches cleared after database comparison"
+    ],
+    "pending": []
+  },
+  "hostedStage": {
+    "operation": "prepared_and_rehearsed",
+    "observedAt": "2026-10-07T15:03:52.356153+00:00",
+    "sourceSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+    "artifactSha256": "bb35325b61ad12bc6ef02a2c8481e8ee781ed5fdb678fbb707042eaef0ecf4f6",
+    "target": "preprod.tclongages.fr",
+    "backup": {
+      "account": "daje5127",
+      "createdAt": "2026-10-07T14:32:55.826344+00:00",
+      "deploymentExecuted": false,
+      "directory": "/home2/daje5127/tcl-preproduction/private/backups/20261007T143224Z",
+      "filesSha256": "9726ec44bb89e77d9b137c2de5dbe44fa4505d3621e2961bfb9d743eef779176",
+      "format": "tcl-private-backup-v1",
+      "integrityVerified": true,
+      "restorationTested": true,
+      "sqlSha256": "dbb7333738c4d5f5d2f9bc7ce624d674bc58e97f5982e6fe1e5e4dafd62b6e35",
+      "sqlUncompressedBytes": 23989892,
+      "target": "https://preprod.tclongages.fr/"
+    },
+    "restoredFiles": {
+      "backupDirectory": "/home2/daje5127/tcl-preproduction/private/backups/20261007T143224Z",
+      "checkedAt": "2026-10-07T14:33:03.517714+00:00",
+      "databaseRestored": false,
+      "deploymentExecuted": false,
+      "directory": "/home2/daje5127/tcl-preproduction/private/restorations/restore-3x2anlxi",
+      "drupalBootstrapped": false,
+      "filesRestoredAndVerified": true,
+      "filesSha256": "9726ec44bb89e77d9b137c2de5dbe44fa4505d3621e2961bfb9d743eef779176",
+      "format": "tcl-private-file-restore-v1",
+      "regularFiles": 26836,
+      "restorationTested": false,
+      "sqlSha256": "dbb7333738c4d5f5d2f9bc7ce624d674bc58e97f5982e6fe1e5e4dafd62b6e35"
+    },
+    "restoredDrupal": {
+      "checkedAt": "2026-10-07T15:03:50+00:00",
+      "operation": "restore-check",
+      "environment": "preproduction",
+      "databaseConnectionVerified": true,
+      "maintenanceEnabled": true,
+      "drupalVersion": "11.4.8",
+      "phpVersion": "8.3.33",
+      "registration": "admin_only",
+      "supportEnabled": true,
+      "mailMode": "transport",
+      "publicOpeningExecuted": false,
+      "restorationPrefixVerified": true,
+      "editablePages": 7
+    },
+    "databaseRestoration": {
+      "activeTables": 50,
+      "previousRecoveryTablesPreserved": 190,
+      "allActiveRowsCompared": true,
+      "allActiveSchemasCompared": true,
+      "namespace": "sr_bb35325b61ad_",
+      "originalTablesOverwritten": false
+    },
+    "editorialPlan": {
+      "success": true,
+      "operation": "plan-check",
+      "pages": 7
+    },
+    "rehearsal": {
+      "success": true,
+      "operation": "apply",
+      "pages": 7,
+      "rendered": {
+        "index": {
+          "bytes": 3084642,
+          "sha256": "da98f78eec2b336f4d39901e7ba4d21891ce8dfa6ee80ffdd9e1f71fdc5fbd30"
+        },
+        "competitions": {
+          "bytes": 155771,
+          "sha256": "b897b1ed3f01d4bb1643955c18cc5aa436278b74de114b3b281524026ea0c50a"
+        },
+        "calendrier": {
+          "bytes": 155809,
+          "sha256": "ad369a703d80d50de96c26110408cd0a1449d62b9b616aac2f3afc44740d329b"
+        },
+        "disponibilites": {
+          "bytes": 155662,
+          "sha256": "20f90f222d66b2b90a0f8275fda877cec06089279435447c36594876c821f2ea"
+        },
+        "equipes": {
+          "bytes": 155227,
+          "sha256": "cc2455af7c467ba985169bbd72f6fca4ff3f1760a805e722bf6816d01bfb0077"
+        },
+        "espace": {
+          "bytes": 155568,
+          "sha256": "2b73769b989c396004aed0e1ead4062cb64cb87eaed3d0368dee0733ed4e067a"
+        },
+        "contact": {
+          "bytes": 156823,
+          "sha256": "c999d00e1cc63df7c934186439f0431f56b41cfb87920ad4283c7e3ceac74b41"
+        }
+      },
+      "editorialValuesPreserved": true,
+      "maintenancePreserved": true,
+      "transportPreserved": true,
+      "prefixVerified": true,
+      "productionWritten": false
+    },
+    "cacheRebuild": {
+      "success": true,
+      "operation": "rebuild",
+      "maintenancePreserved": true
+    },
+    "verification": {
+      "success": true,
+      "operation": "verify",
+      "pages": 7,
+      "rendered": {
+        "index": {
+          "bytes": 3084642,
+          "sha256": "da98f78eec2b336f4d39901e7ba4d21891ce8dfa6ee80ffdd9e1f71fdc5fbd30"
+        },
+        "competitions": {
+          "bytes": 155771,
+          "sha256": "b897b1ed3f01d4bb1643955c18cc5aa436278b74de114b3b281524026ea0c50a"
+        },
+        "calendrier": {
+          "bytes": 155809,
+          "sha256": "ad369a703d80d50de96c26110408cd0a1449d62b9b616aac2f3afc44740d329b"
+        },
+        "disponibilites": {
+          "bytes": 155662,
+          "sha256": "20f90f222d66b2b90a0f8275fda877cec06089279435447c36594876c821f2ea"
+        },
+        "equipes": {
+          "bytes": 155227,
+          "sha256": "cc2455af7c467ba985169bbd72f6fca4ff3f1760a805e722bf6816d01bfb0077"
+        },
+        "espace": {
+          "bytes": 155568,
+          "sha256": "2b73769b989c396004aed0e1ead4062cb64cb87eaed3d0368dee0733ed4e067a"
+        },
+        "contact": {
+          "bytes": 156823,
+          "sha256": "c999d00e1cc63df7c934186439f0431f56b41cfb87920ad4283c7e3ceac74b41"
+        }
+      },
+      "editorialValuesPreserved": true,
+      "maintenancePreserved": true,
+      "transportPreserved": true,
+      "prefixVerified": true,
+      "productionWritten": false
+    },
+    "runtimeHashBefore": "1eaf5da64ae309459142512f214ef1e74abf059242024d7a1990dab1b7e60799",
+    "before": {
+      "checkedAt": "2026-10-07T15:03:42+00:00",
+      "operation": "check",
+      "environment": "preproduction",
+      "databaseConnectionVerified": true,
+      "maintenanceEnabled": true,
+      "drupalVersion": "11.4.8",
+      "phpVersion": "8.3.33",
+      "registration": "admin_only",
+      "supportEnabled": true,
+      "mailMode": "transport",
+      "publicOpeningExecuted": false,
+      "restorationPrefixVerified": false,
+      "editablePages": 7
+    },
+    "deploymentExecuted": false,
+    "productionWritten": false
+  },
+  "privateStageReceipt": "private/support-candidate-90ec3c2ef229-bb35325b61ad/pr17-stage-receipt.json",
+  "documentaryVerification": {
+    "checkedAt": "2026-10-07T15:18:58.491144+00:00",
+    "foundation": true,
+    "documents": [
+      "README.md",
+      "changelog.md",
+      "workflows/preproduction-pr17.md",
+      "docs/point-session.md"
+    ],
+    "documentHashes": {
+      "README.md": "74fc3227daf86f155159edfccb039538766c2242a9411af7098cad6993f510d3",
+      "changelog.md": "a47477bc294e64ae6444972d5509839a950772e3d915bb76f22f48fef29f32f0",
+      "workflows/preproduction-pr17.md": "0c8c57f76bf05a474c33814372d51519d1e1e26f7f2de92f3982d97c619142dc",
+      "docs/point-session.md": "c3b6d23f43b18d506bd27f625b68c069a2bbe260c92da4567013b301306bec42"
+    },
+    "internalPathLinks": 200,
+    "externalLinksAndAnchors": "not_checked",
+    "structuredStageSourceAndArtifactCompared": true,
+    "installationAndRehearsalCompared": true,
+    "otherDevelopmentIterationsPreserved": true
+  },
+  "hostedInstallation": {
+    "operation": "installed_under_maintenance",
+    "observedAt": "2026-10-07T15:06:11.000117+00:00",
+    "sourceSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+    "artifactSha256": "bb35325b61ad12bc6ef02a2c8481e8ee781ed5fdb678fbb707042eaef0ecf4f6",
+    "target": "preprod.tclongages.fr",
+    "applied": {
+      "success": true,
+      "operation": "apply",
+      "pages": 7,
+      "rendered": {
+        "index": {
+          "bytes": 3084642,
+          "sha256": "da98f78eec2b336f4d39901e7ba4d21891ce8dfa6ee80ffdd9e1f71fdc5fbd30"
+        },
+        "competitions": {
+          "bytes": 155771,
+          "sha256": "b897b1ed3f01d4bb1643955c18cc5aa436278b74de114b3b281524026ea0c50a"
+        },
+        "calendrier": {
+          "bytes": 155809,
+          "sha256": "ad369a703d80d50de96c26110408cd0a1449d62b9b616aac2f3afc44740d329b"
+        },
+        "disponibilites": {
+          "bytes": 155662,
+          "sha256": "20f90f222d66b2b90a0f8275fda877cec06089279435447c36594876c821f2ea"
+        },
+        "equipes": {
+          "bytes": 155227,
+          "sha256": "cc2455af7c467ba985169bbd72f6fca4ff3f1760a805e722bf6816d01bfb0077"
+        },
+        "espace": {
+          "bytes": 155568,
+          "sha256": "2b73769b989c396004aed0e1ead4062cb64cb87eaed3d0368dee0733ed4e067a"
+        },
+        "contact": {
+          "bytes": 156823,
+          "sha256": "c999d00e1cc63df7c934186439f0431f56b41cfb87920ad4283c7e3ceac74b41"
+        }
+      },
+      "editorialValuesPreserved": true,
+      "maintenancePreserved": true,
+      "transportPreserved": true,
+      "prefixVerified": true,
+      "productionWritten": false
+    },
+    "verified": {
+      "success": true,
+      "operation": "verify",
+      "pages": 7,
+      "rendered": {
+        "index": {
+          "bytes": 3084642,
+          "sha256": "da98f78eec2b336f4d39901e7ba4d21891ce8dfa6ee80ffdd9e1f71fdc5fbd30"
+        },
+        "competitions": {
+          "bytes": 155771,
+          "sha256": "b897b1ed3f01d4bb1643955c18cc5aa436278b74de114b3b281524026ea0c50a"
+        },
+        "calendrier": {
+          "bytes": 155809,
+          "sha256": "ad369a703d80d50de96c26110408cd0a1449d62b9b616aac2f3afc44740d329b"
+        },
+        "disponibilites": {
+          "bytes": 155662,
+          "sha256": "20f90f222d66b2b90a0f8275fda877cec06089279435447c36594876c821f2ea"
+        },
+        "equipes": {
+          "bytes": 155227,
+          "sha256": "cc2455af7c467ba985169bbd72f6fca4ff3f1760a805e722bf6816d01bfb0077"
+        },
+        "espace": {
+          "bytes": 155568,
+          "sha256": "2b73769b989c396004aed0e1ead4062cb64cb87eaed3d0368dee0733ed4e067a"
+        },
+        "contact": {
+          "bytes": 156823,
+          "sha256": "c999d00e1cc63df7c934186439f0431f56b41cfb87920ad4283c7e3ceac74b41"
+        }
+      },
+      "editorialValuesPreserved": true,
+      "maintenancePreserved": true,
+      "transportPreserved": true,
+      "prefixVerified": true,
+      "productionWritten": false
+    },
+    "runtimeHashPreserved": true,
+    "backupReceipt": "pr17-stage-receipt.json",
+    "deploymentExecuted": true,
+    "productionWritten": false
+  },
+  "hostedEditorRehearsal": {
+    "observedAt": "2026-10-07T15:15:09+00:00",
+    "success": true,
+    "scope": "isolated_restoration_only",
+    "sourceSha": "90ec3c2ef22910a63e620d63c775e736174f7024",
+    "artifactSha256": "bb35325b61ad12bc6ef02a2c8481e8ee781ed5fdb678fbb707042eaef0ecf4f6",
+    "editorWidgets": {
+      "index": 67,
+      "competitions": 9,
+      "calendrier": 4,
+      "disponibilites": 10,
+      "equipes": 3,
+      "espace": 8,
+      "contact": 6
+    },
+    "saveRoundTripPassed": true,
+    "editedValueEscaped": true,
+    "pngPreserved": true,
+    "originalValueRestored": true,
+    "supportButtonRendered": true,
+    "qualifiedTransportPreserved": true,
+    "messagesSent": 0,
+    "activeContentProbeWritten": false,
+    "browserAccountRightsVerified": false,
+    "productionWritten": false
+  },
+  "remainingQualificationChecks": [
+    "Access protection refuses agent browser session; user sign-in requested.",
+    "Drupal browser account rights and support form submission/message receipt remain to qualify on installed site.",
+    "Maintenance remains enabled; browser tests require an authorized Drupal account.",
+    "Google sharing and intended future public access remain to qualify before public opening."
+  ],
+  "privateApplyReceipt": "private/support-candidate-90ec3c2ef229-bb35325b61ad/pr17-apply-receipt.json",
+  "finalVerification": {
+    "checkedAt": "2026-10-07T15:20:43.284712+00:00",
+    "operatorSyntax": "passed",
+    "frameworkBuild": "passed",
+    "frameworkStructuredCheck": "passed",
+    "frameworkTestsEarlierThisTurn": {
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0
+    },
+    "gitDiffCheck": "passed",
+    "agendaWorktreeClean": true,
+    "documentaryHashesUnchangedAfterBuild": true,
+    "browserQualification": "pending_authenticated_session"
+  }
+}

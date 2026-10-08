@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - roadmap
@@ -16,7 +16,32 @@ tags:
 
 # Feuille de route
 
-## Suite courante — site sur la PR #17
+
+## Suite courante — choix de contact, 8 octobre
+
+- **Cadrage** : proposition formulaire/Gmail/messagerie habituelle acceptée ;
+  tous les boutons de contact des sept pages sont concernés.
+- **Développement local** : ajustements sur la branche de la PR #18 ; contrôles
+  et candidat exact dans `contactMailChoices` du [reçu](data/framework-revue-verification.json).
+- **Préproduction** : ajustement non installé ; qualifier le nouveau candidat
+  et la récupération avant un passage autorisé sur la cible protégée.
+- **Mise en production** : non autorisée ; aucune livraison ni ouverture.
+
+Le cockpit reste reporté et les preuves précédentes sont conservées.
+
+## Observation précédente — commandes d’édition et contact
+
+Cadrage : retour humain reçu sur la version installée après #17 ; agenda/photo
+et signalements fonctionnent, commandes d'édition absentes et contact en aperçu.
+Développement local : barre d'édition et formulaire natif écrits, 76 contrôles
+HTTP et l'enregistrement éditorial réel testés en capture.
+Préproduction : préparer la PR et le candidat exact, restaurer une sauvegarde
+fraîche puis appliquer la correction demandée. Vérifier le compte utilisé et
+la réception dans Gmail. Mise en production : non autorisée pour ce correctif.
+Le [reçu courant](data/edition-contact-verification.json) porte l'état réel.
+Le cockpit reste reporté selon le choix du responsable.
+
+## Observation précédente — site sur la PR #17
 
 Cadrage : demandes agenda/photo et vue Mois reçues. Développement local :
 rapprochement avec `main` après fusion de #16, vérifications et mise à jour
