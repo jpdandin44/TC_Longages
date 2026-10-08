@@ -4,7 +4,7 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "owner": "jpdandin",
   "scope": "V1 livrée et publique; nouvelle V2 locale centrée sur les nouveaux adhérents, calendrier public dédié et préparation des compétitions. Aucun déploiement V2.",
   "currentPhase": 2,
@@ -6296,6 +6296,99 @@
         "productionWritten": false,
         "messagesSentByAgent": 0
       }
+    },
+    {
+      "protocol": "developpement-github-cockpit",
+      "version": "git",
+      "iterationId": "tcl-v1-contact-choices",
+      "project": "TC_Longages",
+      "owner": "jpdandin",
+      "kind": "site",
+      "stage": "local",
+      "status": "local_verified",
+      "objective": "Conserver le formulaire et proposer Gmail et la messagerie habituelle pour toutes les actions de contact des sept pages.",
+      "candidate": {
+        "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+        "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918",
+        "gitSourceDigest": "be1ef5cc9c2e2a81bc2c5d2c0aba57458b65dd6ef6ea71ac0f1c8b15113dfd27",
+        "recordedAt": "2026-10-08T08:26:55.316601+00:00",
+        "label": "Choix du moyen de contact sur les sept pages"
+      },
+      "targets": {
+        "preproduction": {
+          "id": "https://preprod.tclongages.fr/",
+          "ready": false,
+          "isolated": true,
+          "empty": false,
+          "evidence": "data/framework-revue-verification.json#editionContactPreproduction.applyReceipt",
+          "observedAt": null
+        },
+        "production": {
+          "id": null,
+          "ready": false,
+          "evidence": null,
+          "observedAt": null
+        }
+      },
+      "github": {
+        "repository": "https://github.com/jpdandin44/TC_Longages",
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/18",
+        "acceptedSourceSha": null,
+        "acceptedArtifactSha256": null,
+        "humanAcceptanceVerified": false,
+        "evidence": null,
+        "observedAt": null
+      },
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "evidence": "data/framework-revue-verification.json#contactMailChoices.localChecks",
+          "observedAt": "2026-10-08T08:21:03.666432+00:00",
+          "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+          "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "evidence": "data/framework-revue-verification.json#contactMailChoices.documentation",
+          "observedAt": "2026-10-08T08:21:03.666432+00:00",
+          "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+          "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918"
+        }
+      ],
+      "approvals": [],
+      "backups": [],
+      "rollback": {
+        "status": "not_tested",
+        "target": null,
+        "artifactSha256": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "delivery": {
+        "status": "not_delivered",
+        "sourceSha": null,
+        "artifactSha256": null,
+        "target": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "blockers": [],
+      "nextAction": "Examiner la PR18 et préparer le passage du nouveau candidat en préproduction protégée ; cet ajustement n’est pas encore installé.",
+      "nextIteration": [],
+      "budget": {
+        "limit": null,
+        "unit": null,
+        "observedUsage": null,
+        "observedAt": null
+      },
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ]
     }
   ],
   "activeIterationId": "tcl-v2-bureau-calendrier-local",

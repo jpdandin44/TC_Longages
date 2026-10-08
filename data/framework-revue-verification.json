@@ -2706,5 +2706,97 @@
       "observedAt": "2026-10-07T17:57:47.079646+00:00",
       "preproductionBrowserVerified": false
     }
+  },
+  "contactMailChoices": {
+    "observedAt": "2026-10-08T08:21:03.666432+00:00",
+    "status": "local_verified",
+    "scope": "Seven native Drupal public pages; form plus Gmail and usual mail client; no hosted changes",
+    "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+    "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918",
+    "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/18",
+    "localUrl": "http://127.0.0.1:4183/contact.html",
+    "checks": [
+      {
+        "kind": "local",
+        "status": "passed",
+        "evidence": "data/framework-revue-verification.json#contactMailChoices.localChecks",
+        "observedAt": "2026-10-08T08:21:03.666432+00:00",
+        "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+        "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918"
+      },
+      {
+        "kind": "documentation",
+        "status": "passed",
+        "evidence": "data/framework-revue-verification.json#contactMailChoices.documentation",
+        "observedAt": "2026-10-08T08:21:03.666432+00:00",
+        "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+        "artifactSha256": "450df81f37b04d0e3d15ed385303953d11fdfedff95d6717ecbd7205c3a18918"
+      }
+    ],
+    "hostedInstallationVerified": false,
+    "outgoingMail": false,
+    "gmailAccountSendingVerified": false,
+    "editorialModelChanged": false,
+    "localChecks": {
+      "passed": true,
+      "nativeHttpChecks": 76,
+      "pages": 7,
+      "contactActions": 24,
+      "gmailRecipientOnly": true,
+      "usualMailerOnlyOnChoiceLink": true,
+      "supportPreservedOnEveryPage": true,
+      "failedMailPreservesText": true,
+      "duplicateSuppressed": true,
+      "outgoingMail": false,
+      "nodeTests": 170,
+      "nodeTestsPassed": true,
+      "testEnvironment": "Project Python virtual environment; captured PHP mail; no external messaging"
+    },
+    "localBrowser": {
+      "verified": true,
+      "desktopWidth": 992,
+      "mobileWidth": 390,
+      "mobileContentWidth": 375,
+      "horizontalOverflow": false,
+      "desktopScreenshot": ".local/contact-choices-local.png",
+      "mobileScreenshot": ".local/contact-choices-mobile.png",
+      "googleAccountSendingVerified": false,
+      "gmailComposeTabOpened": true,
+      "gmailRecipient": "tclongages@gmail.com",
+      "gmailAccountSendingVerified": false,
+      "usualEmailApplicationLaunchVerified": false
+    },
+    "documentation": {
+      "passed": true,
+      "foundationPresent": true,
+      "documents": 7,
+      "internalFileLinks": 350,
+      "brokenLinks": 0,
+      "scope": "Changed front matter, internal file targets and new sections; external links/anchors not audited."
+    },
+    "fixtureIsolation": {
+      "oldCapturesArchivedAndRestored": true,
+      "testMessagesCapturedOnly": true,
+      "localContactQuotaReset": true,
+      "reason": "Initial runner encountered previous local capture entries; rerun in clean contact fixture after private archive; no editorial or hosted data changed."
+    },
+    "gitSourceDigest": "be1ef5cc9c2e2a81bc2c5d2c0aba57458b65dd6ef6ea71ac0f1c8b15113dfd27",
+    "nativePackage": {
+      "files": 44,
+      "manifestSha256": "019ca3f3131334c30de10a7437c4db72c35591be407d7b6648e2db3a34903bda",
+      "sevenEditorialTemplatesUnchanged": true,
+      "changedPayloadFiles": [
+        "web/modules/custom/tcl_site/src/ClubContactPage.php",
+        "web/modules/custom/tcl_site/src/Controller/ClubPageController.php",
+        "web/modules/custom/tcl_site/src/Form/ClubContactForm.php"
+      ]
+    },
+    "candidateVerification": {
+      "passed": true,
+      "sourceSha": "50be3567f6591b47303ef07db980f71d3cd79a63",
+      "gitSourceDigest": "be1ef5cc9c2e2a81bc2c5d2c0aba57458b65dd6ef6ea71ac0f1c8b15113dfd27",
+      "observedAt": "2026-10-08T08:28:44.710547+00:00"
+    },
+    "nextAction": "Review PR18 and prepare the qualified patch for protected preproduction; this adjustment is not installed yet."
   }
 }
