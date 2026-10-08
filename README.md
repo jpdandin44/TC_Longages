@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - site-internet
@@ -16,7 +16,17 @@ tags:
 # Tennis Club de Longages
 
 
-## Correctif courant — édition visible et contact du club
+## Ajustement courant — choix de messagerie, 8 octobre
+
+La page de contact Drupal conserve le formulaire et propose **Écrire avec Gmail**
+ou **Utiliser ma messagerie habituelle**. Toutes les actions de contact des sept
+pages rejoignent ce choix lorsque le formulaire natif est activé.
+Le [contrat contact](api/contact-club.md) décrit les parcours ; le bloc
+`contactMailChoices` du [reçu](data/framework-revue-verification.json) porte les
+contrôles et le candidat local. Cet ajustement n'est pas encore installé sur
+la préproduction. Les observations suivantes sont historiques.
+
+## Correctif précédent — édition visible et contact du club
 
 Le responsable confirme les améliorations installées après la PR #17 et la
 réception des signalements. Le correctif suivant ajoute **Modifier cette page**

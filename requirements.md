@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - exigences
@@ -15,6 +15,15 @@ tags:
 
 # Exigences
 
+
+## Choix de contact demandé — 8 octobre
+
+- Conserver le formulaire du site comme moyen principal.
+- Proposer Gmail dans un nouvel onglet et la messagerie habituelle de l'appareil.
+- Renvoyer toutes les actions de contact des sept pages Drupal vers ce choix.
+- Préremplir seulement le destinataire du lien Gmail ; compte et envoi restent
+  à l'utilisateur. Ne pas transférer le texte saisi dans le formulaire.
+- Préserver les contenus édités, les droits, le calendrier, la photo et le signalement.
 
 ## Correction demandée — édition et contact, 7 octobre
 

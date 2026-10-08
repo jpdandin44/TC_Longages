@@ -23,13 +23,13 @@ final class ClubContactForm extends FormBase {
     $form['#action'] = Url::fromRoute('tcl_site.contact')->toString();
     $form['#cache']['max-age'] = 0;
     $form['#attributes']['class'] = ['contact-form', 'tcl-club-contact'];
-    $form['notice'] = ['#plain_text' => 'Votre message sera transmis à tclongages@gmail.com pour que le club puisse vous répondre. N’indiquez pas de mot de passe ni d’information confidentielle.'];
+    $form['notice'] = ['#plain_text' => 'Envoyez votre message directement depuis le site, sans ouvrir de messagerie. Votre message sera transmis à tclongages@gmail.com pour que le club puisse vous répondre. N’indiquez pas de mot de passe ni d’information confidentielle.'];
     if (Settings::get('tcl_contact_mail_mode', 'disabled') === 'capture') {
       $form['capture_notice'] = ['#type' => 'container', 'text' => ['#plain_text' => 'Essai local : le courriel est capturé sans envoi.']];
     }
     $form['name'] = ['#type' => 'textfield', '#title' => 'Nom', '#required' => TRUE, '#maxlength' => 80, '#required_error' => 'Indiquez votre nom.'];
     $form['reply'] = ['#type' => 'textfield', '#title' => 'E-mail ou téléphone', '#required' => TRUE,
-      '#maxlength' => 150, '#description' => 'Un seul moyen de vous répondre suffit.', '#required_error' => 'Indiquez un moyen de vous répondre.'];
+      '#maxlength' => 150, '#description' => 'Indiquez l’adresse (Gmail ou autre) ou le numéro où le club pourra vous répondre.', '#required_error' => 'Indiquez un moyen de vous répondre.'];
     $form['message'] = ['#type' => 'textarea', '#title' => 'Message', '#required' => TRUE, '#rows' => 6, '#maxlength' => 2000, '#required_error' => 'Écrivez votre message.'];
     $form['information'] = ['#type' => 'checkbox', '#title' => 'Je confirme que ces informations peuvent être transmises au club pour répondre à mon message.',
       '#required' => TRUE, '#required_error' => 'Confirmez la transmission au club avant l’envoi.'];

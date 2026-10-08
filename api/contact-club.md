@@ -5,7 +5,7 @@ title: Contact du club par Drupal Mail
 status: active
 version: git
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags: [contact, drupal, courriel, preproduction]
 ---
@@ -25,6 +25,26 @@ Drupal Mail envoie un texte simple, avec un objet fixe, depuis
 Une coordonnée e-mail valide devient Reply-To ; un téléphone reste dans le
 corps. Cette intégration n'utilise ni l'API Gmail ni une connexion au compte
 Google. Le formulaire de signalement garde son service et sa boîte distincts.
+
+## Choix de messagerie — 8 octobre
+
+Lorsque le contact natif est activé, les actions de contact des sept pages,
+y compris celles de l'accueil et des pieds de page, ouvrent `/contact.html`.
+Le formulaire reste le moyen principal ; une adresse Gmail peut servir de
+coordonnée de réponse sans connexion Google.
+
+Deux liens complémentaires sont proposés : **Écrire avec Gmail** ouvre un
+nouvel onglet de rédaction, avec uniquement le destinataire fixe prérempli ;
+**Utiliser ma messagerie habituelle** utilise `mailto:` et le choix configuré
+sur l'appareil. Le lien Gmail ne fixe aucun numéro de compte Google.
+L'utilisateur choisit son compte et réalise lui-même l'envoi dans sa messagerie.
+Le texte du formulaire n'est pas transféré à ces liens et reste sur la page.
+Il n'y a ni OAuth, ni lecture de boîte, ni envoi automatique depuis un compte Google.
+
+Les choix sont insérés après le rendu des contenus Drupal : aucun champ,
+texte édité ou commentaire de révision n'est réinitialisé. Le signalement
+conserve sa destination et son formulaire propres. L'aperçu HTML statique
+reste distinct du parcours Drupal réellement testé.
 
 ## Réglages privés
 

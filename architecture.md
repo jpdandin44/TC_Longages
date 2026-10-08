@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - architecture
@@ -30,6 +30,13 @@ distincte du signalement. Les paramètres privés activent le contact en capture
 locale ou par le transport PHP qualifié. Les messages ne créent pas de ticket.
 Le [contrat contact](api/contact-club.md) est la référence des champs, réglages,
 limites et métadonnées de session/antispam.
+
+Depuis le 8 octobre, lorsque le contact natif est activé, le contrôleur
+redirige les liens de contact de la vitrine vers `/contact.html`.
+`ClubContactPage` ajoute après le rendu éditorial les liens de rédaction Gmail
+et de messagerie habituelle. Ces liens transmettent uniquement le destinataire
+public ; le formulaire et son transport restent indépendants. Aucun modèle
+éditorial ni schéma de base n'est modifié.
 
 ## Construction agenda pour la recette privée
 

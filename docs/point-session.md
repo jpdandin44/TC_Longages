@@ -5,14 +5,31 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 7 octobre 2026
+# Point de session — reprise au 8 octobre 2026
 
-## Reprise courante — édition visible et contact du club
+## Reprise courante — Gmail, messagerie habituelle et formulaire
+
+Le responsable accepte les trois moyens de contact et demande de raccorder
+tous les boutons des différentes pages. L'ajustement est réalisé sur la branche
+de la PR #18, encore ouverte. Le formulaire reste prioritaire ; les liens Gmail
+et messagerie habituelle sont insérés après le rendu des textes édités.
+Toutes les actions de contact des sept pages Drupal rejoignent `/contact.html`.
+
+Le bloc `contactMailChoices` du [reçu](../data/framework-revue-verification.json)
+et l'itération `tcl-v1-contact-choices` du suivi existant portent la qualification
+locale et la prochaine étape. Ce candidat ne remplace pas encore la version
+installée : les reçus d'installation du 7 octobre et leurs réserves de connexion
+personnelle/réception Gmail restent conservés. Aucun envoi réel, merge ou passage
+en production n'est réalisé. Le cockpit reste reporté.
+
+Les observations suivantes sont historiques.
+
+## Observation précédente — édition visible et contact du club
 
 Le responsable confirme les améliorations installées après fusion de #17 et
 la réception des signalements. Il demande les commandes de modification sur

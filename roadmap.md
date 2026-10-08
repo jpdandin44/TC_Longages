@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-08
 owner: jpdandin
 tags:
   - roadmap
@@ -17,7 +17,19 @@ tags:
 # Feuille de route
 
 
-## Suite courante — commandes d’édition et contact
+## Suite courante — choix de contact, 8 octobre
+
+- **Cadrage** : proposition formulaire/Gmail/messagerie habituelle acceptée ;
+  tous les boutons de contact des sept pages sont concernés.
+- **Développement local** : ajustements sur la branche de la PR #18 ; contrôles
+  et candidat exact dans `contactMailChoices` du [reçu](data/framework-revue-verification.json).
+- **Préproduction** : ajustement non installé ; qualifier le nouveau candidat
+  et la récupération avant un passage autorisé sur la cible protégée.
+- **Mise en production** : non autorisée ; aucune livraison ni ouverture.
+
+Le cockpit reste reporté et les preuves précédentes sont conservées.
+
+## Observation précédente — commandes d’édition et contact
 
 Cadrage : retour humain reçu sur la version installée après #17 ; agenda/photo
 et signalements fonctionnent, commandes d'édition absentes et contact en aperçu.

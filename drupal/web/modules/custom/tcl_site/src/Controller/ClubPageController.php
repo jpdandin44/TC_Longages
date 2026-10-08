@@ -44,6 +44,10 @@ final class ClubPageController {
     if ($page === 'contact' && \Drupal\Core\Site\Settings::get('tcl_contact_enabled', FALSE) === TRUE) {
       $html = ClubContactPage::render($html);
     }
+    elseif (\Drupal\Core\Site\Settings::get('tcl_contact_enabled', FALSE) === TRUE) {
+      // Contact actions lead to the form and the user's choice of email application.
+      $html = preg_replace('~href="mailto:tclongages@gmail\.com(?:\?[^"]*)?"~', 'href="/contact.html"', $html);
+    }
     // These standalone responses do not render Drupal's toolbar or local tasks.
     // Reuse native entity access checks rather than granting any additional right.
     if ($node && \Drupal::currentUser()->isAuthenticated() && $node->access('update')) {
