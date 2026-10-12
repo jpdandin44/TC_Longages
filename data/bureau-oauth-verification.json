@@ -12,12 +12,12 @@
   "realMemberDataUsed": false,
   "outgoingMail": false,
   "sourceBaseCommit": "e0ec292dabbb15159d1f0c22aad670aee6cd480e",
-  "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+  "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
   "nativePackage": {
-    "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
-    "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\bureau-oauth\\.local\\tcl-bureau-oauth-13195197c3e0.zip",
-    "artifactSha256": "51c2673211ce556436afd58b687bc67ea0375c54a73a053bdd991435b54ef206",
-    "manifestSha256": "cbacb592624353b2d2172173548ab52a2ff9412f892b97a323338ef056a43665",
+    "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+    "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\bureau-oauth\\.local\\tcl-bureau-oauth-5fcd2a63e425.zip",
+    "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+    "manifestSha256": "36049d3d5388f4cac3d729496f0c0fc463e919efb34b2dbb78cb08c3cd0dea84",
     "files": 50,
     "bytes": 115417,
     "targetHost": "preprod.tclongages.fr",
@@ -134,9 +134,9 @@
     "scope": "changed Markdown front matter/file targets and project foundations; external URLs and anchors not audited"
   },
   "gitCandidate": {
-    "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+    "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
     "manifest": "data/framework-candidate.json",
-    "artifactDigest": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
+    "artifactDigest": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
     "files": 554
   },
   "framework": {
