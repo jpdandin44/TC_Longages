@@ -64,6 +64,8 @@ if ($action === 'seed') {
   checked('Fresh schema includes communication', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Bureau role installed', Role::load('tcl_bureau')->hasPermission('manage tcl registrations'));
   checked('Captain cannot edit registrations', !Role::load('tcl_capitaine')->hasPermission('manage tcl registrations'));
+  checked('TC Admin role has Bureau permissions', Role::load('tcl_admin')->hasPermission('administer tcl bureau accounts'));
+  checked('TC Admin is not a technical super-admin', !Role::load('tcl_admin')->isAdmin());
   checked('Team scope remains disabled', Drupal::config('tcl_bureau.settings')->get('teams_enabled') === FALSE);
   $bureau = User::create(['name' => 'mysql-bureau-fictional', 'mail' => 'bureau@example.invalid', 'status' => 1]);
   $bureau->addRole('tcl_bureau')->setPassword($fixture['accountPassword'])->save();
@@ -80,14 +82,18 @@ if ($action === 'seed') {
   // Reconstruct the earlier Bureau-only schema ONLY in this fresh disposable DB.
   $db->schema()->dropTable('tcl_bureau_post');
   Role::load('tcl_bureau')->revokePermission('manage tcl communication')->save();
+  foreach (['tcl_bureau', 'tcl_capitaine'] as $roleId) {
+    Role::load($roleId)->revokePermission('grant simple_oauth codes')->save();
+  }
   Drupal::service('update.update_hook_registry')->setInstalledVersion('tcl_bureau', 11000);
   file_put_contents($project . '/.local/mysql-recette/before-update.json', json_encode(retained(), JSON_THROW_ON_ERROR));
   checked('Earlier module revision prepared', !$db->schema()->tableExists('tcl_bureau_post'));
 }
 elseif ($action === 'verify') {
-  checked('Native updatedb applied update 11001', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11001);
+  checked('Native updatedb applied updates through 11002', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11002);
   checked('Communication table created by update', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Communication permission added', Role::load('tcl_bureau')->hasPermission('manage tcl communication'));
+  checked('Existing Bureau and Captain roles gain OAuth consent', Role::load('tcl_bureau')->hasPermission('grant simple_oauth codes') && Role::load('tcl_capitaine')->hasPermission('grant simple_oauth codes'));
   checked('Accounts and registrations unchanged after update', json_decode(file_get_contents($project . '/.local/mysql-recette/before-update.json'), TRUE) === retained());
   $bureau = user_load_by_name('mysql-bureau-fictional');
   $posts = Drupal::service('tcl_bureau.communication');
