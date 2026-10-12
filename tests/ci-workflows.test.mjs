@@ -41,7 +41,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.equal(ci.jobs['technical-ci'].steps.find(step=>step.uses?.startsWith('actions/checkout@')).with['fetch-depth'],0);
   for(const flow of [ci,policy]) {
     assert.deepEqual(flow.permissions,{contents:'read'});
-    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['delivery-safety','drupal-mysql','support-runtime','technical-ci'] : ['policy']);
+    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['bureau-oauth-runtime','delivery-safety','drupal-mysql','support-runtime','technical-ci'] : ['policy']);
     for(const job of Object.values(flow.jobs)) {
       assert.equal(job.environment,undefined);
       assert.equal(job.permissions,undefined);
@@ -49,7 +49,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
         if(step.uses) {
           if(step.uses.startsWith('shivammathur/setup-php@')) {
             assert.equal(flow,ci);
-            assert.ok(job === ci.jobs['drupal-mysql'] || job === ci.jobs['support-runtime']);
+            assert.ok(job === ci.jobs['drupal-mysql'] || job === ci.jobs['support-runtime'] || job === ci.jobs['bureau-oauth-runtime']);
             assert.equal(step.uses,'shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45');
           } else assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
         }
@@ -87,6 +87,10 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.match(supportRuns,/tests\/test_support_http\.py/);
   assert.match(supportRuns,/-Action stop -Port 4183/);
   const policyCheck=policy.jobs.policy.steps.at(-1);
+  const oauth=ci.jobs['bureau-oauth-runtime'];
+  assert.equal(oauth['runs-on'],'windows-2025');
+  assert.ok(oauth['timeout-minutes']<=20);
+  assert.ok(oauth.steps.some(step=>/bureau-oauth-recette\.ps1 -Prepare/.test(step.run || '')));
   assert.equal(policyCheck.run,'python .github/scripts/check-pr-policy.py');
   assert.equal(policyCheck.env.PR_BODY,'${{ github.event.pull_request.body }}');
   assert.equal(policyCheck.env.PR_TITLE,'${{ github.event.pull_request.title }}');

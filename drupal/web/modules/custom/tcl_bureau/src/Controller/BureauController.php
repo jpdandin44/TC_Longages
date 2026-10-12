@@ -44,9 +44,7 @@ final class BureauController extends ControllerBase {
   }
 
   public function entry(): RedirectResponse {
-    $destination = $this->currentUser()->isAuthenticated()
-      ? Url::fromRoute('tcl_bureau.home')
-      : Url::fromRoute('user.login', [], ['query' => ['destination' => '/bureau']]);
+    $destination = Url::fromRoute('tcl_bureau_oauth.login');
     return new RedirectResponse($destination->toString());
   }
 

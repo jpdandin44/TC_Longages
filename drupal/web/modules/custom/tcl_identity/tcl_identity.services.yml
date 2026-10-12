@@ -1,0 +1,10 @@
+services:
+  tcl_identity.guard:
+    class: Drupal\tcl_identity\IdentityGuard
+    arguments: ['@keyvalue.expirable']
+    tags:
+      - { name: event_subscriber }
+  tcl_identity.routes:
+    class: Drupal\tcl_identity\IdentityRoutes
+    tags:
+      - { name: event_subscriber }

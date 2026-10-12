@@ -9,6 +9,32 @@ permissions:
   contents: read
 
 jobs:
+  bureau-oauth-runtime:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.18.0'
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.14.6'
+      - uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2
+        with:
+          php-version: '8.3'
+          extensions: pdo_sqlite, pdo_mysql, mbstring, intl, gd, zip, sodium, openssl
+          coverage: none
+          tools: composer:2.10.3
+      - name: Vérifier OAuth et le Bureau avec des identités fictives locales
+        run: |
+          $env:PATH = 'C:\Program Files\Git\bin;' + $env:PATH
+          ./scripts/bureau-oauth-recette.ps1 -Prepare
   delivery-safety:
     runs-on: ubuntu-24.04
     timeout-minutes: 5

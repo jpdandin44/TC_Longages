@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\user\Entity\Role;
+
+/** Installs the bounded club role; no account, password or key is provisioned. */
+function tcl_identity_install(): void {
+  if (Role::load('tcl_admin')) {
+    throw new \RuntimeException('Rôle Admin TC Longages existant : vérifier avant installation.');
+  }
+  $role = Role::create(['id' => 'tcl_admin', 'label' => 'Admin TC Longages', 'is_admin' => FALSE]);
+  // Bureau adds its permissions only after that module is enabled; Drupal removes
+  // unknown permissions when installing dependencies on a fresh database.
+  $role->grantPermission('grant simple_oauth codes');
+  $role->save();
+}

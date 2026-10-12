@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,26 @@ tags:
 ---
 
 # Exigences
+
+## Bureau utilisable demandé — 12 octobre
+
+- V1 confirmée par le responsable ; absence de retour bêta déclarée, non auditée.
+- Ajouter un bouton **Bureau** dans le menu de toutes les pages du site.
+- Exiger OAuth côté serveur pour l'espace et les opérations Bureau ; cumuler
+  cette preuve avec les habilitations Drupal existantes.
+- Réutiliser les dossiers natifs Adultes/Mineurs : saisie, recherche,
+  modification et états, sans reconstruire une base dans le navigateur.
+- Préserver les sept contenus éditables, l'agenda Mois, la photo et les contacts/support.
+- Conserver le Capitaine sans accès aux dossiers d'adhérents ; équipes différées.
+- Installer un fournisseur OAuth indépendant **TC Longages**, basé sur Simple
+  OAuth 6.1.1 d'AVEREO : comptes, clés et client TC dédiés, premier Admin TC.
+- Exiger un nonce signé, PKCE S256, callback fixe, identités exactes et droits
+  locaux ; configurer expiration/déconnexion et révocation côté TC.
+- Conserver la protection bêta tout en qualifiant les appels HTTP serveur OAuth
+  et les dépendances de la cible avant utilisation hébergée.
+- Ne pas reprendre implicitement les secrets, rôles ou droits d'une application AVEREO.
+
+Le [guide](docs/bureau-oauth.md) porte la réalisation locale et les TBD hébergés.
 
 
 ## Choix de contact demandé — 8 octobre

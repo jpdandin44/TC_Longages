@@ -5,14 +5,45 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 8 octobre 2026
+# Point de session — reprise au 12 octobre 2026
 
-## Reprise courante — Gmail, messagerie habituelle et formulaire
+## Reprise courante — Bureau OAuth
+
+V1 confirmée par le responsable ; aucun retour de bêta-testeur signalé.
+Le nouveau lot rend le Bureau natif utilisable, ajoute **Bureau** au menu
+et impose OAuth côté serveur en plus des droits Drupal. Le cockpit reste reporté.
+
+Checkout actif : `.worktrees/bureau-oauth`, branche `feat/bureau-oauth`, créée
+depuis `main` à `e0ec292`. Les autres checkouts et leurs changements locaux
+sont conservés. Le [guide](bureau-oauth.md), le [contrat](../api/bureau-oauth.md),
+le [workflow](../workflows/bureau-oauth-preproduction.md) et le
+[reçu](../data/bureau-oauth-verification.json) décrivent les sources et preuves.
+La PR et son observation GitHub figurent dans l'itération `tcl-v2-bureau-oauth`
+du [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations).
+
+Le responsable précise : OAuth **indépendant TC**, premier **Admin TC Longages**.
+Le fournisseur `tcl_identity`/Simple OAuth 6.1.1 est testé sur boucle locale
+4191 avec le site 4186 et le compte fictif `Admin_TC_Longages_local` ; les clés
+et identifiants restent dans `.local/tc-identity-local.json`, hors Git/chat.
+La recette de jetons invalides sur fournisseur fictif 4190 reste complémentaire.
+
+Prochaine action : qualifier dépendances et appels serveur sous Basic Auth,
+préparer récupération et installation du candidat accepté sur préproduction TC,
+puis créer le premier Admin et ses clés/client privés. Le responsable saisit
+le mot de passe dans l'interface privée. Aucun secret n'est à envoyer dans le chat.
+Le nouveau candidat et ses preuves remplacent ceux du raccordement initial
+dans la même PR #19 ; les anciens reçus restent historiques.
+La déclaration de validation V1 ne crée pas d'accord de merge ou de livraison
+du nouveau Bureau. Aucune préproduction Bureau ni production modifiée.
+
+Les observations suivantes sont historiques.
+
+## Observation du 8 octobre — Gmail, messagerie habituelle et formulaire
 
 Le responsable accepte les trois moyens de contact et demande de raccorder
 tous les boutons des différentes pages. L'ajustement est réalisé sur la branche

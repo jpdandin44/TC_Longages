@@ -1,0 +1,19 @@
+tcl_bureau_oauth.login:
+  path: '/bureau/connexion'
+  defaults:
+    _controller: '\Drupal\tcl_bureau_oauth\Controller\OAuthController::login'
+    _title: 'Connexion au Bureau'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE
+tcl_bureau_oauth.callback:
+  path: '/bureau/oauth/retour'
+  defaults:
+    _controller: '\Drupal\tcl_bureau_oauth\Controller\OAuthController::callback'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE

@@ -32,3 +32,7 @@ $settings['tcl_contact_transport_qualified'] = FALSE;
 $config['system.mail']['interface']['tcl_site_contact'] = 'test_mail_collector';
 $config['system.logging']['error_level'] = 'hide';
 unset($tclSecrets);
+// Dedicated loopback OAuth fixture, generated only by the CLI recipe helper.
+if (is_file($tclProject . '/.local/bureau-oauth-settings.php')) {
+  require $tclProject . '/.local/bureau-oauth-settings.php';
+}

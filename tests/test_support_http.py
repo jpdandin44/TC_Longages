@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import http.cookiejar
 import json
+import os
 import re
 import time
 from datetime import datetime, timezone
@@ -13,7 +14,9 @@ from urllib.parse import urlencode
 from urllib.request import HTTPCookieProcessor, Request, build_opener
 
 PROJECT = Path(__file__).resolve().parents[1]
-ORIGIN = 'http://127.0.0.1:4183'
+ORIGIN = os.environ.get('TCL_HTTP_RECIPE_ORIGIN', 'http://127.0.0.1:4183')
+if ORIGIN not in ('http://127.0.0.1:4183', 'http://127.0.0.1:4186'):
+    raise ValueError('Only the two dedicated local recipe origins are accepted.')
 CHECKS = []
 
 

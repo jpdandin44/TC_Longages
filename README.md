@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - site-internet
@@ -15,8 +15,27 @@ tags:
 
 # Tennis Club de Longages
 
+## Lot courant — Bureau OAuth, 12 octobre
 
-## Ajustement courant — choix de messagerie, 8 octobre
+V1 est confirmée par le responsable, qui indique n'avoir reçu aucun retour
+des bêta-testeurs. Le lot courant rend le Bureau natif utilisable, ajoute
+**Bureau** au menu des sept pages et exige une preuve OAuth en plus des droits
+Drupal. Le [guide du Bureau](docs/bureau-oauth.md), son [contrat](api/bureau-oauth.md)
+et le [reçu](data/bureau-oauth-verification.json) portent l'état vérifié.
+
+[Essayer le site local](http://127.0.0.1:4186/) : fournisseur **OAuth TC dédié**
+(Simple OAuth 6.1.1), compte `Admin_TC_Longages_local`, dossiers fictifs et
+courriels neutralisés. Les comptes/clé/client du TC sont indépendants d'AVEREO.
+Les identifiants locaux restent dans `.local/tc-identity-local.json`.
+Pour recréer cette recette sur un checkout neuf :
+`./scripts/bureau-oauth-recette.ps1 -Prepare`.
+L'installation hébergée et le premier **Admin TC Longages** restent à configurer
+et recetter ; la PR #19 contient ce même lot.
+Les décisions et préparations V1 ci-dessous sont des observations datées ;
+aucun déploiement de ce nouveau Bureau n'est encore réalisé.
+
+
+## Observation historique — choix de messagerie, 8 octobre
 
 La page de contact Drupal conserve le formulaire et propose **Écrire avec Gmail**
 ou **Utiliser ma messagerie habituelle**. Toutes les actions de contact des sept

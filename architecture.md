@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,38 @@ tags:
 ---
 
 # Architecture
+
+## Bureau OAuth — adaptation locale du 12 octobre
+
+`tcl_identity` porte le fournisseur du **Drupal TC Longages**, avec Simple OAuth
+6.1.1 réutilisé d'AVEREO et une base/comptes/clé/client propres au club.
+Son extension ajoute le nonce signé à usage unique et fixe l'issuer TC.
+`tcl_bureau_oauth` reprend le contrat consommateur OAuth/PKCE CONNECT,
+vérifie l'identité signée,
+associe issuer/sub à un uid autorisé et établit une session native Drupal
+avec une preuve Bureau distincte. `tcl_bureau` conserve ses données, révisions,
+contrôles CSRF et permissions ; ses services vérifient aussi cette preuve.
+Le login natif du CMS conserve son rôle éditorial et n'ouvre pas le Bureau.
+Le rôle `tcl_admin` donne au premier Admin les droits Bureau et édition des
+pages, sans super-administration technique. Le fournisseur et ce rôle sont
+testés localement ; l'installation hébergée reste à qualifier.
+
+```mermaid
+flowchart LR
+  M["Menu Bureau du site TC"] --> A["Adaptateur OAuth TC"]
+  A --> I["Simple OAuth du Drupal TC Longages"]
+  I --> V["Vérification OAuth et association privée"]
+  V --> S["Session Drupal et droits locaux"]
+  S --> B["Bureau et base privée TC"]
+```
+
+Le menu est inséré au rendu des sept pages, sans réécriture des textes édités.
+Les secrets et associations sont des paramètres privés `Settings`, hors webroot
+et exports. L'exemple est désactivé. Le fournisseur TC réel est testé sur boucle
+locale avec un compte Admin fictif ; le fournisseur fictif complémentaire et
+ses clés ne font pas partie d'une livraison. Le
+[contrat détaillé](api/bureau-oauth.md) distingue expiration, révocation locale
+et déconnexion du fournisseur ; les autres projets AVEREO restent inchangés.
 
 
 ## Édition et contact — correctif du 7 octobre

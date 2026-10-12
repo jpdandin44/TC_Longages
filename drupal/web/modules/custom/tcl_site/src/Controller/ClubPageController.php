@@ -31,6 +31,14 @@ final class ClubPageController {
       throw new NotFoundHttpException('Vitrine locale non préparée.');
     }
     $html = file_get_contents($file);
+    // One server-side menu entry covers all seven pages, including existing
+    // hosted page files: enabling the Bureau never requires overwriting content.
+    if (\Drupal::moduleHandler()->moduleExists('tcl_bureau')) {
+      $button = '<a class="button nav-bureau" href="/bureau/connexion">Bureau</a>';
+      $html = preg_replace_callback('/<nav class="main-nav"[^>]*>[\s\S]*?<\/nav>/', static function (array $match) use ($button): string {
+        return str_replace('</nav>', $button . '</nav>', $match[0]);
+      }, $html, 1);
+    }
     $node = PublicPageEditor::node($page);
     if ($node) {
       if (!$node->isPublished() && !$node->access('view', \Drupal::currentUser())) {

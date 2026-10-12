@@ -4,9 +4,9 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-08",
+  "updated": "2026-10-12",
   "owner": "jpdandin",
-  "scope": "V1 livrée et publique; nouvelle V2 locale centrée sur les nouveaux adhérents, calendrier public dédié et préparation des compétitions. Aucun déploiement V2.",
+  "scope": "V1 confirmed by owner; current Bureau OAuth local candidate. No hosted Bureau delivery.",
   "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
@@ -3661,6 +3661,10 @@
       "credentialsAndSqlRightsUnchanged": true,
       "sqlReimportExcluded": true,
       "phaseChecklistApprovalGenerated": false
+    },
+    "lastObservation": {
+      "at": "2026-10-12T19:48:20.461609+00:00",
+      "scope": "Dedicated TC OAuth candidate CI passed; no human acceptance or hosted action"
     }
   },
   "phaseModel": {
@@ -6389,8 +6393,237 @@
         "Préproduction",
         "Mise en production"
       ]
+    },
+    {
+      "protocol": "developpement-github-cockpit",
+      "version": "git",
+      "iterationId": "tcl-v2-bureau-oauth",
+      "project": "tclongages",
+      "owner": "jpdandin",
+      "kind": "site-drupal",
+      "stage": "local",
+      "status": "local_tc_identity_verified_hosted_setup_pending",
+      "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
+      "candidate": {
+        "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+        "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+        "kind": "git-source-manifest",
+        "candidateManifest": "data/framework-candidate.json",
+        "deliveryArtifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+        "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
+      },
+      "targets": {
+        "preproduction": {
+          "id": "https://preprod.tclongages.fr/",
+          "ready": false,
+          "isolated": false,
+          "empty": false,
+          "evidence": "Current target and real OAuth client remain to qualify",
+          "observedAt": null
+        },
+        "production": {
+          "id": null,
+          "ready": false,
+          "evidence": null,
+          "observedAt": null
+        }
+      },
+      "github": {
+        "repository": "jpdandin44/TC_Longages",
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/19",
+        "acceptedSourceSha": null,
+        "acceptedArtifactSha256": null,
+        "humanAcceptanceVerified": false,
+        "evidence": "data/bureau-oauth-verification.json#github",
+        "observedAt": "2026-10-12T19:48:20.461609+00:00",
+        "number": 19,
+        "state": "OPEN",
+        "draft": true,
+        "mergeable": "MERGEABLE",
+        "observedHeadSha": "84dad93a90c2465113f31fe1027600771641751a",
+        "policyStatus": "waiting_for_four_human_checkboxes",
+        "technicalCiStatus": "passed",
+        "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+        "technicalCiHead": "84dad93a90c2465113f31fe1027600771641751a"
+      },
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "target": "http://127.0.0.1:4186/",
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": "2026-10-12T19:37:09.894632+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "target": null,
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": "2026-10-12T19:37:09.894632+00:00"
+        },
+        {
+          "kind": "ci",
+          "status": "passed",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "target": "GitHub Actions isolated recipe",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+          "observedAt": "2026-10-12T19:48:20.461609+00:00"
+        },
+        {
+          "kind": "preproduction",
+          "status": "not_run",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "target": "https://preprod.tclongages.fr/",
+          "evidence": null,
+          "observedAt": null
+        }
+      ],
+      "approvals": [],
+      "backups": [],
+      "rollback": {
+        "status": "not_tested",
+        "target": null,
+        "artifactSha256": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "delivery": {
+        "status": "not_delivered",
+        "sourceSha": null,
+        "artifactSha256": null,
+        "target": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "blockers": [
+        "TC hosted Composer dependencies and current target qualification",
+        "TC private keys/client and first Admin account/association",
+        "Server token/userinfo calls under beta Basic Auth",
+        "Hosted OAuth and business recipe, current backup/restore and delivery authorization"
+      ],
+      "nextAction": "Qualifier dépendances et protection HTTP en préproduction TC, préparer récupération/installations puis créer le premier Admin privé. PR19 brouillon, confirmations humaines vierges.",
+      "nextIteration": [
+        "Équipes/matchs et disponibilités simples",
+        "Partenaires et bannière de logos",
+        "Améliorations de communication et relais manuels"
+      ],
+      "budget": {
+        "limit": null,
+        "unit": null,
+        "observedUsage": null,
+        "observedAt": null
+      },
+      "phaseModelRef": "developmentWorkflow.phaseModel",
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ],
+      "guide": "docs/bureau-oauth.md",
+      "evidence": "data/bureau-oauth-verification.json",
+      "localTarget": {
+        "origin": "http://127.0.0.1:4186/",
+        "provider": "http://127.0.0.1:4191/",
+        "fictitiousDataOnly": true,
+        "hostedOAuthVerified": false,
+        "invalidTokenFixture": "http://127.0.0.1:4190/",
+        "realSimpleOAuthModule": true
+      },
+      "authorization": {
+        "source": "user-message-2026-10-12",
+        "effect": "Local Bureau development; dedicated TC OAuth provider reusing AVEREO code, first TC Admin requested",
+        "liveDeliveryApprovalAdded": false
+      },
+      "v1OwnerStatement": {
+        "date": "2026-10-12",
+        "v1Confirmed": true,
+        "betaFeedback": "owner reports none",
+        "independentFeedbackInspection": false,
+        "source": "user-message-2026-10-12"
+      },
+      "previousCandidates": [
+        {
+          "candidate": {
+            "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+            "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+            "kind": "git-source-manifest",
+            "candidateManifest": "data/framework-candidate.json",
+            "deliveryArtifactSha256": "c9ddb4826058a20fc2823a8920792f9dc33856f46eee84c32a2576a730e3094e",
+            "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
+          },
+          "checks": [
+            {
+              "kind": "local",
+              "status": "passed",
+              "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+              "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+              "target": "http://127.0.0.1:4186/",
+              "evidence": "data/bureau-oauth-verification.json",
+              "observedAt": "2026-10-12T18:15:07.357612+00:00"
+            },
+            {
+              "kind": "documentation",
+              "status": "passed",
+              "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+              "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+              "target": null,
+              "evidence": "data/bureau-oauth-verification.json",
+              "observedAt": "2026-10-12T18:15:07.357612+00:00"
+            },
+            {
+              "kind": "ci",
+              "status": "passed",
+              "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+              "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+              "target": "GitHub Actions: isolated CI fixtures",
+              "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+              "observedAt": "2026-10-12T18:34:40.114162+00:00"
+            },
+            {
+              "kind": "preproduction",
+              "status": "not_run",
+              "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+              "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+              "target": null,
+              "evidence": "data/bureau-oauth-verification.json",
+              "observedAt": null
+            }
+          ],
+          "github": {
+            "repository": "jpdandin44/TC_Longages",
+            "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/19",
+            "acceptedSourceSha": null,
+            "acceptedArtifactSha256": null,
+            "humanAcceptanceVerified": false,
+            "evidence": "data/bureau-oauth-verification.json#github",
+            "observedAt": "2026-10-12T18:34:40.114162+00:00",
+            "number": 19,
+            "state": "OPEN",
+            "draft": true,
+            "mergeable": "MERGEABLE",
+            "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
+            "policyStatus": "waiting_for_four_human_checkboxes",
+            "technicalCiStatus": "passed",
+            "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054"
+          }
+        }
+      ],
+      "identityArchitecture": {
+        "choiceSource": "user-message-2026-10-12-dedicated-tc-oauth",
+        "provider": "TC Drupal + Simple OAuth 6.1.1",
+        "firstAdminRole": "tcl_admin",
+        "avereoAccountRequired": false,
+        "hostedAdminCreated": false
+      }
     }
   ],
-  "activeIterationId": "tcl-v2-bureau-calendrier-local",
-  "phaseDisplayScope": "Historical V1 human phase records retained; V2 iteration is in developmentIterations."
+  "activeIterationId": "tcl-v2-bureau-oauth",
+  "phaseDisplayScope": "Historical V1 records preserved; current Bureau/OAuth iteration holds new proofs and owner statement."
 }

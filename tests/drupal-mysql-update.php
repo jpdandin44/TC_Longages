@@ -45,6 +45,14 @@ function retained(): array {
   ];
 }
 $action = $argv[1] ?? '';
+// Repository/storage recipe only: use a test double after the guarded local
+// database bootstrap. Real OAuth + browser proof is exercised in its HTTP suite.
+// No fixture bypass exists in the shipped Drupal services or access logic.
+function localRepositoryOauthFixture(): void {
+  Drupal::getContainer()->set('tcl_bureau_oauth.connection', new class {
+    public function valid(): bool { return TRUE; }
+  });
+}
 if ($action === 'seed') {
   checked('Existing Drupal V1 fixture has no Bureau', !Drupal::moduleHandler()->moduleExists('tcl_bureau'));
   Drupal::service('module_installer')->install(['tcl_site']);
@@ -56,10 +64,13 @@ if ($action === 'seed') {
   checked('Fresh schema includes communication', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Bureau role installed', Role::load('tcl_bureau')->hasPermission('manage tcl registrations'));
   checked('Captain cannot edit registrations', !Role::load('tcl_capitaine')->hasPermission('manage tcl registrations'));
+  checked('TC Admin role has Bureau permissions', Role::load('tcl_admin')->hasPermission('administer tcl bureau accounts'));
+  checked('TC Admin is not a technical super-admin', !Role::load('tcl_admin')->isAdmin());
   checked('Team scope remains disabled', Drupal::config('tcl_bureau.settings')->get('teams_enabled') === FALSE);
   $bureau = User::create(['name' => 'mysql-bureau-fictional', 'mail' => 'bureau@example.invalid', 'status' => 1]);
   $bureau->addRole('tcl_bureau')->setPassword($fixture['accountPassword'])->save();
   $registrations = Drupal::service('tcl_bureau.registrations');
+  localRepositoryOauthFixture();
   $values = ['profile' => 'adult', 'first_name' => 'Élodie', 'last_name' => 'Recette fictive', 'birth_date' => '1990-02-03', 'season' => '2026-2027', 'email' => 'fiction@example.invalid', 'phone' => '', 'status' => 'received', 'training' => 'unknown', 'previous_licence' => 'unknown', 'notes' => 'Donnée fictive — conservée'];
   $key = bin2hex(random_bytes(16));
   $id = $registrations->save($bureau, NULL, $values, $key, 0);
@@ -71,17 +82,22 @@ if ($action === 'seed') {
   // Reconstruct the earlier Bureau-only schema ONLY in this fresh disposable DB.
   $db->schema()->dropTable('tcl_bureau_post');
   Role::load('tcl_bureau')->revokePermission('manage tcl communication')->save();
+  foreach (['tcl_bureau', 'tcl_capitaine'] as $roleId) {
+    Role::load($roleId)->revokePermission('grant simple_oauth codes')->save();
+  }
   Drupal::service('update.update_hook_registry')->setInstalledVersion('tcl_bureau', 11000);
   file_put_contents($project . '/.local/mysql-recette/before-update.json', json_encode(retained(), JSON_THROW_ON_ERROR));
   checked('Earlier module revision prepared', !$db->schema()->tableExists('tcl_bureau_post'));
 }
 elseif ($action === 'verify') {
-  checked('Native updatedb applied update 11001', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11001);
+  checked('Native updatedb applied updates through 11002', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11002);
   checked('Communication table created by update', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Communication permission added', Role::load('tcl_bureau')->hasPermission('manage tcl communication'));
+  checked('Existing Bureau and Captain roles gain OAuth consent', Role::load('tcl_bureau')->hasPermission('grant simple_oauth codes') && Role::load('tcl_capitaine')->hasPermission('grant simple_oauth codes'));
   checked('Accounts and registrations unchanged after update', json_decode(file_get_contents($project . '/.local/mysql-recette/before-update.json'), TRUE) === retained());
   $bureau = user_load_by_name('mysql-bureau-fictional');
   $posts = Drupal::service('tcl_bureau.communication');
+  localRepositoryOauthFixture();
   $values = ['title' => 'Recette MySQL — été', 'category' => 'club', 'body' => 'Texte fictif', 'link' => '', 'tenup_visible' => 'no', 'image_alt' => 'Affiche fictive'];
   $image = imagecreatetruecolor(16, 16); ob_start(); imagejpeg($image); $binary = ob_get_clean(); imagedestroy($image);
   $key = bin2hex(random_bytes(16));

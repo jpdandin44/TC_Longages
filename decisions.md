@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,40 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-12 — OAuth indépendant TC et premier Admin
+
+Contexte : le responsable précise qu'il souhaite une duplication de la brique
+AVEREO pour le TC uniquement, avec un premier accès Admin TC Longages.
+Décision : installer Simple OAuth 6.1.1 dans le Drupal TC, étendre ses services
+via `tcl_identity` et conserver le consommateur PKCE et le Bureau natifs.
+Les comptes, base, clés et client TC sont indépendants d'AVEREO.
+Raisons : réutiliser la brique connue tout en administrant les accès du club
+sans compte AVEREO ; préserver les textes et dossiers du Drupal existant.
+Conséquences : rôle métier `tcl_admin` sans super-administration technique,
+nonce signé obligatoire, premier compte et configuration privés à créer sur
+la cible après qualification. Composer ajoute les dépendances sans mettre à
+jour Drupal. Les appels serveur sous Basic Auth sont un prérequis hébergé.
+La PR #19 reste celle de ce lot. Le choix initial ci-dessous est historique
+pour sa partie raccordement au fournisseur AVEREO ; cette décision le remplace.
+
+## 2026-10-12 — Bureau natif et preuve OAuth obligatoire (cadrage initial)
+
+Contexte : V1 confirmée ; le responsable demande un Bureau utilisable avec
+un bouton de menu dédié et la brique OAuth validée en préproduction.
+Décision d'implémentation locale : réutiliser `tcl_bureau`, ajouter un consommateur
+TC du contrat du fournisseur Drupal utilisé par CONNECT et conserver les droits
+métier locaux. Le catalogue CONNECT examiné n'a pas d'entrée TC ; aucun ticket
+HMAC ni client d'une autre application n'est réutilisé par cette adaptation.
+Raisons : préserver les données/révisions et éviter qu'un login CMS ou un email
+associé implicitement ouvre les dossiers privés. Les identités sont approuvées
+explicitement par issuer/sub et uid local ; les mots de passe métier quittent
+l'interface de gestion Bureau.
+Conséquences : client et secrets TC distincts, refus par défaut, aucune création
+automatique d'identité ; qualification du nouveau raccordement réel avant
+préproduction. L'accès serveur et les opérations de dossiers vérifient la même
+preuve OAuth. Les modèles/textes V1 restent conservés. Voir le
+[contrat](api/bureau-oauth.md) et le [workflow](workflows/bureau-oauth-preproduction.md).
 
 
 ## 2026-10-07 — Édition visible et contact natif

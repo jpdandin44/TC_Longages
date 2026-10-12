@@ -16,7 +16,7 @@ final class TeamRepository {
   public function __construct(private Connection $database, private EntityTypeManagerInterface $entities) {}
 
   public function active(AccountInterface $account): bool {
-    if (!$account->isAuthenticated()) {
+    if (!$account->isAuthenticated() || !\Drupal::hasService('tcl_bureau_oauth.connection') || !\Drupal::service('tcl_bureau_oauth.connection')->valid()) {
       return FALSE;
     }
     $storage = $this->entities->getStorage('user');

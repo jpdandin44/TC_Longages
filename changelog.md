@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,30 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-12 — Fournisseur OAuth propre au TC
+
+- Simple OAuth 6.1.1 et dépendances verrouillées, Drupal inchangé.
+- Fournisseur `tcl_identity` avec issuer TC, PKCE S256, nonce signé à usage
+  unique et refus des clients externes/grants password, machine et refresh.
+- Rôle **Admin TC Longages** pour Bureau, comptes et édition des pages ; premier
+  compte de recette local, aucun compte ou clé réel créé sur l'hébergement.
+- Recette du véritable fournisseur local ajoutée aux tests et à la PR #19 ;
+  workflow dédié mis à jour pour les prérequis Composer, clés et Basic Auth.
+
+## 2026-10-12 — Bureau avec accès OAuth
+
+- Bouton **Bureau** inséré dans le menu des sept pages Drupal sans remplacement
+  des modèles ou des textes édités ; page d'information `espace.html` conservée.
+- Adaptateur TC OAuth/PKCE, identité signée et association explicite aux comptes
+  locaux ; connexion native seule insuffisante pour les données Bureau.
+- Dossiers natifs réutilisés ; gestion des comptes sans mot de passe métier,
+  accès Capitaine limité et révocation des droits prise en compte.
+- Fournisseur fictif et base locale isolée ; tests de jetons et de parcours,
+  CI dédiée et vérification ordinateur/mobile. Le [reçu](data/bureau-oauth-verification.json)
+  conserve les résultats exacts ; la connexion hébergée reste à qualifier.
+- V1 confirmée par le responsable, sans retour bêta signalé ; aucune livraison
+  Bureau, modification d'AVEREO ou ouverture de production dans cette réalisation.
 
 
 ## 2026-10-08 — Choix du moyen de contact

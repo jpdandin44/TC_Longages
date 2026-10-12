@@ -5,12 +5,21 @@ title: Communication du Bureau dans la V2 locale
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-06
+updated: 2026-10-12
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
 
 # Communication du Bureau
+
+## Accès courant — 12 octobre
+
+L'accès à cette communication exige désormais la
+[connexion OAuth Bureau](bureau-oauth.md) et les droits Drupal locaux.
+Les fonctionnalités ci-dessous restent celles du module natif existant ;
+le fournisseur TC dédié est testé en local avec le premier Admin de recette,
+mais son installation hébergée reste à qualifier. Les anciennes adresses
+locales et recettes du 5–6 octobre sont conservées comme historique.
 
 La demande du 5 octobre intègre la communication du prototype au Bureau Drupal
 V2, liens externes compris. Le lot fonctionne sur [le site local](http://127.0.0.1:4182/).

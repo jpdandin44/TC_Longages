@@ -1,0 +1,8 @@
+name: TC Longages — connexion OAuth du Bureau
+type: module
+description: Connexion au fournisseur Drupal AVEREO et habilitations locales du Bureau.
+package: TC Longages
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:user
+  - tcl_identity:tcl_identity

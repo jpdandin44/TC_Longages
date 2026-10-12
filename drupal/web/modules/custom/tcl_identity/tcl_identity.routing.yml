@@ -1,0 +1,9 @@
+tcl_identity.login:
+  path: '/connexion-tc'
+  defaults:
+    _form: '\Drupal\user\Form\UserLoginForm'
+    _title: 'Connexion TC Longages'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+  options:
+    no_cache: TRUE
