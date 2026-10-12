@@ -6430,12 +6430,20 @@
       },
       "github": {
         "repository": "jpdandin44/TC_Longages",
-        "prUrl": null,
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/19",
         "acceptedSourceSha": null,
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
-        "evidence": null,
-        "observedAt": "2026-10-12T18:20:29.471581+00:00"
+        "evidence": "data/bureau-oauth-verification.json#github",
+        "observedAt": "2026-10-12T18:34:40.114162+00:00",
+        "number": 19,
+        "state": "OPEN",
+        "draft": true,
+        "mergeable": "MERGEABLE",
+        "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
+        "policyStatus": "waiting_for_four_human_checkboxes",
+        "technicalCiStatus": "passed",
+        "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054"
       },
       "checks": [
         {
@@ -6458,12 +6466,12 @@
         },
         {
           "kind": "ci",
-          "status": "not_run",
+          "status": "passed",
           "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
           "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
-          "target": null,
-          "evidence": "data/bureau-oauth-verification.json",
-          "observedAt": null
+          "target": "GitHub Actions: isolated CI fixtures",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+          "observedAt": "2026-10-12T18:34:40.114162+00:00"
         },
         {
           "kind": "preproduction",
@@ -6498,7 +6506,7 @@
         "Real preproduction OAuth login/logout/expiration/revocation recipe",
         "Current target backup/restore and authorized delivery of this candidate"
       ],
-      "nextAction": "Examiner la PR et qualifier le client TC/identités privés avant connexion réelle et livraison autorisée.",
+      "nextAction": "Recetter le Bureau local et choisir les identités OAuth ; qualifier le client TC avant installation en préproduction. PR19 brouillon ; confirmations humaines laissées vierges.",
       "nextIteration": [
         "Équipes/matchs et disponibilités simples",
         "Partenaires et bannière de logos",

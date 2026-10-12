@@ -124,5 +124,34 @@
     "passed": true,
     "referenceFiles": 28,
     "remoteDeployment": false
+  },
+  "github": {
+    "url": "https://github.com/jpdandin44/TC_Longages/pull/19",
+    "number": 19,
+    "state": "OPEN",
+    "draft": true,
+    "mergeable": "MERGEABLE",
+    "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
+    "observedAt": "2026-10-12T18:34:40.114162+00:00",
+    "humanApprovalAdded": false,
+    "policy": "four human checkboxes pending",
+    "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+    "technicalCiStatus": "passed",
+    "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
+    "technicalChecksPassed": [
+      "bureau-oauth-runtime",
+      "delivery-safety",
+      "drupal-mysql",
+      "support-runtime",
+      "technical-ci"
+    ]
+  },
+  "documentaryConsistency": {
+    "verified": true,
+    "scope": "Bureau sources, changed Markdown links/front matter, package/Git manifests and canonical tracker",
+    "remaining": [
+      "Real TC OAuth client and identities remain to configure/qualify"
+    ],
+    "policyApplied": true
   }
 }
