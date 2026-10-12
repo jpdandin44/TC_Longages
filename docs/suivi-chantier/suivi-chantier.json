@@ -3663,8 +3663,8 @@
       "phaseChecklistApprovalGenerated": false
     },
     "lastObservation": {
-      "at": "2026-10-12T19:42:31.824075+00:00",
-      "scope": "Bureau local candidate only; no new human approval or hosted operation"
+      "at": "2026-10-12T19:48:20.461609+00:00",
+      "scope": "Dedicated TC OAuth candidate CI passed; no human acceptance or hosted action"
     }
   },
   "phaseModel": {
@@ -6402,7 +6402,7 @@
       "owner": "jpdandin",
       "kind": "site-drupal",
       "stage": "local",
-      "status": "local_tc_identity_verified_candidate_preparation",
+      "status": "local_tc_identity_verified_hosted_setup_pending",
       "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
       "candidate": {
         "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
@@ -6435,15 +6435,16 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": "data/bureau-oauth-verification.json#github",
-        "observedAt": "2026-10-12T19:42:31.824075+00:00",
+        "observedAt": "2026-10-12T19:48:20.461609+00:00",
         "number": 19,
         "state": "OPEN",
         "draft": true,
         "mergeable": "MERGEABLE",
-        "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
+        "observedHeadSha": "84dad93a90c2465113f31fe1027600771641751a",
         "policyStatus": "waiting_for_four_human_checkboxes",
-        "technicalCiStatus": "pending_new_candidate",
-        "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054"
+        "technicalCiStatus": "passed",
+        "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+        "technicalCiHead": "84dad93a90c2465113f31fe1027600771641751a"
       },
       "checks": [
         {
@@ -6466,12 +6467,12 @@
         },
         {
           "kind": "ci",
-          "status": "pending",
+          "status": "passed",
           "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
           "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
           "target": "GitHub Actions isolated recipe",
-          "evidence": null,
-          "observedAt": null
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+          "observedAt": "2026-10-12T19:48:20.461609+00:00"
         },
         {
           "kind": "preproduction",

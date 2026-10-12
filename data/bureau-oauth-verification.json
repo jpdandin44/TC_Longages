@@ -150,13 +150,13 @@
     "state": "OPEN",
     "draft": true,
     "mergeable": "MERGEABLE",
-    "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
-    "observedAt": "2026-10-12T18:34:40.114162+00:00",
+    "observedHeadSha": "84dad93a90c2465113f31fe1027600771641751a",
+    "observedAt": "2026-10-12T19:48:20.461609+00:00",
     "humanApprovalAdded": false,
     "policy": "four human checkboxes pending",
-    "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
-    "technicalCiStatus": "pending_new_candidate",
-    "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
+    "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+    "technicalCiStatus": "passed",
+    "technicalCiHead": "84dad93a90c2465113f31fe1027600771641751a",
     "technicalChecksPassed": [
       "bureau-oauth-runtime",
       "delivery-safety",
@@ -184,7 +184,10 @@
       "Hosted TC dependencies, private keys/client and first Admin remain to configure/qualify",
       "Server HTTP routing under beta Basic Auth and backup/restore remain to qualify"
     ],
-    "policyApplied": true
+    "policyApplied": true,
+    "documentsChecked": 17,
+    "fileLinksChecked": 471,
+    "errors": []
   },
   "previousCandidates": [
     {
@@ -270,5 +273,17 @@
     ],
     "dependencyAuditAtInstall": "No security vulnerability advisories reported",
     "coreUnchanged": true
+  },
+  "correctedCiObservation": {
+    "run": "https://github.com/jpdandin44/TC_Longages/actions/runs/38298851599",
+    "scope": "previous candidate",
+    "passed": [
+      "bureau-oauth-runtime",
+      "delivery-safety",
+      "support-runtime",
+      "technical-ci"
+    ],
+    "mysqlFailure": "Historical test expected installed update 11001 instead of the new 11002; assertion and OAuth role migration checks corrected in 5fcd2a6",
+    "hostedChange": false
   }
 }
