@@ -3661,6 +3661,10 @@
       "credentialsAndSqlRightsUnchanged": true,
       "sqlReimportExcluded": true,
       "phaseChecklistApprovalGenerated": false
+    },
+    "lastObservation": {
+      "at": "2026-10-12T18:20:29.471581+00:00",
+      "scope": "Bureau local candidate only; no new human approval or hosted operation"
     }
   },
   "phaseModel": {
@@ -6401,8 +6405,12 @@
       "status": "local_verified_real_oauth_configuration_pending",
       "objective": "Rendre le Bureau natif utilisable avec bouton de menu et OAuth obligatoire.",
       "candidate": {
-        "sourceSha": null,
-        "artifactSha256": null
+        "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+        "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+        "kind": "git-source-manifest",
+        "candidateManifest": "data/framework-candidate.json",
+        "deliveryArtifactSha256": "c9ddb4826058a20fc2823a8920792f9dc33856f46eee84c32a2576a730e3094e",
+        "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
       },
       "targets": {
         "preproduction": {
@@ -6427,14 +6435,14 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": null,
-        "observedAt": null
+        "observedAt": "2026-10-12T18:20:29.471581+00:00"
       },
       "checks": [
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+          "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
           "target": "http://127.0.0.1:4186/",
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": "2026-10-12T18:15:07.357612+00:00"
@@ -6442,8 +6450,8 @@
         {
           "kind": "documentation",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+          "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
           "target": null,
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": "2026-10-12T18:15:07.357612+00:00"
@@ -6451,8 +6459,8 @@
         {
           "kind": "ci",
           "status": "not_run",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+          "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
           "target": null,
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": null
@@ -6460,8 +6468,8 @@
         {
           "kind": "preproduction",
           "status": "not_run",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+          "artifactSha256": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
           "target": null,
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": null
