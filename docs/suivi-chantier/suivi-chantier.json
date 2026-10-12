@@ -3663,8 +3663,8 @@
       "phaseChecklistApprovalGenerated": false
     },
     "lastObservation": {
-      "at": "2026-10-12T19:37:09.894632+00:00",
-      "scope": "Dedicated TC OAuth local preparation only; no new human approval or hosted action"
+      "at": "2026-10-12T19:38:02.525870+00:00",
+      "scope": "Bureau local candidate only; no new human approval or hosted operation"
     }
   },
   "phaseModel": {
@@ -6404,7 +6404,14 @@
       "stage": "local",
       "status": "local_tc_identity_verified_candidate_preparation",
       "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
-      "candidate": null,
+      "candidate": {
+        "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+        "artifactSha256": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
+        "kind": "git-source-manifest",
+        "candidateManifest": "data/framework-candidate.json",
+        "deliveryArtifactSha256": "51c2673211ce556436afd58b687bc67ea0375c54a73a053bdd991435b54ef206",
+        "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
+      },
       "targets": {
         "preproduction": {
           "id": "https://preprod.tclongages.fr/",
@@ -6428,7 +6435,7 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": "data/bureau-oauth-verification.json#github",
-        "observedAt": "2026-10-12T18:34:40.114162+00:00",
+        "observedAt": "2026-10-12T19:38:02.525870+00:00",
         "number": 19,
         "state": "OPEN",
         "draft": true,
@@ -6442,8 +6449,8 @@
         {
           "kind": "local",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+          "artifactSha256": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
           "target": "http://127.0.0.1:4186/",
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": "2026-10-12T19:37:09.894632+00:00"
@@ -6451,8 +6458,8 @@
         {
           "kind": "documentation",
           "status": "passed",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+          "artifactSha256": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
           "target": null,
           "evidence": "data/bureau-oauth-verification.json",
           "observedAt": "2026-10-12T19:37:09.894632+00:00"
@@ -6460,8 +6467,8 @@
         {
           "kind": "ci",
           "status": "pending",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+          "artifactSha256": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
           "target": "GitHub Actions isolated recipe",
           "evidence": null,
           "observedAt": null
@@ -6469,8 +6476,8 @@
         {
           "kind": "preproduction",
           "status": "not_run",
-          "sourceSha": null,
-          "artifactSha256": null,
+          "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+          "artifactSha256": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
           "target": "https://preprod.tclongages.fr/",
           "evidence": null,
           "observedAt": null

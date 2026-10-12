@@ -12,8 +12,18 @@
   "realMemberDataUsed": false,
   "outgoingMail": false,
   "sourceBaseCommit": "e0ec292dabbb15159d1f0c22aad670aee6cd480e",
-  "sourceSha": null,
-  "nativePackage": null,
+  "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+  "nativePackage": {
+    "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+    "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\bureau-oauth\\.local\\tcl-bureau-oauth-13195197c3e0.zip",
+    "artifactSha256": "51c2673211ce556436afd58b687bc67ea0375c54a73a053bdd991435b54ef206",
+    "manifestSha256": "cbacb592624353b2d2172173548ab52a2ff9412f892b97a323338ef056a43665",
+    "files": 50,
+    "bytes": 115417,
+    "targetHost": "preprod.tclongages.fr",
+    "productionAllowed": false,
+    "hostedInstallationPerformed": false
+  },
   "oauthHttp": {
     "passed": true,
     "checks": 66,
@@ -123,7 +133,12 @@
     "foundationPresent": true,
     "scope": "changed Markdown front matter/file targets and project foundations; external URLs and anchors not audited"
   },
-  "gitCandidate": null,
+  "gitCandidate": {
+    "sourceSha": "13195197c3e0161d1666127b5c7b96273b18ada7",
+    "manifest": "data/framework-candidate.json",
+    "artifactDigest": "1139b90cec97d74b6bf9e7106054f4ca6cbc497bdb799000dcaf7244f74b7c54",
+    "files": 554
+  },
   "framework": {
     "passed": true,
     "referenceFiles": 28,
