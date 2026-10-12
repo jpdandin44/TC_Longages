@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-07
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - codex
@@ -14,6 +14,22 @@ tags:
 ---
 
 # Consignes locales
+
+## Lot courant — Bureau OAuth, 12 octobre 2026
+
+- La V1 est confirmée par le responsable, sans retour bêta signalé. La demande
+  active porte sur le Bureau natif, son bouton de menu et le raccordement OAuth.
+- Utiliser la [source courante](docs/bureau-oauth.md) et l'itération
+  `tcl-v2-bureau-oauth` du suivi canonique. Les recettes native-password de V2
+  et les guides Basic/OIDC du prototype restent historiques et distincts.
+- Exiger la preuve OAuth et les permissions Drupal dans les routes ET services
+  Bureau ; aucun contournement par login natif ou compte administrateur.
+- Insérer le menu au rendu serveur sans remplacer les modèles ni les textes
+  et révisions existants. Les identités et secrets restent privés, hors Git/web.
+- Les fournisseurs/comptes fictifs sont limités à la recette loopback et ne
+  constituent pas une validation OAuth réelle. Aucun dossier réel en recette locale.
+- La création du client TC, ses identités et son installation réelle sont à
+  qualifier séparément ; ne pas modifier une autre application AVEREO ni ses secrets.
 
 ## Photo d’accueil — demande du 7 octobre
 

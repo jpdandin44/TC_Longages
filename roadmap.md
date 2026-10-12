@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,20 @@ tags:
 ---
 
 # Feuille de route
+
+## Itération courante — Bureau OAuth
+
+| Phase | Situation et suite |
+| --- | --- |
+| Cadrage | V1 confirmée ; demande Bureau et connexion OAuth enregistrée. |
+| Développement local | Module natif repris, menu dédié, OAuth obligatoire et recette fictive vérifiés ; PR et CI dans le suivi. |
+| Préproduction | Client TC et identités à qualifier, récupération puis installation et connexion réelles du candidat accepté. |
+| Mise en production | Non autorisée pour ce lot ; prévoir son accord, ses sauvegardes et contrôles propres. |
+
+Le [guide du Bureau](docs/bureau-oauth.md) et l'itération `tcl-v2-bureau-oauth`
+du suivi sont les points de reprise. Équipes/matchs, communication et partenaires
+restent les priorités suivantes ; aucune nouvelle fonction cockpit n'est engagée.
+Les sections antérieures ci-dessous décrivent les observations de leur date.
 
 
 ## Suite courante — choix de contact, 8 octobre

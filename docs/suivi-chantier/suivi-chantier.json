@@ -4,9 +4,9 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-08",
+  "updated": "2026-10-12",
   "owner": "jpdandin",
-  "scope": "V1 livrée et publique; nouvelle V2 locale centrée sur les nouveaux adhérents, calendrier public dédié et préparation des compétitions. Aucun déploiement V2.",
+  "scope": "V1 confirmed by owner; current Bureau OAuth local candidate. No hosted Bureau delivery.",
   "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
@@ -6389,8 +6389,148 @@
         "Préproduction",
         "Mise en production"
       ]
+    },
+    {
+      "protocol": "developpement-github-cockpit",
+      "version": "git",
+      "iterationId": "tcl-v2-bureau-oauth",
+      "project": "tclongages",
+      "owner": "jpdandin",
+      "kind": "site-drupal",
+      "stage": "local",
+      "status": "local_verified_real_oauth_configuration_pending",
+      "objective": "Rendre le Bureau natif utilisable avec bouton de menu et OAuth obligatoire.",
+      "candidate": {
+        "sourceSha": null,
+        "artifactSha256": null
+      },
+      "targets": {
+        "preproduction": {
+          "id": "https://preprod.tclongages.fr/",
+          "ready": false,
+          "isolated": false,
+          "empty": false,
+          "evidence": "Current target and real OAuth client remain to qualify",
+          "observedAt": null
+        },
+        "production": {
+          "id": null,
+          "ready": false,
+          "evidence": null,
+          "observedAt": null
+        }
+      },
+      "github": {
+        "repository": "jpdandin44/TC_Longages",
+        "prUrl": null,
+        "acceptedSourceSha": null,
+        "acceptedArtifactSha256": null,
+        "humanAcceptanceVerified": false,
+        "evidence": null,
+        "observedAt": null
+      },
+      "checks": [
+        {
+          "kind": "local",
+          "status": "passed",
+          "sourceSha": null,
+          "artifactSha256": null,
+          "target": "http://127.0.0.1:4186/",
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": "2026-10-12T18:15:07.357612+00:00"
+        },
+        {
+          "kind": "documentation",
+          "status": "passed",
+          "sourceSha": null,
+          "artifactSha256": null,
+          "target": null,
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": "2026-10-12T18:15:07.357612+00:00"
+        },
+        {
+          "kind": "ci",
+          "status": "not_run",
+          "sourceSha": null,
+          "artifactSha256": null,
+          "target": null,
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": null
+        },
+        {
+          "kind": "preproduction",
+          "status": "not_run",
+          "sourceSha": null,
+          "artifactSha256": null,
+          "target": null,
+          "evidence": "data/bureau-oauth-verification.json",
+          "observedAt": null
+        }
+      ],
+      "approvals": [],
+      "backups": [],
+      "rollback": {
+        "status": "not_tested",
+        "target": null,
+        "artifactSha256": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "delivery": {
+        "status": "not_delivered",
+        "sourceSha": null,
+        "artifactSha256": null,
+        "target": null,
+        "evidence": null,
+        "observedAt": null
+      },
+      "blockers": [
+        "Exact real issuer/endpoints and dedicated TC client/private configuration",
+        "Authorized stable OAuth identities mapped to local TC uid",
+        "Real preproduction OAuth login/logout/expiration/revocation recipe",
+        "Current target backup/restore and authorized delivery of this candidate"
+      ],
+      "nextAction": "Examiner la PR et qualifier le client TC/identités privés avant connexion réelle et livraison autorisée.",
+      "nextIteration": [
+        "Équipes/matchs et disponibilités simples",
+        "Partenaires et bannière de logos",
+        "Améliorations de communication et relais manuels"
+      ],
+      "budget": {
+        "limit": null,
+        "unit": null,
+        "observedUsage": null,
+        "observedAt": null
+      },
+      "phaseModelRef": "developmentWorkflow.phaseModel",
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ],
+      "guide": "docs/bureau-oauth.md",
+      "evidence": "data/bureau-oauth-verification.json",
+      "localTarget": {
+        "origin": "http://127.0.0.1:4186/",
+        "provider": "http://127.0.0.1:4190/",
+        "fictitiousDataOnly": true,
+        "hostedOAuthVerified": false
+      },
+      "authorization": {
+        "source": "user-message-2026-10-12",
+        "effect": "Bureau development and local tests; dedicated menu and existing OAuth provider requested",
+        "liveDeliveryApprovalAdded": false
+      },
+      "v1OwnerStatement": {
+        "date": "2026-10-12",
+        "v1Confirmed": true,
+        "betaFeedback": "owner reports none",
+        "independentFeedbackInspection": false,
+        "source": "user-message-2026-10-12"
+      }
     }
   ],
-  "activeIterationId": "tcl-v2-bureau-calendrier-local",
-  "phaseDisplayScope": "Historical V1 human phase records retained; V2 iteration is in developmentIterations."
+  "activeIterationId": "tcl-v2-bureau-oauth",
+  "phaseDisplayScope": "Historical V1 records preserved; current Bureau/OAuth iteration holds new proofs and owner statement."
 }

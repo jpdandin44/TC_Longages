@@ -45,6 +45,14 @@ function retained(): array {
   ];
 }
 $action = $argv[1] ?? '';
+// Repository/storage recipe only: use a test double after the guarded local
+// database bootstrap. Real OAuth + browser proof is exercised in its HTTP suite.
+// No fixture bypass exists in the shipped Drupal services or access logic.
+function localRepositoryOauthFixture(): void {
+  Drupal::getContainer()->set('tcl_bureau_oauth.connection', new class {
+    public function valid(): bool { return TRUE; }
+  });
+}
 if ($action === 'seed') {
   checked('Existing Drupal V1 fixture has no Bureau', !Drupal::moduleHandler()->moduleExists('tcl_bureau'));
   Drupal::service('module_installer')->install(['tcl_site']);
@@ -60,6 +68,7 @@ if ($action === 'seed') {
   $bureau = User::create(['name' => 'mysql-bureau-fictional', 'mail' => 'bureau@example.invalid', 'status' => 1]);
   $bureau->addRole('tcl_bureau')->setPassword($fixture['accountPassword'])->save();
   $registrations = Drupal::service('tcl_bureau.registrations');
+  localRepositoryOauthFixture();
   $values = ['profile' => 'adult', 'first_name' => 'Élodie', 'last_name' => 'Recette fictive', 'birth_date' => '1990-02-03', 'season' => '2026-2027', 'email' => 'fiction@example.invalid', 'phone' => '', 'status' => 'received', 'training' => 'unknown', 'previous_licence' => 'unknown', 'notes' => 'Donnée fictive — conservée'];
   $key = bin2hex(random_bytes(16));
   $id = $registrations->save($bureau, NULL, $values, $key, 0);
@@ -82,6 +91,7 @@ elseif ($action === 'verify') {
   checked('Accounts and registrations unchanged after update', json_decode(file_get_contents($project . '/.local/mysql-recette/before-update.json'), TRUE) === retained());
   $bureau = user_load_by_name('mysql-bureau-fictional');
   $posts = Drupal::service('tcl_bureau.communication');
+  localRepositoryOauthFixture();
   $values = ['title' => 'Recette MySQL — été', 'category' => 'club', 'body' => 'Texte fictif', 'link' => '', 'tenup_visible' => 'no', 'image_alt' => 'Affiche fictive'];
   $image = imagecreatetruecolor(16, 16); ob_start(); imagejpeg($image); $binary = ob_get_clean(); imagedestroy($image);
   $key = bin2hex(random_bytes(16));

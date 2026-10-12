@@ -15,6 +15,14 @@ function tcl_bureau_page_attachments(array &$attachments): void {
   }
 }
 
+/** Implements hook_page_top(): never present the local provider as live OAuth. */
+function tcl_bureau_page_top(array &$page_top): void {
+  $settings = \Drupal\Core\Site\Settings::get('tcl_bureau_oauth', []);
+  if (($settings['local_fixture'] ?? FALSE) === TRUE && str_starts_with(\Drupal::request()->getPathInfo(), '/bureau')) {
+    $page_top['oauth_fixture_notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette locale : connexion OAuth simulée et données fictives uniquement.', '#attributes' => ['role' => 'status', 'style' => 'padding:1rem;margin:0;background:#fff1b8;color:#332700;font:600 1rem system-ui']];
+  }
+}
+
 /** Vary the branding block by route before its render cache is consulted. */
 function tcl_bureau_block_build_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block): void {
   if ($block->getPluginId() === 'system_branding_block') {

@@ -5,14 +5,38 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 8 octobre 2026
+# Point de session — reprise au 12 octobre 2026
 
-## Reprise courante — Gmail, messagerie habituelle et formulaire
+## Reprise courante — Bureau OAuth
+
+V1 confirmée par le responsable ; aucun retour de bêta-testeur signalé.
+Le nouveau lot rend le Bureau natif utilisable, ajoute **Bureau** au menu
+et impose OAuth côté serveur en plus des droits Drupal. Le cockpit reste reporté.
+
+Checkout actif : `.worktrees/bureau-oauth`, branche `feat/bureau-oauth`, créée
+depuis `main` à `e0ec292`. Les autres checkouts et leurs changements locaux
+sont conservés. Le [guide](bureau-oauth.md), le [contrat](../api/bureau-oauth.md),
+le [workflow](../workflows/bureau-oauth-preproduction.md) et le
+[reçu](../data/bureau-oauth-verification.json) décrivent les sources et preuves.
+La PR et son observation GitHub figurent dans l'itération `tcl-v2-bureau-oauth`
+du [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations).
+
+Prochaine action : identifier les comptes OAuth autorisés et qualifier le client
+TC dédié/configuration privée sur le fournisseur réel ; préparer récupération
+et installation du candidat accepté en préproduction TC. Aucun identifiant,
+mot de passe ou jeton n'est à envoyer dans le chat. Le Bureau local est testable
+sur `127.0.0.1:4186` avec connexion simulée et données fictives uniquement.
+La déclaration de validation V1 ne crée pas d'accord de merge ou de livraison
+du nouveau Bureau. Aucune préproduction Bureau ni production modifiée.
+
+Les observations suivantes sont historiques.
+
+## Observation du 8 octobre — Gmail, messagerie habituelle et formulaire
 
 Le responsable accepte les trois moyens de contact et demande de raccorder
 tous les boutons des différentes pages. L'ajustement est réalisé sur la branche

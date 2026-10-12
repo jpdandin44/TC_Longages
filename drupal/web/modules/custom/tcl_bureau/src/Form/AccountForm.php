@@ -60,7 +60,7 @@ final class AccountForm extends FormBase {
       $form['identity'] = ['#type' => 'item', '#title' => 'Identifiant', '#plain_text' => $user->getAccountName()];
     }
     $form['mail'] = ['#type' => 'email', '#title' => 'Adresse de courriel', '#required' => TRUE, '#default_value' => $user?->getEmail() ?? ''];
-    $form['password'] = ['#type' => 'password_confirm', '#title' => $user === NULL ? 'Mot de passe initial' : 'Nouveau mot de passe', '#required' => $user === NULL, '#description' => 'Au moins 16 caractères. ' . ($user !== NULL ? 'Laissez vide pour conserver le mot de passe actuel. ' : '') . 'Aucun courriel automatique n’est envoyé.'];
+    $form['connection'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => 'La connexion passe par OAuth. L’administrateur doit associer l’identité autorisée à ce compte avant sa première utilisation. Aucun courriel automatique n’est envoyé.'];
     if ($admin) {
       $form['role'] = ['#type' => 'select', '#title' => 'Rôle', '#options' => ['tcl_capitaine' => 'Capitaine', 'tcl_bureau' => 'Bureau'], '#default_value' => $user?->hasRole('tcl_bureau') ? 'tcl_bureau' : 'tcl_capitaine'];
     }
@@ -81,10 +81,6 @@ final class AccountForm extends FormBase {
     }
     if ($target && !hash_equals($this->version($target), (string) $form_state->getValue('account_version'))) {
       $form_state->setErrorByName('account_version', 'Le compte a changé depuis l’ouverture de cette fiche. Rechargez-la avant de réessayer.');
-    }
-    $password = (string) $form_state->getValue('password');
-    if (($target === NULL || $password !== '') && mb_strlen($password) < 16) {
-      $form_state->setErrorByName('password', 'Le mot de passe doit comporter au moins 16 caractères.');
     }
     $name = $target?->getAccountName() ?? trim((string) $form_state->getValue('name'));
     $storage = \Drupal::entityTypeManager()->getStorage('user');
@@ -119,16 +115,17 @@ final class AccountForm extends FormBase {
     if (!in_array($role, $admin ? ['tcl_bureau', 'tcl_capitaine'] : ['tcl_capitaine'], TRUE)) {
       throw new AccessDeniedHttpException();
     }
-    $target ??= User::create(['name' => trim((string) $form_state->getValue('name'))]);
+    if ($target === NULL) {
+      $target = User::create(['name' => trim((string) $form_state->getValue('name'))]);
+      // Local business accounts have no user-chosen password in this interface.
+      $target->setPassword(bin2hex(random_bytes(48)));
+    }
     $target->setEmail(trim((string) $form_state->getValue('mail')));
     foreach (['tcl_bureau', 'tcl_capitaine'] as $businessRole) {
       $target->removeRole($businessRole);
     }
     $target->addRole($role);
     $form_state->getValue('active') ? $target->activate() : $target->block();
-    if ($password = (string) $form_state->getValue('password')) {
-      $target->setPassword($password);
-    }
     $target->save();
     $this->messenger()->addStatus('Le compte est enregistré.');
     $form_state->setRedirect('tcl_bureau.accounts');

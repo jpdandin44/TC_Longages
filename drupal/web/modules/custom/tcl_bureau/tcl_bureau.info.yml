@@ -6,3 +6,4 @@ core_version_requirement: ^11.4
 dependencies:
   - drupal:user
   - tcl_site:tcl_site
+  - tcl_bureau_oauth:tcl_bureau_oauth

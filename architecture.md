@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-08
+updated: 2026-10-12
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,32 @@ tags:
 ---
 
 # Architecture
+
+## Bureau OAuth — adaptation locale du 12 octobre
+
+`tcl_bureau_oauth` est le consommateur TC du contrat OAuth/PKCE utilisé par
+CONNECT auprès du fournisseur Drupal AVEREO. Il vérifie l'identité signée,
+associe issuer/sub à un uid autorisé et établit une session native Drupal
+avec une preuve Bureau distincte. `tcl_bureau` conserve ses données, révisions,
+contrôles CSRF et permissions ; ses services vérifient aussi cette preuve.
+Le login natif du CMS conserve son rôle éditorial et n'ouvre pas le Bureau.
+L'adaptateur et le nouveau client TC ne sont pas encore qualifiés sur serveur.
+
+```mermaid
+flowchart LR
+  M["Menu Bureau du site TC"] --> A["Adaptateur OAuth TC"]
+  A --> I["Fournisseur Drupal AVEREO retenu"]
+  I --> V["Vérification OAuth et association privée"]
+  V --> S["Session Drupal et droits locaux"]
+  S --> B["Bureau et base privée TC"]
+```
+
+Le menu est inséré au rendu des sept pages, sans réécriture des textes édités.
+Les secrets et associations sont des paramètres privés `Settings`, hors webroot
+et exports. L'exemple est désactivé. Le fournisseur fictif de la recette reste
+sur boucle locale et ne fait pas partie d'une livraison. Le
+[contrat détaillé](api/bureau-oauth.md) distingue expiration, révocation locale
+et déconnexion du fournisseur ; les autres projets AVEREO restent inchangés.
 
 
 ## Édition et contact — correctif du 7 octobre

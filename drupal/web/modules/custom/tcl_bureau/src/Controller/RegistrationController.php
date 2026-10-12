@@ -43,7 +43,7 @@ final class RegistrationController extends ControllerBase {
         'accounts' => Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable(),
         'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
       ],
-      'title' => ['#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Nouveaux adhérents'],
+      'title' => ['#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Bureau — Adhérents'],
       'intro' => ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Enregistrez les fiches reçues, vérifiez les coordonnées et suivez les dossiers à compléter.'],
       'add' => Link::fromTextAndUrl('Enregistrer un nouvel adhérent', Url::fromRoute('tcl_bureau.registration_add'))->toRenderable(),
       'search' => ['#type' => 'html_tag', '#tag' => 'form', '#attributes' => ['method' => 'get', 'action' => Url::fromRoute('tcl_bureau.registrations')->toString()],

@@ -5,12 +5,24 @@ title: Comptes et espace Bureau — première itération locale V2
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-06
+updated: 2026-10-12
 owner: jpdandin
 tags: [drupal, comptes, bureau, inscriptions, recette]
 ---
 
 # Comptes et espace Bureau
+
+## Connexion courante — 12 octobre
+
+Le [guide Bureau OAuth](bureau-oauth.md) décrit désormais l'accès actuel : bouton
+**Bureau**, OAuth obligatoire et droits Drupal. Les dossiers et leur modèle
+métier ci-dessous sont conservés ; créer un compte local ne crée pas d'identité
+OAuth. Le formulaire de gestion des comptes ne propose plus de mot de passe.
+La recette actuelle utilise `127.0.0.1:4186` et un fournisseur fictif clairement
+signalé. Les commandes, comptes/passwords et reçus du 5–6 octobre ci-dessous
+sont historiques : utiliser la nouvelle recette pour ce candidat.
+
+## Historique — première itération native des 5–6 octobre
 
 La [communication du Bureau](communication-bureau.md) utilise désormais le même
 compte et menu : brouillons, affiches, revue et publication sur le site local.

@@ -1,0 +1,107 @@
+{
+  "project": "TC_Longages",
+  "document_type": "bureau-oauth-verification",
+  "owner": "jpdandin",
+  "version": "git",
+  "created": "2026-10-12",
+  "updated": "2026-10-12",
+  "checkedAt": "2026-10-12T18:15:07.357612+00:00",
+  "scope": "local Drupal and fictitious OAuth only",
+  "hostedOAuthVerified": false,
+  "remoteDeployment": false,
+  "realMemberDataUsed": false,
+  "outgoingMail": false,
+  "sourceBaseCommit": "e0ec292dabbb15159d1f0c22aad670aee6cd480e",
+  "sourceSha": null,
+  "nativePackage": null,
+  "oauthHttp": {
+    "passed": true,
+    "checks": 66,
+    "observedAt": "2026-10-12T18:13:21.155839+00:00",
+    "report": ".local/bureau-oauth-http-results.json",
+    "reportSha256": "6a1aa70c48df60056735c528970794c8116113792965335df928e975612adbb6"
+  },
+  "contactAndEditing": {
+    "passed": true,
+    "checks": 76,
+    "observedAt": "2026-10-12T18:03:45.290850+00:00",
+    "report": ".local/contact-http-verification.json",
+    "reportSha256": "f4baa9cf996a13c213196a152d363c2278fae5191bcbd0b7595178c1d52c278b"
+  },
+  "editorRoundTrip": {
+    "passed": true,
+    "checks": 16,
+    "observedAt": "2026-10-12T18:03:58.545710+00:00",
+    "report": ".local/editor-http-verification.json",
+    "reportSha256": "a28a7cf7867baa0e52471fc3556d719170c875075532f2203d2447f4934e37db"
+  },
+  "tokenVerification": {
+    "passed": true,
+    "checks": 20,
+    "scope": "generated key and invalid signature/claims tests"
+  },
+  "nodeChecks": {
+    "passed": true,
+    "tests": 170,
+    "failed": 0,
+    "log": ".local/bureau-oauth-node-check.log"
+  },
+  "pythonUnitChecks": {
+    "run": 54,
+    "passed": 50,
+    "skipped": 4,
+    "failed": 0
+  },
+  "syntax": {
+    "phpFiles": 56,
+    "phpPassed": true,
+    "powershellPassed": true,
+    "nodeFixturePassed": true
+  },
+  "browser": {
+    "verified": true,
+    "fictitiousProvider": true,
+    "desktopWidth": 1280,
+    "mobileWidth": 390,
+    "horizontalBodyOverflow": false,
+    "minorGuardianFieldsVisible": true,
+    "menuBureauClicked": true,
+    "screenshots": [
+      ".local/bureau-oauth-desktop.png",
+      ".local/bureau-oauth-mobile.png"
+    ]
+  },
+  "claudeReview": {
+    "kind": "design_consultation_not_human_acceptance",
+    "application": "Claude",
+    "conversationTitle": "Intégration OAuth/PKCE Drupal 11.4",
+    "privateDataShared": false,
+    "codeEditedByClaude": false,
+    "pointsRead": [
+      "state and PKCE one time and session bound",
+      "RS256 issuer audience azp times nonce sub",
+      "explicit issuer/sub uid mapping",
+      "separate OAuth proof on routes and services",
+      "private secrets and generic errors"
+    ],
+    "unqualifiedByReview": [
+      "real provider connection",
+      "real TC account access",
+      "hosted release"
+    ]
+  },
+  "remaining": [
+    "Exact real issuer/endpoints and dedicated TC client/private configuration",
+    "Authorized stable OAuth identities mapped to local TC uid",
+    "Real preproduction OAuth login/logout/expiration/revocation recipe",
+    "Current target backup/restore and authorized delivery of this candidate"
+  ],
+  "documentation": {
+    "passed": true,
+    "documents": 16,
+    "internalFileLinks": 462,
+    "errors": [],
+    "foundationPresent": true,
+    "scope": "changed Markdown front matter/file targets and project foundations; external URLs and anchors not audited"
+  }
+}
