@@ -5,7 +5,7 @@ declare(strict_types=1);
 /** Restrict the club skin to the V2 workspace and native account screens. */
 function tcl_bureau_is_workspace(): bool {
   $route = (string) \Drupal::routeMatch()->getRouteName();
-  return str_starts_with($route, 'tcl_bureau.') || in_array($route, ['user.login', 'user.pass', 'user.logout', 'user.logout.confirm'], TRUE);
+  return str_starts_with($route, 'tcl_bureau.') || in_array($route, ['tcl_identity.login', 'user.login', 'user.pass', 'user.logout', 'user.logout.confirm'], TRUE);
 }
 
 /** Implements hook_page_attachments(). */
@@ -20,6 +20,9 @@ function tcl_bureau_page_top(array &$page_top): void {
   $settings = \Drupal\Core\Site\Settings::get('tcl_bureau_oauth', []);
   if (($settings['local_fixture'] ?? FALSE) === TRUE && str_starts_with(\Drupal::request()->getPathInfo(), '/bureau')) {
     $page_top['oauth_fixture_notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette locale : connexion OAuth simulée et données fictives uniquement.', '#attributes' => ['role' => 'status', 'style' => 'padding:1rem;margin:0;background:#fff1b8;color:#332700;font:600 1rem system-ui']];
+  }
+  elseif (($settings['local_provider'] ?? FALSE) === TRUE && (str_starts_with(\Drupal::request()->getPathInfo(), '/bureau') || in_array(\Drupal::routeMatch()->getRouteName(), ['user.login', 'tcl_identity.login'], TRUE))) {
+    $page_top['oauth_local_notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette locale : OAuth TC Longages, comptes et données de test uniquement.', '#attributes' => ['role' => 'status', 'style' => 'padding:1rem;margin:0;background:#fff1b8;color:#332700;font:600 1rem system-ui']];
   }
 }
 

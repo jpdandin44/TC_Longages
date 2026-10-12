@@ -40,14 +40,23 @@ ne sont pas inclus dans ce lot.
 
 ## Connexion et habilitations
 
-Le nouvel adaptateur `tcl_bureau_oauth` reprend le **contrat OAuth/PKCE du
-fournisseur Drupal utilisé par AVEREO CONNECT**, avec des paramètres propres au
-TC. Il ne déploie ni un second fournisseur d'identité, ni une copie du backend
-CONNECT. Il ne consomme pas les tickets HMAC du catalogue CONNECT : ce catalogue
-ne possède actuellement aucune entrée TC dans la source examinée.
+Le responsable demande une **connexion indépendante pour le TC Longages** et
+un premier accès **Admin TC Longages**. `tcl_identity` installe un fournisseur
+dans le Drupal du club, avec Simple OAuth **6.1.1**, version utilisée par AVEREO.
+Les dépendances sont verrouillées dans Composer ; Drupal reste en 11.4.6.
+Les comptes, base, client, secret et paire RSA sont propres au TC. Aucun compte
+AVEREO n'est nécessaire et aucune donnée ou clé AVEREO n'est copiée.
+
+`tcl_bureau_oauth` réutilise le contrat OAuth/PKCE du consommateur CONNECT.
+Le fournisseur TC reprend le point d'extension des claims du module
+`avereo_rapport_oauth`, adapte `sub` au format chaîne et ajoute un nonce signé
+à usage unique. Cette extension utilise les services Simple OAuth sans modifier
+le code contrib. Le backend et le catalogue HMAC CONNECT restent indépendants.
+La [version officielle](https://www.drupal.org/project/simple_oauth/releases/6.1.1)
+est compatible Drupal 11 ; sa disponibilité ne vaut pas qualification hébergée.
 
 Le module validé en préproduction est indiqué par le responsable. La validation
-du nouveau client TC reste distincte. Le code de référence consulté est
+de l'installation dédiée TC reste distincte. Le code de référence consulté est
 `Avereo\Connect\Identity\OAuthFlow` dans `connect-rapport-local`, commit
 `fbf395b31917ad46565896ae46317e11db0b611e`, identique pour ce composant à la source
 AVEREO `3d70b530acc236f36ade6c06a553d3c9f7ed07f1`.
@@ -60,20 +69,37 @@ automatiquement un rôle local. Les associations sont uniques et privées.
 Les droits locaux sont relus à chaque accès. Blocage du compte, retrait du rôle,
 retrait d'association ou changement de configuration invalident l'accès courant.
 
+Le rôle **Admin TC Longages** (`tcl_admin`) possède les droits des inscriptions,
+communication, comptes Bureau/Capitaine et édition des sept pages. Il n'est pas
+un super-administrateur technique Drupal. L'installation crée le rôle, sans
+créer de compte, mot de passe ou clé réels. Le premier compte hébergé prévu est
+`Admin_TC_Longages` ; son identifiant final et son secret restent à renseigner
+sur la cible par le responsable, dans l'interface privée.
+
 La connexion native Drupal permet toujours les opérations éditoriales autorisées
-du site. Elle ne suffit plus pour accéder au Bureau, même pour un administrateur.
+du site et sert de connexion au fournisseur TC. Elle ne suffit pas seule pour
+accéder au Bureau : le parcours OAuth doit encore établir sa preuve.
 La gestion métier des comptes ne propose plus de mot de passe : créer un compte
-local ne lui donne pas une identité OAuth ; l'administrateur doit réaliser
-l'association privée avant sa première connexion.
+local ne l'autorise pas automatiquement à accéder au Bureau ; l'administrateur
+doit initialiser son accès privé au fournisseur TC et son association avant
+sa première connexion. Le compte Admin n'est pas modifiable par les formulaires
+métier de gestion des comptes.
 
 ## Recette locale et état réel
 
 Le [site local](http://127.0.0.1:4186/) et le [Bureau](http://127.0.0.1:4186/bureau)
-utilisent uniquement une base SQLite neuve et un fournisseur fictif sur
-`127.0.0.1:4190`. Le bandeau **connexion OAuth simulée et données fictives**
-est obligatoire dans cette recette. Ne pas saisir de dossier réel.
-Les comptes et clés de recette restent dans `.local/`, hors Git et archives.
-Le fournisseur fictif permet d'essayer le parcours sans compte ni mot de passe.
+utilisent une base SQLite de recette et le **véritable module Simple OAuth** TC
+sur `127.0.0.1:4191`, avec le premier compte fictif `Admin_TC_Longages_local`.
+Deux serveurs PHP sont nécessaires en local sous Windows pour l'échange HTTP
+du code ; ils utilisent le même Drupal et sa session. Sur l'hébergement, les
+requêtes concurrentes et leur routage restent à qualifier.
+Le bandeau **OAuth TC Longages, comptes et données de test uniquement** distingue
+cette recette du service hébergé. Ne pas saisir de dossier réel. Les identifiants
+locaux sont conservés uniquement dans `.local/tc-identity-local.json` ; clés et
+configurations restent dans `.local/`, hors Git et archives.
+
+Le fournisseur fictif sur `127.0.0.1:4190` reste utilisé pour injecter des jetons
+invalides, puis le script teste le fournisseur TC réel et le compte Admin local.
 
 Depuis un checkout sans base locale, avec PHP, Node et Python installés :
 
@@ -83,7 +109,7 @@ Depuis un checkout sans base locale, avec PHP, Node et Python installés :
 
 Le script prépare les modèles en vue Mois **avant** l'initialisation éditoriale,
 installe le Drupal du verrou Composer, neutralise les courriels, exécute les
-tests puis arrête ses deux serveurs. Il refuse une base préexistante et un port
+tests puis arrête ses serveurs. Il refuse une base préexistante et un port
 de fournisseur déjà occupé. La recette ne prouve aucune connexion hébergée.
 Le [reçu](../data/bureau-oauth-verification.json) distingue tests, navigateur,
 consultation de Claude et prérequis encore manquants.
@@ -92,9 +118,9 @@ consultation de Claude et prérequis encore manquants.
 
 | Phase | Situation du lot |
 | --- | --- |
-| Cadrage | V1 confirmée par le responsable ; Bureau, bouton dédié et OAuth demandés. |
-| Développement local | Adaptateur, menus, droits et recette isolée réalisés ; PR et CI à suivre dans le suivi canonique. |
-| Préproduction | Client OAuth TC, identités autorisées, configuration privée, récupération et recette réelle à qualifier avant installation. |
+| Cadrage | V1 confirmée ; Bureau, OAuth TC indépendant et premier Admin demandés. |
+| Développement local | Fournisseur TC, adaptateur, menus, rôle Admin et recettes locales réalisés ; PR #19 et CI dans le suivi canonique. |
+| Préproduction | Dépendances, clés/client TC, premier compte Admin, protection HTTP, récupération et recette hébergée à qualifier. |
 | Mise en production | Non autorisée pour ce candidat ; accord et contrôles propres à cette livraison nécessaires. |
 
 Le [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations)
@@ -105,10 +131,14 @@ précise le passage du candidat local à la cible TC protégée.
 Le paquet de modules se prépare depuis la source commitée avec
 `python scripts/package-bureau-oauth.py`. Il conserve ses empreintes dans
 `.local/bureau-oauth-package.json`, exclut modèles éditoriaux, base et fixtures,
-et contient seulement les modules et le contrôleur concernés, plus l'exemple
-de configuration inactif. La préparation du paquet n'active aucun service.
+et contient les modules/contrôleur concernés, les exemples inactifs et les
+fichiers Composer verrouillés. Les dépendances contrib/vendor ne sont pas
+incluses : `composer install --no-dev` doit être qualifié dans une copie isolée
+avant déploiement. Le manifeste indique `readyForDirectDeployment: false`.
+La préparation du paquet n'active aucun service.
 
-**TBD avant utilisation réelle :** issuer et endpoints exacts du fournisseur,
-client TC dédié et secret privé, clé publique, identités `sub` autorisées et uid
-locaux associés, comportement Simple OAuth concernant le nonce, connexion et
-déconnexion réelles, validation des champs avant collecte d'adhérents.
+**TBD avant utilisation réelle :** installation des dépendances sur la cible,
+clés et client TC privés, compte Admin et association avec son uid, appels HTTP
+côté serveur sous Basic Auth, sauvegarde/restauration, connexion/déconnexion
+hébergées et validation des champs avant collecte d'adhérents. Le nonce signé
+du fournisseur TC est implémenté et testé localement, sans option de tolérance.

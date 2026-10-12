@@ -5,3 +5,4 @@ package: TC Longages
 core_version_requirement: ^11.4
 dependencies:
   - drupal:user
+  - tcl_identity:tcl_identity

@@ -25,8 +25,12 @@ tags:
   modification et états, sans reconstruire une base dans le navigateur.
 - Préserver les sept contenus éditables, l'agenda Mois, la photo et les contacts/support.
 - Conserver le Capitaine sans accès aux dossiers d'adhérents ; équipes différées.
-- Raccorder un client TC dédié au fournisseur validé : identités exactes,
-  configuration privée, expiration, déconnexion et révocation à vérifier.
+- Installer un fournisseur OAuth indépendant **TC Longages**, basé sur Simple
+  OAuth 6.1.1 d'AVEREO : comptes, clés et client TC dédiés, premier Admin TC.
+- Exiger un nonce signé, PKCE S256, callback fixe, identités exactes et droits
+  locaux ; configurer expiration/déconnexion et révocation côté TC.
+- Conserver la protection bêta tout en qualifiant les appels HTTP serveur OAuth
+  et les dépendances de la cible avant utilisation hébergée.
 - Ne pas reprendre implicitement les secrets, rôles ou droits d'une application AVEREO.
 
 Le [guide](docs/bureau-oauth.md) porte la réalisation locale et les TBD hébergés.

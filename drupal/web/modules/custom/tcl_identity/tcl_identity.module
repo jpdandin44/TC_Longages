@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\simple_oauth\Authentication\TokenAuthUserInterface;
+
+/** Implements hook_simple_oauth_oidc_claims_alter(), as in the AVEREO integration. */
+function tcl_identity_simple_oauth_oidc_claims_alter(array &$claims, array &$context): void {
+  $account = $context['account'] ?? NULL;
+  if (!$account instanceof AccountInterface) { return; }
+  $subject = $account instanceof TokenAuthUserInterface ? $account->getSubject() : $account;
+  // OIDC subjects are strings. The TC subject is never an AVEREO account/email.
+  $claims['sub'] = (string) $subject->id();
+  $claims['email_verified'] = FALSE;
+}
+
+/** Implements hook_form_user_login_form_alter() for the dedicated OAuth journey. */
+function tcl_identity_form_user_login_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  if (\Drupal::routeMatch()->getRouteName() === 'tcl_identity.login') {
+    $form['#cache']['max-age'] = 0;
+    $form['#prefix'] = '<p>Utilisez votre compte du club pour accéder au Bureau.</p>';
+    $form['name']['#title'] = 'Identifiant TC Longages';
+    $form['name']['#description'] = '';
+    $form['pass']['#title'] = 'Mot de passe';
+    $form['pass']['#description'] = '';
+    $form['actions']['submit']['#value'] = 'Se connecter';
+  }
+}

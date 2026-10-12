@@ -22,11 +22,12 @@ requalifiés avant leur exécution distante.
 
 Reprendre `tcl-v2-bureau-oauth` dans le suivi existant. Conserver la déclaration
 de V1 confirmée et l'absence de retour signalée par le responsable.
-Identifier le fournisseur préproduction effectivement validé et les comptes
-qui doivent accéder au Bureau. Aucun compte ou client d'une autre application
-n'est réutilisé implicitement. Préparer le client confidentiel **TC uniquement**,
-scopes `openid profile email` et callback exact TC ; accord applicable et
-accès administrateur du fournisseur nécessaires à sa création.
+Le responsable choisit un fournisseur **TC uniquement**, dans son Drupal,
+en réutilisant Simple OAuth 6.1.1 d'AVEREO. Préparer le premier compte
+`Admin_TC_Longages` avec le rôle `tcl_admin`, ses clés propres et le client
+confidentiel `tc-bureau-preproduction`. Aucun compte, secret ou droit AVEREO
+n'est copié. L'identifiant final et le mot de passe du compte seront saisis
+par le responsable dans l'interface privée, sans transmission au chat.
 
 ## Développement local
 
@@ -48,12 +49,32 @@ fraîche fichiers/base et restauration contrôlée. L'activation de `tcl_bureau`
 est additive mais refuse les collisions de rôles préexistants : les examiner
 avant d'activer, sans suppression ni élargissement automatique.
 
-Installer le module OAuth et le module Bureau avec l'outil Drupal qualifié
-sur la cible, puis reconstruire le cache/routes. Aucun import de base locale
+Le paquet inclut Composer/lock mais pas contrib/vendor. Qualifier d'abord
+`composer install --no-dev --no-interaction --prefer-dist --no-progress` dans
+une copie isolée de cette cible, PHP et extensions vérifiés. Le verrou ajoute
+13 packages sans mise à jour de Drupal ; conserver un retour arrière des
+dépendances. N'écraser aucun settings.php, texte ou répertoire de fichiers.
+
+Installer `tcl_identity`, puis OAuth/Bureau et exécuter les updates Drupal
+avec l'outil qualifié ; l'update `11002` ajoute le droit de consentement OAuth
+aux rôles existants. Reconstruire les caches/routes. Aucun import de base locale
 ni réinitialisation des sept pages. La nouvelle entrée est insérée au rendu
 serveur ; les HTML existants ne sont pas à remplacer pour ce bouton.
-Associer les identités stables à des comptes TC existants autorisés, dans la
-configuration privée ; un nouveau compte reste une action explicitement suivie.
+Créer le premier Admin TC uniquement sur cette cible privée ; le rôle n'est
+pas super-admin technique. Le responsable définit son mot de passe dans Drupal.
+Associer issuer `https://preprod.tclongages.fr/` et sub (uid TC en chaîne) à
+ce uid actif dans la configuration privée. Créer une nouvelle paire RSA TC
+hors web, un secret confidentiel et le client à grant authorization_code seul,
+PKCE activé, callback fixe et autorisation automatique du seul client interne.
+Inclure la copie privée du [modèle](../drupal/config/tc-identity.example.php).
+
+**Prérequis HTTP à qualifier :** la protection Basic Auth actuelle peut bloquer
+les appels serveur `/oauth/token` et `/oauth/userinfo`. Ne pas envoyer des
+identifiants Basic à Simple OAuth : son middleware les interprète comme client
+OAuth ; ne pas retirer la protection de l'ensemble du site. Préparer et recetter
+une règle bornée à ces deux endpoints, protégés par client/code/PKCE ou Bearer,
+avec l'accord sur la configuration d'accès. Aucun changement Apache n'est
+réalisé dans ce lot local. Tester aussi les requêtes concurrentes sur l'hôte.
 
 Recetter réellement : bouton sur sept pages, retour HTTPS, connexion du Bureau,
 Capitaine sans dossier privé, refus de login natif comme contournement,

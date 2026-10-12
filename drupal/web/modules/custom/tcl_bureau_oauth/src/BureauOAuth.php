@@ -104,7 +104,7 @@ final class BureauOAuth {
 
   private function assertCallback(array $settings): void {
     $request = $this->requests->getCurrentRequest();
-    if ($settings['redirect_uri'] !== $request->getSchemeAndHttpHost() . $request->getBaseUrl() . '/bureau/oauth/retour' || (($settings['local_fixture'] ?? FALSE) === TRUE && $request->getHost() !== '127.0.0.1')) {
+    if ($settings['redirect_uri'] !== $request->getSchemeAndHttpHost() . $request->getBaseUrl() . '/bureau/oauth/retour' || ((($settings['local_fixture'] ?? FALSE) === TRUE || ($settings['local_provider'] ?? FALSE) === TRUE) && $request->getHost() !== '127.0.0.1')) {
       throw new \RuntimeException('oauth_callback_invalid');
     }
   }

@@ -17,7 +17,8 @@ tags: [communication, drupal, bureau, validation, actualites]
 L'accès à cette communication exige désormais la
 [connexion OAuth Bureau](bureau-oauth.md) et les droits Drupal locaux.
 Les fonctionnalités ci-dessous restent celles du module natif existant ;
-le nouveau raccordement OAuth réel reste à qualifier. Les anciennes adresses
+le fournisseur TC dédié est testé en local avec le premier Admin de recette,
+mais son installation hébergée reste à qualifier. Les anciennes adresses
 locales et recettes du 5–6 octobre sont conservées comme historique.
 
 La demande du 5 octobre intègre la communication du prototype au Bureau Drupal

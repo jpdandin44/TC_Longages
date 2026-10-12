@@ -12,10 +12,10 @@ tags: [oauth, pkce, drupal, acces, bureau]
 
 # Contrat OAuth du Bureau
 
-L'adaptateur TC utilise les endpoints OAuth/OpenID Connect du fournisseur Drupal
-AVEREO retenu. Le backend CONNECT et les autres applications ne sont pas modifiés.
-La compatibilité et les habilitations du **nouveau client TC** doivent être
-recettées sur le fournisseur réel avant annonce de service.
+Le fournisseur est le Drupal **TC Longages**, avec Simple OAuth 6.1.1 et
+`tcl_identity`. Le consommateur `tcl_bureau_oauth` reprend le contrat CONNECT ;
+les comptes et clés sont propres au TC. L'installation hébergée doit encore
+être recettée avant annonce de service.
 
 ## Routes et flux
 
@@ -30,7 +30,8 @@ recettées sur le fournisseur réel avant annonce de service.
   exécution ni renvoi des champs au fournisseur. Les services métier appliquent
   eux aussi la vérification OAuth, au-delà de la seule navigation.
 - Déconnexion : route native Drupal, suppression de la session et de sa preuve.
-  Elle ne promet pas de fermer la session du fournisseur ni toutes les applications.
+  Le fournisseur dédié partage la session Drupal : la déconnexion TC supprime
+  aussi sa connexion native. Aucun autre service AVEREO n'est concerné.
 
 Le code utilise **Authorization Code + PKCE S256** : state, nonce et verifier
 aléatoires conservés côté serveur. Aucun retour arbitraire depuis `destination`
@@ -45,14 +46,24 @@ signature, issuer exact, audience/client, azp, dates et identifiant sub vérifi�
 par le jeton ne sont pas téléchargées. Le parsing strict reprend le contrat
 CONNECT existant et est couvert par les tests de signatures/claims.
 
-Le nonce est obligatoire par défaut. CONNECT documente un nonce absent avec
-Simple OAuth 6.1.1 ; `allow_missing_nonce: true` exige une qualification explicite
-de ce comportement pour le fournisseur retenu. Un nonce présent incorrect est
-toujours refusé. Ne pas activer cette option pour contourner un autre défaut.
+Le nonce est obligatoire pour le fournisseur TC. Simple OAuth 6.1.1 ne le
+propage pas nativement : `tcl_identity` conserve le nonce de la redirection
+autorisée pendant cinq minutes dans un stockage expirable privé, sous le hash
+du code. `TcIdTokenResponse` le consomme après validation du code/PKCE par League
+et l'ajoute au jeton signé. L'émetteur est fixé par la configuration privée.
+La compatibilité historique `allow_missing_nonce` reste disponible dans le
+consommateur mais demeure désactivée pour ce fournisseur dédié.
+
+Les routes fournisseur `/oauth/authorize`, `/oauth/token`, `/oauth/userinfo` et
+`/oauth/jwks` sont contrôlées par leur nom de route, y compris en cas de préfixe
+de langue. Client, callback, origine et PKCE S256 sont fixes. Seul le grant
+`authorization_code` est accepté ; grants password, machine et refresh refusés.
+L'autorisation automatique du seul client interne TC évite une deuxième
+confirmation après connexion ; aucun client externe n'est ajouté.
 
 ## Configuration privée
 
-Le [modèle inactif](../drupal/config/bureau-oauth.example.php) est à copier
+Le [modèle dédié inactif](../drupal/config/tc-identity.example.php) est à copier
 hors racine web puis inclure depuis `settings.php`. Ne jamais le remplir dans
 Git, une configuration Drupal exportable, le navigateur ou la conversation.
 
@@ -65,7 +76,14 @@ Git, une configuration Drupal exportable, le navigateur ou la conversation.
 | client_id / client_secret | Client confidentiel dédié au TC ; secret distinct, 32 caractères minimum. |
 | public_key_path | Clé publique du fournisseur hors racine web, lisible par le service. |
 | identities | Associations explicites issuer/sub/uid ; ni partage par email ni création automatique. |
-| allow_missing_nonce | Compatibilité précise décrite ci-dessus, désactivée dans l'exemple. |
+| allow_missing_nonce | Toujours false pour le fournisseur TC dédié. |
+
+`tcl_identity` demande également enabled/issuer/client_id/redirect_uri ; les
+deux modules doivent avoir les mêmes valeurs. Les chemins de clés Simple OAuth
+sont des overrides privés, pas des exports Drupal. Client confidentiel, secret
+propre, PKCE activé, un seul callback et `automatic_authorization: true` sont
+nécessaires. Le client ne donne aucun droit métier : les rôles TC et la liste
+issuer/sub/uid restent déterminants.
 
 Les tokens sont supprimés après établissement de la session ; aucun refresh token
 n'est conservé. La preuve est bornée par l'expiration du jeton et huit heures
@@ -75,10 +93,12 @@ et `no-referrer`. Les cookies HTTPS natifs sont Secure/HttpOnly ; leur retour
 inter-domaines et le proxy doivent être contrôlés sur la cible réelle.
 
 Une révocation du compte TC est prise en compte immédiatement lors de l'accès
-suivant. Une révocation **au fournisseur** n'est pas interrogée à chaque requête :
-elle doit être qualifiée et ne peut être promise instantanée par cette adaptation.
+suivant : fournisseur et Bureau utilisent le même compte local. La suppression
+d'un token OAuth isolé n'est pas interrogée à chaque requête ; invalider le
+compte, son association ou sa session pour révoquer l'accès Bureau courant.
 L'expiration de la preuve impose une nouvelle connexion auprès du fournisseur.
 
 `local_fixture: true` accepte uniquement HTTP en boucle locale et un hôte TC
-`127.0.0.1`. Cette option, le fournisseur fictif et ses fichiers privés ne font
-pas partie d'un paquet hébergé. La configuration réelle reste TBD.
+`127.0.0.1`. `local_provider` et `tcl_identity.local_recipe` ouvrent la même
+exception HTTP pour la recette du fournisseur TC. Ces options, les comptes,
+clés et fixtures ne sont pas inclus dans le paquet hébergé.

@@ -6,8 +6,8 @@ import subprocess
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PREFIXES = ('drupal/web/modules/custom/tcl_bureau/', 'drupal/web/modules/custom/tcl_bureau_oauth/')
-EXACT = ('drupal/web/modules/custom/tcl_site/src/Controller/ClubPageController.php', 'drupal/config/bureau-oauth.example.php')
+PREFIXES = ('drupal/web/modules/custom/tcl_bureau/', 'drupal/web/modules/custom/tcl_bureau_oauth/', 'drupal/web/modules/custom/tcl_identity/')
+EXACT = ('drupal/web/modules/custom/tcl_site/src/Controller/ClubPageController.php', 'drupal/config/bureau-oauth.example.php', 'drupal/config/tc-identity.example.php', 'drupal/composer.json', 'drupal/composer.lock')
 
 def main():
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip()
@@ -26,6 +26,9 @@ def main():
                 'targetHost': 'preprod.tclongages.fr', 'productionAllowed': False,
                 'privateConfigurationIncluded': False, 'databaseIncluded': False,
                 'editorialTemplatesIncluded': False, 'localFixtureIncluded': False,
+                'dependencyInstallationRequired': True, 'simpleOAuthVersion': '6.1.1',
+                'dependencyCommand': 'composer install --no-dev --no-interaction --prefer-dist --no-progress',
+                'readyForDirectDeployment': False,
                 'files': {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()} for name, data in sorted(files.items())}}
     encoded = (json.dumps(manifest, sort_keys=True, indent=2) + '\n').encode()
     target = ROOT / '.local' / ('tcl-bureau-oauth-' + source[:12] + '.zip')

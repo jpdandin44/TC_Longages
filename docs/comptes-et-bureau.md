@@ -16,10 +16,12 @@ tags: [drupal, comptes, bureau, inscriptions, recette]
 
 Le [guide Bureau OAuth](bureau-oauth.md) décrit désormais l'accès actuel : bouton
 **Bureau**, OAuth obligatoire et droits Drupal. Les dossiers et leur modèle
-métier ci-dessous sont conservés ; créer un compte local ne crée pas d'identité
-OAuth. Le formulaire de gestion des comptes ne propose plus de mot de passe.
-La recette actuelle utilise `127.0.0.1:4186` et un fournisseur fictif clairement
-signalé. Les commandes, comptes/passwords et reçus du 5–6 octobre ci-dessous
+métier ci-dessous sont conservés ; créer un compte local ne l'autorise pas
+automatiquement au Bureau. Le formulaire de gestion ne propose plus de mot de
+passe. Le fournisseur est désormais **TC uniquement**, basé sur Simple OAuth
+6.1.1, avec un premier rôle **Admin TC Longages** et une association privée.
+La recette actuelle utilise `127.0.0.1:4186` et le fournisseur TC local 4191,
+avec comptes fictifs clairement signalés. Les commandes et reçus du 5–6 octobre
 sont historiques : utiliser la nouvelle recette pour ce candidat.
 
 ## Historique — première itération native des 5–6 octobre

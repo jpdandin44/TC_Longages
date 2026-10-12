@@ -18,7 +18,7 @@ final class OAuthSettings {
         throw new \RuntimeException('oauth_unconfigured');
       }
     }
-    $local = ($value['local_fixture'] ?? FALSE) === TRUE;
+    $local = ($value['local_fixture'] ?? FALSE) === TRUE || ($value['local_provider'] ?? FALSE) === TRUE;
     foreach (['issuer', 'authorize_url', 'token_url', 'userinfo_url', 'redirect_uri'] as $key) {
       $url = parse_url($value[$key]);
       $loopback = $local && ($url['scheme'] ?? '') === 'http' && ($url['host'] ?? '') === '127.0.0.1';

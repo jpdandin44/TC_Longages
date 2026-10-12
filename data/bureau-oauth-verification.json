@@ -5,45 +5,35 @@
   "version": "git",
   "created": "2026-10-12",
   "updated": "2026-10-12",
-  "checkedAt": "2026-10-12T18:15:07.357612+00:00",
-  "scope": "local Drupal and fictitious OAuth only",
+  "checkedAt": "2026-10-12T19:37:09.894632+00:00",
+  "scope": "local TC dedicated Simple OAuth 6.1.1 and invalid-token fixture, fictitious accounts/data only",
   "hostedOAuthVerified": false,
   "remoteDeployment": false,
   "realMemberDataUsed": false,
   "outgoingMail": false,
   "sourceBaseCommit": "e0ec292dabbb15159d1f0c22aad670aee6cd480e",
-  "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
-  "nativePackage": {
-    "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
-    "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\bureau-oauth\\.local\\tcl-bureau-oauth-16f1228f2713.zip",
-    "artifactSha256": "c9ddb4826058a20fc2823a8920792f9dc33856f46eee84c32a2576a730e3094e",
-    "manifestSha256": "741c7f4f817192272a613c6e22489c10bbb0579525984c91272118a5ab92190b",
-    "files": 36,
-    "bytes": 75269,
-    "targetHost": "preprod.tclongages.fr",
-    "productionAllowed": false,
-    "hostedInstallationPerformed": false
-  },
+  "sourceSha": null,
+  "nativePackage": null,
   "oauthHttp": {
     "passed": true,
     "checks": 66,
-    "observedAt": "2026-10-12T18:13:21.155839+00:00",
+    "observedAt": "2026-10-12T19:25:06.135323+00:00",
     "report": ".local/bureau-oauth-http-results.json",
-    "reportSha256": "6a1aa70c48df60056735c528970794c8116113792965335df928e975612adbb6"
+    "reportSha256": "d0e325108715a581898453c27cdbc0c2e0ddd9fb13afee5b11b26288bc6b97b7"
   },
   "contactAndEditing": {
     "passed": true,
     "checks": 76,
-    "observedAt": "2026-10-12T18:03:45.290850+00:00",
+    "observedAt": "2026-10-12T19:35:31.325625+00:00",
     "report": ".local/contact-http-verification.json",
-    "reportSha256": "f4baa9cf996a13c213196a152d363c2278fae5191bcbd0b7595178c1d52c278b"
+    "reportSha256": "5394c52383a72e85596a2cb5990ee323512ab1b557c62e12ef87ddcc1d2cb58d"
   },
   "editorRoundTrip": {
     "passed": true,
     "checks": 16,
-    "observedAt": "2026-10-12T18:03:58.545710+00:00",
+    "observedAt": "2026-10-12T19:35:40.233213+00:00",
     "report": ".local/editor-http-verification.json",
-    "reportSha256": "a28a7cf7867baa0e52471fc3556d719170c875075532f2203d2447f4934e37db"
+    "reportSha256": "7515380abe1974cb3eafe210a154b17370e9f5e2e9779881bf79f863c38fb4e1"
   },
   "tokenVerification": {
     "passed": true,
@@ -54,7 +44,7 @@
     "passed": true,
     "tests": 170,
     "failed": 0,
-    "log": ".local/bureau-oauth-node-check.log"
+    "log": ".local/tc-identity-node-check.log"
   },
   "pythonUnitChecks": {
     "run": 54,
@@ -63,7 +53,7 @@
     "failed": 0
   },
   "syntax": {
-    "phpFiles": 56,
+    "phpFiles": 66,
     "phpPassed": true,
     "powershellPassed": true,
     "nodeFixturePassed": true
@@ -79,7 +69,26 @@
     "screenshots": [
       ".local/bureau-oauth-desktop.png",
       ".local/bureau-oauth-mobile.png"
-    ]
+    ],
+    "previousFictitiousProviderObservation": {
+      "desktopWidth": 1280,
+      "mobileWidth": 390,
+      "horizontalBodyOverflow": false,
+      "minorGuardianFieldsVisible": true,
+      "screenshots": [
+        ".local/bureau-oauth-desktop.png",
+        ".local/bureau-oauth-mobile.png"
+      ]
+    },
+    "dedicatedLogin": {
+      "verified": true,
+      "language": "French",
+      "viewportWidth": 761,
+      "horizontalBodyOverflow": false,
+      "menuBureauClicked": true,
+      "screenshot": ".local/tc-connexion-apercu.png",
+      "authenticatedBureauProof": "tcIdentityHttp; HTTP recipe, not a new authenticated browser observation"
+    }
   },
   "claudeReview": {
     "kind": "design_consultation_not_human_acceptance",
@@ -114,12 +123,7 @@
     "foundationPresent": true,
     "scope": "changed Markdown front matter/file targets and project foundations; external URLs and anchors not audited"
   },
-  "gitCandidate": {
-    "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
-    "manifest": "data/framework-candidate.json",
-    "artifactDigest": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
-    "files": 540
-  },
+  "gitCandidate": null,
   "framework": {
     "passed": true,
     "referenceFiles": 28,
@@ -136,7 +140,7 @@
     "humanApprovalAdded": false,
     "policy": "four human checkboxes pending",
     "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
-    "technicalCiStatus": "passed",
+    "technicalCiStatus": "pending_new_candidate",
     "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
     "technicalChecksPassed": [
       "bureau-oauth-runtime",
@@ -144,14 +148,112 @@
       "drupal-mysql",
       "support-runtime",
       "technical-ci"
-    ]
+    ],
+    "previousTechnicalCi": {
+      "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+      "technicalCiStatus": "passed",
+      "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
+      "technicalChecksPassed": [
+        "bureau-oauth-runtime",
+        "delivery-safety",
+        "drupal-mysql",
+        "support-runtime",
+        "technical-ci"
+      ]
+    }
   },
   "documentaryConsistency": {
     "verified": true,
     "scope": "Bureau sources, changed Markdown links/front matter, package/Git manifests and canonical tracker",
     "remaining": [
-      "Real TC OAuth client and identities remain to configure/qualify"
+      "Hosted TC dependencies, private keys/client and first Admin remain to configure/qualify",
+      "Server HTTP routing under beta Basic Auth and backup/restore remain to qualify"
     ],
     "policyApplied": true
+  },
+  "previousCandidates": [
+    {
+      "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+      "nativePackage": {
+        "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+        "package": "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\bureau-oauth\\.local\\tcl-bureau-oauth-16f1228f2713.zip",
+        "artifactSha256": "c9ddb4826058a20fc2823a8920792f9dc33856f46eee84c32a2576a730e3094e",
+        "manifestSha256": "741c7f4f817192272a613c6e22489c10bbb0579525984c91272118a5ab92190b",
+        "files": 36,
+        "bytes": 75269,
+        "targetHost": "preprod.tclongages.fr",
+        "productionAllowed": false,
+        "hostedInstallationPerformed": false
+      },
+      "gitCandidate": {
+        "sourceSha": "16f1228f2713c8030ea97d46b3b87ef8cd8e3db7",
+        "manifest": "data/framework-candidate.json",
+        "artifactDigest": "391e3a510e976488bbec731d28c496dbfeee8216c8592f7d259daf910115d693",
+        "files": 540
+      },
+      "github": {
+        "url": "https://github.com/jpdandin44/TC_Longages/pull/19",
+        "number": 19,
+        "state": "OPEN",
+        "draft": true,
+        "mergeable": "MERGEABLE",
+        "observedHeadSha": "e783a43e63ab3c0166746c4cef7f43913196b215",
+        "observedAt": "2026-10-12T18:34:40.114162+00:00",
+        "humanApprovalAdded": false,
+        "policy": "four human checkboxes pending",
+        "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+        "technicalCiStatus": "pending_new_candidate",
+        "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
+        "technicalChecksPassed": [
+          "bureau-oauth-runtime",
+          "delivery-safety",
+          "drupal-mysql",
+          "support-runtime",
+          "technical-ci"
+        ],
+        "previousTechnicalCi": {
+          "technicalCiRun": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054",
+          "technicalCiStatus": "passed",
+          "technicalCiHead": "e783a43e63ab3c0166746c4cef7f43913196b215",
+          "technicalChecksPassed": [
+            "bureau-oauth-runtime",
+            "delivery-safety",
+            "drupal-mysql",
+            "support-runtime",
+            "technical-ci"
+          ]
+        }
+      }
+    }
+  ],
+  "dedicatedProvider": {
+    "module": "tcl_identity",
+    "package": "drupal/simple_oauth",
+    "version": "6.1.1",
+    "drupalVersion": "11.4.6",
+    "separateFromAvereo": true,
+    "firstAdminRole": "tcl_admin",
+    "firstLocalAccount": "Admin_TC_Longages_local",
+    "firstHostedAccountCreated": false,
+    "strictSignedNonce": true,
+    "localProviderOrigin": "http://127.0.0.1:4191/",
+    "hostedConfigurationQualified": false,
+    "composerAdds": 13,
+    "corePackagesUpdated": 0
+  },
+  "tcIdentityHttp": {
+    "passed": true,
+    "checks": 45,
+    "observedAt": "2026-10-12T19:31:01.715571+00:00",
+    "report": ".local/tc-identity-http-results.json",
+    "reportSha256": "fe77eca5d5e2ccd0bfb025631b51f2c25375f502e207a40ac459238606515c1b"
+  },
+  "composerValidation": {
+    "valid": true,
+    "strictWarnings": [
+      "Exact Simple OAuth 6.1.1 and existing Drush 13.8.0 constraints are intentional qualification pins"
+    ],
+    "dependencyAuditAtInstall": "No security vulnerability advisories reported",
+    "coreUnchanged": true
   }
 }

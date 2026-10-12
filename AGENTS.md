@@ -30,6 +30,11 @@ tags:
   constituent pas une validation OAuth réelle. Aucun dossier réel en recette locale.
 - La création du client TC, ses identités et son installation réelle sont à
   qualifier séparément ; ne pas modifier une autre application AVEREO ni ses secrets.
+- Précision humaine du 12 octobre : fournisseur OAuth **TC indépendant**, même
+  brique Simple OAuth 6.1.1, premier **Admin TC Longages**. Utiliser `tcl_identity`
+  dans le Drupal TC, clés/comptes/client propres ; aucun compte AVEREO requis.
+  Le compte `Admin_TC_Longages_local` et ses secrets restent de recette seulement.
+  Ne pas élargir Basic Auth ni créer de secret hébergé sur la seule preuve locale.
 
 ## Photo d’accueil — demande du 7 octobre
 

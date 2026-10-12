@@ -23,10 +23,14 @@ des bêta-testeurs. Le lot courant rend le Bureau natif utilisable, ajoute
 Drupal. Le [guide du Bureau](docs/bureau-oauth.md), son [contrat](api/bureau-oauth.md)
 et le [reçu](data/bureau-oauth-verification.json) portent l'état vérifié.
 
-[Essayer le site local](http://127.0.0.1:4186/) : fournisseur OAuth **fictif**,
-dossiers de recette uniquement, courriels neutralisés. Pour recréer cette
-recette sur un checkout neuf : `./scripts/bureau-oauth-recette.ps1 -Prepare`.
-Le client TC et les identités de préproduction restent à configurer et recetter.
+[Essayer le site local](http://127.0.0.1:4186/) : fournisseur **OAuth TC dédié**
+(Simple OAuth 6.1.1), compte `Admin_TC_Longages_local`, dossiers fictifs et
+courriels neutralisés. Les comptes/clé/client du TC sont indépendants d'AVEREO.
+Les identifiants locaux restent dans `.local/tc-identity-local.json`.
+Pour recréer cette recette sur un checkout neuf :
+`./scripts/bureau-oauth-recette.ps1 -Prepare`.
+L'installation hébergée et le premier **Admin TC Longages** restent à configurer
+et recetter ; la PR #19 contient ce même lot.
 Les décisions et préparations V1 ci-dessous sont des observations datées ;
 aucun déploiement de ce nouveau Bureau n'est encore réalisé.
 

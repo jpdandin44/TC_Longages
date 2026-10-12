@@ -26,11 +26,18 @@ le [workflow](../workflows/bureau-oauth-preproduction.md) et le
 La PR et son observation GitHub figurent dans l'itération `tcl-v2-bureau-oauth`
 du [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations).
 
-Prochaine action : identifier les comptes OAuth autorisés et qualifier le client
-TC dédié/configuration privée sur le fournisseur réel ; préparer récupération
-et installation du candidat accepté en préproduction TC. Aucun identifiant,
-mot de passe ou jeton n'est à envoyer dans le chat. Le Bureau local est testable
-sur `127.0.0.1:4186` avec connexion simulée et données fictives uniquement.
+Le responsable précise : OAuth **indépendant TC**, premier **Admin TC Longages**.
+Le fournisseur `tcl_identity`/Simple OAuth 6.1.1 est testé sur boucle locale
+4191 avec le site 4186 et le compte fictif `Admin_TC_Longages_local` ; les clés
+et identifiants restent dans `.local/tc-identity-local.json`, hors Git/chat.
+La recette de jetons invalides sur fournisseur fictif 4190 reste complémentaire.
+
+Prochaine action : qualifier dépendances et appels serveur sous Basic Auth,
+préparer récupération et installation du candidat accepté sur préproduction TC,
+puis créer le premier Admin et ses clés/client privés. Le responsable saisit
+le mot de passe dans l'interface privée. Aucun secret n'est à envoyer dans le chat.
+Le nouveau candidat et ses preuves remplacent ceux du raccordement initial
+dans la même PR #19 ; les anciens reçus restent historiques.
 La déclaration de validation V1 ne crée pas d'accord de merge ou de livraison
 du nouveau Bureau. Aucune préproduction Bureau ni production modifiée.
 

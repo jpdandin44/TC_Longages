@@ -14,6 +14,16 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-12 — Fournisseur OAuth propre au TC
+
+- Simple OAuth 6.1.1 et dépendances verrouillées, Drupal inchangé.
+- Fournisseur `tcl_identity` avec issuer TC, PKCE S256, nonce signé à usage
+  unique et refus des clients externes/grants password, machine et refresh.
+- Rôle **Admin TC Longages** pour Bureau, comptes et édition des pages ; premier
+  compte de recette local, aucun compte ou clé réel créé sur l'hébergement.
+- Recette du véritable fournisseur local ajoutée aux tests et à la PR #19 ;
+  workflow dédié mis à jour pour les prérequis Composer, clés et Basic Auth.
+
 ## 2026-10-12 — Bureau avec accès OAuth
 
 - Bouton **Bureau** inséré dans le menu des sept pages Drupal sans remplacement

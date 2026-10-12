@@ -1,0 +1,8 @@
+name: Connexion TC Longages
+type: module
+description: Fournisseur OAuth dédié au club, avec comptes et clés indépendants.
+package: TC Longages
+core_version_requirement: ^11.4
+dependencies:
+  - simple_oauth:simple_oauth
+  - drupal:user

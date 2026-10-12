@@ -15,7 +15,23 @@ tags:
 
 # Décisions
 
-## 2026-10-12 — Bureau natif et preuve OAuth obligatoire
+## 2026-10-12 — OAuth indépendant TC et premier Admin
+
+Contexte : le responsable précise qu'il souhaite une duplication de la brique
+AVEREO pour le TC uniquement, avec un premier accès Admin TC Longages.
+Décision : installer Simple OAuth 6.1.1 dans le Drupal TC, étendre ses services
+via `tcl_identity` et conserver le consommateur PKCE et le Bureau natifs.
+Les comptes, base, clés et client TC sont indépendants d'AVEREO.
+Raisons : réutiliser la brique connue tout en administrant les accès du club
+sans compte AVEREO ; préserver les textes et dossiers du Drupal existant.
+Conséquences : rôle métier `tcl_admin` sans super-administration technique,
+nonce signé obligatoire, premier compte et configuration privés à créer sur
+la cible après qualification. Composer ajoute les dépendances sans mettre à
+jour Drupal. Les appels serveur sous Basic Auth sont un prérequis hébergé.
+La PR #19 reste celle de ce lot. Le choix initial ci-dessous est historique
+pour sa partie raccordement au fournisseur AVEREO ; cette décision le remplace.
+
+## 2026-10-12 — Bureau natif et preuve OAuth obligatoire (cadrage initial)
 
 Contexte : V1 confirmée ; le responsable demande un Bureau utilisable avec
 un bouton de menu dédié et la brique OAuth validée en préproduction.

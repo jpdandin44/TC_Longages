@@ -55,8 +55,8 @@ function tcl_bureau_schema(): array {
 /** Implements hook_install(). No account or team is created by installation. */
 function tcl_bureau_install(): void {
   $roles = [
-    'tcl_bureau' => ['Bureau', ['access tcl bureau', 'manage tcl captain accounts', 'manage tcl registrations', 'manage tcl communication', 'manage tcl teams', 'view assigned tcl teams']],
-    'tcl_capitaine' => ['Capitaine', ['access tcl bureau', 'view assigned tcl teams']],
+    'tcl_bureau' => ['Bureau', ['access tcl bureau', 'manage tcl captain accounts', 'manage tcl registrations', 'manage tcl communication', 'manage tcl teams', 'view assigned tcl teams', 'grant simple_oauth codes']],
+    'tcl_capitaine' => ['Capitaine', ['access tcl bureau', 'view assigned tcl teams', 'grant simple_oauth codes']],
   ];
   // Check every role before creating any, including a collision on the second.
   foreach (array_keys($roles) as $id) {
@@ -71,6 +71,26 @@ function tcl_bureau_install(): void {
     }
     $role->save();
   }
+  tcl_bureau_grant_admin_permissions();
+}
+
+/** Apply club permissions after their providers are enabled. */
+function tcl_bureau_grant_admin_permissions(): void {
+  if ($role = Role::load('tcl_admin')) {
+    foreach (['access tcl bureau', 'administer tcl bureau accounts', 'manage tcl captain accounts', 'manage tcl registrations', 'manage tcl communication', 'manage tcl teams', 'view assigned tcl teams', 'administer tcl public pages', 'access content overview', 'edit any tcl_public_page content', 'view tcl_public_page revisions', 'revert tcl_public_page revisions'] as $permission) {
+      if (isset(\Drupal::service('user.permissions')->getPermissions()[$permission])) { $role->grantPermission($permission); }
+    }
+    $role->save();
+  }
+}
+
+/** Allow existing club roles to complete the dedicated OAuth authorization. */
+function tcl_bureau_update_11002(): string {
+  foreach (['tcl_bureau', 'tcl_capitaine'] as $id) {
+    if ($role = Role::load($id)) { $role->grantPermission('grant simple_oauth codes')->save(); }
+  }
+  tcl_bureau_grant_admin_permissions();
+  return 'Autorisation OAuth ajoutée aux rôles du club ; aucun compte ou secret créé.';
 }
 
 /** Shared definition for fresh installs and the additive V2 update. */

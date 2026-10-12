@@ -20,9 +20,9 @@ tags:
 
 | Phase | Situation et suite |
 | --- | --- |
-| Cadrage | V1 confirmée ; demande Bureau et connexion OAuth enregistrée. |
-| Développement local | Module natif repris, menu dédié, OAuth obligatoire et recette fictive vérifiés ; PR et CI dans le suivi. |
-| Préproduction | Client TC et identités à qualifier, récupération puis installation et connexion réelles du candidat accepté. |
+| Cadrage | V1 confirmée ; Bureau, OAuth TC indépendant et premier Admin demandés. |
+| Développement local | Bureau, menu, fournisseur Simple OAuth TC et Admin local vérifiés ; même PR #19, CI dans le suivi. |
+| Préproduction | Dépendances, clés/client, Admin TC et protection HTTP à préparer, puis récupération et recette du candidat accepté. |
 | Mise en production | Non autorisée pour ce lot ; prévoir son accord, ses sauvegardes et contrôles propres. |
 
 Le [guide du Bureau](docs/bureau-oauth.md) et l'itération `tcl-v2-bureau-oauth`
