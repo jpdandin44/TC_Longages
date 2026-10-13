@@ -23,13 +23,15 @@ paquet natif `702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431`
 conservé, 50 fichiers comparés au merge. La demande humaine autorise sa
 préproduction ; confirmation à l'action reçue, accès initialisé et paquet
 installé. Voir le [reçu](../data/bureau-oauth-verification.json#hostingActivation).
-Le fichier d'initialisation est téléchargé ; mot de passe personnel et recette
-OAuth réelle restent attendus. Aucun accès AVEREO ni production modifié.
-Le 13 octobre, la correction de première saisie réussit les huit contrôles HTTP
-locaux, puis l'opérateur est installé et le lien natif régénéré sur la cible.
-Le nouveau fichier est remis au responsable. L'adresse du club est déjà
-utilisée : il choisit une autre adresse sans modifier l'ancien compte, puis
-définit son mot de passe. Voir le [point de reprise](../docs/point-session.md).
+Le 13 octobre, après un premier correctif partiel, l'entrée native complète
+réussit 18 contrôles locaux et la recette GitHub sur environnement neuf.
+L'opérateur est installé avec sauvegarde privée vérifiée et le nouveau fichier
+est remis au responsable. Celui-ci enregistre son mot de passe et confirme
+l'accueil Bureau ; une preuve OAuth récente du même compte est constatée côté
+serveur. Création/modification d'un dossier fictif sont corroborées en base ;
+Communication et Gestion des comptes s'ouvrent selon le responsable. La revue
+humaine de phase reste attendue. Aucun accès AVEREO ni production modifié.
+Voir le [point de reprise](../docs/point-session.md).
 
 ## Cadrage
 
@@ -123,12 +125,14 @@ comparé à la session pour autoriser la première saisie sans mot de passe actu
 Le raccourci direct `/login` renvoie 403 lorsqu'une session Drupal existe déjà ;
 ce cas a été reproduit après la capture utilisateur du 13 octobre.
 
-Le correctif complet est préparé et testé localement, pas encore transféré.
-Le fichier déjà téléchargé `initialisation-admin (1).html` contient encore le
-raccourci et doit être remplacé. L'essai déclaré en fenêtre privée reste refusé ;
-les journaux serveur confirment uid 2 connecté sur une route réservée aux anonymes.
-La saisie réelle reste personnelle. Ne pas régénérer un lien si le mot de passe
-a été enregistré entre-temps ; vérifier d'abord l'état actuel.
+Le correctif complet de la PR #20 est installé le 13 octobre à 08:13 UTC après
+sauvegarde et restauration vérifiées du seul opérateur privé. Les 50 fichiers
+du paquet Drupal restent inchangés. Le fichier `initialisation-admin (2).html`
+remplace les téléchargements précédents ; aucune lecture du lien privé par l'agent.
+Les journaux avaient confirmé uid 2 connecté sur l'ancien raccourci réservé
+aux anonymes. La nouvelle entrée permet la saisie personnelle : mot de passe
+enregistré confirmé à 08:18 UTC. Ne plus régénérer de lien d'initialisation pour
+ce compte ; une demande ultérieure de récupération doit suivre son propre parcours.
 
 La commande PHP `initialise` sur la racine active effectue cette reprise
 uniquement pour le compte encore sans mot de passe associé au reçu installé.

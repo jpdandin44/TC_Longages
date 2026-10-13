@@ -33,11 +33,14 @@ La PR #19 est fusionnée et ce même paquet est installé sur la préproduction
 protégée. Le compte **Admin TC Longages** (`Admin_TC_Longages`, uid 2), ses clés,
 client et association propres au TC sont provisionnés. Les sept pages et les
 transports V1 sont conservés ; les appels OAuth serveur et le refus Basic
-extérieur sont vérifiés. Le 13 octobre, la correction de première saisie du mot
-de passe réussit huit contrôles locaux ; l'opérateur corrigé est installé et
-le nouveau fichier d'initialisation privé est remis au responsable. Une adresse
-distincte de celle du club, déjà utilisée, est nécessaire. Connexion OAuth
-réelle et recette Bureau restent à faire après la saisie personnelle ;
+extérieur sont vérifiés. Le 13 octobre, le parcours natif complet de première
+saisie est corrigé, testé et installé avec sauvegarde privée. Le responsable
+enregistre personnellement son mot de passe et confirme l'accueil du Bureau
+après Menu → Bureau ; le serveur retrouve la preuve OAuth du même compte.
+Le dossier fictif est créé puis modifié, sa révision est vérifiée en base ;
+Communication et Gestion des comptes s'ouvrent selon le responsable.
+La revue humaine de phase reste distincte. La PR #20 porte le correctif
+d'outillage et ses contrôles techniques réussis, sans fusion ni validation humaine ;
 voir le [point de reprise](docs/point-session.md). Voir le
 [workflow](workflows/bureau-oauth-preproduction.md) et le
 [reçu hébergé](data/bureau-oauth-verification.json#hostingActivation).

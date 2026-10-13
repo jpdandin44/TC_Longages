@@ -76,23 +76,25 @@ rôle ; la création du compte réel passe par le provisionnement privé explici
 Après accord humain, le premier compte hébergé `Admin_TC_Longages` (uid 2) a été
 créé sans mot de passe, avec clés/client/association TC propres. Le fichier
 privé d'initialisation Drupal à usage unique est remis au responsable dans
-ses Téléchargements. Le 13 octobre, le lien corrigé sans destination forcée est
-régénéré et téléchargé après huit contrôles HTTP locaux. Il conserve le token
-natif de première saisie. L'adresse du club est déjà attribuée à un autre
-compte : le responsable doit choisir une adresse distincte et définir
-personnellement son mot de passe. Le [reçu de reprise](../data/bureau-oauth-verification.json#passwordSetupResumption)
+ses Téléchargements. Le 13 octobre, le parcours complet sans raccourci `/login`
+ni destination forcée est corrigé, testé puis régénéré sur le serveur. Le
+responsable enregistre personnellement son mot de passe ; le serveur confirme
+sa présence sans le lire. L'adresse du club reste attribuée à un autre compte
+et ne doit pas être réutilisée. Le [reçu de reprise](../data/bureau-oauth-verification.json#passwordSetupResumption)
 porte l'état actuel. Aucun lien d'authentification ni secret n'est inscrit dans Git.
 
 ### Première connexion : deux accès distincts
 
-Le fichier `initialisation-admin (1).html` s'ouvre localement, sans identifiant.
+Le fichier de remplacement `initialisation-admin (2).html` s'ouvre localement,
+sans identifiant. Les deux anciens téléchargements ne sont plus le parcours à utiliser.
 Son bouton ouvre ensuite la préproduction protégée. Si une petite fenêtre du
 navigateur demande un identifiant, utiliser l'accès bêta existant du site et son
 mot de passe propre. Le contrôle en lecture seule du 13 octobre confirme que
 `TCL_admin` et `TCL_visiteur` figurent parmi les accès Basic autorisés ; cela
 ne vérifie pas le mot de passe saisi par le responsable.
 
-Après cette protection, le lien natif ouvre la première saisie du **nouveau**
+Après cette protection, cliquer sur **Se connecter** dans la confirmation
+native Drupal pour ouvrir la première saisie du **nouveau**
 compte Drupal `Admin_TC_Longages`. Ce compte et le rôle `tcl_admin` ne remplacent
 pas l'accès Basic. Le responsable définit personnellement son mot de passe
 Drupal et une adresse distincte de celle du club, puis enregistre le formulaire.
@@ -108,12 +110,19 @@ connecté et la raison « route réservée aux utilisateurs anonymes ». Le cont
 de la session et les mots de passe n'ont pas été lus. Remplacer le raccourci par
 le parcours natif complet, au lieu de répéter la même tentative.
 
-Le générateur local est corrigé pour employer désormais l'entrée native complète,
+Le générateur est corrigé pour employer désormais l'entrée native complète,
 sans `/login` ni `destination`. Elle gère les sessions existantes et affiche la
 confirmation avant le formulaire de mot de passe. Ses 18 contrôles passent ;
-ce second correctif n'est pas encore transféré au serveur. Aucun droit n'est
-assoupli. La confirmation personnelle d'enregistrement et la recette OAuth
-hébergée restent attendues.
+ce second correctif est installé après sauvegarde privée vérifiée. Le responsable
+confirme ensuite l'enregistrement, vérifié côté serveur à 08:18 UTC, puis
+l'accueil Bureau après Menu → Bureau. À 08:22 UTC, le contrôle serveur retrouve
+une session récente du compte avec la preuve OAuth, sans sélectionner son
+contenu, son identifiant ou ses jetons. Aucun droit n'est assoupli. La création
+et la modification du dossier fictif sont ensuite déclarées réussies et
+corroborées en base ; Communication et Gestion des comptes s'ouvrent selon le
+responsable. Les limites de cette recette initiale sont dans le
+[reçu](../data/bureau-oauth-verification.json#hostedUserRecipe) ; aucune validation
+de phase n'est ajoutée automatiquement.
 
 La connexion native Drupal permet toujours les opérations éditoriales autorisées
 du site et sert de connexion au fournisseur TC. Elle ne suffit pas seule pour
@@ -133,7 +142,9 @@ Deux serveurs PHP sont nécessaires en local sous Windows pour l'échange HTTP
 du code ; ils utilisent le même Drupal et sa session. Sur l'hébergement, les
 appels serveur token/userinfo passent sans Basic depuis l'IP autorisée, alors
 que les sondes extérieures restent en 401 Basic. Le parcours OAuth complet
-avec le vrai compte reste à qualifier après saisie du mot de passe.
+avec le vrai compte est confirmé le 13 octobre par le responsable et l'indicateur
+de preuve côté serveur. La recette initiale du dossier fictif est corroborée
+en base ; elle ne qualifie pas une publication ni l'ouverture aux données réelles.
 Le bandeau **OAuth TC Longages, comptes et données de test uniquement** distingue
 cette recette du service hébergé. Ne pas saisir de dossier réel. Les identifiants
 locaux sont conservés uniquement dans `.local/tc-identity-local.json` ; clés et

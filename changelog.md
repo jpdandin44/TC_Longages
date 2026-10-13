@@ -22,11 +22,20 @@ tags:
   première saisie, adresse dupliquée, persistance, connexion et protections.
 - Opérateur corrigé installé avec sauvegarde privée et empreinte vérifiée ;
   nouveau fichier d'initialisation téléchargé, sans lecture du lien secret.
-- Saisie personnelle et recette OAuth réelle encore attendues ; état et
-  limites actualisés dans le suivi canonique et le point de session.
+- À ce premier stade, saisie personnelle et recette OAuth réelle étaient
+  encore attendues ; l'historique est conservé dans le reçu canonique.
 - Second diagnostic : raccourci `/login` refusé lorsqu'une session Drupal
-  existe déjà. Entrée native complète préparée localement et 18 contrôles
-  réussis, dont sessions absente, identique et différente ; transfert non réalisé.
+  existe déjà. Entrée native complète corrigée avec 18 contrôles réussis,
+  dont sessions absente, identique et différente. PR #20 en brouillon et cinq
+  contrôles techniques réussis sur un environnement neuf.
+- Correctif installé avec sauvegarde privée restaurée et vérifiée ; fichier
+  de remplacement remis sans lecture du lien. Mot de passe enregistré par
+  le responsable, confirmé côté serveur, puis accueil Bureau déclaré visible
+  et preuve OAuth présente pour le même compte.
+- Création et modification du dossier fictif confirmées par le responsable,
+  puis corroborées en base (révision 2). Ouverture de Communication et Gestion
+  des comptes déclarée réussie. La revue humaine de phase reste distincte ;
+  aucune publication, création de compte supplémentaire ou production autorisée.
 
 ## 2026-10-12 — Clôture et blocage de première initialisation
 

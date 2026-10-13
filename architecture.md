@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-13
 owner: jpdandin
 tags:
   - architecture
@@ -28,8 +28,12 @@ contrôles CSRF et permissions ; ses services vérifient aussi cette preuve.
 Le login natif du CMS conserve son rôle éditorial et n'ouvre pas le Bureau.
 Le rôle `tcl_admin` donne au premier Admin les droits Bureau et édition des
 pages, sans super-administration technique. Le fournisseur et ce rôle sont
-testés localement et initialisés sur la préproduction protégée ; la connexion
-réelle du premier Admin attend sa définition personnelle de mot de passe.
+testés localement et initialisés sur la préproduction protégée. Le 13 octobre,
+le premier Admin définit personnellement son mot de passe ; l'accueil Bureau
+est confirmé par le responsable et la présence de sa preuve OAuth par un contrôle
+serveur en lecture seule. Création/modification du dossier fictif sont corroborées
+en base ; l'ouverture de Communication et des comptes est déclarée par le responsable.
+La revue humaine de phase reste distincte de cette recette initiale.
 
 ```mermaid
 flowchart LR

@@ -63,7 +63,7 @@ clés, client et contenus restent conservés, fichier en 0600.
 Le [reçu canonique](../data/bureau-oauth-verification.json#passwordSetupResumption)
 porte les empreintes, contrôles et limites.
 
-Le nouveau fichier téléchargé est `initialisation-admin (1).html` ; son lien
+Le premier fichier corrigé téléchargé est `initialisation-admin (1).html` ; son lien
 secret n'est ni lu ni publié par l'agent. Le responsable doit choisir une
 adresse distincte de celle du club, saisir/confirmer/enregistrer son mot de
 passe dans Drupal, puis permettre la recette réelle Menu → Bureau et des
@@ -83,13 +83,12 @@ Le raccourci `/login` exige un navigateur non connecté. Le même 403 est reprod
 localement avec une session du compte cible ou d'un autre compte. Le générateur
 est donc corrigé pour l'entrée native `user_pass_reset_url($admin)`, sans suffixe
 ni destination : gestion des sessions existantes, confirmation puis formulaire
-avec son token. Les 18 contrôles du parcours passent ; ce second correctif reste
-local, sans transfert serveur à ce stade. L'essai déclaré en fenêtre privée
+avec son token. Les 18 contrôles du parcours passent. L'essai déclaré en fenêtre privée
 reste refusé. Le diagnostic hébergé de 07:54 UTC retrouve six refus avec uid 2
 connecté et l'exigence de visiteur anonyme. Le compte est actif, sans mot de passe,
-Basic Auth Drupal est désactivé et les sept pages sont inchangées. Il faut remettre
-un nouveau lien par l'entrée native complète, puis le responsable enregistre
-personnellement son mot de passe. Aucun contenu de session ni secret n'est lu.
+Basic Auth Drupal est désactivé et les sept pages sont inchangées. Le diagnostic
+impose un nouveau lien par l'entrée native complète. Aucun contenu de session
+ni secret n'est lu.
 La capture contient un lien privé : sa valeur n'est pas reportée dans Git et
 aucune copie de la capture n'est ajoutée au dépôt.
 
@@ -101,7 +100,44 @@ verte : le contrôle contact retrouve 10 captures fictives accumulées au lieu d
 5 attendues, puis s'arrête avant l'éditeur. Le rejeu isolé de ce contrôle est
 refusé par la politique d'exécution avant démarrage. La base et les captures
 existantes restent conservées ; aucun courriel réel, serveurs locaux arrêtés.
-Prévoir un environnement local de recette neuf pour rejouer la suite complète.
+La [CI sur environnement neuf](https://github.com/jpdandin44/TC_Longages/actions/runs/38366270275)
+réussit ensuite ses cinq contrôles, dont la recette complète incluant Contact et
+éditeur. Elle lève cette réserve de qualification sans supprimer les captures locales.
+
+## Résultat courant — première connexion OAuth réelle
+
+Le correctif d'outillage est dans la [PR #20](https://github.com/jpdandin44/TC_Longages/pull/20),
+en brouillon, sans fusion ni cases humaines cochées. Son opérateur privé est
+installé à 08:13 UTC après contrôle des empreintes, sauvegarde et restauration
+vérifiées. Le paquet Drupal installé reste exactement celui de la PR #19.
+La régénération du lien complet réussit à 08:14 UTC ; le fichier de remplacement
+`initialisation-admin (2).html` est remis au responsable, sans lecture du lien.
+
+Le responsable confirme ensuite « Mot de passe enregistré ». Le contrôle serveur
+de 08:18 UTC confirme sa présence pour uid 2, sans lecture du mot de passe.
+Il confirme ensuite l'accueil Bureau après Menu → Bureau. À 08:22 UTC, un
+comptage serveur retrouve une session récente de uid 2 avec la clé de preuve
+OAuth ; aucun contenu de session, cookie, identifiant de session ou jeton n'est
+affiché. Le [reçu de recette réelle](../data/bureau-oauth-verification.json#hostedUserRecipe)
+distingue cette déclaration humaine, cet indicateur serveur et les tests automatisés.
+
+Le responsable confirme ensuite que l'essai du dossier fictif OAuth RECETTE,
+sa modification et l'ouverture de Communication et Gestion des comptes fonctionnent.
+Le contrôle de 08:28 UTC retrouve exactement le dossier fictif attendu, en
+révision 2, créé puis modifié par uid 2, avec le commentaire prévu. Il reste
+dans la préproduction privée. Aucun dossier réel, publication ni nouveau compte
+demandé. Les observations navigateur restent celles du responsable ; le contrôle
+agent corrobore seulement les indicateurs de connexion et la persistance ciblée.
+
+Les quatre contrôles extérieurs sans identifiant retrouvent un 401 Basic sur
+l'accueil, le Bureau, GET userinfo et POST token. Un premier lot rapproché a
+reçu des 429 après l'accueil ; les contrôles espacés réussissent jusqu'à 08:39 UTC,
+sans changement de protection. Les sept pages conservent la même empreinte.
+
+Prochaine action : revue du bilan et de la PR #20, toujours en brouillon et non
+fusionnée. Les confirmations fonctionnelles ne cochent pas les validations de
+phase. Les essais de publication, création de comptes, mobile et nouvelle
+déconnexion/reconnexion ne sont pas inclus dans cette recette hébergée initiale.
 
 La production n'est pas autorisée pour ce lot. Le cockpit reste reporté comme
 interface ; son suivi JSON est maintenu.

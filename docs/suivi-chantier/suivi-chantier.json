@@ -6,7 +6,7 @@
   "created": "2026-09-29",
   "updated": "2026-10-13",
   "owner": "jpdandin",
-  "scope": "Bureau OAuth en préproduction privée : lien de première saisie corrigé, testé et remis ; mot de passe personnel et connexion réelle encore à qualifier.",
+  "scope": "Bureau OAuth opérationnel en préproduction privée : première connexion réelle et recette initiale du dossier fictif confirmées ; revue humaine de phase encore attendue.",
   "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
@@ -2001,7 +2001,7 @@
   "session": {
     "status": "in_progress",
     "lastArchive": "docs/suivi-chantier/archives/2026-10-12-cloture-journee.md",
-    "nextAction": "Cause du 403 confirmée dans les journaux serveur : uid 2 connecté sur une route réservée aux anonymes. Remettre le correctif natif complet testé localement et un nouveau fichier, puis saisie personnelle et recette OAuth réelle.",
+    "nextAction": "Revoir le bilan de préproduction et la PR #20 : connexion OAuth réelle, dossier fictif créé/modifié et rubriques ouvertes confirmés. Aucun accord de phase, merge ou production ajouté automatiquement.",
     "lastResumeAt": "2026-10-13T07:01:48+00:00",
     "currentGuide": "docs/point-session.md",
     "lastCloseAt": "2026-10-12T21:46:08.337065+00:00",
@@ -6421,7 +6421,7 @@
       "owner": "jpdandin",
       "kind": "site-drupal",
       "stage": "preproduction",
-      "status": "corrected_private_link_delivered_password_and_real_recipe_pending",
+      "status": "initial_hosted_recipe_passed_human_phase_review_pending",
       "toolingReview": {
         "branch": "feat/bureau-preproduction",
         "sourceSha": "788be6ba2448fa0c57d5b51ac6564b13fb618976",
@@ -6430,8 +6430,17 @@
         "scope": "Private CLI operators, first-password regression and documentary resumption; not a replacement Drupal deployment archive",
         "nativeDrupalCandidateUnchanged": true,
         "humanAcceptanceVerified": false,
-        "prUrl": null,
-        "technicalCiStatus": "not_yet_observed"
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/20",
+        "technicalCiStatus": "success",
+        "technicalCiUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38366270275",
+        "testedHeadSha": "31dca9fd3ddbfd0ad17c82659dcbdc17fe9ae01f",
+        "technicalJobsPassed": 5,
+        "technicalCiCompletedAt": "2026-10-13T08:03:21Z",
+        "prDraft": true,
+        "humanChecklistUnchecked": true,
+        "operatorInstalledSha256": "751e679c4ed246eef77fe508594798728ed28040554b8a7b34bad350920367c8",
+        "operatorInstalledAt": "2026-10-13T08:13:50.292872+00:00",
+        "nextAction": "Record hosted personal-password and OAuth recipe evidence; PR remains draft without human acceptance"
       },
       "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
       "candidate": {
@@ -6519,6 +6528,16 @@
           "evidence": "data/bureau-oauth-verification.json#hostingActivation",
           "observedAt": "2026-10-12T21:19:23.126225+00:00",
           "scope": "Native modules, Admin role/association/client/key pair; seven public pages preserved, backend HTTP and external Basic protection"
+        },
+        {
+          "kind": "preproduction",
+          "status": "passed",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+          "target": "https://preprod.tclongages.fr/",
+          "evidence": "data/bureau-oauth-verification.json#hostedUserRecipe",
+          "observedAt": "2026-10-13T08:28:04+00:00",
+          "scope": "Initial real Admin OAuth login and fictitious registration create/update; user-reported Communication/accounts opening; not phase acceptance, hosted publishing, new accounts or mobile qualification"
         }
       ],
       "approvals": [
@@ -6571,12 +6590,21 @@
         "observedAt": null
       },
       "blockers": [
-        "Club email already used by another Drupal account; choose a distinct email for Admin_TC_Longages",
-        "User must personally set password; real OAuth and Bureau recipe pending",
-        "Hosted logs confirm uid 2 authenticated on an anonymous-only reset route; private-window retry failed, replacement native-entry file pending",
-        "Full local recipe rerun needs fresh isolated contact captures; 139 OAuth/password checks passed, contact count assertion stopped the suite before editor"
+        "Explicit human phase acceptance is not recorded; tooling PR #20 remains draft and unmerged"
       ],
-      "nextAction": "Cause du 403 confirmée dans les journaux serveur : uid 2 connecté sur une route réservée aux anonymes. Remettre le correctif natif complet testé localement et un nouveau fichier, puis saisie personnelle et recette OAuth réelle.",
+      "resolvedTechnicalBlockers": [
+        {
+          "issue": "Direct reset /login rejected an existing authenticated session",
+          "resolution": "Native entry installed and replacement file delivered; user saved password, confirmed read-only on server",
+          "evidence": "data/bureau-oauth-verification.json#passwordSetupResumption.authenticatedSessionDiagnosis"
+        },
+        {
+          "issue": "Accumulated fictitious contact captures stopped the earlier local full recipe",
+          "resolution": "Complete recipe succeeded on the clean GitHub runner; existing local captures remain untouched and historical failure retained",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38366270275"
+        }
+      ],
+      "nextAction": "Revoir le bilan de préproduction et la PR #20 : connexion OAuth réelle, dossier fictif créé/modifié et rubriques ouvertes confirmés. Aucun accord de phase, merge ou production ajouté automatiquement.",
       "resumption": {
         "observedAt": "2026-10-13T07:01:48+00:00",
         "source": "user_chat_and_cpanel_readonly_check",
@@ -6592,6 +6620,7 @@
         "privateFileDownloaded": true,
         "localRecheckEvidence": "data/bureau-oauth-verification.json#passwordSetupResumption.localRecheck",
         "sessionDiagnosisEvidence": "data/bureau-oauth-verification.json#passwordSetupResumption.authenticatedSessionDiagnosis",
+        "latestHostedRecipeEvidence": "data/bureau-oauth-verification.json#hostedUserRecipe",
         "evidence": "data/bureau-oauth-verification.json#passwordSetupResumption",
         "phaseAccepted": false,
         "productionAuthorized": false

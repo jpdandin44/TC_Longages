@@ -21,8 +21,8 @@ tags:
 | Phase | Situation et suite |
 | --- | --- |
 | Cadrage | V1 confirmée ; Bureau, OAuth TC indépendant et premier Admin demandés. |
-| Développement local | Bureau, menu, fournisseur Simple OAuth TC et Admin local vérifiés ; PR #19 fusionnée, CI dans le suivi. |
-| Préproduction | Paquet installé et Admin créé après accord ; récupération, dépendances et protection HTTP vérifiées. Lien de première saisie corrigé, testé et remis le 13 octobre ; saisie personnelle avec adresse distincte, puis recette OAuth réelle attendues. |
+| Développement local | Bureau, menu, fournisseur Simple OAuth TC et Admin local vérifiés ; PR #19 fusionnée. Correctif de première saisie dans la PR #20 en brouillon, cinq contrôles techniques réussis. |
+| Préproduction | Paquet installé et Admin créé après accord. Mot de passe personnel et connexion OAuth réelle confirmés ; dossier fictif créé/modifié vérifié en base, Communication et comptes ouverts selon le responsable. Revue humaine de phase encore attendue. |
 | Mise en production | Non autorisée pour ce lot ; prévoir son accord, ses sauvegardes et contrôles propres. |
 
 Le [guide du Bureau](docs/bureau-oauth.md) et l'itération `tcl-v2-bureau-oauth`
