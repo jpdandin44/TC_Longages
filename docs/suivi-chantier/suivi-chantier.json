@@ -4,9 +4,9 @@
   "title": "TC Longages — suivi du développement piloté",
   "version": "git",
   "created": "2026-09-29",
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "owner": "jpdandin",
-  "scope": "V1 confirmed by owner; current Bureau OAuth local candidate. No hosted Bureau delivery.",
+  "scope": "Bureau OAuth en préproduction privée : lien de première saisie corrigé, testé et remis ; mot de passe personnel et connexion réelle encore à qualifier.",
   "currentPhase": 2,
   "state": "in_progress",
   "baseline": {
@@ -1999,15 +1999,15 @@
     "lastDeploymentEvidence": null
   },
   "session": {
-    "status": "active_on_user_request",
-    "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
-    "nextAction": "Examiner le candidat local et sa PR; choisir les champs complets et transmettre ID/code public du nouvel agenda; qualifier ensuite la mise à jour en préproduction.",
-    "lastResumeAt": "2026-10-05T07:50:45.742195+00:00",
+    "status": "in_progress",
+    "lastArchive": "docs/suivi-chantier/archives/2026-10-12-cloture-journee.md",
+    "nextAction": "Cause du 403 confirmée dans les journaux serveur : uid 2 connecté sur une route réservée aux anonymes. Remettre le correctif natif complet testé localement et un nouveau fichier, puis saisie personnelle et recette OAuth réelle.",
+    "lastResumeAt": "2026-10-13T07:01:48+00:00",
     "currentGuide": "docs/point-session.md",
-    "lastCloseAt": "2026-10-04T21:48:45.703Z",
+    "lastCloseAt": "2026-10-12T21:46:08.337065+00:00",
     "automaticResumptionScheduled": false,
-    "goalStatus": "objective_achieved",
-    "objectiveAchieved": true,
+    "goalStatus": null,
+    "objectiveAchieved": false,
     "previousClosures": [
       {
         "status": "closed_on_user_request",
@@ -2019,15 +2019,34 @@
         "automaticResumptionScheduled": false,
         "goalStatus": "paused",
         "objectiveAchieved": false
+      },
+      {
+        "status": "active_on_user_request",
+        "lastArchive": "docs/suivi-chantier/archives/2026-09-29-adoption-framework.md",
+        "nextAction": "Examiner le candidat local et sa PR; choisir les champs complets et transmettre ID/code public du nouvel agenda; qualifier ensuite la mise à jour en préproduction.",
+        "lastResumeAt": "2026-10-05T07:50:45.742195+00:00",
+        "currentGuide": "docs/point-session.md",
+        "lastCloseAt": "2026-10-04T21:48:45.703Z",
+        "automaticResumptionScheduled": false,
+        "goalStatus": "objective_achieved",
+        "objectiveAchieved": true,
+        "goalStatusObservedAt": "2026-10-05T18:44:28Z",
+        "currentIterationId": "tcl-v2-bureau-calendrier-local",
+        "v1GoalCompletion": {
+          "status": "complete",
+          "observedAt": "2026-10-05T18:44:28Z",
+          "source": "native-goal-update-and-user-confirmation"
+        }
       }
     ],
     "goalStatusObservedAt": "2026-10-05T18:44:28Z",
-    "currentIterationId": "tcl-v2-bureau-calendrier-local",
+    "currentIterationId": "tcl-v2-bureau-oauth",
     "v1GoalCompletion": {
       "status": "complete",
       "observedAt": "2026-10-05T18:44:28Z",
       "source": "native-goal-update-and-user-confirmation"
-    }
+    },
+    "nativeGoalUpdatePerformed": false
   },
   "observations": [
     {
@@ -6401,25 +6420,26 @@
       "project": "tclongages",
       "owner": "jpdandin",
       "kind": "site-drupal",
-      "stage": "local",
-      "status": "local_tc_identity_verified_hosted_setup_pending",
+      "stage": "preproduction",
+      "status": "corrected_private_link_delivered_password_and_real_recipe_pending",
       "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
       "candidate": {
         "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
-        "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
-        "kind": "git-source-manifest",
-        "candidateManifest": "data/framework-candidate.json",
-        "deliveryArtifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
-        "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
+        "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+        "kind": "native-drupal-zip",
+        "candidateManifest": "data/bureau-oauth-verification.json#nativePackage",
+        "gitSourceArtifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+        "mergeCommit": "8bd9b8f9c8625a5811e35eab4a8d43da7c4a1306"
       },
       "targets": {
         "preproduction": {
           "id": "https://preprod.tclongages.fr/",
-          "ready": false,
-          "isolated": false,
+          "ready": true,
+          "isolated": true,
           "empty": false,
-          "evidence": "Current target and real OAuth client remain to qualify",
-          "observedAt": null
+          "evidence": "data/bureau-oauth-verification.json#hostingPreparation",
+          "observedAt": "2026-10-12T20:41:22.447250+00:00",
+          "limit": "Separate preproduction root/database; same hosting account. Basic beta access retained. Real OAuth login pending user password."
         },
         "production": {
           "id": null,
@@ -6435,57 +6455,95 @@
         "acceptedArtifactSha256": null,
         "humanAcceptanceVerified": false,
         "evidence": "data/bureau-oauth-verification.json#github",
-        "observedAt": "2026-10-12T19:48:20.461609+00:00",
+        "observedAt": "2026-10-12T20:41:22.447250+00:00",
         "number": 19,
-        "state": "OPEN",
-        "draft": true,
+        "state": "MERGED",
+        "draft": false,
         "mergeable": "MERGEABLE",
-        "observedHeadSha": "84dad93a90c2465113f31fe1027600771641751a",
-        "policyStatus": "waiting_for_four_human_checkboxes",
+        "observedHeadSha": "27e67bac0802e781370389734829b0e36ce098b4",
+        "policyStatus": "latest_policy_passed",
         "technicalCiStatus": "passed",
         "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
-        "technicalCiHead": "84dad93a90c2465113f31fe1027600771641751a"
+        "technicalCiHead": "84dad93a90c2465113f31fe1027600771641751a",
+        "mergeCommit": "8bd9b8f9c8625a5811e35eab4a8d43da7c4a1306",
+        "mergedAt": "2026-10-12T19:55:55Z"
       },
       "checks": [
         {
           "kind": "local",
           "status": "passed",
           "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
-          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
           "target": "http://127.0.0.1:4186/",
           "evidence": "data/bureau-oauth-verification.json",
-          "observedAt": "2026-10-12T19:37:09.894632+00:00"
+          "observedAt": "2026-10-12T19:37:09.894632+00:00",
+          "artifactMapping": "50 immutable payload files verified against merged Git; existing source qualification applies unchanged"
         },
         {
           "kind": "documentation",
           "status": "passed",
           "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
-          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
           "target": null,
-          "evidence": "data/bureau-oauth-verification.json",
-          "observedAt": "2026-10-12T19:37:09.894632+00:00"
+          "evidence": "data/bureau-oauth-verification.json#hostingPreparation.localOperatorAndDocChecks",
+          "observedAt": "2026-10-12T20:45:37.700553+00:00",
+          "artifactMapping": "50 immutable payload files verified against merged Git; existing source qualification applies unchanged"
         },
         {
           "kind": "ci",
           "status": "passed",
           "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
-          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
           "target": "GitHub Actions isolated recipe",
           "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
-          "observedAt": "2026-10-12T19:48:20.461609+00:00"
+          "observedAt": "2026-10-12T19:48:20.461609+00:00",
+          "artifactMapping": "50 immutable payload files verified against merged Git; existing source qualification applies unchanged"
         },
         {
-          "kind": "preproduction",
-          "status": "not_run",
+          "kind": "preproduction-initialization",
+          "status": "passed",
           "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
-          "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
           "target": "https://preprod.tclongages.fr/",
-          "evidence": null,
-          "observedAt": null
+          "evidence": "data/bureau-oauth-verification.json#hostingActivation",
+          "observedAt": "2026-10-12T21:19:23.126225+00:00",
+          "scope": "Native modules, Admin role/association/client/key pair; seven public pages preserved, backend HTTP and external Basic protection"
         }
       ],
-      "approvals": [],
-      "backups": [],
+      "approvals": [
+        {
+          "scope": "preproduction",
+          "status": "approved",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+          "target": "https://preprod.tclongages.fr/",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "evidence": "User: PR19 merged; proceed so I can set real Admin password; cPanel reconnection confirmed",
+          "observedAt": "2026-10-12T20:41:22.447250+00:00"
+        },
+        {
+          "scope": "security_provisioning",
+          "status": "approved",
+          "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+          "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+          "target": "https://preprod.tclongages.fr/",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "evidence": "User reply: Oui, créer l’accès Admin TC en préproduction - Admin_TC_Longages, own OAuth keys/client and server-only API rule",
+          "observedAt": "2026-10-12T21:12:35.317245+00:00"
+        }
+      ],
+      "backups": [
+        {
+          "id": "20261012T202257Z",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "verified",
+          "restoreStatus": "passed",
+          "evidence": "data/bureau-oauth-verification.json#hostingPreparation - private stage-receipt.json",
+          "observedAt": "2026-10-12T20:23:50.372530+00:00"
+        }
+      ],
       "rollback": {
         "status": "not_tested",
         "target": null,
@@ -6502,12 +6560,31 @@
         "observedAt": null
       },
       "blockers": [
-        "TC hosted Composer dependencies and current target qualification",
-        "TC private keys/client and first Admin account/association",
-        "Server token/userinfo calls under beta Basic Auth",
-        "Hosted OAuth and business recipe, current backup/restore and delivery authorization"
+        "Club email already used by another Drupal account; choose a distinct email for Admin_TC_Longages",
+        "User must personally set password; real OAuth and Bureau recipe pending",
+        "Hosted logs confirm uid 2 authenticated on an anonymous-only reset route; private-window retry failed, replacement native-entry file pending",
+        "Full local recipe rerun needs fresh isolated contact captures; 139 OAuth/password checks passed, contact count assertion stopped the suite before editor"
       ],
-      "nextAction": "Qualifier dépendances et protection HTTP en préproduction TC, préparer récupération/installations puis créer le premier Admin privé. PR19 brouillon, confirmations humaines vierges.",
+      "nextAction": "Cause du 403 confirmée dans les journaux serveur : uid 2 connecté sur une route réservée aux anonymes. Remettre le correctif natif complet testé localement et un nouveau fichier, puis saisie personnelle et recette OAuth réelle.",
+      "resumption": {
+        "observedAt": "2026-10-13T07:01:48+00:00",
+        "source": "user_chat_and_cpanel_readonly_check",
+        "request": "Reprendre le service OAuth et finaliser la préproduction",
+        "adminUid": 2,
+        "adminHasPassword": false,
+        "oauthConfigured": true,
+        "editorialDigestUnchanged": true,
+        "localPasswordSetupChecks": 8,
+        "localPasswordSetupPassed": true,
+        "correctedOperatorUploaded": true,
+        "correctedLinkRegenerated": true,
+        "privateFileDownloaded": true,
+        "localRecheckEvidence": "data/bureau-oauth-verification.json#passwordSetupResumption.localRecheck",
+        "sessionDiagnosisEvidence": "data/bureau-oauth-verification.json#passwordSetupResumption.authenticatedSessionDiagnosis",
+        "evidence": "data/bureau-oauth-verification.json#passwordSetupResumption",
+        "phaseAccepted": false,
+        "productionAuthorized": false
+      },
       "nextIteration": [
         "Équipes/matchs et disponibilités simples",
         "Partenaires et bannière de logos",
@@ -6539,7 +6616,7 @@
       "authorization": {
         "source": "user-message-2026-10-12",
         "effect": "Local Bureau development; dedicated TC OAuth provider reusing AVEREO code, first TC Admin requested",
-        "liveDeliveryApprovalAdded": false
+        "liveDeliveryApprovalAdded": true
       },
       "v1OwnerStatement": {
         "date": "2026-10-12",
@@ -6613,6 +6690,55 @@
             "technicalCiStatus": "passed",
             "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/38290503054"
           }
+        },
+        {
+          "candidate": {
+            "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+            "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+            "kind": "git-source-manifest",
+            "candidateManifest": "data/framework-candidate.json",
+            "deliveryArtifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+            "nativePackageEvidence": "data/bureau-oauth-verification.json#nativePackage"
+          },
+          "checks": [
+            {
+              "kind": "local",
+              "status": "passed",
+              "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+              "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+              "target": "http://127.0.0.1:4186/",
+              "evidence": "data/bureau-oauth-verification.json",
+              "observedAt": "2026-10-12T19:37:09.894632+00:00"
+            },
+            {
+              "kind": "documentation",
+              "status": "passed",
+              "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+              "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+              "target": null,
+              "evidence": "data/bureau-oauth-verification.json",
+              "observedAt": "2026-10-12T19:37:09.894632+00:00"
+            },
+            {
+              "kind": "ci",
+              "status": "passed",
+              "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+              "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+              "target": "GitHub Actions isolated recipe",
+              "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/38299300070",
+              "observedAt": "2026-10-12T19:48:20.461609+00:00"
+            },
+            {
+              "kind": "preproduction",
+              "status": "not_run",
+              "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+              "artifactSha256": "2d37fca6821536f92796b7be935d5ca11d17a6adb1010d6ea1a9f9c6b9e7b456",
+              "target": "https://preprod.tclongages.fr/",
+              "evidence": null,
+              "observedAt": null
+            }
+          ],
+          "reason": "Same source; native deployment archive replaces whole Git manifest as delivery candidate; old proofs preserved."
         }
       ],
       "identityArchitecture": {
@@ -6620,7 +6746,31 @@
         "provider": "TC Drupal + Simple OAuth 6.1.1",
         "firstAdminRole": "tcl_admin",
         "avereoAccountRequired": false,
-        "hostedAdminCreated": false
+        "hostedAdminCreated": true
+      },
+      "postDeploymentQualification": [
+        "Server HTTP token/userinfo under bounded Basic rule",
+        "User sets real Admin password in Drupal",
+        "Real OAuth Admin login and hosted Bureau recipe"
+      ],
+      "hostingPreparationEvidence": "data/bureau-oauth-verification.json#hostingPreparation",
+      "hostingActivationEvidence": "data/bureau-oauth-verification.json#hostingActivation",
+      "preproductionDelivery": {
+        "status": "installed_initialization_verified",
+        "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",
+        "artifactSha256": "702d4e5b697dcae2b388324e0011ad06ef0a30858d8732fea667d332cd9d7431",
+        "mergeCommit": "8bd9b8f9c8625a5811e35eab4a8d43da7c4a1306",
+        "target": "https://preprod.tclongages.fr/",
+        "evidence": "data/bureau-oauth-verification.json#hostingActivation",
+        "observedAt": "2026-10-12T21:19:23.126225+00:00",
+        "realOAuthLoginVerified": false,
+        "passwordSetupPending": true
+      },
+      "sessionClosure": {
+        "closedAt": "2026-10-12T21:46:08.337065+00:00",
+        "archive": "docs/suivi-chantier/archives/2026-10-12-cloture-journee.md",
+        "phaseAccepted": false,
+        "applicationMutationsStoppedOnUserRequest": true
       }
     }
   ],

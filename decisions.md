@@ -15,6 +15,27 @@ tags:
 
 # Décisions
 
+## 2026-10-12 — Initialisation privée et échanges serveur du Bureau TC
+
+**Contexte.** PR #19 fusionnée ; le responsable confirme la création de
+l'Admin TC et de son accès OAuth sur la seule préproduction. Basic Auth bêta
+bloque les échanges serveur et doit rester actif pour les visiteurs.
+
+**Décision.** Clés/client/identité propres au TC hors web, association au uid 2
+et compte `Admin_TC_Longages` sans mot de passe initial. Le responsable le
+définit dans le formulaire natif via un lien à usage unique remis en fichier
+privé. Exempter uniquement POST token et GET userinfo depuis le serveur ou
+la boucle locale, en conservant le challenge Basic pour les requêtes externes.
+
+**Raisons.** Préserver les accès bêta, les données et la V1 ; réutiliser le
+parcours natif sans manipuler le vrai mot de passe ni les identités AVEREO.
+
+**Conséquences.** Configuration vérifiée et droits Drupal restaurés après
+écriture ; toute régénération de la protection par cPanel demande de requalifier
+la règle. La connexion réelle et la recette Bureau restent à vérifier après
+saisie personnelle. Aucun accord de production ni validation de phase ajouté.
+
+
 ## 2026-10-12 — OAuth indépendant TC et premier Admin
 
 Contexte : le responsable précise qu'il souhaite une duplication de la brique

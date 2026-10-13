@@ -15,7 +15,7 @@ tags:
 
 # Architecture
 
-## Bureau OAuth — adaptation locale du 12 octobre
+## Bureau OAuth — adaptation TC du 12 octobre
 
 `tcl_identity` porte le fournisseur du **Drupal TC Longages**, avec Simple OAuth
 6.1.1 réutilisé d'AVEREO et une base/comptes/clé/client propres au club.
@@ -28,7 +28,8 @@ contrôles CSRF et permissions ; ses services vérifient aussi cette preuve.
 Le login natif du CMS conserve son rôle éditorial et n'ouvre pas le Bureau.
 Le rôle `tcl_admin` donne au premier Admin les droits Bureau et édition des
 pages, sans super-administration technique. Le fournisseur et ce rôle sont
-testés localement ; l'installation hébergée reste à qualifier.
+testés localement et initialisés sur la préproduction protégée ; la connexion
+réelle du premier Admin attend sa définition personnelle de mot de passe.
 
 ```mermaid
 flowchart LR
@@ -41,7 +42,12 @@ flowchart LR
 
 Le menu est inséré au rendu des sept pages, sans réécriture des textes édités.
 Les secrets et associations sont des paramètres privés `Settings`, hors webroot
-et exports. L'exemple est désactivé. Le fournisseur TC réel est testé sur boucle
+et exports. En préproduction, les clés RSA/client/association sont hors web,
+sous `private/tc-identity`, permissions 0700/0600. Le chargeur natif les inclut
+sans modifier le runtime V1. Basic Auth conserve les pages et l'accès bêta ;
+seuls POST `/oauth/token` et GET `/oauth/userinfo` depuis le serveur ou la boucle
+locale sont exemptés. Les cinq sondes extérieures restent en 401 Basic.
+L'exemple est désactivé. Le fournisseur TC réel est testé sur boucle
 locale avec un compte Admin fictif ; le fournisseur fictif complémentaire et
 ses clés ne font pas partie d'une livraison. Le
 [contrat détaillé](api/bureau-oauth.md) distingue expiration, révocation locale

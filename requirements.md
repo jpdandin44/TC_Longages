@@ -33,7 +33,14 @@ tags:
   et les dépendances de la cible avant utilisation hébergée.
 - Ne pas reprendre implicitement les secrets, rôles ou droits d'une application AVEREO.
 
-Le [guide](docs/bureau-oauth.md) porte la réalisation locale et les TBD hébergés.
+- Le premier Admin réel définit lui-même son mot de passe via le parcours natif
+  Drupal à usage unique ; aucun mot de passe fourni, lu ou saisi par l'agent.
+- Conserver les permissions du répertoire Drupal protégé lors des écritures
+  atomiques de configuration, et reprendre sans recréer compte/clé/client en
+  cas d'interruption.
+
+Le [guide](docs/bureau-oauth.md) et le [reçu](data/bureau-oauth-verification.json)
+portent réalisation locale, initialisation hébergée et recette réelle restante.
 
 
 ## Choix de contact demandé — 8 octobre

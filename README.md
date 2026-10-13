@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-13
 owner: jpdandin
 tags:
   - site-internet
@@ -29,10 +29,19 @@ courriels neutralisés. Les comptes/clé/client du TC sont indépendants d'AVERE
 Les identifiants locaux restent dans `.local/tc-identity-local.json`.
 Pour recréer cette recette sur un checkout neuf :
 `./scripts/bureau-oauth-recette.ps1 -Prepare`.
-L'installation hébergée et le premier **Admin TC Longages** restent à configurer
-et recetter ; la PR #19 contient ce même lot.
-Les décisions et préparations V1 ci-dessous sont des observations datées ;
-aucun déploiement de ce nouveau Bureau n'est encore réalisé.
+La PR #19 est fusionnée et ce même paquet est installé sur la préproduction
+protégée. Le compte **Admin TC Longages** (`Admin_TC_Longages`, uid 2), ses clés,
+client et association propres au TC sont provisionnés. Les sept pages et les
+transports V1 sont conservés ; les appels OAuth serveur et le refus Basic
+extérieur sont vérifiés. Le 13 octobre, la correction de première saisie du mot
+de passe réussit huit contrôles locaux ; l'opérateur corrigé est installé et
+le nouveau fichier d'initialisation privé est remis au responsable. Une adresse
+distincte de celle du club, déjà utilisée, est nécessaire. Connexion OAuth
+réelle et recette Bureau restent à faire après la saisie personnelle ;
+voir le [point de reprise](docs/point-session.md). Voir le
+[workflow](workflows/bureau-oauth-preproduction.md) et le
+[reçu hébergé](data/bureau-oauth-verification.json#hostingActivation).
+Les décisions et préparations V1 ci-dessous restent des observations datées.
 
 
 ## Observation historique — choix de messagerie, 8 octobre
