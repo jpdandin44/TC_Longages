@@ -1,0 +1,81 @@
+{
+  "project": "TC_Longages",
+  "document_type": "session-closure-verification",
+  "owner": "jpdandin",
+  "version": "git",
+  "created": "2026-10-12",
+  "updated": "2026-10-12",
+  "observedAt": "2026-10-12T21:52:27.145401+00:00",
+  "source": "user_chat_close_session_request",
+  "closedOnUserRequest": true,
+  "phaseAccepted": false,
+  "productionAuthorized": false,
+  "automaticResumptionScheduled": false,
+  "branch": "feat/bureau-preproduction",
+  "gitHead": "8bd9b8f9c8625a5811e35eab4a8d43da7c4a1306",
+  "uncommittedChangesPreserved": true,
+  "archiveGuide": "docs/suivi-chantier/archives/2026-10-12-cloture-journee.md",
+  "documentationChecks": {
+    "documents": 10,
+    "internalLinks": 413,
+    "requiredFoundationPresent": true,
+    "structuredSourcesParsed": 2,
+    "phpSyntaxPassed": true,
+    "pythonSyntaxPassed": true,
+    "passwordLinkLocalCorrectionPrepared": true,
+    "realPasswordFlowRetestPending": true,
+    "frameworkCheck": {
+      "passed": true,
+      "referenceFiles": 28,
+      "derivedViewsRegenerated": true,
+      "scope": "local read-only documentation views; no site deployment"
+    }
+  },
+  "hostingState": {
+    "adminUid": 2,
+    "adminHasPassword": false,
+    "oauthConfigured": true,
+    "oauthRealLoginVerified": false,
+    "lastReadOnlyObservedAt": "2026-10-12T21:40:20+00:00",
+    "evidence": "data/bureau-oauth-verification.json#hostingActivation"
+  },
+  "localRuntimes": [
+    {
+      "Port": 4191,
+      "Status": "stopped_verified_worktree_process"
+    },
+    {
+      "Port": 4190,
+      "Status": "preserved_ownership_not_verified"
+    },
+    {
+      "Port": 4186,
+      "Status": "stopped_verified_worktree_process"
+    }
+  ],
+  "remaining": [
+    "Regenerate and test native one-time link without destination override",
+    "Choose unique email for Admin account",
+    "Human password setup, then real OAuth/Bureau recipe"
+  ],
+  "backup": {
+    "localOnly": true,
+    "artifact": "C:/Users/examg/Documents local/Longages/TC_Longages/.worktrees/bureau-oauth/.local/cloture/2026-10-12/sauvegarde-session.zip",
+    "excludes": [
+      ".local",
+      "Downloads",
+      "credentials and PEM files",
+      "data/cloture-journee-verification.json (external receipt avoids cyclic hash)"
+    ],
+    "sha256": "dbf1fe656d48de20eb102fb719f1eb16b777ca487733ae7be883a7f42e588974",
+    "zipIntegrityPassed": true,
+    "sourceFiles": 565,
+    "zipEntries": 566,
+    "bytes": 20809261,
+    "allArchivedBytesVerified": true
+  },
+  "closingScreenshot": ".local/cloture/2026-10-12/etat-preproduction.png",
+  "agentCpanelTabsClosed": true,
+  "cpanelServerLogoutVerified": false,
+  "applicationMutationsStoppedOnUserRequest": true
+}

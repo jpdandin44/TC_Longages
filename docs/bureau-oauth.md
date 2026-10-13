@@ -5,7 +5,7 @@ title: Bureau Drupal et connexion OAuth
 status: active
 version: git
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 owner: jpdandin
 tags: [bureau, inscriptions, oauth, drupal, v2]
 ---
@@ -43,7 +43,7 @@ ne sont pas inclus dans ce lot.
 Le responsable demande une **connexion indépendante pour le TC Longages** et
 un premier accès **Admin TC Longages**. `tcl_identity` installe un fournisseur
 dans le Drupal du club, avec Simple OAuth **6.1.1**, version utilisée par AVEREO.
-Les dépendances sont verrouillées dans Composer ; Drupal reste en 11.4.6.
+Les dépendances sont verrouillées dans Composer ; Drupal reste en 11.4.8. La mention antérieure 11.4.6 était erronée ; le verrou, le cœur local et la préproduction concordent en 11.4.8.
 Les comptes, base, client, secret et paire RSA sont propres au TC. Aucun compte
 AVEREO n'est nécessaire et aucune donnée ou clé AVEREO n'est copiée.
 
@@ -71,10 +71,58 @@ retrait d'association ou changement de configuration invalident l'accès courant
 
 Le rôle **Admin TC Longages** (`tcl_admin`) possède les droits des inscriptions,
 communication, comptes Bureau/Capitaine et édition des sept pages. Il n'est pas
-un super-administrateur technique Drupal. L'installation crée le rôle, sans
-créer de compte, mot de passe ou clé réels. Le premier compte hébergé prévu est
-`Admin_TC_Longages` ; son identifiant final et son secret restent à renseigner
-sur la cible par le responsable, dans l'interface privée.
+un super-administrateur technique Drupal. L'installation des modules crée le
+rôle ; la création du compte réel passe par le provisionnement privé explicite.
+Après accord humain, le premier compte hébergé `Admin_TC_Longages` (uid 2) a été
+créé sans mot de passe, avec clés/client/association TC propres. Le fichier
+privé d'initialisation Drupal à usage unique est remis au responsable dans
+ses Téléchargements. Le 13 octobre, le parcours complet sans raccourci `/login`
+ni destination forcée est corrigé, testé puis régénéré sur le serveur. Le
+responsable enregistre personnellement son mot de passe ; le serveur confirme
+sa présence sans le lire. L'adresse du club reste attribuée à un autre compte
+et ne doit pas être réutilisée. Le [reçu de reprise](../data/bureau-oauth-verification.json#passwordSetupResumption)
+porte l'état actuel. Aucun lien d'authentification ni secret n'est inscrit dans Git.
+
+### Première connexion : deux accès distincts
+
+Le fichier de remplacement `initialisation-admin (2).html` s'ouvre localement,
+sans identifiant. Les deux anciens téléchargements ne sont plus le parcours à utiliser.
+Son bouton ouvre ensuite la préproduction protégée. Si une petite fenêtre du
+navigateur demande un identifiant, utiliser l'accès bêta existant du site et son
+mot de passe propre. Le contrôle en lecture seule du 13 octobre confirme que
+`TCL_admin` et `TCL_visiteur` figurent parmi les accès Basic autorisés ; cela
+ne vérifie pas le mot de passe saisi par le responsable.
+
+Après cette protection, cliquer sur **Se connecter** dans la confirmation
+native Drupal pour ouvrir la première saisie du **nouveau**
+compte Drupal `Admin_TC_Longages`. Ce compte et le rôle `tcl_admin` ne remplacent
+pas l'accès Basic. Le responsable définit personnellement son mot de passe
+Drupal et une adresse distincte de celle du club, puis enregistre le formulaire.
+En cas de refus, distinguer la fenêtre du navigateur du formulaire Drupal avant
+toute correction ; ne communiquer aucun mot de passe ni lien privé.
+
+La capture du 13 octobre situe le refus dans Drupal après la protection Basic.
+Le raccourci `/login` du fichier déjà téléchargé exige une session déconnectée :
+il reproduit le même 403 avec un compte Drupal déjà connecté, y compris le compte
+cible. L'essai déclaré en fenêtre privée reste refusé. Les journaux hébergés
+consultés à 07:54 UTC confirment que les six derniers refus arrivent avec uid 2
+connecté et la raison « route réservée aux utilisateurs anonymes ». Le contenu
+de la session et les mots de passe n'ont pas été lus. Remplacer le raccourci par
+le parcours natif complet, au lieu de répéter la même tentative.
+
+Le générateur est corrigé pour employer désormais l'entrée native complète,
+sans `/login` ni `destination`. Elle gère les sessions existantes et affiche la
+confirmation avant le formulaire de mot de passe. Ses 18 contrôles passent ;
+ce second correctif est installé après sauvegarde privée vérifiée. Le responsable
+confirme ensuite l'enregistrement, vérifié côté serveur à 08:18 UTC, puis
+l'accueil Bureau après Menu → Bureau. À 08:22 UTC, le contrôle serveur retrouve
+une session récente du compte avec la preuve OAuth, sans sélectionner son
+contenu, son identifiant ou ses jetons. Aucun droit n'est assoupli. La création
+et la modification du dossier fictif sont ensuite déclarées réussies et
+corroborées en base ; Communication et Gestion des comptes s'ouvrent selon le
+responsable. Les limites de cette recette initiale sont dans le
+[reçu](../data/bureau-oauth-verification.json#hostedUserRecipe) ; aucune validation
+de phase n'est ajoutée automatiquement.
 
 La connexion native Drupal permet toujours les opérations éditoriales autorisées
 du site et sert de connexion au fournisseur TC. Elle ne suffit pas seule pour
@@ -92,7 +140,11 @@ utilisent une base SQLite de recette et le **véritable module Simple OAuth** TC
 sur `127.0.0.1:4191`, avec le premier compte fictif `Admin_TC_Longages_local`.
 Deux serveurs PHP sont nécessaires en local sous Windows pour l'échange HTTP
 du code ; ils utilisent le même Drupal et sa session. Sur l'hébergement, les
-requêtes concurrentes et leur routage restent à qualifier.
+appels serveur token/userinfo passent sans Basic depuis l'IP autorisée, alors
+que les sondes extérieures restent en 401 Basic. Le parcours OAuth complet
+avec le vrai compte est confirmé le 13 octobre par le responsable et l'indicateur
+de preuve côté serveur. La recette initiale du dossier fictif est corroborée
+en base ; elle ne qualifie pas une publication ni l'ouverture aux données réelles.
 Le bandeau **OAuth TC Longages, comptes et données de test uniquement** distingue
 cette recette du service hébergé. Ne pas saisir de dossier réel. Les identifiants
 locaux sont conservés uniquement dans `.local/tc-identity-local.json` ; clés et
@@ -119,8 +171,8 @@ consultation de Claude et prérequis encore manquants.
 | Phase | Situation du lot |
 | --- | --- |
 | Cadrage | V1 confirmée ; Bureau, OAuth TC indépendant et premier Admin demandés. |
-| Développement local | Fournisseur TC, adaptateur, menus, rôle Admin et recettes locales réalisés ; PR #19 et CI dans le suivi canonique. |
-| Préproduction | Dépendances, clés/client TC, premier compte Admin, protection HTTP, récupération et recette hébergée à qualifier. |
+| Développement local | Fournisseur TC, adaptateur, menus, rôle Admin et recettes locales réalisés ; PR #19 fusionnée et CI dans le suivi canonique. |
+| Préproduction | Paquet installé, récupération et dépendances qualifiées, Admin TC et protection HTTP vérifiés ; mot de passe personnel puis recette OAuth réelle à effectuer. |
 | Mise en production | Non autorisée pour ce candidat ; accord et contrôles propres à cette livraison nécessaires. |
 
 Le [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations)
@@ -137,8 +189,10 @@ incluses : `composer install --no-dev` doit être qualifié dans une copie isol�
 avant déploiement. Le manifeste indique `readyForDirectDeployment: false`.
 La préparation du paquet n'active aucun service.
 
-**TBD avant utilisation réelle :** installation des dépendances sur la cible,
-clés et client TC privés, compte Admin et association avec son uid, appels HTTP
-côté serveur sous Basic Auth, sauvegarde/restauration, connexion/déconnexion
-hébergées et validation des champs avant collecte d'adhérents. Le nonce signé
+**TBD avant utilisation réelle :** première saisie personnelle du mot de passe,
+connexion/déconnexion hébergées, recette des droits et opérations Bureau, puis
+validation des champs avant collecte d'adhérents. Dépendances, clés/client,
+association, appels HTTP serveur et sauvegarde/restauration sont qualifiés dans
+les reçus du 12 octobre ; ces constats ne prouvent pas la connexion réelle.
+Le nonce signé
 du fournisseur TC est implémenté et testé localement, sans option de tolérance.

@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-13
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,60 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-13 — Reprise de la première saisie Admin
+
+- Opération privée `initialise` ajoutée pour régénérer le lien natif sans
+  reprovisionner le compte, le client ou les clés OAuth.
+- Huit contrôles HTTP sur un compte fictif local : token de formulaire,
+  première saisie, adresse dupliquée, persistance, connexion et protections.
+- Opérateur corrigé installé avec sauvegarde privée et empreinte vérifiée ;
+  nouveau fichier d'initialisation téléchargé, sans lecture du lien secret.
+- À ce premier stade, saisie personnelle et recette OAuth réelle étaient
+  encore attendues ; l'historique est conservé dans le reçu canonique.
+- Second diagnostic : raccourci `/login` refusé lorsqu'une session Drupal
+  existe déjà. Entrée native complète corrigée avec 18 contrôles réussis,
+  dont sessions absente, identique et différente. PR #20 en brouillon et cinq
+  contrôles techniques réussis sur un environnement neuf.
+- Correctif installé avec sauvegarde privée restaurée et vérifiée ; fichier
+  de remplacement remis sans lecture du lien. Mot de passe enregistré par
+  le responsable, confirmé côté serveur, puis accueil Bureau déclaré visible
+  et preuve OAuth présente pour le même compte.
+- Création et modification du dossier fictif confirmées par le responsable,
+  puis corroborées en base (révision 2). Ouverture de Communication et Gestion
+  des comptes déclarée réussie. La revue humaine de phase reste distincte ;
+  aucune publication, création de compte supplémentaire ou production autorisée.
+
+## 2026-10-12 — Clôture et blocage de première initialisation
+
+- Session close à la demande du responsable, sans validation de phase.
+- Mot de passe Admin encore vide confirmé nativement ; compte/OAuth/Bureau
+  installés, connexion réelle non qualifiée.
+- Lien de première saisie incorrect : destination forcée retirant le token
+  natif. Générateur corrigé localement, nouveau lien hébergé restant à tester
+  et remettre ; adresse du club déjà utilisée, autre adresse à choisir.
+- Reprise et limites consignées dans l'archive et le suivi canonique.
+
+## 2026-10-12 — Bureau installé en préproduction et Admin initialisé
+
+- Même paquet PR #19 installé après accord, Admin TC propre au club créé sans
+  mot de passe ; clés/client/association et permissions métier vérifiés.
+- Configuration privée raccordée, droits du répertoire Drupal restaurés à
+  0555 après écriture atomique ; reprise sans recréer les identifiants.
+- Trois sondes serveur et cinq sondes externes réussies pour la règle Basic
+  bornée ; sept pages, contenus/révisions et transports V1 conservés.
+- Fichier privé d'initialisation remis au responsable. La saisie personnelle
+  du mot de passe et la recette OAuth réelle restent distinctes et attendues.
+
+## 2026-10-12 — Préparation hébergée du Bureau après fusion de #19 (historique)
+
+- Fusion vérifiée sans changement des 50 sources du paquet natif.
+- Sauvegarde fraîche et restauration de fichiers/base comparées sur copie
+  privée, dépendances Composer et droits/inscription fictive vérifiés.
+- Opérateurs de promotion et initialisation du vrai Admin préparés ; compte
+  sans mot de passe prévu, saisie personnelle dans Drupal, accès OAuth TC privé.
+- Correction documentaire : Drupal est en 11.4.8, pas 11.4.6 ; aucune mise à jour
+  du cœur n'est effectuée. Activation réelle et OAuth hébergé restent en attente.
 
 ## 2026-10-12 — Fournisseur OAuth propre au TC
 

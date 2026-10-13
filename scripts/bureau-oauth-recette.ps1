@@ -35,6 +35,8 @@ try {
   $taskTcProvider = Start-Process -FilePath (Get-Command php.exe).Source -ArgumentList $taskPhpArguments -WorkingDirectory (Resolve-Path 'drupal').Path -WindowStyle Hidden -PassThru -RedirectStandardOutput .local/tc-provider-output.log -RedirectStandardError .local/tc-provider-error.log
   & python -X utf8 tests/drupal-tc-identity-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette du fournisseur TC dédié échouée.' }
+  & python -X utf8 tests/drupal-password-setup-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette de première saisie du mot de passe échouée.' }
   $env:TCL_HTTP_RECIPE_ORIGIN = 'http://127.0.0.1:4186'
   & python -X utf8 tests/test_contact_http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette de conservation du contact échouée.' }

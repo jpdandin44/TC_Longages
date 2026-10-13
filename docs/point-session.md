@@ -5,12 +5,12 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-12
+updated: 2026-10-13
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 12 octobre 2026
+# Point de session — reprise au 13 octobre 2026
 
 ## Reprise courante — Bureau OAuth
 
@@ -18,28 +18,129 @@ V1 confirmée par le responsable ; aucun retour de bêta-testeur signalé.
 Le nouveau lot rend le Bureau natif utilisable, ajoute **Bureau** au menu
 et impose OAuth côté serveur en plus des droits Drupal. Le cockpit reste reporté.
 
-Checkout actif : `.worktrees/bureau-oauth`, branche `feat/bureau-oauth`, créée
-depuis `main` à `e0ec292`. Les autres checkouts et leurs changements locaux
-sont conservés. Le [guide](bureau-oauth.md), le [contrat](../api/bureau-oauth.md),
-le [workflow](../workflows/bureau-oauth-preproduction.md) et le
-[reçu](../data/bureau-oauth-verification.json) décrivent les sources et preuves.
-La PR et son observation GitHub figurent dans l'itération `tcl-v2-bureau-oauth`
-du [suivi canonique](suivi-chantier/suivi-chantier.json#developmentIterations).
+Checkout actif : `.worktrees/bureau-oauth`, branche `feat/bureau-preproduction`
+créée depuis `origin/main` à `8bd9b8f9c8625a5811e35eab4a8d43da7c4a1306`.
+La PR #19 est vérifiée fusionnée, sans différence de contenu avec son dernier
+head. Les 50 fichiers du paquet natif immuable concordent avec le merge.
+Le [guide](bureau-oauth.md), le [workflow](../workflows/bureau-oauth-preproduction.md)
+et le [reçu](../data/bureau-oauth-verification.json#hostingPreparation) portent
+la préparation ; l'itération `tcl-v2-bureau-oauth` du
+[suivi canonique](suivi-chantier/suivi-chantier.json) conserve l'historique.
 
-Le responsable précise : OAuth **indépendant TC**, premier **Admin TC Longages**.
-Le fournisseur `tcl_identity`/Simple OAuth 6.1.1 est testé sur boucle locale
-4191 avec le site 4186 et le compte fictif `Admin_TC_Longages_local` ; les clés
-et identifiants restent dans `.local/tc-identity-local.json`, hors Git/chat.
-La recette de jetons invalides sur fournisseur fictif 4190 reste complémentaire.
+Le fournisseur est **TC uniquement**, Drupal 11.4.8 / Simple OAuth 6.1.1.
+Aucun compte ni secret AVEREO n'est repris. La sauvegarde fraîche du
+12 octobre `20261012T202257Z` a été restaurée en copie privée : fichiers,
+50 schémas et toutes les lignes actives comparés, 440 tables de récupérations
+antérieures conservées. Installation Composer, rôle Admin, inscription fictive
+et préservation des sept pages ont réussi sur cette copie uniquement.
 
-Prochaine action : qualifier dépendances et appels serveur sous Basic Auth,
-préparer récupération et installation du candidat accepté sur préproduction TC,
-puis créer le premier Admin et ses clés/client privés. Le responsable saisit
-le mot de passe dans l'interface privée. Aucun secret n'est à envoyer dans le chat.
-Le nouveau candidat et ses preuves remplacent ceux du raccordement initial
-dans la même PR #19 ; les anciens reçus restent historiques.
-La déclaration de validation V1 ne crée pas d'accord de merge ou de livraison
-du nouveau Bureau. Aucune préproduction Bureau ni production modifiée.
+Après accord explicite de création de l'accès, le même paquet PR #19 est
+installé sur la préproduction. `Admin_TC_Longages` (uid 2), rôle `tcl_admin`,
+clés RSA/client/association TC sont vérifiés. Le raccordement de la configuration
+a nécessité une reprise de l'opérateur : ajout temporaire du seul droit
+d'écriture propriétaire sur `web/sites/default`, puis retour vérifié à 0555.
+Compte, clés et client existants ont été conservés, sans reprovisionnement.
+
+Les trois sondes serveur renvoient racine 401, token invalide 400 et userinfo
+sans Bearer 403. Les cinq sondes extérieures restent en 401 avec challenge Basic.
+Les sept contenus/révisions, agenda Mois, photo et choix de contact sont conservés.
+Le runtime V1 et ses transports restent inchangés. Aucun message de l'agent,
+aucun compte AVEREO ni modification de production.
+
+## Reprise du 13 octobre — première saisie corrigée
+
+Le responsable demande de reprendre OAuth et de finaliser la préproduction.
+La [clôture précédente](suivi-chantier/archives/2026-10-12-cloture-journee.md)
+reste conservée. Le contrôle serveur de 06:55 UTC retrouve uid 2 sans mot de
+passe, OAuth configuré et le même contenu des sept pages.
+
+Les huit contrôles HTTP locaux de première saisie réussissent avec un compte
+fictif supprimé après essai. L'opérateur corrigé est sauvegardé puis installé
+dans le dossier privé. Son opération `initialise` vérifie le compte existant,
+le client, les clés et le reçu du paquet avant de régénérer uniquement le lien
+natif, sans `destination`. La régénération réussit à 07:07 UTC ; compte,
+clés, client et contenus restent conservés, fichier en 0600.
+Le [reçu canonique](../data/bureau-oauth-verification.json#passwordSetupResumption)
+porte les empreintes, contrôles et limites.
+
+Le premier fichier corrigé téléchargé est `initialisation-admin (1).html` ; son lien
+secret n'est ni lu ni publié par l'agent. Le responsable doit choisir une
+adresse distincte de celle du club, saisir/confirmer/enregistrer son mot de
+passe dans Drupal, puis permettre la recette réelle Menu → Bureau et des
+opérations métier. L'ancien fichier téléchargé reste à écarter ; régénérer un
+lien ne prétend pas révoquer tous les liens antérieurs avant leur expiration
+ou une modification du compte. Le contrôle du lien déjà utilisé réussit localement.
+
+Connexion OAuth réelle, recette métier et décision humaine restent en attente.
+Le responsable signale ensuite un refus avec `TCL_admin`. Le contrôle en lecture
+seule confirme que cet identifiant est présent dans la protection Basic, comme
+`TCL_visiteur` ; aucun mot de passe n'est vérifié ou modifié. Les captures reçues
+ensuite situent le refus dans Drupal, après la protection Basic.
+La [distinction des deux accès](bureau-oauth.md#première-connexion--deux-accès-distincts)
+reste applicable à la saisie personnelle pour `Admin_TC_Longages`.
+
+Le raccourci `/login` exige un navigateur non connecté. Le même 403 est reproduit
+localement avec une session du compte cible ou d'un autre compte. Le générateur
+est donc corrigé pour l'entrée native `user_pass_reset_url($admin)`, sans suffixe
+ni destination : gestion des sessions existantes, confirmation puis formulaire
+avec son token. Les 18 contrôles du parcours passent. L'essai déclaré en fenêtre privée
+reste refusé. Le diagnostic hébergé de 07:54 UTC retrouve six refus avec uid 2
+connecté et l'exigence de visiteur anonyme. Le compte est actif, sans mot de passe,
+Basic Auth Drupal est désactivé et les sept pages sont inchangées. Le diagnostic
+impose un nouveau lien par l'entrée native complète. Aucun contenu de session
+ni secret n'est lu.
+La capture contient un lien privé : sa valeur n'est pas reportée dans Git et
+aucune copie de la capture n'est ajoutée au dépôt.
+
+Le rejeu local compte 20 contrôles de jetons, 66 HTTP Bureau/OAuth, 45 du
+fournisseur TC et 8 de première saisie réussis ; 38 contrôles framework passent.
+Le contrôle documentaire porte sur 12 Markdown modifiés, 438 liens locaux,
+leurs métadonnées et le socle obligatoire. La recette globale n'est pas déclarée
+verte : le contrôle contact retrouve 10 captures fictives accumulées au lieu des
+5 attendues, puis s'arrête avant l'éditeur. Le rejeu isolé de ce contrôle est
+refusé par la politique d'exécution avant démarrage. La base et les captures
+existantes restent conservées ; aucun courriel réel, serveurs locaux arrêtés.
+La [CI sur environnement neuf](https://github.com/jpdandin44/TC_Longages/actions/runs/38366270275)
+réussit ensuite ses cinq contrôles, dont la recette complète incluant Contact et
+éditeur. Elle lève cette réserve de qualification sans supprimer les captures locales.
+
+## Résultat courant — première connexion OAuth réelle
+
+Le correctif d'outillage est dans la [PR #20](https://github.com/jpdandin44/TC_Longages/pull/20),
+en brouillon, sans fusion ni cases humaines cochées. Son opérateur privé est
+installé à 08:13 UTC après contrôle des empreintes, sauvegarde et restauration
+vérifiées. Le paquet Drupal installé reste exactement celui de la PR #19.
+La régénération du lien complet réussit à 08:14 UTC ; le fichier de remplacement
+`initialisation-admin (2).html` est remis au responsable, sans lecture du lien.
+
+Le responsable confirme ensuite « Mot de passe enregistré ». Le contrôle serveur
+de 08:18 UTC confirme sa présence pour uid 2, sans lecture du mot de passe.
+Il confirme ensuite l'accueil Bureau après Menu → Bureau. À 08:22 UTC, un
+comptage serveur retrouve une session récente de uid 2 avec la clé de preuve
+OAuth ; aucun contenu de session, cookie, identifiant de session ou jeton n'est
+affiché. Le [reçu de recette réelle](../data/bureau-oauth-verification.json#hostedUserRecipe)
+distingue cette déclaration humaine, cet indicateur serveur et les tests automatisés.
+
+Le responsable confirme ensuite que l'essai du dossier fictif OAuth RECETTE,
+sa modification et l'ouverture de Communication et Gestion des comptes fonctionnent.
+Le contrôle de 08:28 UTC retrouve exactement le dossier fictif attendu, en
+révision 2, créé puis modifié par uid 2, avec le commentaire prévu. Il reste
+dans la préproduction privée. Aucun dossier réel, publication ni nouveau compte
+demandé. Les observations navigateur restent celles du responsable ; le contrôle
+agent corrobore seulement les indicateurs de connexion et la persistance ciblée.
+
+Les quatre contrôles extérieurs sans identifiant retrouvent un 401 Basic sur
+l'accueil, le Bureau, GET userinfo et POST token. Un premier lot rapproché a
+reçu des 429 après l'accueil ; les contrôles espacés réussissent jusqu'à 08:39 UTC,
+sans changement de protection. Les sept pages conservent la même empreinte.
+
+Prochaine action : revue du bilan et de la PR #20, toujours en brouillon et non
+fusionnée. Les confirmations fonctionnelles ne cochent pas les validations de
+phase. Les essais de publication, création de comptes, mobile et nouvelle
+déconnexion/reconnexion ne sont pas inclus dans cette recette hébergée initiale.
+
+La production n'est pas autorisée pour ce lot. Le cockpit reste reporté comme
+interface ; son suivi JSON est maintenu.
 
 Les observations suivantes sont historiques.
 
