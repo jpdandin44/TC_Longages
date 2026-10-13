@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "788be6ba2448fa0c57d5b51ac6564b13fb618976",
+  "sourceCommit": "a2b6f626edc0d6f54efa52685fd0a31a90216d00",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -149,9 +149,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "e37bd315b242ea3463dc5fe42b3e945c24d84317",
-      "size": 55000,
-      "sha256": "d01bad5c6b3a802a64351a24ea49a11b00b8d25fcec61d4b4530cd9753c06f22"
+      "gitBlob": "47b65874c366e6a4686a5cac5bebd8ad5dd95bb2",
+      "size": 55227,
+      "sha256": "dbd3c247de342fde0c364d36053a539564eaa7123dba3eed722706d515a00c29"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -233,16 +233,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "86091492b4094877f927068da5eaaa0baf0e381d",
-      "size": 59202,
-      "sha256": "7c2575f7fe671be404fa6430e7dcac210d0492022f3a11d75b4ddb6b86e74c43"
+      "gitBlob": "d9417bbf32ec2626bf3ee4d0f7bea6544f24681f",
+      "size": 59533,
+      "sha256": "fde4804a7996596487b11d1db5a0ac28b87d0100b3ba97bb85cf567e1f322616"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "9aead63ab503ffe860e750db5227513fe67cae27",
-      "size": 56622,
-      "sha256": "fb1217fd93781b648bead7f63d1a0761cf4b560da78bac2854cdb2ee2f85a096"
+      "gitBlob": "dd1fc1fd3c3587960c224817b98c912109367186",
+      "size": 57289,
+      "sha256": "d53aa3559e3202ce83b2852ff17c9a8a09bdf69ff4d926c2defe48ce320e39be"
     },
     {
       "path": "config/agenda-local.json",
@@ -478,9 +478,9 @@
     {
       "path": "docs/bureau-oauth.md",
       "mode": "100644",
-      "gitBlob": "8e4bd95d3b48b155ea7b8517a3f02df9ac5b1ce2",
-      "size": 11457,
-      "sha256": "89f83bce69b68555cfac056ddd2f9d7ebe60ee23082629149f957b8592fcc040"
+      "gitBlob": "09d300573dd6fc93849821e13a9a66df3dd4fdf8",
+      "size": 12344,
+      "sha256": "eade6c65a5fcfee226fea19878c0563d820bbe754b82c2249e60a9b3b8f22c48"
     },
     {
       "path": "docs/candidat-revue.md",
@@ -590,9 +590,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "4497194e82ebde3a8f43592afd052a91e8747916",
-      "size": 88452,
-      "sha256": "d089b4f01159713e2bc0d9f4a772fa2cae3a945e549f118ae565bd0ffaac3a09"
+      "gitBlob": "91bab0bd6f19514a8218e6672845dd68c0e6d547",
+      "size": 90885,
+      "sha256": "cb8a1fe25ad0173300815f96cc06c31eda164416dbf2917e304beffb79bedc31"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2760,9 +2760,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "fa414d37df99dc3edbe5f1d30eae419ac36c974a",
-      "size": 33054,
-      "sha256": "93316988ff7ec43f8d9bb9ec5368670b985253a0efb46ffa8e29e8ff35066ee0"
+      "gitBlob": "7e784b881e434125d38e87d94af44ee9e17dc76b",
+      "size": 33130,
+      "sha256": "bb6bfa6983698dac869f7a70ed284149eb8e8e202c6f94c5610cec408f28622b"
     },
     {
       "path": "scripts/agenda-local.mjs",
@@ -3873,9 +3873,9 @@
     {
       "path": "workflows/bureau-oauth-preproduction.md",
       "mode": "100644",
-      "gitBlob": "2f08cadb66fcaa992e923a181960827714a73a92",
-      "size": 10809,
-      "sha256": "c3f7b798a7f8f77919b43bbed89b5b2ae798d19f3434629d5c9b1b6b8df87f3c"
+      "gitBlob": "ce8a590f4d37ee57c933193c5317bf62d4af82e1",
+      "size": 11110,
+      "sha256": "e54a01d0eb743d695f870cc5339d993a7d5da13f1a82aab1a8f6f89728ded79f"
     },
     {
       "path": "workflows/bureau-preproduction.php",
@@ -3934,5 +3934,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "661cf495f363ee9050e899ae2cd6d600e5cef952afea743f3e0f1402f35d76ec"
+  "artifactDigest": "74b37feba0725cc5a0f794c3137ed56ef911e82434dce8497b66316a4b7290d5"
 }
