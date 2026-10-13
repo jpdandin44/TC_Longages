@@ -6422,6 +6422,17 @@
       "kind": "site-drupal",
       "stage": "preproduction",
       "status": "corrected_private_link_delivered_password_and_real_recipe_pending",
+      "toolingReview": {
+        "branch": "feat/bureau-preproduction",
+        "sourceSha": "788be6ba2448fa0c57d5b51ac6564b13fb618976",
+        "manifest": "data/framework-candidate.json",
+        "artifactSha256": "661cf495f363ee9050e899ae2cd6d600e5cef952afea743f3e0f1402f35d76ec",
+        "scope": "Private CLI operators, first-password regression and documentary resumption; not a replacement Drupal deployment archive",
+        "nativeDrupalCandidateUnchanged": true,
+        "humanAcceptanceVerified": false,
+        "prUrl": null,
+        "technicalCiStatus": "not_yet_observed"
+      },
       "objective": "Rendre le Bureau utilisable avec bouton dédié, fournisseur OAuth TC indépendant et premier Admin TC Longages.",
       "candidate": {
         "sourceSha": "5fcd2a63e42573b2e8e31c4e1086dff4ba63557d",

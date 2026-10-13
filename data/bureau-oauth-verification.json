@@ -552,6 +552,8 @@
       "localFix": "Use user_pass_reset_url without /login or destination; native confirmation handles existing sessions",
       "testCommand": "python -X utf8 tests/drupal-password-setup-http.py",
       "localChecksPassed": 18,
+      "operatorSha256": "751e679c4ed246eef77fe508594798728ed28040554b8a7b34bad350920367c8",
+      "sourceCommit": "788be6ba2448fa0c57d5b51ac6564b13fb618976",
       "fixtureDeletedAfterTest": true,
       "serverStoppedAfterTest": true,
       "operatorUploaded": false,
