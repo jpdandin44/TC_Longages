@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-13
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - site-internet
@@ -15,7 +15,16 @@ tags:
 
 # Tennis Club de Longages
 
-## Lot courant — Bureau OAuth, 12 octobre
+## Lancement bêta — 16 octobre
+
+La branche `release/beta-launch` isole les sources du candidat corrigé déjà
+testé, avec agenda, sans livrer les ajouts internes récents. Lire le
+[guide de revue](docs/lancement-beta.md) et le
+[reçu](data/beta-release-verification.json). Le paquet reste inchangé ;
+aucun déploiement ou accord de merge/ouverture n'est déduit de cette préparation.
+Contrôle : `python scripts/verify_beta_release.py verify`.
+
+## Lot précédent — Bureau OAuth, 12 octobre
 
 V1 est confirmée par le responsable, qui indique n'avoir reçu aucun retour
 des bêta-testeurs. Le lot courant rend le Bureau natif utilisable, ajoute

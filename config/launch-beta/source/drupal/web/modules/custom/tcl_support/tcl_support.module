@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+/** Implements hook_mail(). Destination and sender never come from the form. */
+function tcl_support_mail(string $key, array &$message, array $params): void {
+  if ($key !== 'report') {
+    return;
+  }
+  $ticket = $params['ticket'];
+  $message['from'] = 'support@tclongages.fr';
+  $message['headers']['From'] = 'support@tclongages.fr';
+  $subject = preg_replace('/[\r\n\t]+/', ' ', $ticket->subject);
+  $message['subject'] = '[TC Longages] Demande #' . $ticket->id . ' : ' . $subject;
+  $message['body'][] = implode("\n", [
+    'Demande #' . $ticket->id,
+    'Type : ' . $ticket->category,
+    'Page : ' . $ticket->page,
+    'Adresse pour une réponse : ' . ($ticket->email ?: 'Non renseignée'),
+    '',
+    $ticket->description,
+    '',
+    'Suivi réservé aux personnes autorisées : /admin/reports/tcl-support/' . $ticket->id,
+  ]);
+}

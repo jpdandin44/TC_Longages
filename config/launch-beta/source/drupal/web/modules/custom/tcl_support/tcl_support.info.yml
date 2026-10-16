@@ -1,0 +1,7 @@
+name: TC Longages — signalements
+type: module
+description: Formulaire public et suivi privé des demandes concernant le site.
+package: TC Longages
+core_version_requirement: ^11
+dependencies:
+  - tcl_site:tcl_site

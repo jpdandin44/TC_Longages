@@ -1,0 +1,5 @@
+tcl_site.editor:
+  title: 'Pages du club'
+  description: 'Modifier les textes, rubriques et légendes des sept pages publiques.'
+  route_name: tcl_site.editor
+  parent: system.admin_content

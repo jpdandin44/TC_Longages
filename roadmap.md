@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-13
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - roadmap
@@ -16,7 +16,16 @@ tags:
 
 # Feuille de route
 
-## Itération courante — Bureau OAuth
+## Lancement bêta — 16 octobre
+
+Le [guide du lot](docs/lancement-beta.md#suite-en-quatre-phases) présente
+Cadrage, Développement local, Préproduction et Mise en production.
+Source figée et contrôles locaux préparés ; revue/CI puis qualification de
+livraison à terminer. Aucun déploiement effectué. Le suivi canonique du lot
+reste dans le checkout `competitions-capitaines`, sans changer les validations
+des itérations précédentes ni redémarrer leur développement.
+
+## Historique du lot Bureau OAuth au 13 octobre
 
 | Phase | Situation et suite |
 | --- | --- |

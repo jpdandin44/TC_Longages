@@ -41,7 +41,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.equal(ci.jobs['technical-ci'].steps.find(step=>step.uses?.startsWith('actions/checkout@')).with['fetch-depth'],0);
   for(const flow of [ci,policy]) {
     assert.deepEqual(flow.permissions,{contents:'read'});
-    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['bureau-oauth-runtime','delivery-safety','drupal-mysql','support-runtime','technical-ci'] : ['policy']);
+    assert.deepEqual(Object.keys(flow.jobs), flow === ci ? ['beta-release','bureau-oauth-runtime','delivery-safety','drupal-mysql','support-runtime','technical-ci'] : ['policy']);
     for(const job of Object.values(flow.jobs)) {
       assert.equal(job.environment,undefined);
       assert.equal(job.permissions,undefined);
@@ -49,7 +49,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
         if(step.uses) {
           if(step.uses.startsWith('shivammathur/setup-php@')) {
             assert.equal(flow,ci);
-            assert.ok(job === ci.jobs['drupal-mysql'] || job === ci.jobs['support-runtime'] || job === ci.jobs['bureau-oauth-runtime']);
+            assert.ok(['beta-release','drupal-mysql','support-runtime','bureau-oauth-runtime'].some(name => job === ci.jobs[name]));
             assert.equal(step.uses,'shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45');
           } else assert.match(step.uses,/^actions\/(checkout|setup-node|setup-python)@[a-f0-9]{40}$/);
         }
@@ -58,7 +58,20 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
       }
     }
   }
+  const beta=ci.jobs['beta-release'];
+  assert.equal(beta['runs-on'],'ubuntu-24.04');
+  assert.ok(beta['timeout-minutes']<=15);
+  assert.equal(beta.steps[0].with['fetch-depth'],0);
+  assert.equal(beta.steps[2].run,'python3 scripts/verify_beta_release.py verify');
+  const betaRun=beta.steps[3].run;
+  assert.match(betaRun,/set -euo pipefail/);
+  assert.match(betaRun,/cp -a config\/launch-beta\/source\/drupal\/\. \.local\/beta-ci\//);
+  assert.match(betaRun,/composer --working-dir=\.local\/beta-ci install --no-dev/);
+  assert.match(betaRun,/audit --locked --no-dev/);
+  assert.match(betaRun,/Drupal::VERSION !== "11\.4\.10"/);
+  assert.ok(betaRun.trim().endsWith('python3 scripts/verify_beta_release.py verify'));
   const safety=ci.jobs['delivery-safety'];
+  assert.equal(safety.steps[0].with['fetch-depth'],0);
   assert.equal(safety['runs-on'],'ubuntu-24.04');
   assert.ok(safety['timeout-minutes']<=5);
   assert.match(safety.steps[1].run,/unittest discover.*test_\*\.py/);

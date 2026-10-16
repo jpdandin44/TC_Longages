@@ -1,0 +1,5 @@
+tcl_support.tracker:
+  title: 'Demandes du site TC Longages'
+  description: 'Consulter les problèmes signalés et les besoins proposés.'
+  route_name: tcl_support.tracker
+  parent: system.admin_reports

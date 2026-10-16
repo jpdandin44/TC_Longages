@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,17 @@ tags:
 ---
 
 # Exigences
+
+## Lancement demandé — 16 octobre
+
+- Livrer le périmètre communiqué aux bêta-testeurs, avec agenda et correction
+  de sécurité 11.4.10 ; conserver les développements internes à part.
+- Relier le ZIP testé à des sources Git vérifiables, sans modifier ses octets
+  ni déduire une acceptation humaine d'une réussite technique.
+- Préserver les sept contenus édités et les sauvegardes privées ; ne pas
+  remplacer la production par une base ou une installation de recette.
+- Qualifier routage HTTPS, livraison et retour arrière avant bascule ; mise
+  en production et ouverture publique demeurent deux accords distincts.
 
 ## Bureau utilisable demandé — 12 octobre
 

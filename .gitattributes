@@ -8,3 +8,5 @@
 src/** -text
 # Les empreintes de ce paquet reçu portent sur les octets exacts.
 docs/references/framework-developpement-pilote/** -text
+# Instantane immuable extrait du candidat beta qualifie, octets exacts.
+config/launch-beta/source/** -text

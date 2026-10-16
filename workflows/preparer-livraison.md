@@ -5,12 +5,27 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-06
+updated: 2026-10-16
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## Candidat de lancement beta - 16 octobre
+
+Le job `beta-release` de [ci.yml](../.github/workflows/ci.yml) controle les
+65 fichiers sources figes du [candidat corrige](../docs/lancement-beta.md),
+installe son verrou Composer dans une copie jetable puis l'audite. Il exige
+Drupal 11.4.10 et reverifie que l'instantane est inchange. Le verrou courant
+du Bureau est corrige separement par les cinq memes mises a jour du coeur.
+
+Le YAML reste en lecture seule, sans secret, environnement de livraison ou
+commande de publication. Son empreinte est realignee avec les assertions
+de securite et le nouveau job. Cela constitue une verification technique,
+pas une approbation humaine. Aucun nouveau workflow de deploiement n'est cree.
+Le suivi canonique du lancement reste dans le checkout `competitions-capitaines`
+indique par le guide ; cette branche porte les sources soumises a revue.
 
 ## Contrôle de mise à jour V2 — 6 octobre
 

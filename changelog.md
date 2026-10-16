@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-13
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,16 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-16 — Sources du candidat bêta corrigé
+
+- Extraction immuable de 65 fichiers et contrat de correspondance avec le
+  candidat qualifié ; 33 fichiers des modules comparés à l'historique bêta.
+- Vérificateur, tests de bornage et job CI dédiés au verrou bêta.
+- Verrou principal : cinq paquets du cœur Drupal passent à 11.4.10 ;
+  dépendances et fonctions Bureau inchangées. Aucun remplacement hébergé.
+- Guide de revue, reçu et socle documentaire actualisés ; contrôles de
+  livraison et accords humains conservés comme prérequis distincts.
 
 ## 2026-10-13 — Reprise de la première saisie Admin
 

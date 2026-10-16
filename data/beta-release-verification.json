@@ -1,0 +1,37 @@
+{
+  "project": "TC_Longages",
+  "document_type": "release-source-evidence",
+  "version": "git",
+  "created": "2026-10-16",
+  "updated": "2026-10-16",
+  "owner": "jpdandin",
+  "iterationId": "tcl-lancement-beta-20261015",
+  "status": "local_source_binding_passed_ci_pending",
+  "artifactSha256": "0b6b167c33d1b770729b4480b4558b12f0ef93aca5a323571ef875cb80477a0d",
+  "sourceBinding": "config/launch-beta/source-binding.json",
+  "canonicalTrackerCheckout": "competitions-capitaines",
+  "guide": "docs/lancement-beta.md",
+  "checks": {
+    "archiveFilesVerified": 26715,
+    "frozenSourceFiles": 65,
+    "historicalModuleFilesMatched": 33,
+    "mainLockChangedPackages": ["drupal/core", "drupal/core-recommended", "drupal/core-composer-scaffold", "drupal/core-project-message", "drupal/core-recipe-unpack"],
+    "mainLockSecurityAudit": "passed",
+    "betaLockSecurityAudit": "passed",
+    "python": {"total": 61, "passed": 57, "skipped": 4, "limit": "Four POSIX tests skipped on Windows"},
+    "node": {"total": 170, "passed": 170, "failed": 0},
+    "frameworkBuildAndCheck": "passed",
+    "gitDiffCheck": {"status": "passed_outside_immutable_snapshot", "immutableSnapshotWarnings": 14, "limit": "Existing trailing spaces in seven archived HTML files retained byte-for-byte; no cleanup of the qualified artifact."},
+    "documentation": {"status": "passed_local_scope", "documentsChecked": 15, "localFileLinksChecked": 526, "foundationRoots": 3, "errors": [], "limit": "Changed Markdown, canonical launch handoff/guide and three parent entry documents; metadata and local file existence only. Upstream immutable snapshot excluded; no remote URL or anchor verification."}
+  },
+  "previousHostedRecipe": {
+    "observedOn": "2026-10-15",
+    "scope": "Private loopback only; 79 checks, selective editorial import and isolated SQL rollback passed",
+    "receiptSha256": "6e1317750653f432abd1366ababa4a06f1708c9640fc068e3515c79bc9130a98",
+    "reexecutedInThisBranch": false
+  },
+  "humanAcceptance": false,
+  "productionWritten": false,
+  "publicOpeningExecuted": false,
+  "limits": ["Source acceptance and CI pending", "Apache/HTTPS delivery and live code-switch rollback unqualified", "Real mail untested", "No deployment or public opening approval inferred"]
+}

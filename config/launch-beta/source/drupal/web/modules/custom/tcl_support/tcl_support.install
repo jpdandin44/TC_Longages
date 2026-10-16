@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+/** Implements hook_schema(). No private demand is exported to configuration. */
+function tcl_support_schema(): array {
+  return [
+    'tcl_support_request' => [
+      'description' => 'Private site requests, stored in the Drupal database.',
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'created' => ['type' => 'int', 'not null' => TRUE],
+        'updated' => ['type' => 'int', 'not null' => TRUE],
+        'revision' => ['type' => 'int', 'not null' => TRUE, 'default' => 1],
+        'submission_id' => ['type' => 'varchar', 'length' => 64, 'not null' => TRUE],
+        'category' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE],
+        'subject' => ['type' => 'varchar', 'length' => 180, 'not null' => TRUE],
+        'description' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
+        'page' => ['type' => 'varchar', 'length' => 64, 'not null' => TRUE],
+        'email' => ['type' => 'varchar', 'length' => 254, 'not null' => TRUE, 'default' => ''],
+        'status' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE, 'default' => 'new'],
+        'owner' => ['type' => 'varchar', 'length' => 120, 'not null' => TRUE, 'default' => ''],
+        'notification' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE, 'default' => 'pending'],
+      ],
+      'primary key' => ['id'],
+      'unique keys' => ['submission' => ['submission_id']],
+      'indexes' => ['status_created' => ['status', 'created']],
+    ],
+    'tcl_support_event' => [
+      'description' => 'Private audit trail for request processing and notifications.',
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'request_id' => ['type' => 'int', 'not null' => TRUE],
+        'created' => ['type' => 'int', 'not null' => TRUE],
+        'actor_uid' => ['type' => 'int', 'not null' => TRUE, 'default' => 0],
+        'kind' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE],
+        'state' => ['type' => 'varchar', 'length' => 32, 'not null' => TRUE],
+        'note' => ['type' => 'text', 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+      'indexes' => ['request' => ['request_id', 'id']],
+    ],
+  ];
+}
