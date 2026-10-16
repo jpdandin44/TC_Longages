@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - codex
@@ -15,7 +15,22 @@ tags:
 
 # Consignes locales
 
-## Lot courant — Bureau OAuth, 12 octobre 2026
+## Lot courant - Lancement beta, 16 octobre 2026
+
+- Suivre [le dossier de lancement](docs/lancement-beta.md). La branche
+  `release/beta-launch` porte la source de revue du candidat beta corrige,
+  sans les fonctions Bureau/OAuth ou Competitions dans le paquet public.
+- Le suivi canonique et les preuves privees restent dans le checkout
+  `../competitions-capitaines`. Ne pas remplacer son suivi par celui herite
+  de `main` dans cette branche. Les autres lots restent conserves.
+- L'instantane `config/launch-beta/source/` est extrait du ZIP qualifie :
+  ne pas l'editer ni y ajouter de configuration active ou de donnees privees.
+  Toute correction de ses octets demande un nouveau candidat et sa recette.
+- Les recettes locales et loopback hebergees n'attestent pas une livraison
+  HTTPS. Conserver la maintenance et les protections ; merge, livraison
+  du candidat exact et ouverture restent des accords humains distincts.
+
+## Lot precedent - Bureau OAuth, 12 octobre 2026
 
 - La V1 est confirmée par le responsable, sans retour bêta signalé. La demande
   active porte sur le Bureau natif, son bouton de menu et le raccordement OAuth.

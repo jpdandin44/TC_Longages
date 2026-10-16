@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-12
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,22 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-16 — Relier le candidat testé à une source figée
+
+**Contexte.** Le ZIP bêta corrigé a réussi sa recette privée, mais son verrou
+de sécurité n'était pas encore rattaché à une nouvelle révision Git de revue.
+La branche courante contient des travaux Compétitions à conserver séparément.
+
+**Décision.** Isoler une branche de lancement depuis `main`, y conserver une
+extraction immuable des sources hors dépendances et vérifier leur correspondance
+au ZIP exact et à l'historique bêta. Corriger aussi le seul cœur du verrou
+principal pour ne pas réinstaller 11.4.8 dans les tests de non-régression.
+
+**Conséquences.** Aucun nouvel assemblage ne remplace le ZIP testé ; les
+fichiers figés ne sont pas édités manuellement. Les deux verrous ont des
+périmètres distincts. CI, acceptation et qualification de livraison restent
+nécessaires ; aucune autorisation humaine n'est créée par la correspondance.
 
 ## 2026-10-12 — Initialisation privée et échanges serveur du Bureau TC
 

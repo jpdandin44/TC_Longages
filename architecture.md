@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-13
+updated: 2026-10-16
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,16 @@ tags:
 ---
 
 # Architecture
+
+## Sources de lancement bêta
+
+`config/launch-beta/` conserve un instantané immuable du candidat 11.4.10,
+séparé du Drupal courant avec Bureau/OAuth. Le contrat JSON et
+`scripts/verify_beta_release.py` vérifient les octets, l'historique des modules
+et la correspondance avec le ZIP qualifié. Aucune configuration active ni
+donnée privée n'entre dans cet instantané. Les dépendances sont définies par
+son propre verrou ; le verrou principal est corrigé séparément sans changer
+le code Bureau. Voir le [guide de lancement](docs/lancement-beta.md).
 
 ## Bureau OAuth — adaptation TC du 12 octobre
 

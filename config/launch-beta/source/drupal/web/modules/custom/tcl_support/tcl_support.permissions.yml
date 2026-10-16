@@ -1,0 +1,4 @@
+manage tcl support:
+  title: 'Consulter et traiter les signalements du site'
+  description: 'Accès aux coordonnées, descriptions et notes privées des demandes.'
+  restrict access: true

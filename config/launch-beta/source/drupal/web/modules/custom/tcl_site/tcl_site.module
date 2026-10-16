@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+/** Implements hook_mail(): fixed sender/subject, visitor address only Reply-To. */
+function tcl_site_mail(string $key, array &$message, array $params): void {
+  if ($key !== 'contact') { return; }
+  $message['from'] = 'support@tclongages.fr';
+  $message['headers']['From'] = 'support@tclongages.fr';
+  $message['headers']['Sender'] = 'support@tclongages.fr';
+  $message['headers']['Return-Path'] = 'support@tclongages.fr';
+  $message['subject'] = '[TC Longages] Message au club';
+  $message['body'][] = implode("\n", [
+    'Message depuis le formulaire de contact du TC Longages.',
+    'Nom : ' . $params['name'], 'Pour répondre : ' . $params['reply'], '', $params['message'],
+  ]);
+}

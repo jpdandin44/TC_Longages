@@ -1,0 +1,274 @@
+{
+  "artifactFileCount": 26715,
+  "artifactSha256": "0b6b167c33d1b770729b4480b4558b12f0ef93aca5a323571ef875cb80477a0d",
+  "baselineSourceSha": "e0ec292dabbb15159d1f0c22aad670aee6cd480e",
+  "coreVersion": "11.4.10",
+  "deploymentAllowed": false,
+  "files": {
+    "drupal/composer.json": {
+      "bytes": 3780,
+      "sha256": "8d155ae16479974f431c4275dfbd881be3e35cdcdbed819288d2e799746f3f88"
+    },
+    "drupal/composer.lock": {
+      "bytes": 248515,
+      "sha256": "1e9f39487de70e1df8e26cfa51dba708673a0f8640fb3e973cb0000bcccedfed"
+    },
+    "drupal/config/settings.hosting.example.php": {
+      "bytes": 3961,
+      "sha256": "899b0b053e3b6aa05ca96613368c32ecbeab27a0d630c33c7036c5faacb1f264"
+    },
+    "drupal/site-pages/calendrier.html": {
+      "bytes": 155809,
+      "sha256": "ad369a703d80d50de96c26110408cd0a1449d62b9b616aac2f3afc44740d329b"
+    },
+    "drupal/site-pages/competitions.html": {
+      "bytes": 155771,
+      "sha256": "b897b1ed3f01d4bb1643955c18cc5aa436278b74de114b3b281524026ea0c50a"
+    },
+    "drupal/site-pages/contact.html": {
+      "bytes": 156823,
+      "sha256": "c999d00e1cc63df7c934186439f0431f56b41cfb87920ad4283c7e3ceac74b41"
+    },
+    "drupal/site-pages/disponibilites.html": {
+      "bytes": 155662,
+      "sha256": "20f90f222d66b2b90a0f8275fda877cec06089279435447c36594876c821f2ea"
+    },
+    "drupal/site-pages/equipes.html": {
+      "bytes": 155227,
+      "sha256": "cc2455af7c467ba985169bbd72f6fca4ff3f1760a805e722bf6816d01bfb0077"
+    },
+    "drupal/site-pages/espace.html": {
+      "bytes": 155568,
+      "sha256": "2b73769b989c396004aed0e1ead4062cb64cb87eaed3d0368dee0733ed4e067a"
+    },
+    "drupal/site-pages/index.html": {
+      "bytes": 3084667,
+      "sha256": "0fc0136513cfd9d055691923938f8e7577d6814b6810ef16507ac5025bc8654a"
+    },
+    "drupal/web/.csslintrc": {
+      "bytes": 1025,
+      "sha256": "854f3b28a1784fb3708eb1e23b149c3e4b17fbefc8e052d8d12a76dcc6ee850c"
+    },
+    "drupal/web/.eslintignore": {
+      "bytes": 151,
+      "sha256": "a3c56de486f19f59151b3c040ac0ac08cbaa914d2ebe7b45acf1f9aa9c3ac317"
+    },
+    "drupal/web/.eslintrc.json": {
+      "bytes": 41,
+      "sha256": "2fde8917f7d954158481a2f7c0c950c657616bbb6f966fdc2378aef953cb2390"
+    },
+    "drupal/web/.ht.router.php": {
+      "bytes": 2466,
+      "sha256": "bc002d35c956b43fe08c7eafaeb810205e76027eb9e26d87721746e28a76ebfe"
+    },
+    "drupal/web/.htaccess": {
+      "bytes": 8779,
+      "sha256": "205a884f5509924e904afcca5621088160bd8562cc08cb41a52febd6f624e62c"
+    },
+    "drupal/web/INSTALL.txt": {
+      "bytes": 87,
+      "sha256": "4127484955943759d854df966fac8c560b3075784806f1174b134ca22c4b70e9"
+    },
+    "drupal/web/README.md": {
+      "bytes": 3205,
+      "sha256": "6a5d45166ff5a113b69e1d1ace6006c4422ad7071a265bfa5bfe8500ae1b6f79"
+    },
+    "drupal/web/autoload.php": {
+      "bytes": 268,
+      "sha256": "a4fa01ada1a6999e69bb0cf31940fb5035f2fe87c992efb8a00e5f7f3fa77e6c"
+    },
+    "drupal/web/autoload_runtime.php": {
+      "bytes": 696,
+      "sha256": "4e70dfbf5c3aac19d7cc4fac6620f3e1ebbe8e534aa2078ff1f7d12a1216141a"
+    },
+    "drupal/web/example.gitignore": {
+      "bytes": 1629,
+      "sha256": "8e413eb785f19532e2234bffbb916e460456742e7cfe396ebd1dbf7c396a6020"
+    },
+    "drupal/web/index.php": {
+      "bytes": 396,
+      "sha256": "e34b23487b77a0a58cbd2b0228c92ccbdb7cbeb84d62bd50005cbad1fb0b39e0"
+    },
+    "drupal/web/modules/README.txt": {
+      "bytes": 1756,
+      "sha256": "fd0a8076263b226e461caa627035589ed449546eb973bbdd5a6fafd584862082"
+    },
+    "drupal/web/modules/custom/tcl_site/src/ClubContactPage.php": {
+      "bytes": 4177,
+      "sha256": "8113077cbbe7f3337177a92b229f0415c6c4f9478514ad24f4427b286f599347"
+    },
+    "drupal/web/modules/custom/tcl_site/src/Controller/ClubPageController.php": {
+      "bytes": 5112,
+      "sha256": "598dbbbc9c194c9e3f1ca31c001c8f08867aa14a399bd866b173054a7e9201dd"
+    },
+    "drupal/web/modules/custom/tcl_site/src/EventSubscriber/LocalResponseSubscriber.php": {
+      "bytes": 1263,
+      "sha256": "e07f51fee8eed52ca9b4105e012beed5ae0112dbce863bc2aa37d4860b4812e9"
+    },
+    "drupal/web/modules/custom/tcl_site/src/Form/ClubContactForm.php": {
+      "bytes": 8413,
+      "sha256": "0bdb523100b7185fc8363935df26c10ee7598e75e9b982854df127b77c807a1a"
+    },
+    "drupal/web/modules/custom/tcl_site/src/Plugin/Field/FieldWidget/PageTextsWidget.php": {
+      "bytes": 2118,
+      "sha256": "4f2bcc73aefc1cda581cba01909dce546c3bfec583eda82b9f755adb2b2e4d78"
+    },
+    "drupal/web/modules/custom/tcl_site/src/Plugin/Mail/NullMail.php": {
+      "bytes": 626,
+      "sha256": "327d7b3a64d93beb0576d9678a729b6245b16faf7a276de42616cb9c36be945a"
+    },
+    "drupal/web/modules/custom/tcl_site/src/PublicPageEditor.php": {
+      "bytes": 5219,
+      "sha256": "f2cc0a70d2974d8be122a4b41f70f20ebd45a3d3953ff6f30ce025e3864d2f99"
+    },
+    "drupal/web/modules/custom/tcl_site/src/PublicPageText.php": {
+      "bytes": 5378,
+      "sha256": "17604edd4d4bd8570e4bb94eb0b84babdbca593df60ba5b996e8f8ab304fec69"
+    },
+    "drupal/web/modules/custom/tcl_site/src/TclSiteServiceProvider.php": {
+      "bytes": 709,
+      "sha256": "c70775894d72ec6b9d3e5e9011a7c1165859e1f24a95d1ab6982db7c7d981fe5"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.info.yml": {
+      "bytes": 262,
+      "sha256": "3fdd6a5a333c3d1fb2f0d1f68f68c30957ec9a9568f2695a80716604212b0a7a"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.install": {
+      "bytes": 334,
+      "sha256": "b008d708ac500b1347a6fa3aca07a72acd7cad2a06fe470c15601d71bccf6016"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.links.menu.yml": {
+      "bytes": 190,
+      "sha256": "f71d6f591de7c0826f0013e1674836a0f55f2f69b648517586bf101a5481633c"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.module": {
+      "bytes": 720,
+      "sha256": "d3569e737e4594394d2daa0fa54ed434c0ef632c6f3a07313c5d9b7d4cb3adb9"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.permissions.yml": {
+      "bytes": 239,
+      "sha256": "d157e4ca78ecbc05bd99c77ee99c7aced3ff9766b5586acee938fddcf1c1a1fe"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.routing.yml": {
+      "bytes": 2373,
+      "sha256": "e44b02f57b0bf306876df54ca7557e3bdb1c6fccbea62aa111608b3d32ed10cc"
+    },
+    "drupal/web/modules/custom/tcl_site/tcl_site.services.yml": {
+      "bytes": 151,
+      "sha256": "8bb1d4c5e8d473a8cca162305067509b455eb2fa99069f2e7a925be9a8b757e2"
+    },
+    "drupal/web/modules/custom/tcl_support/css/support.css": {
+      "bytes": 1739,
+      "sha256": "7371991fc277f57ee05e49759b3a411c3e38ff1ddf8c8eda7b830ca4f49e2efd"
+    },
+    "drupal/web/modules/custom/tcl_support/css/tracker.css": {
+      "bytes": 443,
+      "sha256": "f4ff025d0d5fea97ec838991f5ec2d4aa41a19a7f59555ed68fafa097feebd28"
+    },
+    "drupal/web/modules/custom/tcl_support/src/Access/SupportAccess.php": {
+      "bytes": 343,
+      "sha256": "c3f04f63bb7e46f313240049f99c18f65442e14a005f7e1291aeee7854437f25"
+    },
+    "drupal/web/modules/custom/tcl_support/src/Controller/TrackerController.php": {
+      "bytes": 2139,
+      "sha256": "5777cf587e9784b7a3569d293f0523ae58f6aa3d08b19a053c3e6036bb108b91"
+    },
+    "drupal/web/modules/custom/tcl_support/src/EventSubscriber/SupportButtonSubscriber.php": {
+      "bytes": 2081,
+      "sha256": "1c589121faf39f3aaac48d79e26434ae09c76e5c5d1d7f835f6326dc67139e6d"
+    },
+    "drupal/web/modules/custom/tcl_support/src/Form/ReportForm.php": {
+      "bytes": 7512,
+      "sha256": "044eca36796b91cf972ffc4bd1a315df4f2fd815bc562907bfb0324f70a71d5d"
+    },
+    "drupal/web/modules/custom/tcl_support/src/Form/RequestForm.php": {
+      "bytes": 4909,
+      "sha256": "6928dc71c1355a68178e5b0af01cb6f972a7282fb525572b89d69ac29bc55d9f"
+    },
+    "drupal/web/modules/custom/tcl_support/src/SupportNotifier.php": {
+      "bytes": 1709,
+      "sha256": "072fc0a742251036ea54ccbb8f058b9a8ba0ff9be3d3c30662032c1e1de9a4fe"
+    },
+    "drupal/web/modules/custom/tcl_support/src/SupportRepository.php": {
+      "bytes": 4880,
+      "sha256": "afb7f390d58c683bf8fff664a6cec9f0b56a63e676a0539b413fbbdd6b2413b6"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.info.yml": {
+      "bytes": 215,
+      "sha256": "4c745d4d369c1bc97d2d617d0b83366c7713b92a9a12cfb75856b4803b6568f2"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.install": {
+      "bytes": 2247,
+      "sha256": "263775da38e9486cc0fb8997a95e53c0b0677aecccd80a5e99ecb5236a0e2c69"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.libraries.yml": {
+      "bytes": 103,
+      "sha256": "b9437c2fb6b319223e2a54ce357fbd10108228608aade21c19f7aa5e64d9c768"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.links.menu.yml": {
+      "bytes": 204,
+      "sha256": "be2b2bf7589804e1d037c695a08319840526fbc42bd9ab626cc7c35d142c8671"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.module": {
+      "bytes": 873,
+      "sha256": "8cfc4cd2b19a63db691e1c69bedbda019ff72942b50c230655a33f4cccb28938"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.permissions.yml": {
+      "bytes": 188,
+      "sha256": "ae8e5778c2bf5a787fe2d81d74c009530e0e34b2f97541566825baf33cc1f8cb"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.routing.yml": {
+      "bytes": 872,
+      "sha256": "09b2347465304e4b2102bc9424bca3e723b3f769893cec3da298eabebab0758a"
+    },
+    "drupal/web/modules/custom/tcl_support/tcl_support.services.yml": {
+      "bytes": 387,
+      "sha256": "e21f51d44d36c936336123d8234b1243a83d9323c825fecd1cb0a8c775177ef1"
+    },
+    "drupal/web/profiles/README.txt": {
+      "bytes": 996,
+      "sha256": "00b7ff7ec7395f629fc6c8ce4a28539c90514ddc2b96cde6dc7f069fc8d95d64"
+    },
+    "drupal/web/robots.txt": {
+      "bytes": 2141,
+      "sha256": "8e8cb58d810473a52cce903be5ffb73d948eef981bbd101cffbf8dc2c02fcf4e"
+    },
+    "drupal/web/sites/README.txt": {
+      "bytes": 515,
+      "sha256": "7c6119bd4b4fc28f48703b8468825d2e04e61b89ef6bf4a49fa2a9d057e955e5"
+    },
+    "drupal/web/sites/default/default.services.yml": {
+      "bytes": 11188,
+      "sha256": "558f86591ddc66774bfc8b7c0765140c26c8dfb3849fe8fc415407ad1f1e450c"
+    },
+    "drupal/web/sites/default/default.settings.php": {
+      "bytes": 36625,
+      "sha256": "f3b8e194cf14292da8508277bbb05ba48287f2944a391945074efac8ef9e712d"
+    },
+    "drupal/web/sites/development.services.yml": {
+      "bytes": 1154,
+      "sha256": "5be39c0461f3786d140c5730563975b4ccc60886a1305f1f146d5cbfa4260290"
+    },
+    "drupal/web/sites/example.settings.local.php": {
+      "bytes": 5586,
+      "sha256": "5b56ae3673ede6e203290500a90f8ff11b9ea4f92697c7e7bedfec2ba19f7d44"
+    },
+    "drupal/web/sites/example.sites.php": {
+      "bytes": 2365,
+      "sha256": "b4b525d0c9990776889eab196d07881fd2d6715c00a339cbb4fc166f92e061e6"
+    },
+    "drupal/web/themes/README.txt": {
+      "bytes": 1184,
+      "sha256": "9c8f63241746b2307cb467ebe247c5942a351e048accb5dd633f44816277eb18"
+    },
+    "drupal/web/update.php": {
+      "bytes": 651,
+      "sha256": "6709c8905085e9186eea86d612e1a54ec458303d4abda7fafb45f1dcb9ae35ce"
+    }
+  },
+  "format": "tcl-beta-source-binding-v1",
+  "manifestSha256": "7ebc42d17ab88214c9004dc4ce20aaed4d9844c242c92924f64e825785308da9",
+  "project": "TC_Longages",
+  "publicOpeningAuthorized": false,
+  "sourceRole": "Immutable extraction for review; not an editable copy or a configured site."
+}
