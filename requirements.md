@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,19 @@ tags:
 ---
 
 # Exigences
+
+## Preparation manuelle de production - 17 octobre
+
+- Preparer une PR de revue, sans fusion ni deploiement ; preserver les sites.
+- Declenchement manuel, candidat immuable qualifie et note de version propre.
+- Sauvegarde complete privee puis restauration isolee exigee avant bascule.
+- Retour du code uniquement, sans ecrasement des nouvelles donnees SQL.
+- Respecter l'etat de maintenance Drupal et arreter sur panne incertaine.
+- Ne pas activer avant implementation et recette du raccordement heberge,
+  configuration des protections GitHub et accord distinct de livraison.
+
+Le [guide](workflows/production-manuelle.md) distingue ce qui est implemente
+de ce qui reste a qualifier ; les migrations ne font pas partie de ce lot.
 
 ## Lancement demandé — 16 octobre
 

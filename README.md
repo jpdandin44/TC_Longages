@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - site-internet
@@ -14,6 +14,18 @@ tags:
 ---
 
 # Tennis Club de Longages
+
+## Action manuelle de production - preparation du 17 octobre
+
+Le [guide](workflows/production-manuelle.md) et la
+[note de version](docs/notes-de-version/action-production-manuelle.md) presentent
+le nouveau workflow et ses controles. Son catalogue est **desactive**, sans
+candidat : l'adaptateur o2switch reste a implementer et qualifier. La revue
+porte sur des tests locaux, pas sur un nouveau site de recette. Aucun merge,
+deploiement ou changement de preproduction dans ce lot.
+
+Controle local : `python -m unittest discover -s tests -p test_production_action.py -v`.
+Les sections datees ci-dessous conservent l'historique de leurs lots.
 
 ## Lancement bêta — 16 octobre
 

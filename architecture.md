@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,17 @@ tags:
 ---
 
 # Architecture
+
+## Livraison manuelle - preparation
+
+Un workflow distinct prepare un plan puis exige un environnement de production
+protege avant SSH. Le controleur distant journalise sauvegarde, restauration
+isolee, bascule et recuperation du code sous verrou. Les donnees SQL ne sont
+jamais restaurees vers le site actif. Le catalogue est desactive ; la couche
+qui effectue les operations Drupal/o2switch reste a implementer selon le
+[contrat de l'adaptateur](api/production-adapter.md). Ce mecanisme n'est ni
+installe ni qualifie sur l'hebergement. Voir le
+[workflow](workflows/production-manuelle.md) pour les limites et preconditions.
 
 ## Sources de lancement bêta
 

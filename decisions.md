@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,21 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-17 - Preparer sans activer la livraison recurrente
+
+**Contexte.** Le responsable demande une action manuelle dans une PR, sans
+fusion ni deploiement. Le depot n'a aucun environnement GitHub configure.
+
+**Decision.** Separer orchestration versionnee et adaptateur heberge a
+implementer/qualifier ; conserver le catalogue desactive. Exiger la sauvegarde
+restauree, limiter la premiere orchestration aux mises a jour de code sans
+migration et ne jamais restaurer une ancienne base vers le site public.
+
+**Consequences.** Le merge ne livre rien. Un raccordement heberge et ses
+preuves restent necessaires. Le retour code conserve les donnees recentes,
+et un echec garde la maintenance jusqu'a inspection. Voir le
+[workflow](workflows/production-manuelle.md).
 
 ## 2026-10-16 — Relier le candidat testé à une source figée
 

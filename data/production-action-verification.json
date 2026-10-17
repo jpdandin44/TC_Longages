@@ -1,0 +1,50 @@
+{
+  "format": "tcl-production-action-preparation-v1",
+  "recordedOn": "2026-10-17",
+  "iterationId": "tcl-action-production-manuelle-20261017",
+  "canonicalTrackerCheckout": "../competitions-capitaines",
+  "canonicalTracker": "docs/suivi-chantier/suivi-chantier.json",
+  "stage": "developpement_local",
+  "status": "preparation_for_review_not_activatable",
+  "branch": "feat/manual-production-action",
+  "baseSha": "1eae25338d29945e20924d6705aef136a6333c23",
+  "sourceBinding": "data/framework-candidate.json",
+  "githubReadOnlyObservation": {
+    "repository": "jpdandin44/TC_Longages",
+    "private": false,
+    "environmentCount": 0,
+    "checkedOn": "2026-10-17",
+    "environmentOrSecretsModified": false
+  },
+  "checks": {
+    "python": {"discovered": 85, "passed": 80, "skippedPosixOnWindows": 5, "failed": 0},
+    "productionSpecificPython": {"discovered": 24, "passed": 23, "skippedPosixOnWindows": 1},
+    "node": {"passed": 171, "failed": 0},
+    "workflowTestsAfterFinalPermissionChange": {"passed": 5, "failed": 0},
+    "frameworkBuildAndCheck": "passed",
+    "documentation": {"modifiedMarkdownDocuments": 14, "localFileLinks": 492, "errors": 0, "externalLinksAndAnchorsVerified": false},
+    "gitDiffCheck": "passed",
+    "npmAudit": {"vulnerabilities": 0},
+    "fixtureScope": "Offline transaction with disposable files and SQLite, mocked SSH and GitHub; not a Drupal/MariaDB/HTTPS hosting qualification"
+  },
+  "safety": {
+    "manualOnly": true,
+    "catalogEnabled": false,
+    "deployableReleaseCount": 0,
+    "hostingAdapterImplemented": false,
+    "operatorInstalled": false,
+    "hostedQualificationPerformed": false,
+    "workflowDispatched": false,
+    "mergePerformed": false,
+    "deploymentPerformed": false,
+    "productionOrPreproductionChanged": false,
+    "humanApprovalsAdded": false
+  },
+  "remaining": [
+    "Review this preparation PR; human confirmations remain unchecked",
+    "Implement and review the hosting adapter before claiming an operational action",
+    "Qualify isolated real backups, SQL/file restoration, maintenance, switch and failure recovery",
+    "Configure and verify GitHub production environment, dedicated SSH and firewall after authorization",
+    "Review the exact candidate catalogue and activation separately"
+  ]
+}

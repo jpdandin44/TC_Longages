@@ -5,7 +5,7 @@ title: Contrôles automatiques et revue humaine
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-01
+updated: 2026-10-17
 owner: jpdandin
 tags: [ci, github, revue, framework]
 ---
@@ -22,7 +22,7 @@ Le workflow exécute `npm.cmd run check`, puis `framework:build` et `framework:c
 
 Après ces contrôles, la CI vérifie `data/framework-candidate.json` lorsqu’il existe. Le checkout conserve l’historique Git complet pour retrouver le commit source et vérifier son appartenance à l’historique courant. Le [contrôle du candidat](../scripts/framework-candidate.mjs) compare les sources réelles au commit présenté, avec les seules exclusions documentaires déclarées par ce script ; la régénération des deux vues ne crée donc pas de changement de candidat. Un manifeste incohérent ou une différence de source fait échouer la CI. Pour le premier bootstrap sans manifeste, un message indique explicitement que la preuve reste à préparer : cette étape n’atteste alors aucune vérification du candidat.
 
-Les versions exactes de Node, Python et des Actions sont déclarées dans les workflows. Les SHAs des Actions ont été vérifiés sur leurs références officielles le 29 septembre 2026 : [checkout v7.0.1](https://github.com/actions/checkout/releases/tag/v7.0.1), [setup-node v7.0.0](https://github.com/actions/setup-node/releases/tag/v7.0.0) et [setup-python v7.0.0](https://github.com/actions/setup-python/releases/tag/v7.0.0). Les seuls droits demandés sont `contents: read` ; checkout ne conserve pas les identifiants Git. Aucun secret de déploiement, environnement de production ou connexion à l’hébergeur n’est demandé.
+Les versions exactes de Node, Python et des Actions sont déclarées dans les workflows. Les SHAs des Actions ont été vérifiés sur leurs références officielles le 29 septembre 2026 : [checkout v7.0.1](https://github.com/actions/checkout/releases/tag/v7.0.1), [setup-node v7.0.0](https://github.com/actions/setup-node/releases/tag/v7.0.0) et [setup-python v7.0.0](https://github.com/actions/setup-python/releases/tag/v7.0.0). Les seuls droits demandés sont `contents: read` ; checkout ne conserve pas les identifiants Git. Les deux contrôles de PR ne demandent aucun secret de déploiement, environnement de production ou connexion à l’hébergeur. L'action manuelle distincte est décrite plus bas.
 
 ## Portée de la politique de PR
 
@@ -36,6 +36,12 @@ Le dépôt est désormais public après décision utilisateur ; la restriction d
 
 Les recettes nécessitant des navigateurs, le Drupal local vivant ou un serveur Apache ne sont pas exécutées par ces workflows. Une CI verte ne confirme ni DNS, certificat, comptes, hébergement, intégrations Google/FFT ni ouverture publique.
 
-Le contrôle du framework autorise uniquement les trois noms de workflows examinés et leurs empreintes de contenu normalisé. Une modification de leur logique ou l’ajout d’un autre workflow échoue tant que cette liste contrôlée n’est pas revue dans [le script](../scripts/framework.mjs), avec ses tests. Cette barrière protège contre une activation involontaire ; elle ne remplace pas la revue humaine d’une PR capable de modifier le code de contrôle.
+Le contrôle du framework autorise uniquement les quatre noms de workflows suivis et leurs empreintes de contenu normalisé. Une modification de leur logique ou l’ajout d’un autre workflow échoue tant que cette liste contrôlée n’est pas revue dans [le script](../scripts/framework.mjs), avec ses tests. Cette barrière protège contre une activation involontaire ; elle ne remplace pas la revue humaine d’une PR capable de modifier le code de contrôle.
 
 Une troisième source exécutable, [Préparer la livraison](preparer-livraison.md), est ajoutée le 1er octobre avec son empreinte contrôlée et ses tests. Elle est manuelle, construit un candidat non configuré ou qualifie SSH seul, sans transfert. Préproduction avec installation et déploiement restent des modèles `.example` inactifs. Les deux fichiers CI et policy restent les seules sources exécutables des contrôles de PR ; les modèles reçus sont conservés intacts dans les références du framework. Aucun push ou merge ne déploie le site. Toute future chaîne de livraison doit être qualifiée et explicitement autorisée séparément.
+
+Le 17 octobre, la quatrième source [Production manuelle](production-manuelle.md)
+est préparée pour revue. Le catalogue désactivé et vide bloque les mutations ;
+aucun adaptateur o2switch n'est installé ou qualifié. Les tests de workflow et
+de transaction sont locaux. Les anciens modèles restent conservés. La PR ne
+crée pas de protection GitHub ni d'accord humain de production.

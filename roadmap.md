@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,16 @@ tags:
 ---
 
 # Feuille de route
+
+## Preparation de l'action GitHub - 17 octobre
+
+Le lot courant suit les quatre phases du
+[guide](workflows/production-manuelle.md#quatre-phases). Developpement local
+de l'orchestration et PR de preparation ; raccordement o2switch, qualification
+isolee et activation restent a venir. Le catalogue demeure desactive. Aucun
+deploiement V2 ni remplacement de preproduction n'est inclus.
+Le suivi operationnel reste dans le checkout `competitions-capitaines`.
+Les observations datees suivantes ne sont pas une nouvelle lecture du serveur.
 
 ## Lancement bêta — 16 octobre
 

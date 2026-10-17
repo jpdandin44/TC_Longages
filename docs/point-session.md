@@ -5,12 +5,26 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-13
+updated: 2026-10-17
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 13 octobre 2026
+# Point de session - preparation du 17 octobre 2026
+
+## Reprise courante - action manuelle de production
+
+Branche `feat/manual-production-action`, isolee depuis `main` apres PR #21.
+Lire le [guide](../workflows/production-manuelle.md) et le
+[recu local](../data/production-action-verification.json). Le workflow et le
+controleur sont prepares pour revue, catalogue inactif ; l'adaptateur heberge
+reste a implementer et qualifier. Aucun deploiement ni fusion dans ce lot.
+
+Le suivi courant demeure l'iteration `tcl-action-production-manuelle-20261017`
+du checkout voisin `competitions-capitaines`. Ne pas remplacer ce registre
+par l'ancien suivi herite de `main`. La V1 et la preproduction sont conservees.
+La suite depend de la revue humaine, puis d'un lot de raccordement et recette
+isolee autorise separement. Les sections suivantes sont historiques.
 
 ## Reprise courante — Bureau OAuth
 

@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,16 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-17 - Preparation de l'action manuelle de production
+
+- Workflow manuel, catalogue desactive, controle de l'environnement protege,
+  SSH verifie et controleur de transaction avec journal, sauvegarde restauree
+  exigee, preservation de la maintenance et recuperation du code.
+- Tests locaux sur fixtures, contrat du futur adaptateur o2switch, guide de
+  revue et [note de version](docs/notes-de-version/action-production-manuelle.md).
+- Aucun adaptateur heberge implemente ou installe par ce lot, aucune execution
+  de production, fusion, modification des secrets ou de la preproduction.
 
 ## 2026-10-16 — Sources du candidat bêta corrigé
 
