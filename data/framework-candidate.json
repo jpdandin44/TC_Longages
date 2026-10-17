@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "05b564239e169e6b5bf00e1e353d179c087f9cde",
+  "sourceCommit": "6bc46f805a3ae1e2aab6bf7297930d9b717a23e4",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -233,16 +233,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "5e922f41d5efe1caef0e59b8411bd3a8f400b854",
-      "size": 60093,
-      "sha256": "2463e8dec3b2c295ad8faf68a97b227d66711302cc22dd4660b65315cfcd43c4"
+      "gitBlob": "945496dd45bdba1838b2bc38575c2af895ea6cb5",
+      "size": 60621,
+      "sha256": "0a07ff59a2abdbcc3eb3577441f6aea6d95cd382723e17d0319934f2abf63544"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "22266b4cb7f2b86b41bb56c97d08900bc5b80932",
-      "size": 57861,
-      "sha256": "f8cef4dd9aaaaed0ddfc283550395711ae9c5e7d2c1d070cd5cfe5039860c2a5"
+      "gitBlob": "883398240c42f46795849ba0fbb3d2d75515f799",
+      "size": 58369,
+      "sha256": "ebe5a9ae7857473ce9fc60ba6d708c6402b4d6d3bb5005e0ddaa6aca7849ba0e"
     },
     {
       "path": "config/agenda-local.json",
@@ -812,6 +812,13 @@
       "sha256": "48163be924a4084720c27c2c0d1f820ff4196bc8a9a2c7414412802430b74bef"
     },
     {
+      "path": "data/correctif-tarifs-adultes.json",
+      "mode": "100644",
+      "gitBlob": "de1ecbaa504e6241e86b44d5df776ea95f043756",
+      "size": 612,
+      "sha256": "a976ffd244bfea7b9e33d4880fe0ef5090bb3164cfbb8d729cfa3e87f206eb0e"
+    },
+    {
       "path": "data/edition-contact-verification.json",
       "mode": "100644",
       "gitBlob": "0d127fc5744b3e8f421319a2de02d905162ca3e6",
@@ -863,16 +870,16 @@
     {
       "path": "data/officiel-hosted-demo-manifest.json",
       "mode": "100644",
-      "gitBlob": "2faad5ce9ae66284ed6df8ad4410a547c5427eb7",
+      "gitBlob": "380ea96c50add2502632ecd244003f44badbb3f7",
       "size": 1614,
-      "sha256": "5a0d794b92e00bfea4b1315e8eb2c18d9b6b3bc64cbd299a79902f67cc5c36ba"
+      "sha256": "f2ad422b18aa4a6ed0c51fba0c33a609ac58d2b367b113937566afb7d1422fce"
     },
     {
       "path": "data/officiel-manifest.json",
       "mode": "100644",
-      "gitBlob": "e2477362f65d9f3f14b770c17a14573988395acf",
+      "gitBlob": "fe0f45c38e051bf7a6c8a42eb29294fa81c3d3a8",
       "size": 1478,
-      "sha256": "3f9e023bed463a0bff68329d93d7d891166ed4f2586b383466d19f552de052c6"
+      "sha256": "eb679dac944782b5db26a4855e852034efdc3c1b15416f0f6cc0963be5098364"
     },
     {
       "path": "data/officiel-sources.json",
@@ -915,6 +922,13 @@
       "gitBlob": "3676558a18f4c99e81d370f9e022883b9ac9fd36",
       "size": 2160,
       "sha256": "4ac0fd43570f573e658e0fbf1e73d90e8b7be0dd17e9e9df664d1939756d56f0"
+    },
+    {
+      "path": "data/tarifs-adultes-verification.json",
+      "mode": "100644",
+      "gitBlob": "b46b62e443835932401c86b3c6a629a0b98f9ae8",
+      "size": 1269,
+      "sha256": "aa1ea395bc0849b58363a3cc510fec0e90411509a9518a12ec8b9e3c7396bb46"
     },
     {
       "path": "data/tarifs-inscription.json",
@@ -985,6 +999,13 @@
       "gitBlob": "5f86f02a43fe889d0eeb70ac27607c867d86d4d7",
       "size": 8041,
       "sha256": "fff694168fc3315473ece5db5fa585dd64c21ef2c7277a3b1d8bec797327e79e"
+    },
+    {
+      "path": "docs/correctif-tarifs-adultes.md",
+      "mode": "100644",
+      "gitBlob": "bc87275efa05fac6e6b4488b96e0de0f8fba9b03",
+      "size": 4789,
+      "sha256": "eff5a52c931429a6855046d428f69f4b43e91a7a5f5678711855c3607f63e034"
     },
     {
       "path": "docs/deployer-vitrine-o2switch.md",
@@ -1066,9 +1087,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "91bab0bd6f19514a8218e6672845dd68c0e6d547",
-      "size": 90885,
-      "sha256": "cb8a1fe25ad0173300815f96cc06c31eda164416dbf2917e304beffb79bedc31"
+      "gitBlob": "2abbf99904b91a2788939da5e04da822e4b264d8",
+      "size": 91307,
+      "sha256": "8817d1efacdab30d3d02fb09c104026425cac4575c92464f1c541f386510c799"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -3229,16 +3250,23 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "68b6f4d31b89b5ae11463b480dff8639abf9a2d8",
-      "size": 53467,
-      "sha256": "6171c51ce92435ce57eb6340a56bc058680b94419bd2c058b4fabfbbcf35fd08"
+      "gitBlob": "773bae6262d115168930f1922d26ab20e39160bb",
+      "size": 53964,
+      "sha256": "bbd35595aa1775b4bfedd6c47edbe7b2faaff32d9b4f6a2d6c9d25f14199d439"
     },
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "b1aeba85bd465bdbf8b76a6b824ee67fdd2b89b0",
-      "size": 33621,
-      "sha256": "6a5b513dc71b9b85e235ce1b6b5d56ffe17dc39607d25be4919d096b1093d52d"
+      "gitBlob": "f224dade40430eac03c6cc403c79e84cf29dda8d",
+      "size": 33976,
+      "sha256": "c711c56f0757757de6bab6c3066cf0d1062488cea800fa1f4fa6ac35f205fe69"
+    },
+    {
+      "path": "scripts/adult-tariffs.mjs",
+      "mode": "100644",
+      "gitBlob": "a83cb2c285e5ae1c9bf2446eb68f6315182a2116",
+      "size": 2167,
+      "sha256": "288bfec4c6ad0773c90f3f50e4035b0ee3a42cfc7908659559c3c29479e3ef25"
     },
     {
       "path": "scripts/agenda-local.mjs",
@@ -3292,9 +3320,9 @@
     {
       "path": "scripts/build-officiel.mjs",
       "mode": "100644",
-      "gitBlob": "5a8f198e1756e76555a24556c615ce6aac8038c6",
-      "size": 6733,
-      "sha256": "105a3e08652e546f6944d42bc88f8568110dade0ffbbab780b9ad056d88b49c3"
+      "gitBlob": "fc47b17d813eebd4649acb6c759e4c0d08861c06",
+      "size": 6922,
+      "sha256": "5cbbe1a8c79d603014197bbe219be02c4184d746e714f0cef712accb37543246"
     },
     {
       "path": "scripts/build.mjs",
@@ -3528,6 +3556,13 @@
       "sha256": "84736c9f3a534a1cd9d649c930066a74da6960503d3fb8338368d48dd2572c4c"
     },
     {
+      "path": "scripts/prepare-adult-tariffs.mjs",
+      "mode": "100644",
+      "gitBlob": "ad79a041e860496dbc7f5d1f2ba1594d9fc2f307",
+      "size": 1748,
+      "sha256": "2bf5d7c25ab4906d8641dac18ea7b41d5911a722f7529b76ee1e6d05ea83554b"
+    },
+    {
       "path": "scripts/prepare_delivery.py",
       "mode": "100644",
       "gitBlob": "eca05c9bd370d5eecd1a61dafb1c9b6975c8445c",
@@ -3593,9 +3628,16 @@
     {
       "path": "scripts/tariffs.mjs",
       "mode": "100644",
-      "gitBlob": "b428e7d6cf019e2391fbb4ee6f0320072dac6eb1",
-      "size": 1854,
-      "sha256": "68a04ff9a432e0f89d02be07fe83ee382b66a11b280d5e633d0d53b4a89e87f7"
+      "gitBlob": "2fdbaabde0aaaf7b07eac91364cb9e2a4fa273d8",
+      "size": 1942,
+      "sha256": "053bcd97b285696ad4898c1bca8dff89c8738d6abaeb12b581e9b9b582836dd2"
+    },
+    {
+      "path": "scripts/verify-adult-tariffs.cjs",
+      "mode": "100644",
+      "gitBlob": "e0f33c31b7be98b44962c4aa2d308a55cdbc4340",
+      "size": 2058,
+      "sha256": "a6457c5b518f93bbaaf6a0b4b17f9378e8cb4ce845c9cbaab66c30e49b34f2c6"
     },
     {
       "path": "scripts/verify-browser.cjs",
@@ -3642,9 +3684,9 @@
     {
       "path": "scripts/verify-officiel.cjs",
       "mode": "100644",
-      "gitBlob": "f1368d1c29ae8e9a22e3ec3a4bfcb1b4f7a93f8c",
-      "size": 16440,
-      "sha256": "1c9f2c9d134743424424e0e4d8510fefc1e0b2d8e5ef92de6a5321bfa399c13d"
+      "gitBlob": "b8c42e58c85155a0158f83a8aeca2cb8601729d4",
+      "size": 16481,
+      "sha256": "fcbf496395ceffd1d3550b8b4cddadccfb63e79410b95ec9bf374e4abf5d861a"
     },
     {
       "path": "scripts/verify-oidc.cjs",
@@ -3962,6 +4004,20 @@
       "sha256": "5328e1ca3e422e2064fd4fb2f11e479b985de8fb211d9a6985372e22b835ea97"
     },
     {
+      "path": "tests/adult-tariffs-editor.php",
+      "mode": "100644",
+      "gitBlob": "e8c6b21828113f6e5964d856dd8fb065d8a239bd",
+      "size": 1627,
+      "sha256": "12bdb17cebdfdb9df8ebd4873b2e58e93f9232697d996b3e0e9d80df8d3c5b85"
+    },
+    {
+      "path": "tests/adult-tariffs.test.mjs",
+      "mode": "100644",
+      "gitBlob": "ec700b652f3dfb236ffba97698b0b4912e979a10",
+      "size": 3896,
+      "sha256": "a0a1d4782603d6fdf2f782485d60b2e90a7e36378d60845aa1dfcd474d945231"
+    },
+    {
       "path": "tests/apache-v1.conf",
       "mode": "100644",
       "gitBlob": "a9ff7c1fb30bbf6e72312962c84d343958d43189",
@@ -4230,9 +4286,9 @@
     {
       "path": "tests/officiel.test.mjs",
       "mode": "100644",
-      "gitBlob": "ce63722e1da94926fac7f2021a9e726ee24c12e2",
-      "size": 6510,
-      "sha256": "c9365e6cefef05664477aedf382fc59a4ddcdcec9f5f59f1f4072dd10a42028e"
+      "gitBlob": "d49f316e990317d27c49098bc5fb5986b6564814",
+      "size": 6820,
+      "sha256": "cce3f3cb9ec79200cb07522e04e1537c627e5f2b11f19e249ff7974752a74496"
     },
     {
       "path": "tests/oidc-client.test.mjs",
@@ -4424,5 +4480,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "40ed19db16fcd95852f406e4e57081695890c175fd118cb445b11ba723d7f324"
+  "artifactDigest": "0d798d417c9483314f456583703969fb70cc627449839bbe73fb17f4aa9d170a"
 }
