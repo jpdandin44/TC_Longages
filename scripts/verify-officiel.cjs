@@ -16,7 +16,7 @@ const { chromium } = require('playwright');
   const { createOfficialServer } = await import(pathToFileURL(path.join(__dirname, 'official-server.mjs')).href);
   const { officialPages, loadOfficialConfig } = await import(pathToFileURL(path.join(__dirname, 'official-config.mjs')).href);
   const config = await loadOfficialConfig();
-  const tariffs = JSON.parse(await readFile(path.join(root, 'data/tarifs-inscription.json'), 'utf8'));
+  const { officialTariffs: tariffs } = await import(pathToFileURL(path.join(root, 'scripts/adult-tariffs.mjs')).href);
   const hash = bytes => createHash('sha256').update(bytes).digest('hex');
   const files = {};
   for (const name of officialPages) files[name] = hash(await readFile(path.join(root, 'officiel', name)));
@@ -136,7 +136,7 @@ const { chromium } = require('playwright');
     }
     assert.ok(normalize(tariffText).includes(tariffs.season));
     await capture('tarifs-1440.png');
-    checks.push('Logo original exact chargé sur les sept pages ; photo du court et illustration secondaire exactes ; neuf tarifs et saison identiques au JSON canonique.');
+    checks.push('Logo original exact chargé sur les sept pages ; photo du court et illustration secondaire exactes ; dix tarifs conformes au relevé historique et au correctif adulte approuvé.');
 
     for (const width of [1440, 390, 320]) {
       await page.setViewportSize({ width, height: width === 1440 ? 1000 : 844 });

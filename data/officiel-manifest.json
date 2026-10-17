@@ -4,8 +4,8 @@
   "domainStatus": "obtained-user-confirmed",
   "files": {
     "index.html": {
-      "bytes": 3084927,
-      "sha256": "011523649211bb591f06ec6594eec2caac3e7e125629154629f63512f2ebabcc"
+      "bytes": 3084906,
+      "sha256": "189d6b88bb0e1376c592b350972f2c675360b667c558284c67623747cd2d060d"
     },
     "competitions.html": {
       "bytes": 156031,

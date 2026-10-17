@@ -14,6 +14,14 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-17 - Rapprochement de la PR #22 apres fusion de #23
+
+- Integration de main dans la branche de preparation, en conservant le
+  correctif tarifaire et l'orchestration des livraisons separement.
+- Resolution documentaire et regeneration du manifeste ; aucune activation,
+  fusion de PR ni livraison. Les confirmations precedentes ne qualifient pas
+  automatiquement ce nouveau candidat pour la production.
+
 ## 2026-10-17 - Preparation de l'action manuelle de production
 
 - Workflow manuel, catalogue desactive, controle de l'environnement protege,
@@ -23,6 +31,15 @@ tags:
   revue et [note de version](docs/notes-de-version/action-production-manuelle.md).
 - Aucun adaptateur heberge implemente ou installe par ce lot, aucune execution
   de production, fusion, modification des secrets ou de la preproduction.
+
+## 2026-10-17 — Correctif tarifaire préparé, non déployé
+
+- Cours Adultes à 150 €, cours adultes compétition à 170 € ; adhésion
+  compétition maintenue à 100 €, autres tarifs inchangés.
+- Source de correction distincte du relevé PDF historique, rendu officiel
+  et delta limité pour l'accueil bêta, tests de préservation éditoriale.
+- [Note de version et retour prévu](docs/correctif-tarifs-adultes.md).
+  Administration des tarifs demandée pour V2, non implémentée dans ce lot.
 
 ## 2026-10-16 — Sources du candidat bêta corrigé
 

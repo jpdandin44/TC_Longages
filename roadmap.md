@@ -26,6 +26,13 @@ deploiement V2 ni remplacement de preproduction n'est inclus.
 Le suivi operationnel reste dans le checkout `competitions-capitaines`.
 Les observations datees suivantes ne sont pas une nouvelle lecture du serveur.
 
+## Correctif urgent — 17 octobre
+
+Préparer la revue du [correctif des cours adultes](docs/correctif-tarifs-adultes.md),
+puis qualifier sa livraison ciblée et son retour arrière. Aucun remplacement
+de préproduction ni retrait de maintenance. Ajouter l'administration native
+des tarifs au périmètre futur V2, sans la développer dans ce correctif.
+
 ## Lancement bêta — 16 octobre
 
 Le [guide du lot](docs/lancement-beta.md#suite-en-quatre-phases) présente

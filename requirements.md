@@ -28,6 +28,15 @@ tags:
 Le [guide](workflows/production-manuelle.md) distingue ce qui est implemente
 de ce qui reste a qualifier ; les migrations ne font pas partie de ce lot.
 
+## Correction tarifaire — 17 octobre
+
+- Cours Adultes : 150 € ; cours adultes compétition : 170 €.
+- Adhésion compétition : 100 €, inchangée ; aucun autre montant modifié.
+- Préserver les textes édités, la maintenance, la préproduction et les sources PDF.
+- V2 : tarifs administrables dans Drupal, source commune au tableau public
+  et au formulaire d'inscription, droits et révisions ; non réalisé ici.
+- [Périmètre et note du correctif](docs/correctif-tarifs-adultes.md).
+
 ## Lancement demandé — 16 octobre
 
 - Livrer le périmètre communiqué aux bêta-testeurs, avec agenda et correction

@@ -14,7 +14,9 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Reprise courante - action manuelle de production
 
-Branche `feat/manual-production-action`, isolee depuis `main` apres PR #21.
+Branche `feat/manual-production-action`, rapprochee de `main` apres fusion
+de la PR #23. Les conflits documentaires sont resolus en conservant les deux
+lots ; le manifeste est regenere pour ce nouveau candidat de preparation.
 Lire le [guide](../workflows/production-manuelle.md) et le
 [recu local](../data/production-action-verification.json). Le workflow et le
 controleur sont prepares pour revue, catalogue inactif ; l'adaptateur heberge
@@ -25,6 +27,13 @@ du checkout voisin `competitions-capitaines`. Ne pas remplacer ce registre
 par l'ancien suivi herite de `main`. La V1 et la preproduction sont conservees.
 La suite depend de la revue humaine, puis d'un lot de raccordement et recette
 isolee autorise separement. Les sections suivantes sont historiques.
+## Correctif tarifaire integre depuis main, lot distinct
+
+Branche `fix/tarifs-adultes` : [cours adultes 150/170](correctif-tarifs-adultes.md),
+adhésion compétition 100 inchangée, correctif préparé et non déployé.
+La note décrit les contrôles et les prérequis de livraison. Le suivi canonique
+reste dans `../competitions-capitaines`, itération `tcl-tarifs-adultes-20261017`.
+Les observations suivantes sont historiques, pas l'état courant de ce correctif.
 
 ## Reprise courante — Bureau OAuth
 

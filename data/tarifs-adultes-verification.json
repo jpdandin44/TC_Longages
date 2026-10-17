@@ -1,0 +1,16 @@
+{
+  "iterationId": "tcl-tarifs-adultes-20261017",
+  "checkedOn": "2026-10-17",
+  "status": "local_preparation_verified_not_deployed",
+  "deltaSha256": "5c6b45ee50134aaba51c13a6ded1cdd81fd1c50f82db0b6c67a08c72136d40f8",
+  "nodeTests": {
+    "initialRun": { "total": 174, "passed": 170, "failed": 3, "skipped": 1 },
+    "resolvedEnvironmentIssues": ["Three YAML tests rerun with the existing framework Python environment: seven workflow/delivery tests passed", "PHP mbstring enabled through the existing project ini: four tariff tests passed, none skipped"],
+    "remainingFailures": 0
+  },
+  "browser": { "scope": "Local frozen-beta preview, no network requests", "widths": [1440, 390], "tariffRows": 10, "horizontalOverflow": false, "receipt": ".local/tarifs-adultes/recette.json" },
+  "frozenBetaVerification": { "status": "passed", "files": 65, "historicalModules": 33, "changed": false },
+  "editorial": { "blocksDigestPreserved": true, "titleIntroPreserved": true, "customTextPreservedInFixture": true, "databaseRevisionWriteTested": false },
+  "hosting": { "productionMutated": false, "preproductionMutated": false, "maintenanceChanged": false, "freshBackupCreated": false, "rollbackQualified": false, "priceFixDelivered": false },
+  "humanMergeApproval": false
+}

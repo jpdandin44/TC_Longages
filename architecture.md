@@ -26,6 +26,15 @@ qui effectue les operations Drupal/o2switch reste a implementer selon le
 installe ni qualifie sur l'hebergement. Voir le
 [workflow](workflows/production-manuelle.md) pour les limites et preconditions.
 
+## Correction tarifaire officielle
+
+Le relevé PDF `data/tarifs-inscription.json` demeure historique. Le catalogue
+officiel est dérivé par `scripts/adult-tariffs.mjs` avec la correction approuvée
+`data/correctif-tarifs-adultes.json`, sans muter la source ni les démonstrations.
+Le delta bêta conserve le paragraphe source de la note pour ne pas invalider
+les empreintes Drupal ; la livraison devra rapprocher sa valeur éditoriale
+par une nouvelle révision. Voir la [note du correctif](docs/correctif-tarifs-adultes.md).
+
 ## Sources de lancement bêta
 
 `config/launch-beta/` conserve un instantané immuable du candidat 11.4.10,

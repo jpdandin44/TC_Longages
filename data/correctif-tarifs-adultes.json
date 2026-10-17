@@ -1,0 +1,13 @@
+{
+  "decisionDate": "2026-10-17",
+  "decisionSource": "Confirmation directe du responsable : cours adultes competition a 170 EUR ; adhesion competition inchangee a 100 EUR.",
+  "season": "2026-2027",
+  "currency": "EUR",
+  "replacesFormulaId": "cours-adultes",
+  "rows": [
+    { "id": "cours-adultes", "label": "Cours Adultes", "priceLabel": "150,00 €", "amountCents": 15000 },
+    { "id": "cours-adultes-competition", "label": "Cours adultes compétition", "priceLabel": "170,00 €", "amountCents": 17000 }
+  ],
+  "noteIndex": 1,
+  "note": "Cours adultes : 150 € ; cours adultes compétition : 170 €."
+}
