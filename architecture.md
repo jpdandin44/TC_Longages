@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,15 @@ tags:
 ---
 
 # Architecture
+
+## Correction tarifaire officielle
+
+Le relevé PDF `data/tarifs-inscription.json` demeure historique. Le catalogue
+officiel est dérivé par `scripts/adult-tariffs.mjs` avec la correction approuvée
+`data/correctif-tarifs-adultes.json`, sans muter la source ni les démonstrations.
+Le delta bêta conserve le paragraphe source de la note pour ne pas invalider
+les empreintes Drupal ; la livraison devra rapprocher sa valeur éditoriale
+par une nouvelle révision. Voir la [note du correctif](docs/correctif-tarifs-adultes.md).
 
 ## Sources de lancement bêta
 

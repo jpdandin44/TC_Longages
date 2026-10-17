@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,13 @@ tags:
 ---
 
 # Feuille de route
+
+## Correctif urgent — 17 octobre
+
+Préparer la revue du [correctif des cours adultes](docs/correctif-tarifs-adultes.md),
+puis qualifier sa livraison ciblée et son retour arrière. Aucun remplacement
+de préproduction ni retrait de maintenance. Ajouter l'administration native
+des tarifs au périmètre futur V2, sans la développer dans ce correctif.
 
 ## Lancement bêta — 16 octobre
 

@@ -5,12 +5,18 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-13
+updated: 2026-10-17
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
-# Point de session — reprise au 13 octobre 2026
+# Point de session — correctif tarifaire du 17 octobre 2026
+
+Branche `fix/tarifs-adultes` : [cours adultes 150/170](correctif-tarifs-adultes.md),
+adhésion compétition 100 inchangée, correctif préparé et non déployé.
+La note décrit les contrôles et les prérequis de livraison. Le suivi canonique
+reste dans `../competitions-capitaines`, itération `tcl-tarifs-adultes-20261017`.
+Les observations suivantes sont historiques, pas l'état courant de ce correctif.
 
 ## Reprise courante — Bureau OAuth
 
