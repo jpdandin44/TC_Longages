@@ -5,12 +5,19 @@ title: Préparation de livraison et composants o2switch réutilisables
 status: in_progress
 version: git
 created: 2026-10-01
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags: [github-actions, drupal, o2switch, mutualisation]
 ---
 
 # Préparation de livraison
+
+## Action de production manuelle - preparation du 17 octobre
+
+Le [nouveau workflow](production-manuelle.md) prepare l'orchestration recurrente
+sans toucher aux outils historiques ci-dessous. Il reste desactive, avec
+adaptateur o2switch a implementer et qualifier. La PR presente des tests locaux,
+pas une installation distante. Aucun push ou merge ne livre le site.
 
 ## Candidat de lancement beta - 16 octobre
 

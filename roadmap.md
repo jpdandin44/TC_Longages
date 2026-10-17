@@ -16,6 +16,16 @@ tags:
 
 # Feuille de route
 
+## Preparation de l'action GitHub - 17 octobre
+
+Le lot courant suit les quatre phases du
+[guide](workflows/production-manuelle.md#quatre-phases). Developpement local
+de l'orchestration et PR de preparation ; raccordement o2switch, qualification
+isolee et activation restent a venir. Le catalogue demeure desactive. Aucun
+deploiement V2 ni remplacement de preproduction n'est inclus.
+Le suivi operationnel reste dans le checkout `competitions-capitaines`.
+Les observations datees suivantes ne sont pas une nouvelle lecture du serveur.
+
 ## Correctif urgent — 17 octobre
 
 Préparer la revue du [correctif des cours adultes](docs/correctif-tarifs-adultes.md),

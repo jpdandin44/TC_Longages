@@ -11,8 +11,8 @@ const python = process.env.TCL_FRAMEWORK_PYTHON || (existsSync(resolve(root,'.lo
 const pythonEnv = {...process.env, PYTHONUTF8:'1', PYTHONDONTWRITEBYTECODE:'1'};
 const workflow = name => readFile(resolve(root,'.github/workflows',name),'utf8');
 
-test('Les seuls workflows actifs sont CI, politique et préparation revue, sans livraison', async()=>{
-  const names=['ci.yml','pr-policy.yml','preparer-deploiement.yml'];
+test('Les workflows connus incluent la production manuelle verrouillée par sa configuration', async()=>{
+  const names=['ci.yml','pr-policy.yml','preparer-deploiement.yml','production-manuelle.yml'];
   assert.deepEqual(await checkActiveWorkflows(), names);
   for (const name of names) {
     const content = await workflow(name);
@@ -29,6 +29,40 @@ test('Les seuls workflows actifs sont CI, politique et préparation revue, sans 
     await rm(resolve(dir,'pr-policy.yml'));
     await assert.rejects(checkActiveWorkflows(dir), /requis absent/);
   } finally { assert.ok(dir.startsWith(resolve(tmpdir())+sep)); await rm(dir,{recursive:true,force:true}); }
+});
+
+test('La production exige un plan valide avant environnement, reste manuelle et ne publie aucune sauvegarde', async()=>{
+  const parsed=spawnSync(python,['-c','import json,sys,yaml; print(json.dumps(yaml.safe_load(sys.stdin.read())))'],{input:await workflow('production-manuelle.yml'),encoding:'utf8',env:pythonEnv});
+  assert.equal(parsed.status,0,parsed.stderr);
+  const flow=JSON.parse(parsed.stdout);
+  assert.deepEqual(Object.keys(flow.on),['workflow_dispatch']);
+  assert.deepEqual(flow.on.workflow_dispatch.inputs.operation.options,['plan','deploy','rollback']);
+  assert.equal(flow.on.workflow_dispatch.inputs.operation.default,'plan');
+  assert.deepEqual(flow.permissions,{contents:'read',actions:'read'});
+  assert.deepEqual(flow.concurrency,{group:'tcl-production','cancel-in-progress':false});
+  assert.equal(flow.jobs.prepare.environment,undefined);
+  assert.equal(flow.jobs.execute.environment,'tcl-production');
+  assert.equal(flow.jobs.execute.needs,'prepare');
+  assert.match(flow.jobs.execute.if,/needs.prepare.outputs.ready == 'true'/);
+  assert.match(flow.jobs.execute.if,/inputs.operation != 'plan'/);
+  assert.equal(flow.jobs.execute.steps.at(-1).if,'${{ always() }}');
+  assert.match(flow.jobs.execute.steps.at(-1).run,/cleanup$/);
+  for(const job of Object.values(flow.jobs)) {
+    assert.ok(job['timeout-minutes']<=30);
+    assert.match(job.if,/refs\/heads\/main/);
+    for(const step of job.steps) {
+      if(step.uses) {
+        assert.match(step.uses,/^actions\/checkout@[a-f0-9]{40}$/);
+        assert.equal(step.with['persist-credentials'],false);
+        assert.equal(step.with.ref,'${{ github.sha }}');
+      }
+      assert.doesNotMatch(step.run||'',/\$\{\{|scp|rsync|sql:|curl|git push/);
+    }
+  }
+  const config=JSON.parse(await readFile(resolve(root,'config/production-action.json'),'utf8'));
+  assert.equal(config.enabled,false);
+  assert.deepEqual(config.releases,{});
+  assert.equal(config.adapterSha256,null);
 });
 
 test('Le YAML exécutable limite les droits et ne confond pas test, approbation et livraison', async()=>{

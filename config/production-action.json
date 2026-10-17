@@ -1,0 +1,11 @@
+{
+  "format": "tcl-production-action-v1",
+  "repository": "jpdandin44/TC_Longages",
+  "target": "https://tclongages.fr",
+  "enabled": false,
+  "operatorSha256": null,
+  "adapterSha256": null,
+  "qualificationRef": null,
+  "environmentReview": null,
+  "releases": {}
+}

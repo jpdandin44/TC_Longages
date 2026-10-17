@@ -14,6 +14,24 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-17 - Rapprochement de la PR #22 apres fusion de #23
+
+- Integration de main dans la branche de preparation, en conservant le
+  correctif tarifaire et l'orchestration des livraisons separement.
+- Resolution documentaire et regeneration du manifeste ; aucune activation,
+  fusion de PR ni livraison. Les confirmations precedentes ne qualifient pas
+  automatiquement ce nouveau candidat pour la production.
+
+## 2026-10-17 - Preparation de l'action manuelle de production
+
+- Workflow manuel, catalogue desactive, controle de l'environnement protege,
+  SSH verifie et controleur de transaction avec journal, sauvegarde restauree
+  exigee, preservation de la maintenance et recuperation du code.
+- Tests locaux sur fixtures, contrat du futur adaptateur o2switch, guide de
+  revue et [note de version](docs/notes-de-version/action-production-manuelle.md).
+- Aucun adaptateur heberge implemente ou installe par ce lot, aucune execution
+  de production, fusion, modification des secrets ou de la preproduction.
+
 ## 2026-10-17 — Correctif tarifaire préparé, non déployé
 
 - Cours Adultes à 150 €, cours adultes compétition à 170 € ; adhésion

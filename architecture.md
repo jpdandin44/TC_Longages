@@ -15,6 +15,17 @@ tags:
 
 # Architecture
 
+## Livraison manuelle - preparation
+
+Un workflow distinct prepare un plan puis exige un environnement de production
+protege avant SSH. Le controleur distant journalise sauvegarde, restauration
+isolee, bascule et recuperation du code sous verrou. Les donnees SQL ne sont
+jamais restaurees vers le site actif. Le catalogue est desactive ; la couche
+qui effectue les operations Drupal/o2switch reste a implementer selon le
+[contrat de l'adaptateur](api/production-adapter.md). Ce mecanisme n'est ni
+installe ni qualifie sur l'hebergement. Voir le
+[workflow](workflows/production-manuelle.md) pour les limites et preconditions.
+
 ## Correction tarifaire officielle
 
 Le relevé PDF `data/tarifs-inscription.json` demeure historique. Le catalogue

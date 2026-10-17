@@ -1,0 +1,84 @@
+name: Production manuelle - TC Longages
+
+"on":
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Plan sans connexion, livraison, ou retour du code uniquement
+        type: choice
+        options: [plan, deploy, rollback]
+        default: plan
+        required: true
+      approved_sha:
+        description: SHA complet de main examine pour cette execution
+        type: string
+        required: true
+      release_id:
+        description: Identifiant du candidat qualifie dans le catalogue Git
+        type: string
+        required: false
+      backup_id:
+        description: Pour rollback seulement, identifiant prive du retour qualifie
+        type: string
+        required: false
+      confirmation:
+        description: Pour deploy ou rollback, saisir PRODUCTION TC Longages
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: tcl-production
+  cancel-in-progress: false
+
+env:
+  OPERATION: ${{ inputs.operation }}
+  APPROVED_SHA: ${{ inputs.approved_sha }}
+  RELEASE_ID: ${{ inputs.release_id }}
+  BACKUP_ID: ${{ inputs.backup_id }}
+  CONFIRMATION: ${{ inputs.confirmation }}
+
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      ready: ${{ steps.gate.outputs.ready }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verifier le plan avant tout environnement ou acces heberge
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/production_action.py prepare
+
+  execute:
+    needs: prepare
+    if: github.ref == 'refs/heads/main' && needs.prepare.outputs.ready == 'true' && inputs.operation != 'plan'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment: tcl-production
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Executer uniquement le pilote prive qualifie
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SSH_HOST: ${{ vars.TCL_SSH_HOST }}
+          SSH_USER: ${{ vars.TCL_SSH_USER }}
+          SSH_PORT: ${{ vars.TCL_SSH_PORT }}
+          SSH_KEY: ${{ secrets.TCL_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.TCL_KNOWN_HOSTS }}
+        run: python3 scripts/production_action.py execute
+      - name: Effacer la cle temporaire du runner
+        if: ${{ always() }}
+        run: python3 scripts/production_action.py cleanup
