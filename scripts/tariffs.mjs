@@ -15,7 +15,11 @@ export function compileDemoData(source) {
     .replace("/* TCL_SEASON */ ''", JSON.stringify(tariffs.season));
 }
 
-export function renderTariffs() {
-  const tables = tariffs.groups.map(group => `<table class="tariff-table"><caption>${escapeHTML(group.label)}</caption><thead><tr><th scope="col">Formule</th><th scope="col">Tarif</th></tr></thead><tbody>${group.rows.map(row => `<tr><th scope="row">${escapeHTML(row.label)}</th><td>${escapeHTML(row.priceLabel)}${needsClarification(row) ? '<small>Conditions à confirmer</small>' : ''}</td></tr>`).join('')}</tbody></table>`).join('\n');
-  return `<div class="tariff-grid"><p class="tariff-season">Saison ${escapeHTML(tariffs.season)}</p><p>Tarifs indiqués dans les fiches d’inscription du club.</p>${tables}${tariffs.publicNoteIndexes.map(index => tariffs.notes[index]).map(note => `<p class="tariff-note">${escapeHTML(note)}</p>`).join('')}</div>`;
+export function renderTariffRow(row) {
+  return `<tr><th scope="row">${escapeHTML(row.label)}</th><td>${escapeHTML(row.priceLabel)}${needsClarification(row) ? '<small>Conditions à confirmer</small>' : ''}</td></tr>`;
+}
+
+export function renderTariffs(catalogue = tariffs) {
+  const tables = catalogue.groups.map(group => `<table class="tariff-table"><caption>${escapeHTML(group.label)}</caption><thead><tr><th scope="col">Formule</th><th scope="col">Tarif</th></tr></thead><tbody>${group.rows.map(renderTariffRow).join('')}</tbody></table>`).join('\n');
+  return `<div class="tariff-grid"><p class="tariff-season">Saison ${escapeHTML(catalogue.season)}</p><p>Tarifs indiqués dans les fiches d’inscription du club.</p>${tables}${catalogue.publicNoteIndexes.map(index => catalogue.notes[index]).map(note => `<p class="tariff-note">${escapeHTML(note)}</p>`).join('')}</div>`;
 }

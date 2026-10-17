@@ -5,6 +5,8 @@ import { loadOfficialConfig, escapeHTML as e, officialPages } from './official-c
 import { actionPages } from '../src/officiel-pages.mjs';
 import { loadCalendarPreview } from './calendar-preview.mjs';
 import { withoutCalendarEmbed } from './calendar-embed.mjs';
+import { renderTariffs } from './tariffs.mjs';
+import { officialTariffs } from './adult-tariffs.mjs';
 
 const root = new URL('../',import.meta.url);
 const config = await loadOfficialConfig();
@@ -29,6 +31,7 @@ base=base.replace(/<nav class="main-nav"[\s\S]*?<\/nav>/,()=>nav);
 const quick = `<section class="container quick-access" id="acces-rapides" aria-labelledby="quick-title"><div class="quick-access-head"><div><p class="eyebrow">LES ACCÈS DU CLUB</p><h2 id="quick-title">À vous de <em>jouer.</em></h2></div><p>Les informations et les actions utiles,<br>à portée de main.</p></div><div class="quick-grid">${config.quickAccess.map((item,index)=>`<a class="quick-card" href="${e(item.href)}"><span class="quick-kicker">0${index+1}</span><h3>${e(item.label)}</h3><p>${e(item.description)}</p><span class="quick-state">Découvrir <span aria-hidden="true">↗</span></span></a>`).join('')}</div></section>`;
 base=base.replace('<div class="values-strip">',()=>quick+'\n<div class="values-strip">');
 base=base.replace('Rejoindre le club <span','Jouer au club <span');
+base=base.replace('<!-- TCL_TARIFF_TABLES -->', () => renderTariffs(officialTariffs));
 const outputs = {'index.html':base};
 for (const [name,page] of Object.entries(actionPages(config, { calendarPreview }))) {
   let html=base.replace(/<main id="contenu">[\s\S]*?<\/main>/,()=>`<main id="contenu" class="container action-page">${page.body}</main>`);

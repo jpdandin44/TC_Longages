@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,15 @@ tags:
 ---
 
 # Exigences
+
+## Correction tarifaire — 17 octobre
+
+- Cours Adultes : 150 € ; cours adultes compétition : 170 €.
+- Adhésion compétition : 100 €, inchangée ; aucun autre montant modifié.
+- Préserver les textes édités, la maintenance, la préproduction et les sources PDF.
+- V2 : tarifs administrables dans Drupal, source commune au tableau public
+  et au formulaire d'inscription, droits et révisions ; non réalisé ici.
+- [Périmètre et note du correctif](docs/correctif-tarifs-adultes.md).
 
 ## Lancement demandé — 16 octobre
 

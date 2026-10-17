@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-16
+updated: 2026-10-17
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,15 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-17 — Correctif tarifaire préparé, non déployé
+
+- Cours Adultes à 150 €, cours adultes compétition à 170 € ; adhésion
+  compétition maintenue à 100 €, autres tarifs inchangés.
+- Source de correction distincte du relevé PDF historique, rendu officiel
+  et delta limité pour l'accueil bêta, tests de préservation éditoriale.
+- [Note de version et retour prévu](docs/correctif-tarifs-adultes.md).
+  Administration des tarifs demandée pour V2, non implémentée dans ce lot.
 
 ## 2026-10-16 — Sources du candidat bêta corrigé
 
