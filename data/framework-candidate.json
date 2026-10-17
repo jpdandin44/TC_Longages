@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "72b129045e7b399fb7fcb2cc81c8c38ed0465c33",
+  "sourceCommit": "68a511a0bd1f5551de8f7135aac93864cfb3adfa",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -247,16 +247,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "6d428091b197025945e2808d8dee8915114fa166",
-      "size": 60718,
-      "sha256": "86913b3eb81a56d9cc7d0694a580a08f37db00781e10ceed8ece6e87aee32840"
+      "gitBlob": "ba54643586b304d2d69d817084a377f43724be08",
+      "size": 61246,
+      "sha256": "7cf93f0cf01b1e197ad7e24f3db497ea4877edc09b63ca148350954794e7569f"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "574c65f90f122e830be19daa436ed711d43eb4e6",
-      "size": 58459,
-      "sha256": "bf508cfa44f420cc03a2df293589de53afefbdfcc946af8e17fe8eb2887ac8b6"
+      "gitBlob": "8d26d9e998da698e09ae7848f0a30c22cc6a9091",
+      "size": 59382,
+      "sha256": "5b395bc2e6bdb94b97649d26f2f57a476523d7dd1e609bd030a7085c6f9fb3b8"
     },
     {
       "path": "config/agenda-local.json",
@@ -833,6 +833,13 @@
       "sha256": "48163be924a4084720c27c2c0d1f820ff4196bc8a9a2c7414412802430b74bef"
     },
     {
+      "path": "data/correctif-tarifs-adultes.json",
+      "mode": "100644",
+      "gitBlob": "de1ecbaa504e6241e86b44d5df776ea95f043756",
+      "size": 612,
+      "sha256": "a976ffd244bfea7b9e33d4880fe0ef5090bb3164cfbb8d729cfa3e87f206eb0e"
+    },
+    {
       "path": "data/edition-contact-verification.json",
       "mode": "100644",
       "gitBlob": "0d127fc5744b3e8f421319a2de02d905162ca3e6",
@@ -884,16 +891,16 @@
     {
       "path": "data/officiel-hosted-demo-manifest.json",
       "mode": "100644",
-      "gitBlob": "2faad5ce9ae66284ed6df8ad4410a547c5427eb7",
+      "gitBlob": "380ea96c50add2502632ecd244003f44badbb3f7",
       "size": 1614,
-      "sha256": "5a0d794b92e00bfea4b1315e8eb2c18d9b6b3bc64cbd299a79902f67cc5c36ba"
+      "sha256": "f2ad422b18aa4a6ed0c51fba0c33a609ac58d2b367b113937566afb7d1422fce"
     },
     {
       "path": "data/officiel-manifest.json",
       "mode": "100644",
-      "gitBlob": "e2477362f65d9f3f14b770c17a14573988395acf",
+      "gitBlob": "fe0f45c38e051bf7a6c8a42eb29294fa81c3d3a8",
       "size": 1478,
-      "sha256": "3f9e023bed463a0bff68329d93d7d891166ed4f2586b383466d19f552de052c6"
+      "sha256": "eb679dac944782b5db26a4855e852034efdc3c1b15416f0f6cc0963be5098364"
     },
     {
       "path": "data/officiel-sources.json",
@@ -943,6 +950,13 @@
       "gitBlob": "3676558a18f4c99e81d370f9e022883b9ac9fd36",
       "size": 2160,
       "sha256": "4ac0fd43570f573e658e0fbf1e73d90e8b7be0dd17e9e9df664d1939756d56f0"
+    },
+    {
+      "path": "data/tarifs-adultes-verification.json",
+      "mode": "100644",
+      "gitBlob": "b46b62e443835932401c86b3c6a629a0b98f9ae8",
+      "size": 1269,
+      "sha256": "aa1ea395bc0849b58363a3cc510fec0e90411509a9518a12ec8b9e3c7396bb46"
     },
     {
       "path": "data/tarifs-inscription.json",
@@ -1013,6 +1027,13 @@
       "gitBlob": "5f86f02a43fe889d0eeb70ac27607c867d86d4d7",
       "size": 8041,
       "sha256": "fff694168fc3315473ece5db5fa585dd64c21ef2c7277a3b1d8bec797327e79e"
+    },
+    {
+      "path": "docs/correctif-tarifs-adultes.md",
+      "mode": "100644",
+      "gitBlob": "bc87275efa05fac6e6b4488b96e0de0f8fba9b03",
+      "size": 4789,
+      "sha256": "eff5a52c931429a6855046d428f69f4b43e91a7a5f5678711855c3607f63e034"
     },
     {
       "path": "docs/deployer-vitrine-o2switch.md",
@@ -1101,9 +1122,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "ea8311e65246a92f020a190610806b9ec98a2a97",
-      "size": 91688,
-      "sha256": "ddc240b77b4f892b126b2b6071ab04a56487fe623f295e8f61656aa761fca47f"
+      "gitBlob": "36ca9a9e5dc254448b280fa6d0affc066f3871f3",
+      "size": 92305,
+      "sha256": "555042a022875d0c364360509689c1bd65633b0438af27541fa5bce7fda34a6d"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -3264,16 +3285,23 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "6ce028bbb1c0bf3c2a964ec6451c175942d1b74b",
-      "size": 54197,
-      "sha256": "2725261bbaf153366060737a341d7ea77b81e488623e0bef3ec81285a0b598cc"
+      "gitBlob": "9dfabfbdf28e6a5d4ee450e7f7149794479b9336",
+      "size": 54694,
+      "sha256": "f49dd1366b31647d74ae4027c454ab87d5d5ad21702c9fbece05f59b095ba527"
     },
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "29f77eeec64e9e6ac3cb94ff51e197bbf7c3de0c",
-      "size": 34156,
-      "sha256": "7faed4d2ece4bba8eae19cb4567012393558ba5d038d7d33ede4fd708300c7b8"
+      "gitBlob": "4488cc9d57e22356460f48380721671bc7f94647",
+      "size": 34511,
+      "sha256": "4169e632cf5315ea0df9d905a5e2da7846ca17ac912b65f0bac86f0974f8634a"
+    },
+    {
+      "path": "scripts/adult-tariffs.mjs",
+      "mode": "100644",
+      "gitBlob": "a83cb2c285e5ae1c9bf2446eb68f6315182a2116",
+      "size": 2167,
+      "sha256": "288bfec4c6ad0773c90f3f50e4035b0ee3a42cfc7908659559c3c29479e3ef25"
     },
     {
       "path": "scripts/agenda-local.mjs",
@@ -3327,9 +3355,9 @@
     {
       "path": "scripts/build-officiel.mjs",
       "mode": "100644",
-      "gitBlob": "5a8f198e1756e76555a24556c615ce6aac8038c6",
-      "size": 6733,
-      "sha256": "105a3e08652e546f6944d42bc88f8568110dade0ffbbab780b9ad056d88b49c3"
+      "gitBlob": "fc47b17d813eebd4649acb6c759e4c0d08861c06",
+      "size": 6922,
+      "sha256": "5cbbe1a8c79d603014197bbe219be02c4184d746e714f0cef712accb37543246"
     },
     {
       "path": "scripts/build.mjs",
@@ -3563,6 +3591,13 @@
       "sha256": "84736c9f3a534a1cd9d649c930066a74da6960503d3fb8338368d48dd2572c4c"
     },
     {
+      "path": "scripts/prepare-adult-tariffs.mjs",
+      "mode": "100644",
+      "gitBlob": "ad79a041e860496dbc7f5d1f2ba1594d9fc2f307",
+      "size": 1748,
+      "sha256": "2bf5d7c25ab4906d8641dac18ea7b41d5911a722f7529b76ee1e6d05ea83554b"
+    },
+    {
       "path": "scripts/prepare_delivery.py",
       "mode": "100644",
       "gitBlob": "eca05c9bd370d5eecd1a61dafb1c9b6975c8445c",
@@ -3642,9 +3677,16 @@
     {
       "path": "scripts/tariffs.mjs",
       "mode": "100644",
-      "gitBlob": "b428e7d6cf019e2391fbb4ee6f0320072dac6eb1",
-      "size": 1854,
-      "sha256": "68a04ff9a432e0f89d02be07fe83ee382b66a11b280d5e633d0d53b4a89e87f7"
+      "gitBlob": "2fdbaabde0aaaf7b07eac91364cb9e2a4fa273d8",
+      "size": 1942,
+      "sha256": "053bcd97b285696ad4898c1bca8dff89c8738d6abaeb12b581e9b9b582836dd2"
+    },
+    {
+      "path": "scripts/verify-adult-tariffs.cjs",
+      "mode": "100644",
+      "gitBlob": "e0f33c31b7be98b44962c4aa2d308a55cdbc4340",
+      "size": 2058,
+      "sha256": "a6457c5b518f93bbaaf6a0b4b17f9378e8cb4ce845c9cbaab66c30e49b34f2c6"
     },
     {
       "path": "scripts/verify-browser.cjs",
@@ -3691,9 +3733,9 @@
     {
       "path": "scripts/verify-officiel.cjs",
       "mode": "100644",
-      "gitBlob": "f1368d1c29ae8e9a22e3ec3a4bfcb1b4f7a93f8c",
-      "size": 16440,
-      "sha256": "1c9f2c9d134743424424e0e4d8510fefc1e0b2d8e5ef92de6a5321bfa399c13d"
+      "gitBlob": "b8c42e58c85155a0158f83a8aeca2cb8601729d4",
+      "size": 16481,
+      "sha256": "fcbf496395ceffd1d3550b8b4cddadccfb63e79410b95ec9bf374e4abf5d861a"
     },
     {
       "path": "scripts/verify-oidc.cjs",
@@ -4011,6 +4053,20 @@
       "sha256": "5328e1ca3e422e2064fd4fb2f11e479b985de8fb211d9a6985372e22b835ea97"
     },
     {
+      "path": "tests/adult-tariffs-editor.php",
+      "mode": "100644",
+      "gitBlob": "e8c6b21828113f6e5964d856dd8fb065d8a239bd",
+      "size": 1627,
+      "sha256": "12bdb17cebdfdb9df8ebd4873b2e58e93f9232697d996b3e0e9d80df8d3c5b85"
+    },
+    {
+      "path": "tests/adult-tariffs.test.mjs",
+      "mode": "100644",
+      "gitBlob": "ec700b652f3dfb236ffba97698b0b4912e979a10",
+      "size": 3896,
+      "sha256": "a0a1d4782603d6fdf2f782485d60b2e90a7e36378d60845aa1dfcd474d945231"
+    },
+    {
       "path": "tests/apache-v1.conf",
       "mode": "100644",
       "gitBlob": "a9ff7c1fb30bbf6e72312962c84d343958d43189",
@@ -4279,9 +4335,9 @@
     {
       "path": "tests/officiel.test.mjs",
       "mode": "100644",
-      "gitBlob": "ce63722e1da94926fac7f2021a9e726ee24c12e2",
-      "size": 6510,
-      "sha256": "c9365e6cefef05664477aedf382fc59a4ddcdcec9f5f59f1f4072dd10a42028e"
+      "gitBlob": "d49f316e990317d27c49098bc5fb5986b6564814",
+      "size": 6820,
+      "sha256": "cce3f3cb9ec79200cb07522e04e1537c627e5f2b11f19e249ff7974752a74496"
     },
     {
       "path": "tests/oidc-client.test.mjs",
@@ -4487,5 +4543,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "22951255a6c4167a8c2d09a3120bbe0a50d8d2a9b78ec4a61c74941d62df43a8"
+  "artifactDigest": "15a79f502debb8e462b91217f62de88140edb6ebb48e02c325fb8af13b374030"
 }
