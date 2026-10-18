@@ -179,3 +179,15 @@ tcl_bureau.registration_recipe:
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Form\PublicRegistrationForm::access'
 
+
+tcl_bureau.account_invitation:
+  path: '/bureau/comptes/{user}/inviter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\AccountInvitationForm'
+    _title: 'Inviter le compte'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::accountAccess'
+  options:
+    parameters:
+      user:
+        type: entity:user

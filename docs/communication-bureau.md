@@ -20,7 +20,7 @@ Les cases **Site internet**, **Facebook** et **WhatsApp** sont indépendantes ; 
 
 Seul le choix Site internet permet l’action de publication et l’accès public au contenu ou au fichier. Facebook et WhatsApp restent manuels après validation : copier le texte, télécharger la pièce, puis joindre celle-ci et confirmer dans le service choisi. Le lien WhatsApp ne joint jamais le PDF. Les outils FFT historiques sont conservés dans un volet complémentaire fermé. Aucun envoi réel ni statut de livraison automatique.
 
-**Cadrage** : import PDF existant confirmé par le responsable. **Développement local** : implémenté, recette HTTP fictive et essai privé du PDF Halloween fourni. **Préproduction** : complément en préparation, ancien reçu de livraison conservé. **Mise en production** : exclue de cette demande.
+**Cadrage** : import PDF existant confirmé par le responsable. **Développement local** : implémenté, recette HTTP fictive et essai privé du PDF Halloween fourni. **Préproduction** : complément livré le 18 octobre à 23 h 23 (Paris), recette navigateur protégée encore attendue. **Mise en production** : exclue de cette demande.
 
 Le reçu du complément est [communication-pdf-canaux-verification.json](../data/communication-pdf-canaux-verification.json). Les observations ci-dessous du 5–12 octobre restent historiques ; le catalogue et le formulaire de recette ont depuis été livrés en préproduction, selon [leur reçu distinct](../data/v2-preproduction-livraison.json).
 

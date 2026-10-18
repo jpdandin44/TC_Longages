@@ -16,7 +16,7 @@ final class AccountForm extends FormBase {
 
   private ?int $userId = NULL;
 
-  public function __construct(private TeamRepository $repository) {}
+  public function __construct(protected TeamRepository $repository) {}
 
   public static function create(ContainerInterface $container) {
     return new static($container->get('tcl_bureau.repository'));
@@ -60,7 +60,7 @@ final class AccountForm extends FormBase {
       $form['identity'] = ['#type' => 'item', '#title' => 'Identifiant', '#plain_text' => $user->getAccountName()];
     }
     $form['mail'] = ['#type' => 'email', '#title' => 'Adresse de courriel', '#required' => TRUE, '#default_value' => $user?->getEmail() ?? ''];
-    $form['connection'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => 'La connexion passe par OAuth. L’administrateur doit associer l’identité autorisée à ce compte avant sa première utilisation. Aucun courriel automatique n’est envoyé.'];
+    $form['connection'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => 'Enregistrez le compte puis utilisez « Envoyer le lien de création du mot de passe ». L’invitation par courriel est réservée aux adresses autorisées en recette ; la connexion passe par OAuth.'];
     if ($admin) {
       $form['role'] = ['#type' => 'select', '#title' => 'Rôle', '#options' => ['tcl_capitaine' => 'Capitaine', 'tcl_bureau' => 'Bureau'], '#default_value' => $user?->hasRole('tcl_bureau') ? 'tcl_bureau' : 'tcl_capitaine'];
     }
@@ -70,6 +70,7 @@ final class AccountForm extends FormBase {
     $form['active'] = ['#type' => 'checkbox', '#title' => 'Compte actif', '#default_value' => $user?->isActive() ?? TRUE, '#description' => 'Décocher pour bloquer le compte et ses accès.'];
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['save'] = ['#type' => 'submit', '#value' => $user === NULL ? 'Créer le compte' : 'Enregistrer le compte'];
+    if ($user && $user->isActive()) { $form['invite'] = ['#type' => 'link', '#title' => 'Envoyer le lien de création du mot de passe', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.account_invitation', ['user' => $user->id()])]; }
     $form['actions']['cancel'] = ['#type' => 'link', '#title' => 'Retour aux comptes', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.accounts')];
     return $form;
   }
@@ -128,7 +129,7 @@ final class AccountForm extends FormBase {
     $form_state->getValue('active') ? $target->activate() : $target->block();
     $target->save();
     $this->messenger()->addStatus('Le compte est enregistré.');
-    $form_state->setRedirect('tcl_bureau.accounts');
+    $form_state->setRedirect('tcl_bureau.account_edit', ['user' => $target->id()]);
   }
 
 }

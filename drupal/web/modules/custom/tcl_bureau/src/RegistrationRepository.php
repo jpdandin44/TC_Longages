@@ -123,8 +123,8 @@ final class RegistrationRepository {
     }
     if (!$formula || empty($input['fictional_confirmation'])) { throw new \InvalidArgumentException('Choix de formule ou confirmation de recette invalide.'); }
     // Test-only conventions make accidental use of real contact details visible.
-    if (!str_starts_with((string) ($input['last_name'] ?? ''), 'Recette') || !str_ends_with((string) ($input['email'] ?? ''), '@example.invalid')) { throw new \InvalidArgumentException('Utilisez un nom commençant par Recette et un courriel @example.invalid.'); }
-    if (($input['profile'] ?? '') === 'minor' && (!str_starts_with((string) ($input['guardian_name'] ?? ''), 'Recette') || !str_ends_with((string) ($input['guardian_email'] ?? ''), '@example.invalid'))) { throw new \InvalidArgumentException('Le responsable fictif utilise aussi un nom Recette et un courriel @example.invalid.'); }
+    if (!str_starts_with((string) ($input['last_name'] ?? ''), 'Recette') || !RecipeMail::inputAllowed((string) ($input['email'] ?? ''))) { throw new \InvalidArgumentException('Utilisez un nom commençant par Recette et un courriel @example.invalid ou une adresse de recette autorisée.'); }
+    if (($input['profile'] ?? '') === 'minor' && (!str_starts_with((string) ($input['guardian_name'] ?? ''), 'Recette') || !RecipeMail::inputAllowed((string) ($input['guardian_email'] ?? '')))) { throw new \InvalidArgumentException('Le responsable fictif utilise aussi un nom Recette et un courriel @example.invalid ou une adresse de recette autorisée.'); }
     foreach (['phone', 'guardian_phone', 'emergency_phone'] as $field) {
       if (!empty($input[$field]) && $input[$field] !== '0600000000') { throw new \InvalidArgumentException('Téléphone de recette attendu : 0600000000, ou laissez vide.'); }
     }

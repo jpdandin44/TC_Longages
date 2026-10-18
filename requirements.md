@@ -568,3 +568,9 @@ Le [guide de présentation](docs/publier-demo-o2switch.md) décrit les opératio
 ## Suivi commun depuis le 4 octobre
 
 Présenter exactement quatre phases selon le skill commun. Regrouper les dossiers détaillés, conserver les anciens identifiants et critères, ne pas étendre les accords historiques. Les opérations distantes des phases 2 et 3 restent hors des boutons locaux de validation.
+
+## Besoin agenda enrichi — à cadrer
+
+Le responsable souhaite pouvoir créer les événements depuis un compte Bureau, afficher des miniatures des affiches, préparer leur diffusion et gérer les événements récurrents. Prévoir modification d’une occurrence ou de la série, exceptions et fuseau horaire. Fonctionnalités proposées, non implémentées ; source unique et articulation avec le calendrier actuel à déterminer. Préserver les partages manuels et la validation avant diffusion.
+
+La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.

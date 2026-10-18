@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\tcl_bureau\RegistrationRepository;
 use Drupal\tcl_bureau\SeasonCatalogue;
+use Drupal\tcl_bureau\RecipeMail;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
@@ -29,8 +30,11 @@ final class PublicRegistrationForm extends FormBase {
     $form['form_token'] = ['#type' => 'hidden', '#default_value' => \Drupal::service('csrf_token')->get('tcl_registration_recipe'), '#parents' => ['form_token']];
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
     $form['warning'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'RECETTE UNIQUEMENT — saisissez des informations fictives. Aucune adhésion, licence, réservation, facturation ou notification réelle. Les autorisations et textes définitifs seront complétés ensuite.'];
+    if (RecipeMail::settings()) { $form['warning']['#value'] = 'RECETTE — données personnelles fictives, courriel @example.invalid ou adresse de test autorisée. Le club reçoit un courriel réel de notification ; aucun accusé au demandeur. Aucune adhésion, licence, réservation ou facturation réelle. Textes et créneaux à compléter.'; }
     if ($form_state->get('done')) {
       $form['done'] = ['#plain_text' => 'La demande fictive a été reçue. Le Bureau peut la retrouver dans son suivi privé.'];
+      if ($form_state->get('mail_status') === 'accepted') { $form['mail'] = ['#plain_text' => 'Notification au club acceptée par le serveur d’envoi. Sa réception reste à vérifier.']; }
+      elseif (in_array($form_state->get('mail_status'), ['failed', 'pending'], TRUE)) { $form['mail'] = ['#plain_text' => 'Demande conservée, mais notification non confirmée. Contactez le Bureau sans redéposer la demande.']; }
       return $form;
     }
     $catalogue = $this->catalogue->published();
@@ -57,7 +61,7 @@ final class PublicRegistrationForm extends FormBase {
       }
       $rows[] = ['Disponibilités', ['data' => ['#plain_text' => implode(', ', $values['availability'] ?? []) ?: 'À compléter']]];
       $form['summary'] = ['#type' => 'table', '#header' => ['Votre demande fictive', 'Valeur'], '#rows' => $rows];
-      $form['fictional_confirmation'] = ['#type' => 'checkbox', '#title' => 'Je confirme que toutes ces données sont fictives et souhaite déposer ce test.', '#required' => TRUE];
+      $form['fictional_confirmation'] = ['#type' => 'checkbox', '#title' => 'Je confirme que les informations personnelles sont fictives, hors adresse de test autorisée, et souhaite déposer ce test.', '#required' => TRUE];
       $form['actions']['#type'] = 'actions';
       $form['actions']['send'] = ['#type' => 'submit', '#value' => 'Déposer la demande fictive', '#name' => 'send'];
       $form['actions']['back'] = ['#type' => 'submit', '#value' => 'Corriger', '#name' => 'back', '#limit_validation_errors' => [], '#submit' => ['::back']];
@@ -65,10 +69,10 @@ final class PublicRegistrationForm extends FormBase {
     }
     $values = $form_state->get('review_values') ?? [];
     $form['profile'] = ['#type' => 'select', '#title' => 'Profil', '#options' => ['adult' => 'Adulte', 'minor' => 'Mineur'], '#default_value' => $values['profile'] ?? 'adult'];
-    foreach (['first_name' => 'Prénom fictif', 'last_name' => 'Nom fictif (commence par Recette)', 'birth_date' => 'Date de naissance fictive', 'email' => 'Courriel fictif (@example.invalid)', 'phone' => 'Téléphone fictif (0600000000 ou vide)', 'address' => 'Adresse fictive', 'postal_code' => 'Code postal fictif', 'city' => 'Ville fictive', 'emergency_name' => 'Personne fictive à prévenir', 'emergency_phone' => 'Téléphone d’urgence fictif (0600000000 ou vide)', 'last_licence_year' => 'Dernière année de licence (facultatif)', 'practice_years' => 'Années de pratique (facultatif)'] as $key => $label) {
+    foreach (['first_name' => 'Prénom fictif', 'last_name' => 'Nom fictif (commence par Recette)', 'birth_date' => 'Date de naissance fictive', 'email' => 'Courriel de test (@example.invalid ou adresse autorisée)', 'phone' => 'Téléphone fictif (0600000000 ou vide)', 'address' => 'Adresse fictive', 'postal_code' => 'Code postal fictif', 'city' => 'Ville fictive', 'emergency_name' => 'Personne fictive à prévenir', 'emergency_phone' => 'Téléphone d’urgence fictif (0600000000 ou vide)', 'last_licence_year' => 'Dernière année de licence (facultatif)', 'practice_years' => 'Années de pratique (facultatif)'] as $key => $label) {
       $form[$key] = ['#type' => $key === 'birth_date' ? 'date' : ($key === 'email' ? 'email' : 'textfield'), '#title' => $label, '#maxlength' => 120, '#required' => in_array($key, ['first_name', 'last_name', 'birth_date', 'email']), '#default_value' => $values[$key] ?? ''];
     }
-    foreach (['guardian_name' => 'Nom du responsable fictif (commence par Recette)', 'guardian_email' => 'Courriel du responsable fictif (@example.invalid)', 'guardian_phone' => 'Téléphone du responsable fictif (0600000000 ou vide)'] as $key => $label) {
+    foreach (['guardian_name' => 'Nom du responsable fictif (commence par Recette)', 'guardian_email' => 'Courriel du responsable (@example.invalid ou adresse autorisée)', 'guardian_phone' => 'Téléphone du responsable fictif (0600000000 ou vide)'] as $key => $label) {
       $form[$key] = ['#type' => $key === 'guardian_email' ? 'email' : 'textfield', '#title' => $label, '#maxlength' => 120, '#default_value' => $values[$key] ?? '', '#states' => ['visible' => [':input[name="profile"]' => ['value' => 'minor']]]];
     }
     $options = [];
@@ -95,7 +99,7 @@ final class PublicRegistrationForm extends FormBase {
     $valid = FALSE;
     foreach ($form_state->get('catalogue')['formulas'] as $row) { if ($row['id'] === ($values['formula'] ?? '') && $row['profile'] === $values['profile']) { $valid = TRUE; } }
     if (!$valid) { $form_state->setErrorByName('formula', 'Choisissez une formule correspondant au profil.'); }
-    if (!str_starts_with((string) $values['last_name'], 'Recette') || !str_ends_with((string) $values['email'], '@example.invalid')) { $form_state->setErrorByName('last_name', 'Pour ce test : nom commençant par Recette et courriel @example.invalid.'); }
+    if (!str_starts_with((string) $values['last_name'], 'Recette') || !RecipeMail::inputAllowed((string) $values['email'])) { $form_state->setErrorByName('last_name', 'Pour ce test : nom commençant par Recette et courriel @example.invalid ou adresse de recette autorisée.'); }
     $values['availability'] = array_values(array_filter($values['availability'] ?? [], static fn($v) => $v !== 0 && $v !== '0'));
     $form_state->set('review_values', array_intersect_key($values, array_flip(array_merge(RegistrationRepository::FIELDS, ['availability']))));
   }
@@ -105,13 +109,14 @@ final class PublicRegistrationForm extends FormBase {
     $flood = \Drupal::service('flood');
     if (!$flood->isAllowed('tcl.registration.recipe', 20, 3600)) { $this->messenger()->addError('Trop de demandes de test. Réessayez plus tard.'); $form_state->setRebuild(); return; }
     try {
-      $this->repository->submitRecipe($this->currentUser(), $form_state->get('review_values') + ['fictional_confirmation' => $form_state->getValue('fictional_confirmation')], $form_state->get('submission'), $form_state->get('catalogue')['revision']);
+      $id = $this->repository->submitRecipe($this->currentUser(), $form_state->get('review_values') + ['fictional_confirmation' => $form_state->getValue('fictional_confirmation')], $form_state->get('submission'), $form_state->get('catalogue')['revision']);
     }
     catch (\InvalidArgumentException | ConflictHttpException $error) {
       $this->messenger()->addError($error->getMessage());
       $form_state->set('review', FALSE)->set('catalogue', NULL)->setRebuild();
       return;
     }
+    $form_state->set('mail_status', RecipeMail::registration($id));
     $flood->register('tcl.registration.recipe', 3600);
     $form_state->set('done', TRUE)->setRebuild();
   }

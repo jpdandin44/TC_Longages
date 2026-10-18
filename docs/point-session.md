@@ -14,7 +14,7 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Reprise du complément PDF et canaux
 
-Demande complémentaire : importer un PDF existant et choisir Site internet/Facebook/WhatsApp. Implémentation dans `feat/v2-recette`, sans génération de PDF. L’affiche Halloween fournie reste en brouillon privé local, sans validation, publication ni envoi. Contrôles et état de livraison dans [le reçu dédié](../data/communication-pdf-canaux-verification.json). Préproduction précédente conservée ; nouvelle migration `11003` à qualifier avant remplacement. Production exclue.
+Demande complémentaire : importer un PDF existant et choisir Site internet/Facebook/WhatsApp. Implémentation dans `feat/v2-recette`, sans génération de PDF. L’affiche Halloween fournie reste en brouillon privé local, sans validation, publication ni envoi. Contrôles et état de livraison dans [le reçu dédié](../data/communication-pdf-canaux-verification.json). Complément livré en préproduction avec migration `11003` ; reçu et récupération vérifiés. Production exclue.
 
 
 ## Reprise courante — V2 en préproduction, 18 octobre

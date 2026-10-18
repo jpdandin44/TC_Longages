@@ -18,7 +18,7 @@ tags:
 
 ## Complément actif — communication V2
 
-PDF existant et choix Site internet/Facebook/WhatsApp développés localement. Qualifier la nouvelle migration et le paquet exact avant préproduction. Recette du vrai Bureau toujours en attente de connexion ; aucune intervention en production. Voir [la communication](docs/communication-bureau.md).
+PDF existant et choix Site internet/Facebook/WhatsApp développés localement. Migration et paquet exact livrés en préproduction ; dix contrôles sur restauration privée réussis. Recette du vrai Bureau toujours en attente de connexion ; aucune intervention en production. Voir [la communication](docs/communication-bureau.md).
 
 
 Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
@@ -370,3 +370,9 @@ Les dates de livraison, la racine et la configuration Apache distantes ainsi que
 ## État observé le 4 octobre — quatre phases
 
 Le cockpit regroupe les anciens dossiers dans les quatre phases communes. La préproduction principale est configurée ; les fichiers Drupal sont transférés et vérifiés sous fermeture Apache. L’installation attend la connexion SQL applicative, puis la recette hébergée. Sauvegarde/restauration applicative, retour arrière et livraison sur le domaine officiel restent à qualifier.
+
+## Agenda enrichi — demande du 18 octobre
+
+Évolution proposée pour la suite V2, après les invitations et notifications : création/édition avec un compte Bureau, miniature d’affiche et PDF au clic, événements récurrents avec exceptions, préparation de diffusion depuis l’événement. Aucun envoi automatique Facebook/WhatsApp ni changement de production autorisé par cette idée. Le choix de la source unique des événements et le raccordement à l’agenda existant restent à cadrer avant développement.
+
+La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.

@@ -713,3 +713,7 @@ transforme aucune progression de phase en accord de déploiement ou d’ouvertur
 ## 18 octobre — livraison limitée des fonctions V2
 
 Pour la recette demandée, le paquet ne remplace que les deux modules métier concernés ; Core hébergé reste 11.4.8, OAuth 6.1.1. La compatibilité est vérifiée sur une restauration privée avant installation. Cela permet de préserver les dépendances et contenus hébergés ; la montée de Core vers le 11.4.10 local reste à qualifier séparément. La publication du catalogue conserve la garde OAuth Bureau existante et n’est pas forcée par l’opérateur de livraison.
+
+## Complément courriels de recette — 18 octobre
+
+Le 18 octobre, autoriser les courriels réels de recette uniquement pour les destinataires désignés en configuration privée et sur la préproduction TC. Conserver les informations personnelles fictives, le blocage du transport global et l’absence d’accusé au demandeur. Associer explicitement les comptes invités au fournisseur TC par UID et UUID, sans reconnaissance par email ; conserver le contrôle OAuth.

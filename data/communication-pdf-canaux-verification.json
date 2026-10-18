@@ -98,7 +98,43 @@
     "downloadBytesIdentical": true,
     "sha256": "eab78151d445050ad4191966093f3c400cd4193c03569ac60a3c146778c07e04"
   },
-  "preproductionInstalled": false,
+  "preproductionInstalled": true,
   "productionWritten": false,
-  "migration": 11003
+  "migration": 11003,
+  "delivery": {
+    "sourceSha": "2c137071e2e43ec38a70885ae34ca5a51b5b989c",
+    "artifactSha256": "72cafd03fed7966c5a70aa8a5884502dd69600b6bb906161d026365a3c1b82b8",
+    "files": 38,
+    "bytes": 85217,
+    "deliveredAt": "2026-10-18T21:23:57.420741+00:00",
+    "coreVersion": "11.4.8",
+    "migration": 11003,
+    "installedFilesVerified": 38,
+    "pagesPreserved": 7,
+    "usersPreserved": 4,
+    "registrationsPreserved": 1,
+    "existingPostsPreserved": true,
+    "cataloguePreserved": true,
+    "basicHttpStatus": 401,
+    "hostedBrowserRecipe": false,
+    "productionWritten": false
+  },
+  "backup": {
+    "id": "20261018T211324Z",
+    "restoration": "restore-b4_west1",
+    "filesVerified": 27447,
+    "tablesCompared": 62,
+    "identityFilesCompared": 5,
+    "privateRehearsalChecks": 10
+  },
+  "ci": {
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39167199514",
+    "technicalJobsPassed": 6,
+    "policy": "Four human attestations remain unchecked"
+  },
+  "documentation": {
+    "documentsChecked": 7,
+    "relativeLinksChecked": 327,
+    "foundationsPresent": true
+  }
 }

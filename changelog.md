@@ -14,12 +14,12 @@ tags:
 
 # Journal des évolutions
 
-## Complément V2 du 18 octobre — préparation locale
+## Complément V2 du 18 octobre — livré en préproduction
 
 - Import d’affiche PDF existante, téléchargement protégé et conservation du fichier original.
 - Choix des trois canaux, garde serveur de publication sur le site, partage manuel filtré.
 - Update additive `11003` et recette HTTP dédiée ; PDF fourni essayé en brouillon local privé.
-- Livraison de ce complément encore à qualifier séparément du catalogue/formulaire déjà installés.
+- Complément livré en préproduction, indépendamment du reçu historique catalogue/formulaire.
 
 
 Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
@@ -759,3 +759,7 @@ Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit
 - Quatre phases actives ; ancien découpage, décisions et libellés de critères conservés. Brouillon restitué sans confirmation automatique.
 - Archive Drupal et outils transférés, empreintes vérifiées sur le serveur ; 26 687 fichiers extraits et relus, racine Apache fermée.
 - Première installation arrêtée avant écriture des paramètres et de la base : connexion SQL applicative refusée (1045). Le mot de passe changé personnellement doit être synchronisé dans le fichier privé.
+
+## Complément courriels de recette — 18 octobre
+
+Développement local des invitations Bureau, du lien natif de création de mot de passe et des notifications de demande fictive au club. Contrôles locaux : 20 de service, 11 HTTP avec OAuth TC, 38 catalogue/formulaire, 18 première saisie du mot de passe. Installation et courriels hébergés encore à vérifier. Agenda enrichi et personnalisation ajoutés au cadrage V2, non développés.

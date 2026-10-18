@@ -63,3 +63,11 @@ Restent hors de ce lot : collecte réelle, textes définitifs, signature, règle
 ## État hébergé du 18 octobre
 
 Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Preuve structurée](../data/v2-preproduction-livraison.json).
+
+## Courriels réels de recette — 18 octobre
+
+Le responsable autorise des destinataires réels explicitement désignés en préproduction. Le réglage privé `tcl_bureau_recipe_mail` contient `enabled`, `allowed_recipients` et `registration_to` ; aucun destinataire personnel n’est versionné. Hors localhost et `preprod.tclongages.fr`, ce réglage est ignoré. Les informations personnelles restent fictives ; une adresse réelle est acceptée uniquement si elle est dans cette liste.
+
+Après dépôt réussi, une notification au club reprend le dossier fictif. Le demandeur ne reçoit pas d’accusé. Un verrou et un état privé par numéro de dossier empêchent les renvois sur double soumission ; un résultat incertain n’est pas réessayé automatiquement. L’enregistrement est conservé si le transport échoue. `accepted` signifie seulement acceptation par le serveur, jamais réception en boîte.
+
+Configurer uniquement `system.mail.interface.tcl_bureau_registration` et `tcl_bureau_account_invitation` sur `php_mail` pour la cible autorisée. Le transport global nul reste inchangé. En local, les essais utilisent `test_mail_collector` sans réseau. Le transport nul ne peut pas produire de réussite dans ces parcours.
