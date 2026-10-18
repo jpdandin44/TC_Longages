@@ -1,9 +1,9 @@
 {
   "checkedAt": "2026-10-18T20:34:56.101482+00:00",
   "iterationId": "tcl-v2-recette-20261018",
-  "status": "local_checks_passed_hosted_pending",
+  "status": "local_passed_scoped_preproduction_installed_browser_pending",
   "productionMutated": false,
-  "preproductionMutated": false,
+  "preproductionMutated": true,
   "phpIntegration": {
     "checkedAt": "2026-10-18T18:08:56+00:00",
     "scope": "isolated SQLite Drupal query and homepage render; no hosted qualification",
@@ -486,11 +486,11 @@
     "tests/season-catalogue-local.php": "a1569bf89dc236d41de8208d0e41ee65b6bc6a717943e294899329da9d6edad2"
   },
   "limitations": [
-    "No preproduction deployment or recipe completed",
     "Automatic news expiry not implemented; explicit withdrawal applies",
     "Hosted Core/OAuth verified in canonical inventory; full artifact identity remains unverified",
     "Real collection texts, authorizations and slots deferred by user; recipe only",
-    "Catalogue and public form hosted qualification pending"
+    "Catalogue and public form hosted qualification pending",
+    "Scoped preproduction installation verified; catalogue unpublished and protected browser recipe pending login"
   ],
   "documentation": {
     "checkedAt": "2026-10-18T20:35:30.926338+00:00",
@@ -737,5 +737,6 @@
       "horizontalOverflow": false,
       "desktop1280NotConfirmed": true
     }
-  }
+  },
+  "hostingDelivery": "data/v2-preproduction-livraison.json"
 }

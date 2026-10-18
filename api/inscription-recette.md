@@ -59,3 +59,7 @@ Pas de nouvelle table, rôle, compte ou secret. Le déploiement doit conserver l
 Les suites `tests/registration-recipe-http.py` et `tests/season-catalogue-local.php` testent le parcours, les droits, CSRF, doublons, révisions, instantanés et fermeture. Elles utilisent exclusivement la base loopback et des identités fictives. Elles sont raccordées à la CI Bureau/OAuth. Les résultats locaux ne constituent pas une recette de l'hébergement.
 
 Restent hors de ce lot : collecte réelle, textes définitifs, signature, règles de conservation, créneaux officiels, remises, paiements, import des fiches papier, XLS/CSV, constitution des groupes et affectations. Les contenus éditoriaux des sept pages gardent leur circuit existant ; ce catalogue ne constitue pas un nouvel éditeur de toutes les pages.
+
+## État hébergé du 18 octobre
+
+Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Preuve structurée](../data/v2-preproduction-livraison.json).

@@ -12,17 +12,9 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
-### Préproduction et libellé V2 — 18 octobre
+## Reprise courante — V2 en préproduction, 18 octobre
 
-Inventaire cPanel en lecture seule : Core 11.4.8 / OAuth 6.1.1 ; Flash News absent. Relevé et limites dans `docs/recette-v2.md`. Libellé V2 harmonisé « Cours Adultes compétition », 170 € inchangés. Aucun déploiement.
-
-
-## Reprise courante — V2, 18 octobre
-
-Catalogue saisonnier et formulaire de recette désormais réalisés : brouillon/publication, tarif figé au dépôt, adulte/mineur, contrôle des doublons, accès privé Bureau. 38 tests HTTP et 9 tests catalogue réussis ; 66 contrôles OAuth et 43 contrôles bandeau réussis. Fiches papier utilisées pour la structure seulement, aucune donnée réelle importée. Textes et créneaux différés sur instruction humaine. Voir [le contrat](../api/inscription-recette.md). Aucun remplacement hébergé effectué à ce stade.
-
-
-Utiliser `feat/v2-recette` et [le guide V2](recette-v2.md). Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Installation locale isolée terminée sur Core 11.4.10 ; aucun secret ni base V3 copié. Bandeau : 15 contrôles Drupal, 28 HTTP et revue 390/1280 pixels réussis ; OAuth : 66 contrôles réussis. La recette automatisée utilise uniquement des comptes fictifs. Inventaire authentifié effectué : Core 11.4.8 / OAuth 6.1.1, bandeau absent ; sauvegarde/restauration et livraison restent à réaliser. La production répond HTTP 200 au contrôle anonyme du jour ; aucun réglage changé.
+Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Guide et reprise](recette-v2.md), [preuve de livraison](../data/v2-preproduction-livraison.json), [contrat](../api/inscription-recette.md). Source livrée `e7ec6af`, paquet `b51144894adf…`. Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Les sections suivantes sont historiques.
 
 ## Reprise courante - action manuelle de production
 

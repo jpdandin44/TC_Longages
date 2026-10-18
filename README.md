@@ -15,6 +15,8 @@ tags:
 
 # Tennis Club de Longages
 
+Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
+
 ## V2 — recette des inscriptions
 
 Le catalogue et le formulaire de recette sont décrits dans [le contrat V2](api/inscription-recette.md). Ils sont fermés par défaut ; les textes et créneaux officiels restent à compléter. La production est exclue du lot courant.

@@ -16,6 +16,8 @@ tags:
 
 # Feuille de route
 
+Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
+
 ## V2 — catalogue et formulaire
 
 Catalogue et formulaire de recette implémentés localement ; qualifier tests, candidat, sauvegarde/restauration et installation préproduction. Compléter ensuite textes et créneaux ; aucune collecte réelle ou livraison production. [Contrat](api/inscription-recette.md).

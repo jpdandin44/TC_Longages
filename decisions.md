@@ -709,3 +709,7 @@ personnelle restent obligatoires. Les validations antérieures sans preuve de fu
 sont conservées comme historiques à requalifier ; aucune décision humaine n’est
 réécrite. Le moteur ne fusionne aucune PR, ne change aucun accès distant et ne
 transforme aucune progression de phase en accord de déploiement ou d’ouverture.
+
+## 18 octobre — livraison limitée des fonctions V2
+
+Pour la recette demandée, le paquet ne remplace que les deux modules métier concernés ; Core hébergé reste 11.4.8, OAuth 6.1.1. La compatibilité est vérifiée sur une restauration privée avant installation. Cela permet de préserver les dépendances et contenus hébergés ; la montée de Core vers le 11.4.10 local reste à qualifier séparément. La publication du catalogue conserve la garde OAuth Bureau existante et n’est pas forcée par l’opérateur de livraison.

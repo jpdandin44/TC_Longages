@@ -14,6 +14,8 @@ tags:
 
 # Journal des évolutions
 
+Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
+
 ## 2026-10-18 — Catalogue et formulaire de recette
 
 Catalogue saisonnier éditable au Bureau, publication explicite, table d’accueil et formulaire communs, saisie fictive en deux étapes, récapitulatif et conservation du tarif au dépôt. Champs complémentaires de contact d’urgence et expérience dans la fiche Bureau. Aucune importation des fiches reçues. [Contrat](api/inscription-recette.md).

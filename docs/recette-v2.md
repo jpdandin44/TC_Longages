@@ -24,14 +24,14 @@ Production V1, préproduction V2 en cours de finalisation, local V3. Les correct
 | --- | --- |
 | Cadrage | Découpage confirmé ; inventaire saisonnier ci-dessous. Composants hébergés identifiés par cPanel : Core 11.4.8, Simple OAuth 6.1.1 ; commit complet non déterminé. |
 | Développement local | Branche V2 isolée sur le socle corrigé ; bandeau de dernière actualité vérifié localement. Catalogue et formulaire fictif implémentés : 38 contrôles HTTP et 9 contrôles de catalogue réussis. Qualification hébergée encore attendue. |
-| Préproduction | Recette demandée sur la cible existante. Sauvegarde fraîche et restauration isolée, candidat exact et protections à vérifier avant remplacement. |
+| Préproduction | Paquet limité installé et empreintes vérifiées. Catalogue non publié ; accès Bureau/OAuth et recette navigateur en attente. |
 | Mise en production | Hors périmètre ; aucune écriture, fusion ou ouverture autorisée par ce lot. |
 
-## Inventaire hébergé du 18 octobre
+## Inventaire avant livraison du 18 octobre
 
-La racine du domaine préproduction est confirmée par cPanel. Le verrou Composer, les paquets installés et le code Core concordent : Drupal 11.4.8 et Simple OAuth 6.1.1. Les empreintes échantillonnées du Bureau correspondent au socle historique ; Flash News est absent. Le relevé canonique est [la vérification des environnements](../../competitions-capitaines/data/versions-environnements-verification.json). Aucun fichier hébergé ni contenu privé n’a été modifié ou importé. L’absence de dépôt Git hébergé et de manifeste complet empêche d’affirmer un commit déployé exact.
+La racine du domaine préproduction est confirmée par cPanel. Le verrou Composer, les paquets installés et le code Core concordent : Drupal 11.4.8 et Simple OAuth 6.1.1. Les empreintes échantillonnées du Bureau correspondent au socle historique ; Flash News est absent. Le relevé canonique est [la vérification des environnements](../../competitions-capitaines/data/versions-environnements-verification.json). Ce relevé initial précède la livraison décrite ci-dessous. L’absence de dépôt Git hébergé et de manifeste complet empêche d’affirmer un commit déployé exact.
 
-Les six contrôles techniques GitHub du candidat `92cfec3` sont réussis ; le contrôle policy échoue uniquement sur les quatre attestations humaines laissées non cochées. Ce résultat ne vaut ni recette hébergée ni autorisation de merge. Le passage de Core 11.4.8 à 11.4.10 doit conserver les contenus, comptes et réglages OAuth après sauvegarde et restauration isolée qualifiées.
+Les six contrôles techniques GitHub du candidat livré `e7ec6af` sont réussis ; le contrôle policy échoue uniquement sur les quatre attestations humaines laissées non cochées. Ce résultat ne vaut ni recette hébergée ni autorisation de merge. Le paquet limité conserve Core 11.4.8 ; sa compatibilité a été testée sur la copie restaurée. Le passage à 11.4.10 reste un lot distinct à qualifier.
 
 ## Bandeau d'actualité
 
@@ -83,3 +83,9 @@ La génération des pages V2 affiche « Cours Adultes compétition » à 170 €
 Le [contrat de recette](../api/inscription-recette.md) décrit les nouvelles routes, la source saisonnière, les instantanés, les garde-fous et les limites. Les fiches récentes ont été examinées pour leurs champs uniquement ; aucune donnée réelle importée. La demande autorise de compléter textes et créneaux ensuite.
 
 Contrôles complémentaires : `python -X utf8 tests/registration-recipe-http.py` (38), `php -c .local/drupal-tools/php.ini tests/season-catalogue-local.php` (9), `node scripts/build-season-seed.mjs --check`. Régression Node : 174 réussis, un test PHP initialement ignoré puis les quatre contrôles du fichier concerné réussis avec le bon fichier PHP ini. Formulaire et récapitulatif inspectés à 390 et 761 pixels effectifs, sans débordement ; 1280 pixels reste à confirmer pour ce formulaire.
+
+## Livraison de préproduction vérifiée
+
+Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Reçu de livraison](../data/v2-preproduction-livraison.json).
+
+Prochaine action : franchir l’accès préproduction puis OAuth sur `/bureau`, ouvrir `/bureau/saison`, publier explicitement le catalogue pour recette, tester `/adherer` avec des identités `Recette…` et des courriels `@example.invalid`. Aucun texte ni créneau définitif exigé pour ces tests. L’accès cPanel ne constitue pas une connexion au Bureau.
