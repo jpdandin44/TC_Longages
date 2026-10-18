@@ -32,6 +32,12 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP du bandeau échouée.' }
   & php -c .local/drupal-tools/php.ini tests/flash-news-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Intégration Drupal du bandeau échouée.' }
+  & node scripts/build-season-seed.mjs --check
+  if ($LASTEXITCODE -ne 0) { throw 'Catalogue initial incohérent.' }
+  & python -X utf8 tests/registration-recipe-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP inscriptions/catalogue échouée.' }
+  & php -c .local/drupal-tools/php.ini tests/season-catalogue-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Contrôles catalogue échoués.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Préparation du fournisseur TC échouée.' }
   if (Get-NetTCPConnection -LocalPort 4191 -State Listen -ErrorAction SilentlyContinue) { throw 'Port du fournisseur TC occupé ; aucun processus existant arrêté.' }

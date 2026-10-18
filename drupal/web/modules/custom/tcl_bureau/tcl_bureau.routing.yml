@@ -163,3 +163,19 @@ tcl_bureau.team_edit:
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::teamAccess'
     team: '\d+'
+tcl_bureau.seasons:
+  path: '/bureau/saison'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\SeasonCatalogueForm'
+    _title: 'Saison et tarifs'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Form\SeasonCatalogueForm::access'
+
+tcl_bureau.registration_recipe:
+  path: '/adherer'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\PublicRegistrationForm'
+    _title: 'Demande d’inscription — recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Form\PublicRegistrationForm::access'
+

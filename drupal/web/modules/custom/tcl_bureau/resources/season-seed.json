@@ -1,0 +1,67 @@
+{
+  "season": "2026-2027",
+  "formulas": [
+    {
+      "id": "mini-tennis",
+      "label": "Mini-Tennis (5-7 ans)",
+      "profile": "minor",
+      "amountCents": 11000
+    },
+    {
+      "id": "initiation",
+      "label": "Initiation (7-15 ans)",
+      "profile": "minor",
+      "amountCents": 13000
+    },
+    {
+      "id": "perfectionnement",
+      "label": "Perfectionnement (8-18 ans)",
+      "profile": "minor",
+      "amountCents": 13000
+    },
+    {
+      "id": "perfectionnement-plus",
+      "label": "Perfectionnement + (8-18 ans)",
+      "profile": "minor",
+      "amountCents": 13000
+    },
+    {
+      "id": "adhesion-jeunes",
+      "label": "Adhésion Jeunes (-18 ans hors école de tennis)",
+      "profile": "minor",
+      "amountCents": 4000
+    },
+    {
+      "id": "cours-adultes",
+      "label": "Cours Adultes",
+      "profile": "adult",
+      "amountCents": 15000
+    },
+    {
+      "id": "cours-adultes-competition",
+      "label": "Cours Adultes compétition",
+      "profile": "adult",
+      "amountCents": 17000
+    },
+    {
+      "id": "adulte-competition",
+      "label": "Adhésion Adulte compétition",
+      "profile": "adult",
+      "amountCents": 10000
+    },
+    {
+      "id": "adulte-loisirs",
+      "label": "Adhésion Adulte loisirs",
+      "profile": "adult",
+      "amountCents": 7000
+    },
+    {
+      "id": "pass-ete",
+      "label": "Pass été (Juin-Août)",
+      "profile": "adult",
+      "amountCents": 5000
+    }
+  ],
+  "slots": [],
+  "notice": ""
+}

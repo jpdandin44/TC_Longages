@@ -15,6 +15,11 @@ tags:
 
 # Exigences
 
+## Recette fictive confirmée le 18 octobre
+
+Le responsable demande de poursuivre catalogue et formulaire sans attendre les textes et créneaux définitifs. Utiliser uniquement des données fictives ; ne pas importer les fiches papier fournies pour information, ne pas ouvrir la collecte réelle et ne pas modifier la production. [Critères du lot](api/inscription-recette.md).
+
+
 ## V2 — reprise autorisée le 18 octobre
 
 Maintenir V1 en production, V2 en préproduction et V3 en développement séparé. Finaliser Bureau/adhérents/communication, formulaire public, bandeau et administration saisonnière. Préserver tarifs et saison des dossiers antérieurs. Production exclue des écritures ; aucune collecte réelle ni texte juridique inventé. [Critères et inconnues](docs/recette-v2.md).

@@ -14,6 +14,11 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-18 — Catalogue et formulaire de recette
+
+Catalogue saisonnier éditable au Bureau, publication explicite, table d’accueil et formulaire communs, saisie fictive en deux étapes, récapitulatif et conservation du tarif au dépôt. Champs complémentaires de contact d’urgence et expérience dans la fiche Bureau. Aucune importation des fiches reçues. [Contrat](api/inscription-recette.md).
+
+
 ### Préproduction et libellé V2 — 18 octobre
 
 Inventaire cPanel en lecture seule : Core 11.4.8 / OAuth 6.1.1 ; Flash News absent. Relevé et limites dans `docs/recette-v2.md`. Libellé V2 harmonisé « Cours Adultes compétition », 170 € inchangés. Aucun déploiement.

@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 /** Private Bureau records; no FFT enrolment, payment or message side effects. */
 final class RegistrationRepository {
   public const STATUSES = ['received' => 'Reçu', 'to_complete' => 'À compléter', 'checked' => 'Vérifié par le Bureau'];
-  public const FIELDS = ['profile', 'first_name', 'last_name', 'birth_date', 'season', 'email', 'phone', 'address', 'postal_code', 'city', 'guardian_name', 'guardian_email', 'guardian_phone', 'formula', 'training', 'previous_licence', 'licence_number', 'status', 'notes'];
+  public const FIELDS = ['profile', 'first_name', 'last_name', 'birth_date', 'season', 'email', 'phone', 'address', 'postal_code', 'city', 'guardian_name', 'guardian_email', 'guardian_phone', 'formula', 'training', 'previous_licence', 'licence_number', 'status', 'notes', 'emergency_name', 'emergency_phone', 'last_licence_year', 'practice_years'];
 
   public function __construct(private Connection $database, private TeamRepository $access) {}
 
@@ -86,6 +86,12 @@ final class RegistrationRepository {
         $errors[$field] = 'Adresse de courriel invalide.';
       }
     }
+    if (!empty($values['last_licence_year']) && (!preg_match('/^\d{4}$/D', $values['last_licence_year']) || (int) $values['last_licence_year'] > (int) date('Y'))) {
+      $errors['last_licence_year'] = 'Indiquez une année passée ou courante, ou laissez vide.';
+    }
+    if (!empty($values['practice_years']) && (!preg_match('/^\d{1,3}$/D', $values['practice_years']) || (int) $values['practice_years'] > 120)) {
+      $errors['practice_years'] = 'Indiquez un nombre d’années, ou laissez vide.';
+    }
     if (($values['profile'] ?? '') === 'minor') {
       if (empty($values['guardian_name'])) {
         $errors['guardian_name'] = 'Renseignez le responsable légal.';
@@ -102,6 +108,40 @@ final class RegistrationRepository {
 
   public function save(AccountInterface $actor, ?int $id, array $input, string $submission, int $revision): int {
     $this->guard($actor);
+    $metadata = $id !== NULL ? array_intersect_key($this->get($actor, $id)['values'] ?? [], array_flip(['catalogue_snapshot', 'origin', 'recipe', 'availability'])) : [];
+    return $this->persist($actor, $id, $input, $submission, $revision, $metadata);
+  }
+
+  /** A separate, disabled-by-default entry point; private Bureau guards remain intact. */
+  public function submitRecipe(AccountInterface $actor, array $input, string $submission, int $catalogueRevision): int {
+    if (!SeasonCatalogue::recipeEnabled()) { throw new AccessDeniedHttpException(); }
+    $catalogue = \Drupal::service('tcl_bureau.seasons')->published();
+    if (!$catalogue || $catalogue['revision'] !== $catalogueRevision) { throw new ConflictHttpException('Les tarifs ont changé. Rechargez le formulaire.'); }
+    $formula = NULL;
+    foreach ($catalogue['formulas'] as $row) {
+      if ($row['id'] === ($input['formula'] ?? '') && $row['profile'] === ($input['profile'] ?? '')) { $formula = $row; }
+    }
+    if (!$formula || empty($input['fictional_confirmation'])) { throw new \InvalidArgumentException('Choix de formule ou confirmation de recette invalide.'); }
+    // Test-only conventions make accidental use of real contact details visible.
+    if (!str_starts_with((string) ($input['last_name'] ?? ''), 'Recette') || !str_ends_with((string) ($input['email'] ?? ''), '@example.invalid')) { throw new \InvalidArgumentException('Utilisez un nom commençant par Recette et un courriel @example.invalid.'); }
+    if (($input['profile'] ?? '') === 'minor' && (!str_starts_with((string) ($input['guardian_name'] ?? ''), 'Recette') || !str_ends_with((string) ($input['guardian_email'] ?? ''), '@example.invalid'))) { throw new \InvalidArgumentException('Le responsable fictif utilise aussi un nom Recette et un courriel @example.invalid.'); }
+    foreach (['phone', 'guardian_phone', 'emergency_phone'] as $field) {
+      if (!empty($input[$field]) && $input[$field] !== '0600000000') { throw new \InvalidArgumentException('Téléphone de recette attendu : 0600000000, ou laissez vide.'); }
+    }
+    $date = \DateTimeImmutable::createFromFormat('!Y-m-d', (string) ($input['birth_date'] ?? ''));
+    if (!$date || (($date->diff(new \DateTimeImmutable('today'))->y < 18) !== (($input['profile'] ?? '') === 'minor'))) { throw new \InvalidArgumentException('Vérifiez le profil adulte/mineur et la date de naissance fictive.'); }
+    $availability = $input['availability'] ?? [];
+    if (!is_array($availability) || array_diff($availability, $catalogue['slots'])) { throw new \InvalidArgumentException('Disponibilités invalides.'); }
+    $input['season'] = $catalogue['season'];
+    $input['formula'] = $formula['label'];
+    $input['status'] = 'received';
+    $input['notes'] = '';
+    $input['licence_number'] = '';
+    $snapshot = ['season' => $catalogue['season'], 'revision' => $catalogue['revision'], 'formula' => $formula, 'currency' => 'EUR', 'notice' => $catalogue['notice']];
+    return $this->persist($actor, NULL, $input, $submission, 0, ['catalogue_snapshot' => $snapshot, 'origin' => 'web_recipe', 'recipe' => TRUE, 'availability' => $input['training'] === 'yes' ? array_values($availability) : []]);
+  }
+
+  private function persist(AccountInterface $actor, ?int $id, array $input, string $submission, int $revision, array $metadata = []): int {
     $values = [];
     foreach (self::FIELDS as $field) {
       $values[$field] = is_scalar($input[$field] ?? NULL) ? trim((string) $input[$field]) : '';
@@ -115,10 +155,10 @@ final class RegistrationRepository {
       }
     }
     $identity = hash('sha256', json_encode([mb_strtolower($values['first_name']), mb_strtolower($values['last_name']), $values['birth_date'], $values['season']], JSON_THROW_ON_ERROR));
-    $details = json_encode($values, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
+    $details = json_encode($values + $metadata, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
     $duplicate = $this->database->select('tcl_bureau_registration', 'r')->fields('r', ['id'])->condition('identity_key', $identity)->execute()->fetchField();
     if ($duplicate && (int) $duplicate !== $id) {
-      $old = $this->get($actor, (int) $duplicate);
+      $old = $this->database->select('tcl_bureau_registration', 'r')->fields('r', ['submission_key', 'details'])->condition('id', (int) $duplicate)->execute()->fetchAssoc();
       if ($old['submission_key'] === $submission && $old['details'] === $details) {
         return (int) $duplicate;
       }

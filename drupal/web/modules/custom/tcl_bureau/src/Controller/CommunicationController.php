@@ -135,6 +135,7 @@ final class CommunicationController extends ControllerBase {
   /** Add published news to the original club page without touching V1 files. */
   public function front(): Response {
     $response = (new ClubPageController())->front();
+    $response->setContent(\Drupal::service('tcl_bureau.seasons')->renderHomepage($response->getContent()));
     $url = Html::escape(Url::fromRoute('tcl_bureau.public_news')->toString());
     $posts = $this->repository->published();
     if ($posts) {

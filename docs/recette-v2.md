@@ -23,7 +23,7 @@ Production V1, préproduction V2 en cours de finalisation, local V3. Les correct
 | Phase | État et suite |
 | --- | --- |
 | Cadrage | Découpage confirmé ; inventaire saisonnier ci-dessous. Composants hébergés identifiés par cPanel : Core 11.4.8, Simple OAuth 6.1.1 ; commit complet non déterminé. |
-| Développement local | Branche V2 isolée sur le socle corrigé ; bandeau de dernière actualité vérifié localement. Formulaire public et administration saisonnière restent à développer. |
+| Développement local | Branche V2 isolée sur le socle corrigé ; bandeau de dernière actualité vérifié localement. Catalogue et formulaire fictif implémentés : 38 contrôles HTTP et 9 contrôles de catalogue réussis. Qualification hébergée encore attendue. |
 | Préproduction | Recette demandée sur la cible existante. Sauvegarde fraîche et restauration isolée, candidat exact et protections à vérifier avant remplacement. |
 | Mise en production | Hors périmètre ; aucune écriture, fusion ou ouverture autorisée par ce lot. |
 
@@ -41,10 +41,10 @@ Le libellé « Actualités du club » et l'extrait du texte sont les choix de r�
 
 ## Inventaire saisonnier constaté
 
-| Contenu | Source actuelle | Travail V2 restant |
+| Contenu | Source actuelle | État V2 et suite |
 | --- | --- | --- |
-| Saison et formules du dossier | Configuration `tcl_bureau.settings`, `RegistrationForm`, JSON privé du dossier | Catalogue publié commun et copie immuable du tarif au dépôt ; ne pas recalculer les dossiers anciens. |
-| Tableau public des tarifs | `scripts/tariffs.mjs`, transcription historique `data/tarifs-inscription.json`, correctif ciblé V1 distinct | Migration contrôlée vers un catalogue Drupal éditable au Bureau ; préserver le relevé PDF historique. |
+| Saison et formules du dossier | Catalogue privé `tcl_bureau.seasons`, instantané dans le JSON du dossier | Implémenté et testé localement ; installation hébergée à qualifier. |
+| Tableau public des tarifs | `scripts/tariffs.mjs`, transcription historique `data/tarifs-inscription.json`, correctif ciblé V1 distinct | Catalogue éditable au Bureau raccordé au tableau et au formulaire en mode recette ; PDF historique préservé. |
 | Textes et rubriques des sept pages | Entités Drupal éditoriales via `PublicPageEditor` | Inventorier les valeurs hébergées et raccordements Bureau ; préserver leurs révisions. |
 | Contacts, liens et paramètres publics | `config/officiel.json` et rubriques éditoriales | Séparer données publiables et réglages techniques ; aucune exposition de secrets. |
 | Actualités et événements | `tcl_bureau_post`, cycle explicite validation/publication | Bandeau réalisé ; échéance à préciser. |
@@ -55,7 +55,7 @@ Le libellé « Actualités du club » et l'extrait du texte sont les choix de r�
 
 - Vérifier le bandeau après création, validation seule, publication, modification, retrait et archive ; aucun brouillon exposé, liens utilisables et accents intacts.
 - Vérifier les droits OAuth Admin/Bureau/Capitaine et l'accès direct ; la nouvelle interface ne contourne aucun service privé.
-- Prévoir adulte/mineur, doublons, double clic, concurrence et conservation des anciens tarifs lors du développement du formulaire.
+- Rejouer en préproduction les contrôles adulte/mineur, doublons, double clic, concurrence et conservation des anciens tarifs déjà réussis localement.
 - Vérifier le rendu à 390 et 1280 pixels sur le candidat, puis sur la cible hébergée.
 
 Les tests, captures, empreintes et limites sont consignés dans `data/v2-recette-verification.json` une fois exécutés. Les résultats locaux ne qualifient pas la préproduction.
@@ -76,4 +76,10 @@ La recette CI existante `scripts/bureau-oauth-recette.ps1` exécute également l
 
 ## Libellé tarifaire V2
 
-La génération des pages V2 affiche « Cours Adultes compétition » à 170 €. Le correctif ponctuel V1, son reçu et les PDF historiques sont conservés. Aucun changement de montant ni de règle de cumul ; l’administration saisonnière et le formulaire public restent à réaliser.
+La génération des pages V2 affiche « Cours Adultes compétition » à 170 €. Le correctif ponctuel V1, son reçu et les PDF historiques sont conservés. Aucun changement de montant ni de règle de cumul ; le catalogue et le formulaire fictif sont désormais implémentés ; leur qualification hébergée reste à réaliser.
+
+## Catalogue et formulaire — poursuite du 18 octobre
+
+Le [contrat de recette](../api/inscription-recette.md) décrit les nouvelles routes, la source saisonnière, les instantanés, les garde-fous et les limites. Les fiches récentes ont été examinées pour leurs champs uniquement ; aucune donnée réelle importée. La demande autorise de compléter textes et créneaux ensuite.
+
+Contrôles complémentaires : `python -X utf8 tests/registration-recipe-http.py` (38), `php -c .local/drupal-tools/php.ini tests/season-catalogue-local.php` (9), `node scripts/build-season-seed.mjs --check`. Régression Node : 174 réussis, un test PHP initialement ignoré puis les quatre contrôles du fichier concerné réussis avec le bon fichier PHP ini. Formulaire et récapitulatif inspectés à 390 et 761 pixels effectifs, sans débordement ; 1280 pixels reste à confirmer pour ce formulaire.

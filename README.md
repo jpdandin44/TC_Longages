@@ -15,6 +15,11 @@ tags:
 
 # Tennis Club de Longages
 
+## V2 — recette des inscriptions
+
+Le catalogue et le formulaire de recette sont décrits dans [le contrat V2](api/inscription-recette.md). Ils sont fermés par défaut ; les textes et créneaux officiels restent à compléter. La production est exclue du lot courant.
+
+
 ## V2 — reprise du 18 octobre
 
 La branche dédiée `feat/v2-recette` prépare la finalisation V2 sur Drupal 11.4.10. Voir [le guide et les limites de recette](docs/recette-v2.md). Le suivi reste dans le checkout canonique `competitions-capitaines`; les copies de suivi héritées de main sont historiques.

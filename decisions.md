@@ -15,6 +15,11 @@ tags:
 
 # Décisions
 
+## 2026-10-18 — Catalogue publié et demandes fictives
+
+**Contexte :** poursuite explicitement demandée avant finalisation des contenus. **Décision :** activation privée de recette, catalogue publié distinct du brouillon, instantané tarifaire conservé dans chaque dossier. **Raison :** essayer le parcours sans convertir un brouillon en collecte réelle ni recalculer les anciens dossiers. **Conséquence :** données fictives exclusivement ; textes, créneaux et ouverture réelle restent ultérieurs. [Détail](api/inscription-recette.md).
+
+
 ## 2026-10-18 — Une version d’avance par environnement
 
 **Contexte :** demande explicite du responsable. **Décision :** V1 production, V2 préproduction, V3 local ; corrections V2 dans un checkout distinct. **Raison :** permettre la recette sans mélanger Compétitions V3. **Conséquence :** promotions après qualification et accords applicables ; aucune mutation de production pendant ce lot. La version exacte hébergée doit être constatée, pas déduite du numéro métier.

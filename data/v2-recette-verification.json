@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-18T18:09:59.955786+00:00",
+  "checkedAt": "2026-10-18T20:34:56.101482+00:00",
   "iterationId": "tcl-v2-recette-20261018",
   "status": "local_checks_passed_hosted_pending",
   "productionMutated": false,
@@ -473,28 +473,30 @@
     "scope": "local homepage banner only"
   },
   "files": {
-    "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php": "7caabfef1457701edab95763b86e3d485ae95e426e75b78b1c5de07c5e9eedc9",
+    "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php": "1f635fc37f04843a3aa02df4857ccdb410836822090d676a1731882d89c40db8",
     "tests/flash-news-local.php": "55c794158962d4c823a94d6a8195a9bb081c2f16839da26c3d03c4cc91714e7a",
     "tests/flash-news-http.py": "0c7f8c52f4aa5c5741b5a2cb77bcfe575fd8e292317f33ec21372a22ee3cd000",
     "tests/drupal-bureau-oauth-http.py": "d0d3de85bc8275b72bb7afd17d9564b4c8cd82c254f749460b4213ed380ffe87",
-    "scripts/bureau-oauth-recette.ps1": "9afda42b8ad08b103f6165426890c7b97a0f8f162f07454eff92cfbc27589378"
+    "scripts/bureau-oauth-recette.ps1": "54eb96a9d205688b32543fbf4ce7bc9b20b66c155d3b92f4a2443808b6d87e01",
+    "drupal/web/modules/custom/tcl_bureau/src/SeasonCatalogue.php": "ad52a805f0070a821efa113f0b77551a3986e7e711aad1fc1b51f0bc4ebd6a89",
+    "drupal/web/modules/custom/tcl_bureau/src/RegistrationRepository.php": "4c51c8d3dba098b37e383b1223462ab218b70e3323e5cbf6d89d77030b6b7497",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/PublicRegistrationForm.php": "0ae9a0221f6522cb949e042da5ea50eeb11ece37e812e5f3ab236bda69b18be1",
+    "drupal/web/modules/custom/tcl_bureau/src/Form/SeasonCatalogueForm.php": "121212244acc5d78eb898377ecfd0797e83a9720579fa078b8b52b84725e7a28",
+    "tests/registration-recipe-http.py": "b95897b971c707f08cca4c7c4ad75b6716e1601a6b5547a14e42ea58ff70a512",
+    "tests/season-catalogue-local.php": "a1569bf89dc236d41de8208d0e41ee65b6bc6a717943e294899329da9d6edad2"
   },
   "limitations": [
     "No preproduction deployment or recipe completed",
-    "Public registration and seasonal administration not implemented",
     "Automatic news expiry not implemented; explicit withdrawal applies",
-    "Hosted Core/OAuth verified in canonical inventory; full artifact identity remains unverified"
+    "Hosted Core/OAuth verified in canonical inventory; full artifact identity remains unverified",
+    "Real collection texts, authorizations and slots deferred by user; recipe only",
+    "Catalogue and public form hosted qualification pending"
   ],
   "documentation": {
-    "checkedAt": "2026-10-18T18:10:32.235174+00:00",
-    "documentsChecked": 16,
-    "existingRelativeLinks": 729,
-    "mandatoryFoundationsChecked": [
-      "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\v2-recette",
-      "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages\\.worktrees\\competitions-capitaines",
-      "C:\\Users\\examg\\Documents local\\Longages\\TC_Longages"
-    ],
-    "scope": "metadata and relative file targets, not anchors or remote links"
+    "checkedAt": "2026-10-18T20:35:30.926338+00:00",
+    "documentsChecked": 10,
+    "existingRelativeLinks": 463,
+    "scope": "Changed Markdown metadata and relative file links, mandatory foundations in three workspaces; anchors and remote links excluded"
   },
   "historicalHumanDecisionsAndOtherIterationsPreserved": true,
   "resolvedTestIssues": [
@@ -503,15 +505,14 @@
   ],
   "nodeRegression": {
     "suiteTests": 175,
-    "firstRunPassed": 171,
-    "firstRunFailed": 4,
-    "initialFailure": "Python interpreter without PyYAML",
-    "targetedRerunTests": 8,
-    "targetedRerunPassed": 8,
-    "unresolvedFailures": 0,
-    "method": "npm.cmd run check, then affected test files rerun using TCL_FRAMEWORK_PYTHON project venv"
+    "passed": 174,
+    "skipped": 1,
+    "failed": 0,
+    "targetedNativeTariffRerunPassed": 4,
+    "targetedNativeTariffRerunSkipped": 0,
+    "method": "npm.cmd run check; native tariff rerun with project PHP ini"
   },
-  "ciIntegration": "scripts/bureau-oauth-recette.ps1 runs both Flash News suites sequentially before switching OAuth provider",
+  "ciIntegration": "Sequential Flash News and catalogue/form suites in scripts/bureau-oauth-recette.ps1 before TC OAuth provider switch",
   "hostingInventory": "../competitions-capitaines/data/versions-environnements-verification.json",
   "tariffLabelVerification": {
     "checkedAt": "2026-10-18T20:02:57.013767+00:00",
@@ -520,5 +521,221 @@
     "tests": "10 distinct tariff/official checks passed; native PHP check rerun with project php.ini",
     "historicalSourcesChanged": false,
     "hostedChange": false
+  },
+  "catalogueAndRegistration": {
+    "http": {
+      "checkedAt": "2026-10-18T20:32:05.180396+00:00",
+      "scope": "isolated local HTTP, fictitious identities only",
+      "checks": [
+        {
+          "label": "Registration closed without recipe flag",
+          "passed": true
+        },
+        {
+          "label": "Bureau OAuth connects",
+          "passed": true
+        },
+        {
+          "label": "Captain OAuth connects",
+          "passed": true
+        },
+        {
+          "label": "Anonymous cannot mutate catalogue",
+          "passed": true
+        },
+        {
+          "label": "Captain cannot mutate catalogue",
+          "passed": true
+        },
+        {
+          "label": "Catalogue saves draft",
+          "passed": true
+        },
+        {
+          "label": "Bad catalogue CSRF rejected",
+          "passed": true
+        },
+        {
+          "label": "Catalogue publishes explicitly",
+          "passed": true
+        },
+        {
+          "label": "Stale catalogue cannot overwrite",
+          "passed": true
+        },
+        {
+          "label": "Published options visible",
+          "passed": true
+        },
+        {
+          "label": "Homepage uses same published catalogue",
+          "passed": true
+        },
+        {
+          "label": "Published notice escaped",
+          "passed": true
+        },
+        {
+          "label": "Missing slots explicit",
+          "passed": true
+        },
+        {
+          "label": "Anonymous form has CSRF token",
+          "passed": true
+        },
+        {
+          "label": "Token bound to initiating session",
+          "passed": true
+        },
+        {
+          "label": "Anonymous bad CSRF rejected",
+          "passed": true
+        },
+        {
+          "label": "Two-step summary shown",
+          "passed": true
+        },
+        {
+          "label": "Review does not persist",
+          "passed": true
+        },
+        {
+          "label": "Fictitious request accepted",
+          "passed": true
+        },
+        {
+          "label": "Double click produces one record",
+          "passed": true
+        },
+        {
+          "label": "Status and tariff set by server",
+          "passed": true
+        },
+        {
+          "label": "Recipe origin explicit",
+          "passed": true
+        },
+        {
+          "label": "Forged private notes ignored",
+          "passed": true
+        },
+        {
+          "label": "Bureau can process fictitious dossier",
+          "passed": true
+        },
+        {
+          "label": "Bureau edit preserves snapshot and recipe origin",
+          "passed": true
+        },
+        {
+          "label": "Separate duplicate submission rejected",
+          "passed": true
+        },
+        {
+          "label": "New draft leaves published price unchanged",
+          "passed": true
+        },
+        {
+          "label": "Homepage draft also stays private",
+          "passed": true
+        },
+        {
+          "label": "Stale registration requires refreshed catalogue",
+          "passed": true
+        },
+        {
+          "label": "Existing snapshot remains 70 euros",
+          "passed": true
+        },
+        {
+          "label": "Anonymous cannot read private record",
+          "passed": true
+        },
+        {
+          "label": "Captain cannot read private record",
+          "passed": true
+        },
+        {
+          "label": "Minor request reviewed",
+          "passed": true
+        },
+        {
+          "label": "Minor request persisted",
+          "passed": true
+        },
+        {
+          "label": "Minor requires guardian",
+          "passed": true
+        },
+        {
+          "label": "Formula must match profile",
+          "passed": true
+        },
+        {
+          "label": "Anonymous response is private and noindex",
+          "passed": true
+        },
+        {
+          "label": "Disabling flag closes existing session",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "integration": {
+      "checks": [
+        {
+          "label": "Ten initial formulas validate",
+          "passed": true
+        },
+        {
+          "label": "No slots or final notice invented",
+          "passed": true
+        },
+        {
+          "label": "Negative amount rejected",
+          "passed": true
+        },
+        {
+          "label": "Non integer amount rejected",
+          "passed": true
+        },
+        {
+          "label": "Duplicate formula rejected",
+          "passed": true
+        },
+        {
+          "label": "Invalid season rejected",
+          "passed": true
+        },
+        {
+          "label": "Duplicate slots rejected",
+          "passed": true
+        },
+        {
+          "label": "Oversized label rejected",
+          "passed": true
+        },
+        {
+          "label": "Production hostname always denied even with recipe flag",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "paperReference": {
+      "filesExamined": 4,
+      "personalDataImported": false,
+      "purpose": "field structure only; printed prices and address not adopted"
+    },
+    "visual": {
+      "scope": "local form and review",
+      "observedWidths": [
+        390,
+        761
+      ],
+      "horizontalOverflow": false,
+      "desktop1280NotConfirmed": true
+    }
   }
 }

@@ -16,6 +16,11 @@ tags:
 
 # Feuille de route
 
+## V2 — catalogue et formulaire
+
+Catalogue et formulaire de recette implémentés localement ; qualifier tests, candidat, sauvegarde/restauration et installation préproduction. Compléter ensuite textes et créneaux ; aucune collecte réelle ou livraison production. [Contrat](api/inscription-recette.md).
+
+
 ## V2 — travail courant
 
 Cadrage : inventaire saisonnier et versions. Développement local : bandeau réalisé, vérification en cours ; catalogue et formulaire à développer. Préproduction : qualifier le candidat et la sauvegarde/restauration avant installation. Mise en production : hors périmètre de cette demande. [Reprise détaillée](docs/recette-v2.md).

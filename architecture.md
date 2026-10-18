@@ -15,6 +15,11 @@ tags:
 
 # Architecture
 
+## Catalogue et inscriptions de recette
+
+Le catalogue saisonnier est conservé en base Drupal avec brouillon, publication et historique ; le dossier conserve un instantané tarifaire. Le formulaire en deux étapes rejoint le dépôt privé existant par une entrée serveur distincte, fermée par défaut. Le tableau d’accueil de recette utilise la même publication. [Contrat et stockage](api/inscription-recette.md).
+
+
 ## V2 — dernière publication sur l’accueil
 
 Le contrôleur Communication utilise une seule lecture du dépôt de publications pour le bandeau supérieur et les cinq titres existants. Filtrage publié/révision validée côté serveur, échappement du titre et de l’extrait, réponse non mise en cache. Pas de nouvelle table ni de changement du modèle OAuth. Voir [la recette](docs/recette-v2.md).

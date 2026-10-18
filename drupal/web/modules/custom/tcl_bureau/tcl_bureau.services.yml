@@ -1,4 +1,7 @@
 services:
+  tcl_bureau.seasons:
+    class: Drupal\tcl_bureau\SeasonCatalogue
+    arguments: ['@keyvalue', '@lock', '@tcl_bureau.repository']
   tcl_bureau.communication:
     class: Drupal\tcl_bureau\CommunicationRepository
     arguments: ['@database', '@tcl_bureau.repository']
