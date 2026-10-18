@@ -1,0 +1,104 @@
+{
+  "checkedAt": "2026-10-18T21:12:29.186257+00:00",
+  "scope": "Local HTTP with fictitious OAuth; import PDF only; no hosted proof",
+  "hostedVerified": false,
+  "checks": [
+    {
+      "label": "Bureau OAuth connects",
+      "passed": true
+    },
+    {
+      "label": "Three channel choices shown",
+      "passed": true
+    },
+    {
+      "label": "Empty selection rejected",
+      "passed": true
+    },
+    {
+      "label": "Unknown channel rejected",
+      "passed": true
+    },
+    {
+      "label": "WhatsApp-only draft saved",
+      "passed": true
+    },
+    {
+      "label": "Draft validates",
+      "passed": true
+    },
+    {
+      "label": "Only selected social action offered",
+      "passed": true
+    },
+    {
+      "label": "Direct site publication refused",
+      "passed": true
+    },
+    {
+      "label": "Private article remains absent",
+      "passed": true
+    },
+    {
+      "label": "PNG upload accepted",
+      "passed": true
+    },
+    {
+      "label": "PDF import accepted",
+      "passed": true
+    },
+    {
+      "label": "PDF original preserved with safe download headers",
+      "passed": true
+    },
+    {
+      "label": "PDF represented as a download link",
+      "passed": true
+    },
+    {
+      "label": "Invalid PDF rejected without losing previous file",
+      "passed": true
+    },
+    {
+      "label": "Oversized PDF rejected",
+      "passed": true
+    },
+    {
+      "label": "Channels can be changed",
+      "passed": true
+    },
+    {
+      "label": "Channel change resets approval",
+      "passed": true
+    },
+    {
+      "label": "Selected site can publish PDF",
+      "passed": true
+    },
+    {
+      "label": "Published PDF accessible",
+      "passed": true
+    },
+    {
+      "label": "Removing site withdraws immediately",
+      "passed": true
+    },
+    {
+      "label": "Stale revision cannot restore site",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "userPdf": {
+    "bytes": 2774793,
+    "pages": 1,
+    "localDraftOnly": true,
+    "published": false,
+    "sent": false,
+    "downloadBytesIdentical": true,
+    "sha256": "eab78151d445050ad4191966093f3c400cd4193c03569ac60a3c146778c07e04"
+  },
+  "preproductionInstalled": false,
+  "productionWritten": false,
+  "migration": 11003
+}

@@ -15,6 +15,11 @@ tags:
 
 # Architecture
 
+## Complément communication : PDF et canaux
+
+`tcl_bureau_post.channels` conserve les canaux choisis dans la révision d’actualité ; update additive `11003`, même définition en installation neuve. `image_data` accepte aussi le PDF original (8 Mo), sans table ni stockage public supplémentaire. Le contrôleur distingue le PDF du JPEG préparé et impose son téléchargement. Publication et lecture publique vérifient le canal site, le statut publié et la révision approuvée. Voir [le guide](docs/communication-bureau.md).
+
+
 ## Catalogue et inscriptions de recette
 
 Le catalogue saisonnier est conservé en base Drupal avec brouillon, publication et historique ; le dossier conserve un instantané tarifaire. Le formulaire en deux étapes rejoint le dépôt privé existant par une entrée serveur distincte, fermée par défaut. Le tableau d’accueil de recette utilise la même publication. [Contrat et stockage](api/inscription-recette.md).

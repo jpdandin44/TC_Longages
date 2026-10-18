@@ -14,6 +14,14 @@ tags:
 
 # Journal des évolutions
 
+## Complément V2 du 18 octobre — préparation locale
+
+- Import d’affiche PDF existante, téléchargement protégé et conservation du fichier original.
+- Choix des trois canaux, garde serveur de publication sur le site, partage manuel filtré.
+- Update additive `11003` et recette HTTP dédiée ; PDF fourni essayé en brouillon local privé.
+- Livraison de ce complément encore à qualifier séparément du catalogue/formulaire déjà installés.
+
+
 Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
 
 ## 2026-10-18 — Catalogue et formulaire de recette

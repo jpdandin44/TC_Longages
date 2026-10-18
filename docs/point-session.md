@@ -12,6 +12,11 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
+## Reprise du complément PDF et canaux
+
+Demande complémentaire : importer un PDF existant et choisir Site internet/Facebook/WhatsApp. Implémentation dans `feat/v2-recette`, sans génération de PDF. L’affiche Halloween fournie reste en brouillon privé local, sans validation, publication ni envoi. Contrôles et état de livraison dans [le reçu dédié](../data/communication-pdf-canaux-verification.json). Préproduction précédente conservée ; nouvelle migration `11003` à qualifier avant remplacement. Production exclue.
+
+
 ## Reprise courante — V2 en préproduction, 18 octobre
 
 Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Guide et reprise](recette-v2.md), [preuve de livraison](../data/v2-preproduction-livraison.json), [contrat](../api/inscription-recette.md). Source livrée `e7ec6af`, paquet `b51144894adf…`. Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Les sections suivantes sont historiques.

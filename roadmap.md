@@ -16,6 +16,11 @@ tags:
 
 # Feuille de route
 
+## Complément actif — communication V2
+
+PDF existant et choix Site internet/Facebook/WhatsApp développés localement. Qualifier la nouvelle migration et le paquet exact avant préproduction. Recette du vrai Bureau toujours en attente de connexion ; aucune intervention en production. Voir [la communication](docs/communication-bureau.md).
+
+
 Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
 
 ## V2 — catalogue et formulaire

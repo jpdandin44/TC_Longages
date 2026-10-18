@@ -25,7 +25,7 @@ def run():
     path = '/bureau/communication/ajouter'
     values = {'title': 'Rencontre du club — exemple fictif ' + secrets.token_hex(4),
               'category': 'club', 'body': 'Une actualité fictive pour vérifier le bandeau. <script>alert(1)</script>',
-              'link': '', 'image_alt': '', 'tenup_visible': 'no'}
+              'link': '', 'image_alt': '', 'tenup_visible': 'no', 'channels[site]': 'site', 'channels[facebook]': 'facebook', 'channels[whatsapp]': 'whatsapp'}
     check('Anonymous cannot create news', anonymous.get(path, values)[0] == 403)
     check('Captain cannot create news', captain.get(path, values)[0] == 403)
     response = bureau.form(path, values)

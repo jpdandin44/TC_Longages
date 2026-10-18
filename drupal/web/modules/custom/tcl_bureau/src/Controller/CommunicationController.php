@@ -11,6 +11,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\tcl_bureau\CommunicationRepository;
+use Drupal\tcl_bureau\CommunicationImage;
 use Drupal\tcl_site\Controller\ClubPageController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,8 +51,12 @@ final class CommunicationController extends ControllerBase {
     $build = $this->shell();
     $build['state'] = ['#plain_text' => 'État : ' . CommunicationRepository::STATUSES[$row['status']] . ' — Révision ' . $row['revision']];
     $build['edit'] = Link::fromTextAndUrl('Modifier le brouillon', Url::fromRoute('tcl_bureau.communication_edit', ['post' => $post]))->toRenderable();
+    $selectedChannels = explode(',', $row['channels']);
+    $build['channels'] = ['#plain_text' => 'Canaux choisis : ' . implode(', ', array_intersect_key(CommunicationRepository::CHANNELS, array_flip($selectedChannels)))];
     $build['preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-preview-grid']]];
-    foreach (['Site', 'Facebook', 'WhatsApp', 'ADOC'] as $channel) {
+    $build['fft'] = ['#type' => 'details', '#title' => 'Outils FFT complémentaires (saisie manuelle)', '#open' => FALSE];
+    foreach (['site' => 'Site', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'adoc' => 'ADOC'] as $key => $channel) {
+      if ($key !== 'adoc' && !in_array($key, $selectedChannels, TRUE)) { continue; }
       $card = ['#type' => 'html_tag', '#tag' => 'section', '#attributes' => ['class' => ['tcl-preview-card']], 'heading' => ['#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Aperçu ' . $channel], 'content' => $this->article($row, FALSE)];
       if ($channel === 'ADOC') {
         $text = self::message($row, FALSE);
@@ -59,9 +64,11 @@ final class CommunicationController extends ControllerBase {
         $length = strlen(mb_convert_encoding($text, 'UTF-16LE', 'UTF-8')) / 2;
         $card['limit'] = ['#plain_text' => $length . ' / 2 000 caractères — Visible sur Ten’Up : ' . ($row['tenup_visible'] === 'yes' ? 'Oui' : 'Non') . ($length > 2000 ? '. Contenu trop long pour ADOC : raccourcissez-le avant saisie.' : '')];
       }
-      $build['preview'][$channel] = $card;
+      if ($channel === 'ADOC') { $build['fft']['preview'] = $card; }
+      else { $build['preview'][$channel] = $card; }
     }
     $actions = ['draft' => ['validate' => 'Valider cette actualité'], 'validated' => ['publish' => 'Publier sur le site'], 'published' => ['withdraw' => 'Retirer du site']][$row['status']] ?? [];
+    if (!in_array('site', $selectedChannels, TRUE)) { unset($actions['publish']); }
     $actions['archive'] = 'Archiver';
     foreach ($actions as $action => $label) {
       $build[$action] = Link::fromTextAndUrl($label, Url::fromRoute('tcl_bureau.communication_action', ['post' => $post, 'action' => $action]))->toRenderable();
@@ -71,11 +78,13 @@ final class CommunicationController extends ControllerBase {
       $build['sharing']['help'] = ['#plain_text' => 'Choisissez le destinataire et confirmez l’envoi dans le service. L’affiche doit être jointe manuellement. Une ouverture ne confirme aucune livraison.'];
       $build['sharing']['text'] = ['#type' => 'textarea', '#title' => 'Message à copier', '#value' => self::message($row), '#attributes' => ['readonly' => 'readonly'], '#rows' => 6];
       foreach (['WhatsApp' => 'https://wa.me/?text=' . rawurlencode(self::message($row)), 'Facebook du club' => 'https://www.facebook.com/tc.longages.31', 'ADOC' => 'https://adoc.app.fft.fr/adoc/', 'Ten’Up du club' => 'https://tenup.fft.fr/club/60310230'] as $label => $url) {
+        if (($label === 'WhatsApp' && !in_array('whatsapp', $selectedChannels, TRUE)) || ($label === 'Facebook du club' && !in_array('facebook', $selectedChannels, TRUE))) { continue; }
         if ($label === 'ADOC' && strlen(mb_convert_encoding(self::message($row, FALSE), 'UTF-16LE', 'UTF-8')) / 2 > 2000) {
           $build['sharing']['ADOC'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Préparation ADOC indisponible : contenu supérieur à 2 000 caractères.'];
           continue;
         }
-        $build['sharing'][$label] = Link::fromTextAndUrl('Ouvrir ' . $label . ' ↗', Url::fromUri($url, ['attributes' => ['target' => '_blank', 'rel' => 'noopener noreferrer', 'referrerpolicy' => 'no-referrer']]))->toRenderable();
+        $target = in_array($label, ['ADOC', 'Ten’Up du club'], TRUE) ? 'fft' : 'sharing';
+        $build[$target][$label] = Link::fromTextAndUrl('Ouvrir ' . $label . ' ↗', Url::fromUri($url, ['attributes' => ['target' => '_blank', 'rel' => 'noopener noreferrer', 'referrerpolicy' => 'no-referrer']]))->toRenderable();
       }
       if ($row['image_data'] !== '') {
         $build['sharing']['poster'] = Link::fromTextAndUrl('Télécharger l’affiche préparée', Url::fromRoute('tcl_bureau.communication_image', ['post' => $post], ['query' => ['download' => 1]]))->toRenderable();
@@ -102,6 +111,10 @@ final class CommunicationController extends ControllerBase {
   private function imageResponse(?array $row): Response {
     if (!$row || $row['image_data'] === '') {
       throw new NotFoundHttpException();
+    }
+    $asPdf = CommunicationImage::isPdf($row['image_data']);
+    if ($asPdf) {
+      return new Response($row['image_data'], 200, ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'attachment; filename="affiche-club-' . (int) $row['id'] . '.pdf"', 'X-Content-Type-Options' => 'nosniff', 'Content-Security-Policy' => "sandbox; default-src 'none'", 'Cache-Control' => 'private, no-store']);
     }
     $headers = ['Content-Type' => 'image/jpeg', 'X-Content-Type-Options' => 'nosniff', 'Cache-Control' => 'private, no-store'];
     if (\Drupal::request()->query->get('download') === '1') {
@@ -167,6 +180,9 @@ final class CommunicationController extends ControllerBase {
     $build = ['#type' => 'html_tag', '#tag' => 'article', 'category' => ['#plain_text' => CommunicationRepository::CATEGORIES[$row['category']]], 'title' => ['#type' => 'html_tag', '#tag' => 'h3', '#value' => Html::escape($row['title'])], 'body' => ['#type' => 'container', '#attributes' => ['class' => ['tcl-post-body']], 'text' => ['#plain_text' => $row['body']]]];
     if (!empty($row['image_data'])) {
       $build['image'] = ['#theme' => 'image', '#uri' => Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']], ['query' => ['v' => $row['revision']]])->toString(), '#alt' => $row['image_alt'], '#attributes' => ['class' => ['tcl-post-image']]];
+    }
+    if (!empty($row['image_data']) && CommunicationImage::isPdf($row['image_data'])) {
+      $build['image'] = Link::fromTextAndUrl('Télécharger l’affiche PDF — ' . $row['image_alt'], Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']]))->toRenderable();
     }
     if ($row['link'] !== '') {
       $build['link'] = Link::fromTextAndUrl('Consulter le lien utile ↗', Url::fromUri($row['link'], ['attributes' => ['target' => '_blank', 'rel' => 'noopener noreferrer']]))->toRenderable();

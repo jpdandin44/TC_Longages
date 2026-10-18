@@ -104,6 +104,7 @@ function tcl_bureau_post_schema(): array {
       'category' => ['type' => 'varchar', 'length' => 20, 'not null' => TRUE],
       'body' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
       'link' => ['type' => 'varchar', 'length' => 1000, 'not null' => TRUE],
+      'channels' => ['type' => 'varchar', 'length' => 40, 'not null' => TRUE, 'default' => 'site,facebook,whatsapp'],
       'tenup_visible' => ['type' => 'varchar', 'length' => 3, 'not null' => TRUE, 'default' => 'no'],
       'image_alt' => ['type' => 'varchar', 'length' => 240, 'not null' => TRUE],
       'image_data' => ['type' => 'blob', 'size' => 'big', 'not null' => TRUE],
@@ -133,4 +134,13 @@ function tcl_bureau_update_11001(): string {
     $role->grantPermission('manage tcl communication')->save();
   }
   return 'Communication ajoutée ; dossiers et comptes existants conservés.';
+}
+
+/** Preserve the former three channels for existing news. */
+function tcl_bureau_update_11003(): string {
+  $schema = \Drupal::database()->schema();
+  if (!$schema->fieldExists('tcl_bureau_post', 'channels')) {
+    $schema->addField('tcl_bureau_post', 'channels', tcl_bureau_post_schema()['fields']['channels']);
+  }
+  return 'Canaux de communication ajoutés ; publications existantes conservées.';
 }

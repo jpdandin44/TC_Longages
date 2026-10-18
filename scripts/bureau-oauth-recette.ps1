@@ -30,6 +30,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP OAuth échouée.' }
   & python -X utf8 tests/flash-news-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP du bandeau échouée.' }
+  & python -X utf8 tests/communication-pdf-channels-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette PDF et canaux échouée.' }
   & php -c .local/drupal-tools/php.ini tests/flash-news-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Intégration Drupal du bandeau échouée.' }
   & node scripts/build-season-seed.mjs --check

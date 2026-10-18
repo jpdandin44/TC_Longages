@@ -15,6 +15,11 @@ tags:
 
 # Exigences
 
+## Communication V2 — complément demandé le 18 octobre
+
+Importer une affiche PDF existante, choisir indépendamment Site internet/Facebook/WhatsApp et conserver validation puis action de publication distinctes. Les réseaux restent en partage manuel ; le PDF se joint dans le service choisi. Aucun export d’affiche créée par le Bureau n’est demandé. Une modification des canaux ou du fichier exige une nouvelle validation. Recette privée uniquement, production exclue.
+
+
 ## Recette fictive confirmée le 18 octobre
 
 Le responsable demande de poursuivre catalogue et formulaire sans attendre les textes et créneaux définitifs. Utiliser uniquement des données fictives ; ne pas importer les fiches papier fournies pour information, ne pas ouvrir la collecte réelle et ne pas modifier la production. [Critères du lot](api/inscription-recette.md).

@@ -12,6 +12,19 @@ tags: [communication, drupal, bureau, validation, actualites]
 
 # Communication du Bureau
 
+## Complément courant — PDF et canaux
+
+L’actualité accepte désormais une affiche PDF existante (8 Mo maximum), en alternative à une image. Le PDF est conservé intégralement, métadonnées comprises, en base privée ; il est servi uniquement en pièce jointe téléchargeable, avec `nosniff`, `no-store` et CSP sandbox. Les contrôles portent sur la taille, la signature, le type MIME et la fin du fichier : ils ne constituent ni une analyse antivirus ni une réécriture du document. Aucun convertisseur PDF, éditeur d’affiche ou export image-vers-PDF n’est ajouté.
+
+Les cases **Site internet**, **Facebook** et **WhatsApp** sont indépendantes ; au moins une est requise. Un nouveau brouillon propose seulement Site internet par défaut. Les anciennes actualités conservent les trois possibilités par l’update additive `11003`, sans changer leur état ou leur révision. Toute modification du choix retire la publication et invalide l’approbation, comme les autres modifications.
+
+Seul le choix Site internet permet l’action de publication et l’accès public au contenu ou au fichier. Facebook et WhatsApp restent manuels après validation : copier le texte, télécharger la pièce, puis joindre celle-ci et confirmer dans le service choisi. Le lien WhatsApp ne joint jamais le PDF. Les outils FFT historiques sont conservés dans un volet complémentaire fermé. Aucun envoi réel ni statut de livraison automatique.
+
+**Cadrage** : import PDF existant confirmé par le responsable. **Développement local** : implémenté, recette HTTP fictive et essai privé du PDF Halloween fourni. **Préproduction** : complément en préparation, ancien reçu de livraison conservé. **Mise en production** : exclue de cette demande.
+
+Le reçu du complément est [communication-pdf-canaux-verification.json](../data/communication-pdf-canaux-verification.json). Les observations ci-dessous du 5–12 octobre restent historiques ; le catalogue et le formulaire de recette ont depuis été livrés en préproduction, selon [leur reçu distinct](../data/v2-preproduction-livraison.json).
+
+
 ## Bandeau V2 — 18 octobre
 
 La dernière publication apparaît désormais en tête du contenu principal. Voir [le fonctionnement, les contrôles et limites](recette-v2.md) et [le reçu](../data/v2-recette-verification.json). Le retrait explicite reste nécessaire ; aucune expiration automatique ajoutée.

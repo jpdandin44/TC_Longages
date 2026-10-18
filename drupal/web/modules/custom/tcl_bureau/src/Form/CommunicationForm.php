@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final class CommunicationForm extends FormBase {
   private ?int $postId = NULL;
 
-  public function __construct(private CommunicationRepository $repository) {}
+  public function __construct(protected CommunicationRepository $repository) {}
 
   public static function create(ContainerInterface $container) {
     return new static($container->get('tcl_bureau.communication'));
@@ -39,19 +39,23 @@ final class CommunicationForm extends FormBase {
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/communication';
     $form['#cache']['max-age'] = 0;
-    $form['intro'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Enregistrez un brouillon, relisez les aperçus, validez puis publiez sur le site. Toute modification enregistrée retire la publication et demande une nouvelle validation.'];
+    $form['intro'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Enregistrez un brouillon, relisez les aperçus, validez puis utilisez les canaux choisis. Toute modification enregistrée retire la publication et demande une nouvelle validation.'];
     $form['submission_key'] = ['#type' => 'hidden', '#default_value' => $record['submission_key'] ?? bin2hex(random_bytes(16))];
     $form['revision'] = ['#type' => 'hidden', '#default_value' => $record['revision'] ?? 0];
     $form['title'] = ['#type' => 'textfield', '#title' => 'Titre', '#required' => TRUE, '#required_error' => 'Le titre est obligatoire.', '#maxlength' => 160, '#default_value' => $record['title'] ?? ''];
     $form['category'] = ['#type' => 'select', '#title' => 'Catégorie', '#options' => CommunicationRepository::CATEGORIES, '#default_value' => $record['category'] ?? 'club'];
+    $form['channels'] = ['#type' => 'checkboxes', '#title' => 'Canaux de publication', '#options' => CommunicationRepository::CHANNELS, '#default_value' => explode(',', $record['channels'] ?? 'site'), '#description' => 'Choisissez au moins un canal. Facebook et WhatsApp : partage manuel après validation. Enregistrer ne publie rien.'];
     $form['body'] = ['#type' => 'textarea', '#title' => 'Texte de l’actualité', '#description' => '5 000 caractères maximum. Facultatif si une affiche est jointe.', '#default_value' => $record['body'] ?? ''];
     $form['link'] = ['#type' => 'url', '#title' => 'Lien utile', '#maxlength' => 1000, '#description' => 'Facultatif. Une adresse HTTPS complète.', '#default_value' => $record['link'] ?? ''];
-    $form['poster'] = ['#type' => 'file', '#title' => 'Image ou affiche', '#description' => 'JPEG, PNG ou WebP, 8 Mo maximum. Une copie JPEG de 1 600 pixels et 500 ko maximum sera enregistrée.', '#attributes' => ['accept' => 'image/jpeg,image/png,image/webp']];
+    $form['poster'] = ['#type' => 'file', '#title' => 'Image ou affiche', '#description' => 'PDF, JPEG, PNG ou WebP, 8 Mo maximum. PDF conservé pour téléchargement ; images préparées en JPEG de 1 600 pixels et 500 ko maximum.', '#attributes' => ['accept' => 'application/pdf,image/jpeg,image/png,image/webp']];
     if (!empty($record['image_data'])) {
       $form['current_image'] = ['#theme' => 'image', '#uri' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId], ['query' => ['v' => $record['revision']]])->toString(), '#alt' => $record['image_alt'], '#attributes' => ['class' => ['tcl-post-image']]];
-      $form['remove_image'] = ['#type' => 'checkbox', '#title' => 'Retirer l’image actuelle'];
+      if (CommunicationImage::isPdf($record['image_data'])) {
+        $form['current_image'] = ['#type' => 'link', '#title' => 'Télécharger l’affiche PDF actuelle', '#url' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId])];
+      }
+      $form['remove_image'] = ['#type' => 'checkbox', '#title' => 'Retirer l’affiche actuelle'];
     }
-    $form['image_alt'] = ['#type' => 'textfield', '#title' => 'Description de l’image', '#maxlength' => 240, '#description' => 'Obligatoire quand une image est jointe.', '#default_value' => $record['image_alt'] ?? ''];
+    $form['image_alt'] = ['#type' => 'textfield', '#title' => 'Description de l’affiche', '#maxlength' => 240, '#description' => 'Obligatoire quand une affiche est jointe.', '#default_value' => $record['image_alt'] ?? ''];
     $form['tenup_visible'] = ['#type' => 'radios', '#title' => 'ADOC — Visible sur Ten’Up', '#options' => ['no' => 'Non', 'yes' => 'Oui'], '#default_value' => $record['tenup_visible'] ?? 'no', '#description' => 'Choix à reporter manuellement dans ADOC ; aucune modification de visibilité FFT depuis ce formulaire.'];
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['save'] = ['#type' => 'submit', '#value' => 'Enregistrer le brouillon'];
@@ -78,6 +82,8 @@ final class CommunicationForm extends FormBase {
       $form_state->setErrorByName('poster', 'Choisissez entre remplacer l’image et la retirer.');
     }
     $hasImage = !$form_state->getValue('remove_image') && ($image !== NULL || !empty($record['image_data']));
+    $selected = array_values(array_filter((array) $form_state->getValue('channels', [])));
+    $form_state->setValue('channels', implode(',', $selected));
     $values = $form_state->getValues();
     foreach (CommunicationRepository::FIELDS as $field) {
       if (is_scalar($values[$field] ?? NULL)) {
@@ -87,12 +93,15 @@ final class CommunicationForm extends FormBase {
     foreach ($this->repository->validate($values, $hasImage) as $field => $message) {
       $form_state->setErrorByName($field, $message);
     }
+    $form_state->setValue('channels', $selected);
     $form_state->set('prepared_poster', $image);
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    $values = $form_state->getValues();
+    $values['channels'] = implode(',', array_values(array_filter((array) ($values['channels'] ?? []))));
     try {
-      $id = $this->repository->save($this->currentUser(), $this->postId, $form_state->getValues(), (string) $form_state->getValue('submission_key'), (int) $form_state->getValue('revision'), $form_state->get('prepared_poster'), (bool) $form_state->getValue('remove_image'));
+      $id = $this->repository->save($this->currentUser(), $this->postId, $values, (string) $form_state->getValue('submission_key'), (int) $form_state->getValue('revision'), $form_state->get('prepared_poster'), (bool) $form_state->getValue('remove_image'));
     }
     catch (ConflictHttpException $error) {
       $this->messenger()->addError($error->getMessage());
