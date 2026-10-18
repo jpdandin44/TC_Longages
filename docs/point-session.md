@@ -19,7 +19,7 @@ Inventaire cPanel en lecture seule : Core 11.4.8 / OAuth 6.1.1 ; Flash News abse
 
 ## Reprise courante — V2, 18 octobre
 
-Utiliser `feat/v2-recette` et [le guide V2](recette-v2.md). Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Installation locale isolée terminée sur Core 11.4.10 ; aucun secret ni base V3 copié. Bandeau : 15 contrôles Drupal, 28 HTTP et revue 390/1280 pixels réussis ; OAuth : 66 contrôles réussis. La recette automatisée utilise uniquement des comptes fictifs. Vérification hébergée authentifiée en attente de connexion cPanel. La production répond HTTP 200 au contrôle anonyme du jour ; aucun réglage changé.
+Utiliser `feat/v2-recette` et [le guide V2](recette-v2.md). Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Installation locale isolée terminée sur Core 11.4.10 ; aucun secret ni base V3 copié. Bandeau : 15 contrôles Drupal, 28 HTTP et revue 390/1280 pixels réussis ; OAuth : 66 contrôles réussis. La recette automatisée utilise uniquement des comptes fictifs. Inventaire authentifié effectué : Core 11.4.8 / OAuth 6.1.1, bandeau absent ; sauvegarde/restauration et livraison restent à réaliser. La production répond HTTP 200 au contrôle anonyme du jour ; aucun réglage changé.
 
 ## Reprise courante - action manuelle de production
 
