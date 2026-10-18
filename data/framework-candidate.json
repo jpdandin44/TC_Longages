@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "819bd73c7125cc4e1d238a5550b5874ed024639b",
+  "sourceCommit": "923fb281fa61dec69c072914b3faade5e7b7d936",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -968,9 +968,9 @@
     {
       "path": "data/v2-recette-verification.json",
       "mode": "100644",
-      "gitBlob": "fd9fcc397d5cffa563b617326cdabb00f5701e6d",
-      "size": 13118,
-      "sha256": "42a2635073d32332aade3e33b529ad042c8493b4e7d118977608b668cab58e6e"
+      "gitBlob": "46cfdf6a8c25e14390fdae1bdde2fcfc377941eb",
+      "size": 13354,
+      "sha256": "1efd002b73401290564ad42969fe1c46021e10786214e76d5c1aa6bbcb83831f"
     },
     {
       "path": "decisions.md",
@@ -1227,9 +1227,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "2b2f922ac4d78fed4b461802e6b3100062d16703",
-      "size": 6011,
-      "sha256": "d6de008d3100de200f6a664a4464b020b67fffc8e96f189dfc47852ac332d34c"
+      "gitBlob": "18ae9ec0a6fe77ba4a004498c3b6da1033908ca3",
+      "size": 6202,
+      "sha256": "8e1520ea3b6ff359faa452665ac6a3b19eddcc82ae0a2defff9c7f8a97aef05f"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -3390,9 +3390,9 @@
     {
       "path": "scripts/bureau-oauth-recette.ps1",
       "mode": "100644",
-      "gitBlob": "9fa25e272ae42ec0ea2dfb15de78df6f11a0b80d",
-      "size": 3703,
-      "sha256": "4b3ddb5c6642eb497cec178a8a920338845861317109e049c83e7391de0121da"
+      "gitBlob": "3ba9ce58fc2fb0b5a38b8c1c02f767122e06e641",
+      "size": 3968,
+      "sha256": "f73b49b3b7b5c94aa4552ed1580dd5c93932e05c0d76995b95fb07a25e769216"
     },
     {
       "path": "scripts/calendar-embed.mjs",
@@ -4571,5 +4571,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "11150bcf421f3cfb8671687bd372427f21eea0efdde6ccdfe0252d4e7902e1f7"
+  "artifactDigest": "c22652a56fea9d02815691f723a47b42073cbd715a4966df3444bc51b11e19a7"
 }
