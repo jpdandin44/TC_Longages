@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "923fb281fa61dec69c072914b3faade5e7b7d936",
+  "sourceCommit": "c644571a99de437ec873890c7d6c60ae8d6de4ac",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -254,9 +254,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "9613a60d1bcaaaaca64a926be4744f236df6cb4c",
-      "size": 59687,
-      "sha256": "22511652c3299d196b3cc516918deb0608391021ea74ced1d9dc0d4b25e73e45"
+      "gitBlob": "68a06515af7e6f51a5767de428ece2b59638bdcb",
+      "size": 59966,
+      "sha256": "b616c0b71a7122392c17a1af0e2acf38f2f58a2e72f6aede0568ae70c6053665"
     },
     {
       "path": "config/agenda-local.json",
@@ -898,9 +898,9 @@
     {
       "path": "data/officiel-manifest.json",
       "mode": "100644",
-      "gitBlob": "fe0f45c38e051bf7a6c8a42eb29294fa81c3d3a8",
+      "gitBlob": "af6c62b18079ecdc36f1a15aebdf8ff79121c2bf",
       "size": 1478,
-      "sha256": "eb679dac944782b5db26a4855e852034efdc3c1b15416f0f6cc0963be5098364"
+      "sha256": "7cf25bccd11cc39633cfe32f97a7260faadb8a7cb7af0f39e87e3bae4119e859"
     },
     {
       "path": "data/officiel-sources.json",
@@ -968,9 +968,9 @@
     {
       "path": "data/v2-recette-verification.json",
       "mode": "100644",
-      "gitBlob": "46cfdf6a8c25e14390fdae1bdde2fcfc377941eb",
-      "size": 13354,
-      "sha256": "1efd002b73401290564ad42969fe1c46021e10786214e76d5c1aa6bbcb83831f"
+      "gitBlob": "8be799043fb1e7e8dbf942492e4a77894c69a3d3",
+      "size": 13818,
+      "sha256": "052cbf20d7b48cda9216c4481d0a12392a841a409340dbc13878cff3cd995cc4"
     },
     {
       "path": "decisions.md",
@@ -1129,9 +1129,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "77724ba58a90885dc957bddbc3c34b10196daba6",
-      "size": 92918,
-      "sha256": "4197bbe498414ed949d3c1048e761b3a33959295c4b7e521186b088722e3020b"
+      "gitBlob": "cd9121cb51cd8d4cf08959d12a016d1152e966ea",
+      "size": 93197,
+      "sha256": "bbf0a19ecedb8b92bc3703415633121f9dc31bbd1a4c69a8b3e853d971384532"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1227,9 +1227,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "18ae9ec0a6fe77ba4a004498c3b6da1033908ca3",
-      "size": 6202,
-      "sha256": "8e1520ea3b6ff359faa452665ac6a3b19eddcc82ae0a2defff9c7f8a97aef05f"
+      "gitBlob": "cfe1c66984b59c473cc708c68319239d65a56d4b",
+      "size": 7596,
+      "sha256": "8028ab859ec631111bfc59fb3408f1da4096d124fe8d9ab116b2d9d488bdd53b"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -3313,9 +3313,9 @@
     {
       "path": "scripts/adult-tariffs.mjs",
       "mode": "100644",
-      "gitBlob": "a83cb2c285e5ae1c9bf2446eb68f6315182a2116",
-      "size": 2167,
-      "sha256": "288bfec4c6ad0773c90f3f50e4035b0ee3a42cfc7908659559c3c29479e3ef25"
+      "gitBlob": "1906a94465afbb4f45634887dedbe321a1720026",
+      "size": 2390,
+      "sha256": "4c3c8ba838420c8852d39ac8d2614f448e3933f524c86ec0a61ff628151a634b"
     },
     {
       "path": "scripts/agenda-local.mjs",
@@ -4363,9 +4363,9 @@
     {
       "path": "tests/officiel.test.mjs",
       "mode": "100644",
-      "gitBlob": "d49f316e990317d27c49098bc5fb5986b6564814",
+      "gitBlob": "aa7652ce4abb386d1502f8a097a17f61ad7fd06c",
       "size": 6820,
-      "sha256": "cce3f3cb9ec79200cb07522e04e1537c627e5f2b11f19e249ff7974752a74496"
+      "sha256": "2dee69870aacdc891542d6ef26c47a31a3d3bb21c4adacd201326f69a79d73b6"
     },
     {
       "path": "tests/oidc-client.test.mjs",
@@ -4571,5 +4571,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "c22652a56fea9d02815691f723a47b42073cbd715a4966df3444bc51b11e19a7"
+  "artifactDigest": "ef81ec26cb4b811c4aa8bd2c95fca858086fb663b127834f9914d2e1a9c10cdc"
 }
