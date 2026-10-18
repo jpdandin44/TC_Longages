@@ -22,10 +22,16 @@ Production V1, préproduction V2 en cours de finalisation, local V3. Les correct
 
 | Phase | État et suite |
 | --- | --- |
-| Cadrage | Découpage confirmé ; inventaire saisonnier ci-dessous. Version hébergée exacte encore à relire avec accès authentifié. |
+| Cadrage | Découpage confirmé ; inventaire saisonnier ci-dessous. Composants hébergés identifiés par cPanel : Core 11.4.8, Simple OAuth 6.1.1 ; commit complet non déterminé. |
 | Développement local | Branche V2 isolée sur le socle corrigé ; bandeau de dernière actualité vérifié localement. Formulaire public et administration saisonnière restent à développer. |
 | Préproduction | Recette demandée sur la cible existante. Sauvegarde fraîche et restauration isolée, candidat exact et protections à vérifier avant remplacement. |
 | Mise en production | Hors périmètre ; aucune écriture, fusion ou ouverture autorisée par ce lot. |
+
+## Inventaire hébergé du 18 octobre
+
+La racine du domaine préproduction est confirmée par cPanel. Le verrou Composer, les paquets installés et le code Core concordent : Drupal 11.4.8 et Simple OAuth 6.1.1. Les empreintes échantillonnées du Bureau correspondent au socle historique ; Flash News est absent. Le relevé canonique est [la vérification des environnements](../../competitions-capitaines/data/versions-environnements-verification.json). Aucun fichier hébergé ni contenu privé n’a été modifié ou importé. L’absence de dépôt Git hébergé et de manifeste complet empêche d’affirmer un commit déployé exact.
+
+Les six contrôles techniques GitHub du candidat `92cfec3` sont réussis ; le contrôle policy échoue uniquement sur les quatre attestations humaines laissées non cochées. Ce résultat ne vaut ni recette hébergée ni autorisation de merge. Le passage de Core 11.4.8 à 11.4.10 doit conserver les contenus, comptes et réglages OAuth après sauvegarde et restauration isolée qualifiées.
 
 ## Bandeau d'actualité
 
@@ -67,3 +73,7 @@ Lancer le serveur Drupal en boucle locale au port 4186 et le fournisseur fictif 
 Le test du Bureau accepte maintenant le préfixe `/fr` des routes localisées. La recette HTTP du bandeau archive ses exemples ; l'exemple visuel reste une donnée fictive locale. Aucun de ces helpers n'est destiné à l'hébergement.
 
 La recette CI existante `scripts/bureau-oauth-recette.ps1` exécute également les deux nouveaux tests du bandeau avant de changer de fournisseur OAuth. Aucun workflow de livraison activé.
+
+## Libellé tarifaire V2
+
+La génération des pages V2 affiche « Cours Adultes compétition » à 170 €. Le correctif ponctuel V1, son reçu et les PDF historiques sont conservés. Aucun changement de montant ni de règle de cumul ; l’administration saisonnière et le formulaire public restent à réaliser.

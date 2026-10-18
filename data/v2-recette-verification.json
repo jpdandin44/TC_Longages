@@ -480,10 +480,10 @@
     "scripts/bureau-oauth-recette.ps1": "9afda42b8ad08b103f6165426890c7b97a0f8f162f07454eff92cfbc27589378"
   },
   "limitations": [
-    "Exact hosted version requires authenticated inventory",
     "No preproduction deployment or recipe completed",
     "Public registration and seasonal administration not implemented",
-    "Automatic news expiry not implemented; explicit withdrawal applies"
+    "Automatic news expiry not implemented; explicit withdrawal applies",
+    "Hosted Core/OAuth verified in canonical inventory; full artifact identity remains unverified"
   ],
   "documentation": {
     "checkedAt": "2026-10-18T18:10:32.235174+00:00",
@@ -511,5 +511,14 @@
     "unresolvedFailures": 0,
     "method": "npm.cmd run check, then affected test files rerun using TCL_FRAMEWORK_PYTHON project venv"
   },
-  "ciIntegration": "scripts/bureau-oauth-recette.ps1 runs both Flash News suites sequentially before switching OAuth provider"
+  "ciIntegration": "scripts/bureau-oauth-recette.ps1 runs both Flash News suites sequentially before switching OAuth provider",
+  "hostingInventory": "../competitions-capitaines/data/versions-environnements-verification.json",
+  "tariffLabelVerification": {
+    "checkedAt": "2026-10-18T20:02:57.013767+00:00",
+    "label": "Cours Adultes compétition",
+    "amountCents": 17000,
+    "tests": "10 distinct tariff/official checks passed; native PHP check rerun with project php.ini",
+    "historicalSourcesChanged": false,
+    "hostedChange": false
+  }
 }

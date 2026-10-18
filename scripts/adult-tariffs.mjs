@@ -18,6 +18,9 @@ export function correctedTariffs(source = tariffs, correction = adultTariffCorre
 }
 
 export const officialTariffs = correctedTariffs();
+// V2 presentation only: retain the V1 correction and historical PDF sources.
+officialTariffs.groups.flatMap(group => group.rows)
+  .find(row => row.id === 'cours-adultes-competition').label = 'Cours Adultes compétition';
 
 export function adultTariffPatch() {
   return {

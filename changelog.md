@@ -14,6 +14,11 @@ tags:
 
 # Journal des évolutions
 
+### Préproduction et libellé V2 — 18 octobre
+
+Inventaire cPanel en lecture seule : Core 11.4.8 / OAuth 6.1.1 ; Flash News absent. Relevé et limites dans `docs/recette-v2.md`. Libellé V2 harmonisé « Cours Adultes compétition », 170 € inchangés. Aucun déploiement.
+
+
 ## 2026-10-18 — Reprise V2 isolée
 
 Branche dédiée depuis main corrigé, sans Compétitions. Ajout du bandeau de dernière actualité publiée et test d’intégration Drupal avec retour transactionnel. Inventaire saisonnier et limites de recette documentés ; aucune livraison distante à ce stade.
