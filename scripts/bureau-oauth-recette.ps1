@@ -28,6 +28,10 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Démarrage Drupal échoué.' }
   & python -X utf8 tests/drupal-bureau-oauth-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP OAuth échouée.' }
+  & python -X utf8 tests/flash-news-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP du bandeau échouée.' }
+  & php -c .local/drupal-tools/php.ini tests/flash-news-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Intégration Drupal du bandeau échouée.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Préparation du fournisseur TC échouée.' }
   if (Get-NetTCPConnection -LocalPort 4191 -State Listen -ErrorAction SilentlyContinue) { throw 'Port du fournisseur TC occupé ; aucun processus existant arrêté.' }

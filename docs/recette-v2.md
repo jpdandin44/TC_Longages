@@ -65,3 +65,5 @@ Lancer le serveur Drupal en boucle locale au port 4186 et le fournisseur fictif 
 - `php -c .local/drupal-tools/php.ini tests/flash-news-local.php` : 15 contrôles avec transaction annulée.
 
 Le test du Bureau accepte maintenant le préfixe `/fr` des routes localisées. La recette HTTP du bandeau archive ses exemples ; l'exemple visuel reste une donnée fictive locale. Aucun de ces helpers n'est destiné à l'hébergement.
+
+La recette CI existante `scripts/bureau-oauth-recette.ps1` exécute également les deux nouveaux tests du bandeau avant de changer de fournisseur OAuth. Aucun workflow de livraison activé.

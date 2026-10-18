@@ -476,7 +476,8 @@
     "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php": "7caabfef1457701edab95763b86e3d485ae95e426e75b78b1c5de07c5e9eedc9",
     "tests/flash-news-local.php": "55c794158962d4c823a94d6a8195a9bb081c2f16839da26c3d03c4cc91714e7a",
     "tests/flash-news-http.py": "0c7f8c52f4aa5c5741b5a2cb77bcfe575fd8e292317f33ec21372a22ee3cd000",
-    "tests/drupal-bureau-oauth-http.py": "d0d3de85bc8275b72bb7afd17d9564b4c8cd82c254f749460b4213ed380ffe87"
+    "tests/drupal-bureau-oauth-http.py": "d0d3de85bc8275b72bb7afd17d9564b4c8cd82c254f749460b4213ed380ffe87",
+    "scripts/bureau-oauth-recette.ps1": "9afda42b8ad08b103f6165426890c7b97a0f8f162f07454eff92cfbc27589378"
   },
   "limitations": [
     "Exact hosted version requires authenticated inventory",
@@ -509,5 +510,6 @@
     "targetedRerunPassed": 8,
     "unresolvedFailures": 0,
     "method": "npm.cmd run check, then affected test files rerun using TCL_FRAMEWORK_PYTHON project venv"
-  }
+  },
+  "ciIntegration": "scripts/bureau-oauth-recette.ps1 runs both Flash News suites sequentially before switching OAuth provider"
 }
