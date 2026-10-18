@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "f11fe659616ab1f032e3da81d145f72edfffb46f",
+  "sourceCommit": "2013e94f15f3b1163ed23ffd08454cc80412b442",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -156,9 +156,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "785e702414277aaa519a33bdd29305c8cb130001",
-      "size": 56905,
-      "sha256": "a13e7df9f865098601bee8aa5215ab29037cae6090fed22f0107139a4d558d5b"
+      "gitBlob": "ab9bb50f4d7154488e349d13d46b7c7b84769cd0",
+      "size": 57178,
+      "sha256": "57424327e4cd5a4745fc0c9cd6dc0b6077a83d465c45beb5c99ed049504457d2"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -226,9 +226,9 @@
     {
       "path": "api/inscription-recette.md",
       "mode": "100644",
-      "gitBlob": "99e77916483e2c9613c949ec6e4baac7342b9f7a",
-      "size": 7023,
-      "sha256": "7f5d26ab38dcfb87cebce22e9a8f8c2ff032978bb5ded3b8d5ea767e9ef826ba"
+      "gitBlob": "0ebc4850782af8f91a85e210f999189845bd711a",
+      "size": 7730,
+      "sha256": "8829dc3d7db478a510e88419f0fe5cdba22f6fa671a6d0c1e22af1d2d2b7a6ab"
     },
     {
       "path": "api/production-adapter.md",
@@ -261,9 +261,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "c749931e5a6d3ad6a0d9ff368a446fb89587f7b3",
-      "size": 60374,
-      "sha256": "fa7ef60d5f478eaf65b1b0d4f48aab02a83153f972b72a370dd6fc88ab3b3a75"
+      "gitBlob": "2a37a11de04464a0df3800677e1fbf92a7d96bf1",
+      "size": 60647,
+      "sha256": "52e37b0344a3ede9dffcf6839706a6699e1e43139d504087f8d98159aa7c3043"
     },
     {
       "path": "config/agenda-local.json",
@@ -973,18 +973,25 @@
       "sha256": "97c597f2e16d38353cf91cb1a5b3e3aafc7d3b8a68f08a8db7f183808ca4941c"
     },
     {
+      "path": "data/v2-preproduction-livraison.json",
+      "mode": "100644",
+      "gitBlob": "f283721334b4bea1ace1a52990de6f7dc2350adf",
+      "size": 3104,
+      "sha256": "b23af9f99c4f6455026bc24940e3487059afd968a1fe769fa4e8430324fb7091"
+    },
+    {
       "path": "data/v2-recette-verification.json",
       "mode": "100644",
-      "gitBlob": "c547ab61bd401d067e2fd55d9b466d1b92830d58",
-      "size": 19704,
-      "sha256": "a149382cc17447e9907adedb958dabafcd685bcbf0b70df396c679c70281bd14"
+      "gitBlob": "7b11b186d9334901d389933fdddac71a53e1c546",
+      "size": 19850,
+      "sha256": "3aa4b0926cc8e3262dfb1375b04eea53e7bfbaf1c95a0e340e93d84f55fcf8a3"
     },
     {
       "path": "decisions.md",
       "mode": "100644",
-      "gitBlob": "a12633ab5096c2fd026c942b15d72864dd74a927",
-      "size": 61050,
-      "sha256": "73a2a514e2107445a735878abaa9cbe8efa84d4ced98400459422ab6ac48c744"
+      "gitBlob": "cca67839dd1c484f770a44673f124889f230b126",
+      "size": 61588,
+      "sha256": "fc7f341b5e9b25f1a8bf2974da125a53f8b9e30d06e104246b5e39020101b61c"
     },
     {
       "path": "docs/acces-bureau.md",
@@ -1136,9 +1143,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "cd6090fecdb0a0de5bf3108011246a2e34b77877",
-      "size": 93792,
-      "sha256": "67bae5c47b7fd61091820896220d72c1ff5005e83b2b75783f90277f1acf9ae9"
+      "gitBlob": "bd370c3f245ed2d61c8d2bdbd6a33431d57e2d4b",
+      "size": 93301,
+      "sha256": "c13da55f5941812e533ae050d1ad2bd8de2d9bddf8a25a35ebf782fd1d4ca9d6"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1234,9 +1241,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "dc950a9b05a0c92471686b2c19fde5522bea99ee",
-      "size": 8591,
-      "sha256": "5bd48e996dd5e20c6e290987d0341964e3c41b6512a8143bdf3beae483d90f56"
+      "gitBlob": "d1a63640b08e9ef8d058c5d51c159914735fb32f",
+      "size": 9658,
+      "sha256": "ed844c33d9bc6e1a32c721bc81caed9cb074247bafa72a5c3c85915bb2e77cb1"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -3341,9 +3348,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "1d123585ae969092ac39e4d5fe12a0c1013ee816",
-      "size": 35190,
-      "sha256": "3ab28bafaa20f6edfae264c93a172388ea1cbeeaeb864e2bb351c908cd06a485"
+      "gitBlob": "86fe1959a4d1d5e68fae31db2f3e03f6a893f5a3",
+      "size": 35463,
+      "sha256": "88e9f80ac1e1b1b91ab1b2a4830134c873f0e4fe026a7605ee4aaa59bb10f69f"
     },
     {
       "path": "scripts/adult-tariffs.mjs",
@@ -4606,6 +4613,41 @@
       "sha256": "a1850a8c9c5dbd7ac397f3964aa8d3fcbc76ad43c190ef58562ff97301508fe0"
     },
     {
+      "path": "workflows/inscription-preproduction/README.md",
+      "mode": "100644",
+      "gitBlob": "cd71107aecc0436e01270f5e02e23312172a7047",
+      "size": 2980,
+      "sha256": "eec66ab1aaad3b1303afafe83d91d8bd0c1330427f3618e552f8139f7c13c939"
+    },
+    {
+      "path": "workflows/inscription-preproduction/deliver.py",
+      "mode": "100644",
+      "gitBlob": "513de2967cd0422a1887c27d9c086d5281999162",
+      "size": 6364,
+      "sha256": "75e339e5a25cc3d522984357113cb3310fc949ff537b53a808bd2173babfd98e"
+    },
+    {
+      "path": "workflows/inscription-preproduction/rehearsal.php",
+      "mode": "100644",
+      "gitBlob": "507804d816f4c82bad1c117fd26adf13558a4fb7",
+      "size": 3541,
+      "sha256": "e214473aff003caa798ccb117a1e6aceca726e157887f07b546d3d832bc80392"
+    },
+    {
+      "path": "workflows/inscription-preproduction/restore.py",
+      "mode": "100644",
+      "gitBlob": "dbced0945ffc6ad6d9bba749776e9c1f29a54e2d",
+      "size": 4256,
+      "sha256": "2adb1dcf083987bc1211520587bc105315431810ad4d79e6b7eebd122e58527a"
+    },
+    {
+      "path": "workflows/inscription-preproduction/stage.py",
+      "mode": "100644",
+      "gitBlob": "dc2c2221094c70300d5bda08117ccd7ab494598d",
+      "size": 1886,
+      "sha256": "d960d286b6d46fd309f968bf9b38cd88b5f40e6590e517f08bfb39fd253edf9e"
+    },
+    {
       "path": "workflows/preparer-livraison.md",
       "mode": "100644",
       "gitBlob": "96340507ecbe81ca240dd136ca332c186cae8722",
@@ -4634,5 +4676,5 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     }
   ],
-  "artifactDigest": "22dedc0c979ddd12c60d50c16f8f3048747f0150363f76cc3cfc4659b0d5f2dc"
+  "artifactDigest": "fb339d96efb9de1fb115da33f8deb7ef7b9589cb5e4e32357f9985feb18659a4"
 }
