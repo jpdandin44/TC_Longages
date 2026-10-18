@@ -5,12 +5,16 @@ title: Communication du Bureau dans la V2 locale
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-12
+updated: 2026-10-18
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
 
 # Communication du Bureau
+
+## Bandeau V2 — 18 octobre
+
+La dernière publication apparaît désormais en tête du contenu principal. Voir [le fonctionnement, les contrôles et limites](recette-v2.md) et [le reçu](../data/v2-recette-verification.json). Le retrait explicite reste nécessaire ; aucune expiration automatique ajoutée.
 
 ## Accès courant — 12 octobre
 

@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,10 @@ tags:
 ---
 
 # Architecture
+
+## V2 — dernière publication sur l’accueil
+
+Le contrôleur Communication utilise une seule lecture du dépôt de publications pour le bandeau supérieur et les cinq titres existants. Filtrage publié/révision validée côté serveur, échappement du titre et de l’extrait, réponse non mise en cache. Pas de nouvelle table ni de changement du modèle OAuth. Voir [la recette](docs/recette-v2.md).
 
 ## Livraison manuelle - preparation
 

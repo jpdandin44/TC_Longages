@@ -136,8 +136,24 @@ final class CommunicationController extends ControllerBase {
   public function front(): Response {
     $response = (new ClubPageController())->front();
     $url = Html::escape(Url::fromRoute('tcl_bureau.public_news')->toString());
+    $posts = $this->repository->published();
+    if ($posts) {
+      // The same publication query drives the banner and the public listing.
+      // No draft, validation-only revision or withdrawn post is eligible.
+      $latest = $posts[0];
+      $postUrl = Html::escape(Url::fromRoute('tcl_bureau.public_post', ['post' => $latest['id']])->toString());
+      $body = preg_replace('/\s+/u', ' ', trim($latest['body']));
+      $summary = mb_strlen($body) > 220 ? mb_substr($body, 0, 219) . '…' : $body;
+      $banner = '<style>.tcl-flash-news{margin:1.25rem auto;padding:1.25rem;border-left:5px solid #a6192e;background:#fff5f6;color:#202124;border-radius:.5rem;overflow-wrap:anywhere}.tcl-flash-news h2{margin:.25rem 0;font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.3}.tcl-flash-news p{margin:.5rem 0}.tcl-flash-news nav{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}.tcl-flash-news a{color:#801326;text-decoration:underline}.tcl-flash-news a:focus-visible{outline:3px solid #202124;outline-offset:4px}</style>';
+      $banner .= '<section id="flash-news" class="container tcl-flash-news" aria-labelledby="flash-news-title"><p>Actualités du club</p><h2 id="flash-news-title">' . Html::escape($latest['title']) . '</h2>';
+      if ($summary !== '') {
+        $banner .= '<p>' . Html::escape($summary) . '</p>';
+      }
+      $banner .= '<nav aria-label="Dernière actualité"><a href="' . $postUrl . '">Lire la suite</a><a href="' . $url . '">Toutes les actualités</a></nav></section>';
+      $response->setContent(preg_replace_callback('/<main\b[^>]*>/i', static fn(array $match): string => $match[0] . $banner, $response->getContent(), 1));
+    }
     $news = '<section id="actualites-v2" class="section"><div class="container"><h2>Actualités du club</h2><ul>';
-    foreach (array_slice($this->repository->published(), 0, 5) as $row) {
+    foreach (array_slice($posts, 0, 5) as $row) {
       $postUrl = Html::escape(Url::fromRoute('tcl_bureau.public_post', ['post' => $row['id']])->toString());
       $news .= '<li><a href="' . $postUrl . '">' . Html::escape($row['title']) . '</a></li>';
     }

@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,10 @@ tags:
 ---
 
 # Exigences
+
+## V2 — reprise autorisée le 18 octobre
+
+Maintenir V1 en production, V2 en préproduction et V3 en développement séparé. Finaliser Bureau/adhérents/communication, formulaire public, bandeau et administration saisonnière. Préserver tarifs et saison des dossiers antérieurs. Production exclue des écritures ; aucune collecte réelle ni texte juridique inventé. [Critères et inconnues](docs/recette-v2.md).
 
 ## Preparation manuelle de production - 17 octobre
 

@@ -5,7 +5,7 @@ title: Consignes de travail et contrôle utilisateur
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - codex
@@ -14,6 +14,10 @@ tags:
 ---
 
 # Consignes locales
+
+## Lot courant — V2 en préproduction, 18 octobre
+
+La demande autorise la reprise V2 et sa préparation pour recette en préproduction, sans toucher à la production. Lire [la reprise V2](docs/recette-v2.md). Le suivi canonique reste dans `../competitions-capitaines`; préserver ses décisions et la V3 locale. Ne pas déployer tout main ni reprendre le pilote V1. Le formulaire public et les contenus non validés ne valent pas ouverture de collecte réelle.
 
 ## Lot courant - Preparation de l'action manuelle, 17 octobre 2026
 

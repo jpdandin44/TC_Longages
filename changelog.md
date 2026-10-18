@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,10 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-18 — Reprise V2 isolée
+
+Branche dédiée depuis main corrigé, sans Compétitions. Ajout du bandeau de dernière actualité publiée et test d’intégration Drupal avec retour transactionnel. Inventaire saisonnier et limites de recette documentés ; aucune livraison distante à ce stade.
 
 ## 2026-10-17 - Rapprochement de la PR #22 apres fusion de #23
 

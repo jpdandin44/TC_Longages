@@ -5,12 +5,16 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
 # Point de session - preparation du 17 octobre 2026
+
+## Reprise courante — V2, 18 octobre
+
+Utiliser `feat/v2-recette` et [le guide V2](recette-v2.md). Suivi canonique dans `../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Installation locale isolée terminée sur Core 11.4.10 ; aucun secret ni base V3 copié. Bandeau : 15 contrôles Drupal, 28 HTTP et revue 390/1280 pixels réussis ; OAuth : 66 contrôles réussis. La recette automatisée utilise uniquement des comptes fictifs. Vérification hébergée authentifiée en attente de connexion cPanel. La production répond HTTP 200 au contrôle anonyme du jour ; aucun réglage changé.
 
 ## Reprise courante - action manuelle de production
 

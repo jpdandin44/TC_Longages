@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,10 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-18 — Une version d’avance par environnement
+
+**Contexte :** demande explicite du responsable. **Décision :** V1 production, V2 préproduction, V3 local ; corrections V2 dans un checkout distinct. **Raison :** permettre la recette sans mélanger Compétitions V3. **Conséquence :** promotions après qualification et accords applicables ; aucune mutation de production pendant ce lot. La version exacte hébergée doit être constatée, pas déduite du numéro métier.
 
 ## 2026-10-17 - Preparer sans activer la livraison recurrente
 

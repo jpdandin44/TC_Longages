@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-18
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,10 @@ tags:
 ---
 
 # Feuille de route
+
+## V2 — travail courant
+
+Cadrage : inventaire saisonnier et versions. Développement local : bandeau réalisé, vérification en cours ; catalogue et formulaire à développer. Préproduction : qualifier le candidat et la sauvegarde/restauration avant installation. Mise en production : hors périmètre de cette demande. [Reprise détaillée](docs/recette-v2.md).
 
 ## Preparation de l'action GitHub - 17 octobre
 
