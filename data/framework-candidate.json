@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "7b9c1793db8c8d04b582e4cc0d7d92acb8c042cb",
+  "sourceCommit": "40b66f4f449ed56a59593b1bee94888109a2c599",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -261,9 +261,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "1bc63dd241f080770162c9a4c47852588bd9448e",
-      "size": 64658,
-      "sha256": "6533ec757384ca6f7e71f50263945971b5b31032cb81e48b4e0d214a8d6c7e68"
+      "gitBlob": "82168b7ead1ec282acfa56eef521881214e89abc",
+      "size": 64787,
+      "sha256": "d324eaf236742e1660d396ddeaf89faaf7e948d44a7dbebd7671f740a98b11a3"
     },
     {
       "path": "config/agenda-local.json",
@@ -849,9 +849,9 @@
     {
       "path": "data/communications-agenda-verification.json",
       "mode": "100644",
-      "gitBlob": "03012e296f3af495291eb6209f222a4f22ad2314",
-      "size": 1684,
-      "sha256": "373c4ee67caeb8ee93ab0075916bb0b58ad83bd6459f7286c899c3060f195d70"
+      "gitBlob": "c73a10311fa7b5ae25262915e3ff9758c8b42206",
+      "size": 3335,
+      "sha256": "0bf781768e766b4998ad2819d9d23397f08b3cfd20862704cd767ce04afc8b6d"
     },
     {
       "path": "data/correctif-tarifs-adultes.json",
@@ -1059,9 +1059,9 @@
     {
       "path": "docs/communication-bureau.md",
       "mode": "100644",
-      "gitBlob": "fd5e7300e5d903222dfd89f2103a4cf0d54a4367",
-      "size": 13127,
-      "sha256": "7e2e6ec3dd514eb0cae4eb7b5574894cfe64f2cc59372fabdf56fddbea630a6e"
+      "gitBlob": "93550764264c1ab8074d063f3dab886f21a85508",
+      "size": 13494,
+      "sha256": "8c71efe2d4233d9cf27e28f94742d30ed68cd1737b26c6e0612f4c640e064c78"
     },
     {
       "path": "docs/comptes-et-bureau.md",
@@ -1164,9 +1164,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "c1e53f0b51e7f0146c69437dc1a54489cbd74c7e",
-      "size": 109685,
-      "sha256": "124a7f7b833a57e4888f0a1a7e5200386a884b0ba0bc5488b291972ea1744218"
+      "gitBlob": "1d863997a0e563ebcc820774867e350ca1625e24",
+      "size": 111069,
+      "sha256": "4de1e9b4d419cccc53312d017507ba002f595489674fa77070765f69561b40c7"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1262,9 +1262,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "f64234cf97a528442edfffa57e1a40ef9a0af09e",
-      "size": 10396,
-      "sha256": "522de81cb060e6410318446cbfc068b938b4f53828ce3613f33fcd88fe68546e"
+      "gitBlob": "0122c5bfa3b331e63f637020a33293e6ace2e7c6",
+      "size": 10467,
+      "sha256": "8ec86f986ec06d51698732ddfba424e0a2e5eca849242597e9dc4b13d8d87834"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -4839,9 +4839,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "9cc013054aabd4cdae158b062a0590658506fd9f",
-      "size": 37475,
-      "sha256": "8e76dbd981bd2a8c58e9d1a1a6495746d6ac0ec6280cd813d7e39ee198524054"
+      "gitBlob": "29dc0ce80aefeadc0a0e06950226a8415f202169",
+      "size": 37449,
+      "sha256": "6c396ca971a9497ca9265686dee52e80d247da9313dad1095ede5cd1974bfad5"
     },
     {
       "path": "scripts/adult-tariffs.mjs",
@@ -6176,9 +6176,16 @@
     {
       "path": "workflows/communications-agenda-preproduction/README.md",
       "mode": "100644",
-      "gitBlob": "93ad77026c01ffe08fdf59ca9aae0e08ad68a244",
-      "size": 2968,
-      "sha256": "91a6ed16a06cb91e631bdcc7aef3d04ced8f527e1d307b0907c6d674130c988f"
+      "gitBlob": "d05e841711fbb4ca65d2e7939395d88392f233a5",
+      "size": 3912,
+      "sha256": "e5adfbe7a96e49fb2a6b442f7591a4e5f767d08bc2635f5c879be187c04b9973"
+    },
+    {
+      "path": "workflows/communications-agenda-preproduction/asset-permissions.py",
+      "mode": "100644",
+      "gitBlob": "cdecb4c531fb0c54c053f32aaac0a4fdcb7d6f01",
+      "size": 1216,
+      "sha256": "62375491927682f42d3dc61cf3885b817431e4e06e146862b21a75c9de1634a2"
     },
     {
       "path": "workflows/communications-agenda-preproduction/patch.py",
@@ -6300,5 +6307,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "f16525f3fbaafcb5b4ddf86a4a2be37287c8e2e4bed7aa459718fdd1e2a3500d"
+  "artifactDigest": "0f1797006db688d28a8f04fc8cd3e348b92ce648cb684c77c74833b0ee0744b4"
 }
