@@ -13,6 +13,10 @@ tags:
   - publication
 ---
 
+## Complément du 19 octobre — événements de recette
+
+Le service `EventRepository` conserve les séries dans la collection Drupal isolée `tcl_bureau.recipe_events`. `EventSchedule` calcule des occurrences bornées en heure de Paris, sans API distante. Routes et service vérifient OAuth, permission Communication et mode/hôte de recette. Aucun changement de schéma ni synchronisation Google. [Contrat fonctionnel](docs/evenements-bureau.md).
+
 # Architecture
 
 ## Présentation de l’agenda et partage manuel

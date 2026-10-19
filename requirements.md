@@ -13,6 +13,10 @@ tags:
   - prototype
 ---
 
+## Complément du 19 octobre — agenda Bureau
+
+Créer et modifier les événements fictifs depuis le Bureau ; répétitions bornées avec dates exclues, aperçu avant sauvegarde, annulation réversible de la série. Conserver le calendrier Google de production en consultation sans y écrire. État actuel : développement local contrôlé, hébergement à qualifier. [Règles détaillées](docs/evenements-bureau.md).
+
 # Exigences
 
 ## Optimisations autorisées le 19 octobre

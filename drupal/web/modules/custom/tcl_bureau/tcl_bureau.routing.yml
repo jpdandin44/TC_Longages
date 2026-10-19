@@ -191,3 +191,28 @@ tcl_bureau.account_invitation:
     parameters:
       user:
         type: entity:user
+
+tcl_bureau.events:
+  path: '/bureau/evenements'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\EventController::overview'
+    _title: 'Agenda de recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
+
+tcl_bureau.event_add:
+  path: '/bureau/evenements/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\EventForm'
+    _title: 'Créer un événement de recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
+
+tcl_bureau.event_edit:
+  path: '/bureau/evenements/{event}/modifier'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\EventForm'
+    _title: 'Modifier un événement de recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
+    event: '[a-f0-9]{32}'

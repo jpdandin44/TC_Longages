@@ -38,6 +38,7 @@ final class RegistrationController extends ControllerBase {
       '#type' => 'container', '#attributes' => ['class' => ['tcl-bureau']], '#cache' => ['max-age' => 0],
       '#attached' => ['library' => ['tcl_bureau/bureau']],
       'navigation' => ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => 'Espace Bureau'],
+        'events' => ['#type' => 'link', '#title' => 'Agenda de recette', '#url' => Url::fromRoute('tcl_bureau.events'), '#access' => \Drupal::service('tcl_bureau.events')->allowed($this->currentUser())],
         'seasons' => Link::fromTextAndUrl('Saison et tarifs', Url::fromRoute('tcl_bureau.seasons'))->toRenderable(),
         'communication' => Link::fromTextAndUrl('Communication', Url::fromRoute('tcl_bureau.communication'))->toRenderable(),
         'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),

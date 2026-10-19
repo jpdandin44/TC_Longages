@@ -15,6 +15,10 @@ tags:
 
 # Décisions
 
+## 2026-10-19 — Écritures de recette séparées du calendrier partagé
+
+Le responsable souhaite garder le calendrier de production et confirme la proposition de le conserver en consultation, avec créations et récurrences fictives dans le Bureau de préproduction. Décision : collection Drupal dédiée, sans synchronisation Google ni nouvelle table. Les éditions portent sur toute la série ; exceptions par exclusion de date et événement ponctuel séparé. Conséquence : le raccordement des écritures au calendrier officiel reste un lot distinct, soumis à une autorisation de production. [Guide](docs/evenements-bureau.md).
+
 ## 2026-10-19 — Présentation de l’agenda sans deuxième calendrier
 
 Contexte : optimiser l’agenda après les communications tout en préservant la V2 hébergée et la production. La source unique des événements modifiables par le Bureau reste à choisir.

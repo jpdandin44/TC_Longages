@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## 2026-10-19 — Événements de recette, préparation locale
+
+Ajout du formulaire Bureau, liste des séries, récurrences, exclusions et annulation. Protection OAuth/CSRF, révisions concurrentes et isolement préproduction. 19 contrôles métier et 21 HTTP locaux réussis. Pas encore livré. [Guide](docs/evenements-bureau.md).
+
 # Journal des évolutions
 
 ## 2026-10-19 — optimisations communications et agenda en préproduction

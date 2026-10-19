@@ -108,6 +108,9 @@ final class BureauController extends ControllerBase {
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
+    if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
+      $links['events'] = Link::fromTextAndUrl('Agenda de recette', Url::fromRoute('tcl_bureau.events'))->toRenderable();
+    }
     if ($this->repository->canManageAccount($this->currentUser())) {
       $links['accounts'] = Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable();
     }

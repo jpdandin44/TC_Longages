@@ -20,7 +20,7 @@ tags:
 
 Communications puis présentation de l’agenda : développement, CI, livraison et contrôles Chrome en préproduction réalisés. La campagne humaine est différée. Le catalogue fictif est publié en préproduction, le parcours depuis l’accueil contrôlé et les deux types de courriel reçus. Création du mot de passe du compte invité encore à vérifier par le responsable.
 
-Suite agenda : création/édition Bureau, récurrences et exceptions, choix de la source unique, préférences globales et couleurs par catégorie. Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
+Suite agenda : création/édition Bureau, récurrences et exceptions développées en local, livraison préproduction en préparation. Calendrier Google conservé en consultation ; écritures de recette séparées, accord du responsable le 19 octobre. Préférences globales et couleurs par catégorie restent prévues. Voir [le guide](docs/evenements-bureau.md). Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
 
 
 ## Complément actif — communication V2

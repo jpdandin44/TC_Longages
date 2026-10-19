@@ -44,6 +44,10 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Catalogue failed.' }
   & php -c .local/drupal-tools/php.ini tests/agenda-presentation-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Agenda presentation failed.' }
+  & php -c .local/drupal-tools/php.ini tests/event-schedule-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Récurrences invalides.' }
+  & python -X utf8 tests/events-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette événements échouée.' }
   & node --test tests/agenda-sharing.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles catalogue échoués.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php

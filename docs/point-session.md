@@ -12,6 +12,10 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
+## Travail courant — événements Bureau en préparation
+
+Création/modification et récurrences développées localement, avec stockage de recette distinct. Le responsable accepte de conserver le calendrier de production en consultation. Tests : 19 métier et 21 HTTP réussis ; qualification hébergée à poursuivre. [Guide et limites](evenements-bureau.md).
+
 ## Travail courant — communications et agenda livrés en préproduction
 
 Les optimisations sont installées en préproduction : copie du message validé et repli manuel, présentation des supports, vues Mois/Semaine/Liste, trois palettes par navigateur et cartes des communications Événement publiées sur le site. Aucun envoi social automatique ni création d’événement dans Google.
