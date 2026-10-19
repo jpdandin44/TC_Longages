@@ -7,7 +7,8 @@
     "pdfChannels": 22,
     "catalogue": 13,
     "agendaIntegration": 11,
-    "javascript": 3
+    "javascript": 3,
+    "registrationHttp": 38
   },
   "browserChecks": [
     "validated message copied without sending",
@@ -19,5 +20,34 @@
     "No event editing or recurrence implementation",
     "Hosted qualification pending",
     "Human campaign deferred by user"
-  ]
+  ],
+  "candidate": {
+    "sourceSha": "9cd0b5a47d5187fb2488ecee93eca2dbdf15a5c8",
+    "artifactSha256": "2aabd94fd014543844b5f44460f212e19f849048b9e14f4aaf5f6d7f3452cec6",
+    "files": 9
+  },
+  "hostedPreparation": {
+    "observedAt": "2026-10-19T21:18:59.494012+00:00",
+    "files": 9,
+    "previousFilesRestoredAndCompared": 5,
+    "newFilesAbsentBefore": 4,
+    "phpLintPassed": true,
+    "stagedAgendaRenderPassed": true,
+    "activeFilesWritten": false,
+    "backupId": "communications-agenda-9cd0b5a47d51",
+    "core": "11.4.8"
+  },
+  "ciInitial": {
+    "headSha": "9cd0b5a47d5187fb2488ecee93eca2dbdf15a5c8",
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39325603358",
+    "failure": "Homepage assertion expected old tariff grid; updated to cover editorial registration entry as well.",
+    "resolvedLocally": true,
+    "nextHead": "2961a03a55a65d4294dea9f163ac88ab02a4315f"
+  },
+  "documentationCheck": {
+    "foundationPresent": true,
+    "documents": 8,
+    "localLinksChecked": 321,
+    "missingLinks": []
+  }
 }

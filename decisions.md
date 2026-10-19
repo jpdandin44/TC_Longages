@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags:
   - decisions
@@ -14,6 +14,15 @@ tags:
 ---
 
 # Décisions
+
+## 2026-10-19 — Présentation de l’agenda sans deuxième calendrier
+
+Contexte : optimiser l’agenda après les communications tout en préservant la V2 hébergée et la production. La source unique des événements modifiables par le Bureau reste à choisir.
+
+Décision : conserver l’intégration Google existante, proposer des préférences de vue/palette propres au navigateur et réutiliser les communications publiées pour les affiches. Aucun nouveau registre de dates, synchronisation ou paramètre global implicite.
+
+Conséquences : les cartes sont des annonces publiées et non un calcul des prochaines occurrences. Création/édition Bureau, récurrences, exceptions et personnalisation globale restent un lot distinct. Ce choix évite de dupliquer les événements avant d’en définir la source de référence.
+
 
 ## 2026-10-18 — Catalogue publié et demandes fictives
 

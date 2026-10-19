@@ -1,7 +1,7 @@
 ---
 project: TC_Longages
 document_type: development-guide
-title: Communication du Bureau dans la V2 locale
+title: Communication du Bureau dans la V2
 status: active
 version: git
 created: 2026-10-05
