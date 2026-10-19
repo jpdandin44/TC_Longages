@@ -5,12 +5,22 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
 
 # Reprise V2 pour la préproduction
+
+## Complément courant — communications et agenda
+
+- **Cadrage** : communications en priorité, agenda ensuite ; campagne humaine différée, production exclue.
+- **Développement local** : copie du message validé, présentation des supports, vues/palettes de l’agenda et cartes d’événements publiés ; contrôles locaux réussis.
+- **Préproduction** : nouveau candidat à qualifier et installer ; ne pas confondre avec le complément PDF déjà livré et les courriels reçus.
+- **Mise en production** : non autorisée.
+
+[Périmètre et réserves](communication-bureau.md).
+
 
 Le suivi canonique reste dans [competitions-capitaines](../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json), itération `tcl-v2-recette-20261018`. Cette branche `feat/v2-recette` part de `e7e71addee734317ef2da5706b290767a3b317e8` (main avec PR22 et PR23 fusionnées). Son verrou Drupal porte Core 11.4.10 et Simple OAuth 6.1.1. Aucun état privé V3 ou hébergé n'est copié.
 
@@ -24,7 +34,7 @@ Production V1, préproduction V2 en cours de finalisation, local V3. Les correct
 | --- | --- |
 | Cadrage | Découpage confirmé ; inventaire saisonnier ci-dessous. Composants hébergés identifiés par cPanel : Core 11.4.8, Simple OAuth 6.1.1 ; commit complet non déterminé. |
 | Développement local | Branche V2 isolée sur le socle corrigé ; bandeau de dernière actualité vérifié localement. Catalogue et formulaire fictif implémentés : 38 contrôles HTTP et 9 contrôles de catalogue réussis. Qualification hébergée encore attendue. |
-| Préproduction | Paquet limité installé et empreintes vérifiées. Catalogue non publié ; accès Bureau/OAuth et recette navigateur en attente. |
+| Préproduction | Catalogue fictif publié ; notification du dossier 3 reçue et invitation confirmée reçue par le responsable. Lien depuis l’accueil corrigé et parcours jusqu’au formulaire vérifié dans Chrome. Création du mot de passe et connexion du compte invité restent à vérifier. |
 | Mise en production | Hors périmètre ; aucune écriture, fusion ou ouverture autorisée par ce lot. |
 
 ## Inventaire avant livraison du 18 octobre

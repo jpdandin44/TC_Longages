@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags:
   - roadmap
@@ -15,6 +15,13 @@ tags:
 ---
 
 # Feuille de route
+
+## Priorité courante — 19 octobre
+
+Communications puis présentation de l’agenda : développement et contrôles locaux réalisés ; candidat et qualification préproduction en préparation. La campagne humaine est différée. Le catalogue fictif est publié en préproduction, le parcours depuis l’accueil contrôlé et les deux types de courriel reçus. Création du mot de passe du compte invité encore à vérifier par le responsable.
+
+Suite agenda : création/édition Bureau, récurrences et exceptions, choix de la source unique, préférences globales et couleurs par catégorie. Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
+
 
 ## Complément actif — communication V2
 

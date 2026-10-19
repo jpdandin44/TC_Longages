@@ -53,6 +53,7 @@ final class CommunicationController extends ControllerBase {
     $build['edit'] = Link::fromTextAndUrl('Modifier le brouillon', Url::fromRoute('tcl_bureau.communication_edit', ['post' => $post]))->toRenderable();
     $selectedChannels = explode(',', $row['channels']);
     $build['channels'] = ['#plain_text' => 'Canaux choisis : ' . implode(', ', array_intersect_key(CommunicationRepository::CHANNELS, array_flip($selectedChannels)))];
+    $build['preview_help'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Aperçus de contenu : la présentation finale dépend de Facebook ou WhatsApp. Une affiche reste à joindre séparément dans le service choisi.'];
     $build['preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-preview-grid']]];
     $build['fft'] = ['#type' => 'details', '#title' => 'Outils FFT complémentaires (saisie manuelle)', '#open' => FALSE];
     foreach (['site' => 'Site', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'adoc' => 'ADOC'] as $key => $channel) {
@@ -77,6 +78,14 @@ final class CommunicationController extends ControllerBase {
       $build['sharing'] = ['#type' => 'details', '#title' => 'Partager manuellement la révision validée', '#open' => TRUE];
       $build['sharing']['help'] = ['#plain_text' => 'Choisissez le destinataire et confirmez l’envoi dans le service. L’affiche doit être jointe manuellement. Une ouverture ne confirme aucune livraison.'];
       $build['sharing']['text'] = ['#type' => 'textarea', '#title' => 'Message à copier', '#value' => self::message($row), '#attributes' => ['readonly' => 'readonly'], '#rows' => 6];
+      $build['#attached']['library'][] = 'tcl_bureau/sharing_tools';
+      $build['sharing']['#attributes']['data-sharing-tools'] = '';
+      $build['sharing']['steps'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => '1. Copiez le message. 2. Téléchargez l’affiche si nécessaire. 3. Ouvrez le canal choisi, joignez le support et confirmez vous-même la publication.'];
+      $build['sharing']['copy'] = ['#type' => 'html_tag', '#tag' => 'button', '#value' => 'Copier le message', '#attributes' => ['type' => 'button', 'data-copy-message' => '', 'hidden' => 'hidden']];
+      $build['sharing']['feedback'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => '', '#attributes' => ['role' => 'status', 'aria-live' => 'polite', 'data-copy-status' => '']];
+      if ($row['image_data'] === '') {
+        $build['sharing']['no_poster'] = ['#plain_text' => 'Aucune affiche jointe : le message peut être partagé seul.'];
+      }
       foreach (['WhatsApp' => 'https://wa.me/?text=' . rawurlencode(self::message($row)), 'Facebook du club' => 'https://www.facebook.com/tc.longages.31', 'ADOC' => 'https://adoc.app.fft.fr/adoc/', 'Ten’Up du club' => 'https://tenup.fft.fr/club/60310230'] as $label => $url) {
         if (($label === 'WhatsApp' && !in_array('whatsapp', $selectedChannels, TRUE)) || ($label === 'Facebook du club' && !in_array('facebook', $selectedChannels, TRUE))) { continue; }
         if ($label === 'ADOC' && strlen(mb_convert_encoding(self::message($row, FALSE), 'UTF-16LE', 'UTF-8')) / 2 > 2000) {

@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags:
   - exigences
@@ -14,6 +14,11 @@ tags:
 ---
 
 # Exigences
+
+## Optimisations autorisées le 19 octobre
+
+Poursuivre les aperçus et la préparation du partage, puis l’agenda sans attendre la campagne humaine. Préserver validation des révisions et partages manuels. Améliorer vues, miniatures et personnalisation ; conserver le calendrier existant jusqu’au choix d’une source unique pour la création et les récurrences. Production exclue. [Périmètre réalisé et limites](docs/communication-bureau.md).
+
 
 ## Communication V2 — complément demandé le 18 octobre
 

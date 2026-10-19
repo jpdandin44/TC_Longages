@@ -14,3 +14,9 @@ poster_preview:
     js/poster-preview.js: { attributes: { type: module }, preprocess: false }
   dependencies:
     - tcl_bureau/communication
+
+sharing_tools:
+  js:
+    js/sharing-tools.js: { attributes: { type: module }, preprocess: false }
+  dependencies:
+    - tcl_bureau/communication

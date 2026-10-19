@@ -15,9 +15,14 @@ tags:
 
 # Architecture
 
+## Présentation de l’agenda et partage manuel
+
+`AgendaPresentation` enrichit uniquement la page calendrier lorsque la recette V2 est activée sur un hôte autorisé. Le calendrier Google et ses paramètres sont conservés ; le navigateur modifie le mode de vue et mémorise une palette locale. Les cartes proviennent des communications publiées via le dépôt existant, limitées à six événements. Aucun nouveau stockage serveur ou service externe. `sharing-tools.js` copie le texte validé ou propose une sélection manuelle si le presse-papiers est indisponible. [État de qualification](docs/communication-bureau.md).
+
+
 ## Aperçu PDF — évolution locale à qualifier
 
-La bibliothèque locale PDF.js 6.4.299 et son worker produisent la première page sur canvas dans le Bureau ; les ressources de police, CMaps et WASM sont embarquées. La sélection non enregistrée est lue dans le navigateur. Le téléchargement original reste servi par le contrôleur et ses droits existants. Cette évolution non commitée n’est pas déployée ; [état et limites](docs/communication-bureau.md).
+La bibliothèque locale PDF.js 6.4.299 et son worker produisent la première page sur canvas dans le Bureau ; les ressources de police, CMaps et WASM sont embarquées. La sélection non enregistrée est lue dans le navigateur. Le téléchargement original reste servi par le contrôleur et ses droits existants. Ce premier complément PDF a été livré en préproduction le 19 octobre ; [état et limites](docs/communication-bureau.md).
 
 
 ## Complément communication : PDF et canaux

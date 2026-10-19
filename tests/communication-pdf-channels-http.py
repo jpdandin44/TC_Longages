@@ -36,6 +36,7 @@ def run():
     action = lambda name: bureau.form(base + '/' + name, {'personal_confirmation': '1'})
     check('Draft validates', action('validate')[0] == 303)
     review = bureau.get(base + '/revue')[1]
+    check('Approved message offers explicit manual copy preparation', 'data-copy-message' in review and 'data-copy-status' in review and 'sharing-tools.js' in review)
     check('Only selected social action offered', 'Ouvrir WhatsApp' in review and 'Ouvrir Facebook' not in review and 'Publier sur le site' not in review)
     check('Direct site publication refused', action('publish')[0] != 303)
     check('Private article remains absent', anonymous.get('/actualites/' + post)[0] == 404)

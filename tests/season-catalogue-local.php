@@ -29,5 +29,22 @@ $stack = Drupal::requestStack();
 $stack->push(Request::create('https://tclongages.fr/adherer'));
 try { checkCatalogue('Production hostname always denied even with recipe flag', !SeasonCatalogue::recipeEnabled()); }
 finally { $stack->pop(); }
+$store = Drupal::keyValue('tcl_bureau.seasons');
+$previous = $store->get('state');
+try {
+  $store->set('state', ['revision' => 1, 'draft' => $seed, 'published' => $seed, 'history' => []]);
+  $service = Drupal::service('tcl_bureau.seasons');
+  $page = '<main><section id="adherer"><div class="join-intro"><h2>Texte conservé</h2><a href="/contact.html">Nous écrire</a></div><div class="join-steps">Étapes conservées</div></section></main>';
+  $rendered = $service->renderHomepage($page);
+  checkCatalogue('Editorial homepage receives one fictional registration entry', substr_count($rendered, 'id="tcl-registration-entry"') === 1 && str_contains($rendered, '/adherer') && str_contains($rendered, 'données fictives'));
+  checkCatalogue('Editorial contents and contact entry preserved', str_contains($rendered, '<h2>Texte conservé</h2>') && str_contains($rendered, '<a href="/contact.html">Nous écrire</a>') && str_contains($rendered, 'Étapes conservées'));
+  checkCatalogue('Homepage entry is idempotent', $service->renderHomepage($rendered) === $rendered);
+  $store->set('state', ['revision' => 1, 'draft' => $seed, 'published' => NULL, 'history' => []]);
+  checkCatalogue('Unpublished catalogue does not expose entry', $service->renderHomepage($page) === $page);
+}
+finally {
+  if ($previous === NULL) { $store->delete('state'); }
+  else { $store->set('state', $previous); }
+}
 file_put_contents(dirname(__DIR__) . '/.local/season-catalogue-tests.json', json_encode(['checks' => $checks, 'passed' => TRUE], JSON_PRETTY_PRINT));
 echo count($checks) . " catalogue checks passed.\n";

@@ -14,6 +14,19 @@ tags:
 
 # Journal des évolutions
 
+## 2026-10-19 — optimisations locales communications et agenda
+
+Copie du message validé avec repli manuel, aide au partage et affichage des supports. Vues Mois/Semaine/Liste, trois palettes mémorisées par navigateur et cartes des événements publiés. Tests locaux ajoutés au parcours de contrôle. Aucun déploiement de ce complément à ce stade, aucune modification de production.
+
+
+## 2026-10-19 — Lien d’adhésion depuis l’accueil de préproduction
+
+Raccordement à la rubrique d’adhésion de l’accueil actuel, avec mention de recette fictive et conservation des contenus éditoriaux. Bouton vers le formulaire disponible seulement avec un catalogue publié. Treize contrôles locaux et parcours Chrome hébergé réussis ; fichier unique sauvegardé puis livré en préproduction, sans écriture en production.
+
+## 2026-10-19 — Expéditeur de recette et réception du formulaire
+
+Expéditeur de préproduction remplacé par la boîte existante du domaine dont SPF et DKIM sont valides ; sauvegarde privée et contrôles réalisés, sans modification de production ni DNS. Nouvelle notification du dossier fictif 3 reçue dans la boîte du club ; nouvelle invitation acceptée à l’envoi, réception encore à confirmer. Détails et preuves dans le [point de session](docs/point-session.md).
+
 ## 2026-10-19 — Finalisation locale des aperçus et tarifs
 
 Aperçus PDF enregistrés et avant sauvegarde, reprise de l’affiche existante dans l’aperçu de saisie, retrait et remplacement par une image. Mise en page des tarifs vérifiée sur bureau/mobile. Correction de l’encodage des accents des courriels ; contrôle de leur contenu renforcé. Recettes HTTP adaptées aux liens Drupal préfixés `/fr/` sans affaiblir les contrôles d’accès. Nouveau préparateur de paquet V2 limité aux modules, sans Core ni configuration privée. Qualification et livraison suivies dans le point de session.
@@ -775,3 +788,7 @@ Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit
 Développement local des invitations Bureau, du lien natif de création de mot de passe et des notifications de demande fictive au club. Contrôles locaux : 20 de service, 11 HTTP avec OAuth TC, 38 catalogue/formulaire, 18 première saisie du mot de passe. Installation et courriels hébergés encore à vérifier. Agenda enrichi et personnalisation ajoutés au cadrage V2, non développés.
 
 Correction de l’écran Saison et tarifs signalée en recette : colonnes ajustées à la largeur disponible, champs de taille fluide, formules empilées avec leurs libellés sur mobile et lien de test séparé du texte.
+
+### Livraison V2 préproduction du 19 octobre 2026
+
+Aperçus et tarifs livrés (244 fichiers vérifiés), invitations/notifications installées et destinataires configurés en privé. Sauvegarde/restauration et six contrôles techniques CI réussis. Recette navigateur et envois réels non effectués ; catalogue hébergé encore en brouillon. Production exclue.

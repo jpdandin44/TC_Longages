@@ -1,0 +1,23 @@
+{
+  "checkedOn": "2026-10-19",
+  "scope": "V2 communications and agenda presentation",
+  "productionWritten": false,
+  "hostedInstalled": false,
+  "localChecks": {
+    "pdfChannels": 22,
+    "catalogue": 13,
+    "agendaIntegration": 11,
+    "javascript": 3
+  },
+  "browserChecks": [
+    "validated message copied without sending",
+    "agenda list and green palette selected",
+    "preferences retained after reload"
+  ],
+  "limits": [
+    "Browser preferences only; no global theme",
+    "No event editing or recurrence implementation",
+    "Hosted qualification pending",
+    "Human campaign deferred by user"
+  ]
+}

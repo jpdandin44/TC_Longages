@@ -41,6 +41,10 @@ try {
   & php -c .local/drupal-tools/php.ini tests/recipe-mail-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles de courriels de recette échoués.' }
   & php -c .local/drupal-tools/php.ini tests/season-catalogue-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Catalogue failed.' }
+  & php -c .local/drupal-tools/php.ini tests/agenda-presentation-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Agenda presentation failed.' }
+  & node --test tests/agenda-sharing.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles catalogue échoués.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Préparation du fournisseur TC échouée.' }

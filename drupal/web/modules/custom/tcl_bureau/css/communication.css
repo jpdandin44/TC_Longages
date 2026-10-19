@@ -12,3 +12,9 @@
 .tcl-pdf-preview canvas { display: block; max-width: 100%; height: auto; margin: 1rem auto; border: 1px solid #ddd; }
 .tcl-pdf-preview { min-width: 0; overflow-wrap: anywhere; }
 .tcl-live-preview { margin: 1.5rem 0; }
+.tcl-preview-card article { display: flex; flex-direction: column; gap: .75rem; }
+.tcl-preview-card .tcl-post-image { max-height: 32rem; object-fit: contain; align-self: center; }
+[data-sharing-tools] textarea { width: 100%; min-height: 12rem; }
+[data-copy-message] { padding: .7rem 1rem; background: #801326; color: #fff; border: 0; border-radius: .3rem; cursor: pointer; }
+[data-copy-message]:focus-visible { outline: 3px solid #202124; outline-offset: 4px; }
+[data-copy-status] { min-height: 1.5em; font-weight: 600; }
