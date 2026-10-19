@@ -2,7 +2,7 @@
   "checkedOn": "2026-10-19",
   "scope": "V2 communications and agenda presentation",
   "productionWritten": false,
-  "hostedInstalled": false,
+  "hostedInstalled": true,
   "localChecks": {
     "pdfChannels": 22,
     "catalogue": 13,
@@ -13,12 +13,13 @@
   "browserChecks": [
     "validated message copied without sending",
     "agenda list and green palette selected",
-    "preferences retained after reload"
+    "preferences retained after reload",
+    "Local event PDF miniature and detail/download entry verified; fictitious example archived"
   ],
   "limits": [
-    "Browser preferences only; no global theme",
-    "No event editing or recurrence implementation",
-    "Hosted qualification pending",
+    "Preferences are browser-specific, not global theme settings",
+    "Event creation, recurrence and exceptions remain to implement",
+    "Agenda poster gallery visually checked on local fixture; no event published in preproduction during this lot",
     "Human campaign deferred by user"
   ],
   "candidate": {
@@ -46,8 +47,45 @@
   },
   "documentationCheck": {
     "foundationPresent": true,
-    "documents": 8,
-    "localLinksChecked": 321,
+    "documents": 10,
+    "localLinksChecked": 478,
     "missingLinks": []
-  }
+  },
+  "ci": {
+    "headSha": "e18dfb9a87dcb883c73024d0e6642a94bfa80b9a",
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39326731713",
+    "technicalJobsPassed": 6,
+    "nineCandidateBlobsIdentical": true,
+    "humanPolicyUnchecked": true
+  },
+  "delivery": {
+    "deliveredAt": "2026-10-19T21:24:57.762649+00:00",
+    "filesVerified": 9,
+    "contentAndProtectionPreserved": true,
+    "databaseMigration": false,
+    "receipt": "private/communications-agenda-9cd0b5a47d51/receipt.json"
+  },
+  "assetPermissionCorrection": {
+    "directories": [
+      "web/modules/custom/tcl_bureau",
+      "web/modules/custom/tcl_bureau/css",
+      "web/modules/custom/tcl_bureau/images"
+    ],
+    "before": "0700",
+    "after": "0755",
+    "basicUnchanged": true,
+    "privateDirectoriesUnchanged": true,
+    "reason": "Public scripts/styles/logo unavailable to the web server; observed 404, corrected and browser verified."
+  },
+  "hostedBrowserChecks": [
+    "Agenda list and blue palette selected",
+    "Preferences preserved after reload",
+    "Reset returns month and club palette",
+    "Existing Google calendar loaded",
+    "Validated communication PDF renders in both selected channels",
+    "Copy reports success without publication",
+    "Bureau logo loads"
+  ],
+  "anonymousProtectionStatus": 401,
+  "nextAction": "Human test campaign when available; scope event editing/recurrence against one authoritative calendar source."
 }

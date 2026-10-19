@@ -12,10 +12,17 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
-## Travail courant — communications puis agenda
+## Travail courant — communications et agenda livrés en préproduction
 
-Les optimisations sont développées et contrôlées localement. Candidat applicatif `9cd0b5a` poussé dans la PR 24 : neuf fichiers, SHA-256 `2aabd94fd014543844b5f44460f212e19f849048b9e14f4aaf5f6d7f3452cec6`. Sauvegarde/restauration des fichiers et rendu préparé sur Core hébergé 11.4.8 vérifiés. La CI a révélé une assertion encore liée à l’ancien tableau tarifaire de l’accueil ; test adapté au bouton du modèle éditorial, sans modifier le paquet applicatif. Nouvelle exécution CI requise avant activation. Détail et limites dans [le guide communication](communication-bureau.md#optimisations-communications-et-agenda--19-octobre). La recette Chrome et les réceptions des courriels ci-dessous restent acquises ; la campagne humaine est différée. Aucune modification de production.
+Les optimisations sont installées en préproduction : copie du message validé et repli manuel, présentation des supports, vues Mois/Semaine/Liste, trois palettes par navigateur et cartes des communications Événement publiées sur le site. Aucun envoi social automatique ni création d’événement dans Google.
 
+Candidat applicatif `9cd0b5a47d5187fb2488ecee93eca2dbdf15a5c8`, paquet de neuf fichiers SHA-256 `2aabd94fd014543844b5f44460f212e19f849048b9e14f4aaf5f6d7f3452cec6`, livré le 19 octobre à 21:24:57 UTC. Sauvegarde/restauration des cinq fichiers précédents comparée ; quatre fichiers nouveaux. Six contrôles techniques CI réussis sur `e18dfb9`, octets applicatifs identiques. La CI a nécessité l’adaptation du test de l’accueil éditorial et l’actualisation du manifeste de revue, sans modification du paquet.
+
+Recette Chrome hébergée : agenda chargé, préférences conservées après rechargement, réinitialisation, aperçu PDF des deux canaux choisis et copie sans publication. Miniature d’événement et accès au détail vérifiés sur une fixture locale ensuite archivée ; aucun événement publié en préproduction pour ce contrôle. L’actualité « Haloween » existante reste Validée, catégorie Vie du club ; elle n’apparaît donc pas dans les affiches d’événements publiés.
+
+Correction d’hébergement complémentaire : les dossiers publics du module, `css` et `images`, étaient en mode 0700, empêchant le chargement des scripts, styles et logo. Modes antérieurs consignés en privé, trois dossiers corrigés en 0755 ; fichiers privés et Basic conservés, accès anonyme toujours 401. Les neuf fichiers, contenus, comptes, catalogue et paramètres ont été contrôlés avant/après installation. Production exclue et inchangée.
+
+La campagne humaine reste différée, la PR 24 en brouillon sans accord de merge. Suite : gestion des événements et récurrences, choix de la source unique, personnalisation globale. [Preuves](../data/communications-agenda-verification.json) ; [guide](communication-bureau.md) ; [opérateur et retour arrière](../workflows/communications-agenda-preproduction/README.md).
 
 ## Recette Chrome du 19 octobre 2026 — état courant
 

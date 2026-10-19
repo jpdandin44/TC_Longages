@@ -12,7 +12,7 @@ tags: [communication, drupal, bureau, validation, actualites]
 
 # Communication du Bureau
 
-## Optimisations communications et agenda — 19 octobre
+## Optimisations communications et agenda — livrées le 19 octobre
 
 Développement local vérifié : bouton « Copier le message » sur la révision validée, repli par sélection manuelle, explications du partage et affiches cadrées sans déformation. Aucun envoi automatique vers Facebook ou WhatsApp.
 
@@ -20,7 +20,7 @@ L’agenda conserve son intégration Google existante. Les commandes proposent M
 
 Les préférences ne sont pas des paramètres partagés par tous les visiteurs. Création/édition depuis le Bureau, récurrences, exceptions et thème global restent à développer après choix de la source des événements. La campagne humaine de tests est différée à la demande du responsable ; elle ne bloque pas ce développement.
 
-Contrôles locaux : 22 PDF/canaux, 13 catalogue, 11 intégration agenda et 3 tests JavaScript réussis. Copie dans Chrome et mémorisation des préférences après rechargement vérifiées sur la copie locale. Le modèle d’agenda local a été temporairement équipé d’un iframe de recette puis restauré exactement. Ces preuves ne qualifient pas encore l’installation hébergée du nouveau complément. Production exclue.
+Contrôles locaux : 22 PDF/canaux, 13 catalogue, 11 intégration agenda et 3 tests JavaScript réussis. Copie dans Chrome et mémorisation des préférences après rechargement vérifiées sur la copie locale. Le modèle d’agenda local a été temporairement équipé d’un iframe de recette puis restauré exactement. Installation hébergée désormais vérifiée dans Chrome : commandes et mémorisation de l’agenda, copie du message, affiches PDF et logo. Correction ciblée des permissions de trois dossiers publics ; Basic et dossiers privés conservés. La galerie d’affiches a été contrôlée visuellement sur une fixture locale, sans publication d’actualité en préproduction. [Reçu et limites](../data/communications-agenda-verification.json). Production exclue.
 
 
 ## Aperçus et affichage — complément local non livré, clôture du 18 octobre

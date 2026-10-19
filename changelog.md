@@ -14,9 +14,9 @@ tags:
 
 # Journal des évolutions
 
-## 2026-10-19 — optimisations locales communications et agenda
+## 2026-10-19 — optimisations communications et agenda en préproduction
 
-Copie du message validé avec repli manuel, aide au partage et affichage des supports. Vues Mois/Semaine/Liste, trois palettes mémorisées par navigateur et cartes des événements publiés. Tests locaux ajoutés au parcours de contrôle. Aucun déploiement de ce complément à ce stade, aucune modification de production.
+Copie du message validé avec repli manuel, aide au partage et affichage des supports. Vues Mois/Semaine/Liste, trois palettes mémorisées par navigateur et cartes des événements publiés. Tests locaux ajoutés au parcours de contrôle. Complément de neuf fichiers livré en préproduction et vérifié dans Chrome ; lecture des scripts, styles et logo rétablie par correction de trois dossiers publics. Aucune modification de production.
 
 
 ## 2026-10-19 — Lien d’adhésion depuis l’accueil de préproduction

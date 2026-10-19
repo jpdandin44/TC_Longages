@@ -25,3 +25,9 @@ Le rendu de `AgendaPresentation` préparé est également exécuté dans un proc
 Après réussite des contrôles locaux, CI et documentaires, et du contrôle de passage du protocole commun, `apply` vérifie de nouveau l’absence de dérive, installe les dépendances avant les contrôleurs, reconstruit le cache et compare les contenus/protections. En cas d’échec, il restaure les anciens fichiers et retire seulement les nouveaux fichiers de sa liste explicite. Aucun changement d’accès, de configuration ou envoi de message.
 
 Sorties privées : `plan.json`, répertoires `backup`, `restored`, `candidate`, puis `receipt.json` après installation réussie. État réel et preuves : [vérification du complément](../../data/communications-agenda-verification.json), [reprise](../../docs/point-session.md). La campagne humaine et la gestion complète des événements restent distinctes de ces contrôles techniques.
+
+## Résultat et correction des ressources
+
+Paquet installé le 19 octobre à 21:24:57 UTC ; neuf empreintes comparées et contenus/protections conservés. Le contrôle navigateur a ensuite identifié des dossiers publics en 0700 : le script, les styles et le logo répondaient 404. `asset-permissions.py` a corrigé uniquement la racine `tcl_bureau` et `css` en 0755 après consignation des modes ; le dossier `images` a reçu la même correction, consignée séparément dans `logo-permissions.json`. Aucun changement des règles Basic ni des dossiers privés. Revenir aux modes antérieurs reproduirait le défaut d’accès aux ressources ; ne le faire que dans une restauration explicitement motivée.
+
+Le code applicatif livré reste celui de l’archive qualifiée. Recette Chrome et protection anonyme 401 vérifiées après correction. Les fichiers supplémentaires de documentation/opération ne font pas partie du paquet applicatif.

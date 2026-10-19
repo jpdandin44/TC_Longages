@@ -16,7 +16,7 @@ tags: [v2, recette, saisons]
 
 - **Cadrage** : communications en priorité, agenda ensuite ; campagne humaine différée, production exclue.
 - **Développement local** : copie du message validé, présentation des supports, vues/palettes de l’agenda et cartes d’événements publiés ; contrôles locaux réussis.
-- **Préproduction** : nouveau candidat à qualifier et installer ; ne pas confondre avec le complément PDF déjà livré et les courriels reçus.
+- **Préproduction** : neuf fichiers installés et vérifiés, permissions des ressources publiques corrigées ; copie, aperçu PDF et préférences agenda contrôlés dans Chrome. Campagne humaine toujours différée.
 - **Mise en production** : non autorisée.
 
 [Périmètre et réserves](communication-bureau.md).
