@@ -8,3 +8,9 @@ communication:
       css/communication.css: {}
   dependencies:
     - tcl_bureau/bureau
+
+poster_preview:
+  js:
+    js/poster-preview.js: { attributes: { type: module }, preprocess: false }
+  dependencies:
+    - tcl_bureau/communication

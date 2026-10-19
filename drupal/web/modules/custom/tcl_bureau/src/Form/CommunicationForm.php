@@ -38,6 +38,7 @@ final class CommunicationForm extends FormBase {
     }
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/communication';
+    $form['#attached']['library'][] = 'tcl_bureau/poster_preview';
     $form['#cache']['max-age'] = 0;
     $form['intro'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Enregistrez un brouillon, relisez les aperçus, validez puis utilisez les canaux choisis. Toute modification enregistrée retire la publication et demande une nouvelle validation.'];
     $form['submission_key'] = ['#type' => 'hidden', '#default_value' => $record['submission_key'] ?? bin2hex(random_bytes(16))];
@@ -47,11 +48,12 @@ final class CommunicationForm extends FormBase {
     $form['channels'] = ['#type' => 'checkboxes', '#title' => 'Canaux de publication', '#options' => CommunicationRepository::CHANNELS, '#default_value' => explode(',', $record['channels'] ?? 'site'), '#description' => 'Choisissez au moins un canal. Facebook et WhatsApp : partage manuel après validation. Enregistrer ne publie rien.'];
     $form['body'] = ['#type' => 'textarea', '#title' => 'Texte de l’actualité', '#description' => '5 000 caractères maximum. Facultatif si une affiche est jointe.', '#default_value' => $record['body'] ?? ''];
     $form['link'] = ['#type' => 'url', '#title' => 'Lien utile', '#maxlength' => 1000, '#description' => 'Facultatif. Une adresse HTTPS complète.', '#default_value' => $record['link'] ?? ''];
-    $form['poster'] = ['#type' => 'file', '#title' => 'Image ou affiche', '#description' => 'PDF, JPEG, PNG ou WebP, 8 Mo maximum. PDF conservé pour téléchargement ; images préparées en JPEG de 1 600 pixels et 500 ko maximum.', '#attributes' => ['accept' => 'application/pdf,image/jpeg,image/png,image/webp']];
+    $form['poster'] = ['#type' => 'file', '#title' => 'Image ou affiche', '#description' => 'PDF, JPEG, PNG ou WebP, 8 Mo maximum. PDF conservé avec aperçu de la première page ; images préparées en JPEG de 1 600 pixels et 500 ko maximum.', '#attributes' => ['accept' => 'application/pdf,image/jpeg,image/png,image/webp']];
     if (!empty($record['image_data'])) {
       $form['current_image'] = ['#theme' => 'image', '#uri' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId], ['query' => ['v' => $record['revision']]])->toString(), '#alt' => $record['image_alt'], '#attributes' => ['class' => ['tcl-post-image']]];
       if (CommunicationImage::isPdf($record['image_data'])) {
         $form['current_image'] = ['#type' => 'link', '#title' => 'Télécharger l’affiche PDF actuelle', '#url' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId])];
+        $form['current_pdf_preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-pdf-preview'], 'data-pdf-url' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId], ['query' => ['v' => $record['revision']]])->toString()], 'loading' => ['#plain_text' => 'Chargement de l’aperçu PDF…']];
       }
       $form['remove_image'] = ['#type' => 'checkbox', '#title' => 'Retirer l’affiche actuelle'];
     }

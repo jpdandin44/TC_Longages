@@ -1,0 +1,45 @@
+{
+  "checkedOn": "2026-10-19",
+  "scope": "local V2; not a hosted browser validation",
+  "productionWritten": false,
+  "realMailSent": false,
+  "ui": {
+    "tariffsDesktop": true,
+    "tariffsMobile": true,
+    "mobileClientWidth": 375,
+    "mobileScrollWidth": 375,
+    "savedPdfPreview": true,
+    "selectedPdfPreview": true,
+    "existingPosterInLivePreview": true,
+    "removePosterPreview": true,
+    "replacementImagePreview": true,
+    "unreadablePdfFallback": true,
+    "textPreview": true
+  },
+  "checks": {
+    "oauthFixtureHttp": 66,
+    "flashHttp": 28,
+    "pdfChannelsHttp": 21,
+    "registrationHttp": 38,
+    "catalogueIntegration": 9,
+    "tcProviderHttp": 45,
+    "invitationHttp": 11,
+    "passwordSetupHttp": 18,
+    "mailIntegration": 20,
+    "contactHttp": 76,
+    "editorHttp": 16
+  },
+  "pdfJs": {
+    "version": "6.4.299",
+    "upstreamFilesCompared": 201,
+    "archiveSha256": "86269b40170eb41740ea05ad2102d71d33de4f122b34eb2f478be0ea7779c415"
+  },
+  "hosting": {
+    "backup": "20261019T145855Z",
+    "privateRestoration": "restore-13dh72qp",
+    "filesVerified": 27459,
+    "databaseRestored": false,
+    "deployed": false
+  },
+  "nextAction": "Finish candidate checks and CI, restore and qualify private database, then deploy preproduction only."
+}

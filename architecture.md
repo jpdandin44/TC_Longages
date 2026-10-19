@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags:
   - architecture
@@ -14,6 +14,11 @@ tags:
 ---
 
 # Architecture
+
+## Aperçu PDF — évolution locale à qualifier
+
+La bibliothèque locale PDF.js 6.4.299 et son worker produisent la première page sur canvas dans le Bureau ; les ressources de police, CMaps et WASM sont embarquées. La sélection non enregistrée est lue dans le navigateur. Le téléchargement original reste servi par le contrôleur et ses droits existants. Cette évolution non commitée n’est pas déployée ; [état et limites](docs/communication-bureau.md).
+
 
 ## Complément communication : PDF et canaux
 

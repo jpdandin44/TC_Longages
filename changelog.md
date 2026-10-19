@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags:
   - changelog
@@ -13,6 +13,16 @@ tags:
 ---
 
 # Journal des évolutions
+
+## 2026-10-19 — Finalisation locale des aperçus et tarifs
+
+Aperçus PDF enregistrés et avant sauvegarde, reprise de l’affiche existante dans l’aperçu de saisie, retrait et remplacement par une image. Mise en page des tarifs vérifiée sur bureau/mobile. Correction de l’encodage des accents des courriels ; contrôle de leur contenu renforcé. Recettes HTTP adaptées aux liens Drupal préfixés `/fr/` sans affaiblir les contrôles d’accès. Nouveau préparateur de paquet V2 limité aux modules, sans Core ni configuration privée. Qualification et livraison suivies dans le point de session.
+
+
+## Clôture du 18 octobre, enregistrée le 19 — complément local non livré
+
+Corrections locales du tableau tarifaire sur bureau/mobile, aperçu des PDF enregistrés et aperçu du texte/support pendant la saisie. Ajout de PDF.js 6.4.299 embarqué. Vérifications visuelles locales réalisées ; régression complète et livraison encore à faire. Le test de courriel filtre les captures métier du module ; 20 contrôles réussis dans la restauration privée. Invitations/notifications préparées mais non installées, aucun courriel réel envoyé. [Reprise précise](docs/point-session.md).
+
 
 ## Complément V2 du 18 octobre — livré en préproduction
 
@@ -763,3 +773,5 @@ Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit
 ## Complément courriels de recette — 18 octobre
 
 Développement local des invitations Bureau, du lien natif de création de mot de passe et des notifications de demande fictive au club. Contrôles locaux : 20 de service, 11 HTTP avec OAuth TC, 38 catalogue/formulaire, 18 première saisie du mot de passe. Installation et courriels hébergés encore à vérifier. Agenda enrichi et personnalisation ajoutés au cadrage V2, non développés.
+
+Correction de l’écran Saison et tarifs signalée en recette : colonnes ajustées à la largeur disponible, champs de taille fluide, formules empilées avec leurs libellés sur mobile et lien de test séparé du texte.

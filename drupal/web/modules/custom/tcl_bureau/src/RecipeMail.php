@@ -25,7 +25,7 @@ final class RecipeMail {
     $local = in_array(\Drupal::request()->getHost(), ['127.0.0.1', 'localhost'], TRUE);
     if (get_class($plugin) !== \Drupal\Core\Mail\Plugin\Mail\PhpMail::class && !($local && get_class($plugin) === \Drupal\Core\Mail\Plugin\Mail\TestMailCollector::class)) { return FALSE; }
     try {
-      $result = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÃ‰PRODUCTION] ' . $subject, 'body' => $body]);
+      $result = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body]);
       return ($result['result'] ?? FALSE) === TRUE;
     }
     catch (\Throwable $error) { return FALSE; }
@@ -44,13 +44,13 @@ final class RecipeMail {
       $values = $row ? json_decode($row, TRUE, 512, JSON_THROW_ON_ERROR) : [];
       if (($values['recipe'] ?? FALSE) !== TRUE || ($values['origin'] ?? '') !== 'web_recipe') { return 'failed'; }
       $to = self::settings()['registration_to'] ?? '';
-      $body = "Demande dâ€™adhÃ©sion fictive nÂ°" . $id . ". Ceci est un essai : aucune adhÃ©sion rÃ©elle.\n\n";
+      $body = "Demande d’adhésion fictive n°" . $id . ". Ceci est un essai : aucune adhésion réelle.\n\n";
       foreach (RegistrationRepository::FIELDS as $field) {
         if (!empty($values[$field])) { $body .= $field . ' : ' . $values[$field] . "\n"; }
       }
-      $body .= "\nDisponibilitÃ©s : " . implode(', ', $values['availability'] ?? []) . "\n\nSuivi privÃ© : " . \Drupal\Core\Url::fromRoute('tcl_bureau.registrations', [], ['absolute' => TRUE])->toString() . "\nAucun accusÃ© de rÃ©ception au demandeur.";
+      $body .= "\nDisponibilités : " . implode(', ', $values['availability'] ?? []) . "\n\nSuivi privé : " . \Drupal\Core\Url::fromRoute('tcl_bureau.registrations', [], ['absolute' => TRUE])->toString() . "\nAucun accusé de réception au demandeur.";
       $store->set($key, ['status' => 'pending', 'at' => time()]);
-      $status = self::send('registration', $to, 'Demande dâ€™adhÃ©sion fictive nÂ°' . $id, $body) ? 'accepted' : 'failed';
+      $status = self::send('registration', $to, 'Demande d’adhésion fictive n°' . $id, $body) ? 'accepted' : 'failed';
       $store->set($key, ['status' => $status, 'at' => time()]);
       return $status;
     }

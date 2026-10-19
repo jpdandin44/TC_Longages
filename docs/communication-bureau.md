@@ -5,12 +5,25 @@ title: Communication du Bureau dans la V2 locale
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
 
 # Communication du Bureau
+
+## Aperçus et affichage — complément local non livré, clôture du 18 octobre
+
+Le Bureau dispose localement d’un aperçu de la première page des PDF enregistrés et d’un aperçu du texte et du support pendant la saisie, avant enregistrement. Le fichier original et son téléchargement sont conservés. PDF.js `6.4.299` est embarqué avec ses ressources locales ; le rendu utilise un canvas et les URL du même site, sans service de conversion externe. Les contrôles d’accès au support restent ceux du contrôleur existant. La vue ne rend ni annotations ni scripts du PDF. Le détail des dépendances figure dans [la provenance PDF.js](../drupal/web/modules/custom/tcl_bureau/vendor/pdfjs/README.md).
+
+État à la clôture du 18 octobre : changements non commités et non installés en préproduction. Les aperçus PDF enregistré et PDF sélectionné ont été vérifiés visuellement en local ; la régression complète et le parcours protégé hébergé restent à effectuer. Le tableau des tarifs est également corrigé localement pour bureau/mobile. Voir [la reprise](point-session.md).
+
+
+## Vérification locale du 19 octobre
+
+Aperçu du PDF enregistré et sélectionné, remplacement par une image, texte modifié sans sauvegarde et retrait de l’affiche contrôlés dans le navigateur. Une sélection illisible affiche un message explicite ; elle ne supprime pas le brouillon enregistré. Tableau tarifaire contrôlé sur bureau et mobile (375 pixels utiles, sans débordement horizontal). Livraison de ce complément encore à effectuer.
+
+Le paquet limité est produit par `python scripts/package-v2-update.py` depuis les seuls fichiers commités des modules Bureau et OAuth. Il ne contient ni Core, ni base, ni paramètres privés. La présence de fichiers applicatifs non commités bloque sa préparation. Les anciens opérateurs de livraison restent historiques : préparer des opérateurs liés à la nouvelle empreinte et à la restauration fraîche.
 
 ## Complément courant — PDF et canaux
 

@@ -183,6 +183,7 @@ final class CommunicationController extends ControllerBase {
     }
     if (!empty($row['image_data']) && CommunicationImage::isPdf($row['image_data'])) {
       $build['image'] = Link::fromTextAndUrl('Télécharger l’affiche PDF — ' . $row['image_alt'], Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']]))->toRenderable();
+      $build['pdf_preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-pdf-preview'], 'data-pdf-url' => Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']], ['query' => ['v' => $row['revision']]])->toString()], 'loading' => ['#plain_text' => 'Chargement de l’aperçu PDF…']];
     }
     if ($row['link'] !== '') {
       $build['link'] = Link::fromTextAndUrl('Consulter le lien utile ↗', Url::fromUri($row['link'], ['attributes' => ['target' => '_blank', 'rel' => 'noopener noreferrer']]))->toRenderable();
@@ -191,7 +192,7 @@ final class CommunicationController extends ControllerBase {
   }
 
   private function shell(bool $public = FALSE): array {
-    $build = ['#type' => 'container', '#attributes' => ['class' => ['tcl-bureau', 'tcl-communication']], '#cache' => ['max-age' => 0], '#attached' => ['library' => ['tcl_bureau/communication']]];
+    $build = ['#type' => 'container', '#attributes' => ['class' => ['tcl-bureau', 'tcl-communication']], '#cache' => ['max-age' => 0], '#attached' => ['library' => ['tcl_bureau/communication', 'tcl_bureau/poster_preview']]];
     $build['navigation'] = ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => $public ? 'Actualités du club' : 'Bureau']];
     $links = $public ? ['Retour au site' => 'tcl_site.front', 'Toutes les actualités' => 'tcl_bureau.public_news'] : ['Adhérents' => 'tcl_bureau.registrations', 'Communication' => 'tcl_bureau.communication', 'Archives' => 'tcl_bureau.communication_archives', 'Actualités du site' => 'tcl_bureau.public_news', 'Retour au site' => 'tcl_site.front', 'Se déconnecter' => 'user.logout'];
     foreach ($links as $label => $route) {

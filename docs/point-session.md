@@ -5,12 +5,48 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-18
+updated: 2026-10-19
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
 # Point de session - preparation du 17 octobre 2026
+
+## Reprise du 19 octobre 2026 — en cours
+
+Demande directe du responsable : terminer les aperçus et tarifs puis les invitations et notifications du formulaire en préproduction. Changements du checkout V2 conservés ; contrôles locaux relancés. Session cPanel expirée à la reprise, reconnexion demandée pendant le travail local. Aucun accord de production. Le suivi canonique porte l’état courant ; la clôture ci-dessous est historique.
+
+
+## Clôture de la journée du 18 octobre — consignée le 19 octobre 2026
+
+Session close sur demande du responsable. Aucune reprise automatique. Production inchangée durant ce lot ; aucune nouvelle fusion, livraison ou émission de courriel à la clôture. Les sections suivantes conservent les états historiques.
+
+| Phase | État à la clôture |
+| --- | --- |
+| Cadrage | Catalogue/formulaire en recette fictive ; destinataires réels confirmés pour les essais de courriel. Textes et créneaux à compléter. Évolutions et personnalisation de l’agenda enregistrées, non implémentées. |
+| Développement local | Invitations et notifications au commit `3fa8a54`, suivi au HEAD `3cb7fea355965a421051f33109ddaf294e3d7390`, PR #24 en brouillon. Correctifs d’affichage et aperçus supplémentaires non commités, à consolider. |
+| Préproduction | Catalogue/formulaire puis import PDF/canaux installés le 18 octobre. Le dernier complément livré reste la source `2c137071e2e43ec38a70885ae34ca5a51b5b989c`. Invitations, notifications et nouveaux aperçus ne sont pas installés. |
+| Mise en production | Exclue ; aucune modification de production dans cette session. |
+
+### Preuves et limites
+
+- [Reçu PDF/canaux](../data/communication-pdf-canaux-verification.json) : livraison du 18 octobre à 23 h 23, paquet `72cafd03fed7966c5a70aa8a5884502dd69600b6bb906161d026365a3c1b82b8`.
+- Invitations/courriels : 20 contrôles locaux, 11 contrôles HTTP d’invitation et 18 de création du mot de passe réussis avant les derniers changements d’interface. Les six contrôles techniques CI du HEAD `3cb7fea` ont réussi ; les confirmations humaines restent ouvertes.
+- Copie privée hébergée : sauvegarde `20261018T213810Z`, restauration `restore-xl4337ej`, 62 tables comparées et 20 contrôles du service courriel réussis. Aucun courriel réel émis. Le correctif du test filtre les messages métier du module pour exclure un message technique de statut de compte capturé pendant la recette.
+- Paquet courriel préparé `9ed8b191ad447772695a4e2bea75c17494e0a6f96b1a4b7100155f6bf08154ec`, jamais appliqué. Ce paquet ne comprend pas les derniers correctifs locaux : ne pas le livrer comme candidat final.
+- Tarifs : colonnes visibles sur bureau et présentation en cartes sur mobile, vérifiées visuellement en local. Communications : première page du PDF et aperçu pendant la saisie vérifiés localement avec l’affiche fournie. Captures privées dans `.local/` : `tarifs-corriges-desktop.png`, `tarifs-corriges-mobile.png`, `apercu-affiche-pdf.png`, `communication-apercu-saisie.png`.
+- Accès Bureau/Basic du site non disponible dans le navigateur de l’agent ; l’utilisateur indique y accéder. Aucun parcours navigateur hébergé ni réception dans les boîtes réelles n’est confirmé. Le compte destinataire existe déjà et est actif ; son association OAuth doit encore être contrôlée.
+
+### Reprise précise
+
+1. Conserver le checkout `feat/v2-recette` et tous ses changements non commités ; lire le [suivi canonique](../../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json), itération `tcl-v2-recette-20261018`.
+2. Terminer les contrôles des aperçus PDF/images, des droits et du formulaire tarifaire ; consolider un nouveau candidat avec ses dépendances PDF.js, manifeste et CI. Ne pas extrapoler les résultats de `3cb7fea` aux fichiers non commités.
+3. Requalifier une sauvegarde/restauration fraîche et le nouveau paquet avant installation uniquement en préproduction. Préserver les données saisies depuis la dernière sauvegarde.
+4. Configurer les destinataires confirmés dans les paramètres privés ; vérifier l’association OAuth du compte existant, puis tester l’invitation et le formulaire depuis l’accueil avec données fictives et les adresses autorisées. Distinguer acceptation par le transport et réception effective. Aucun accusé au demandeur prévu.
+5. Reprendre ensuite l’agenda et sa personnalisation ; aucune diffusion Facebook/WhatsApp effectuée.
+
+La clôture met à jour les sources Markdown et JSON, sans relancer de tests applicatifs ni de build. Les vues dérivées du cockpit ont été générées avant ces dernières informations : les régénérer à la reprise. Aucun accord humain n’est ajouté par cette clôture.
+
 
 ## Reprise du complément PDF et canaux
 

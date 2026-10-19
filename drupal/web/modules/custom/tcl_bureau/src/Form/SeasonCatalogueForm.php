@@ -21,9 +21,10 @@ final class SeasonCatalogueForm extends FormBase {
     $draft = $state['draft'];
     $form['#cache']['max-age'] = 0;
     $form['#attributes']['class'][] = 'tcl-bureau';
+    $form['#attributes']['class'][] = 'tcl-season-catalogue';
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
-    $form['intro'] = ['#plain_text' => 'Préparez la saison en brouillon, puis publiez explicitement pour la recette. Les dossiers déjà déposés conservent leur tarif. Aucun règlement, remise ou licence n’est calculé.'];
-    $form['try'] = ['#type' => 'link', '#title' => 'Tester le formulaire fictif', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.registration_recipe'), '#access' => SeasonCatalogue::recipeEnabled()];
+    $form['intro'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Préparez la saison en brouillon, puis publiez explicitement pour la recette. Les dossiers déjà déposés conservent leur tarif. Aucun règlement, remise ou licence n’est calculé.'];
+    $form['try'] = ['#type' => 'link', '#title' => 'Tester le formulaire fictif', '#attributes' => ['class' => ['tcl-season-try']], '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.registration_recipe'), '#access' => SeasonCatalogue::recipeEnabled()];
     $form['revision'] = ['#type' => 'hidden', '#default_value' => $state['revision']];
     $form['season'] = ['#type' => 'textfield', '#title' => 'Saison', '#required' => TRUE, '#maxlength' => 9, '#default_value' => $draft['season']];
     $form['formulas'] = ['#type' => 'table', '#tree' => TRUE, '#header' => ['Identifiant stable', 'Libellé', 'Profil', 'Prix en euros']];

@@ -54,9 +54,9 @@ try {
   $id=Drupal::database()->insert('tcl_bureau_registration')->fields(['identity_key'=>hash('sha256',random_bytes(20)),'submission_key'=>bin2hex(random_bytes(16)),'first_name'=>'Fictif','last_name'=>'Recette courrier','season'=>'2026-2027','status'=>'received','details'=>json_encode($values),'revision'=>1,'created'=>time(),'changed'=>time(),'created_by'=>0,'changed_by'=>0])->execute();
   mailCheck('Registration notification accepted',RecipeMail::registration((int)$id)==='accepted');
   mailCheck('Repeated submission returns same mail status',RecipeMail::registration((int)$id)==='accepted');
-  $messages=Drupal::state()->get('system.test_mail_collector');
+  $messages=array_values(array_filter(Drupal::state()->get('system.test_mail_collector'), static fn($m)=>str_starts_with($m['id'], 'tcl_bureau_')));
   mailCheck('Single club notification and no applicant acknowledgement',count($messages)===2&&$messages[1]['to']==='club@example.invalid');
-  mailCheck('Recipe message contains dossier details',str_contains($messages[1]['body'],'Recette courrier')&&str_contains($messages[1]['subject'],'RECETTE'));
+  mailCheck('Recipe message contains dossier details',str_contains($messages[1]['body'],'Recette courrier')&&str_contains($messages[1]['subject'],'[RECETTE PRÉPRODUCTION]')&&str_contains($messages[1]['body'],'adhésion fictive'));
   file_put_contents(dirname(__DIR__).'/.local/recipe-mail-tests.json',json_encode(['checks'=>$checks,'passed'=>TRUE,'realMailSent'=>FALSE],JSON_PRETTY_PRINT));
   echo count($checks)." recipe mail checks passed; no real mail sent.\n";
 }
