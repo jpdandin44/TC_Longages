@@ -52,7 +52,10 @@ def run():
     body = anonymous.get('/adherer')[1]
     check('Published options visible', 'Formule adulte fictive' in body and '70,00' in body)
     home = anonymous.get('/')[1]
-    check('Homepage uses same published catalogue', 'Formule adulte fictive' in home and 'RECETTE FICTIVE' in home and 'Tester une demande fictive' in home)
+    if 'id="adherer"' in home:
+        check('Editorial homepage links to published recipe season', 'id="tcl-registration-entry"' in home and '2026-2027' in home and 'Formulaire d’adhésion — test' in home and '/adherer' in home and 'données fictives' in home)
+    else:
+        check('Tariff homepage uses same published catalogue', 'Formule adulte fictive' in home and 'RECETTE FICTIVE' in home and 'Tester une demande fictive' in home)
     check('Published notice escaped', '<script>alert(1)</script>' not in body and '&lt;script&gt;' in body)
     check('Missing slots explicit', 'Créneaux à compléter' in body)
     check('Anonymous form has CSRF token', bool(oauth.Inputs(body).hidden.get('form_token')))

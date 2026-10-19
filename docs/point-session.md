@@ -14,7 +14,7 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Travail courant — communications puis agenda
 
-Les optimisations sont développées et contrôlées localement. Préparer le candidat de la PR 24 puis sa qualification préproduction. Détail et limites dans [le guide communication](communication-bureau.md#optimisations-communications-et-agenda--19-octobre). La recette Chrome et les réceptions des courriels ci-dessous restent acquises ; la campagne humaine est différée. Aucune modification de production.
+Les optimisations sont développées et contrôlées localement. Candidat applicatif `9cd0b5a` poussé dans la PR 24 : neuf fichiers, SHA-256 `2aabd94fd014543844b5f44460f212e19f849048b9e14f4aaf5f6d7f3452cec6`. Sauvegarde/restauration des fichiers et rendu préparé sur Core hébergé 11.4.8 vérifiés. La CI a révélé une assertion encore liée à l’ancien tableau tarifaire de l’accueil ; test adapté au bouton du modèle éditorial, sans modifier le paquet applicatif. Nouvelle exécution CI requise avant activation. Détail et limites dans [le guide communication](communication-bureau.md#optimisations-communications-et-agenda--19-octobre). La recette Chrome et les réceptions des courriels ci-dessous restent acquises ; la campagne humaine est différée. Aucune modification de production.
 
 
 ## Recette Chrome du 19 octobre 2026 — état courant
