@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-20",
+  "sourceSha": "02b4112dd95f1d11cf3ea1a23d1142316c15470f",
+  "artifactSha256": "4b03648eec02e9c8ce1def3bef5351b4f5b3a1be6d89dbf3757607f0d9539d68",
+  "files": 13,
+  "local": {
+    "http": 29,
+    "schedule": 19,
+    "javascript": 3,
+    "agendaRendering": 11,
+    "browserPdf": true,
+    "mobileWidth": 390,
+    "filter": true
+  },
+  "preproduction": {
+    "prepared": true,
+    "backupRestore": "passed",
+    "deployed": true,
+    "deliveredAt": "2026-10-20T12:07:23.506605+00:00",
+    "filesVerified": 13,
+    "contentAndProtectionPreserved": true,
+    "databaseMigration": false,
+    "recipeStatus": "in_progress"
+  },
+  "productionWritten": false,
+  "googleCalendarWritten": false,
+  "realMailSent": false,
+  "humanCampaign": "deferred",
+  "ci": {
+    "status": "passed",
+    "jobs": 6,
+    "head": "e3a67564693ae21c7a723753b254279dedf9ac6e",
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39419384329"
+  }
+}

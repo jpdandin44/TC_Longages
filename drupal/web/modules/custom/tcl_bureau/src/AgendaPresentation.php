@@ -32,6 +32,8 @@ final class AgendaPresentation {
     }
     if ($cards !== '') { $html = str_replace('</main>', '<section class="tcl-agenda-announcements"><h2>Affiches des événements du club</h2><p>Communications publiées par le Bureau. Consultez le calendrier pour les dates à jour.</p><div class="tcl-agenda-cards">' . $cards . '</div></section></main>', $html); }
     $base = base_path() . 'modules/custom/tcl_bureau/';
-    return str_replace('</head>', '<link rel="stylesheet" href="' . $base . 'css/agenda.css"><script type="module" src="' . $base . 'js/agenda-tools.js"></script><script type="module" src="' . $base . 'js/poster-preview.js"></script></head>', $html);
+    // These standalone pages bypass Drupal's asset URL cache invalidation.
+    $asset = static fn(string $file): string => Html::escape($base . $file . '?v=' . substr(hash_file('sha256', dirname(__DIR__) . '/' . $file), 0, 12));
+    return str_replace('</head>', '<link rel="stylesheet" href="' . $asset('css/agenda.css') . '"><script type="module" src="' . $asset('js/agenda-tools.js') . '"></script><script type="module" src="' . $asset('js/poster-preview.js') . '"></script></head>', $html);
   }
 }

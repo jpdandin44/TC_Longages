@@ -17,6 +17,9 @@ try {
   $rendered = AgendaPresentation::render($page);
   checkAgenda('Existing calendar URL and timezone preserved', str_contains($rendered, 'src=fixture%40example.invalid&amp;ctz=Europe%2FParis'));
   checkAgenda('Presentation controls added once', str_contains($rendered, 'data-agenda-tools') && AgendaPresentation::render($rendered) === $rendered);
+  checkAgenda('Removed palette not rendered', !str_contains($rendered, 'Ambiance') && !str_contains($rendered, 'data-agenda-theme'));
+  $scriptHash = substr(hash_file('sha256', dirname(__DIR__) . '/drupal/web/modules/custom/tcl_bureau/js/agenda-tools.js'), 0, 12);
+  checkAgenda('Script URL changes with content to invalidate old browser caches', str_contains($rendered, 'agenda-tools.js?v=' . $scriptHash));
   checkAgenda('Missing calendar leaves page unchanged', AgendaPresentation::render('<head></head><main>À venir</main>') === '<head></head><main>À venir</main>');
   checkAgenda('No empty event section', !str_contains($rendered, 'tcl-agenda-announcements'));
   $row = ['submission_key' => bin2hex(random_bytes(16)), 'title' => 'Événement <script>fictif</script>', 'category' => 'event', 'body' => 'Recette', 'link' => '', 'image_alt' => '', 'image_data' => '', 'status' => 'published', 'channels' => 'site', 'revision' => 3, 'approved_revision' => 3, 'published_at' => 100, 'created' => 1, 'changed' => 1, 'changed_by' => 0];
