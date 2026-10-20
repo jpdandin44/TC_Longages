@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "14cf8723e4ca811295427f94a1e41e8362246bea",
+  "sourceCommit": "b147b78cad5fb9aefc83203f1a080983784e295f",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -156,9 +156,9 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "gitBlob": "ab9bb50f4d7154488e349d13d46b7c7b84769cd0",
-      "size": 57178,
-      "sha256": "57424327e4cd5a4745fc0c9cd6dc0b6077a83d465c45beb5c99ed049504457d2"
+      "gitBlob": "1cd273c8412e87ed007b91bbb9532d766ec960f8",
+      "size": 57567,
+      "sha256": "9e9237908f80a1e600127db496a1dd867d30b1b0a8409d9234f7e400f338003e"
     },
     {
       "path": "TC_Longages_Dossier_Reprise_Codex_2026-09-15.md",
@@ -261,9 +261,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "3721ae3ba1d814f4c860778afe8e00c841bb3181",
-      "size": 65499,
-      "sha256": "f0335c92c5af333d48fa829f2dbed0f7cc3f7f46b000c7b854f37d5071f3f1bd"
+      "gitBlob": "b556b6b9455337ba70f392b198b1c56f02855300",
+      "size": 65516,
+      "sha256": "db26b292607bf18a546b902acaff79e7a1aaaf8e8c77a76e3a3580bb73c1971a"
     },
     {
       "path": "config/agenda-local.json",
@@ -786,9 +786,9 @@
     {
       "path": "data/agenda-events-verification.json",
       "mode": "100644",
-      "gitBlob": "4a8a3cb7d176932137679a0d6b60a9220cc0cdd4",
-      "size": 958,
-      "sha256": "affb17dd772df053fb27307e2de0340fe17ef44f30c5f9fa22dc5f588dde4b44"
+      "gitBlob": "17b7b9ae7ca2357353270fbd0c9e67592989c4ef",
+      "size": 3092,
+      "sha256": "ce5933ae32200ec42bc62679d9e829d2462544fc79dda9daa29f4407cfc084f3"
     },
     {
       "path": "data/agenda-preproduction-preparation.json",
@@ -1094,9 +1094,9 @@
     {
       "path": "docs/evenements-bureau.md",
       "mode": "100644",
-      "gitBlob": "338ee01cbf2147601145cd1c7f54f34e0a73f213",
-      "size": 5140,
-      "sha256": "bacc610e4d38432eaf87c3bb4ae67708771879b0d9fda57f9d3c9f97141e166f"
+      "gitBlob": "6b5fd485e18dd1d9f868b4e28ff459159cf17439",
+      "size": 5447,
+      "sha256": "e3ea24669cfa7b401f870a4b97f96b03902dc2cecef0bc41db6e3580647c372b"
     },
     {
       "path": "docs/framework-developpement.md",
@@ -1178,9 +1178,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "7899049272c2f9340addde77d32bd883cf8ba893",
-      "size": 116410,
-      "sha256": "1228cc51855e44c58fadda486a1591c99bcfecfbada62bf44d0e818cb45dabd0"
+      "gitBlob": "2f95a53c261c4916295863c0a8714bba7ef538fc",
+      "size": 117162,
+      "sha256": "cdca854c49b2031b5b50ff3153d182c2a9f0402c1cd0da3d6701e7d016378df6"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -1276,9 +1276,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "0122c5bfa3b331e63f637020a33293e6ace2e7c6",
-      "size": 10467,
-      "sha256": "8ec86f986ec06d51698732ddfba424e0a2e5eca849242597e9dc4b13d8d87834"
+      "gitBlob": "74d8524af31cdd2e811262879e892d88d6d1b43d",
+      "size": 10922,
+      "sha256": "4b311761d4a7a51d0b2b5f713a7c5c4fef4b38140488406921686ef6ca109334"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -4888,9 +4888,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "b34cbc7e557b51b5b7aeb82c6addf7475cceb8a2",
-      "size": 38004,
-      "sha256": "b5c0342bd86611fdd17226d0e6b9e0a8a032751653638f1354f531094f78f676"
+      "gitBlob": "3c4e004dab3f4ba8874f44d850aa77d3a7424add",
+      "size": 38014,
+      "sha256": "b19b808e2d3eb11798c08c298f021805a05948ae56aa4b9a3d8cfacc4d1dea50"
     },
     {
       "path": "scripts/adult-tariffs.mjs",
@@ -6176,9 +6176,16 @@
     {
       "path": "workflows/agenda-events-preproduction/README.md",
       "mode": "100644",
-      "gitBlob": "eb96e5518a1d248a2a86e2a85584b098e400fc68",
-      "size": 2253,
-      "sha256": "e1a9ee7dbedf8e522b00f73903282d9726756cbfa7dd62c0ae749a3df7a41d64"
+      "gitBlob": "975947d8b65966b90ac0e5043d13c4c1ae0554d3",
+      "size": 2837,
+      "sha256": "0d966f9d41aa8207f5c86213faa806ea8df3da827283f2e9e650881ae9be322e"
+    },
+    {
+      "path": "workflows/agenda-events-preproduction/fixes.py",
+      "mode": "100644",
+      "gitBlob": "46f27b4d3047b3a7b14ca415803a43dc76453c75",
+      "size": 6752,
+      "sha256": "520ce60a40abe4d690159c8a8e90910605b1260defb8fd932b36557e7f34dfe9"
     },
     {
       "path": "workflows/agenda-events-preproduction/patch.py",
@@ -6384,5 +6391,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "3b16ce0e3acd3a8783f567ba60bdb52ccb7e62771eb463a4c101a55107255fd6"
+  "artifactDigest": "a19e2c056c33099d9d111535db6d54183bd67ea64e3ab4b37f768fac491480b8"
 }
