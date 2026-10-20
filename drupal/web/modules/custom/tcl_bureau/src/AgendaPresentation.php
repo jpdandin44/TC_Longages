@@ -9,7 +9,7 @@ use Drupal\Core\Url;
 final class AgendaPresentation {
   public static function render(string $html): string {
     if (!SeasonCatalogue::recipeEnabled() || str_contains($html, 'data-agenda-tools')) { return $html; }
-    $tools = '<div class="tcl-agenda-tools" data-agenda-tools hidden><label>Vue <select data-agenda-view><option value="MONTH">Mois</option><option value="WEEK">Semaine</option><option value="AGENDA">Liste</option></select></label><label>Ambiance <select data-agenda-theme><option value="club">Club — bordeaux</option><option value="nature">Nature — vert</option><option value="clair">Clair — bleu</option></select></label><button type="button" data-agenda-reset>Réinitialiser</button><p>Préférences conservées dans ce navigateur. La palette habille la page ; les couleurs du calendrier sont gérées dans Google Agenda.</p><p role="status" aria-live="polite" data-agenda-status></p></div>';
+    $tools = '<div class="tcl-agenda-tools" data-agenda-tools hidden><label>Vue <select data-agenda-view><option value="MONTH">Mois</option><option value="WEEK">Semaine</option><option value="AGENDA">Liste</option></select></label><button type="button" data-agenda-reset>Vue mensuelle</button><p>Vue conservée dans ce navigateur.</p><p role="status" aria-live="polite" data-agenda-status></p></div>';
     $html = preg_replace_callback('~<iframe\b[^>]*class="club-calendar"[^>]*>.*?</iframe>~s', static fn(array $m): string => '<div class="tcl-agenda-panel" data-agenda-panel>' . $tools . $m[0] . '</div>', $html, 1, $count);
     if (!$count) { return $html; }
     $cards = '';

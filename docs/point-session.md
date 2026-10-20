@@ -5,12 +5,52 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
 # Point de session - preparation du 17 octobre 2026
+
+## Agenda V2 — reprise du 20 octobre 2026
+
+Demande active : terminer les miniatures PDF/images, couleurs par catégorie et icônes, supprimer Ambiance, livrer et vérifier en préproduction uniquement. Les clôtures ci-dessous sont historiques.
+
+| Phase | État |
+| --- | --- |
+| Cadrage | Sept catégories : cours, manifestation, réservation, repas, AG, compétition, autre. Google partagé conservé en lecture seule. |
+| Développement local | Cartes, filtres, affiche liée à une communication et suppression Ambiance réalisés. 29 contrôles HTTP, 19 métier et 3 JavaScript réussis le 20 octobre. |
+| Préproduction | Candidat, CI et récupération en préparation ; nouvelles fonctions non encore livrées. |
+| Mise en production | Exclue. |
+
+Les affiches restent protégées ; choisir une communication ne la publie pas. Les événements de recette restent privés au Bureau. [Guide](evenements-bureau.md).
+
+## Clôture du 19 octobre — sur demande du responsable
+
+Session close, reprise uniquement sur nouvelle demande. Aucun déploiement des événements ce soir ; aucun changement de production ni écriture dans Google Agenda. Serveur Drupal local et fournisseur OAuth fictif lancés pour cette session arrêtés.
+
+| Phase | État réel |
+| --- | --- |
+| Cadrage | Calendrier Google de production conservé en consultation ; écritures de recette séparées dans le Bureau, accord humain confirmé. |
+| Développement local | Création/modification, récurrences, exclusions et annulation développées. 19 contrôles métier et 21 HTTP réussis. Source `83c98ee968a813e3e2d7c48dea4b68ad1ac9b561`, HEAD poussé `33e721d22529384b43608776c8fbf84e82267a08`. |
+| Préproduction | Lot événements non livré. Version précédente communications/présentation agenda toujours dernier reçu connu (`9cd0b5a`). Cible cPanel accessible, aucune commande distante exécutée pour ce nouveau lot. |
+| Mise en production | Exclue ; aucune action. |
+
+PR [24](https://github.com/jpdandin44/TC_Longages/pull/24) en brouillon et sans conflit au relevé de clôture, cible `e7e71addee734317ef2da5706b290767a3b317e8`. [CI du candidat](https://github.com/jpdandin44/TC_Longages/actions/runs/39330938687) encore en cours au relevé : livraison-sécurité réussie, autres contrôles non conclus. Ne pas assimiler les six contrôles réussis du candidat précédent à ceux-ci. Aucun accord de merge.
+
+Dernier relevé avant fermeture : trois contrôles techniques réussis (beta-release, delivery-safety, drupal-mysql), trois encore en cours (bureau-oauth-runtime, support-runtime, technical-ci). Le contrôle de politique PR est en échec ; résultat à relire à la reprise, sans cocher les attestations humaines. Aucun résultat final de CI annoncé.
+
+Reprise précise :
+
+1. Lire ce point, [le guide événements](evenements-bureau.md) et le suivi canonique dans `../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`, itération `tcl-v2-recette-20261018`. Conserver les changements documentaires de clôture et les deux vues V2 déjà modifiées.
+2. Relever le résultat final de la CI sur `33e721d`, traiter tout échec ; compléter le contrôle visuel (aperçu local observé, enregistrement navigateur et mobile à terminer). Les 21 tests HTTP couvrent sauvegarde, édition, concurrence, CSRF, accès Capitaine et rejeu de création.
+3. Mettre à jour la description de PR avec le nouveau lot, consolider les documents et actualiser le manifeste candidat si nécessaire. Préparer le paquet limité aux huit fichiers applicatifs : EventSchedule, EventRepository, EventController, EventForm, BureauController, RegistrationController, routing et services. Aucun paquet de ce lot n’a encore été créé.
+4. Qualifier la sauvegarde/restauration fraîche des fichiers affectés et la conservation des contenus/protections. Aucun changement de schéma requis ; collection `tcl_bureau.recipe_events` créée à la première sauvegarde. Contrôle de passage avant installation exclusivement en préproduction.
+5. Tester avec un compte Bureau : événement ponctuel, édition, série et date exclue, annulation/réactivation ; vérifier que le calendrier partagé reste inchangé. Garder les données fictives et ne pas envoyer de message.
+
+Limites : modification de toute la série seulement ; déplacement individuel par exclusion puis événement séparé. Pas d’écriture Google, de publication publique des événements de recette ou de lien automatique avec une affiche. Campagne humaine toujours différée. [Règles complètes](evenements-bureau.md).
+
+Les sources Markdown et le JSON canonique sont actualisés ; vues dérivées du cockpit non régénérées à la clôture conformément au workflow quotidien (aucun build supplémentaire). Les régénérer à la reprise. Les changements de clôture restent locaux, sans commit/push supplémentaire.
 
 ## Travail courant — événements Bureau en préparation
 

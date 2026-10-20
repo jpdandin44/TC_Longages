@@ -5,13 +5,18 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - decisions
   - gouvernance
   - architecture
 ---
+
+## Agenda V2 — 20 octobre 2026
+
+Décision du 20 octobre : remplacer la personnalisation globale Ambiance par des repères métier sur chaque événement. Réutiliser les affiches des communications évite une seconde copie ; les mises à jour se répercutent, l’archivage masque l’affiche. Les cartes privées ne modifient pas le calendrier Google partagé.
+
 
 # Décisions
 

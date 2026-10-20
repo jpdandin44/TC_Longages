@@ -5,13 +5,18 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - exigences
   - validation
   - prototype
 ---
+
+## Agenda V2 — 20 octobre 2026
+
+L’agenda V2 doit proposer miniatures PDF/images, icônes et couleurs par catégorie (cours, manifestation, réservation, repas, AG, compétition, autre). Le sélecteur Ambiance est abandonné à la demande du responsable ; les écritures de recette restent isolées du calendrier Google partagé.
+
 
 ## Complément du 19 octobre — agenda Bureau
 

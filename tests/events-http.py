@@ -15,7 +15,7 @@ def run():
     check('Anonymous write denied', anonymous.get(path, {'title':'bad'})[0] == 403)
     check('Bureau OAuth works', bureau.oauth()[0] == 303)
     check('Bureau navigation exposes recipe agenda', 'Agenda de recette' in bureau.get('/bureau')[1])
-    values={'title':'Recette agenda '+secrets.token_hex(4),'location':'Court fictif','description':'Données fictives','start_date':'2027-03-21','start_time':'10:00','end_date':'2027-03-21','end_time':'11:30','frequency':'weekly','until':'2027-04-04','excluded':'2027-03-28','status':'scheduled','confirm':'1','save':'Enregistrer l’événement'}
+    values={'title':'Recette agenda '+secrets.token_hex(4),'location':'Court fictif','description':'Données fictives','start_date':'2027-03-21','start_time':'10:00','end_date':'2027-03-21','end_time':'11:30','frequency':'weekly','until':'2027-04-04','excluded':'2027-03-28','category':'lesson','poster_post':'0','status':'scheduled','confirm':'1','save':'Enregistrer l’événement'}
     preview=dict(values); preview.pop('save'); preview['preview']='Vérifier les dates'
     response=bureau.form(path,preview)
     check('Preview shows two dates without saving', response[0]==200 and '2 date(s)' in response[1])
@@ -51,6 +51,24 @@ def run():
     check('Single event has one occurrence','1 date(s)' in bureau.get(single_edit)[1])
     check('Replayed creation cannot duplicate','a changé' in bureau.form(path,single,create_body)[1])
     single['status']='cancelled'; bureau.form(single_edit,single)
+    check('Category badge and icon shown', 'tcl-event-lesson' in bureau.get('/bureau/evenements')[1] and '🎾' in bureau.get('/bureau/evenements')[1])
+    check('Category filter excludes other series', changed['title'] not in bureau.get('/bureau/evenements?categorie=meal')[1])
+    check('Unknown category rejected',bureau.form(edit,dict(changed,category='injected'))[0]!=303)
+    check('Unknown poster rejected',bureau.form(edit,dict(changed,poster_post='999999999'))[0]!=303)
+    db=sqlite3.connect(ROOT/'.local/drupal-runtime/site.sqlite')
+    row={'submission_key':secrets.token_hex(16),'title':'Affiche fictive recette agenda','category':'event','body':'Recette','link':'','image_alt':'Affiche fictive','image_data':b'%PDF-1.4\nfixture\n%%EOF','status':'draft','channels':'site','revision':1,'approved_revision':0,'published_at':0,'created':1,'changed':1,'changed_by':0}
+    poster=db.execute('INSERT INTO tcl_bureau_post ('+','.join(row)+') VALUES ('+','.join('?' for _ in row)+')',list(row.values())).lastrowid;db.commit()
+    try:
+        with_poster=dict(changed,poster_post=str(poster))
+        check('Private draft poster can be associated',bureau.form(edit,with_poster)[0]==303)
+        overview=bureau.get('/bureau/evenements')[1]
+        check('PDF uses protected preview URL', 'data-pdf-url=' in overview and '/bureau/communication/'+str(poster)+'/image' in overview)
+        check('Anonymous cannot fetch private poster',anonymous.get('/bureau/communication/'+str(poster)+'/image')[0] in [302,303,403])
+        db.execute("UPDATE tcl_bureau_post SET status='archived' WHERE id=?",(poster,));db.commit()
+        check('Archived poster not rendered', '/bureau/communication/'+str(poster)+'/image' not in bureau.get('/bureau/evenements')[1])
+        changed['poster_post']='0'; bureau.form(edit,changed)
+    finally:
+        db.execute('DELETE FROM tcl_bureau_post WHERE id=?',(poster,));db.commit();db.close()
     return edit
 if __name__=='__main__':
     try:

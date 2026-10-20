@@ -1,0 +1,18 @@
+.tcl-event-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,280px),1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.tcl-event-card { --event-color: #545968; --event-tint: #f0f1f4; border: 1px solid #d7dbe1; border-top: 6px solid var(--event-color); border-radius: 14px; padding: 1rem; background: #fff; display: flex; flex-direction: column; gap: .7rem; min-width: 0; overflow-wrap: anywhere; }
+.tcl-event-lesson { --event-color: #22683f; --event-tint: #eaf6ec; }
+.tcl-event-festival { --event-color: #8b2676; --event-tint: #f9edf7; }
+.tcl-event-court { --event-color: #1d5b93; --event-tint: #eaf3fc; }
+.tcl-event-meal { --event-color: #965009; --event-tint: #fff3df; }
+.tcl-event-meeting { --event-color: #6241a3; --event-tint: #f1ecfc; }
+.tcl-event-competition { --event-color: #a12635; --event-tint: #fcecef; }
+.tcl-event-badge { color: var(--event-color); background: var(--event-tint); padding: .4rem .7rem; border-radius: 8px; font-weight: 700; display: flex; gap: .5rem; align-items: center; }
+.tcl-event-card h2 { font-size: 1.3rem; margin: 0; }
+.tcl-event-card p { margin: 0; }
+.tcl-event-symbol { min-height: 150px; display: grid; place-items: center; font-size: 4rem; background: var(--event-tint); border-radius: 8px; }
+.tcl-event-poster { background: #f7f7f7; border-radius: 8px; text-align: center; }
+img.tcl-event-poster,.tcl-event-poster canvas { width: 100%; height: 220px; object-fit: contain; }
+.tcl-event-poster p { font-size: .8rem; padding: .4rem; }
+.tcl-event-filters a { padding: .4rem .6rem; border: 1px solid #b7bcc5; border-radius: 8px; }
+.tcl-event-filters a[aria-current=page] { background: #741323; color: #fff; }
+.tcl-event-filters a:focus-visible,.tcl-event-card a:focus-visible { outline: 3px solid #1d5b93; outline-offset: 3px; }

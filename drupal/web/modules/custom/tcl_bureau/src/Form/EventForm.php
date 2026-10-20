@@ -34,6 +34,17 @@ final class EventForm extends FormBase {
     foreach (['title' => ['Titre', 120], 'location' => ['Lieu', 200]] as $field => [$label, $max]) {
       $form[$field] = ['#type' => 'textfield', '#title' => $label, '#maxlength' => $max, '#required' => $field === 'title', '#default_value' => $row[$field] ?? ''];
     }
+    $options = [];
+    foreach (EventRepository::CATEGORIES as $key => [$label, $icon]) { $options[$key] = $icon . ' ' . $label; }
+    $form['category'] = ['#type' => 'select', '#title' => 'Type de rendez-vous', '#options' => $options, '#default_value' => $row['category'] ?? 'other'];
+    $posters = ['0' => 'Aucune affiche — utiliser l’icône de la catégorie'];
+    $communications = \Drupal::service('tcl_bureau.communication');
+    foreach ($communications->list($this->currentUser()) as $post) {
+      $full = $communications->get($this->currentUser(), (int) $post['id']);
+      if ($full && $full['image_data'] !== '') { $posters[(string) $post['id']] = $post['title']; }
+    }
+    $form['poster_post'] = ['#type' => 'select', '#title' => 'Affiche de la communication', '#options' => $posters, '#default_value' => isset($posters[$row['poster_post'] ?? '0']) ? ($row['poster_post'] ?? '0') : '0', '#description' => 'Réutilise l’affiche PDF ou image importée dans Communication. Les changements de cette affiche seront aussi visibles ici. Aucune publication déclenchée.'];
+    $form['communication_link'] = ['#type' => 'link', '#title' => 'Gérer les communications et importer une affiche', '#url' => Url::fromRoute('tcl_bureau.communication')];
     $form['description'] = ['#type' => 'textarea', '#title' => 'Description', '#maxlength' => 3000, '#default_value' => $row['description'] ?? ''];
     foreach (['start' => 'Début', 'end' => 'Fin'] as $prefix => $label) {
       $form[$prefix . '_date'] = ['#type' => 'date', '#title' => $label . ' — date', '#required' => TRUE, '#default_value' => $row[$prefix . '_date'] ?? ''];
@@ -57,7 +68,7 @@ final class EventForm extends FormBase {
   }
   private function input(FormStateInterface $state): array {
     $values = [];
-    foreach ([...EventSchedule::FIELDS, 'status'] as $field) {
+    foreach ([...EventSchedule::FIELDS, 'status', 'category', 'poster_post'] as $field) {
       $value = $state->getValue($field, '');
       $values[$field] = is_string($value) ? trim($value) : $value;
     }
@@ -66,6 +77,7 @@ final class EventForm extends FormBase {
   public function validateForm(array &$form, FormStateInterface $state): void {
     $input = $this->input($state);
     if (!preg_match('/^[a-f0-9]{32}$/D', (string) $state->getValue('submission_id')) || !ctype_digit((string) $state->getValue('revision'))) { $state->setErrorByName('title', 'Rechargez le formulaire avant de réessayer.'); }
+    foreach ($this->events->presentationErrors($this->currentUser(), $input) as $field => $error) { $state->setErrorByName($field, $error); }
     foreach (EventSchedule::inspect($input)['errors'] as $field => $error) { $state->setErrorByName($field, $error); }
     if (($state->getTriggeringElement()['#name'] ?? '') === 'save' && !$state->getValue('confirm')) { $state->setErrorByName('confirm', 'Confirmez les données fictives et la portée de la modification.'); }
   }

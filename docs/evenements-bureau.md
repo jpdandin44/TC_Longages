@@ -5,7 +5,7 @@ title: Gestion des événements de recette dans le Bureau
 status: active
 version: git
 created: 2026-10-19
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags: [agenda, bureau, recurrence, preproduction]
 ---
@@ -26,11 +26,19 @@ Stockage isolé dans la collection Drupal `tcl_bureau.recipe_events`, cent séri
 
 Routes et service exigent la session OAuth active, un compte actif et la permission existante `manage tcl communication`. Le mode recette et l’hôte local/préproduction sont également obligatoires. Aucun droit Capitaine, contournement administrateur ou ouverture en production. Les formulaires Drupal conservent leur protection CSRF et les textes affichés sont échappés.
 
-Vérifications : `tests/event-schedule-local.php` (19 contrôles métier) et `tests/events-http.py` (21 contrôles HTTP avec OAuth fictif). Ces contrôles sont raccordés au workflow de recette Bureau.
+Vérifications : `tests/event-schedule-local.php` (19 contrôles métier) et `tests/events-http.py` (29 contrôles HTTP avec OAuth fictif). Ces contrôles sont raccordés au workflow de recette Bureau.
+
+### Catégories et affiches
+
+Sept types de rendez-vous associent une couleur, une icône et un libellé : cours de tennis, manifestations, réservations, repas, assemblées générales, compétitions et autres rendez-vous. La couleur n’est jamais le seul repère. Les filtres permettent de consulter chaque catégorie. Les événements antérieurs sans catégorie utilisent « Autre rendez-vous ».
+
+Le formulaire réutilise une affiche déjà importée dans Communication, y compris un brouillon privé. Les cartes montrent l’image ou la première page du PDF et un lien vers la préparation du partage. Une affiche archivée disparaît des cartes ; sa modification dans Communication se répercute ici. Cette association ne valide ni ne publie la communication. Sans affiche, une grande icône remplace la miniature.
+
+Le sélecteur « Ambiance » est supprimé de la page Calendrier. Seule la vue Mois/Semaine/Liste est conservée dans le navigateur ; les anciennes préférences de palette sont ignorées. Les couleurs du calendrier Google intégré restent propres à Google : les nouvelles cartes colorées sont celles de l’agenda Bureau indépendant.
 
 ## Préproduction
 
-Préparation en cours. Aucune livraison de ce lot attestée à ce stade. Candidat exact, CI et restauration des fichiers concernés à qualifier avant installation. Les contrôles locaux ne valent pas recette hébergée.
+Reprise autorisée le 20 octobre. Le nouveau candidat avec catégories et miniatures est en qualification locale ; livraison non encore effectuée. Historique : travail arrêté à la clôture du 19 octobre sur demande du responsable. Source `83c98ee`, HEAD `33e721d` poussé ; CI encore en cours au relevé. Aucune livraison de ce lot. Reprise uniquement sur demande. Candidat exact, CI et restauration des fichiers concernés à qualifier avant installation. Les contrôles locaux ne valent pas recette hébergée.
 
 ## Mise en production
 

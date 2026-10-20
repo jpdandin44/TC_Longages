@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - roadmap
@@ -14,13 +14,18 @@ tags:
   - whatsapp
 ---
 
+## Agenda V2 — 20 octobre 2026
+
+Priorité active : finaliser et livrer l’agenda Bureau avec miniatures, catégories, icônes et sans Ambiance. Contrôles locaux réussis ; CI du nouveau candidat, sauvegarde/restauration et recette hébergée à terminer. Production exclue, campagne humaine différée.
+
+
 # Feuille de route
 
 ## Priorité courante — 19 octobre
 
 Communications puis présentation de l’agenda : développement, CI, livraison et contrôles Chrome en préproduction réalisés. La campagne humaine est différée. Le catalogue fictif est publié en préproduction, le parcours depuis l’accueil contrôlé et les deux types de courriel reçus. Création du mot de passe du compte invité encore à vérifier par le responsable.
 
-Suite agenda : création/édition Bureau, récurrences et exceptions développées en local, livraison préproduction en préparation. Calendrier Google conservé en consultation ; écritures de recette séparées, accord du responsable le 19 octobre. Préférences globales et couleurs par catégorie restent prévues. Voir [le guide](docs/evenements-bureau.md). Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
+Suite agenda : création/édition Bureau, récurrences et exceptions développées en local, livraison préproduction à reprendre après la clôture du 19 octobre. Calendrier Google conservé en consultation ; écritures de recette séparées, accord du responsable le 19 octobre. Préférences globales et couleurs par catégorie restent prévues. Voir [le guide](docs/evenements-bureau.md). Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
 
 
 ## Complément actif — communication V2

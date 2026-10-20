@@ -5,13 +5,18 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - architecture
   - stockage-local
   - publication
 ---
+
+## Agenda V2 — 20 octobre 2026
+
+L’agenda Bureau conserve catégorie et identifiant de communication dans chaque série de la collection de recette. Les affiches sont lues par les routes protégées existantes, sans copie ni synchronisation Google.
+
 
 ## Complément du 19 octobre — événements de recette
 

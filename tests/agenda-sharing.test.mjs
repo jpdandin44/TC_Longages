@@ -15,17 +15,17 @@ function agenda(saved, failStorage = false) {
 }
 test('agenda restores preferences, retains calendar identity and resets', () => {
   const a = agenda('{"view":"AGENDA","theme":"nature"}');
-  assert.equal(a.tools.hidden,false); assert.equal(a.panel.dataset.theme,'nature');
+  assert.equal(a.tools.hidden,false); assert.equal(a.panel.dataset.theme,undefined);
   const url = new URL(a.frame.src);
   assert.equal(url.searchParams.get('src'),'fixture@example.invalid');
   assert.equal(url.searchParams.get('ctz'),'Europe/Paris');
   assert.equal(url.searchParams.get('mode'),'AGENDA');
   a.reset.handlers.click();
-  assert.deepEqual(JSON.parse(a.stored()),{view:'MONTH',theme:'club'});
+  assert.deepEqual(JSON.parse(a.stored()),{view:'MONTH'});
 });
 test('agenda tolerates invalid preferences and unavailable storage', () => {
   for(const saved of ['broken','null','{"view":"OTHER","theme":"unknown"}']) {
-    const a=agenda(saved,true); assert.equal(a.view.value,'MONTH'); assert.equal(a.theme.value,'club');
+    const a=agenda(saved,true); assert.equal(a.view.value,'MONTH'); assert.equal(a.theme.value,undefined);
     a.view.value='WEEK'; a.view.handlers.change();
     assert.match(a.status.textContent,/cette visite uniquement/);
     assert.equal(new URL(a.frame.src).searchParams.get('mode'),'WEEK');

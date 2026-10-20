@@ -5,12 +5,17 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
+
+## Agenda V2 — 20 octobre 2026
+
+Agenda V2 local : suppression Ambiance, sept catégories avec couleurs et icônes, filtres, miniatures PDF/images liées aux communications. Vérifications : 29 HTTP, 19 métier et 3 JavaScript réussies. Livraison préproduction en préparation.
+
 
 ## 2026-10-19 — Événements de recette, préparation locale
 
