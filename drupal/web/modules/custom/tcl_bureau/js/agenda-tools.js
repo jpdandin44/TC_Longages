@@ -5,26 +5,19 @@ if (panel) {
   const view = panel.querySelector('[data-agenda-view]');
   const status = panel.querySelector('[data-agenda-status]');
   const url = new URL(frame.src, location.href);
-  const key = 'tcl-agenda-presentation';
   const validViews = ['MONTH', 'WEEK', 'AGENDA'];
   if (url.origin === 'https://calendar.google.com' && url.pathname === '/calendar/embed') {
     tools.hidden = false;
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch { /* Preferences are optional. */ }
-    view.value = validViews.includes(saved.view) ? saved.view : 'MONTH';
-    function apply(persist = true) {
+    // A shared opening view: old browser preferences must not override it.
+    view.value = 'MONTH';
+    function apply(announce = true) {
       if (!validViews.includes(view.value)) return;
       const next = new URL(frame.src);
       if (next.searchParams.get('mode') !== view.value) {
         next.searchParams.set('mode', view.value);
         frame.src = next.href;
       }
-      if (persist) {
-        try {
-          localStorage.setItem(key, JSON.stringify({ view: view.value }));
-          status.textContent = 'Préférences enregistrées dans ce navigateur.';
-        } catch { status.textContent = 'Affichage modifié pour cette visite uniquement.'; }
-      }
+      if (announce) status.textContent = 'Affichage modifié pour cette visite. Le calendrier s’ouvre en vue Mois.';
     }
     view.addEventListener('change', () => apply());
     panel.querySelector('[data-agenda-reset]').addEventListener('click', () => {

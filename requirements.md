@@ -13,6 +13,10 @@ tags:
   - prototype
 ---
 
+## Vue initiale du calendrier — 20 octobre 2026
+
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Implémentation locale contrôlée, livraison en préparation.
+
 ## Agenda V2 — 20 octobre 2026
 
 L’agenda V2 doit proposer miniatures PDF/images, icônes et couleurs par catégorie (cours, manifestation, réservation, repas, AG, compétition, autre). Le sélecteur Ambiance est abandonné à la demande du responsable ; les écritures de recette restent isolées du calendrier Google partagé.

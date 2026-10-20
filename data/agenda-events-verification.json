@@ -58,7 +58,7 @@
   "productionWritten": false,
   "googleCalendarWritten": false,
   "realMailSent": false,
-  "humanCampaign": "deferred",
+  "humanCampaign": "deferred_by_user_confirmed_2026-10-20",
   "ci": {
     "status": "passed",
     "jobs": 6,
@@ -93,5 +93,19 @@
     "eventsChanged": "expected recipe writes",
     "usersTableHash": "changed during authenticated navigation; full row baseline unavailable; installation before/after comparison passed",
     "productionWritten": false
+  },
+  "latestBranchCi": {
+    "sha": "3e87b9a2f0a938cb7d32203f4acb7f8d2768d26b",
+    "base": "e7e71addee734317ef2da5706b290767a3b317e8",
+    "mergeable": true,
+    "ci": "passed",
+    "technicalJobsPassed": 6,
+    "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39422131823",
+    "completedAt": "2026-10-20T12:30:05Z",
+    "observedAt": "2026-10-20T13:20:49.029562+00:00",
+    "applicationBlobsIdenticalToTestedAndDeployedSource": true,
+    "policy": "awaiting_four_human_attestations",
+    "policyUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39422132007",
+    "draft": true
   }
 }

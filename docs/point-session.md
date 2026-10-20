@@ -12,6 +12,10 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
+## Vue Mois globale — complément en préparation
+
+Le responsable demande Mois à chaque ouverture pour tous les visiteurs, pas seulement un réglage de son navigateur. Le code ignore désormais les préférences mémorisées et permet Semaine/Liste pendant la visite. 3 tests JavaScript et 13 tests de rendu passent. Livraison limitée à deux fichiers en préproduction à qualifier.
+
 ## Agenda V2 — livraison vérifiée le 20 octobre 2026
 
 | Phase | État réel |
@@ -22,6 +26,8 @@ tags: [session, reprise, framework, drupal, git]
 | Mise en production | Exclue, aucune écriture. |
 
 Source finale applicative `14cf8723e4ca811295427f94a1e41e8362246bea`, CI six contrôles réussis sur `627cb8a5b4da942b2d323c554edcf766061e9963`. [Preuves et reçus](../data/agenda-events-verification.json), [guide](evenements-bureau.md), [retour arrière](../workflows/agenda-events-preproduction/README.md). La première livraison et son correctif sont conservés séparément avec leurs empreintes.
+
+Dernière CI de la branche vérifiée le 20 octobre : les six contrôles techniques ont réussi sur `3e87b9a2f0a938cb7d32203f4acb7f8d2768d26b`, exécution [39422131823](https://github.com/jpdandin44/TC_Longages/actions/runs/39422131823), terminée à 14 h 30 (Europe/Paris). La PR 24 reste en brouillon et sans conflit ; le contrôle de politique échoue uniquement sur les quatre attestations humaines non cochées. La campagne humaine est explicitement différée par le responsable. Cette vérification et la mise à jour du suivi ne modifient ni le code hébergé ni la production.
 
 Deux défauts observés puis corrigés en recette : cache navigateur de l’ancien script Ambiance ; service du formulaire perdu après aperçu. Les commandes de vue et l’enchaînement aperçu/enregistrement ont été rejoués après correction. Deux événements explicitement fictifs restent dans le Bureau pour les essais du responsable ; aucune communication publiée ni message envoyé.
 

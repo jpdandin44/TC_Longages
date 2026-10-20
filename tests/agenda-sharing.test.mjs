@@ -13,21 +13,24 @@ function agenda(saved, failStorage = false) {
   runInNewContext(source('agenda-tools.js'), {URL, location:{href:'https://preprod.tclongages.fr/calendrier.html'}, document:{querySelector:()=>panel}, localStorage:{getItem:()=>saved, setItem:(key,value)=>{if(failStorage)throw Error(); stored=value;}}});
   return {frame,view,theme,status,reset,tools,panel,stored:()=>stored};
 }
-test('agenda restores preferences, retains calendar identity and resets', () => {
+test('agenda opens in Month despite stored List, retains calendar identity and resets', () => {
   const a = agenda('{"view":"AGENDA","theme":"nature"}');
   assert.equal(a.tools.hidden,false); assert.equal(a.panel.dataset.theme,undefined);
   const url = new URL(a.frame.src);
   assert.equal(url.searchParams.get('src'),'fixture@example.invalid');
   assert.equal(url.searchParams.get('ctz'),'Europe/Paris');
-  assert.equal(url.searchParams.get('mode'),'AGENDA');
+  assert.equal(url.searchParams.get('mode'),'MONTH');
+  a.view.value='AGENDA'; a.view.handlers.change();
+  assert.equal(new URL(a.frame.src).searchParams.get('mode'),'AGENDA');
   a.reset.handlers.click();
-  assert.deepEqual(JSON.parse(a.stored()),{view:'MONTH'});
+  assert.equal(a.view.value,'MONTH');
+  assert.equal(a.stored(),undefined);
 });
 test('agenda tolerates invalid preferences and unavailable storage', () => {
-  for(const saved of ['broken','null','{"view":"OTHER","theme":"unknown"}']) {
+  for(const saved of ['broken','null','{"view":"OTHER","theme":"unknown"}','{"view":"WEEK"}']) {
     const a=agenda(saved,true); assert.equal(a.view.value,'MONTH'); assert.equal(a.theme.value,undefined);
     a.view.value='WEEK'; a.view.handlers.change();
-    assert.match(a.status.textContent,/cette visite uniquement/);
+    assert.match(a.status.textContent,/cette visite/);
     assert.equal(new URL(a.frame.src).searchParams.get('mode'),'WEEK');
   }
 });

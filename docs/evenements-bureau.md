@@ -34,7 +34,7 @@ Sept types de rendez-vous associent une couleur, une icône et un libellé : cou
 
 Le formulaire réutilise une affiche déjà importée dans Communication, y compris un brouillon privé. Les cartes montrent l’image ou la première page du PDF et un lien vers la préparation du partage. Une affiche archivée disparaît des cartes ; sa modification dans Communication se répercute ici. Cette association ne valide ni ne publie la communication. Sans affiche, une grande icône remplace la miniature.
 
-Le sélecteur « Ambiance » est supprimé de la page Calendrier. Seule la vue Mois/Semaine/Liste est conservée dans le navigateur ; les anciennes préférences de palette sont ignorées. Les couleurs du calendrier Google intégré restent propres à Google : les nouvelles cartes colorées sont celles de l’agenda Bureau indépendant.
+Le sélecteur « Ambiance » est supprimé de la page Calendrier. À la demande du responsable le 20 octobre, chaque ouverture utilise désormais Mois pour tous les visiteurs, y compris ceux qui avaient mémorisé Semaine ou Liste. Le changement de vue reste possible pendant la visite, sans mémorisation. Les anciennes préférences locales sont ignorées. Ce complément est en préparation préproduction. Les couleurs du calendrier Google intégré restent propres à Google : les nouvelles cartes colorées sont celles de l’agenda Bureau indépendant.
 
 ## Préproduction
 

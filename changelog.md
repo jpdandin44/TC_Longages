@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## Vue initiale du calendrier — 20 octobre 2026
+
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Implémentation locale contrôlée, livraison en préparation.
+
 ## Agenda V2 — 20 octobre 2026
 
 Agenda V2 livré en préproduction : suppression Ambiance, sept catégories avec couleurs et icônes, filtres, miniatures PDF/images liées aux communications. Vérifications : 29 HTTP, 19 métier et 3 JavaScript réussies. Premier paquet et correctif livrés : cache des scripts et sauvegarde après aperçu corrigés puis revérifiés en recette hébergée.
