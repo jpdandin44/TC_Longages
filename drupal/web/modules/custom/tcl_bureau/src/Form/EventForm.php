@@ -13,7 +13,8 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 final class EventForm extends FormBase {
-  public function __construct(private EventRepository $events) {}
+  // FormBase must serialize this service when a preview rebuilds the form.
+  public function __construct(protected EventRepository $events) {}
   public static function create(ContainerInterface $container) { return new static($container->get('tcl_bureau.events')); }
   public function getFormId(): string { return 'tcl_bureau_event'; }
   public function buildForm(array $form, FormStateInterface $form_state, ?string $event = NULL): array {

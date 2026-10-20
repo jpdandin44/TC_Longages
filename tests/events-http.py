@@ -19,9 +19,10 @@ def run():
     preview=dict(values); preview.pop('save'); preview['preview']='Vérifier les dates'
     response=bureau.form(path,preview)
     check('Preview shows two dates without saving', response[0]==200 and '2 date(s)' in response[1])
+    preview_body=response[1]
     count_before=len(re.findall('/bureau/evenements/[a-f0-9]{32}/modifier',bureau.get('/bureau/evenements')[1]))
     check('Preview does not create a record', values['title'] not in bureau.get('/bureau/evenements')[1])
-    response=bureau.form(path,values)
+    response=bureau.form(path,values,preview_body)
     check('Recurring event saves',response[0]==303)
     edit=oauth.urllib.parse.urlsplit(response[2]['Location']).path
     body=bureau.get(edit)[1]

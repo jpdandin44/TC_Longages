@@ -20,7 +20,7 @@ Demande active : terminer les miniatures PDF/images, couleurs par catégorie et 
 | --- | --- |
 | Cadrage | Sept catégories : cours, manifestation, réservation, repas, AG, compétition, autre. Google partagé conservé en lecture seule. |
 | Développement local | Cartes, filtres, affiche liée à une communication et suppression Ambiance réalisés. 29 contrôles HTTP, 19 métier et 3 JavaScript réussis le 20 octobre. |
-| Préproduction | Candidat, CI et récupération en préparation ; nouvelles fonctions non encore livrées. |
+| Préproduction | Premier paquet livré, contrôles de récupération et six CI réussis. Deux défauts détectés pendant la recette (cache du script, sauvegarde après aperçu) ; correctif en qualification. |
 | Mise en production | Exclue. |
 
 Les affiches restent protégées ; choisir une communication ne la publie pas. Les événements de recette restent privés au Bureau. [Guide](evenements-bureau.md).

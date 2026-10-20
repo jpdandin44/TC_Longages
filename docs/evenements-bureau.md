@@ -43,3 +43,7 @@ Reprise autorisée le 20 octobre. Le nouveau candidat avec catégories et miniat
 ## Mise en production
 
 Exclue. Le raccordement des écritures à Google, ses droits et la migration éventuelle des événements ne sont pas réalisés. Le calendrier public reste une source distincte consultée seulement. Cette recette n’est pas un deuxième calendrier officiel.
+
+## Qualification du 20 octobre
+
+Le premier paquet de treize fichiers a été installé et ses empreintes vérifiées. La recette hébergée a révélé deux défauts : script Ambiance conservé dans le cache du navigateur et service du formulaire non restauré après « Vérifier les dates ». Correction en cours : adresses des ressources liées à leur empreinte et propriété du service compatible avec la sérialisation Drupal. Le test HTTP doit enregistrer le formulaire renvoyé par l’aperçu, sans rouvrir un formulaire neuf. Aucun calendrier Google ni donnée de production modifié.
