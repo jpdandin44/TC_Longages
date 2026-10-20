@@ -12,18 +12,20 @@ tags: [session, reprise, framework, drupal, git]
 
 # Point de session - preparation du 17 octobre 2026
 
-## Agenda V2 — reprise du 20 octobre 2026
+## Agenda V2 — livraison vérifiée le 20 octobre 2026
 
-Demande active : terminer les miniatures PDF/images, couleurs par catégorie et icônes, supprimer Ambiance, livrer et vérifier en préproduction uniquement. Les clôtures ci-dessous sont historiques.
-
-| Phase | État |
+| Phase | État réel |
 | --- | --- |
-| Cadrage | Sept catégories : cours, manifestation, réservation, repas, AG, compétition, autre. Google partagé conservé en lecture seule. |
-| Développement local | Cartes, filtres, affiche liée à une communication et suppression Ambiance réalisés. 29 contrôles HTTP, 19 métier et 3 JavaScript réussis le 20 octobre. |
-| Préproduction | Premier paquet livré, contrôles de récupération et six CI réussis. Deux défauts détectés pendant la recette (cache du script, sauvegarde après aperçu) ; correctif en qualification. |
-| Mise en production | Exclue. |
+| Cadrage | Catégories et affiches dans l’agenda Bureau ; calendrier Google partagé en consultation seulement. |
+| Développement local | Création, modification, récurrences, exceptions, annulation, sept catégories, filtres et miniatures réalisés. 29 HTTP, 19 métier, 13 rendu agenda et 3 JavaScript réussis. |
+| Préproduction | Treize fichiers installés, puis correctif de deux fichiers ; recette Chrome ordinateur/mobile réussie, protection anonyme 401 conservée. |
+| Mise en production | Exclue, aucune écriture. |
 
-Les affiches restent protégées ; choisir une communication ne la publie pas. Les événements de recette restent privés au Bureau. [Guide](evenements-bureau.md).
+Source finale applicative `14cf8723e4ca811295427f94a1e41e8362246bea`, CI six contrôles réussis sur `627cb8a5b4da942b2d323c554edcf766061e9963`. [Preuves et reçus](../data/agenda-events-verification.json), [guide](evenements-bureau.md), [retour arrière](../workflows/agenda-events-preproduction/README.md). La première livraison et son correctif sont conservés séparément avec leurs empreintes.
+
+Deux défauts observés puis corrigés en recette : cache navigateur de l’ancien script Ambiance ; service du formulaire perdu après aperçu. Les commandes de vue et l’enchaînement aperçu/enregistrement ont été rejoués après correction. Deux événements explicitement fictifs restent dans le Bureau pour les essais du responsable ; aucune communication publiée ni message envoyé.
+
+La campagne humaine reste différée. Textes et créneaux d’inscription définitifs, activation personnelle du compte invité et accord humain de merge restent distincts. La PR 24 demeure en brouillon ; ses quatre attestations humaines ne sont pas cochées. Le calendrier intégré n’est pas modifié par les événements privés de recette.
 
 ## Clôture du 19 octobre — sur demande du responsable
 

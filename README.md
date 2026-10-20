@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-18
+updated: 2026-10-20
 owner: jpdandin
 tags:
   - site-internet
@@ -14,6 +14,11 @@ tags:
 ---
 
 # Tennis Club de Longages
+
+## Agenda Bureau V2 — préproduction
+
+Dans le Bureau, ouvrir « Agenda de recette » pour créer et modifier des événements fictifs, choisir une catégorie et une affiche, puis vérifier les récurrences. Livraison et recette du 20 octobre : [guide](docs/evenements-bureau.md), [preuves](data/agenda-events-verification.json). Google Agenda reste en consultation, production exclue.
+
 
 Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
 

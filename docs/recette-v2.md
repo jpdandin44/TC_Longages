@@ -5,12 +5,17 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-10-19
+updated: 2026-10-20
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
 
 # Reprise V2 pour la préproduction
+
+## Agenda V2 — état du 20 octobre
+
+L’agenda Bureau avec miniatures, catégories, icônes et récurrences est livré et vérifié en préproduction. Ambiance est supprimé. Les défauts de cache navigateur et de sauvegarde après aperçu sont corrigés et revérifiés. [Guide courant](evenements-bureau.md), [preuves](../data/agenda-events-verification.json), [reprise](point-session.md). Les constats du 19 octobre ci-dessous restent historiques.
+
 
 ## Complément courant — communications et agenda
 

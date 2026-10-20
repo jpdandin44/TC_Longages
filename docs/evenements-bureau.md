@@ -38,7 +38,9 @@ Le sélecteur « Ambiance » est supprimé de la page Calendrier. Seule la vue M
 
 ## Préproduction
 
-Reprise autorisée le 20 octobre. Le nouveau candidat avec catégories et miniatures est en qualification locale ; livraison non encore effectuée. Historique : travail arrêté à la clôture du 19 octobre sur demande du responsable. Source `83c98ee`, HEAD `33e721d` poussé ; CI encore en cours au relevé. Aucune livraison de ce lot. Reprise uniquement sur demande. Candidat exact, CI et restauration des fichiers concernés à qualifier avant installation. Les contrôles locaux ne valent pas recette hébergée.
+Livrée et vérifiée le 20 octobre : paquet initial de treize fichiers puis correctif de deux fichiers. Sauvegardes restaurées et comparées avant chaque installation ; empreintes et conservation des contenus/protections vérifiées après. Recette Chrome : création avec PDF existant, aperçu puis enregistrement d’une série avec exclusion, modification/annulation, filtres et largeur mobile 390 px. Affiche liée et préparation du partage vérifiées sans publication. « Ambiance » absent, Mois/Liste et persistance après rechargement vérifiés. Accès non authentifié : 401.
+
+Deux événements fictifs conservés pour la campagne humaine différée. [Preuves](../data/agenda-events-verification.json), [installation et retour](../workflows/agenda-events-preproduction/README.md).
 
 ## Mise en production
 
@@ -46,4 +48,4 @@ Exclue. Le raccordement des écritures à Google, ses droits et la migration év
 
 ## Qualification du 20 octobre
 
-Le premier paquet de treize fichiers a été installé et ses empreintes vérifiées. La recette hébergée a révélé deux défauts : script Ambiance conservé dans le cache du navigateur et service du formulaire non restauré après « Vérifier les dates ». Correction en cours : adresses des ressources liées à leur empreinte et propriété du service compatible avec la sérialisation Drupal. Le test HTTP doit enregistrer le formulaire renvoyé par l’aperçu, sans rouvrir un formulaire neuf. Aucun calendrier Google ni donnée de production modifié.
+Le premier paquet de treize fichiers et son correctif ont été installés et leurs empreintes vérifiées. La recette hébergée a révélé deux défauts : script Ambiance conservé dans le cache du navigateur et service du formulaire non restauré après « Vérifier les dates ». Correction livrée et vérifiée : adresses des ressources liées à leur empreinte et propriété du service compatible avec la sérialisation Drupal. Le test HTTP enregistre le formulaire renvoyé par l’aperçu, sans rouvrir un formulaire neuf. Aucun calendrier Google ni donnée de production modifié.

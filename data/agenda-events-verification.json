@@ -7,7 +7,7 @@
     "http": 29,
     "schedule": 19,
     "javascript": 3,
-    "agendaRendering": 11,
+    "agendaRendering": 13,
     "browserPdf": true,
     "mobileWidth": 390,
     "filter": true
@@ -20,7 +20,40 @@
     "filesVerified": 13,
     "contentAndProtectionPreserved": true,
     "databaseMigration": false,
-    "recipeStatus": "in_progress"
+    "recipeStatus": "passed",
+    "viewTests": {
+      "ambianceAbsent": true,
+      "resetMonth": true,
+      "listView": true,
+      "preferenceAfterReload": true,
+      "calendarIdentityPreserved": true
+    },
+    "communicationObserved": {
+      "id": 1,
+      "status": "validated",
+      "revision": 4,
+      "channels": [
+        "site",
+        "facebook",
+        "whatsapp"
+      ],
+      "publishedByAgent": false
+    },
+    "browserChecks": [
+      "Bureau navigation",
+      "Create single event with existing private PDF poster",
+      "PDF canvas rendered",
+      "Category icons and distinct colours",
+      "Weekly preview with excluded date",
+      "Save rebuilt preview form",
+      "Edit and cancel series",
+      "Filter by category",
+      "Mobile 390 px without horizontal overflow",
+      "Poster link opens communication preparation",
+      "Calendar view reset and persistence without Ambiance"
+    ],
+    "anonymousStatus": 401,
+    "fixtures": "Two explicitly fictitious private events retained for later user tests; no communication published"
   },
   "productionWritten": false,
   "googleCalendarWritten": false,
@@ -31,5 +64,34 @@
     "jobs": 6,
     "head": "e3a67564693ae21c7a723753b254279dedf9ac6e",
     "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39419384329"
+  },
+  "correction": {
+    "sourceSha": "14cf8723e4ca811295427f94a1e41e8362246bea",
+    "artifactSha256": "0d56f14dfe93c6600fdecdb9ea520d2e0300f103ffb7e4273e38b6e1efc9ad89",
+    "name": "agenda-fixes-14cf8723e4ca",
+    "files": 2,
+    "status": "deployed_verified",
+    "local": {
+      "httpIncludingPreviewSave": 29,
+      "agendaRendering": 13,
+      "javascript": 3
+    },
+    "defects": [
+      "Old browser script still referenced removed palette field",
+      "Cached preview form lost private injected service"
+    ],
+    "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39420543372",
+    "deliveredAt": "2026-10-20T12:17:28.520849+00:00",
+    "ciStatus": "passed",
+    "filesVerified": 2,
+    "contentAndProtectionPreserved": true
+  },
+  "finalIntegrity": {
+    "files": 13,
+    "fileHashes": "passed",
+    "businessContentsAndProtections": "passed",
+    "eventsChanged": "expected recipe writes",
+    "usersTableHash": "changed during authenticated navigation; full row baseline unavailable; installation before/after comparison passed",
+    "productionWritten": false
   }
 }

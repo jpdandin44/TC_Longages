@@ -16,7 +16,7 @@ tags:
 
 ## Agenda V2 — 20 octobre 2026
 
-Priorité active : finaliser et livrer l’agenda Bureau avec miniatures, catégories, icônes et sans Ambiance. Contrôles locaux réussis ; CI du nouveau candidat, sauvegarde/restauration et recette hébergée à terminer. Production exclue, campagne humaine différée.
+Agenda Bureau livré et vérifié en préproduction avec miniatures, catégories, icônes et sans Ambiance. Contrôles locaux, six CI, sauvegarde/restauration et recette Chrome ordinateur/mobile réussis. Suite : campagne humaine, textes et créneaux définitifs. Production exclue.
 
 
 # Feuille de route

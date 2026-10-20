@@ -14,7 +14,7 @@ tags:
 
 ## Agenda V2 — 20 octobre 2026
 
-Agenda V2 local : suppression Ambiance, sept catégories avec couleurs et icônes, filtres, miniatures PDF/images liées aux communications. Vérifications : 29 HTTP, 19 métier et 3 JavaScript réussies. Premier paquet livré ; correction en cours du cache des scripts et de la sauvegarde après aperçu détectés par la recette hébergée.
+Agenda V2 livré en préproduction : suppression Ambiance, sept catégories avec couleurs et icônes, filtres, miniatures PDF/images liées aux communications. Vérifications : 29 HTTP, 19 métier et 3 JavaScript réussies. Premier paquet et correctif livrés : cache des scripts et sauvegarde après aperçu corrigés puis revérifiés en recette hébergée.
 
 
 ## 2026-10-19 — Événements de recette, préparation locale
