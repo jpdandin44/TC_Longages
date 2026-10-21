@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "8fa4f2c02f2514bcad23a6ee16f7b37431d63082",
+  "sourceCommit": "206885b5488154023f175a218e0f98434c7ce046",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -950,6 +950,13 @@
       "gitBlob": "c5e2e1c37c66a0e97fc48392cf3e38ac13c07c1c",
       "size": 9590,
       "sha256": "35a8d2d609d5d760e042c2daa7cbc8d9a8e566aaf3fdbcffe222a4498a0871af"
+    },
+    {
+      "path": "data/password-reset-recipe-verification.json",
+      "mode": "100644",
+      "gitBlob": "d069d307f8b7f98a808fe30493b768b4aadca5e6",
+      "size": 1276,
+      "sha256": "57cec2911d4520a3638206de8ac73bd183aecd9e29449115bc413e12940cce21"
     },
     {
       "path": "data/production-action-verification.json",
@@ -2674,6 +2681,13 @@
       "sha256": "36378d44664c1c1fd5f34aaca466fd94a274e9f778b98adc2a46b36206e06106"
     },
     {
+      "path": "drupal/web/modules/custom/tcl_bureau/css/account.css",
+      "mode": "100644",
+      "gitBlob": "c9ab7c5e7dc41afb68f75d523a181f17d9e3c00c",
+      "size": 2852,
+      "sha256": "65481a50f48dd57a3073d7f128234ef2483d7dacf328866c3e2641a4fdfa0416"
+    },
+    {
       "path": "drupal/web/modules/custom/tcl_bureau/css/agenda.css",
       "mode": "100644",
       "gitBlob": "d9512ca19f09c22b38d241362d9bbb736a640ba5",
@@ -2928,16 +2942,16 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.libraries.yml",
       "mode": "100644",
-      "gitBlob": "bcc1e657497794c74eb9c557bc5cb920d2297002",
-      "size": 542,
-      "sha256": "30c8ef2d5c0bbac08b3565066fd37b8f2be597de56b5d38cb7ae9d28c6a3fcab"
+      "gitBlob": "aee26b1e56cf7cdcc66985bad32f41a6bea8ff1c",
+      "size": 636,
+      "sha256": "a72ed78a441b0297c341ec4757acf8df632136ace8953211d64e419e7c8c8f1b"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.module",
       "mode": "100644",
-      "gitBlob": "1fa7687e12cb3bd3099dcc655facc7c1b8404607",
-      "size": 2736,
-      "sha256": "93fe86863fb690ede6868dc0afb4275e86d2016b3ed1e6bbf4db3ca6f2f61c53"
+      "gitBlob": "292e755b3ba3c129744d877e2a3279ff2e5871f9",
+      "size": 3685,
+      "sha256": "e079b07aa2e672a7a3280e1b25432a3b9056aaacd6e1cbae97a4660f1b4c7a8d"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.permissions.yml",
@@ -5847,9 +5861,9 @@
     {
       "path": "tests/drupal-password-setup-http.py",
       "mode": "100644",
-      "gitBlob": "a3a1c22e568958a1feb0662e45ad5ad7eceb1c1e",
-      "size": 6976,
-      "sha256": "2dce99ba47be46e16ada7bcd667869e35d469329454cd3743b515b5065c520b1"
+      "gitBlob": "09e563696cd96d8b462fdee058c8ae095954b215",
+      "size": 7231,
+      "sha256": "875db0415d570f3f4080142a6d089b76185d2960d7f37d6e2b5760e41f97ea68"
     },
     {
       "path": "tests/drupal-password-setup.php",
@@ -6370,6 +6384,13 @@
       "sha256": "0c6c76959f2a2d2436b2ae9197e0738f718b1f6ffd3c72f22f31123f23decc85"
     },
     {
+      "path": "workflows/reinitialisation-recette.md",
+      "mode": "100644",
+      "gitBlob": "aed1bb1b14549c5b9695e1733a13021e4c84ab91",
+      "size": 3726,
+      "sha256": "0259941c370a940c176a64cb280ad50cf60ef624b467d85cf7a8980f19cb8044"
+    },
+    {
       "path": "workflows/v2-apercus-preproduction/README.md",
       "mode": "100644",
       "gitBlob": "bb8eb57d480c9b89dd0be4927cf82d96cb0b86d9",
@@ -6405,5 +6426,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "4f83ccce443327e510437be5b19a5cee76da3a2a4647c29bbee4a084f0111252"
+  "artifactDigest": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385"
 }
