@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+  "sourceCommit": "8fa4f2c02f2514bcad23a6ee16f7b37431d63082",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -2870,6 +2870,13 @@
       "sha256": "454d7f28466a9ff0e602e68b2244d56a7b857eb3b2d26da265df206d71a2bdff"
     },
     {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/Plugin/Mail/RecipePasswordMail.php",
+      "mode": "100644",
+      "gitBlob": "3abebadf0c4e05940f559c528ce74e35ae899b34",
+      "size": 1636,
+      "sha256": "120598936352ee88d6ced1ee299420fc9acb1c145403db6c7ff7554797db8da1"
+    },
+    {
       "path": "drupal/web/modules/custom/tcl_bureau/src/RecipeMail.php",
       "mode": "100644",
       "gitBlob": "1bb45517b979f1343025d30a428432a58880c4a8",
@@ -4979,9 +4986,9 @@
     {
       "path": "scripts/bureau-oauth-recette.ps1",
       "mode": "100644",
-      "gitBlob": "e59d37f9bb882f6c894f40127d0aaab94d1bb68d",
-      "size": 5259,
-      "sha256": "1b27e7df1b941ffe19de0c0ce81d302e288faea32a6c7e67f4dc9a9480cdf896"
+      "gitBlob": "56f0182910268326c6021dace1f9dfb69c5ccd93",
+      "size": 5395,
+      "sha256": "a5f924829ba4bf45dcc2563a523d895506b08413ba2a1b3573e0e0a610ca1819"
     },
     {
       "path": "scripts/calendar-embed.mjs",
@@ -6041,6 +6048,13 @@
       "sha256": "c4106a32110e541dd8ad84d5c9802620cc103b056412fe8efa51f7a32b7aabc0"
     },
     {
+      "path": "tests/recipe-password-mail.php",
+      "mode": "100644",
+      "gitBlob": "4b484f65d67c1e400c4a64583adc4bb74005fba7",
+      "size": 2296,
+      "sha256": "11bc1ba0eab2993e87b022dbbef33998e9927db69784f2e4f4435d93eda51beb"
+    },
+    {
       "path": "tests/registration-recipe-http.py",
       "mode": "100644",
       "gitBlob": "28674571b5042e62491b2f9d64462483a9d943d3",
@@ -6391,5 +6405,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "7056975a49270d282738db3d2e21abf6e4949b650151e3c6742fe27d10404fba"
+  "artifactDigest": "4f83ccce443327e510437be5b19a5cee76da3a2a4647c29bbee4a084f0111252"
 }
