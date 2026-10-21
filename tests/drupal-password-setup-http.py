@@ -65,6 +65,7 @@ def run():
               and urllib.parse.urlsplit(response[2].get('Location', '')).path.removeprefix('/fr') == form_path)
         reset = session.get(response[2]['Location'])
         action = ResetForm(reset[1]).action
+        check('Confirmation uses club account presentation and explicit password action', 'tcl-account-page' in reset[1] and 'Choisir mon mot de passe' in reset[1])
         check('Native confirmation form is accessible anonymously', reset[0] == 200
               and action is not None and action.endswith('/login'))
         response = session.form(action, {}, reset[1])
@@ -91,6 +92,7 @@ def run():
               and urllib.parse.urlsplit(location).path.removeprefix('/fr') == '/user/' + str(account['uid']) + '/edit'
               and 'pass-reset-token' in urllib.parse.parse_qs(urllib.parse.urlsplit(location).query))
         body = session.get(location)[1]
+        check('Password edit uses club account presentation', 'tcl-account-page' in body)
         check('First setup does not request the current password', 'name="current_pass"' not in body)
         password = secrets.token_hex(24)
         values = {'mail': 'admin-tc-local@example.invalid', 'pass[pass1]': password, 'pass[pass2]': password, 'op': 'Enregistrer'}

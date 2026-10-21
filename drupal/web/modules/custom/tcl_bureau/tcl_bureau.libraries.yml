@@ -27,3 +27,10 @@ events:
       css/events.css: {}
   dependencies:
     - tcl_bureau/bureau
+
+account:
+  css:
+    theme:
+      css/account.css: {}
+  dependencies:
+    - tcl_bureau/bureau
