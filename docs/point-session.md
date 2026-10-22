@@ -10,15 +10,23 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Vérification tarifaire — 22 octobre
+
+Audit préproduction en lecture seule : V2-TARIFS-01 confirmé. Tableau FAQ de l’accueil (`/` et `/index.html`) : ancienne ligne cours adultes « 125 € ou 150 € », alors que catalogue et formulaire `/adherer` distinguent 150 € et 170 €. Huit autres formules conformes. Cause identifiée dans le code hébergé dont l’empreinte correspond à la source locale : retour anticipé après ajout de l’entrée adhésion, avant remplacement du tableau. Aucun code, prix, dossier ou catalogue modifié ; aucun envoi, aucune production. [Preuves](../data/tariff-consistency-verification.json), [campagne](campagne-recette-v2.md#rapprochement-tarifaire-du-22-octobre--v2-tarifs-01).
+
+Prochaine action : corriger le rendu de l’accueil depuis le catalogue publié, indépendamment de la présence de l’entrée adhésion, puis qualifier les deux montants et la suppression de la note ancienne. Préserver les tarifs des dossiers historiques.
+
 ## Personnalisation par canal — livraison du 22 octobre
 
 Source `8cf75c2`, manifeste `54a8ea3`, CI `39846477090` : six contrôles réussis. Porte de préproduction passée, 13 fichiers installés et empreintes vérifiées. Sauvegarde de 12 fichiers et trois communications, restauration en copies/table temporaire comparée ; un fichier nouveau inventorié. Migration additive 11004. Aucun merge ni production.
 
 Recette Chrome : communication fictive n°3 révision 8, quatre variantes différentes relues, publication préproduction, texte Site vérifié sur l’article et l’accueil. Aperçu HTML avec trois boutons contrôlé ; préparation depuis Google, une adresse autorisée et 20 exclues. Un envoi uniquement vers l’adresse famille accepté par le serveur, zéro échec. Réception confirmée par le responsable ; erreur « Lien personnel incomplet » reproduite avec lien fictif complet puis corrigée. Correctif source `0b6efb8`, manifeste `9b97d02`, CI `39848295978` six réussites : deux fichiers sauvegardés/restaurés en copie, installés et empreintes vérifiées. Ressources suffixées par leur empreinte et fragment décodé. Chrome : Non/Incertain présélectionnés sans sauvegarde, Oui encodé avec trois personnes conservées et confirmation fictive réussie. Réessai personnel confirmé par le responsable puis vérifié au Bureau : famille, Oui, six personnes (total neuf avec Camille fictif). Aucune diffusion Facebook/WhatsApp, aucune réponse personnelle enregistrée par l’agent.
 
-Les boutons présélectionnent Oui/Non/Incertain ; le nombre 1–99 et la confirmation se font sur la page du site. HTML classique, aucun enregistrement AMP Google requis ; la connexion OAuth Google Contacts reste distincte. Tests ciblés locaux réussis ; ancien collecteur Contact en échec sur base réutilisée, suite complète passée dans la CI propre sans purge ni contournement. Voir [preuves du lot](../data/channel-rsvp-verification.json).
+Les boutons présélectionnent Oui/Non/Incertain ; le nombre 1–10 et la confirmation se font sur la page du site. HTML classique, aucun enregistrement AMP Google requis ; la connexion OAuth Google Contacts reste distincte. Tests ciblés locaux réussis ; ancien collecteur Contact en échec sur base réutilisée, suite complète passée dans la CI propre sans purge ni contournement. Voir [preuves du lot](../data/channel-rsvp-verification.json).
 
-Prochaine action : livrer la limite de dix personnes demandée le 22 octobre, puis poursuivre les réserves de la campagne V2 (notamment mobile et cohérence tarifaire). Ne pas renvoyer le même courriel sans demande ni publier de communication officielle.
+Plafond de dix personnes livré le 22 octobre : source `5703dae`, manifeste `02c20e9`, CI `39852160517` six réussites, 34 contrôles HTTP et six JS réussis. Deux fichiers sauvegardés/restaurés puis installés et empreintes vérifiées ; choix 1 à 10 observés dans Chrome, réponse famille six personnes inchangée. Aucun nouvel envoi.
+
+Prochaine action : poursuivre les réserves de la campagne V2 (notamment mobile et cohérence tarifaire). Ne pas renvoyer le même courriel sans demande ni publier de communication officielle.
 
 ## Envoi Google Contacts — 22 octobre, suite autorisée
 

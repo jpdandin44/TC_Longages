@@ -2,7 +2,7 @@
   "iterationId": "tcl-v2-recette-20261018",
   "owner": "jpdandin",
   "stage": "preproduction",
-  "status": "delivered_personal_reply_verified_limit_in_progress",
+  "status": "delivered_verified",
   "productionTouched": false,
   "candidate": {
     "sourceSha": "8cf75c22e7453089b58b41c17a7e34e2874bf7a3",
@@ -99,12 +99,39 @@
   "participantLimit": {
     "maximum": 10,
     "includesRespondent": true,
-    "status": "local_tests_running",
+    "status": "delivered_verified",
     "productionTouched": false,
     "existingFamilyResponseVerified": {
       "answer": "yes",
       "count": 6,
       "eventTotal": 9
-    }
+    },
+    "sourceSha": "5703daecd1a0ed55d4515e7214c07ce9d9bdae52",
+    "manifestCommit": "02c20e9e35747cb6a7a8d5aee817a2bacdd31daa",
+    "ciRun": "39852160517",
+    "artifactSha256": "f14b523b3e65944cddd6ae1a039370179be910727cb0030947776e00643c6a37",
+    "httpChecksPassed": 34,
+    "jsChecksPassed": 6,
+    "backupFiles": 2,
+    "restoreVerified": true,
+    "ciStatus": "success",
+    "ciJobsPassed": 6,
+    "installedFiles": 2,
+    "allHashesMatch": true,
+    "gate": "passed",
+    "hostedOptions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "familyResponseAfterDelivery": 6,
+    "newMailSent": false
   }
 }

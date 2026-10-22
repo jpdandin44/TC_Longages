@@ -5,7 +5,7 @@ title: Campagne humaine de recette V2 en préproduction
 status: active
 version: git
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-22
 owner: jpdandin
 tags: [v2, recette, preproduction, parcours]
 ---
@@ -56,7 +56,7 @@ Points d’entrée : [accueil](https://preprod.tclongages.fr/), [formulaire](htt
 
 | ID | Parcours à effectuer | Résultat attendu | Résultat / preuve |
 | --- | --- | --- | --- |
-| I01 | Depuis l’accueil, suivre le lien d’adhésion et comparer saison/formules/prix avec le tableau de tarifs. | Lien accessible ; même catalogue publié ; mention de recette fictive visible. | Partiel — lien de l’accueil cliqué, formulaire accessible, saison et dix formules conformes au catalogue. Pas de tableau de tarifs sur l’accueil observé : comparaison faite avec Saison au Bureau. |
+| I01 | Depuis l’accueil, suivre le lien d’adhésion et comparer saison/formules/prix avec le tableau de tarifs. | Lien accessible ; même catalogue publié ; mention de recette fictive visible. | KO — contrôle complémentaire du 22 octobre : tableau présent dans la FAQ repliée de l’accueil (/ et /index.html). Huit formules conformes ; cours adultes regroupés à 125 € ou 150 € au lieu de deux formules à 150 € et 170 €. Formulaire /adherer conforme aux dix formules du catalogue. V2-TARIFS-01, voir data/tariff-consistency-verification.json. |
 | I02 | Remplir une demande adulte fictive ; afficher le récapitulatif, corriger un champ puis déposer. | Correction conservée, confirmation et un dossier ; tarif et formule conformes au choix. | OK — dossier adulte 4 (Adulte21), loisirs 70 €, récapitulatif puis correction de ville conservée au dépôt. |
 | I03 | Vérifier la notification dans la boîte du club, puis retrouver le dossier au Bureau. | Courriel réellement reçu, contenu cohérent avec le dossier ; aucune attente d’accusé au demandeur. Noter l’heure et l’identifiant, sans copier les coordonnées. | Partiel — dossiers 4 et 5 présents au Bureau ; notifications acceptées par le serveur. Réception des deux messages Adulte21 et Mineur21 confirmée par le responsable le 21 octobre ; contenu des messages non inspecté par l’agent. |
 | I04 | Faire une demande mineur fictive avec responsable légal et formule mineur. Essayer d’abord un champ obligatoire vide ou un courriel mal formé. | Erreur compréhensible et aucune soumission invalide ; parcours complet possible après correction. | OK — dossier mineur 5 (Mineur21), initiation 130 € ; courriel du responsable invalide bloqué, puis dépôt accepté après correction. |
@@ -182,3 +182,9 @@ Exclue de cette campagne. La recette ne déclenche aucun merge, déploiement, ou
 ## Retour personnel — mot de passe
 
 Le 21 octobre, le responsable confirme avoir défini le mot de passe Artemis après réception du courriel corrigé. Cette déclaration valide cette étape personnelle ; aucun secret lu par l’agent. L’aspect visuel de la page est jugé insuffisant : présentation corrigée et livrée en préproduction, sans modification du mécanisme natif. Six CI et 20 contrôles locaux du parcours passent ; écran de compte hébergé inspecté en lecture seule. Contrôle visuel mobile restant.
+
+## Rapprochement tarifaire du 22 octobre — V2-TARIFS-01
+
+Vérification hébergée en lecture seule, sans soumission ni publication. Le tableau de la FAQ conserve la ligne historique des cours adultes et sa note « 125 € ou 150 € ». Le catalogue de saison et le formulaire public distinguent Cours Adultes 150 € et Cours Adultes compétition 170 €. Les huit autres formules concordent. L’empreinte du fichier SeasonCatalogue.php hébergé correspond à la source locale : le retour anticipé après insertion du lien adhésion empêche le remplacement du tableau tarifaire présent plus bas.
+
+Correction à réaliser : traiter le tableau et le lien adhésion indépendamment à partir du catalogue publié, retirer la note historique contradictoire du rendu courant ; conserver les documents historiques et les prix figés des dossiers. Aucun correctif appliqué lors de cet audit. [Preuves](../data/tariff-consistency-verification.json).

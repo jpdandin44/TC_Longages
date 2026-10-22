@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-22",
+  "environment": "preproduction",
+  "mode": "read_only",
+  "productionTouched": false,
+  "catalogueSeason": "2026-2027",
+  "bureauFormulas": [
+    [
+      "mini-tennis",
+      "Mini-Tennis (5-7 ans)",
+      "minor",
+      "110,00"
+    ],
+    [
+      "initiation",
+      "Initiation (7-15 ans)",
+      "minor",
+      "130,00"
+    ],
+    [
+      "perfectionnement",
+      "Perfectionnement (8-18 ans)",
+      "minor",
+      "130,00"
+    ],
+    [
+      "perfectionnement-plus",
+      "Perfectionnement + (8-18 ans)",
+      "minor",
+      "130,00"
+    ],
+    [
+      "adhesion-jeunes",
+      "Adhésion Jeunes (-18 ans hors école de tennis)",
+      "minor",
+      "40,00"
+    ],
+    [
+      "cours-adultes",
+      "Cours Adultes",
+      "adult",
+      "150,00"
+    ],
+    [
+      "cours-adultes-competition",
+      "Cours Adultes compétition",
+      "adult",
+      "170,00"
+    ],
+    [
+      "adulte-competition",
+      "Adhésion Adulte compétition",
+      "adult",
+      "100,00"
+    ],
+    [
+      "adulte-loisirs",
+      "Adhésion Adulte loisirs",
+      "adult",
+      "70,00"
+    ],
+    [
+      "pass-ete",
+      "Pass été (Juin-Août)",
+      "adult",
+      "50,00"
+    ]
+  ],
+  "publicFormFormulas": [
+    {
+      "id": "mini-tennis",
+      "text": "Mineur — Mini-Tennis (5-7 ans) — 110,00 €"
+    },
+    {
+      "id": "initiation",
+      "text": "Mineur — Initiation (7-15 ans) — 130,00 €"
+    },
+    {
+      "id": "perfectionnement",
+      "text": "Mineur — Perfectionnement (8-18 ans) — 130,00 €"
+    },
+    {
+      "id": "perfectionnement-plus",
+      "text": "Mineur — Perfectionnement + (8-18 ans) — 130,00 €"
+    },
+    {
+      "id": "adhesion-jeunes",
+      "text": "Mineur — Adhésion Jeunes (-18 ans hors école de tennis) — 40,00 €"
+    },
+    {
+      "id": "cours-adultes",
+      "text": "Adulte — Cours Adultes — 150,00 €"
+    },
+    {
+      "id": "cours-adultes-competition",
+      "text": "Adulte — Cours Adultes compétition — 170,00 €"
+    },
+    {
+      "id": "adulte-competition",
+      "text": "Adulte — Adhésion Adulte compétition — 100,00 €"
+    },
+    {
+      "id": "adulte-loisirs",
+      "text": "Adulte — Adhésion Adulte loisirs — 70,00 €"
+    },
+    {
+      "id": "pass-ete",
+      "text": "Adulte — Pass été (Juin-Août) — 50,00 €"
+    }
+  ],
+  "publicHomeTables": [
+    "École de tennis et adhésion jeunes\nFormule\tTarif\nMini-Tennis (5-7 ans)\t110,00 €\nInitiation (7-15 ans)\t130,00 €\nPerfectionnement (8-18 ans)\t130,00 €\nPerfectionnement + (8-18 ans)\t130,00 €\nAdhésion Jeunes (-18 ans hors école de tennis)\t40,00 €",
+    "Adultes\nFormule\tTarif\nCours Adultes ou adultes competition\t125,00 € ou 150 €\nConditions à confirmer\n\nAdhésion Adulte compétition\t100,00 €\nAdhésion Adulte loisirs\t70,00 €\nPass été (Juin-Août)\t50,00 €"
+  ],
+  "homePathsChecked": [
+    "/",
+    "/index.html"
+  ],
+  "formMatchesCatalogue": true,
+  "status": "mismatch_confirmed",
+  "issueId": "V2-TARIFS-01",
+  "mismatch": "Homepage combines adult lessons at 125 or 150 EUR; published catalogue/form have separate 150 and 170 EUR lessons.",
+  "matchingOtherFormulas": 8,
+  "codeHash": "e02ceb27c45a10f290972191bf9da9c2a19002bbb3d873a9bf2d1741b78431b8",
+  "cause": "SeasonCatalogue::renderHomepage returns after adding the adherer entry, before tariff-grid replacement.",
+  "fixApplied": false
+}

@@ -410,4 +410,8 @@ Complément du 22 octobre livré : connexion Google Contacts administrateur et b
 
 ## Personnalisation des communications — 22 octobre
 
-Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Réception confirmée ; correctif de cache livré et vérifié sur lien fictif. Reste le réessai personnel, notamment sur téléphone. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.
+Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Réception confirmée ; correctif de cache livré et vérifié sur lien fictif. Réessai personnel confirmé et réponse six personnes vérifiée au Bureau. Plafond de dix personnes livré et vérifié ; contrôle visuel mobile restant. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.
+
+## Rapprochement tarifaire — anomalie confirmée le 22 octobre
+
+V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’accueil conserve l’ancienne ligne cours adultes. Corriger le branchement du rendu sur le catalogue publié, puis recetter sans modifier les dossiers historiques. Audit seul réalisé, correctif restant. [Preuves](data/tariff-consistency-verification.json).

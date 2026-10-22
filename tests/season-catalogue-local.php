@@ -39,6 +39,15 @@ try {
   checkCatalogue('Editorial homepage receives one fictional registration entry', substr_count($rendered, 'id="tcl-registration-entry"') === 1 && str_contains($rendered, '/adherer') && str_contains($rendered, 'données fictives'));
   checkCatalogue('Editorial contents and contact entry preserved', str_contains($rendered, '<h2>Texte conservé</h2>') && str_contains($rendered, '<a href="/contact.html">Nous écrire</a>') && str_contains($rendered, 'Étapes conservées'));
   checkCatalogue('Homepage entry is idempotent', $service->renderHomepage($rendered) === $rendered);
+  $legacy = '<div class="tariff-grid"><p>Cours Adultes ou adultes competition : 125 € ou 150 €</p><p>Conditions à confirmer</p></div>';
+  $combined = $service->renderHomepage($page . $legacy);
+  checkCatalogue('Entry and tariff grid coexist with published adult prices', str_contains($combined, 'Cours Adultes</th><td>150,00 €') && str_contains($combined, 'Cours Adultes compétition</th><td>170,00 €') && substr_count($combined, 'id="tcl-registration-entry"') === 1);
+  checkCatalogue('Obsolete combined price and note removed', !str_contains($combined, '125 €') && !str_contains($combined, 'Conditions à confirmer'));
+  checkCatalogue('Combined render remains idempotent', $service->renderHomepage($combined) === $combined);
+  $draft = $seed; $draft['formulas'][0]['amountCents'] = 12345;
+  $store->set('state', ['revision' => 2, 'draft' => $draft, 'published' => $seed, 'history' => []]);
+  checkCatalogue('Homepage ignores unpublished draft prices', $service->renderHomepage($page . $legacy) === $combined);
+  checkCatalogue('Rendering leaves catalogue state unchanged', $store->get('state')['draft'] === $draft);
   $store->set('state', ['revision' => 1, 'draft' => $seed, 'published' => NULL, 'history' => []]);
   checkCatalogue('Unpublished catalogue does not expose entry', $service->renderHomepage($page) === $page);
 }

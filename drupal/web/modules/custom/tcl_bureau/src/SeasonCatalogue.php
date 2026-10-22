@@ -44,15 +44,15 @@ final class SeasonCatalogue {
     $catalogue = $this->published();
     if (!$catalogue) { return $html; }
     $escape = static fn(string $text): string => \Drupal\Component\Utility\Html::escape($text);
-    // The current editorial homepage has an adhesion section instead of a tariff grid.
+    // The editorial entry and tariff grid may coexist; update both independently.
     // Add the recipe entry without replacing its managed texts or external links.
-    if (str_contains($html, 'id="adherer"')) {
-      if (str_contains($html, 'id="tcl-registration-entry"')) { return $html; }
+    if (str_contains($html, 'id="adherer"') && !str_contains($html, 'id="tcl-registration-entry"')) {
       $entry = '<div id="tcl-registration-entry"><p><strong>Recette fictive — saison ' . $escape($catalogue['season']) . '</strong><br>Aucune adhésion réelle : utilisez uniquement des données fictives.</p><a class="button button-dark" href="' . $escape(\Drupal\Core\Url::fromRoute('tcl_bureau.registration_recipe')->toString()) . '">Formulaire d’adhésion — test</a></div>';
       $result = preg_replace_callback('~(<section\\b[^>]*\\bid="adherer"[^>]*>.*?<div class="join-intro">.*?)(</div>)~s', static fn(array $match): string => $match[1] . $entry . $match[2], $html, 1, $count);
       if ($count !== 1) { throw new \RuntimeException('Rubrique adhésion non reconnue : rapprochement nécessaire.'); }
-      return $result;
+      $html = $result;
     }
+    if (!str_contains($html, 'class="tariff-grid"')) { return $html; }
     $table = '<div class="tariff-grid"><p class="tariff-season">Saison ' . $escape($catalogue['season']) . ' — RECETTE FICTIVE</p><p>Catalogue de test publié par le Bureau ; aucune inscription réelle.</p>';
     foreach (['adult' => 'Adultes', 'minor' => 'Mineurs'] as $profile => $label) {
       $table .= '<table class="tariff-table"><caption>' . $label . '</caption><thead><tr><th scope="col">Formule</th><th scope="col">Tarif de référence</th></tr></thead><tbody>';

@@ -847,4 +847,8 @@ Correctif livré et vérifié en préproduction (CI 39848295978 réussie) : URL 
 
 ## Plafond à dix personnes — 22 octobre
 
-Demande explicite : dix personnes maximum par réponse, répondant compris. Développement local : limite partagée formulaire/serveur et tests de frontière 10/11, refus sans mutation. Réponse personnelle vérifiée en préproduction avant intervention : Oui pour six personnes. Livraison du plafond en cours de qualification.
+Demande explicite : dix personnes maximum par réponse, répondant compris. Développement local : limite partagée formulaire/serveur et tests de frontière 10/11, refus sans mutation. Réponse personnelle vérifiée en préproduction avant intervention : Oui pour six personnes. Livré en préproduction après six contrôles CI réussis ; 34 tests HTTP, dont acceptation de 10 et refus de 11 sans mutation. Liste 1 à 10 vérifiée dans Chrome, réponse personnelle six personnes conservée.
+
+## Tableau tarifaire de l’accueil — 22 octobre
+
+V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion et le tableau des tarifs, depuis le seul catalogue publié. Ancienne ligne adulte et note obsolète remplacées. Correction en qualification ; aucune écriture des prix des dossiers ni du catalogue.
