@@ -65,7 +65,7 @@ function tcl_bureau_preprocess_block(array &$variables): void {
 
 /** Implements hook_mail(). */
 function tcl_bureau_mail($key, &$message, $params): void {
-  if (in_array($key, ['account_invitation', 'registration'], TRUE)) {
+  if (in_array($key, ['account_invitation', 'registration', 'member_communication'], TRUE)) {
     $message['subject'] = $params['subject'];
     $message['body'][] = $params['body'];
   }

@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - roadmap
@@ -13,6 +13,21 @@ tags:
   - facebook
   - whatsapp
 ---
+
+## Extension V2 demandée le 21 octobre — après clôture
+
+Ordre confirmé par le responsable : réponses aux événements du club et nombre de personnes pour le Beaujolais nouveau, puis canal courriel aux adhérents issus de Google Contacts. [Exigences et points à qualifier](requirements.md#nouveau-besoin-v2--réponses-aux-événements-et-courriels-adhérents).
+
+| Phase | État |
+| --- | --- |
+| Cadrage | Besoin enregistré ; réemploi ciblé du module équipes identifié, nombre de personnes développé ; dates réelles et libellé Google encore à fournir. |
+| Développement local | Réponses et canal courriel implémentés ; contrôles ciblés réussis, non-régression complète en cours. |
+| Préproduction | À préparer après contrôles ; aucune nouvelle livraison à ce titre. |
+| Mise en production | Exclue ; campagne réelle et ouverture restent à autoriser. |
+
+Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Aucun de ces compléments n’est livré ; développement reporté à la reprise demandée.
+
+La campagne de recette existante reste partielle. Le mot de passe Artemis est désormais défini et confirmé ; les paragraphes datés antérieurs conservent l'historique.
 
 ## Agenda V2 — 20 octobre 2026
 

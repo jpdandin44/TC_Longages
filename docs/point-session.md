@@ -5,16 +5,82 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Reprise du 22 octobre — participations puis courriels
+
+Reprise autorisée, préproduction uniquement. Réponses par occurrence et canal courriel développés localement ; contrôles ciblés réussis (29 participations, 14 service courriel/Google simulé, 12 formulaire courriel), suite complète passée jusqu’au contrôle Contact : compteur historique du collecteur local en échec, aucune purge ni modification du test après refus automatique. CI sur environnement neuf à vérifier. CPanel reconnecté, cible /home2/daje5127/tcl-preproduction/drupal/web constatée Drupal 11.4.8. Chrome préproduction désormais accessible. Aucun nouveau déploiement à ce stade. [Preuves du lot](../data/event-participation-mail-verification.json), [contrat](../api/participations-courriels.md). Dates réelles Beaujolais et libellé Google demandés, réponses en attente. Réserver les données fictives et les adresses de recette ; production exclue. Compléments accueil/tarifs restent au backlog.
+
+
 # Point de session - preparation du 17 octobre 2026
 
-## Vue Mois globale — complément en préparation
+## Clôture définitive du 21 octobre — améliorations enregistrées
 
-Le responsable demande Mois à chaque ouverture pour tous les visiteurs, pas seulement un réglage de son navigateur. Le code ignore désormais les préférences mémorisées et permet Semaine/Liste pendant la visite. 3 tests JavaScript et 13 tests de rendu passent. Livraison limitée à deux fichiers en préproduction à qualifier.
+Le responsable confirme l'ordre de reprise : participation aux événements avec nombre de personnes (Beaujolais nouveau), puis canal courriel adhérents. Ajouter au lot événement les miniatures et le bouton d'inscription dans le bloc d'actualités en haut de l'accueil ; retirer uniquement la liste « Actualités du club » du bas de l'accueil. Vérifier le tableau tarifaire contre le catalogue **publié** : décalage signalé mais non encore confirmé, préserver les tarifs historiques des dossiers.
+
+Source détaillée : [exigences](../requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Aucun développement, test hébergé, envoi ou livraison pour ces nouveaux besoins ce soir. Session close ; attendre une demande de reprise, préproduction uniquement. Les acquis et réserves de la campagne précédente restent conservés.
+
+## Idée ajoutée après clôture — 21 octobre
+
+Nouveau besoin V2 consigné : réponses aux événements (Oui/Non/Incertain, nombre de personnes si Oui) et canal courriel adhérents depuis Google Contacts. Priorité métier : Beaujolais nouveau. Voir les exigences et la roadmap ; cadrage uniquement, aucun développement, accès Google, envoi ou déploiement effectué pour cette extension. La clôture précédente reste l'état de fin des développements du jour.
+
+## Clôture du 21 octobre — sur demande du responsable
+
+Session close pour aujourd’hui. Attendre une nouvelle demande de reprise. V2 en préproduction ; aucune intervention en production, aucun merge ou accord de phase créé à la clôture.
+
+- Campagne exécutée partiellement : notifications adulte/mineur reçues selon le responsable, doublon refusé, tarifs brouillon restaurés, aperçus de supports existants et événements/récurrences contrôlés. Nouvel import différé par choix humain.
+- Réinitialisation bornée aux destinataires autorisés corrigée ; courriel reçu et mot de passe personnel défini, confirmés par le responsable. Ne pas redemander cette création.
+- Présentation du compte livrée en préproduction : source `206885b5488154023f175a218e0f98434c7ce046`, manifeste/HEAD `f20f15c21801437a9e93210c3015b86603387bce`, CI `39646909744` six contrôles réussis. Vérification visuelle ordinateur ; contrôle visuel mobile restant. Sauvegarde/retour arrière dans les preuves de présentation.
+- PR 24 observée en brouillon et sans conflit au dernier contrôle de cette session ; non fusionnée. Aucun nouveau relevé GitHub à la clôture. Tests applicatifs non relancés pour la synthèse.
+- Changements documentaires et preuves locales conservés, dont `data/account-presentation-verification.json`, `docs/campagne-recette-v2.md` et l’opérateur historique `workflows/agenda-events-preproduction/month.py`. Ne pas écraser les modifications antérieures. Git signale aussi trois fichiers de présentation ; leur diff textuel est vide après normalisation des fins de ligne, les empreintes livrées sont consignées.
+- Serveur local de test 4186 arrêté à la fin du travail précédent. Sessions navigateur conservées ; aucune reprise automatique.
+
+**Reprise :** lire la campagne et le suivi canonique dans `../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`, puis guider les validations personnelles restantes : connexion/déconnexion du compte invité et lien usagé, relecture des notifications et dossiers, publication/retrait des communications, partage manuel, tarifs historiques après republication et téléphone. Textes/créneaux officiels encore à compléter. Ne pas déclencher de nouveau courriel ni de publication sociale sans besoin dans le parcours autorisé.
+
+La recette globale reste partielle ; les confirmations personnelles reçues ne valent pas acceptation de toute la V2. [Campagne](campagne-recette-v2.md), [preuves du compte](../data/account-presentation-verification.json), [bilan quotidien](<C:/Users/examg/.codex/bilans-quotidiens/2026-10-21.md>).
+
+## Présentation du compte — 21 octobre
+
+Création personnelle du mot de passe Artemis confirmée par le responsable. Habillage des écrans de compte livré en préproduction à 19 h 52 : carte centrée, champs et boutons harmonisés, action « Choisir mon mot de passe ». Source `206885b`, manifeste `f20f15c`, six CI réussies et 20 tests HTTP locaux du mot de passe. Affichage réel du compte vérifié sans soumission ; mobile visuel restant. [Preuves](../data/account-presentation-verification.json). Aucun accès ni modification de production.
+
+## Réinitialisation corrigée le 21 octobre
+
+V2-MAIL-01 livré en préproduction : plugin réservé aux destinataires de recette, source 8fa4f2c, manifeste 978027d, six CI réussies. Essai natif Artemis accepté à 19 h 34 ; réception confirmée par le responsable, création personnelle du mot de passe confirmée par le responsable le 21 octobre. Défaut NullMail conservé, production exclue. Voir [workflow et retour arrière](../workflows/reinitialisation-recette.md) et [reçu](../data/password-reset-recipe-verification.json). Le blocage ci-dessous conserve le diagnostic avant correction.
+
+## Blocage réinitialisation du 21 octobre
+
+V2-MAIL-01 confirmé par contrôle cPanel en lecture seule : user:password_reset utilise NullMail (aucun envoi), invitation Bureau utilise PhpMail. Voir la campagne de recette. Correction bornée du circuit natif à préparer ; aucun changement de configuration ni renvoi effectué. La réception des invitations précédentes reste valide, mais ne qualifie pas Mot de passe oublié.
+
+## Diagnostic invitation du 21 octobre
+
+Retour à l’accueil signalé ; Chrome vérifié connecté sous Admin_TC_Longages (uid 2), invitation Artemis (uid 3). Conflit de session probable conformément au parcours documenté. Essai personnel en fenêtre privée à faire ; lien secret non ouvert, expiration inconnue, aucun renvoi. Voir le diagnostic dans la campagne de recette.
+
+## Complément de recette du 21 octobre
+
+Doublon de même identité refusé après renouvellement de session ; un dossier adulte conservé. Catégories/filtres supplémentaires vérifiés et événement ponctuel créé depuis aperçu, puis conservé Annulé (comme la série). Aucun import ni production. Liste des validations personnelles et réserves techniques dans la [campagne](campagne-recette-v2.md#complément-de-recette-et-validations-personnelles-restantes). Le test mobile reste partiel : réduction du navigateur sans effet dans cette passe.
+
+## Recette exécutée partiellement le 21 octobre
+
+Résultats détaillés et réserves dans la [campagne V2](campagne-recette-v2.md), source de référence des résultats par scénario. Chrome authentifié : dépôts fictifs adulte/mineur, brouillon de tarif isolé, aperçus PDF existants, brouillon de canaux, récurrences et conflit de modification vérifiés. Notifications acceptées et réception des deux messages Adulte21/Mineur21 confirmée par le responsable le 21 octobre. Mot de passe et validations personnelles laissés au responsable ; nouvel import différé sur choix explicite du responsable, sans changer les permissions de fichiers Chrome. Série de test annulée, prix brouillon restauré ; dossiers et brouillon de communication conservés. Aucun déploiement, aucune écriture de production ou Google. Reprendre les scénarios partiels/bloqués du guide.
+
+## Reprise du 21 octobre — préparation de campagne
+
+[Campagne humaine V2](campagne-recette-v2.md) préparée depuis les preuves de clôture et les parcours implémentés. Tous les résultats restent À faire ; aucun test utilisateur, envoi, accès hébergeur ou déploiement effectué ce jour pour cette préparation. Prochaine action : exécuter les parcours dans l’ordre et consigner les anomalies. Les destinataires privés restent ceux déjà autorisés ; Google partagé en consultation seulement. Modifications locales du 20 octobre préservées, sans commit/push à cette étape.
+
+## Clôture du 20 octobre — sur demande du responsable
+
+Session close pour aujourd’hui. Reprise uniquement sur nouvelle demande. Agenda V2 et complément Mois livrés et vérifiés en préproduction ; campagne humaine différée. Aucune intervention en production ni écriture dans le calendrier Google partagé.
+
+À la reprise : lire ce point et le champ `agendaEvolution.monthDefault` du suivi canonique dans `../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`. Préserver les modifications locales documentaires, les vues dérivées et l’opérateur `workflows/agenda-events-preproduction/month.py` encore non commités. Le code livré est poussé, source `d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26`, HEAD CI `13e9283cc0a883ff4b150e8d275529f2f93324dd`. Aucun commit/push supplémentaire à la clôture.
+
+Prochaine étape : campagne humaine lorsqu’elle sera demandée ; textes et créneaux définitifs d’adhésion et activation personnelle du compte restent à confirmer. PR 24 en brouillon au dernier relevé, aucun accord de merge ou de production. Les processus locaux et sessions navigateur n’ont pas été arrêtés ou déconnectés lors de cette clôture.
+
+## Vue Mois globale — livré et vérifié le 20 octobre
+
+Le responsable demande Mois à chaque ouverture pour tous les visiteurs, pas seulement un réglage de son navigateur. Le code ignore désormais les préférences mémorisées et permet Semaine/Liste pendant la visite. 3 tests JavaScript et 13 tests de rendu passent. Deux fichiers livrés à 18 h 05 (Europe/Paris), contenus et protections conservés. Ancienne préférence Semaine ignorée ; Liste puis rechargement → Mois vérifiés dans Chrome. Source `d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26`, six contrôles CI réussis sur `13e9283cc0a883ff4b150e8d275529f2f93324dd`. Reçu dans [les preuves](../data/agenda-events-verification.json), champ `monthDefault`. Production exclue ; campagne humaine différée.
 
 ## Agenda V2 — livraison vérifiée le 20 octobre 2026
 

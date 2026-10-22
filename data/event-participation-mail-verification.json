@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-22T08:09:47.528791+00:00",
+  "status": "local_validation_in_progress",
+  "productionTouched": false,
+  "realMailSent": false,
+  "googleLiveAccess": false,
+  "preproductionDelivered": false,
+  "target": "https://preprod.tclongages.fr",
+  "hostedDrupal": "11.4.8",
+  "checks": {
+    "participation": {
+      "passed": true,
+      "count": 29,
+      "source": ".local/event-participation-results.json"
+    },
+    "mailService": {
+      "passed": true,
+      "count": 14,
+      "source": ".local/member-mail-tests.json"
+    },
+    "mailForm": {
+      "passed": true,
+      "count": 12,
+      "source": ".local/member-mail-http-results.json"
+    }
+  },
+  "localRegression": {
+    "passed": false,
+    "newFeatureChecksPassed": true,
+    "blocker": "Existing contact-runtime.php expects exactly five captures; reused local collector contains older captures. No cleanup or test modification performed after policy rejection. Clean CI pending.",
+    "oauth": 66,
+    "flashNews": 28,
+    "pdfChannels": 22,
+    "registration": 38,
+    "events": 29,
+    "identity": 45,
+    "invitation": 11,
+    "passwordSetup": 20
+  }
+}

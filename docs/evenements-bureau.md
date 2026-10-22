@@ -5,10 +5,15 @@ title: Gestion des événements de recette dans le Bureau
 status: active
 version: git
 created: 2026-10-19
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags: [agenda, bureau, recurrence, preproduction]
 ---
+
+## Participations — développement du 22 octobre
+
+Depuis « Participants et réponses », choisir une date de la série, ouvrir les réponses et fixer leur date limite. Créer un lien avec un nom fictif et une adresse de recette. Le participant répond Oui/Non/Incertain ; Oui demande le total des personnes, lui compris. Le tableau distingue personnes confirmées, incertains, absents de réponse et réponses à reconfirmer. Aucun mail automatique depuis cet écran. [Règles et limites](../api/participations-courriels.md), [état de livraison](../data/event-participation-mail-verification.json).
+
 
 # Événements du Bureau — recette V2
 
@@ -34,11 +39,11 @@ Sept types de rendez-vous associent une couleur, une icône et un libellé : cou
 
 Le formulaire réutilise une affiche déjà importée dans Communication, y compris un brouillon privé. Les cartes montrent l’image ou la première page du PDF et un lien vers la préparation du partage. Une affiche archivée disparaît des cartes ; sa modification dans Communication se répercute ici. Cette association ne valide ni ne publie la communication. Sans affiche, une grande icône remplace la miniature.
 
-Le sélecteur « Ambiance » est supprimé de la page Calendrier. À la demande du responsable le 20 octobre, chaque ouverture utilise désormais Mois pour tous les visiteurs, y compris ceux qui avaient mémorisé Semaine ou Liste. Le changement de vue reste possible pendant la visite, sans mémorisation. Les anciennes préférences locales sont ignorées. Ce complément est en préparation préproduction. Les couleurs du calendrier Google intégré restent propres à Google : les nouvelles cartes colorées sont celles de l’agenda Bureau indépendant.
+Le sélecteur « Ambiance » est supprimé de la page Calendrier. À la demande du responsable le 20 octobre, chaque ouverture utilise désormais Mois pour tous les visiteurs, y compris ceux qui avaient mémorisé Semaine ou Liste. Le changement de vue reste possible pendant la visite, sans mémorisation. Les anciennes préférences locales sont ignorées. Ce complément est livré et vérifié en préproduction le 20 octobre. Les couleurs du calendrier Google intégré restent propres à Google : les nouvelles cartes colorées sont celles de l’agenda Bureau indépendant.
 
 ## Préproduction
 
-Livrée et vérifiée le 20 octobre : paquet initial de treize fichiers puis correctif de deux fichiers. Sauvegardes restaurées et comparées avant chaque installation ; empreintes et conservation des contenus/protections vérifiées après. Recette Chrome : création avec PDF existant, aperçu puis enregistrement d’une série avec exclusion, modification/annulation, filtres et largeur mobile 390 px. Affiche liée et préparation du partage vérifiées sans publication. « Ambiance » absent, Mois/Liste et persistance après rechargement vérifiés. Accès non authentifié : 401.
+Livrée et vérifiée le 20 octobre : paquet initial de treize fichiers puis correctif de deux fichiers. Sauvegardes restaurées et comparées avant chaque installation ; empreintes et conservation des contenus/protections vérifiées après. Recette Chrome : création avec PDF existant, aperçu puis enregistrement d’une série avec exclusion, modification/annulation, filtres et largeur mobile 390 px. Affiche liée et préparation du partage vérifiées sans publication. « Ambiance » absent ; le premier contrôle Mois/Liste avec persistance a été remplacé par le complément Mois systématique décrit plus haut. Accès non authentifié : 401.
 
 Deux événements fictifs conservés pour la campagne humaine différée. [Preuves](../data/agenda-events-verification.json), [installation et retour](../workflows/agenda-events-preproduction/README.md).
 

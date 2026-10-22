@@ -5,12 +5,21 @@ title: Communication du Bureau dans la V2
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-19
+updated: 2026-10-22
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
 
+## Courriel aux adhérents — développement du 22 octobre
+
+Sélectionner le nouveau canal, enregistrer puis valider la révision. « Préparer le courriel aux adhérents » permet de choisir une source, relire le message et sélectionner explicitement les destinataires. En préproduction, seuls les destinataires autorisés de recette peuvent recevoir un message. Google Contacts doit être connecté au site séparément ; tant que la configuration manque, l’écran le signale. Affiche par lien si publication sur le site, aucun fichier joint. [Contrat et configuration](../api/participations-courriels.md), [preuves](../data/event-participation-mail-verification.json).
+
+
 # Communication du Bureau
+
+## Référence courante pour la campagne du 21 octobre
+
+Voir la [campagne V2](campagne-recette-v2.md). Les paragraphes datés ci-dessous décrivent leurs étapes historiques. Depuis le 20 octobre, Ambiance est supprimé, la vue Mois revient à chaque ouverture et les événements/récurrences du Bureau sont livrés en préproduction : [guide agenda](evenements-bureau.md). Les confirmations ultérieures de réception des courriels et le lien accueil sont consignés dans le [point de reprise](point-session.md).
 
 ## Optimisations communications et agenda — livrées le 19 octobre
 

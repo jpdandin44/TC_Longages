@@ -50,6 +50,12 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Récurrences invalides.' }
   & python -X utf8 tests/events-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette événements échouée.' }
+  & python -X utf8 tests/event-participation-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette des participations échouée.' }
+  & php -c .local/drupal-tools/php.ini tests/member-mail-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Recette courriel adhérents échouée.' }
+  & python -X utf8 tests/member-mail-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Parcours courriel adhérents échoué.' }
   & node --test tests/agenda-sharing.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles catalogue échoués.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php

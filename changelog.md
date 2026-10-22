@@ -5,16 +5,33 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
 
+## 22 octobre — participations et canal courriel en développement local
+
+Ajout des réponses par occurrence, nombre de personnes, totaux, reconfirmation et fermeture ; ajout du canal courriel, aperçu et contrôle explicite des destinataires, lecteur Google Contacts configurable en lecture seule. Tests locaux sans envoi externe. Livraison non présumée : voir [preuves](data/event-participation-mail-verification.json).
+
+
+## 21 octobre — présentation du compte V2
+
+Habillage commun des pages de connexion et choix du mot de passe ; action de confirmation explicite. Création du mot de passe Artemis confirmée par le responsable. Présentation livrée et vérifiée en préproduction uniquement ; six CI réussies.
+
+## Réinitialisation de recette — 21 octobre 2026
+
+Correction V2-MAIL-01 livrée uniquement en préproduction : transport password_reset limité à l’hôte et aux destinataires de recette existants. Essai Artemis accepté et réception confirmée par le responsable ; saisie personnelle du mot de passe à vérifier. [Workflow](workflows/reinitialisation-recette.md).
+
+## Recette hébergée V2 — 21 octobre 2026
+
+Campagne partiellement exécutée dans Chrome ; [résultats par parcours](docs/campagne-recette-v2.md). Données fictives uniquement, tarif brouillon restauré et série créée annulée. Réception des deux notifications confirmée par le responsable ; validations personnelles restantes. Nouveaux imports différés par choix du responsable, permissions Chrome inchangées. Aucun code livré ni production modifiée.
+
 ## Vue initiale du calendrier — 20 octobre 2026
 
-Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Implémentation locale contrôlée, livraison en préparation.
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Livré en préproduction le 20 octobre ; ancienne préférence Semaine ignorée et retour Mois après Liste/rechargement vérifiés.
 
 ## Agenda V2 — 20 octobre 2026
 

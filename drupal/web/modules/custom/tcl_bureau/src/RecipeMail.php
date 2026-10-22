@@ -18,7 +18,7 @@ final class RecipeMail {
     return (bool) filter_var($email, FILTER_VALIDATE_EMAIL) && (str_ends_with($email, '@example.invalid') || self::allowed($email));
   }
   public static function send(string $key, string $to, string $subject, string $body): bool {
-    if (!self::allowed($to) || !in_array($key, ['account_invitation', 'registration'], TRUE)) { return FALSE; }
+    if (!self::allowed($to) || !in_array($key, ['account_invitation', 'registration', 'member_communication'], TRUE)) { return FALSE; }
     $manager = \Drupal::service('plugin.manager.mail');
     $plugin = $manager->getInstance(['module' => 'tcl_bureau', 'key' => $key]);
     // NullMail reports success without sending. Only explicit transports qualify.

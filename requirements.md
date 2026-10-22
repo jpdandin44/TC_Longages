@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - exigences
@@ -13,9 +13,33 @@ tags:
   - prototype
 ---
 
+## Nouveau besoin V2 — réponses aux événements et courriels adhérents
+
+Demande du 21 octobre après clôture : priorité au futur événement Beaujolais nouveau. Développement repris le 22 octobre : premier parcours individuel et canal de recette implémentés localement ; [contrat et limites](api/participations-courriels.md). Livraison distincte dans les preuves.
+
+- Participation : « Je participe », « Je ne participe pas », « Je ne sais pas ». L'absence de réponse reste un quatrième état distinct.
+- Si participation : nombre de personnes. Convention proposée : total incluant le répondant, entier supérieur ou égal à 1. Un changement vers Non/Incertain exclut ce nombre du total confirmé.
+- Proposition de parcours : lien individuel de réponse modifiable, accès limité à sa propre réponse ; compte Bureau réservé à la gestion. Tableau privé des réponses et total des personnes confirmées. Pour une série, rattacher la réponse à une occurrence précise.
+- Réemploi ciblé à étudier depuis le module local `tcl_competitions` (oui/non/incertain, liens et révisions), sans importer toute la V3. Le nombre de convives y est encore différé : ce besoin demande un développement spécifique.
+- Ajouter le canal « Envoyer un mail aux adhérents » à Communication. Source demandée : contacts du compte Google du club. Proposition : libellé Google Contacts dédié aux adhérents, liste des destinataires à vérifier avant envoi, dédoublonnage des adresses et absence d'exposition entre destinataires.
+- Préparer un courriel avec affiche/lien vers l'événement et accès à la réponse. Le mode de diffusion de l'affiche (pièce jointe ou lien) reste à préciser. Distinguer préparation, validation, envoi et réception ; éviter les renvois en double.
+- À qualifier : compte Google et libellé exacts, lecture des contacts par le site avec droits adaptés, transport d'envoi du site, nombre et qualité des adresses, durée des liens et clôture des réponses. La connexion Google de ce chat ne constitue pas une intégration au site.
+- Développement/recette en préproduction sur contacts fictifs ou destinataires de recette déjà autorisés. Cette idée n'autorise ni import global des contacts réels, ni campagne réelle, ni mise en production.
+
+## Accueil et cohérence tarifaire — complément de clôture du 21 octobre
+
+Demandes enregistrées à partir du message et des deux captures du responsable ; aucune réalisation ni vérification hébergée à cette étape.
+
+- Conserver les actualités en haut de l'accueil, emplacement explicitement apprécié. Ajouter une petite miniature de l'affiche liée à l'actualité (image ou aperçu PDF), avec présentation adaptée au mobile et texte alternatif.
+- Pour une actualité associée à un événement ouvert aux réponses, proposer « Je m’inscris à cet événement » vers le parcours de participation. Une actualité sans événement ne doit pas afficher ce bouton. Le lien public d'entrée ne doit pas exposer un lien personnel de réponse ; identification et articulation avec les liens individuels à qualifier.
+- Retirer de l'accueil la section basse « Actualités du club » montrant une liste à puces (exemple Halloween dans la capture). Cette suppression porte sur le bloc d'accueil, pas sur les événements, l'onglet Calendrier ou la page Toutes les actualités.
+- Vérifier le décalage signalé entre le tableau public des tarifs et le catalogue des services. Anomalie suspectée, non confirmée. Comparer saison, libellés et montants avec la version publiée du catalogue ; distinguer un brouillon non publié d'une erreur. Identifier la source et le cache du tableau avant correction. Conserver les prix historiques des dossiers déjà déposés.
+- Ordre confirmé par le responsable : réponses aux événements et nombre de personnes pour le Beaujolais nouveau d'abord, puis canal mail aux adhérents. Rattacher miniature et lien d'inscription au lot événement ; inclure retrait du bloc bas et diagnostic tarifaire dans la reprise V2.
+- Session close pour aujourd'hui ; enregistrer seulement. Développement à reprendre sur demande, exclusivement en préproduction, production exclue.
+
 ## Vue initiale du calendrier — 20 octobre 2026
 
-Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Implémentation locale contrôlée, livraison en préparation.
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Livré en préproduction le 20 octobre ; ancienne préférence Semaine ignorée et retour Mois après Liste/rechargement vérifiés.
 
 ## Agenda V2 — 20 octobre 2026
 

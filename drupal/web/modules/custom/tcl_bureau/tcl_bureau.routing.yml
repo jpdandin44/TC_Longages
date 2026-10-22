@@ -216,3 +216,35 @@ tcl_bureau.event_edit:
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
     event: '[a-f0-9]{32}'
+
+tcl_bureau.member_mail:
+  path: '/bureau/communication/{post}/courriel'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\MemberMailForm'
+    _title: 'Courriel aux adhérents — recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+    post: '\d+'
+
+tcl_bureau.event_participation:
+  path: '/bureau/evenements/{event}/participants'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\EventParticipationForm'
+    _title: 'Réponses à l’événement'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
+    event: '[a-f0-9]{32}'
+tcl_bureau.event_response:
+  path: '/evenements/reponse'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\EventResponseController::page'
+  requirements:
+    _access: 'TRUE'
+tcl_bureau.event_response_api:
+  path: '/evenements/reponse/{action}'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\EventResponseController::api'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+    action: 'context|save'

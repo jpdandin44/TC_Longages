@@ -46,6 +46,7 @@ final class EventController extends ControllerBase {
       $card['repeat'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => EventSchedule::FREQUENCIES[$event['frequency']] . ' · ' . count($schedule['occurrences']) . ' date(s)'];
       $card['state'] = ['#type' => 'html_tag', '#tag' => 'strong', '#value' => EventRepository::STATUSES[$event['status']]];
       $card['edit'] = Link::fromTextAndUrl('Ouvrir / modifier', Url::fromRoute('tcl_bureau.event_edit', ['event' => $event['id']]))->toRenderable();
+      $card['participants'] = Link::fromTextAndUrl('Participants et réponses', Url::fromRoute('tcl_bureau.event_participation', ['event' => $event['id']]))->toRenderable();
       $cards[$event['id']] = $card;
     }
     if (count($cards) === 2) { $cards['empty'] = ['#plain_text' => 'Aucun événement de recette dans cette catégorie.']; }

@@ -75,6 +75,9 @@ final class CommunicationController extends ControllerBase {
       $build[$action] = Link::fromTextAndUrl($label, Url::fromRoute('tcl_bureau.communication_action', ['post' => $post, 'action' => $action]))->toRenderable();
     }
     if (in_array($row['status'], ['validated', 'published'], TRUE) && (int) $row['approved_revision'] === (int) $row['revision']) {
+      if (in_array('email', $selectedChannels, TRUE) && \Drupal\tcl_bureau\SeasonCatalogue::recipeEnabled()) {
+        $build['member_mail'] = Link::fromTextAndUrl('Préparer le courriel aux adhérents', Url::fromRoute('tcl_bureau.member_mail', ['post' => $post]))->toRenderable();
+      }
       $build['sharing'] = ['#type' => 'details', '#title' => 'Partager manuellement la révision validée', '#open' => TRUE];
       $build['sharing']['help'] = ['#plain_text' => 'Choisissez le destinataire et confirmez l’envoi dans le service. L’affiche doit être jointe manuellement. Une ouverture ne confirme aucune livraison.'];
       $build['sharing']['text'] = ['#type' => 'textarea', '#title' => 'Message à copier', '#value' => self::message($row), '#attributes' => ['readonly' => 'readonly'], '#rows' => 6];

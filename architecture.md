@@ -5,13 +5,18 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - architecture
   - stockage-local
   - publication
 ---
+
+## Extension V2 — participations et courriels (22 octobre)
+
+Deux services bornés à la recette sont ajoutés dans tcl_bureau : réponses privées par occurrence et préparation/envoi individuel de communications validées. Le motif fragment/POST du module équipes est repris sans importer la V3. Google Contacts est un lecteur de groupe configuré côté serveur, pas une synchronisation des adhérents. [Stockage, flux et contrat](api/participations-courriels.md). Connexion Google réelle et qualification hébergée à distinguer des tests locaux.
+
 
 ## Agenda V2 — 20 octobre 2026
 

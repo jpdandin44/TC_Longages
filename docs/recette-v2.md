@@ -5,12 +5,16 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-10-20
+updated: 2026-10-21
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
 
 # Reprise V2 pour la préproduction
+
+## Campagne de recette du 21 octobre
+
+[Parcours, résultats attendus et grille à compléter](campagne-recette-v2.md). Campagne partiellement exécutée ; les résultats et réserves actuels sont dans la grille. Deux notifications reçues selon le responsable. Réinitialisation native V2-MAIL-01 en cours de correction ; voir [le workflow borné](../workflows/reinitialisation-recette.md). Les sections datées ci-dessous conservent les observations de leur lot ; les ambiances et préférences décrites pour le 19 octobre sont remplacées par le comportement du guide agenda courant.
 
 ## Agenda V2 — état du 20 octobre
 

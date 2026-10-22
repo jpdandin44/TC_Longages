@@ -25,3 +25,9 @@ L’enregistrement d’événements fictifs pendant la recette est une étape di
 ## Correctif de recette
 
 Opérateur distinct `fixes.py`, source `14cf8723e4ca811295427f94a1e41e8362246bea`, archive `agenda-fixes-14cf8723e4ca.zip`, SHA-256 `0d56f14dfe93c6600fdecdb9ea520d2e0300f103ffb7e4273e38b6e1efc9ad89`. Deux fichiers remplacés : AgendaPresentation et EventForm. Même contrôle de cible, sauvegarde/restauration privée et conservation des contenus/protections. Corrige le cache des scripts après suppression Ambiance et la restauration du service après aperçu. Cette installation complète le paquet initial ; elle ne le remplace pas sur une cible vierge.
+
+## Vue Mois commune à tous les visiteurs
+
+Opérateur `month.py`, source `d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26`, archive `agenda-month-d50dca1645fa.zip`, SHA-256 `b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b`. Remplace uniquement AgendaPresentation et agenda-tools.js. Le sélecteur reste disponible mais les anciennes préférences ne sont plus lues ni enregistrées ; chaque ouverture commence en Mois. Même préparation, restauration privée et contrôles de conservation que les opérateurs précédents. Aucun contenu éditorial ou calendrier Google modifié.
+
+Livré le 20 octobre à 16:05:05 UTC, deux empreintes vérifiées et contenus/protections conservés. La première tentative a été refusée avant écriture pour dérive de `users_field_data` après navigation authentifiée ; préparation initiale conservée sous `agenda-month-d50dca1645fa-preparation-initiale`, nouvelle sauvegarde/restauration contrôlée avant application réussie. Reçu dans `data/agenda-events-verification.json`, champ `monthDefault`.

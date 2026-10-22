@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 /** Server-side drafts and explicit review/publication of the exact revision. */
 final class CommunicationRepository {
-  public const CHANNELS = ['site' => 'Site internet', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp'];
+  public const CHANNELS = ['site' => 'Site internet', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'email' => 'Envoyer un mail aux adhérents'];
   public const CATEGORIES = ['club' => 'Vie du club', 'competition' => 'Compétitions', 'school' => 'École de tennis', 'event' => 'Événement'];
   public const STATUSES = ['draft' => 'Brouillon', 'validated' => 'Validée', 'published' => 'Publiée', 'archived' => 'Archivée'];
   public const FIELDS = ['title', 'category', 'body', 'link', 'tenup_visible', 'image_alt', 'channels'];
