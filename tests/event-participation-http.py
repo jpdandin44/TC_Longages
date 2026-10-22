@@ -68,4 +68,3 @@ if __name__=='__main__':
  (ROOT/'.local/event-participation-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
  print(json.dumps({'passed':report['passed'],'checks':len(checks),'error':report.get('error')}))
  raise SystemExit(0 if report['passed'] else 1)
-
