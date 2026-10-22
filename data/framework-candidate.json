@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+  "sourceCommit": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -233,9 +233,9 @@
     {
       "path": "api/participations-courriels.md",
       "mode": "100644",
-      "gitBlob": "2a8495dc0aa5023eda68c76b4956505bc68d9023",
-      "size": 7309,
-      "sha256": "1dc24701b53d0659944c4c57493a95a81fb6c91931e17ee318ab4ee4d5cc40dd"
+      "gitBlob": "5a873b02d574391a62b3448a2fcee3f465ab6543",
+      "size": 9629,
+      "sha256": "6723ab316655ef386495f9d6626a7df2712655223a199d06c1c946a9eebbbede"
     },
     {
       "path": "api/production-adapter.md",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "09bbb4b4a8b5ccf308e43cc1b244f08b0d26c8fd",
-      "size": 67989,
-      "sha256": "5e673c09c8bc44a62d02a730556c3ca5f79ae3aacddd0fa4610008dcdef6506a"
+      "gitBlob": "24e3f05aa06901dcbd7aaa02cf6a186af4d8418a",
+      "size": 68336,
+      "sha256": "d0229f9df5c31500e95d5fbcf608957ff19c2d7aef524994f91e433898525e0e"
     },
     {
       "path": "config/agenda-local.json",
@@ -1220,9 +1220,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "28c6d634efdda4224aa3654371643d9c12932de1",
-      "size": 130165,
-      "sha256": "183cf7ca4d5bfcb56d28ed9a489e159b88bd543951c60d40aa6b86baf7946193"
+      "gitBlob": "c6d39337640de053d08bb5a622fa377e5231f8ee",
+      "size": 131902,
+      "sha256": "8f74caf11f0e8554989acc6931a149d840b1bd8710ed5502567b7dc48bbd4f39"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -2802,9 +2802,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/AccountInvitation.php",
       "mode": "100644",
-      "gitBlob": "1f3bececa2dcc17ae6b5926b0f251195fcce1a31",
-      "size": 3580,
-      "sha256": "eac12eebe153323446921f98059a35b5e593dfba70a15a0c0096281f25d0a116"
+      "gitBlob": "f29ce196c07859be334064021054c86a21c36ca4",
+      "size": 4313,
+      "sha256": "a5c8adf14e5344cf4a85d667520fe87549800c82fa53e03b7bfef1483c1d0dd4"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/AgendaPresentation.php",
@@ -2830,9 +2830,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/BureauController.php",
       "mode": "100644",
-      "gitBlob": "a3529d38fe45607ff55223f1d8a103003073632c",
-      "size": 6848,
-      "sha256": "79d71a4c80e156cb57e82835b8e771b36f3ebfa5a3b018b595f29706969b7ba4"
+      "gitBlob": "3ab46d3c5ddb9222cd3d7b9631ea7eaa872cdbd2",
+      "size": 7075,
+      "sha256": "3fbd3a2fa68aca92997aee8543170ef65191fc8bb6e2ba1ee4850871e6f3f603"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php",
@@ -2854,6 +2854,13 @@
       "gitBlob": "79e5e65c4e1da773d7a22d2cf8902459fc8c37dd",
       "size": 4698,
       "sha256": "1926cc61237ee5877f053dc35b6b262cf4cadcf77481bac7a1e19ad2dc6a33e6"
+    },
+    {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/GoogleContactsController.php",
+      "mode": "100644",
+      "gitBlob": "db54da5c400b710c1387816965fa0aaf3089bebf",
+      "size": 1256,
+      "sha256": "5eb08a366a0e6aa2c19d2c4fde7affee111e18a10790a61fd69aa38709678850"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/RegistrationController.php",
@@ -2886,16 +2893,23 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountForm.php",
       "mode": "100644",
-      "gitBlob": "27d95dde0a29fc24c4fc52400c2e4fd6492fe3e5",
-      "size": 6849,
-      "sha256": "ea0acb6904063864b4aa9cd378ceddea436cf002e1dec7fff67ae8462e3bc97c"
+      "gitBlob": "0184ebb51dad949147933a13103882a523a1db23",
+      "size": 7328,
+      "sha256": "96e4a68c1be562c31512a13516af919b2eb03142845aa7e3a0625c97d89d45d3"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountInvitationForm.php",
       "mode": "100644",
-      "gitBlob": "c91ec4bb7438779ff3715572b6858fbf1db99631",
-      "size": 2520,
-      "sha256": "8000776fecdbd73293d17dfeebb5843dd9e58bfe95e062c2c4b74a01e903ffff"
+      "gitBlob": "98dd722fd37c7e075096ec4aeacb204d3ab75cac",
+      "size": 2970,
+      "sha256": "3644721ddc862549360c4cf6b6dbcd7237fbb9fb09d6e0b403361aa6f7308afc"
+    },
+    {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountPasswordResetForm.php",
+      "mode": "100644",
+      "gitBlob": "54309f758a1063dbbe82d69d502b3baad0577072",
+      "size": 252,
+      "sha256": "fe9185c44bffbe2ca7a49d18e8a3ab5eccbafbc457582306f8c20404733b6d9e"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/CommunicationActionForm.php",
@@ -2933,6 +2947,13 @@
       "sha256": "7d35de1a05ef52f7ecf83d1f7b67711fd0d816cc65e656e7bb06e5f8b7fe67bb"
     },
     {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/Form/GoogleContactsForm.php",
+      "mode": "100644",
+      "gitBlob": "366aeb827f5f703cab5dc90513d68da50db9fc2b",
+      "size": 1998,
+      "sha256": "45be267e3eba44f12eaecd7f0df9e7921096c026e985de9e4444cb6e462d2b6a"
+    },
+    {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/MemberMailForm.php",
       "mode": "100644",
       "gitBlob": "6fff1d0397943a5832c0fa6550043b1dcf3d889c",
@@ -2968,11 +2989,18 @@
       "sha256": "454d7f28466a9ff0e602e68b2244d56a7b857eb3b2d26da265df206d71a2bdff"
     },
     {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/GoogleContactsConnection.php",
+      "mode": "100644",
+      "gitBlob": "a618e9f6aa60526bebc453370a808b6e302fdf42",
+      "size": 6893,
+      "sha256": "f2a0c4c140a1575ee60700ae29e6bbd25b8daaf8a94cbb1ba8b0850af638a28e"
+    },
+    {
       "path": "drupal/web/modules/custom/tcl_bureau/src/MemberContacts.php",
       "mode": "100644",
-      "gitBlob": "286dcc3550975bf838d985dd39b3530cd4f5524d",
-      "size": 3804,
-      "sha256": "1dfe7cca6ac129f0119e62c4d02d2ece851958d235497c985bc07d07b4f1c98d"
+      "gitBlob": "513d08d44f1d75ba7353981fe2c5045fba37343b",
+      "size": 3800,
+      "sha256": "99a98c1e0bfa908f6d381475439fb7ff1bc4ed3b4891a65dd9e1c6a2af0e670d"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/MemberMail.php",
@@ -3061,9 +3089,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml",
       "mode": "100644",
-      "gitBlob": "22c026680b3f5ae50e7667ad6a0982c649fc2921",
-      "size": 8412,
-      "sha256": "d8eccdb053e1ea09c3a6d4584df4387043dbd7e2b04ef944d0f4d0276c36a7f3"
+      "gitBlob": "7a7453895b8cf8437077c0be3f5048cbdfaa06f6",
+      "size": 9642,
+      "sha256": "3f19c82f5350e83396001fd18fdf7b65813bbdf4321645e6ed54dec4e192e065"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.services.yml",
@@ -5098,9 +5126,9 @@
     {
       "path": "scripts/bureau-oauth-recette.ps1",
       "mode": "100644",
-      "gitBlob": "abfe30550de02634175973ecc17b6f7591408fb8",
-      "size": 6076,
-      "sha256": "862a314582db222d5e80f1d39d525777264861e7bce70bb97cf3122ef1de3579"
+      "gitBlob": "a26350a07dad8fe076919578fe3a2f53c342764e",
+      "size": 6236,
+      "sha256": "28379d6e953e1b26ab09f1876ecf41186d075044dbe479e35186c351ed015e94"
     },
     {
       "path": "scripts/calendar-embed.mjs",
@@ -6090,6 +6118,13 @@
       "sha256": "d5759c7c5dbc2785077b725b8c3d08a2912c084910e0c95605ebd9d7370c96f8"
     },
     {
+      "path": "tests/google-contacts-connection-local.php",
+      "mode": "100644",
+      "gitBlob": "9e98e5a2377a794e199bcfe09b3832754242b385",
+      "size": 4721,
+      "sha256": "a545f82e18f93deef65744ab69108a2bb7221ce83a7fa5163337735267e18378"
+    },
+    {
       "path": "tests/hosted-demo.test.mjs",
       "mode": "100644",
       "gitBlob": "2a4a546064dfce8f62cbf46ba7e87dcfd955decb",
@@ -6106,16 +6141,16 @@
     {
       "path": "tests/invitation-http-fixture.php",
       "mode": "100644",
-      "gitBlob": "bfed4dfa956f419f99c9a639d27a6880a90cda46",
-      "size": 2434,
-      "sha256": "aff0285135108316e40cbad61dafd79cb8bdea419b553471210100275c6b572a"
+      "gitBlob": "3d9392db1772e99ac4c1705bddd7a182df46b83f",
+      "size": 3068,
+      "sha256": "552a1657bdbfb19e0b744e26c461f66b3c3ffb78aaec71f044dec548b675d936"
     },
     {
       "path": "tests/invitation-http.py",
       "mode": "100644",
-      "gitBlob": "be0bb6885698b841f99d535ad3dee273760cd06d",
-      "size": 2141,
-      "sha256": "b588eeec043152763dfc57ef4e819310eddd0ef2f505f9a8e3eaf3fa4b2be263"
+      "gitBlob": "f4b8b4dd55691ab59eb1920694eab8703b3ad979",
+      "size": 3164,
+      "sha256": "539c4eb3a542a91ad881d607a1b1871584f86020ee279ffffc2ab7d92206ccbb"
     },
     {
       "path": "tests/logo.test.mjs",
@@ -6190,9 +6225,9 @@
     {
       "path": "tests/recipe-mail-local.php",
       "mode": "100644",
-      "gitBlob": "35ed3c4975fdb13bf44ea2b9faccf66cbdab8f71",
-      "size": 7172,
-      "sha256": "c4106a32110e541dd8ad84d5c9802620cc103b056412fe8efa51f7a32b7aabc0"
+      "gitBlob": "b8f740d5397e5f0bd4053cb2acf8a033a3e79328",
+      "size": 9067,
+      "sha256": "d86e6394263dba579b295d603af56f5264a5e92257de1149668cf79a477b73c0"
     },
     {
       "path": "tests/recipe-password-mail.php",
@@ -6533,9 +6568,9 @@
     {
       "path": "workflows/reinitialisation-recette.md",
       "mode": "100644",
-      "gitBlob": "baea6d3635694546934c2157ecc303f2d5755da6",
-      "size": 4069,
-      "sha256": "8ffe690ee3d34d23b79d12a54a355c52554d30c50109443180119e400c550456"
+      "gitBlob": "793d7089b88bd9cf93eb0ba44c15cba4e7d54c37",
+      "size": 5063,
+      "sha256": "13efd479a6ace1d2fac8a0e473d37c4a95bbfffe6d7da5a887921dc54fb827b7"
     },
     {
       "path": "workflows/v2-apercus-preproduction/README.md",
@@ -6573,5 +6608,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "13039551b98043847019a2b54a685627bf342e3476e1b7b31067d66a3c1faaa4"
+  "artifactDigest": "acb866b0d9b5388e9b60b371127c28ae8874f18a63eb894e19f995d19b3d5a63"
 }
