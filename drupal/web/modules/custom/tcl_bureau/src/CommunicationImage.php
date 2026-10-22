@@ -6,13 +6,19 @@ namespace Drupal\tcl_bureau;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-/** Decode and re-encode uploads: never serve the original file or its metadata. */
+/** Prepare images; retain PDF documents for attachment-only downloads. */
 final class CommunicationImage {
   public static function prepare(UploadedFile $file): string {
     if (!$file->isValid() || $file->getSize() > 8 * 1024 * 1024) {
-      throw new \InvalidArgumentException('Choisissez une image de 8 Mo maximum.');
+      throw new \InvalidArgumentException('Choisissez une image ou un PDF de 8 Mo maximum.');
     }
     $bytes = file_get_contents($file->getPathname());
+    if (self::isPdf($bytes)) {
+      if ((new \finfo(FILEINFO_MIME_TYPE))->buffer($bytes) !== 'application/pdf' || !preg_match('/%%EOF\s*$/D', $bytes)) {
+        throw new \InvalidArgumentException('Le fichier PDF est incomplet ou invalide.');
+      }
+      return $bytes;
+    }
     $info = @getimagesizefromstring($bytes);
     if (!$info || !in_array($info['mime'], ['image/jpeg', 'image/png', 'image/webp'], TRUE) || $info[0] * $info[1] > 20000000) {
       throw new \InvalidArgumentException('Image JPEG, PNG ou WebP requise, de 20 millions de pixels maximum.');
@@ -46,4 +52,8 @@ final class CommunicationImage {
     }
     return $result;
   }
+  public static function isPdf(string $bytes): bool {
+    return preg_match('/^%PDF-[12]\.[0-9][\r\n]/', $bytes) === 1;
+  }
+
 }

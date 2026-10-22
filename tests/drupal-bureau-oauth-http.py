@@ -87,7 +87,7 @@ def run():
     result = bureau.form(path, values, form)
     check('OAuth Bureau saves membership dossier', result[0] == 303 and '/bureau/adherents' in result[2].get('Location', ''))
     overview = bureau.get('/bureau/adherents?recherche=RecetteOAuth')[1]
-    match = re.search(r'href="(/bureau/adherents/\d+/modifier)"', overview)
+    match = re.search(r'href="((?:/fr)?/bureau/adherents/\d+/modifier)"', overview)
     check('saved member is searchable', match is not None and values['last_name'] in overview)
     edit = match.group(1); old = bureau.get(edit)[1]
     check('OAuth Bureau edits dossier', bureau.form(edit, dict(values, status='checked', notes='Vérifié en recette.'), old)[0] == 303)

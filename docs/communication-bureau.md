@@ -1,16 +1,66 @@
 ---
 project: TC_Longages
 document_type: development-guide
-title: Communication du Bureau dans la V2 locale
+title: Communication du Bureau dans la V2
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-12
+updated: 2026-10-22
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
 
+## Courriel aux adhérents — développement du 22 octobre
+
+Sélectionner le nouveau canal, enregistrer puis valider la révision. « Préparer le courriel aux adhérents » permet de choisir une source, relire le message et sélectionner explicitement les destinataires. En préproduction, seuls les destinataires autorisés de recette peuvent recevoir un message. Google Contacts doit être connecté au site séparément ; tant que la configuration manque, l’écran le signale. Affiche par lien si publication sur le site, aucun fichier joint. [Contrat et configuration](../api/participations-courriels.md), [preuves](../data/event-participation-mail-verification.json).
+
+
 # Communication du Bureau
+
+## Référence courante pour la campagne du 21 octobre
+
+Voir la [campagne V2](campagne-recette-v2.md). Les paragraphes datés ci-dessous décrivent leurs étapes historiques. Depuis le 20 octobre, Ambiance est supprimé, la vue Mois revient à chaque ouverture et les événements/récurrences du Bureau sont livrés en préproduction : [guide agenda](evenements-bureau.md). Les confirmations ultérieures de réception des courriels et le lien accueil sont consignés dans le [point de reprise](point-session.md).
+
+## Optimisations communications et agenda — livrées le 19 octobre
+
+Développement local vérifié : bouton « Copier le message » sur la révision validée, repli par sélection manuelle, explications du partage et affiches cadrées sans déformation. Aucun envoi automatique vers Facebook ou WhatsApp.
+
+L’agenda conserve son intégration Google existante. Les commandes proposent Mois/Semaine/Liste et trois ambiances (bordeaux, vert, bleu clair), mémorisées dans le navigateur avec réinitialisation. Les couleurs internes du calendrier restent gérées par Google. Jusqu’à six communications de catégorie Événement, publiées sur le site et approuvées dans leur révision courante, peuvent apparaître avec leur affiche et un lien vers le détail. Il s’agit des annonces publiées, sans synchronisation ni calcul des prochaines dates.
+
+Les préférences ne sont pas des paramètres partagés par tous les visiteurs. Création/édition depuis le Bureau, récurrences, exceptions et thème global restent à développer après choix de la source des événements. La campagne humaine de tests est différée à la demande du responsable ; elle ne bloque pas ce développement.
+
+Contrôles locaux : 22 PDF/canaux, 13 catalogue, 11 intégration agenda et 3 tests JavaScript réussis. Copie dans Chrome et mémorisation des préférences après rechargement vérifiées sur la copie locale. Le modèle d’agenda local a été temporairement équipé d’un iframe de recette puis restauré exactement. Installation hébergée désormais vérifiée dans Chrome : commandes et mémorisation de l’agenda, copie du message, affiches PDF et logo. Correction ciblée des permissions de trois dossiers publics ; Basic et dossiers privés conservés. La galerie d’affiches a été contrôlée visuellement sur une fixture locale, sans publication d’actualité en préproduction. [Reçu et limites](../data/communications-agenda-verification.json). Production exclue.
+
+
+## Aperçus et affichage — complément local non livré, clôture du 18 octobre
+
+Le Bureau dispose localement d’un aperçu de la première page des PDF enregistrés et d’un aperçu du texte et du support pendant la saisie, avant enregistrement. Le fichier original et son téléchargement sont conservés. PDF.js `6.4.299` est embarqué avec ses ressources locales ; le rendu utilise un canvas et les URL du même site, sans service de conversion externe. Les contrôles d’accès au support restent ceux du contrôleur existant. La vue ne rend ni annotations ni scripts du PDF. Le détail des dépendances figure dans [la provenance PDF.js](../drupal/web/modules/custom/tcl_bureau/vendor/pdfjs/README.md).
+
+État à la clôture du 18 octobre : changements non commités et non installés en préproduction. Les aperçus PDF enregistré et PDF sélectionné ont été vérifiés visuellement en local ; la régression complète et le parcours protégé hébergé restent à effectuer. Le tableau des tarifs est également corrigé localement pour bureau/mobile. Voir [la reprise](point-session.md).
+
+
+## Vérification locale du 19 octobre
+
+Aperçu du PDF enregistré et sélectionné, remplacement par une image, texte modifié sans sauvegarde et retrait de l’affiche contrôlés dans le navigateur. Une sélection illisible affiche un message explicite ; elle ne supprime pas le brouillon enregistré. Tableau tarifaire contrôlé sur bureau et mobile (375 pixels utiles, sans débordement horizontal). Livraison de ce complément encore à effectuer.
+
+Le paquet limité est produit par `python scripts/package-v2-update.py` depuis les seuls fichiers commités des modules Bureau et OAuth. Il ne contient ni Core, ni base, ni paramètres privés. La présence de fichiers applicatifs non commités bloque sa préparation. Les anciens opérateurs de livraison restent historiques : préparer des opérateurs liés à la nouvelle empreinte et à la restauration fraîche.
+
+## Complément courant — PDF et canaux
+
+L’actualité accepte désormais une affiche PDF existante (8 Mo maximum), en alternative à une image. Le PDF est conservé intégralement, métadonnées comprises, en base privée ; il est servi uniquement en pièce jointe téléchargeable, avec `nosniff`, `no-store` et CSP sandbox. Les contrôles portent sur la taille, la signature, le type MIME et la fin du fichier : ils ne constituent ni une analyse antivirus ni une réécriture du document. Aucun convertisseur PDF, éditeur d’affiche ou export image-vers-PDF n’est ajouté.
+
+Les cases **Site internet**, **Facebook** et **WhatsApp** sont indépendantes ; au moins une est requise. Un nouveau brouillon propose seulement Site internet par défaut. Les anciennes actualités conservent les trois possibilités par l’update additive `11003`, sans changer leur état ou leur révision. Toute modification du choix retire la publication et invalide l’approbation, comme les autres modifications.
+
+Seul le choix Site internet permet l’action de publication et l’accès public au contenu ou au fichier. Facebook et WhatsApp restent manuels après validation : copier le texte, télécharger la pièce, puis joindre celle-ci et confirmer dans le service choisi. Le lien WhatsApp ne joint jamais le PDF. Les outils FFT historiques sont conservés dans un volet complémentaire fermé. Aucun envoi réel ni statut de livraison automatique.
+
+**Cadrage** : import PDF existant confirmé par le responsable. **Développement local** : implémenté, recette HTTP fictive et essai privé du PDF Halloween fourni. **Préproduction** : complément livré le 18 octobre à 23 h 23 (Paris), recette navigateur protégée encore attendue. **Mise en production** : exclue de cette demande.
+
+Le reçu du complément est [communication-pdf-canaux-verification.json](../data/communication-pdf-canaux-verification.json). Les observations ci-dessous du 5–12 octobre restent historiques ; le catalogue et le formulaire de recette ont depuis été livrés en préproduction, selon [leur reçu distinct](../data/v2-preproduction-livraison.json).
+
+
+## Bandeau V2 — 18 octobre
+
+La dernière publication apparaît désormais en tête du contenu principal. Voir [le fonctionnement, les contrôles et limites](recette-v2.md) et [le reçu](../data/v2-recette-verification.json). Le retrait explicite reste nécessaire ; aucune expiration automatique ajoutée.
 
 ## Accès courant — 12 octobre
 
@@ -117,3 +167,16 @@ après livraison, reçu, retour arrière et note de version.
 TBD : cible hébergée, nouvelles routes Apache et reprise de ses données.
 Le test MariaDB local ne remplace pas ces contrôles. Import JSON des anciens brouillons,
 éditeur riche et publication automatique externe ne sont pas réalisés dans ce lot.
+
+## Livraison du 19 octobre 2026
+
+Les aperçus et corrections tarifaires sont installés en préproduction, avec 244 fichiers vérifiés. La recette visuelle est démontrée en local uniquement ; le navigateur hébergé reste bloqué par l’accès Basic. Le catalogue saisonnier doit encore être publié depuis le Bureau pour activer le formulaire sur l’accueil. Les courriels sont configurés en privé, sans envoi réel effectué. Voir le [reçu](../data/v2-apercus-recette-verification.json).
+
+
+## Textes par canal et réponse personnelle — 22 octobre
+
+Livré et vérifié en préproduction le 22 octobre : titre/objet et texte facultatifs par canal Site, Facebook, WhatsApp et Courriel. Vide reprend la valeur commune ; affiche commune conservée. Chaque modification repasse en brouillon et retire la publication. Aperçus et copie manuelle utilisent la variante correspondante ; aucun envoi social automatique.
+
+Le courriel est multipart texte/HTML classique, sans AMP ni enregistrement expéditeur AMP. Pour une actualité liée à une occurrence ouverte, trois liens personnels sont créés à l’envoi : Oui, Non, Incertain. Ils ouvrent la réponse avec le choix présélectionné et une liste de 1 à 10 personnes si Oui ; seule la confirmation POST enregistre. Jeton dans le fragment, validité sept jours limitée par la clôture, ancien lien remplacé sans effacer la réponse. Aperçu Bureau sans jeton ; chaque destinataire est envoyé séparément, liste de recette maintenue.
+
+État de recette et limites : [preuve du lot](../data/channel-rsvp-verification.json). Réception du nouveau courriel HTML confirmée. Après correction du cache navigateur, les trois liens sont vérifiés sur identité fictive ; réessai personnel confirmé et réponse de six personnes vérifiée. Rouvrir le bouton du courriel après une page en erreur, le fragment personnel étant retiré de la barre d’adresse après lecture.

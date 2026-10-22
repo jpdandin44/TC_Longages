@@ -21,6 +21,7 @@ $settings['file_temp_path'] = $tclRuntime . '/temp';
 $settings['config_sync_directory'] = $tclRuntime . '/config-sync';
 $settings['update_free_access'] = FALSE;
 $settings['rebuild_access'] = FALSE;
+$settings['tcl_registration_recipe_enabled'] = is_file($tclProject . '/.local/registration-recipe.enabled');
 $settings['skip_permissions_hardening'] = TRUE;
 $config['system.mail']['interface']['default'] = 'tcl_null_mail';
 $settings['tcl_support_enabled'] = TRUE;

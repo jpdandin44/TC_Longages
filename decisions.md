@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - decisions
@@ -13,7 +13,34 @@ tags:
   - architecture
 ---
 
+## Agenda V2 — 20 octobre 2026
+
+Décision du 20 octobre : remplacer la personnalisation globale Ambiance par des repères métier sur chaque événement. Réutiliser les affiches des communications évite une seconde copie ; les mises à jour se répercutent, l’archivage masque l’affiche. Les cartes privées ne modifient pas le calendrier Google partagé.
+
+
 # Décisions
+
+## 2026-10-19 — Écritures de recette séparées du calendrier partagé
+
+Le responsable souhaite garder le calendrier de production et confirme la proposition de le conserver en consultation, avec créations et récurrences fictives dans le Bureau de préproduction. Décision : collection Drupal dédiée, sans synchronisation Google ni nouvelle table. Les éditions portent sur toute la série ; exceptions par exclusion de date et événement ponctuel séparé. Conséquence : le raccordement des écritures au calendrier officiel reste un lot distinct, soumis à une autorisation de production. [Guide](docs/evenements-bureau.md).
+
+## 2026-10-19 — Présentation de l’agenda sans deuxième calendrier
+
+Contexte : optimiser l’agenda après les communications tout en préservant la V2 hébergée et la production. La source unique des événements modifiables par le Bureau reste à choisir.
+
+Décision : conserver l’intégration Google existante, proposer des préférences de vue/palette propres au navigateur et réutiliser les communications publiées pour les affiches. Aucun nouveau registre de dates, synchronisation ou paramètre global implicite.
+
+Conséquences : les cartes sont des annonces publiées et non un calcul des prochaines occurrences. Création/édition Bureau, récurrences, exceptions et personnalisation globale restent un lot distinct. Ce choix évite de dupliquer les événements avant d’en définir la source de référence.
+
+
+## 2026-10-18 — Catalogue publié et demandes fictives
+
+**Contexte :** poursuite explicitement demandée avant finalisation des contenus. **Décision :** activation privée de recette, catalogue publié distinct du brouillon, instantané tarifaire conservé dans chaque dossier. **Raison :** essayer le parcours sans convertir un brouillon en collecte réelle ni recalculer les anciens dossiers. **Conséquence :** données fictives exclusivement ; textes, créneaux et ouverture réelle restent ultérieurs. [Détail](api/inscription-recette.md).
+
+
+## 2026-10-18 — Une version d’avance par environnement
+
+**Contexte :** demande explicite du responsable. **Décision :** V1 production, V2 préproduction, V3 local ; corrections V2 dans un checkout distinct. **Raison :** permettre la recette sans mélanger Compétitions V3. **Conséquence :** promotions après qualification et accords applicables ; aucune mutation de production pendant ce lot. La version exacte hébergée doit être constatée, pas déduite du numéro métier.
 
 ## 2026-10-17 - Preparer sans activer la livraison recurrente
 
@@ -700,3 +727,16 @@ personnelle restent obligatoires. Les validations antérieures sans preuve de fu
 sont conservées comme historiques à requalifier ; aucune décision humaine n’est
 réécrite. Le moteur ne fusionne aucune PR, ne change aucun accès distant et ne
 transforme aucune progression de phase en accord de déploiement ou d’ouverture.
+
+## 18 octobre — livraison limitée des fonctions V2
+
+Pour la recette demandée, le paquet ne remplace que les deux modules métier concernés ; Core hébergé reste 11.4.8, OAuth 6.1.1. La compatibilité est vérifiée sur une restauration privée avant installation. Cela permet de préserver les dépendances et contenus hébergés ; la montée de Core vers le 11.4.10 local reste à qualifier séparément. La publication du catalogue conserve la garde OAuth Bureau existante et n’est pas forcée par l’opérateur de livraison.
+
+## Complément courriels de recette — 18 octobre
+
+Le 18 octobre, autoriser les courriels réels de recette uniquement pour les destinataires désignés en configuration privée et sur la préproduction TC. Conserver les informations personnelles fictives, le blocage du transport global et l’absence d’accusé au demandeur. Associer explicitement les comptes invités au fournisseur TC par UID et UUID, sans reconnaissance par email ; conserver le contrôle OAuth.
+
+
+## Personnalisation des communications — 22 octobre
+
+22 octobre — Courriels de participation : retenir HTML classique avec alternative texte et confirmation web personnelle, pour éviter la dépendance aux clients AMP et à leur enregistrement expéditeur. Réutiliser les jetons existants, remplacer leur génération uniquement au nouvel envoi, conserver toute réponse préalable ; aucun enregistrement par ouverture de lien.

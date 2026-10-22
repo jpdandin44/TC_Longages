@@ -82,7 +82,7 @@ def run():
     check('Admin can manage communication', admin.get('/bureau/communication')[0] == 200)
     pages = admin.get('/admin/content/tcl-pages')
     check('Admin retains native public content editing', pages[0] == 200 and 'Modifier' in pages[1])
-    edit = re.search(r'href="(/node/\d+/edit[^\"]*)"', pages[1])
+    edit = re.search(r'href="(/(?:fr/)?node/\d+/edit[^\"]*)"', pages[1])
     check('Public editing form available', edit is not None and admin.get(__import__('html').unescape(edit[1]))[0] == 200)
     check('Local recipe is labelled accurately', 'OAuth TC Longages, comptes et données de test' in page[1])
     # Reuse the existing native membership flow, now with the real TC provider.

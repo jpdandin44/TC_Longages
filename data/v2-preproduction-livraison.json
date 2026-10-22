@@ -1,0 +1,88 @@
+{
+  "observedAt": "2026-10-18T20:51:05.553800+00:00",
+  "deliveredAt": "2026-10-18T20:47:23.945007+00:00",
+  "target": "preprod.tclongages.fr",
+  "status": "installed_private_recipe_pending_browser_login",
+  "sourceSha": "e7ec6af5f56866c20230a377db48d07a95b9e570",
+  "artifactSha256": "b51144894adf13e92e26aa78d8e51745c177a8ad0f5affb31abcf1d957010ada",
+  "fileCount": 38,
+  "bytes": 83889,
+  "productionAllowed": false,
+  "coreUpgradeIncluded": false,
+  "installedFilesVerified": 38,
+  "changedFiles": 12,
+  "coreVersion": "11.4.8",
+  "simpleOAuthVersion": "6.1.1",
+  "basicHttpStatus": 401,
+  "recipeEnabled": true,
+  "cataloguePublished": false,
+  "nativeAdminWithoutOAuthDenied": true,
+  "formRoute": "/adherer",
+  "existingPagesPreserved": 7,
+  "existingUsersPreserved": 3,
+  "existingRegistrationCountPreserved": 1,
+  "maintenancePreserved": true,
+  "productionWritten": false,
+  "realDataImported": false,
+  "messagesSent": 0,
+  "hostedOAuthLoginVerified": false,
+  "browserRecipePassed": false,
+  "backup": {
+    "id": "20261018T203227Z",
+    "filesRestoredAndVerified": 27449,
+    "sqlActiveTablesCompared": 62,
+    "rowsCompared": true,
+    "schemasCompared": true,
+    "identityFilesCompared": 5,
+    "restoredDrupalBootstrap": "Successful",
+    "privateRestoration": "restore-_vypl584"
+  },
+  "privateRehearsal": {
+    "passed": true,
+    "checks": 11,
+    "observedAt": "2026-10-18T20:44:36+00:00",
+    "scope": "CLI private prefixed restoration with fixture OAuth; not hosted login"
+  },
+  "privateReceipts": [
+    "v2-recipe-b51144894adf/delivery-plan.json",
+    "v2-recipe-b51144894adf/delivery-receipt.json",
+    "restorations/restore-_vypl584/v2-sql-receipt.json",
+    "restorations/restore-_vypl584/v2-rehearsal.json"
+  ],
+  "localOperatorSources": [
+    ".local/v2-restore.py",
+    ".local/v2-stage.py",
+    ".local/v2-hosted-rehearsal.php",
+    ".local/v2-deliver.py"
+  ],
+  "operatorSha256": "da85dd4d6b80722a75dd780734df9b2a089c7c8ef6f0ba621695a722586d6736",
+  "screenshot": ".local/v2-preprod-delivery.png",
+  "ci": {
+    "headSha": "e7ec6af5f56866c20230a377db48d07a95b9e570",
+    "technicalJobsPassed": 6,
+    "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/39163930522",
+    "policy": "four human attestations remain unchecked"
+  },
+  "remaining": [
+    "Protected Bureau login",
+    "Publish recipe catalogue through Bureau OAuth",
+    "Browser adult/minor recipe on preproduction",
+    "Definitive texts and slots deferred by user"
+  ],
+  "productionAuthorization": false,
+  "versionedOperatorSources": [
+    "workflows/inscription-preproduction/restore.py",
+    "workflows/inscription-preproduction/stage.py",
+    "workflows/inscription-preproduction/rehearsal.php",
+    "workflows/inscription-preproduction/deliver.py"
+  ],
+  "documentationCheck": {
+    "checkedAt": "2026-10-18T20:52:04.583407+00:00",
+    "changedDocuments": 10,
+    "relativeLinks": 540,
+    "errors": [],
+    "otherIterationsPreserved": 10,
+    "foundationsChecked": 3,
+    "scope": "changed Markdown metadata, relative file links, foundations; no remote link/anchor validation"
+  }
+}

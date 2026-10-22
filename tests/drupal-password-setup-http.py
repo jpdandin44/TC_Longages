@@ -55,22 +55,23 @@ def run():
         check('Direct login shortcut reproduces the authenticated 403', other.get(account['url'] + '/login')[0] == 403)
         guarded = other.get(account['url'])
         check('Native entry handles another session without switching accounts', guarded[0] == 302
-              and urllib.parse.urlsplit(guarded[2].get('Location', '')).path == '/'
+              and urllib.parse.urlsplit(guarded[2].get('Location', '')).path in ('/', '/fr')
               and other.get('/user')[2].get('Location') == other_profile)
 
         session = base.Session()
         response = session.get(account['url'])
         form_path = '/user/reset/' + str(account['uid'])
         check('Native entry redirects without leaking the reset secret', response[0] == 302
-              and urllib.parse.urlsplit(response[2].get('Location', '')).path == form_path)
+              and urllib.parse.urlsplit(response[2].get('Location', '')).path.removeprefix('/fr') == form_path)
         reset = session.get(response[2]['Location'])
         action = ResetForm(reset[1]).action
+        check('Confirmation uses club account presentation and explicit password action', 'tcl-account-page' in reset[1] and 'Choisir mon mot de passe' in reset[1])
         check('Native confirmation form is accessible anonymously', reset[0] == 200
               and action is not None and action.endswith('/login'))
         response = session.form(action, {}, reset[1])
         location = response[2].get('Location', '')
         check('Native reset preserves the form token', response[0] == 302
-              and urllib.parse.urlsplit(location).path == '/user/' + str(account['uid']) + '/edit'
+              and urllib.parse.urlsplit(location).path.removeprefix('/fr') == '/user/' + str(account['uid']) + '/edit'
               and 'pass-reset-token' in urllib.parse.parse_qs(urllib.parse.urlsplit(location).query))
         check('Shortcut also refuses the newly authenticated target session', session.get(account['url'] + '/login')[0] == 403)
         fixture('refresh')
@@ -80,7 +81,7 @@ def run():
               and restarted[2].get('Location') == account['url'])
         response = session.get(restarted[2]['Location'])
         check('Matching session reaches the native confirmation route', response[0] == 302
-              and urllib.parse.urlsplit(response[2].get('Location', '')).path == form_path)
+              and urllib.parse.urlsplit(response[2].get('Location', '')).path.removeprefix('/fr') == form_path)
         reset = session.get(response[2]['Location'])
         action = ResetForm(reset[1]).action
         check('Matching session can reopen the confirmation form', reset[0] == 200
@@ -88,9 +89,10 @@ def run():
         response = session.form(action, {}, reset[1])
         location = response[2].get('Location', '')
         check('Restarted native flow restores a valid edit token', response[0] == 302
-              and urllib.parse.urlsplit(location).path == '/user/' + str(account['uid']) + '/edit'
+              and urllib.parse.urlsplit(location).path.removeprefix('/fr') == '/user/' + str(account['uid']) + '/edit'
               and 'pass-reset-token' in urllib.parse.parse_qs(urllib.parse.urlsplit(location).query))
         body = session.get(location)[1]
+        check('Password edit uses club account presentation', 'tcl-account-page' in body)
         check('First setup does not request the current password', 'name="current_pass"' not in body)
         password = secrets.token_hex(24)
         values = {'mail': 'admin-tc-local@example.invalid', 'pass[pass1]': password, 'pass[pass2]': password, 'op': 'Enregistrer'}
@@ -104,7 +106,7 @@ def run():
         check('Stored password and email verified', True)
         replay = base.Session().get(account['url'])
         check('Used reset link redirects to the new request form', replay[0] == 302
-              and urllib.parse.urlsplit(replay[2].get('Location', '')).path == '/user/password')
+              and urllib.parse.urlsplit(replay[2].get('Location', '')).path.removeprefix('/fr') == '/user/password')
         login = base.Session()
         accepted = login.form('/user/login', {'name': 'tcl-password-setup-fixture', 'pass': password})
         check('New fictitious password can sign in', accepted[0] in (302, 303))

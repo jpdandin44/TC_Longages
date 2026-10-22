@@ -8,3 +8,15 @@
 .tcl-communication details a { display: inline-block; margin: .7rem 1rem .7rem 0; }
 .tcl-bureau .form-checkboxes label, .tcl-bureau .form-radios label, .tcl-bureau .form-type-checkbox label { display: inline; }
 @media (max-width: 650px) { .tcl-preview-grid { grid-template-columns: 1fr; } }
+
+.tcl-pdf-preview canvas { display: block; max-width: 100%; height: auto; margin: 1rem auto; border: 1px solid #ddd; }
+.tcl-pdf-preview { min-width: 0; overflow-wrap: anywhere; }
+.tcl-live-preview { margin: 1.5rem 0; }
+.tcl-preview-card article { display: flex; flex-direction: column; gap: .75rem; }
+.tcl-preview-card .tcl-post-image { max-height: 32rem; object-fit: contain; align-self: center; }
+[data-sharing-tools] textarea { width: 100%; min-height: 12rem; }
+[data-copy-message] { padding: .7rem 1rem; background: #801326; color: #fff; border: 0; border-radius: .3rem; cursor: pointer; }
+[data-copy-message]:focus-visible { outline: 3px solid #202124; outline-offset: 4px; }
+[data-copy-status] { min-height: 1.5em; font-weight: 600; }
+
+.tcl-preview-facebook{border-top:4px solid #1877f2}.tcl-preview-whatsapp{border-top:4px solid #147d4c;background:#f1faf5}.tcl-preview-email{border-top:4px solid #a71930}.tcl-preview-site{border-top:4px solid #4a5158}.tcl-preview-card{min-width:0;overflow-wrap:anywhere}

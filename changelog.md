@@ -5,14 +5,96 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
 
+## 22 octobre — inscription depuis les communications
+
+Liens d’inscription depuis les actualités et les courriels, miniature PDF/image dans le bandeau, suppression du bloc bas. Demande de lien par email avant réponse, bornée aux adresses de recette. Livré en préproduction après six CI réussies : parcours accueil/article/mail et miniature PDF vérifiés ; demande de lien remise selon cPanel, réception personnelle restant à confirmer. Voir le reçu d’inscription.
+
+
+## 22 octobre — participations et canal courriel en préproduction
+
+Ajout des réponses par occurrence, nombre de personnes, totaux, reconfirmation et fermeture ; ajout du canal courriel, aperçu et contrôle explicite des destinataires, lecteur Google Contacts configurable en lecture seule. Tests locaux sans envoi externe, six contrôles techniques CI réussis. Livraison ciblée de 14 fichiers, réponses et totaux vérifiés dans Chrome, aperçu du nouveau canal contrôlé sans envoi. Connexion Google réelle et campagne restent non réalisées. Voir [preuves](data/event-participation-mail-verification.json).
+
+
+## 21 octobre — présentation du compte V2
+
+Habillage commun des pages de connexion et choix du mot de passe ; action de confirmation explicite. Création du mot de passe Artemis confirmée par le responsable. Présentation livrée et vérifiée en préproduction uniquement ; six CI réussies.
+
+## Réinitialisation de recette — 21 octobre 2026
+
+Correction V2-MAIL-01 livrée uniquement en préproduction : transport password_reset limité à l’hôte et aux destinataires de recette existants. Essai Artemis accepté et réception confirmée par le responsable ; saisie personnelle du mot de passe à vérifier. [Workflow](workflows/reinitialisation-recette.md).
+
+## Recette hébergée V2 — 21 octobre 2026
+
+Campagne partiellement exécutée dans Chrome ; [résultats par parcours](docs/campagne-recette-v2.md). Données fictives uniquement, tarif brouillon restauré et série créée annulée. Réception des deux notifications confirmée par le responsable ; validations personnelles restantes. Nouveaux imports différés par choix du responsable, permissions Chrome inchangées. Aucun code livré ni production modifiée.
+
+## Vue initiale du calendrier — 20 octobre 2026
+
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Livré en préproduction le 20 octobre ; ancienne préférence Semaine ignorée et retour Mois après Liste/rechargement vérifiés.
+
+## Agenda V2 — 20 octobre 2026
+
+Agenda V2 livré en préproduction : suppression Ambiance, sept catégories avec couleurs et icônes, filtres, miniatures PDF/images liées aux communications. Vérifications : 29 HTTP, 19 métier et 3 JavaScript réussies. Premier paquet et correctif livrés : cache des scripts et sauvegarde après aperçu corrigés puis revérifiés en recette hébergée.
+
+
+## 2026-10-19 — Événements de recette, préparation locale
+
+Ajout du formulaire Bureau, liste des séries, récurrences, exclusions et annulation. Protection OAuth/CSRF, révisions concurrentes et isolement préproduction. 19 contrôles métier et 21 HTTP locaux réussis. Pas encore livré. [Guide](docs/evenements-bureau.md).
+
 # Journal des évolutions
+
+## 2026-10-19 — optimisations communications et agenda en préproduction
+
+Copie du message validé avec repli manuel, aide au partage et affichage des supports. Vues Mois/Semaine/Liste, trois palettes mémorisées par navigateur et cartes des événements publiés. Tests locaux ajoutés au parcours de contrôle. Complément de neuf fichiers livré en préproduction et vérifié dans Chrome ; lecture des scripts, styles et logo rétablie par correction de trois dossiers publics. Aucune modification de production.
+
+
+## 2026-10-19 — Lien d’adhésion depuis l’accueil de préproduction
+
+Raccordement à la rubrique d’adhésion de l’accueil actuel, avec mention de recette fictive et conservation des contenus éditoriaux. Bouton vers le formulaire disponible seulement avec un catalogue publié. Treize contrôles locaux et parcours Chrome hébergé réussis ; fichier unique sauvegardé puis livré en préproduction, sans écriture en production.
+
+## 2026-10-19 — Expéditeur de recette et réception du formulaire
+
+Expéditeur de préproduction remplacé par la boîte existante du domaine dont SPF et DKIM sont valides ; sauvegarde privée et contrôles réalisés, sans modification de production ni DNS. Nouvelle notification du dossier fictif 3 reçue dans la boîte du club ; nouvelle invitation acceptée à l’envoi, réception encore à confirmer. Détails et preuves dans le [point de session](docs/point-session.md).
+
+## 2026-10-19 — Finalisation locale des aperçus et tarifs
+
+Aperçus PDF enregistrés et avant sauvegarde, reprise de l’affiche existante dans l’aperçu de saisie, retrait et remplacement par une image. Mise en page des tarifs vérifiée sur bureau/mobile. Correction de l’encodage des accents des courriels ; contrôle de leur contenu renforcé. Recettes HTTP adaptées aux liens Drupal préfixés `/fr/` sans affaiblir les contrôles d’accès. Nouveau préparateur de paquet V2 limité aux modules, sans Core ni configuration privée. Qualification et livraison suivies dans le point de session.
+
+
+## Clôture du 18 octobre, enregistrée le 19 — complément local non livré
+
+Corrections locales du tableau tarifaire sur bureau/mobile, aperçu des PDF enregistrés et aperçu du texte/support pendant la saisie. Ajout de PDF.js 6.4.299 embarqué. Vérifications visuelles locales réalisées ; régression complète et livraison encore à faire. Le test de courriel filtre les captures métier du module ; 20 contrôles réussis dans la restauration privée. Invitations/notifications préparées mais non installées, aucun courriel réel envoyé. [Reprise précise](docs/point-session.md).
+
+
+## Complément V2 du 18 octobre — livré en préproduction
+
+- Import d’affiche PDF existante, téléchargement protégé et conservation du fichier original.
+- Choix des trois canaux, garde serveur de publication sur le site, partage manuel filtré.
+- Update additive `11003` et recette HTTP dédiée ; PDF fourni essayé en brouillon local privé.
+- Complément livré en préproduction, indépendamment du reçu historique catalogue/formulaire.
+
+
+Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
+
+## 2026-10-18 — Catalogue et formulaire de recette
+
+Catalogue saisonnier éditable au Bureau, publication explicite, table d’accueil et formulaire communs, saisie fictive en deux étapes, récapitulatif et conservation du tarif au dépôt. Champs complémentaires de contact d’urgence et expérience dans la fiche Bureau. Aucune importation des fiches reçues. [Contrat](api/inscription-recette.md).
+
+
+### Préproduction et libellé V2 — 18 octobre
+
+Inventaire cPanel en lecture seule : Core 11.4.8 / OAuth 6.1.1 ; Flash News absent. Relevé et limites dans `docs/recette-v2.md`. Libellé V2 harmonisé « Cours Adultes compétition », 170 € inchangés. Aucun déploiement.
+
+
+## 2026-10-18 — Reprise V2 isolée
+
+Branche dédiée depuis main corrigé, sans Compétitions. Ajout du bandeau de dernière actualité publiée et test d’intégration Drupal avec retour transactionnel. Inventaire saisonnier et limites de recette documentés ; aucune livraison distante à ce stade.
 
 ## 2026-10-17 - Rapprochement de la PR #22 apres fusion de #23
 
@@ -735,3 +817,38 @@ Le [dossier de reprise](TC_Longages_Dossier_Reprise_Codex_2026-09-15.md) décrit
 - Quatre phases actives ; ancien découpage, décisions et libellés de critères conservés. Brouillon restitué sans confirmation automatique.
 - Archive Drupal et outils transférés, empreintes vérifiées sur le serveur ; 26 687 fichiers extraits et relus, racine Apache fermée.
 - Première installation arrêtée avant écriture des paramètres et de la base : connexion SQL applicative refusée (1045). Le mot de passe changé personnellement doit être synchronisé dans le fichier privé.
+
+## Complément courriels de recette — 18 octobre
+
+Développement local des invitations Bureau, du lien natif de création de mot de passe et des notifications de demande fictive au club. Contrôles locaux : 20 de service, 11 HTTP avec OAuth TC, 38 catalogue/formulaire, 18 première saisie du mot de passe. Installation et courriels hébergés encore à vérifier. Agenda enrichi et personnalisation ajoutés au cadrage V2, non développés.
+
+Correction de l’écran Saison et tarifs signalée en recette : colonnes ajustées à la largeur disponible, champs de taille fluide, formules empilées avec leurs libellés sur mobile et lien de test séparé du texte.
+
+### Livraison V2 préproduction du 19 octobre 2026
+
+Aperçus et tarifs livrés (244 fichiers vérifiés), invitations/notifications installées et destinataires configurés en privé. Sauvegarde/restauration et six contrôles techniques CI réussis. Recette navigateur et envois réels non effectués ; catalogue hébergé encore en brouillon. Production exclue.
+
+- 22 octobre : compléments locaux en qualification — connexion Contacts Google administrateur en lecture seule et action explicite de réinitialisation du mot de passe depuis le Bureau.
+
+
+## 22 octobre — connexion Google Contacts qualifiée en préproduction
+
+Consentement personnel et lecture effective du libellé `Adhérents_2026_2027` vérifiés : 21 contacts annoncés, aperçu préparé avec filtrage de recette. Aucun destinataire éligible et envoi désactivé ; aucune modification des contacts, aucun courriel ni changement de production. Voir [les preuves](data/google-accounts-verification.json).
+
+
+Complément de recette du 22 octobre : adresse famille ajoutée au libellé sur demande explicite (22 contacts). Un courriel Google-source envoyé uniquement à cette adresse, accepté par le serveur ; réception à confirmer. Lien vers l’inscription fictive vérifié. Voir le reçu Google et comptes ; aucune modification de production.
+
+
+## Personnalisation des communications — 22 octobre
+
+22 octobre — Développement local des variantes de titres/textes Site, Facebook, WhatsApp et Courriel, aperçus et copie par canal. Courriels HTML avec boutons personnels Oui/Non/Incertain, nombre de personnes en liste et confirmation web. Livré en préproduction après six contrôles CI réussis ; variantes et aperçu HTML contrôlés, un envoi à l’adresse famille accepté. Réception et parcours personnel restant à confirmer. Voir [preuves](data/channel-rsvp-verification.json).
+
+Correctif livré et vérifié en préproduction (CI 39848295978 réussie) : URL des ressources de participation suffixées par leur empreinte pour éviter un ancien script en cache, décodage des fragments encodés par les messageries. Réception du mail confirmée. Erreur reproduite avant correctif ; trois choix et confirmation fictive vérifiés après correctif. Réessai personnel restant.
+
+## Plafond à dix personnes — 22 octobre
+
+Demande explicite : dix personnes maximum par réponse, répondant compris. Développement local : limite partagée formulaire/serveur et tests de frontière 10/11, refus sans mutation. Réponse personnelle vérifiée en préproduction avant intervention : Oui pour six personnes. Livré en préproduction après six contrôles CI réussis ; 34 tests HTTP, dont acceptation de 10 et refus de 11 sans mutation. Liste 1 à 10 vérifiée dans Chrome, réponse personnelle six personnes conservée.
+
+## Tableau tarifaire de l’accueil — 22 octobre
+
+V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion et le tableau des tarifs, depuis le seul catalogue publié. Ancienne ligne adulte et note obsolète remplacées. Correction en qualification ; aucune écriture des prix des dossiers ni du catalogue.

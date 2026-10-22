@@ -23,3 +23,27 @@ main h1 { color: #741323; }
 .tcl-bureau legend { max-width: 100%; white-space: normal; }
 .tcl-bureau input[type=submit] { padding: .8rem 1.2rem; background: #a6192e; color: #fff; border: 0; border-radius: 4px; cursor: pointer; }
 @media (max-width: 600px) { .tcl-bureau { margin: 1rem 0; padding: 1rem; } .tcl-bureau th, .tcl-bureau td { padding: .6rem; } }
+
+.tcl-registration-recipe table { table-layout: fixed; overflow-wrap: anywhere; }
+.tcl-registration-recipe input[type=submit] { max-width: 100%; white-space: normal; }
+
+/* Editable tariffs must fit the card, independently of input size attributes. */
+.tcl-season-catalogue { box-sizing: border-box; min-width: 0; }
+.tcl-season-catalogue .tcl-season-try { display: inline-block; margin-bottom: 1rem; }
+.tcl-season-catalogue table { table-layout: fixed; }
+.tcl-season-catalogue th:nth-child(1) { width: 24%; }
+.tcl-season-catalogue th:nth-child(2) { width: 40%; }
+.tcl-season-catalogue th:nth-child(3) { width: 16%; }
+.tcl-season-catalogue th:nth-child(4) { width: 20%; }
+.tcl-season-catalogue th, .tcl-season-catalogue td { box-sizing: border-box; overflow-wrap: anywhere; }
+.tcl-season-catalogue td .form-item { margin: .35rem 0; min-width: 0; }
+.tcl-season-catalogue td input, .tcl-season-catalogue td select { width: 100%; min-width: 0; font: inherit; padding: .6rem; }
+.tcl-season-catalogue .form-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.tcl-season-catalogue input[type=submit] { white-space: normal; max-width: 100%; }
+@media (max-width: 700px) {
+  .tcl-season-catalogue table, .tcl-season-catalogue tbody, .tcl-season-catalogue tr, .tcl-season-catalogue td { display: block; width: 100%; }
+  .tcl-season-catalogue thead { display: none; }
+  .tcl-season-catalogue tr { margin: 1rem 0; padding: .5rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+  .tcl-season-catalogue td { padding: .35rem; border: 0; }
+  .tcl-season-catalogue td label.visually-hidden { position: static !important; clip: auto; clip-path: none; height: auto; width: auto; overflow: visible; white-space: normal; }
+}
