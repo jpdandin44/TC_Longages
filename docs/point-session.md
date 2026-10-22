@@ -10,9 +10,15 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Raccordement Google Contacts — 22 octobre
+
+People API et configuration OAuth confirmées actives dans le projet `tc-longages-preproduction`. Conditions acceptées par le responsable. Client Web prérempli avec retour exclusif `/bureau/contacts-google/retour` ; création personnelle et fichier privé attendus. Connexion administrative développée localement (état/PKCE, compte exact, libellé exact, jeton chiffré), 15 contrôles simulés réussis ; 14 régressions canal mail réussies. Aucun accès People API réel depuis le site, aucun import/campagne, production exclue.
+
+Demande complémentaire : bouton explicite de réinitialisation dans Gestion des comptes, développé localement avec courriel adapté. 28 contrôles service et 19 HTTP réussis, aucun envoi réel. Prochaine étape : candidat CI et livraison ciblée des deux compléments, puis configuration privée Google et consentement personnel.
+
 ## Complément du 22 octobre — accès inscription et affiche
 
-Demande autorisée : liens dans les courriels et les actualités hautes de l’accueil, miniature d’affiche, préproduction uniquement. Développement local : association explicite d’une actualité publiée à une occurrence ouverte, formulaire de demande de lien individuel par email, miniature PDF/image et retrait du doublon bas. Contrôles locaux 14 service + 12 HTTP réussis ; régressions bandeau 15/28 et canal mail 14/12 réussies. Livraison et recette hébergée à qualifier pour ce nouveau candidat. Voir le contrat et `data/event-signup-verification.json`. Google Contacts reste non connecté ; tarifs hors de ce lot.
+Demande autorisée : liens dans les courriels et les actualités hautes de l’accueil, miniature d’affiche, préproduction uniquement. Développement local : association explicite d’une actualité publiée à une occurrence ouverte, formulaire de demande de lien individuel par email, miniature PDF/image et retrait du doublon bas. Contrôles locaux 14 service + 12 HTTP réussis ; régressions bandeau 15/28 et canal mail 14/12 réussies. Livré en préproduction : source `1b01be2`, manifeste `ee0cead`, six CI réussies (39757966522), six fichiers vérifiés. Sauvegarde de cinq fichiers, une création inventoriée ; copies restaurées vérifiées. Chrome : miniature PDF Halloween, suppression du bloc bas, bouton accueil/article, formulaire et aperçu mail contrôlés. Communication fictive n°3 publiée en préproduction et associée à l’événement Beaujolais fictif ; aucun nouvel import. Demande de lien vers l’adresse de recette famille effectuée ; cPanel confirme remise acceptée le 22 octobre à 11 h 52. Réception du courriel confirmée par le responsable le 22 octobre ; utilisation du lien confirmée et vérifiée dans le Bureau : « Recette Lien Beaujolais », Je participe, six personnes. Total neuf avec les trois personnes du test Camille. Parcours personnel vérifié ; contrôle mobile restant. Voir le [reçu](../data/event-signup-verification.json). Google Contacts reste non connecté ; tarifs hors de ce lot.
 
 ## Reprise du 22 octobre — participations puis courriels
 

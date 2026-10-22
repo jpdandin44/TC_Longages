@@ -98,6 +98,7 @@ final class BureauController extends ControllerBase {
     $build = $this->shell();
     $build['explanation'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Le Bureau gère les comptes Capitaine. La création d’un compte Bureau est réservée à l’administrateur. Bloquer un compte retire son accès.'];
     $build['add'] = Link::fromTextAndUrl('Créer un compte', Url::fromRoute('tcl_bureau.account_add'))->toRenderable();
+    if (\Drupal\tcl_bureau\GoogleContactsConnection::allowed($actor)) { $build['google_contacts'] = Link::fromTextAndUrl('Connecter les contacts Google du club', Url::fromRoute('tcl_bureau.google_contacts'))->toRenderable(); }
     $build['accounts'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-table']], 'table' => ['#type' => 'table', '#header' => ['Identifiant', 'Rôle', 'État', 'Action'], '#rows' => $rows, '#empty' => 'Aucun compte à gérer.']];
     return $build;
   }

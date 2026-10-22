@@ -5,7 +5,7 @@ title: Réinitialisation des comptes de recette
 status: active
 version: git
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-22
 owner: jpdandin
 tags: [preproduction, comptes, courriel]
 ---
@@ -60,3 +60,9 @@ de destinataires supplémentaires. Un hôte différent est refusé même si le p
 ## Présentation des écrans de compte
 
 Habillage dédié aux routes de connexion, demande de réinitialisation, confirmation du lien et modification du compte. Carte centrée, champs adaptatifs, focus visible, boutons et onglets harmonisés. Le bouton de confirmation devient « Choisir mon mot de passe ». Aucun champ natif, validateur, permission ou jeton supprimé. Le test HTTP existant couvre le parcours complet sur un compte fictif local et contrôle les deux écrans supplémentaires. Livré le 21 octobre à 19 h 52 (Paris), source `206885b`, manifeste `f20f15c`, six contrôles CI réussis. Trois fichiers seulement, sauvegarde privée restaurée en copie et empreintes vérifiées. Écran de compte inspecté dans Chrome en lecture seule ; aucun mot de passe modifié. Contrôle visuel mobile restant. [Preuves et retour arrière](../data/account-presentation-verification.json).
+
+## Action gestionnaire explicite — 22 octobre
+
+Ajout local de « Envoyer un lien de réinitialisation du mot de passe » dans la fiche d’un compte actif, distinct de l’invitation initiale. Route `/bureau/comptes/{user}/reinitialiser-mot-de-passe` et confirmation avec adresse enregistrée. Les modifications de fiche doivent être enregistrées avant l’envoi. Même transport privé account_invitation, mêmes contrôles OAuth/droits, liste de recette, verrou et limite de cinq minutes. La réinitialisation exige une identité TC déjà liée, n’ajoute aucune association et ne change pas le mot de passe. Objet et texte du courriel distincts ; trace privée password_reset par compte. Aucun envoi au chargement de la fiche.
+
+Contrôles locaux : 28 service mail et 19 HTTP invitation/réinitialisation réussis, collecteur fictif seulement. Livraison et vérification hébergée encore à effectuer pour cette action ; ne pas confondre avec le correctif natif livré le 21 octobre.

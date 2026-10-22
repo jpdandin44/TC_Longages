@@ -14,7 +14,7 @@ tags:
 
 ## 22 octobre — inscription depuis les communications
 
-Liens d’inscription depuis les actualités et les courriels, miniature PDF/image dans le bandeau, suppression du bloc bas. Demande de lien par email avant réponse, bornée aux adresses de recette. Développé et testé localement ; livraison suivie dans le reçu.
+Liens d’inscription depuis les actualités et les courriels, miniature PDF/image dans le bandeau, suppression du bloc bas. Demande de lien par email avant réponse, bornée aux adresses de recette. Livré en préproduction après six CI réussies : parcours accueil/article/mail et miniature PDF vérifiés ; demande de lien remise selon cPanel, réception personnelle restant à confirmer. Voir le reçu d’inscription.
 
 
 ## 22 octobre — participations et canal courriel en préproduction
@@ -827,3 +827,5 @@ Correction de l’écran Saison et tarifs signalée en recette : colonnes ajust�
 ### Livraison V2 préproduction du 19 octobre 2026
 
 Aperçus et tarifs livrés (244 fichiers vérifiés), invitations/notifications installées et destinataires configurés en privé. Sauvegarde/restauration et six contrôles techniques CI réussis. Recette navigateur et envois réels non effectués ; catalogue hébergé encore en brouillon. Production exclue.
+
+- 22 octobre : compléments locaux en qualification — connexion Contacts Google administrateur en lecture seule et action explicite de réinitialisation du mot de passe depuis le Bureau.

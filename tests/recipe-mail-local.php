@@ -57,12 +57,26 @@ try {
   $messages=array_values(array_filter(Drupal::state()->get('system.test_mail_collector'), static fn($m)=>str_starts_with($m['id'], 'tcl_bureau_')));
   mailCheck('Single club notification and no applicant acknowledgement',count($messages)===2&&$messages[1]['to']==='club@example.invalid');
   mailCheck('Recipe message contains dossier details',str_contains($messages[1]['body'],'Recette courrier')&&str_contains($messages[1]['subject'],'[RECETTE PRÉPRODUCTION]')&&str_contains($messages[1]['body'],'adhésion fictive'));
+  $entry['uuid']=$target->uuid();Drupal::keyValue('tcl_bureau.invited_identities')->set((string)$target->id(),$entry);
+  mailCheck('Reset shares invitation cooldown',mailDenied(fn()=>AccountInvitation::send($admin,(int)$target->id(),AccountInvitation::version($target),TRUE)));
+  Drupal::service('flood')->clear('tcl.account.invitation',(string)$target->id());
+  mailCheck('Anonymous reset denied',mailDenied(fn()=>AccountInvitation::send(new AnonymousUserSession(),(int)$target->id(),AccountInvitation::version($target),TRUE)));
+  mailCheck('Stale reset denied',mailDenied(fn()=>AccountInvitation::send($admin,(int)$target->id(),'stale',TRUE)));
+  $beforePassword=$target->getPassword();$beforeBinding=Drupal::keyValue('tcl_bureau.invited_identities')->get((string)$target->id());
+  mailCheck('Explicit reset accepted',AccountInvitation::send($admin,(int)$target->id(),AccountInvitation::version($target),TRUE));
+  $all=Drupal::state()->get('system.test_mail_collector');$reset=end($all);
+  mailCheck('Reset subject and private link',str_contains($reset['subject'],'Réinitialiser votre mot de passe')&&str_contains($reset['body'],'/user/reset/')&&$reset['to']==='invite@example.invalid');
+  Drupal::entityTypeManager()->getStorage('user')->resetCache([$target->id()]);
+  mailCheck('Reset preserves password and identity binding',User::load($target->id())->getPassword()===$beforePassword&&Drupal::keyValue('tcl_bureau.invited_identities')->get((string)$target->id())===$beforeBinding);
+  mailCheck('Repeated reset denied',mailDenied(fn()=>AccountInvitation::send($admin,(int)$target->id(),AccountInvitation::version($target),TRUE)));
+  $target->block()->save();
+  mailCheck('Blocked reset denied',mailDenied(fn()=>AccountInvitation::send($admin,(int)$target->id(),AccountInvitation::version($target),TRUE)));
   file_put_contents(dirname(__DIR__).'/.local/recipe-mail-tests.json',json_encode(['checks'=>$checks,'passed'=>TRUE,'realMailSent'=>FALSE],JSON_PRETTY_PRINT));
   echo count($checks)." recipe mail checks passed; no real mail sent.\n";
 }
 finally {
   if(isset($id)){Drupal::database()->delete('tcl_bureau_registration')->condition('id',$id)->execute();Drupal::keyValue('tcl_bureau.recipe_mail')->delete('registration.'.$id);}
-  Drupal::keyValue('tcl_bureau.invited_identities')->delete((string)$target->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('invitation.'.$target->id());Drupal::service('flood')->clear('tcl.account.invitation',(string)$target->id());
+  Drupal::keyValue('tcl_bureau.invited_identities')->delete((string)$target->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('password_reset.'.$target->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('invitation.'.$target->id());Drupal::service('flood')->clear('tcl.account.invitation',(string)$target->id());
   $target->delete();$admin->delete();
   Drupal::configFactory()->getEditable('system.mail')->setData($originalMail)->save();Drupal::state()->set('system.test_mail_collector',$oldState);
   Drupal::getContainer()->set('tcl_bureau_oauth.connection',$oauthService);$stack->pop();

@@ -7,14 +7,14 @@ use Drupal\Core\Site\Settings;
 /** Read only one explicitly configured Google contact group; no directory import. */
 final class MemberContacts {
   public static function configured(): bool {
-    $s = Settings::get('tcl_member_contacts', []);
+    $s = GoogleContactsConnection::settings();
     return SeasonCatalogue::recipeEnabled() && ($s['enabled'] ?? FALSE) === TRUE
       && !empty($s['client_id']) && !empty($s['client_secret']) && !empty($s['refresh_token'])
       && preg_match('/^contactGroups\/[a-zA-Z0-9_-]+$/D', $s['group'] ?? '') === 1;
   }
   public static function recipients(): array {
     if (!self::configured()) { throw new \RuntimeException('La connexion Google Contacts et le libellé adhérents restent à configurer.'); }
-    $s = Settings::get('tcl_member_contacts'); $client = \Drupal::httpClient();
+    $s = GoogleContactsConnection::settings(); $client = \Drupal::httpClient();
     try {
       $token = json_decode((string) $client->post('https://oauth2.googleapis.com/token', ['timeout' => 15, 'allow_redirects' => FALSE, 'form_params' => ['grant_type' => 'refresh_token', 'client_id' => $s['client_id'], 'client_secret' => $s['client_secret'], 'refresh_token' => $s['refresh_token']]])->getBody(), TRUE, 32, JSON_THROW_ON_ERROR);
       if (empty($token['access_token'])) { throw new \RuntimeException(); }

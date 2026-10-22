@@ -14,7 +14,7 @@ final class AccountInvitation {
   public static function version(UserInterface $user): string {
     return hash('sha256', serialize([$user->uuid(), $user->getEmail(), $user->getRoles(), $user->isActive(), $user->getPassword()]));
   }
-  public static function send(AccountInterface $actor, int $uid, string $version): bool {
+  public static function send(AccountInterface $actor, int $uid, string $version, bool $reset = FALSE): bool {
     $lock = \Drupal::lock();
     $name = 'tcl.invitation.' . $uid;
     if (!$lock->acquire($name, 60)) { throw new ConflictHttpException('Un envoi est déjà en cours.'); }
@@ -34,14 +34,16 @@ final class AccountInvitation {
       if (!$flood->isAllowed('tcl.account.invitation', 1, 300, (string) $uid)) { throw new \InvalidArgumentException('Un essai d’envoi a déjà eu lieu. Attendez cinq minutes avant de réessayer.'); }
       $existing = OAuthSettings::identityUid($settings, (string) $uid);
       if ($existing !== NULL && $existing !== $uid) { throw new \InvalidArgumentException('Association d’identité incohérente.'); }
+      if ($reset && $existing !== $uid) { throw new \InvalidArgumentException('Invitez d’abord ce compte avant de réinitialiser son mot de passe.'); }
       // The numeric subject is issued by this same Drupal TC provider.
-      \Drupal::keyValue('tcl_bureau.invited_identities')->set((string) $uid, ['issuer' => $settings['issuer'], 'client_id' => $settings['client_id'], 'uuid' => $user->uuid(), 'actor' => (int) $actor->id(), 'at' => time()]);
+      if (!$reset) { \Drupal::keyValue('tcl_bureau.invited_identities')->set((string) $uid, ['issuer' => $settings['issuer'], 'client_id' => $settings['client_id'], 'uuid' => $user->uuid(), 'actor' => (int) $actor->id(), 'at' => time()]); }
       $flood->register('tcl.account.invitation', 300, (string) $uid);
       \Drupal::moduleHandler()->loadInclude('user', 'module');
       $url = user_pass_reset_url($user);
       $body = "Bonjour,\n\nVotre compte de recette TC Longages est prêt. Identifiant : " . $user->getAccountName() . "\n\nDéfinissez votre mot de passe avec ce lien personnel à usage unique :\n" . $url . "\n\nPuis ouvrez le Bureau :\n" . \Drupal\Core\Url::fromRoute('tcl_bureau.home', [], ['absolute' => TRUE])->toString() . "\n\nL’accès préproduction reste protégé. Ne partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le.";
-      $accepted = RecipeMail::send('account_invitation', $user->getEmail(), 'Votre compte TC Longages', $body);
-      \Drupal::keyValue('tcl_bureau.recipe_mail')->set('invitation.' . $uid, ['status' => $accepted ? 'accepted' : 'failed', 'at' => time(), 'actor' => (int) $actor->id()]);
+      if ($reset) { $body = "Bonjour,\n\nUne réinitialisation du mot de passe de votre compte TC Longages a été demandée par le Bureau. Identifiant : " . $user->getAccountName() . "\n\nChoisissez un nouveau mot de passe avec ce lien personnel à usage unique :\n" . $url . "\n\nVotre mot de passe actuel reste inchangé tant que vous n’en choisissez pas un nouveau. Ne partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le."; }
+      $accepted = RecipeMail::send('account_invitation', $user->getEmail(), $reset ? 'Réinitialiser votre mot de passe TC Longages' : 'Votre compte TC Longages', $body);
+      \Drupal::keyValue('tcl_bureau.recipe_mail')->set(($reset ? 'password_reset.' : 'invitation.') . $uid, ['status' => $accepted ? 'accepted' : 'failed', 'at' => time(), 'actor' => (int) $actor->id()]);
       return $accepted;
     }
     finally { $lock->release($name); }

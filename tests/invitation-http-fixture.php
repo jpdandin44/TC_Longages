@@ -13,9 +13,15 @@ if(($argv[1]??'')==='prepare'){
 elseif(($argv[1]??'')==='verify'){
  $f=json_decode(file_get_contents($p),TRUE);$m=Drupal::state()->get('system.test_mail_collector');if(count($m)!==1||$m[0]['to']!=='invitation-http@example.invalid'||!str_contains($m[0]['body'],'/user/reset/')){throw new RuntimeException('Expected one captured invitation');}
 }
+elseif(($argv[1]??'')==='allow-reset'){
+ $f=json_decode(file_get_contents($p),TRUE);Drupal::service('flood')->clear('tcl.account.invitation',(string)$f['uid']);
+}
+elseif(($argv[1]??'')==='verify-reset'){
+ $f=json_decode(file_get_contents($p),TRUE);$m=Drupal::state()->get('system.test_mail_collector');$last=end($m);if(count($m)!==2||$last['to']!=='invitation-http@example.invalid'||!str_contains($last['subject'],'Réinitialiser votre mot de passe')||!str_contains($last['body'],'/user/reset/')){throw new RuntimeException('Expected explicit reset');}
+}
 elseif(($argv[1]??'')==='cleanup'){
  $f=json_decode(file_get_contents($p),TRUE);$u=User::load($f['uid']);if(!$u||$u->getAccountName()!==$f['username']){throw new RuntimeException('Identity mismatch');}
- Drupal::keyValue('tcl_bureau.invited_identities')->delete((string)$u->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('invitation.'.$u->id());Drupal::service('flood')->clear('tcl.account.invitation',(string)$u->id());$u->delete();file_put_contents($config,$f['settings']);Drupal::configFactory()->getEditable('system.mail')->setData($f['mail'])->save();Drupal::state()->set('system.test_mail_collector',$f['messages']);unlink($p);drupal_flush_all_caches();
+ Drupal::keyValue('tcl_bureau.invited_identities')->delete((string)$u->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('password_reset.'.$u->id());Drupal::keyValue('tcl_bureau.recipe_mail')->delete('invitation.'.$u->id());Drupal::service('flood')->clear('tcl.account.invitation',(string)$u->id());$u->delete();file_put_contents($config,$f['settings']);Drupal::configFactory()->getEditable('system.mail')->setData($f['mail'])->save();Drupal::state()->set('system.test_mail_collector',$f['messages']);unlink($p);drupal_flush_all_caches();
 }
 else{throw new InvalidArgumentException('operation');}
 echo "Local invitation fixture operation complete.\n";
