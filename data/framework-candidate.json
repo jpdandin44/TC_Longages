@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "5703daecd1a0ed55d4515e7214c07ce9d9bdae52",
+  "sourceCommit": "517d3acc687816fbbdfb60fae64b4066b2b2736d",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "fa3463f8ac74c211267e6c65ab43798600674205",
-      "size": 70424,
-      "sha256": "ccd3ad782845caa85531e94c992ecb755724bf5044a568f7f7e591b12d783b28"
+      "gitBlob": "1c95ccc4ee39315a2678d4aa95d0979a972a95b3",
+      "size": 70922,
+      "sha256": "86a733924e20bb87da725ce7f11ea9c66e87b5ac143e6f068a2ce5c7a833b4eb"
     },
     {
       "path": "config/agenda-local.json",
@@ -849,9 +849,9 @@
     {
       "path": "data/channel-rsvp-verification.json",
       "mode": "100644",
-      "gitBlob": "b0b6561ed496d842b1ed36bfec2fd775b1d252bc",
-      "size": 3655,
-      "sha256": "b1cac0dc27da48d6fb64dd6a3d14bf1d76ca8fd4ca8bfea0a3243821d0a6f7c6"
+      "gitBlob": "0a1893dbad06665e1456f336f68fd955c0f962df",
+      "size": 4279,
+      "sha256": "abae08edc2f3722abcdef585d15fe96525f9b8fb9b855a3201b9d3fc87fdd668"
     },
     {
       "path": "data/cloture-journee-verification.json",
@@ -1029,6 +1029,13 @@
       "sha256": "4ac0fd43570f573e658e0fbf1e73d90e8b7be0dd17e9e9df664d1939756d56f0"
     },
     {
+      "path": "data/tariff-consistency-verification.json",
+      "mode": "100644",
+      "gitBlob": "0776ae231c01c5c38f209977d98bcdef0c8c97fb",
+      "size": 3446,
+      "sha256": "c61349955ab2bed6fd9adc2ebdd05a0f203c9c31947ca85675c7a58c013a7680"
+    },
+    {
       "path": "data/tarifs-adultes-verification.json",
       "mode": "100644",
       "gitBlob": "b46b62e443835932401c86b3c6a629a0b98f9ae8",
@@ -1094,9 +1101,9 @@
     {
       "path": "docs/campagne-recette-v2.md",
       "mode": "100644",
-      "gitBlob": "5f1cf6c72742de618f8aa3101e45120f70afcdf2",
-      "size": 29953,
-      "sha256": "c62a02c97b955f030495cadd7dc452e10790ec93ed755acbf291fb21f755d5ab"
+      "gitBlob": "a9cc3336993eaa65dbacb9a97e72fa639a0e98c2",
+      "size": 31066,
+      "sha256": "8b65c2e952e17277b90c6149875f6a269f03ad0ce0eabe2fa8073e72370c195a"
     },
     {
       "path": "docs/candidat-revue.md",
@@ -1122,9 +1129,9 @@
     {
       "path": "docs/communication-bureau.md",
       "mode": "100644",
-      "gitBlob": "70929695b0af46456696c81a360bcfb02829da67",
-      "size": 16082,
-      "sha256": "0865eecb16d12c279e8c21f8b27e7e0df2097568e76e5d48afeb2f251b6d2740"
+      "gitBlob": "4e50524edbf3e0b8d5e5389791f596b05a591576",
+      "size": 16124,
+      "sha256": "3b719a55898c79dce91fea67828c9fab1725bf403fd9b55ac6fa42d11493ea19"
     },
     {
       "path": "docs/comptes-et-bureau.md",
@@ -1234,9 +1241,9 @@
     {
       "path": "docs/point-session.md",
       "mode": "100644",
-      "gitBlob": "1f9b9284bbf99c5de2f1fe69ec83c2465d31a314",
-      "size": 136633,
-      "sha256": "4b2f4dc003aa60591b21fe8f70dfc37320bddc9c084c66d9644543422997c668"
+      "gitBlob": "14caac74f58031dad9e7f33ded2ac40f8318aab3",
+      "size": 137902,
+      "sha256": "023b28c8b70c0fc23b1533712fb408bd8a2994b235aca79bed1c9efb449e8e3a"
     },
     {
       "path": "docs/preparer-depot.md",
@@ -3061,9 +3068,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/SeasonCatalogue.php",
       "mode": "100644",
-      "gitBlob": "d3c3fa1ce0fc2a0196fb807bf0417232eefd35ad",
-      "size": 7321,
-      "sha256": "e02ceb27c45a10f290972191bf9da9c2a19002bbb3d873a9bf2d1741b78431b8"
+      "gitBlob": "4a70e84a510fd85622c2c6d4488e2c9b23bad2ee",
+      "size": 7363,
+      "sha256": "816cd8d413181269ef150f9f2a5ea975681e789e2c5f4ea688beaca58e58a78a"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/TeamRepository.php",
@@ -5056,9 +5063,9 @@
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "f89eb8e6fa6871458aae9276ae0d65ff4f683f50",
-      "size": 40666,
-      "sha256": "ce831478f68ae03482113c56b33d9cefcf40ed56855cac91c995a3b5e77655f6"
+      "gitBlob": "9cde2f544bf3f5035227d3344ece4e528ebf6b52",
+      "size": 41170,
+      "sha256": "f415b17ac66c89d9d83f66a56baa9d1b438e319e0718d695df7a4605faae8f29"
     },
     {
       "path": "scripts/adult-tariffs.mjs",
@@ -6281,9 +6288,9 @@
     {
       "path": "tests/season-catalogue-local.php",
       "mode": "100644",
-      "gitBlob": "86a32dcefc206f3dafa9111d7ff4f91bcff389ed",
-      "size": 3466,
-      "sha256": "387ade4d9afd3471b6fc9bf2825f6fb039fed567e91cd7b4d666e4e1521b3f31"
+      "gitBlob": "d430ca6824ccd2891022448845259c8c27f71293",
+      "size": 4596,
+      "sha256": "685c69796a2b17f7adbdf900f027b0bbababeab5a0139bb6c72fdc0159aeda5e"
     },
     {
       "path": "tests/support-runtime.php",
@@ -6636,5 +6643,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "134d4369f5c6c3ba92ad3fafc5216682f7cad6315764c6b90b8aa41c852cf658"
+  "artifactDigest": "768c220ec69d4ed8b0ceaad74a36f0d674b41e82e1781a768bf7a91809baaa07"
 }
