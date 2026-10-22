@@ -843,4 +843,8 @@ Complément de recette du 22 octobre : adresse famille ajoutée au libellé sur 
 
 22 octobre — Développement local des variantes de titres/textes Site, Facebook, WhatsApp et Courriel, aperçus et copie par canal. Courriels HTML avec boutons personnels Oui/Non/Incertain, nombre de personnes en liste et confirmation web. Livré en préproduction après six contrôles CI réussis ; variantes et aperçu HTML contrôlés, un envoi à l’adresse famille accepté. Réception et parcours personnel restant à confirmer. Voir [preuves](data/channel-rsvp-verification.json).
 
-Correctif en qualification : URL des ressources de participation suffixées par leur empreinte pour éviter un ancien script en cache, décodage des fragments encodés par les messageries. Réception du mail confirmée, parcours personnel signalé en échec et non validé.
+Correctif livré et vérifié en préproduction (CI 39848295978 réussie) : URL des ressources de participation suffixées par leur empreinte pour éviter un ancien script en cache, décodage des fragments encodés par les messageries. Réception du mail confirmée. Erreur reproduite avant correctif ; trois choix et confirmation fictive vérifiés après correctif. Réessai personnel restant.
+
+## Plafond à dix personnes — 22 octobre
+
+Demande explicite : dix personnes maximum par réponse, répondant compris. Développement local : limite partagée formulaire/serveur et tests de frontière 10/11, refus sans mutation. Réponse personnelle vérifiée en préproduction avant intervention : Oui pour six personnes. Livraison du plafond en cours de qualification.

@@ -8,6 +8,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 /** Private, occurrence-scoped recipe responses; independent of competitions. */
 final class EventParticipation {
+  public const MAX_PARTICIPANTS = 10;
   public const ANSWERS = ['unknown' => 'Sans réponse', 'yes' => 'Je participe', 'no' => 'Je ne participe pas', 'maybe' => 'Je ne sais pas encore'];
   private static function guard(): void {
     if (!SeasonCatalogue::recipeEnabled()) { throw new AccessDeniedHttpException(); }
@@ -134,7 +135,7 @@ final class EventParticipation {
     return ['title' => $event['title'], 'date' => $date, 'time' => $event['start_time'], 'location' => $event['location'], 'name' => $person['name'], 'answer' => $person['answer'], 'count' => $person['count'], 'revision' => $person['revision'], 'eventRevision' => $event['revision'], 'needsConfirmation' => $person['answer'] !== 'unknown' && $person['event_revision'] !== $event['revision'], 'open' => self::isOpen($row), 'deadline' => $row['deadline']];
   }
   public static function respond(string $token, string $answer, int $count, int $revision, int $eventRevision): void {
-    if (!in_array($answer, ['yes', 'no', 'maybe'], TRUE) || ($answer === 'yes' && ($count < 1 || $count > 99)) || ($answer !== 'yes' && $count !== 0)) { throw new \InvalidArgumentException('Indiquez de 1 à 99 personnes, vous compris, uniquement si vous participez.'); }
+    if (!in_array($answer, ['yes', 'no', 'maybe'], TRUE) || ($answer === 'yes' && ($count < 1 || $count > self::MAX_PARTICIPANTS)) || ($answer !== 'yes' && $count !== 0)) { throw new \InvalidArgumentException('Indiquez de 1 à 10 personnes, vous compris, uniquement si vous participez.'); }
     [$id, $date, $key] = self::locate($token);
     self::write($id, $date, static function (&$row, $event) use ($token, $key, $answer, $count, $revision, $eventRevision): void {
       $person = $row['people'][$key] ?? [];

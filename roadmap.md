@@ -410,4 +410,4 @@ Complément du 22 octobre livré : connexion Google Contacts administrateur et b
 
 ## Personnalisation des communications — 22 octobre
 
-Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Restent la réception du nouvel envoi et le parcours personnel sur téléphone. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.
+Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Réception confirmée ; correctif de cache livré et vérifié sur lien fictif. Reste le réessai personnel, notamment sur téléphone. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.

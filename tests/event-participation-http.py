@@ -24,6 +24,9 @@ def run():
  path=edit.replace('/modifier','/participants')
  check('Anonymous management refused',anon.get(path)[0] in (302,303,403))
  check('Response page neutral',anon.get('/evenements/reponse')[0]==200 and values['title'] not in anon.get('/evenements/reponse')[1])
+ page=anon.get('/evenements/reponse')[1]
+ options=re.findall(r'<option value="(\d+)">',page)
+ check('Participant choices stop at ten',options==[str(i) for i in range(1,11)])
  result=bureau.form(path,{'open':'1','deadline':'2027-11-17','configure':'Enregistrer l’ouverture'})
  check('Responses opened','Ouverture des réponses enregistrée' in result[1])
  invite={'name':'Participant Fictif','email':'event-fixture@example.invalid','invite':'Créer ou remplacer le lien individuel'}
@@ -35,11 +38,14 @@ def run():
  base={'token':token,'csrf':b['csrf'],'revision':b['context']['revision'],'eventRevision':b['context']['eventRevision'],'answer':'yes','count':4}
  check('Foreign origin rejected',api(anon,'save',base,'https://example.invalid')[0]==403)
  check('Invalid csrf rejected',api(anon,'save',dict(base,csrf='bad'))[0]==403)
- for n in [0,-1,100,1.5,'4']:
+ for n in [0,-1,11,99,100,1.5,'4']:
   check('Bad count rejected '+str(n),api(anon,'save',dict(base,count=n))[0]==400)
  status,b,_=api(anon,'save',base);check('Four people confirmed',status==200 and b['context']['count']==4)
  check('Total visible in Bureau','4 personne(s) confirmée(s)' in bureau.get(path)[1])
  check('Stale answer rejected',api(anon,'save',base)[0]==409)
+ base.update(revision=b['context']['revision'],answer='yes',count=10)
+ status,b,_=api(anon,'save',base);check('Ten people accepted',status==200 and b['context']['count']==10)
+ check('Eleven rejected without changing ten',api(anon,'save',dict(base,revision=b['context']['revision'],count=11))[0]==400 and api(anon,'context',{'token':token})[1]['context']['count']==10)
  base.update(revision=b['context']['revision'],answer='maybe',count=0)
  status,b,_=api(anon,'save',base);check('Maybe removes headcount',status==200 and '0 personne(s) confirmée(s)' in bureau.get(path)[1])
  base.update(revision=b['context']['revision'],answer='no',count=0)

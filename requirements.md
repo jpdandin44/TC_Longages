@@ -635,3 +635,7 @@ Besoin exprimé : choix Je participe / Je ne participe pas (conserver aussi Ince
 ## Personnalisation des communications — 22 octobre
 
 Choix validé le 22 octobre : implémenter les textes et aperçus distincts par canal, puis le courriel classique HTML avec trois boutons personnels et nombre de personnes sur page de confirmation. Aucun AMP ni procédure d’enregistrement AMP Google. Préproduction seulement ; partage social manuel et liste des adresses de recette conservés.
+
+## Plafond de participation — 22 octobre
+
+Chaque réponse Oui est limitée à dix personnes, répondant compris. Liste de choix 1 à 10 et validation serveur obligatoire ; une tentative supérieure est refusée sans modifier la réponse enregistrée. Non/Incertain restent à zéro.

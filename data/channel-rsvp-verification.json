@@ -2,7 +2,7 @@
   "iterationId": "tcl-v2-recette-20261018",
   "owner": "jpdandin",
   "stage": "preproduction",
-  "status": "delivered_personal_path_issue_under_correction",
+  "status": "delivered_personal_reply_verified_limit_in_progress",
   "productionTouched": false,
   "candidate": {
     "sourceSha": "8cf75c22e7453089b58b41c17a7e34e2874bf7a3",
@@ -53,7 +53,12 @@
     "googleSourceEligible": 1,
     "googleSourceExcluded": 20,
     "socialSent": false,
-    "personalReplySubmittedByAgent": false
+    "personalReplySubmittedByAgent": false,
+    "priorResponsesPreserved": {
+      "camille": 3,
+      "family": 6,
+      "total": 9
+    }
   },
   "mail": {
     "recipient": "familledandin@gmail.com",
@@ -61,7 +66,45 @@
     "serverAccepted": 1,
     "failures": 0,
     "receiptConfirmed": true,
-    "personalLinkValidation": "User screenshot: Lien personnel incomplet. Cache-busting and encoded-fragment correction under test.",
+    "personalLinkValidation": "User confirmed successful reply; Bureau verified yes, six people.",
     "otherRecipientsSent": 0
+  },
+  "correction": {
+    "sourceSha": "0b6efb871d9c1c41988c83cc3f9ef38f17250f42",
+    "manifestCommit": "9b97d021ecae3a7b5e27d32c6a45232603e73f0d",
+    "ciRun": "39848295978",
+    "artifactSha256": "7aae91d77a5cac6ffbfcd46afeb1e70ab11404f9d0b5b591a6c99ecb8ac88fc7",
+    "localTests": 6,
+    "phpSyntax": "passed",
+    "backupFiles": 2,
+    "restoreVerified": true,
+    "status": "delivered_verified",
+    "reproducedOnHostedFictitiousLink": true,
+    "reproduction": "Valid 64-hex fragment plus :yes shows Lien personnel incomplet on same Chrome with unversioned script.",
+    "ciStatus": "success",
+    "ciJobsPassed": 6,
+    "installedFiles": 2,
+    "allHashesMatch": true,
+    "gate": "passed",
+    "hostedTests": {
+      "noPrefill": true,
+      "maybePrefill": true,
+      "encodedYesPrefill": true,
+      "countPreserved": 3,
+      "fictitiousConfirmationSaved": true,
+      "personalFamilyAnswerTouched": false,
+      "scriptVersion": "360652e81b1ae2c4"
+    }
+  },
+  "participantLimit": {
+    "maximum": 10,
+    "includesRespondent": true,
+    "status": "local_tests_running",
+    "productionTouched": false,
+    "existingFamilyResponseVerified": {
+      "answer": "yes",
+      "count": 6,
+      "eventTotal": 9
+    }
   }
 }
