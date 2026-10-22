@@ -90,7 +90,8 @@ if ($action === 'seed') {
   checked('Earlier module revision prepared', !$db->schema()->tableExists('tcl_bureau_post'));
 }
 elseif ($action === 'verify') {
-  checked('Native updatedb applied updates through 11003', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11003);
+  checked('Native updatedb applied updates through 11004', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11004);
+  checked('Channel text column created by update', $db->schema()->fieldExists('tcl_bureau_post', 'channel_texts'));
   checked('Channel column created by update', $db->schema()->fieldExists('tcl_bureau_post', 'channels'));
   checked('Communication table created by update', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Communication permission added', Role::load('tcl_bureau')->hasPermission('manage tcl communication'));
@@ -125,6 +126,8 @@ elseif ($action === 'verify') {
   require_once $project . '/drupal/web/modules/custom/tcl_bureau/tcl_bureau.install';
   $before = retained(); $post = $posts->get($bureau, $id);
   tcl_bureau_update_11001();
+  tcl_bureau_update_11004();
+  tcl_bureau_update_11004();
   checked('Repeated update preserves accounts and registrations', retained() === $before);
   checked('Repeated update preserves draft and JPEG', $posts->get($bureau, $id) === $post);
 }
