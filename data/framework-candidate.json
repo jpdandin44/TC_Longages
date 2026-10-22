@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+  "sourceCommit": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -2900,9 +2900,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountInvitationForm.php",
       "mode": "100644",
-      "gitBlob": "98dd722fd37c7e075096ec4aeacb204d3ab75cac",
-      "size": 2970,
-      "sha256": "3644721ddc862549360c4cf6b6dbcd7237fbb9fb09d6e0b403361aa6f7308afc"
+      "gitBlob": "d2bad294a7c5c771f3e5af5d9d6f06bd9bba6e9a",
+      "size": 3026,
+      "sha256": "b6e7b782d8a3aad3c9b55d4b13e5ba686a2f813293db10b7fa6ad41ba9e807cc"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountPasswordResetForm.php",
@@ -6148,9 +6148,9 @@
     {
       "path": "tests/invitation-http.py",
       "mode": "100644",
-      "gitBlob": "f4b8b4dd55691ab59eb1920694eab8703b3ad979",
-      "size": 3164,
-      "sha256": "539c4eb3a542a91ad881d607a1b1871584f86020ee279ffffc2ab7d92206ccbb"
+      "gitBlob": "6a5ae114960f5e77e6478afd7a45bf14554e3c1f",
+      "size": 3344,
+      "sha256": "a4597d219f56dd5dd0c110c0bf5e2cb32d98e0d55a40cd0c521598f999ab49b4"
     },
     {
       "path": "tests/logo.test.mjs",
@@ -6608,5 +6608,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "acb866b0d9b5388e9b60b371127c28ae8874f18a63eb894e19f995d19b3d5a63"
+  "artifactDigest": "0a6b9e222ea8f8ba60af5e46efbe8796ae31273fba9e5feadc4b3f8c00f624e7"
 }
