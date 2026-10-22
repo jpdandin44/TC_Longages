@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+  "sourceCommit": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -2893,9 +2893,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountForm.php",
       "mode": "100644",
-      "gitBlob": "0184ebb51dad949147933a13103882a523a1db23",
-      "size": 7328,
-      "sha256": "96e4a68c1be562c31512a13516af919b2eb03142845aa7e3a0625c97d89d45d3"
+      "gitBlob": "7eb2c9508245c50ba9723fb5ea76ed2455c932c5",
+      "size": 7507,
+      "sha256": "f27938c6da388dbb300c8b14a2357253c7bb554bbed85b43bfb2221d4f975f2a"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/AccountInvitationForm.php",
@@ -6608,5 +6608,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "0a6b9e222ea8f8ba60af5e46efbe8796ae31273fba9e5feadc4b3f8c00f624e7"
+  "artifactDigest": "9b92dea8d8ccac42e7b428460f30311ad389ea4d5af9d1a6a364f11001671092"
 }
