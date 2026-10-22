@@ -589,3 +589,8 @@ SQLite est une recommandation à confirmer selon l'hébergement, la maintenance 
 ## Complément courriels de recette — 18 octobre
 
 Les invitations Bureau utilisent le fournisseur TC existant et un magasin privé associant issuer/client/sujet/UUID. Le module Bureau envoie les invitations et notifications de recette par deux transports explicitement configurés, avec liste privée de destinataires ; le transport global nul reste inchangé. Les statuts de tentative sont privés, distincts de la réception réelle. Voir [OAuth](docs/bureau-oauth.md) et [le contrat](api/inscription-recette.md).
+
+
+## Entrée événement depuis les communications
+
+L’occurrence privée référence une actualité publiée par `registration_post`. Le rendu public et le corps mail calculent la même URL d’inscription, sans secret. Le formulaire public vérifie session et limites de demandes, puis le transport de recette envoie le lien individuel ; la réponse reste dans le service de participation existant. Aucune migration de schéma ni connexion Google supplémentaire.

@@ -12,9 +12,14 @@ tags:
   - reprise
 ---
 
-## 22 octobre — participations et canal courriel en développement local
+## 22 octobre — inscription depuis les communications
 
-Ajout des réponses par occurrence, nombre de personnes, totaux, reconfirmation et fermeture ; ajout du canal courriel, aperçu et contrôle explicite des destinataires, lecteur Google Contacts configurable en lecture seule. Tests locaux sans envoi externe. Livraison non présumée : voir [preuves](data/event-participation-mail-verification.json).
+Liens d’inscription depuis les actualités et les courriels, miniature PDF/image dans le bandeau, suppression du bloc bas. Demande de lien par email avant réponse, bornée aux adresses de recette. Développé et testé localement ; livraison suivie dans le reçu.
+
+
+## 22 octobre — participations et canal courriel en préproduction
+
+Ajout des réponses par occurrence, nombre de personnes, totaux, reconfirmation et fermeture ; ajout du canal courriel, aperçu et contrôle explicite des destinataires, lecteur Google Contacts configurable en lecture seule. Tests locaux sans envoi externe, six contrôles techniques CI réussis. Livraison ciblée de 14 fichiers, réponses et totaux vérifiés dans Chrome, aperçu du nouveau canal contrôlé sans envoi. Connexion Google réelle et campagne restent non réalisées. Voir [preuves](data/event-participation-mail-verification.json).
 
 
 ## 21 octobre — présentation du compte V2

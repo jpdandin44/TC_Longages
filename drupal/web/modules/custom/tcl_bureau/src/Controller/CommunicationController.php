@@ -166,25 +166,28 @@ final class CommunicationController extends ControllerBase {
     if ($posts) {
       // The same publication query drives the banner and the public listing.
       // No draft, validation-only revision or withdrawn post is eligible.
-      $latest = $posts[0];
+      $latest = $this->repository->published((int) $posts[0]['id']);
       $postUrl = Html::escape(Url::fromRoute('tcl_bureau.public_post', ['post' => $latest['id']])->toString());
       $body = preg_replace('/\s+/u', ' ', trim($latest['body']));
       $summary = mb_strlen($body) > 220 ? mb_substr($body, 0, 219) . '…' : $body;
-      $banner = '<style>.tcl-flash-news{margin:1.25rem auto;padding:1.25rem;border-left:5px solid #a6192e;background:#fff5f6;color:#202124;border-radius:.5rem;overflow-wrap:anywhere}.tcl-flash-news h2{margin:.25rem 0;font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.3}.tcl-flash-news p{margin:.5rem 0}.tcl-flash-news nav{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}.tcl-flash-news a{color:#801326;text-decoration:underline}.tcl-flash-news a:focus-visible{outline:3px solid #202124;outline-offset:4px}</style>';
-      $banner .= '<section id="flash-news" class="container tcl-flash-news" aria-labelledby="flash-news-title"><p>Actualités du club</p><h2 id="flash-news-title">' . Html::escape($latest['title']) . '</h2>';
+      $banner = '<style>.tcl-flash-news{margin:1.25rem auto;padding:1.25rem;border-left:5px solid #a6192e;background:#fff5f6;color:#202124;border-radius:.5rem;overflow-wrap:anywhere}.tcl-flash-layout{display:flex;align-items:center;gap:1.25rem}.tcl-flash-copy{flex:1;min-width:0}.tcl-flash-thumb{display:block;flex:0 0 110px;max-width:110px}.tcl-flash-thumb img,.tcl-flash-thumb canvas{display:block;width:100%;height:auto;max-height:155px;object-fit:contain;border-radius:.35rem}.tcl-flash-thumb p{display:none}@media(max-width:480px){.tcl-flash-layout{align-items:flex-start}.tcl-flash-thumb{flex-basis:75px;max-width:75px}}.tcl-flash-news h2{margin:.25rem 0;font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.3}.tcl-flash-news p{margin:.5rem 0}.tcl-flash-news nav{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}.tcl-flash-news a{color:#801326;text-decoration:underline}.tcl-flash-news a:focus-visible{outline:3px solid #202124;outline-offset:4px}</style>';
+      $poster = '';
+      if ($latest['image_data'] !== '') {
+        $imageUrl = Html::escape(Url::fromRoute('tcl_bureau.public_image', ['post' => $latest['id']], ['query' => ['v' => $latest['revision']]])->toString());
+        $alt = Html::escape($latest['image_alt']);
+        $visual = CommunicationImage::isPdf($latest['image_data']) ? '<span data-pdf-url="' . $imageUrl . '">Voir l’affiche PDF</span>' : '<img src="' . $imageUrl . '" alt="' . $alt . '" width="110" loading="lazy">';
+        $poster = '<a class="tcl-flash-thumb" href="' . $postUrl . '" aria-label="Voir l’affiche : ' . $alt . '">' . $visual . '</a>';
+      }
+      $banner .= '<section id="flash-news" class="container tcl-flash-news" aria-labelledby="flash-news-title"><div class="tcl-flash-layout">' . $poster . '<div class="tcl-flash-copy"><p>Actualités du club</p><h2 id="flash-news-title">' . Html::escape($latest['title']) . '</h2>';
       if ($summary !== '') {
         $banner .= '<p>' . Html::escape($summary) . '</p>';
       }
-      $banner .= '<nav aria-label="Dernière actualité"><a href="' . $postUrl . '">Lire la suite</a><a href="' . $url . '">Toutes les actualités</a></nav></section>';
+      $registration = \Drupal\tcl_bureau\EventParticipation::registrationUrl((int) $latest['id']);
+      $signup = $registration !== '' ? '<a class="tcl-event-signup" href="' . Html::escape($registration) . '">Je m’inscris à cet événement</a>' : '';
+      $banner .= '<nav aria-label="Dernière actualité"><a href="' . $postUrl . '">Lire la suite</a><a href="' . $url . '">Toutes les actualités</a>' . $signup . '</nav></div></div></section>';
+      if ($poster !== '' && CommunicationImage::isPdf($latest['image_data'])) { $banner .= '<script type="module" src="/modules/custom/tcl_bureau/js/poster-preview.js"></script>'; }
       $response->setContent(preg_replace_callback('/<main\b[^>]*>/i', static fn(array $match): string => $match[0] . $banner, $response->getContent(), 1));
     }
-    $news = '<section id="actualites-v2" class="section"><div class="container"><h2>Actualités du club</h2><ul>';
-    foreach (array_slice($posts, 0, 5) as $row) {
-      $postUrl = Html::escape(Url::fromRoute('tcl_bureau.public_post', ['post' => $row['id']])->toString());
-      $news .= '<li><a href="' . $postUrl . '">' . Html::escape($row['title']) . '</a></li>';
-    }
-    $news .= '</ul><p><a href="' . $url . '">Toutes les actualités</a></p></div></section>';
-    $response->setContent(str_replace('</main>', $news . '</main>', $response->getContent()));
     return $response;
   }
 
@@ -197,6 +200,8 @@ final class CommunicationController extends ControllerBase {
       $build['image'] = Link::fromTextAndUrl('Télécharger l’affiche PDF — ' . $row['image_alt'], Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']]))->toRenderable();
       $build['pdf_preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-pdf-preview'], 'data-pdf-url' => Url::fromRoute($public ? 'tcl_bureau.public_image' : 'tcl_bureau.communication_image', ['post' => $row['id']], ['query' => ['v' => $row['revision']]])->toString()], 'loading' => ['#plain_text' => 'Chargement de l’aperçu PDF…']];
     }
+    $registration = \Drupal\tcl_bureau\EventParticipation::registrationUrl((int) $row['id']);
+    if ($public && $registration !== '') { $build['signup'] = Link::fromTextAndUrl('Je m’inscris à cet événement', Url::fromUri($registration))->toRenderable(); }
     if ($row['link'] !== '') {
       $build['link'] = Link::fromTextAndUrl('Consulter le lien utile ↗', Url::fromUri($row['link'], ['attributes' => ['target' => '_blank', 'rel' => 'noopener noreferrer']]))->toRenderable();
     }

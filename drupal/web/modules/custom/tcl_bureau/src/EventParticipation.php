@@ -40,16 +40,23 @@ final class EventParticipation {
       return $result;
     } finally { $lock->release('tcl_bureau.recipe_events.write'); }
   }
-  public static function configure(AccountInterface $actor, string $id, string $date, int $revision, bool $open, string $deadline): void {
+  public static function configure(AccountInterface $actor, string $id, string $date, int $revision, bool $open, string $deadline, ?int $registrationPost = NULL): void {
     self::manage($actor, $id);
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/D', $deadline) || (\DateTimeImmutable::createFromFormat('!Y-m-d', $deadline) ?: new \DateTimeImmutable())->format('Y-m-d') !== $deadline || $deadline > $date) { throw new \InvalidArgumentException('La date limite doit être valide et ne pas dépasser la date de l’événement.'); }
-    self::write($id, $date, static function (&$row) use ($revision, $open, $deadline): void {
+    self::write($id, $date, static function (&$row) use ($revision, $open, $deadline, $registrationPost): void {
       if ($row['revision'] !== $revision) { throw new ConflictHttpException('Le suivi a changé. Rechargez la page.'); }
       $row['open'] = $open; $row['deadline'] = $deadline;
+      if ($registrationPost !== NULL) {
+        if ($registrationPost !== 0 && !\Drupal::service('tcl_bureau.communication')->published($registrationPost)) { throw new \InvalidArgumentException('Choisissez une actualité publiée sur le site.'); }
+        $row['registration_post'] = $registrationPost;
+      }
     });
   }
   public static function invite(AccountInterface $actor, string $id, string $date, string $name, string $email): string {
     self::manage($actor, $id);
+    return self::issue($id, $date, $name, $email);
+  }
+  private static function issue(string $id, string $date, string $name, string $email): string {
     $name = trim($name); $email = strtolower(trim($email));
     if ($name === '' || mb_strlen($name) > 100 || !RecipeMail::inputAllowed($email)) { throw new \InvalidArgumentException('Nom fictif et adresse de recette valides requis.'); }
     return self::write($id, $date, static function (&$row) use ($id, $date, $name, $email): string {
@@ -61,6 +68,33 @@ final class EventParticipation {
       \Drupal::keyValueExpirable('tcl_bureau.event_reply_tokens')->setWithExpire(hash('sha256', $token), ['id' => $id, 'date' => $date, 'person' => $key], 7 * 86400);
       return $token;
     });
+  }
+  /** Only explicitly linked, published communications expose an occurrence. */
+  public static function entry(int $post): ?array {
+    if (!SeasonCatalogue::recipeEnabled() || !\Drupal::service('tcl_bureau.communication')->published($post)) { return NULL; }
+    $matches = [];
+    foreach (self::store()->getAll() as $key => $row) {
+      if ((int) ($row['registration_post'] ?? 0) !== $post || !self::isOpen($row)) { continue; }
+      [$id, $date] = explode('.', $key, 2);
+      try { $event = self::event($id, $date); } catch (AccessDeniedHttpException) { continue; }
+      $matches[] = ['id' => $id, 'date' => $date, 'title' => $event['title'], 'time' => $event['start_time'], 'location' => $event['location'], 'deadline' => $row['deadline']];
+    }
+    // Ambiguous associations never choose a date on the participant's behalf.
+    return count($matches) === 1 ? $matches[0] : NULL;
+  }
+  public static function registrationUrl(int $post): string {
+    return self::entry($post) ? \Drupal\Core\Url::fromRoute('tcl_bureau.event_signup', ['post' => $post], ['absolute' => TRUE])->toString() : '';
+  }
+  public static function requestLink(int $post, string $name, string $email): void {
+    self::guard(); $entry = self::entry($post);
+    $email = strtolower(trim($email));
+    if (!$entry || !RecipeMail::allowed($email) || trim($name) === '' || mb_strlen($name) > 100) { return; }
+    $flood = \Drupal::service('flood'); $key = hash('sha256', $email);
+    if (!$flood->isAllowed('tcl.event.signup.email', 1, 900, $key)) { return; }
+    $flood->register('tcl.event.signup.email', 900, $key);
+    $token = self::issue($entry['id'], $entry['date'], $name, $email);
+    $url = \Drupal\Core\Url::fromRoute('tcl_bureau.event_response', [], ['absolute' => TRUE])->toString() . '#' . $token;
+    RecipeMail::send('member_communication', $email, 'Votre lien de participation — ' . $entry['title'], "Bonjour,\n\nVotre lien personnel pour répondre à cet événement de recette :\n" . $url . "\n\nJe participe / Je ne participe pas / Je ne sais pas encore. Si vous participez, indiquez le total, vous compris.\nLien valable sept jours, dans la limite de la clôture. Ne partagez pas ce lien. Si vous ne l’avez pas demandé, ignorez ce message.");
   }
   private static function locate(string $token): array {
     self::guard();

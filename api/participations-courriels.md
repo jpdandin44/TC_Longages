@@ -46,3 +46,13 @@ Sources : [contactGroups.get](https://developers.google.com/people/api/rest/v1/c
 ## Contrôles
 
 `tests/event-participation-http.py` : vrai Drupal local et OAuth fictif, réponses, totaux, remplacement, conflit, clôture, annulation et droits. `tests/member-mail-local.php` : Google simulé, collecteur mail, filtrage, doublons, révisions, isolation production. `tests/member-mail-http.py` : formulaire natif, aperçu, confirmation et absence de renvoi. Inclus dans `scripts/bureau-oauth-recette.ps1`. Aucune donnée réelle ni envoi externe dans ces tests.
+
+## Entrée inscription depuis une actualité — 22 octobre
+
+Dans le suivi des participants, choisir « Actualité avec inscription » parmi les publications du site, puis enregistrer l’ouverture. L’association `registration_post` est stockée dans l’occurrence privée. Une association ambiguë sur plusieurs dates n’affiche pas de lien : créer une actualité par date. Retrait/archivage de l’actualité, annulation, clôture ou date supprimée rendent l’entrée indisponible.
+
+`/actualites/{post}/inscription` présente l’événement et demande un nom fictif et une adresse de recette. Formulaire avec session/CSRF, contrôle Origin si présent, dix tentatives par IP/heure et une demande par adresse/quinze minutes. Réponse générique sans divulgation de l’éligibilité. Seule une adresse autorisée reçoit le lien personnel via le transport de recette existant. La demande ne vaut pas participation ; il faut ouvrir le courriel et enregistrer sa réponse. Un nouveau lien remplace le précédent en conservant la réponse. L’email est saisi par le demandeur ; cette étape ne consulte pas Google Contacts.
+
+Accueil : miniature de l’image ou première page PDF, lien vers l’actualité, bouton d’inscription si disponible. Le bloc de liste du bas est retiré. L’article affiche le même bouton. Un aperçu mail préparé devient invalide si l’entrée change ou ferme. Le lecteur PDF existant reste local, aucune nouvelle bibliothèque.
+
+Tests : `event-signup-local.php` (14 contrôles), `event-signup-http.py` (12 contrôles), collecteur local uniquement. La réception réelle reste distincte des preuves locales.

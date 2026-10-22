@@ -1,0 +1,50 @@
+<?php
+declare(strict_types=1);
+require dirname(__DIR__) . '/drupal/bin/local-bootstrap.php';
+use Drupal\Core\Site\Settings;
+use Drupal\tcl_bureau\EventParticipation as Replies;
+use Drupal\tcl_bureau\MemberMail;
+use Symfony\Component\HttpFoundation\Request;
+$checks=[];
+function sc(string $label,bool $ok):void{global $checks;$checks[]=['label'=>$label,'passed'=>$ok];if(!$ok)throw new RuntimeException($label);}
+$original=Settings::getAll();$settings=$original;$email='signup-'.bin2hex(random_bytes(5)).'@example.invalid';$settings['tcl_bureau_recipe_mail']=['enabled'=>TRUE,'allowed_recipients'=>[$email]];new Settings($settings);
+$connection=Drupal::service('tcl_bureau_oauth.connection');$collector=Drupal::state()->get('system.test_mail_collector');$mail=Drupal::config('system.mail')->getRawData();
+$tx=Drupal::database()->startTransaction();
+Drupal::requestStack()->push(Request::create('http://127.0.0.1:4186/'));
+try {
+ Drupal::getContainer()->set('tcl_bureau_oauth.connection',new class{public function valid():bool{return TRUE;}});
+ $actor=Drupal\user\Entity\User::create(['name'=>'signup-'.bin2hex(random_bytes(4)),'status'=>1,'roles'=>['tcl_bureau']]);$actor->save();
+ $repo=Drupal::service('tcl_bureau.communication');
+ $input=['title'=>'Inscription fictive','category'=>'event','body'=>'Essai','link'=>'','tenup_visible'=>'no','image_alt'=>'','channels'=>'site,email'];
+ $post=$repo->save($actor,NULL,$input,bin2hex(random_bytes(16)),0);
+ $event=bin2hex(random_bytes(16));$date='2027-11-18';
+ Drupal::service('tcl_bureau.events')->save($actor,$event,0,['title'=>'Fête fictive','location'=>'Lieu test','description'=>'Test','start_date'=>$date,'end_date'=>$date,'start_time'=>'19:00','end_time'=>'22:00','frequency'=>'once','until'=>'','excluded'=>'','category'=>'meal','poster_post'=>'0','status'=>'scheduled']);
+ sc('Draft has no public signup',Replies::entry($post)===NULL);
+ $repo->transition($actor,$post,1,'validate');$repo->transition($actor,$post,2,'publish');
+ Replies::configure($actor,$event,$date,0,TRUE,'2027-11-17',$post);
+ sc('Published association resolves only chosen occurrence',Replies::entry($post)['id']===$event);
+ $row=$repo->get($actor,$post);$snapshot=MemberMail::snapshot($actor,$post,[['email'=>$email]]);
+ sc('Email includes public signup URL without personal token',str_contains($snapshot['body'],'/inscription')&&!str_contains($snapshot['body'],'/reponse#'));
+ $controller=Drupal\tcl_bureau\Controller\CommunicationController::create(Drupal::getContainer());
+ $front=$controller->front()->getContent();
+ sc('Homepage has signup and no bottom duplicate',str_contains($front,'Je m’inscris à cet événement')&&!str_contains($front,'id="actualites-v2"'));
+ Drupal::configFactory()->getEditable('system.mail')->set('interface.tcl_bureau_member_communication','test_mail_collector')->save();
+ $before=count(Drupal::state()->get('system.test_mail_collector',[]));
+ Replies::requestLink($post,'Fictif','outside@example.org');sc('Unauthorized recipient gets no mail',count(Drupal::state()->get('system.test_mail_collector',[]))===$before);
+ Replies::requestLink($post,'Fictif',$email);$messages=Drupal::state()->get('system.test_mail_collector',[]);$last=end($messages);
+ sc('Personal email sent to collector only',count($messages)===$before+1&&$last['to']===$email);
+ preg_match('/reponse#([a-f0-9]{64})/',$last['body'],$matches);sc('Secret only in requested email',isset($matches[1]));
+ $context=Replies::context($matches[1]);sc('Request does not register attendance',$context['answer']==='unknown');
+ Replies::respond($matches[1],'yes',2,$context['revision'],$context['eventRevision']);sc('Personal email enables response',Replies::totals(Replies::read($actor,$event,$date),1)['people']===2);
+ Replies::requestLink($post,'Fictif',$email);sc('Repeated request throttled',count(Drupal::state()->get('system.test_mail_collector',[]))===count($messages));
+ $current=Replies::read($actor,$event,$date);Replies::configure($actor,$event,$date,$current['revision'],FALSE,'2027-11-17',$post);
+ sc('Closed event removes signup URL',Replies::registrationUrl($post)==='');
+ try{MemberMail::send($actor,$snapshot);$rejected=FALSE;}catch(Symfony\Component\HttpKernel\Exception\ConflictHttpException){$rejected=TRUE;}sc('Closure invalidates prepared email',$rejected);
+ $current=Replies::read($actor,$event,$date);Replies::configure($actor,$event,$date,$current['revision'],TRUE,'2027-11-17',$post);
+ $repo->transition($actor,$post,3,'withdraw');sc('Withdrawn communication removes signup',Replies::entry($post)===NULL);
+ Drupal::requestStack()->push(Request::create('https://tclongages.fr/'));sc('Production signup disabled',Replies::entry($post)===NULL);Drupal::requestStack()->pop();
+} finally {
+ $tx->rollBack();Drupal::requestStack()->pop();new Settings($original);Drupal::getContainer()->set('tcl_bureau_oauth.connection',$connection);
+ Drupal::configFactory()->getEditable('system.mail')->setData($mail)->save();Drupal::state()->set('system.test_mail_collector',$collector);
+}
+file_put_contents(dirname(__DIR__).'/.local/event-signup-local-results.json',json_encode(['passed'=>TRUE,'checks'=>$checks,'realMailSent'=>FALSE],JSON_PRETTY_PRINT));echo count($checks).' signup checks passed'.PHP_EOL;

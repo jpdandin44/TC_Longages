@@ -33,6 +33,9 @@ final class EventParticipationForm extends FormBase {
     $form['revision'] = ['#type' => 'hidden', '#default_value' => $row['revision']];
     $form['open'] = ['#type' => 'checkbox', '#title' => 'Ouvrir les réponses pour cette date', '#default_value' => $row['open']];
     $form['deadline'] = ['#type' => 'date', '#title' => 'Date limite de réponse (fin de journée, Paris)', '#default_value' => $row['deadline'] ?: $date];
+    $options = [0 => 'Aucune — liens individuels seulement'];
+    foreach (\Drupal::service('tcl_bureau.communication')->published() as $post) { $options[$post['id']] = $post['title']; }
+    $form['registration_post'] = ['#type' => 'select', '#title' => 'Actualité avec inscription', '#options' => $options, '#default_value' => isset($options[$row['registration_post'] ?? 0]) ? ($row['registration_post'] ?? 0) : 0, '#description' => 'Associez une actualité publiée à cette seule date. Son bouton et ses courriels mèneront à une demande de lien personnel par email. Plusieurs dates sur la même actualité désactivent le bouton.'];
     $form['configure'] = ['#type' => 'submit', '#value' => 'Enregistrer l’ouverture', '#name' => 'configure'];
     $form['name'] = ['#type' => 'textfield', '#title' => 'Nom fictif du participant', '#maxlength' => 100];
     $form['email'] = ['#type' => 'email', '#title' => 'Courriel fictif ou de recette autorisé'];
@@ -43,7 +46,7 @@ final class EventParticipationForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     try {
       if (($form_state->getTriggeringElement()['#name'] ?? '') === 'configure') {
-        Replies::configure($this->currentUser(), $form_state->get('event'), $form_state->get('date'), (int) $form_state->getValue('revision'), (bool) $form_state->getValue('open'), (string) $form_state->getValue('deadline'));
+        Replies::configure($this->currentUser(), $form_state->get('event'), $form_state->get('date'), (int) $form_state->getValue('revision'), (bool) $form_state->getValue('open'), (string) $form_state->getValue('deadline'), (int) $form_state->getValue('registration_post'));
         $this->messenger()->addStatus('Ouverture des réponses enregistrée.');
       } else {
         $token = Replies::invite($this->currentUser(), $form_state->get('event'), $form_state->get('date'), (string) $form_state->getValue('name'), (string) $form_state->getValue('email'));

@@ -10,9 +10,17 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Complément du 22 octobre — accès inscription et affiche
+
+Demande autorisée : liens dans les courriels et les actualités hautes de l’accueil, miniature d’affiche, préproduction uniquement. Développement local : association explicite d’une actualité publiée à une occurrence ouverte, formulaire de demande de lien individuel par email, miniature PDF/image et retrait du doublon bas. Contrôles locaux 14 service + 12 HTTP réussis ; régressions bandeau 15/28 et canal mail 14/12 réussies. Livraison et recette hébergée à qualifier pour ce nouveau candidat. Voir le contrat et `data/event-signup-verification.json`. Google Contacts reste non connecté ; tarifs hors de ce lot.
+
 ## Reprise du 22 octobre — participations puis courriels
 
-Reprise autorisée, préproduction uniquement. Réponses par occurrence et canal courriel développés localement ; contrôles ciblés réussis (29 participations, 14 service courriel/Google simulé, 12 formulaire courriel), suite complète passée jusqu’au contrôle Contact : compteur historique du collecteur local en échec, aucune purge ni modification du test après refus automatique. CI sur environnement neuf à vérifier. CPanel reconnecté, cible /home2/daje5127/tcl-preproduction/drupal/web constatée Drupal 11.4.8. Chrome préproduction désormais accessible. Aucun nouveau déploiement à ce stade. [Preuves du lot](../data/event-participation-mail-verification.json), [contrat](../api/participations-courriels.md). Dates réelles Beaujolais et libellé Google demandés, réponses en attente. Réserver les données fictives et les adresses de recette ; production exclue. Compléments accueil/tarifs restent au backlog.
+Lot livré et vérifié en préproduction uniquement : source `6d9f413`, manifeste `4d2f8ff`, six contrôles techniques CI réussis (39746190761). Sauvegarde ciblée : six fichiers existants restaurés dans des copies de contrôle, huit ajouts inventoriés ; aucune migration. Les 14 empreintes installées correspondent au candidat. Les permissions des deux fichiers CSS/JS ont été corrigées à 0644 après extraction privée ; affichage ensuite vérifié dans Chrome.
+
+Recette hébergée : événement explicitement fictif, une seule personne répondante, Oui pour quatre puis Incertain (total zéro), Non, puis Oui pour trois ; total final trois vérifié au Bureau. Remplacement du lien invalide l’ancien sans perdre la réponse. Courriel fictif n°3 validé uniquement pour tester son aperçu : deux adresses autorisées, aucune présélection, aucun envoi réel. Google Contacts non configuré est explicitement bloqué. Le test Contact local sur ancien collecteur était en échec ; la même recette a réussi en CI propre, sans purge ni modification de ce test.
+
+[Preuves du lot](../data/event-participation-mail-verification.json), [contrat](../api/participations-courriels.md), [livraison et retour arrière](../workflows/participations-courriels-preproduction.md). PR 24 en brouillon, sans conflit ; checklist humaine non cochée, aucun merge. Restent : dates officielles Beaujolais, libellé et connexion Google du site, liens individuels intégrés aux courriels et entrée publique, envoi/réception réelle du nouveau canal, contrôle visuel mobile et compléments accueil/tarifs. Production et calendrier Google inchangés.
 
 
 # Point de session - preparation du 17 octobre 2026

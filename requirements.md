@@ -13,6 +13,11 @@ tags:
   - prototype
 ---
 
+## 22 octobre — inscription depuis les communications
+
+Le Bureau associe explicitement une actualité publiée à une seule occurrence ouverte. L’accueil et les courriels donnent accès à la demande de lien personnel ; aucun lien secret partagé publiquement. La demande ne compte pas comme réponse. Miniature de l’affiche et retrait du bloc bas ; recette limitée aux destinataires autorisés.
+
+
 ## Nouveau besoin V2 — réponses aux événements et courriels adhérents
 
 Demande du 21 octobre après clôture : priorité au futur événement Beaujolais nouveau. Développement repris le 22 octobre : premier parcours individuel et canal de recette implémentés localement ; [contrat et limites](api/participations-courriels.md). Livraison distincte dans les preuves.

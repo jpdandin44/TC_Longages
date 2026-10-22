@@ -18,6 +18,8 @@ final class MemberMail {
     $body = $row['title'] . "\n\n" . $row['body'];
     if ($row['link'] !== '') { $body .= "\n\n" . $row['link']; }
     if ($row['status'] === 'published' && in_array('site', explode(',', $row['channels']), TRUE)) { $body .= "\n\nActualité et support : " . \Drupal\Core\Url::fromRoute('tcl_bureau.public_post', ['post' => $row['id']], ['absolute' => TRUE])->toString(); }
+    $registration = EventParticipation::registrationUrl((int) $row['id']);
+    if ($registration !== '') { $body .= "\n\nJe m’inscris à cet événement / je réponds : " . $registration; }
     return $body . "\n\nTennis Club de Longages — essai de communication en préproduction.";
   }
   public static function snapshot(AccountInterface $actor, int $id, array $contacts): array {

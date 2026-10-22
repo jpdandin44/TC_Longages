@@ -21,11 +21,11 @@ Ordre confirmé par le responsable : réponses aux événements du club et nombr
 | Phase | État |
 | --- | --- |
 | Cadrage | Besoin enregistré ; réemploi ciblé du module équipes identifié, nombre de personnes développé ; dates réelles et libellé Google encore à fournir. |
-| Développement local | Réponses et canal courriel implémentés ; contrôles ciblés réussis, non-régression complète en cours. |
-| Préproduction | À préparer après contrôles ; aucune nouvelle livraison à ce titre. |
+| Développement local | Réponses et canal courriel implémentés ; 55 contrôles ciblés réussis ; six contrôles techniques CI réussis. |
+| Préproduction | Lot livré ; réponses et total vérifiés dans Chrome, aperçu mail vérifié. Google réel, réception du nouveau canal et mobile restent à qualifier. |
 | Mise en production | Exclue ; campagne réelle et ouverture restent à autoriser. |
 
-Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Aucun de ces compléments n’est livré ; développement reporté à la reprise demandée.
+Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Accès inscription, miniatures et retrait du bloc bas développés et testés localement le 22 octobre ; nouveau candidat à qualifier en préproduction. Diagnostic tarifaire encore à faire.
 
 La campagne de recette existante reste partielle. Le mot de passe Artemis est désormais défini et confirmé ; les paragraphes datés antérieurs conservent l'historique.
 

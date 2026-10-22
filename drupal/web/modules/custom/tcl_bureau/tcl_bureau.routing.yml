@@ -248,3 +248,12 @@ tcl_bureau.event_response_api:
   requirements:
     _access: 'TRUE'
     action: 'context|save'
+
+tcl_bureau.event_signup:
+  path: '/actualites/{post}/inscription'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\EventSignupForm'
+    _title: 'Participer à un événement'
+  requirements:
+    _access: 'TRUE'
+    post: '\d+'

@@ -1,13 +1,26 @@
 {
-  "checkedAt": "2026-10-22T08:09:47.528791+00:00",
-  "status": "local_validation_in_progress",
+  "checkedAt": "2026-10-22T08:33:10.979650+00:00",
+  "status": "preproduction_delivered_scoped_recipe_verified",
   "productionTouched": false,
   "realMailSent": false,
   "googleLiveAccess": false,
-  "preproductionDelivered": false,
+  "preproductionDelivered": true,
   "target": "https://preprod.tclongages.fr",
   "hostedDrupal": "11.4.8",
-  "checks": {
+  "localRegression": {
+    "passed": false,
+    "newFeatureChecksPassed": true,
+    "blocker": "Local reused Contact collector count failed; no purge or test change. Unchanged Contact test subsequently passed in clean CI 39746190761.",
+    "oauth": 66,
+    "flashNews": 28,
+    "pdfChannels": 22,
+    "registration": 38,
+    "events": 29,
+    "identity": 45,
+    "invitation": 11,
+    "passwordSetup": 20
+  },
+  "localChecks": {
     "participation": {
       "passed": true,
       "count": 29,
@@ -24,17 +37,165 @@
       "source": ".local/member-mail-http-results.json"
     }
   },
-  "localRegression": {
-    "passed": false,
-    "newFeatureChecksPassed": true,
-    "blocker": "Existing contact-runtime.php expects exactly five captures; reused local collector contains older captures. No cleanup or test modification performed after policy rejection. Clean CI pending.",
-    "oauth": 66,
-    "flashNews": 28,
-    "pdfChannels": 22,
-    "registration": 38,
-    "events": 29,
-    "identity": 45,
-    "invitation": 11,
-    "passwordSetup": 20
+  "iterationId": "tcl-v2-recette-20261018",
+  "owner": "jpdandin",
+  "stage": "preproduction",
+  "candidate": {
+    "sourceSha": "6d9f413bbaf2030d9b967eca5169d00322ad3ac2",
+    "artifactSha256": "cf792666561d4ea236484501ce4335e40e161f3f77f1be27c23c3952cabf9320"
+  },
+  "manifestCommit": "4d2f8ff39d3cd09b915cf22b7ecc16b64488e073",
+  "blockers": [],
+  "ciRun": "39746190761",
+  "checks": [
+    {
+      "kind": "local",
+      "status": "passed",
+      "sourceSha": "6d9f413bbaf2030d9b967eca5169d00322ad3ac2",
+      "artifactSha256": "cf792666561d4ea236484501ce4335e40e161f3f77f1be27c23c3952cabf9320",
+      "observedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "29 participation + 14 mail service + 12 mail form checks passed, fictitious data and local collectors only. Legacy Contact capture count failed on reused data; unchanged test passes in clean CI."
+    },
+    {
+      "kind": "ci",
+      "status": "passed",
+      "sourceSha": "6d9f413bbaf2030d9b967eca5169d00322ad3ac2",
+      "artifactSha256": "cf792666561d4ea236484501ce4335e40e161f3f77f1be27c23c3952cabf9320",
+      "observedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/39746190761 six technical jobs success on exact manifest HEAD, including Contact on clean fixture."
+    },
+    {
+      "kind": "documentation",
+      "status": "passed",
+      "sourceSha": "6d9f413bbaf2030d9b967eca5169d00322ad3ac2",
+      "artifactSha256": "cf792666561d4ea236484501ce4335e40e161f3f77f1be27c23c3952cabf9320",
+      "observedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "Required structure present, contract/guides/requirements/roadmap updated, framework build/check passed; exact snapshot manifest verified."
+    }
+  ],
+  "targets": {
+    "preproduction": {
+      "id": "preprod.tclongages.fr",
+      "ready": true,
+      "isolated": true,
+      "observedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "cPanel confirmed /home2/daje5127/tcl-preproduction/drupal/web, Drupal11.4.8; Chrome Bureau accessible; only14file scoped package."
+    }
+  },
+  "approvals": [
+    {
+      "scope": "preproduction",
+      "target": "preprod.tclongages.fr",
+      "status": "approved",
+      "actor": "jpdandin",
+      "source": "user_chat",
+      "sourceSha": "6d9f413bbaf2030d9b967eca5169d00322ad3ac2",
+      "artifactSha256": "cf792666561d4ea236484501ce4335e40e161f3f77f1be27c23c3952cabf9320",
+      "recordedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "User requests resumption and development of event replies/headcount then member mail always in preproduction, production excluded; access supplied."
+    }
+  ],
+  "backups": [
+    {
+      "id": "event-mail-6d9f413",
+      "target": "preprod.tclongages.fr",
+      "status": "verified",
+      "restoreStatus": "passed",
+      "observedAt": "2026-10-22T08:21:40.955407+00:00",
+      "evidence": "private/event-mail-6d9f413/backup: six existing files copied and restored to verification copies, hashes equal; eight absent files recorded; mail transport config saved; no schema migration."
+    }
+  ],
+  "packageFiles": [
+    {
+      "path": "web/modules/custom/tcl_bureau/css/event-response.css",
+      "sha256": "f5a4682ce9d3e0b2fe3d3537a8f27db5e49981e8b91d8643921ecc15ab827d5a"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/js/event-response.js",
+      "sha256": "a80e58acd9b351b323b8574e50f8a5c8df5c3568e5c3805b0e7c38b979957b18"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/CommunicationRepository.php",
+      "sha256": "6783096242c7bfcdeaa48c73857f331157a5f12aafecf61073a96f8fb171e80e"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php",
+      "sha256": "4d4c7d5e45ad28662f8b3311b7a5933225332bc2a6a7011e9082d7d6192807a2"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Controller/EventController.php",
+      "sha256": "c5b2488ca7daec8d6d2a61f3af843304d0d986535e5a5ad251d52e68910325eb"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Controller/EventResponseController.php",
+      "sha256": "1926cc61237ee5877f053dc35b6b262cf4cadcf77481bac7a1e19ad2dc6a33e6"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/EventParticipation.php",
+      "sha256": "df59dc73a976354cd65467b9281c4f490286b5e37c0ee437ec7a80ee120e8acb"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Form/EventParticipationForm.php",
+      "sha256": "5362f98629e83e61bb1b4390bd7f32e631a6874e644563f79a3e10b83af1aaa5"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Form/MemberMailForm.php",
+      "sha256": "fe1e7afa4006dabeb4953d5be9f52e427d6cc69877305a418cc55119e16c3e17"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/MemberContacts.php",
+      "sha256": "1dfe7cca6ac129f0119e62c4d02d2ece851958d235497c985bc07d07b4f1c98d"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/MemberMail.php",
+      "sha256": "0ee0c0b80d9e4d92c2f4f0d0311ed7583bab717f29f5d7908a8cbb6d1c6fdfd1"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/RecipeMail.php",
+      "sha256": "c6af3ae2a4a4def817e0278263c4fc08c68843d207cf6c8b040ba7a30f909660"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/tcl_bureau.module",
+      "sha256": "18a0fc1430d25b5bbb661926594549d5fc5dfb570d18c3a2613ac7e4135a5181"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/tcl_bureau.routing.yml",
+      "sha256": "1ba4e2530d2c8c01878f129ff5268abb96fbde355ca9054992c5adb85712998d"
+    }
+  ],
+  "rollback": "private/event-mail-6d9f413/operator.py rollback restores six files, removes eight additions only if installed hashes still match, restores prior mail transport, retains private response data.",
+  "hostedChecks": {
+    "all14HashesMatch": true,
+    "mailTransport": "php_mail",
+    "assetPermissions": "CSS/JS corrected to 0644 after private archive extraction; hashes unchanged",
+    "eventId": "5252aaf9d172c4927c96f57be6c711df",
+    "fictitiousOnly": true,
+    "yesFourConfirmed": true,
+    "maybeZeroConfirmed": true,
+    "noSaved": true,
+    "yesThreeFinalConfirmed": true,
+    "singleParticipantRow": true,
+    "replacementInvalidatesOldLink": true,
+    "mailCommunicationId": 3,
+    "mailPreviewBothRecipeAddresses": true,
+    "recipientsInitiallyUnchecked": true,
+    "googleUnconfiguredExplicitlyBlocked": true,
+    "realMailSent": false,
+    "mobileVisualVerified": false,
+    "anonymousProtectionStatus": 401
+  },
+  "remaining": [
+    "Configure site Google Contacts readonly OAuth and exact label with user",
+    "Confirm official Beaujolais details",
+    "Personalized invitation links in mail and homepage signup entry",
+    "Real member-mail transport delivery/reception test",
+    "Mobile visual test",
+    "Homepage thumbnail/bottom list and published tariff diagnosis"
+  ],
+  "documentationChecks": {
+    "canonicalViewsBuild": "passed",
+    "canonicalViewsCheck": "passed",
+    "diffCheck": "passed",
+    "scope": "Updated lot documents and canonical V2 iteration; historical documentation not reaudited"
   }
 }

@@ -52,6 +52,10 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Recette événements échouée.' }
   & python -X utf8 tests/event-participation-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette des participations échouée.' }
+  & python -X utf8 tests/event-signup-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP inscription événement échouée.' }
+  & php -c .local/drupal-tools/php.ini tests/event-signup-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Recette inscription événement échouée.' }
   & php -c .local/drupal-tools/php.ini tests/member-mail-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Recette courriel adhérents échouée.' }
   & python -X utf8 tests/member-mail-http.py

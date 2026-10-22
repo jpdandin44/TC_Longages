@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-22T09:46:25.117905+00:00",
+  "status": "local_verified",
+  "productionTouched": false,
+  "realMailSent": false,
+  "localChecks": {
+    "signupService": 14,
+    "signupHttp": 12,
+    "flashService": 15,
+    "flashHttp": 28,
+    "mailService": 14,
+    "mailHttp": 12
+  },
+  "preproductionDelivered": false,
+  "target": "https://preprod.tclongages.fr",
+  "remaining": [
+    "hosted visual and workflow checks",
+    "mail receipt confirmation"
+  ],
+  "contract": "api/participations-courriels.md"
+}
