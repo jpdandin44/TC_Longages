@@ -23,7 +23,7 @@ class AccountInvitationForm extends FormBase {
     if ($this->reset) { $form['notice']['#plain_text'] = 'Envoyer à cette adresse enregistrée un lien personnel pour choisir un nouveau mot de passe. Le mot de passe actuel reste valable jusqu’au changement effectué par le destinataire. Aucun mot de passe n’est envoyé. Si vous avez modifié l’adresse du compte, enregistrez-la avant de poursuivre.'; }
     $form['version'] = ['#type' => 'hidden', '#default_value' => AccountInvitation::version($user)];
     $form['actions']['#type'] = 'actions';
-    $form['actions']['send'] = ['#type' => 'submit', '#value' => 'Envoyer le lien de création du mot de passe', '#disabled' => !$user->isActive()];
+    $form['actions']['send'] = ['#type' => 'submit', '#value' => $this->reset ? 'Envoyer le lien de réinitialisation' : 'Envoyer le lien de création du mot de passe', '#disabled' => !$user->isActive()];
     $form['actions']['cancel'] = ['#type' => 'link', '#title' => 'Retour aux comptes', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.accounts')];
     return $form;
   }

@@ -28,6 +28,7 @@ try:
  check('Anonymous reset form denied',anon.get(reset_path,{'op':'send'})[0]==403)
  check('Captain reset form denied',user.get(reset_path)[0]==403)
  reset_page=admin.get(reset_path)
+ check('Reset button has explicit wording','value="Envoyer le lien de réinitialisation"' in reset_page[1] and 'Envoyer le lien de création du mot de passe' not in reset_page[1])
  check('Reset form explains unchanged password',reset_page[0]==200 and 'mot de passe actuel reste valable' in reset_page[1])
  check('Reset forged CSRF denied',admin.form(reset_path,{'form_token':'forged','op':'Envoyer le lien de réinitialisation'},reset_page[1])[0]!=303)
  check('Reset shares send cooldown','cinq minutes' in admin.form(reset_path,{'op':'Envoyer le lien de réinitialisation'})[1])
