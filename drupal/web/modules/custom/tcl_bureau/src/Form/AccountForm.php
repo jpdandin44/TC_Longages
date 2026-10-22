@@ -144,7 +144,7 @@ final class AccountForm extends FormBase {
 
     if ($user && $user->isActive()) { $form['invite'] = ['#type' => 'link', '#title' => 'Envoyer le lien de création du mot de passe', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.account_invitation', ['user' => $user->id()])]; }
 
-    if ($user && $user->isActive()) { $form['reset'] = ['#type' => 'link', '#title' => 'Envoyer un lien de réinitialisation du mot de passe', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.account_password_reset', ['user' => $user->id()]), '#attributes' => ['class' => ['button']]]; }
+    if ($user && $user->isActive()) { $form['reset'] = ['#type' => 'link', '#title' => 'Envoyer un lien de réinitialisation du mot de passe', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.account_password_reset', ['user' => $user->id()]), '#prefix' => '<p>', '#suffix' => '</p>', '#attributes' => ['class' => ['button'], 'style' => 'display:inline-block;padding:12px 18px;background:#a71930;color:#fff;border-radius:4px;text-decoration:none;line-height:1.4']]; }
 
     $form['actions']['cancel'] = ['#type' => 'link', '#title' => 'Retour aux comptes', '#url' => \Drupal\Core\Url::fromRoute('tcl_bureau.accounts')];
 
