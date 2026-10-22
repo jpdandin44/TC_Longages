@@ -10,6 +10,16 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Personnalisation par canal — livraison du 22 octobre
+
+Source `8cf75c2`, manifeste `54a8ea3`, CI `39846477090` : six contrôles réussis. Porte de préproduction passée, 13 fichiers installés et empreintes vérifiées. Sauvegarde de 12 fichiers et trois communications, restauration en copies/table temporaire comparée ; un fichier nouveau inventorié. Migration additive 11004. Aucun merge ni production.
+
+Recette Chrome : communication fictive n°3 révision 8, quatre variantes différentes relues, publication préproduction, texte Site vérifié sur l’article et l’accueil. Aperçu HTML avec trois boutons contrôlé ; préparation depuis Google, une adresse autorisée et 20 exclues. Un envoi uniquement vers l’adresse famille accepté par le serveur, zéro échec. Réception confirmée par le responsable ; clic signalé en échec « Lien personnel incomplet ». Correction du renouvellement des ressources navigateur et décodage du fragment en qualification. Aucune diffusion Facebook/WhatsApp, aucune réponse personnelle enregistrée par l’agent.
+
+Les boutons présélectionnent Oui/Non/Incertain ; le nombre 1–99 et la confirmation se font sur la page du site. HTML classique, aucun enregistrement AMP Google requis ; la connexion OAuth Google Contacts reste distincte. Tests ciblés locaux réussis ; ancien collecteur Contact en échec sur base réutilisée, suite complète passée dans la CI propre sans purge ni contournement. Voir [preuves du lot](../data/channel-rsvp-verification.json).
+
+Prochaine action : confirmer la réception/présentation du mail et le parcours personnel, puis poursuivre les réserves de la campagne V2 (notamment mobile et cohérence tarifaire). Ne pas renvoyer le même courriel sans demande ni publier de communication officielle.
+
 ## Envoi Google Contacts — 22 octobre, suite autorisée
 
 À la demande explicite du responsable, `familledandin@gmail.com` a été créé (recherche préalable sans résultat) et ajouté au libellé `Adhérents_2026_2027`, désormais 22 contacts. Préparation depuis Google, communication fictive n°3 révision 5 : seule cette adresse sélectionnée, 20 exclusions affichées, confirmation relue. Un message accepté par le serveur, zéro échec ; trace « Accepté par le serveur » vérifiée ensuite sans renvoi. Réception confirmée par le responsable le 22 octobre. Lien `/actualites/3/inscription` contrôlé : événement Beaujolais fictif, demande du lien personnel pour répondre. Aucun formulaire supplémentaire soumis, aucune réponse personnelle remplacée. Aucun changement de production, aucune extension de la liste d’adresses autorisées. Les paragraphes ci-dessous conservent la qualification initiale antérieure à cet essai. [Preuves courantes](../data/google-accounts-verification.json).

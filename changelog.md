@@ -841,4 +841,6 @@ Complément de recette du 22 octobre : adresse famille ajoutée au libellé sur 
 
 ## Personnalisation des communications — 22 octobre
 
-22 octobre — Développement local des variantes de titres/textes Site, Facebook, WhatsApp et Courriel, aperçus et copie par canal. Courriels HTML avec boutons personnels Oui/Non/Incertain, nombre de personnes en liste et confirmation web. Qualification en cours, livraison non encore attestée.
+22 octobre — Développement local des variantes de titres/textes Site, Facebook, WhatsApp et Courriel, aperçus et copie par canal. Courriels HTML avec boutons personnels Oui/Non/Incertain, nombre de personnes en liste et confirmation web. Livré en préproduction après six contrôles CI réussis ; variantes et aperçu HTML contrôlés, un envoi à l’adresse famille accepté. Réception et parcours personnel restant à confirmer. Voir [preuves](data/channel-rsvp-verification.json).
+
+Correctif en qualification : URL des ressources de participation suffixées par leur empreinte pour éviter un ancien script en cache, décodage des fragments encodés par les messageries. Réception du mail confirmée, parcours personnel signalé en échec et non validé.

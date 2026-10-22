@@ -175,6 +175,8 @@ Les aperçus et corrections tarifaires sont installés en préproduction, avec 2
 
 ## Textes par canal et réponse personnelle — 22 octobre
 
-Développement local en cours, livraison non encore attestée : titre/objet et texte facultatifs par canal Site, Facebook, WhatsApp et Courriel. Vide reprend la valeur commune ; affiche commune conservée. Chaque modification repasse en brouillon et retire la publication. Aperçus et copie manuelle utilisent la variante correspondante ; aucun envoi social automatique.
+Livré et vérifié en préproduction le 22 octobre : titre/objet et texte facultatifs par canal Site, Facebook, WhatsApp et Courriel. Vide reprend la valeur commune ; affiche commune conservée. Chaque modification repasse en brouillon et retire la publication. Aperçus et copie manuelle utilisent la variante correspondante ; aucun envoi social automatique.
 
 Le courriel est multipart texte/HTML classique, sans AMP ni enregistrement expéditeur AMP. Pour une actualité liée à une occurrence ouverte, trois liens personnels sont créés à l’envoi : Oui, Non, Incertain. Ils ouvrent la réponse avec le choix présélectionné et une liste de 1 à 99 personnes si Oui ; seule la confirmation POST enregistre. Jeton dans le fragment, validité sept jours limitée par la clôture, ancien lien remplacé sans effacer la réponse. Aperçu Bureau sans jeton ; chaque destinataire est envoyé séparément, liste de recette maintenue.
+
+État de recette et limites : [preuve du lot](../data/channel-rsvp-verification.json). Réception du nouveau courriel HTML et validation personnelle restent distinctes de son acceptation serveur.

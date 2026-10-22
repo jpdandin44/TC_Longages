@@ -407,3 +407,7 @@ La personnalisation demandée complète ce besoin : fond uni, dégradé ou image
 ## Complément comptes et Google Contacts — 22 octobre
 
 Complément du 22 octobre livré : connexion Google Contacts administrateur et bouton de réinitialisation. Consentement et lecture Google vérifiés en préproduction ; envoi depuis Google testé uniquement vers l’adresse famille ajoutée sur demande, accepté par le serveur et réception confirmée par le responsable. [État et preuves](data/google-accounts-verification.json).
+
+## Personnalisation des communications — 22 octobre
+
+Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Restent la réception du nouvel envoi et le parcours personnel sur téléphone. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.

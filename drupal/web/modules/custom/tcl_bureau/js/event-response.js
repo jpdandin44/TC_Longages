@@ -1,5 +1,7 @@
 (() => {
-  const [token, suggested] = location.hash.slice(1).split(':');
+  let fragment = location.hash.slice(1);
+  try { fragment = decodeURIComponent(fragment); } catch { fragment = ''; }
+  const [token, suggested] = fragment.split(':');
   let firstContext = true;
   history.replaceState(null, '', location.pathname);
   const form = document.getElementById('reply-form'), status = document.getElementById('reply-status');
