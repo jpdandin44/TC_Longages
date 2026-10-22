@@ -103,6 +103,7 @@ function tcl_bureau_post_schema(): array {
       'title' => ['type' => 'varchar', 'length' => 160, 'not null' => TRUE],
       'category' => ['type' => 'varchar', 'length' => 20, 'not null' => TRUE],
       'body' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
+      'channel_texts' => ['type' => 'text', 'size' => 'big', 'not null' => FALSE],
       'link' => ['type' => 'varchar', 'length' => 1000, 'not null' => TRUE],
       'channels' => ['type' => 'varchar', 'length' => 40, 'not null' => TRUE, 'default' => 'site,facebook,whatsapp'],
       'tenup_visible' => ['type' => 'varchar', 'length' => 3, 'not null' => TRUE, 'default' => 'no'],
@@ -143,4 +144,13 @@ function tcl_bureau_update_11003(): string {
     $schema->addField('tcl_bureau_post', 'channels', tcl_bureau_post_schema()['fields']['channels']);
   }
   return 'Canaux de communication ajoutés ; publications existantes conservées.';
+}
+
+/** Add optional per-channel text; existing validated content retains its defaults. */
+function tcl_bureau_update_11004(): string {
+  $schema = \Drupal::database()->schema();
+  if (!$schema->fieldExists('tcl_bureau_post', 'channel_texts')) {
+    $schema->addField('tcl_bureau_post', 'channel_texts', tcl_bureau_post_schema()['fields']['channel_texts']);
+  }
+  return 'Textes par canal ajoutés sans modifier les publications existantes.';
 }

@@ -1,5 +1,6 @@
 (() => {
-  const token = location.hash.slice(1);
+  const [token, suggested] = location.hash.slice(1).split(':');
+  let firstContext = true;
   history.replaceState(null, '', location.pathname);
   const form = document.getElementById('reply-form'), status = document.getElementById('reply-status');
   let csrf = '', revision = 0, eventRevision = 0, opened = false;
@@ -14,7 +15,9 @@
     document.getElementById('reply-title').textContent = c.title;
     document.getElementById('reply-details').textContent = `${c.date.split('-').reverse().join('/')} · ${c.time} · ${c.location} — Réponses jusqu’au ${c.deadline || 'non défini'}`;
     document.getElementById('reply-name').textContent = c.name;
-    for (const radio of form.elements.answer) { radio.checked = radio.value === c.answer; radio.disabled = !opened; }
+    const choice = firstContext && ['yes', 'no', 'maybe'].includes(suggested) ? suggested : c.answer;
+    firstContext = false;
+    for (const radio of form.elements.answer) { radio.checked = radio.value === choice; radio.disabled = !opened; }
     form.elements.count.value = c.count || 1;
     form.querySelector('button').disabled = !opened;
     countState(); document.getElementById('reply-context').hidden = false;

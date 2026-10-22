@@ -62,6 +62,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Recette courriel adhérents échouée.' }
   & python -X utf8 tests/member-mail-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Parcours courriel adhérents échoué.' }
+  & node --test tests/event-response-buttons.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw "Réponses personnelles : contrôles JS échoués." }
   & node --test tests/agenda-sharing.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles catalogue échoués.' }
   & php -c .local/drupal-tools/php.ini drupal/bin/prepare-tc-identity-local.php

@@ -56,9 +56,9 @@ final class CommunicationController extends ControllerBase {
     $build['preview_help'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Aperçus de contenu : la présentation finale dépend de Facebook ou WhatsApp. Une affiche reste à joindre séparément dans le service choisi.'];
     $build['preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-preview-grid']]];
     $build['fft'] = ['#type' => 'details', '#title' => 'Outils FFT complémentaires (saisie manuelle)', '#open' => FALSE];
-    foreach (['site' => 'Site', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'adoc' => 'ADOC'] as $key => $channel) {
+    foreach (['site' => 'Site', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'email' => 'Courriel', 'adoc' => 'ADOC'] as $key => $channel) {
       if ($key !== 'adoc' && !in_array($key, $selectedChannels, TRUE)) { continue; }
-      $card = ['#type' => 'html_tag', '#tag' => 'section', '#attributes' => ['class' => ['tcl-preview-card']], 'heading' => ['#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Aperçu ' . $channel], 'content' => $this->article($row, FALSE)];
+      $card = ['#type' => 'html_tag', '#tag' => 'section', '#attributes' => ['class' => ['tcl-preview-card', 'tcl-preview-' . $key]], 'heading' => ['#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Aperçu ' . $channel], 'content' => $this->article(\Drupal\tcl_bureau\ChannelContent::forChannel($row, $key), FALSE)];
       if ($channel === 'ADOC') {
         $text = self::message($row, FALSE);
         // Count UTF-16 code units, like the prototype; never truncate a message.
@@ -80,16 +80,18 @@ final class CommunicationController extends ControllerBase {
       }
       $build['sharing'] = ['#type' => 'details', '#title' => 'Partager manuellement la révision validée', '#open' => TRUE];
       $build['sharing']['help'] = ['#plain_text' => 'Choisissez le destinataire et confirmez l’envoi dans le service. L’affiche doit être jointe manuellement. Une ouverture ne confirme aucune livraison.'];
-      $build['sharing']['text'] = ['#type' => 'textarea', '#title' => 'Message à copier', '#value' => self::message($row), '#attributes' => ['readonly' => 'readonly'], '#rows' => 6];
       $build['#attached']['library'][] = 'tcl_bureau/sharing_tools';
-      $build['sharing']['#attributes']['data-sharing-tools'] = '';
-      $build['sharing']['steps'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => '1. Copiez le message. 2. Téléchargez l’affiche si nécessaire. 3. Ouvrez le canal choisi, joignez le support et confirmez vous-même la publication.'];
-      $build['sharing']['copy'] = ['#type' => 'html_tag', '#tag' => 'button', '#value' => 'Copier le message', '#attributes' => ['type' => 'button', 'data-copy-message' => '', 'hidden' => 'hidden']];
-      $build['sharing']['feedback'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => '', '#attributes' => ['role' => 'status', 'aria-live' => 'polite', 'data-copy-status' => '']];
+      foreach (['facebook' => 'Facebook', 'whatsapp' => 'WhatsApp'] as $channel => $label) {
+        if (!in_array($channel, $selectedChannels, TRUE)) { continue; }
+        $build['sharing'][$channel] = ['#type' => 'details', '#title' => 'Message ' . $label, '#open' => TRUE, '#attributes' => ['data-sharing-tools' => '']];
+        $build['sharing'][$channel]['text'] = ['#type' => 'textarea', '#title' => 'Message à copier — ' . $label, '#value' => self::message($row, TRUE, $channel), '#attributes' => ['readonly' => 'readonly'], '#rows' => 6];
+        $build['sharing'][$channel]['copy'] = ['#type' => 'html_tag', '#tag' => 'button', '#value' => 'Copier pour ' . $label, '#attributes' => ['type' => 'button', 'data-copy-message' => '', 'hidden' => 'hidden']];
+        $build['sharing'][$channel]['feedback'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => '', '#attributes' => ['role' => 'status', 'aria-live' => 'polite', 'data-copy-status' => '']];
+      }
       if ($row['image_data'] === '') {
         $build['sharing']['no_poster'] = ['#plain_text' => 'Aucune affiche jointe : le message peut être partagé seul.'];
       }
-      foreach (['WhatsApp' => 'https://wa.me/?text=' . rawurlencode(self::message($row)), 'Facebook du club' => 'https://www.facebook.com/tc.longages.31', 'ADOC' => 'https://adoc.app.fft.fr/adoc/', 'Ten’Up du club' => 'https://tenup.fft.fr/club/60310230'] as $label => $url) {
+      foreach (['WhatsApp' => 'https://wa.me/?text=' . rawurlencode(self::message($row, TRUE, 'whatsapp')), 'Facebook du club' => 'https://www.facebook.com/tc.longages.31', 'ADOC' => 'https://adoc.app.fft.fr/adoc/', 'Ten’Up du club' => 'https://tenup.fft.fr/club/60310230'] as $label => $url) {
         if (($label === 'WhatsApp' && !in_array('whatsapp', $selectedChannels, TRUE)) || ($label === 'Facebook du club' && !in_array('facebook', $selectedChannels, TRUE))) { continue; }
         if ($label === 'ADOC' && strlen(mb_convert_encoding(self::message($row, FALSE), 'UTF-16LE', 'UTF-8')) / 2 > 2000) {
           $build['sharing']['ADOC'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Préparation ADOC indisponible : contenu supérieur à 2 000 caractères.'];
@@ -108,7 +110,8 @@ final class CommunicationController extends ControllerBase {
     return $build;
   }
 
-  public static function message(array $post, bool $title = TRUE): string {
+  public static function message(array $post, bool $title = TRUE, string $channel = 'site'): string {
+    $post = \Drupal\tcl_bureau\ChannelContent::forChannel($post, $channel);
     return implode("\n\n", array_values(array_filter([$title ? $post['title'] : '', $post['body'], $post['link']], static fn($value) => $value !== '')));
   }
 
@@ -139,6 +142,7 @@ final class CommunicationController extends ControllerBase {
     $build = $this->shell(TRUE);
     $posts = $this->repository->published();
     foreach ($posts as $row) {
+      $row = \Drupal\tcl_bureau\ChannelContent::forChannel($row, 'site');
       $build['post_' . $row['id']] = Link::fromTextAndUrl($row['title'], Url::fromRoute('tcl_bureau.public_post', ['post' => $row['id']]))->toRenderable();
     }
     if (!$posts) {
@@ -153,7 +157,7 @@ final class CommunicationController extends ControllerBase {
       throw new NotFoundHttpException();
     }
     $build = $this->shell(TRUE);
-    $build['article'] = $this->article($row, TRUE);
+    $build['article'] = $this->article(\Drupal\tcl_bureau\ChannelContent::forChannel($row, 'site'), TRUE);
     return $build;
   }
 
@@ -166,7 +170,7 @@ final class CommunicationController extends ControllerBase {
     if ($posts) {
       // The same publication query drives the banner and the public listing.
       // No draft, validation-only revision or withdrawn post is eligible.
-      $latest = $this->repository->published((int) $posts[0]['id']);
+      $latest = \Drupal\tcl_bureau\ChannelContent::forChannel($this->repository->published((int) $posts[0]['id']), 'site');
       $postUrl = Html::escape(Url::fromRoute('tcl_bureau.public_post', ['post' => $latest['id']])->toString());
       $body = preg_replace('/\s+/u', ' ', trim($latest['body']));
       $summary = mb_strlen($body) > 220 ? mb_substr($body, 0, 219) . '…' : $body;

@@ -25,7 +25,7 @@ Ordre confirmé par le responsable : réponses aux événements du club et nombr
 | Préproduction | Lot livré ; réponses et total vérifiés dans Chrome, aperçu mail vérifié. Google réel, réception du nouveau canal et mobile restent à qualifier. |
 | Mise en production | Exclue ; campagne réelle et ouverture restent à autoriser. |
 
-Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Accès inscription, miniatures et retrait du bloc bas développés et testés localement le 22 octobre ; nouveau candidat à qualifier en préproduction. Diagnostic tarifaire encore à faire.
+Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Accès inscription, miniatures et retrait du bloc bas livrés et vérifiés en préproduction le 22 octobre ; demande de lien remise selon cPanel, réception et utilisation personnelles à confirmer. Diagnostic tarifaire encore à faire.
 
 La campagne de recette existante reste partielle. Le mot de passe Artemis est désormais défini et confirmé ; les paragraphes datés antérieurs conservent l'historique.
 
@@ -403,3 +403,7 @@ Le cockpit regroupe les anciens dossiers dans les quatre phases communes. La pr�
 Évolution proposée pour la suite V2, après les invitations et notifications : création/édition avec un compte Bureau, miniature d’affiche et PDF au clic, événements récurrents avec exceptions, préparation de diffusion depuis l’événement. Aucun envoi automatique Facebook/WhatsApp ni changement de production autorisé par cette idée. Le choix de la source unique des événements et le raccordement à l’agenda existant restent à cadrer avant développement.
 
 La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+Complément du 22 octobre livré : connexion Google Contacts administrateur et bouton de réinitialisation. Consentement et lecture Google vérifiés en préproduction ; envoi depuis Google testé uniquement vers l’adresse famille ajoutée sur demande, accepté par le serveur et réception confirmée par le responsable. [État et preuves](data/google-accounts-verification.json).

@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-10-22
 owner: jpdandin
 tags:
   - decisions
@@ -735,3 +735,8 @@ Pour la recette demandée, le paquet ne remplace que les deux modules métier co
 ## Complément courriels de recette — 18 octobre
 
 Le 18 octobre, autoriser les courriels réels de recette uniquement pour les destinataires désignés en configuration privée et sur la préproduction TC. Conserver les informations personnelles fictives, le blocage du transport global et l’absence d’accusé au demandeur. Associer explicitement les comptes invités au fournisseur TC par UID et UUID, sans reconnaissance par email ; conserver le contrôle OAuth.
+
+
+## Personnalisation des communications — 22 octobre
+
+22 octobre — Courriels de participation : retenir HTML classique avec alternative texte et confirmation web personnelle, pour éviter la dépendance aux clients AMP et à leur enregistrement expéditeur. Réutiliser les jetons existants, remplacer leur génération uniquement au nouvel envoi, conserver toute réponse préalable ; aucun enregistrement par ouverture de lien.

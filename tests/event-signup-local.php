@@ -37,6 +37,16 @@ try {
  $context=Replies::context($matches[1]);sc('Request does not register attendance',$context['answer']==='unknown');
  Replies::respond($matches[1],'yes',2,$context['revision'],$context['eventRevision']);sc('Personal email enables response',Replies::totals(Replies::read($actor,$event,$date),1)['people']===2);
  Replies::requestLink($post,'Fictif',$email);sc('Repeated request throttled',count(Drupal::state()->get('system.test_mail_collector',[]))===count($messages));
+ $sent=MemberMail::send($actor,$snapshot);$messages=Drupal::state()->get('system.test_mail_collector',[]);$direct=end($messages);
+ sc('Reviewed mail sent once with multipart alternatives',$sent['accepted']===1&&str_starts_with($direct['headers']['Content-Type'],'multipart/alternative'));
+ preg_match_all('/Content-Transfer-Encoding: base64\r?\n\r?\n([A-Za-z0-9+\/=\r\n]+)(?=--tcl_)/',$direct['body'],$parts);
+ $plain=base64_decode(preg_replace('/\s/','',$parts[1][0]??''));$html=base64_decode(preg_replace('/\s/','',$parts[1][1]??''));
+ sc('Mail has three personal buttons and plain fallback',str_contains($html,'Je participe')&&str_contains($html,':no')&&str_contains($html,':maybe')&&str_contains($plain,':yes'));
+ preg_match('/reponse#([a-f0-9]{64}):yes/',$plain,$personal);sc('Direct link exists only at send',isset($personal[1]));
+ $directContext=Replies::context($personal[1]);sc('New invitation preserves prior answer and count',$directContext['answer']==='yes'&&$directContext['count']===2);
+ try{Replies::context($matches[1]);$revoked=FALSE;}catch(Throwable){$revoked=TRUE;}sc('Previous token replaced',$revoked);
+ $beforeContext=Replies::read($actor,$event,$date);Replies::context($personal[1]);sc('Opening context never changes a response',Replies::read($actor,$event,$date)===$beforeContext);
+ sc('Repeated mail never regenerates token',MemberMail::send($actor,$snapshot)['skipped']===1&&Replies::context($personal[1])['count']===2);
  $current=Replies::read($actor,$event,$date);Replies::configure($actor,$event,$date,$current['revision'],FALSE,'2027-11-17',$post);
  sc('Closed event removes signup URL',Replies::registrationUrl($post)==='');
  try{MemberMail::send($actor,$snapshot);$rejected=FALSE;}catch(Symfony\Component\HttpKernel\Exception\ConflictHttpException){$rejected=TRUE;}sc('Closure invalidates prepared email',$rejected);

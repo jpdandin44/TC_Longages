@@ -54,3 +54,10 @@ Exclue. Le raccordement des écritures à Google, ses droits et la migration év
 ## Qualification du 20 octobre
 
 Le premier paquet de treize fichiers et son correctif ont été installés et leurs empreintes vérifiées. La recette hébergée a révélé deux défauts : script Ambiance conservé dans le cache du navigateur et service du formulaire non restauré après « Vérifier les dates ». Correction livrée et vérifiée : adresses des ressources liées à leur empreinte et propriété du service compatible avec la sérialisation Drupal. Le test HTTP enregistre le formulaire renvoyé par l’aperçu, sans rouvrir un formulaire neuf. Aucun calendrier Google ni donnée de production modifié.
+
+
+## Lier une actualité aux inscriptions
+
+En préproduction, publier l’actualité de recette, puis ouvrir l’événement dans Agenda de recette → Participants et réponses. Choisir la date, ouvrir les réponses, fixer la date limite et sélectionner « Actualité avec inscription ». Enregistrer l’ouverture. Une actualité doit correspondre à une seule occurrence ouverte.
+
+L’accueil, l’article et l’aperçu courriel présentent alors le lien d’inscription. Le participant demande son lien personnel par email, puis répond depuis ce lien. En recette, seules les adresses autorisées reçoivent un message. La demande seule ne compte pas comme présence. La miniature reprend l’affiche déjà enregistrée dans la communication, y compris la première page d’un PDF.

@@ -47,6 +47,13 @@ final class CommunicationForm extends FormBase {
     $form['category'] = ['#type' => 'select', '#title' => 'Catégorie', '#options' => CommunicationRepository::CATEGORIES, '#default_value' => $record['category'] ?? 'club'];
     $form['channels'] = ['#type' => 'checkboxes', '#title' => 'Canaux de publication', '#options' => CommunicationRepository::CHANNELS, '#default_value' => explode(',', $record['channels'] ?? 'site'), '#description' => 'Choisissez au moins un canal. Facebook et WhatsApp : partage manuel après validation. Enregistrer ne publie rien.'];
     $form['body'] = ['#type' => 'textarea', '#title' => 'Texte de l’actualité', '#description' => '5 000 caractères maximum. Facultatif si une affiche est jointe.', '#default_value' => $record['body'] ?? ''];
+    $variants = \Drupal\tcl_bureau\ChannelContent::decode($record['channel_texts'] ?? NULL);
+    $form['channel_copy'] = ['#type' => 'vertical_tabs', '#title' => 'Personnaliser par canal'];
+    foreach (CommunicationRepository::CHANNELS as $channel => $label) {
+      $form['copy_' . $channel] = ['#type' => 'details', '#title' => $label, '#group' => 'channel_copy', '#tree' => TRUE];
+      $form['copy_' . $channel]['title'] = ['#type' => 'textfield', '#title' => $channel === 'email' ? 'Objet du courriel' : 'Titre — ' . $label, '#maxlength' => 160, '#default_value' => $variants[$channel]['title'] ?? '', '#description' => 'Laissez vide pour reprendre le titre commun.'];
+      $form['copy_' . $channel]['body'] = ['#type' => 'textarea', '#title' => 'Texte — ' . $label, '#default_value' => $variants[$channel]['body'] ?? '', '#description' => 'Laissez vide pour reprendre le texte commun. 5 000 caractères maximum. L’affiche et les informations de l’événement restent communes.'];
+    }
     $form['link'] = ['#type' => 'url', '#title' => 'Lien utile', '#maxlength' => 1000, '#description' => 'Facultatif. Une adresse HTTPS complète.', '#default_value' => $record['link'] ?? ''];
     $form['poster'] = ['#type' => 'file', '#title' => 'Image ou affiche', '#description' => 'PDF, JPEG, PNG ou WebP, 8 Mo maximum. PDF conservé avec aperçu de la première page ; images préparées en JPEG de 1 600 pixels et 500 ko maximum.', '#attributes' => ['accept' => 'application/pdf,image/jpeg,image/png,image/webp']];
     if (!empty($record['image_data'])) {
@@ -87,6 +94,10 @@ final class CommunicationForm extends FormBase {
     $selected = array_values(array_filter((array) $form_state->getValue('channels', [])));
     $form_state->setValue('channels', implode(',', $selected));
     $values = $form_state->getValues();
+    $copy = [];
+    foreach (CommunicationRepository::CHANNELS as $channel => $label) { $copy[$channel] = $values['copy_' . $channel] ?? []; }
+    $values['channel_texts'] = json_encode($copy, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+    $form_state->setValue('channel_texts', $values['channel_texts']);
     foreach (CommunicationRepository::FIELDS as $field) {
       if (is_scalar($values[$field] ?? NULL)) {
         $values[$field] = trim((string) $values[$field]);
@@ -101,6 +112,10 @@ final class CommunicationForm extends FormBase {
 
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $values = $form_state->getValues();
+    $copy = [];
+    foreach (CommunicationRepository::CHANNELS as $channel => $label) { $copy[$channel] = $values['copy_' . $channel] ?? []; }
+    $values['channel_texts'] = json_encode($copy, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+    $form_state->setValue('channel_texts', $values['channel_texts']);
     $values['channels'] = implode(',', array_values(array_filter((array) ($values['channels'] ?? []))));
     try {
       $id = $this->repository->save($this->currentUser(), $this->postId, $values, (string) $form_state->getValue('submission_key'), (int) $form_state->getValue('revision'), $form_state->get('prepared_poster'), (bool) $form_state->getValue('remove_image'));

@@ -10,11 +10,19 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Envoi Google Contacts — 22 octobre, suite autorisée
+
+À la demande explicite du responsable, `familledandin@gmail.com` a été créé (recherche préalable sans résultat) et ajouté au libellé `Adhérents_2026_2027`, désormais 22 contacts. Préparation depuis Google, communication fictive n°3 révision 5 : seule cette adresse sélectionnée, 20 exclusions affichées, confirmation relue. Un message accepté par le serveur, zéro échec ; trace « Accepté par le serveur » vérifiée ensuite sans renvoi. Réception confirmée par le responsable le 22 octobre. Lien `/actualites/3/inscription` contrôlé : événement Beaujolais fictif, demande du lien personnel pour répondre. Aucun formulaire supplémentaire soumis, aucune réponse personnelle remplacée. Aucun changement de production, aucune extension de la liste d’adresses autorisées. Les paragraphes ci-dessous conservent la qualification initiale antérieure à cet essai. [Preuves courantes](../data/google-accounts-verification.json).
+
 ## Raccordement Google Contacts — 22 octobre
 
-People API et configuration OAuth confirmées actives dans le projet `tc-longages-preproduction`. Conditions acceptées par le responsable. Client Web prérempli avec retour exclusif `/bureau/contacts-google/retour` ; création personnelle et fichier privé attendus. Connexion administrative développée localement (état/PKCE, compte exact, libellé exact, jeton chiffré), 15 contrôles simulés réussis ; 14 régressions canal mail réussies. Aucun accès People API réel depuis le site, aucun import/campagne, production exclue.
+People API et configuration OAuth actives dans `tc-longages-preproduction`, conditions acceptées personnellement. Client Web créé personnellement et JSON téléchargé, vérifié puis installé dans le dossier privé de préproduction ; retour exclusif `https://preprod.tclongages.fr/bureau/contacts-google/retour`. Sauvegarde des paramètres et copie restaurée vérifiées ; aucun secret dans Git ou les sorties. Compte club vérifié comme seul utilisateur test après validation personnelle. Consentement personnel accordé, retour Bureau réussi : 21 contacts dans le libellé exact. Lecture effective vérifiée en préparant la communication fictive n°3 révision 5 depuis Google : aperçu et lien inscription présents, 20 exclusions affichées après normalisation/filtrage, zéro destinataire de recette éligible, envoi désactivé. Aucune adresse réelle ni liste d’autorisation modifiée. Aucun contact importé ni campagne. Ne pas recréer de client ni réaccepter les conditions.
 
-Demande complémentaire : bouton explicite de réinitialisation dans Gestion des comptes, développé localement avec courriel adapté. 28 contrôles service et 19 HTTP réussis, aucun envoi réel. Prochaine étape : candidat CI et livraison ciblée des deux compléments, puis configuration privée Google et consentement personnel.
+Code Google et action de réinitialisation livrés : source `8272e9f`, manifeste `3095317`, CI 39838253522 six réussites, dix fichiers vérifiés. Sauvegarde six fichiers et quatre créations inventoriées. Correction du libellé de confirmation détectée lors du contrôle réel, corrigée avec source `369a2f3`, manifeste `3f69a69`, CI 39839326721 six réussites, un fichier sauvegardé/restauré en copie puis installé et empreinte vérifiée. 28 tests service, 20 HTTP comptes, 15 Google simulé et 14 mail réussis. Voir [preuves courantes](../data/google-accounts-verification.json).
+
+Chrome préproduction : bouton et confirmation de réinitialisation vérifiés ; essai Artemis vers l’adresse famille autorisée accepté par le serveur. Réception non confirmée, aucun mot de passe changé. Écran Google accessible depuis les comptes, identifiants installés et lecture People API réelle vérifiée. Aucun envoi via Google. PR 24 brouillon, checklist humaine non cochée, aucun merge ni production. Serveurs locaux de recette arrêtés.
+
+Présentation finale du bouton de réinitialisation livrée et vérifiée : source `58a1c65`, manifeste `19dacc1`, CI `39840747992` réussie. Sauvegarde/restauration de contrôle et empreinte du fichier vérifiées. Bouton bordeaux séparé du lien de création ; aucun nouvel envoi après la retouche.
 
 ## Complément du 22 octobre — accès inscription et affiche
 

@@ -594,3 +594,12 @@ Les invitations Bureau utilisent le fournisseur TC existant et un magasin privé
 ## Entrée événement depuis les communications
 
 L’occurrence privée référence une actualité publiée par `registration_post`. Le rendu public et le corps mail calculent la même URL d’inscription, sans secret. Le formulaire public vérifie session et limites de demandes, puis le transport de recette envoie le lien individuel ; la réponse reste dans le service de participation existant. Aucune migration de schéma ni connexion Google supplémentaire.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+La connexion Google Contacts de recette utilise un formulaire administrateur, un état de session/PKCE et un retour HTTPS fixe. Le jeton est chiffré dans la base privée avec le sel Drupal ; client/secret restent dans les paramètres privés. Voir [le contrat](api/participations-courriels.md).
+
+
+## Personnalisation des communications — 22 octobre
+
+Les variantes textuelles sont conservées dans la colonne JSON texte nullable `tcl_bureau_post.channel_texts`, dans la même révision et la même écriture que le brouillon. Mise à jour additive 11004 ; NULL reprend les textes communs. Courriel multipart texte/HTML via transport autorisé existant, HTML construit uniquement avec textes échappés. Jetons de réponse personnels émis à l’envoi, fragment URL avec présélection ; aucune réponse enregistrée par GET.

@@ -829,3 +829,16 @@ Correction de l’écran Saison et tarifs signalée en recette : colonnes ajust�
 Aperçus et tarifs livrés (244 fichiers vérifiés), invitations/notifications installées et destinataires configurés en privé. Sauvegarde/restauration et six contrôles techniques CI réussis. Recette navigateur et envois réels non effectués ; catalogue hébergé encore en brouillon. Production exclue.
 
 - 22 octobre : compléments locaux en qualification — connexion Contacts Google administrateur en lecture seule et action explicite de réinitialisation du mot de passe depuis le Bureau.
+
+
+## 22 octobre — connexion Google Contacts qualifiée en préproduction
+
+Consentement personnel et lecture effective du libellé `Adhérents_2026_2027` vérifiés : 21 contacts annoncés, aperçu préparé avec filtrage de recette. Aucun destinataire éligible et envoi désactivé ; aucune modification des contacts, aucun courriel ni changement de production. Voir [les preuves](data/google-accounts-verification.json).
+
+
+Complément de recette du 22 octobre : adresse famille ajoutée au libellé sur demande explicite (22 contacts). Un courriel Google-source envoyé uniquement à cette adresse, accepté par le serveur ; réception à confirmer. Lien vers l’inscription fictive vérifié. Voir le reçu Google et comptes ; aucune modification de production.
+
+
+## Personnalisation des communications — 22 octobre
+
+22 octobre — Développement local des variantes de titres/textes Site, Facebook, WhatsApp et Courriel, aperçus et copie par canal. Courriels HTML avec boutons personnels Oui/Non/Incertain, nombre de personnes en liste et confirmation web. Qualification en cours, livraison non encore attestée.

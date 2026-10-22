@@ -59,8 +59,21 @@ Tests : `event-signup-local.php` (14 contrôles), `event-signup-http.py` (12 con
 
 ## Connexion administrateur Google — 22 octobre
 
-Implémentation locale à qualifier en préproduction : `/bureau/contacts-google`, accessible uniquement à l’administrateur avec preuve OAuth Bureau ; lien depuis Gestion des comptes. Le formulaire POST protégé amorce une autorisation Google avec état de session à usage unique (dix minutes), identité administrateur, empreinte de configuration et PKCE S256. Le retour HTTPS est fixe et limité à la préproduction. Les portées demandées sont openid, email et contacts.readonly : l’adresse vérifiée doit être celle du club ; aucun accès Gmail.
+Code livré en préproduction ; connexion Google réelle en attente des identifiants et du consentement : `/bureau/contacts-google`, accessible uniquement à l’administrateur avec preuve OAuth Bureau ; lien depuis Gestion des comptes. Le formulaire POST protégé amorce une autorisation Google avec état de session à usage unique (dix minutes), identité administrateur, empreinte de configuration et PKCE S256. Le retour HTTPS est fixe et limité à la préproduction. Les portées demandées sont openid, email et contacts.readonly : l’adresse vérifiée doit être celle du club ; aucun accès Gmail.
 
 Le retour recherche le libellé exact dans People API (dix pages de cent groupes maximum), refuse absence, ambiguïté ou plus de 500 contacts. Le jeton de renouvellement est chiffré avec sodium secretbox et une clé dérivée du sel privé Drupal, puis stocké dans la collection privée `tcl_bureau.google_contacts`. Aucun jeton en clair dans Git, formulaire ou message. Changement de client/secret/libellé invalide la lecture du jeton. Les erreurs du fournisseur restent génériques. La connexion ne déclenche ni import ni envoi ; le filtrage de recette du canal courriel est inchangé.
 
 Google en mode Test peut faire expirer l’autorisation après sept jours : prévoir une reconnexion. Le passage de l’application Google en publication reste hors de ce lot. Sources : [OAuth Google](https://developers.google.com/identity/protocols/oauth2), [audience de test](https://support.google.com/cloud/answer/15549945).
+
+
+### Qualification du 22 octobre — complément
+
+État courant et preuves : [reçu Google et comptes](../data/google-accounts-verification.json). Configuration Google privée installée et consentement personnel accordé : connexion et lecture effective vérifiées en préproduction, libellé de 21 contacts. Aperçu Google réussi, 20 exclusions affichées après normalisation/filtrage, zéro destinataire éligible, envoi désactivé. Aucun courriel envoyé par ce canal. Bouton de réinitialisation séparé et stylé livré, CI 39840747992 réussie ; aucun nouvel envoi pour cette retouche. Production inchangée.
+
+
+Complément de recette du 22 octobre : adresse famille ajoutée au libellé sur demande explicite (22 contacts). Un courriel Google-source envoyé uniquement à cette adresse, accepté par le serveur ; réception à confirmer. Lien vers l’inscription fictive vérifié. Voir le reçu Google et comptes ; aucune modification de production.
+
+
+## Personnalisation des communications — 22 octobre
+
+Les courriels de communication peuvent porter trois URL personnelles `/evenements/reponse#JETON:yes|no|maybe`. Le jeton reste en fragment puis est effacé de la barre ; la présélection est appliquée uniquement au premier contexte. Le contexte POST ne modifie pas la réponse ; seule la confirmation avec CSRF, révisions et total 1–99 si Oui écrit. L’aperçu reste sans jeton ; la génération lors de chaque nouvel envoi invalide l’ancien lien en conservant la réponse. HTML échappé, alternative texte, transport existant et garde de recette inchangés.

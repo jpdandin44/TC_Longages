@@ -63,6 +63,19 @@ Habillage dédié aux routes de connexion, demande de réinitialisation, confirm
 
 ## Action gestionnaire explicite — 22 octobre
 
-Ajout local de « Envoyer un lien de réinitialisation du mot de passe » dans la fiche d’un compte actif, distinct de l’invitation initiale. Route `/bureau/comptes/{user}/reinitialiser-mot-de-passe` et confirmation avec adresse enregistrée. Les modifications de fiche doivent être enregistrées avant l’envoi. Même transport privé account_invitation, mêmes contrôles OAuth/droits, liste de recette, verrou et limite de cinq minutes. La réinitialisation exige une identité TC déjà liée, n’ajoute aucune association et ne change pas le mot de passe. Objet et texte du courriel distincts ; trace privée password_reset par compte. Aucun envoi au chargement de la fiche.
+Ajout livré en préproduction de « Envoyer un lien de réinitialisation du mot de passe » dans la fiche d’un compte actif, distinct de l’invitation initiale. Route `/bureau/comptes/{user}/reinitialiser-mot-de-passe` et confirmation avec adresse enregistrée. Les modifications de fiche doivent être enregistrées avant l’envoi. Même transport privé account_invitation, mêmes contrôles OAuth/droits, liste de recette, verrou et limite de cinq minutes. La réinitialisation exige une identité TC déjà liée, n’ajoute aucune association et ne change pas le mot de passe. Objet et texte du courriel distincts ; trace privée password_reset par compte. Aucun envoi au chargement de la fiche.
 
-Contrôles locaux : 28 service mail et 19 HTTP invitation/réinitialisation réussis, collecteur fictif seulement. Livraison et vérification hébergée encore à effectuer pour cette action ; ne pas confondre avec le correctif natif livré le 21 octobre.
+Contrôles locaux : 28 service mail et 20 HTTP invitation/réinitialisation réussis, collecteur fictif seulement. Action vérifiée dans Chrome en préproduction ; essai Artemis accepté par le serveur, réception non confirmée. Aucun mot de passe changé.
+
+### Livraison ciblée du complément
+
+Le candidat source `8272e9f` et son manifeste `3095317` regroupent l’action de réinitialisation et le raccordement Google Contacts. [Preuves et état courant](../data/google-accounts-verification.json). Archive privée `google-reset-8272e9f.zip`, dix fichiers applicatifs ; opérateur limité à `/home2/daje5127/tcl-preproduction/drupal`, aucun changement de transport ni migration. Sodium doit être disponible. Six fichiers sauvegardés et restaurés dans des copies vérifiées, quatre nouveaux fichiers inventoriés avant installation.
+
+L’opérateur privé `google-reset-8272e9f/operator.py` accepte prepare/install/verify/rollback. Installation refusée si la cible diverge de la sauvegarde. Retour arrière refusé si les fichiers livrés ont été modifiés ensuite ; il restaure les six fichiers antérieurs et retire seulement les quatre ajouts inventoriés. Les comptes et les données privées sont conservés. Le retour arrière complet n’a pas été exécuté. La configuration Google privée et le consentement sont des étapes séparées de la livraison du code.
+
+Correction de libellé après contrôle hébergé : archive `reset-label-369a2f3.zip`, un formulaire, sauvegarde et copie restaurée vérifiées ; CI 39839326721 six réussites sur manifeste `3f69a69`. Opérateur privé `reset-label-369a2f3/operator.py`, mêmes commandes et contraintes. Pour revenir avant le lot complet, annuler d’abord ce correctif, puis le paquet précédent ; chacun refuse une dérive ultérieure. Aucun retour arrière exécuté. Les preuves portent les deux empreintes et candidats.
+
+
+### Qualification du 22 octobre — complément
+
+État courant et preuves : [reçu Google et comptes](../data/google-accounts-verification.json). Configuration Google privée installée et consentement personnel accordé : connexion et lecture effective vérifiées en préproduction, libellé de 21 contacts. Aperçu Google réussi, 20 exclusions affichées après normalisation/filtrage, zéro destinataire éligible, envoi désactivé. Aucun courriel envoyé par ce canal. Bouton de réinitialisation séparé et stylé livré, CI 39840747992 réussie ; aucun nouvel envoi pour cette retouche. Production inchangée.

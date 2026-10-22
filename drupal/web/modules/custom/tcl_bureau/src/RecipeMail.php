@@ -17,7 +17,7 @@ final class RecipeMail {
   public static function inputAllowed(string $email): bool {
     return (bool) filter_var($email, FILTER_VALIDATE_EMAIL) && (str_ends_with($email, '@example.invalid') || self::allowed($email));
   }
-  public static function send(string $key, string $to, string $subject, string $body): bool {
+  public static function send(string $key, string $to, string $subject, string $body, ?string $html = NULL): bool {
     if (!self::allowed($to) || !in_array($key, ['account_invitation', 'registration', 'member_communication'], TRUE)) { return FALSE; }
     $manager = \Drupal::service('plugin.manager.mail');
     $plugin = $manager->getInstance(['module' => 'tcl_bureau', 'key' => $key]);
@@ -25,6 +25,16 @@ final class RecipeMail {
     $local = in_array(\Drupal::request()->getHost(), ['127.0.0.1', 'localhost'], TRUE);
     if (get_class($plugin) !== \Drupal\Core\Mail\Plugin\Mail\PhpMail::class && !($local && get_class($plugin) === \Drupal\Core\Mail\Plugin\Mail\TestMailCollector::class)) { return FALSE; }
     try {
+      if ($html !== NULL && $key === 'member_communication') {
+        // Let Drupal apply the configured sender and mail hooks without sending yet.
+        $message = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body], NULL, FALSE);
+        if (($message['send'] ?? TRUE) === FALSE) { return FALSE; }
+        $boundary = 'tcl_' . bin2hex(random_bytes(18));
+        $message['headers']['Content-Type'] = 'multipart/alternative; boundary="' . $boundary . '"';
+        $message['headers']['Content-Transfer-Encoding'] = '7bit';
+        $message['body'] = '--' . $boundary . "\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($body), 76, "\r\n") . '--' . $boundary . "\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode('<!doctype html><html lang="fr"><body>' . $html . '</body></html>'), 76, "\r\n") . '--' . $boundary . "--\r\n";
+        return $plugin->mail($message);
+      }
       $result = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body]);
       return ($result['result'] ?? FALSE) === TRUE;
     }

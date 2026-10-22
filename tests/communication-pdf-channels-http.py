@@ -22,7 +22,7 @@ def run():
     bureau, anonymous = oauth.Session(), oauth.Session()
     check('Bureau OAuth connects', bureau.oauth()[0] == 303)
     path = '/bureau/communication/ajouter'
-    values = {'title': 'Recette canaux et PDF ' + secrets.token_hex(4), 'category': 'club', 'body': 'Essai fictif', 'link': '', 'image_alt': 'Affiche de recette', 'tenup_visible': 'no', 'channels[whatsapp]': 'whatsapp'}
+    values = {'title': 'Recette canaux et PDF ' + secrets.token_hex(4), 'category': 'club', 'body': 'Essai fictif', 'link': '', 'image_alt': 'Affiche de recette', 'tenup_visible': 'no', 'channels[whatsapp]': 'whatsapp', 'copy_whatsapp[title]':'Titre WhatsApp spécifique', 'copy_whatsapp[body]':'Invitation courte WhatsApp', 'copy_facebook[body]':'Texte Facebook distinct'}
     page = bureau.get(path)[1]
     check('Three channel choices shown', all('channels[' + key + ']' in page for key in ['site', 'facebook', 'whatsapp']))
     missing = dict(values); missing.pop('channels[whatsapp]')
@@ -37,6 +37,7 @@ def run():
     check('Draft validates', action('validate')[0] == 303)
     review = bureau.get(base + '/revue')[1]
     check('Approved message offers explicit manual copy preparation', 'data-copy-message' in review and 'data-copy-status' in review and 'sharing-tools.js' in review)
+    check('Saved WhatsApp override shown in preview and copy', 'Titre WhatsApp spécifique' in review and 'Invitation courte WhatsApp' in review and 'Texte Facebook distinct' not in review)
     check('Only selected social action offered', 'Ouvrir WhatsApp' in review and 'Ouvrir Facebook' not in review and 'Publier sur le site' not in review)
     check('Direct site publication refused', action('publish')[0] != 303)
     check('Private article remains absent', anonymous.get('/actualites/' + post)[0] == 404)

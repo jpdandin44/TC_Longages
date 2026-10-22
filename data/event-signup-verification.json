@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-22T09:46:25.117905+00:00",
-  "status": "local_verified",
+  "checkedAt": "2026-10-22T09:55:43.611782+00:00",
+  "status": "preproduction_delivered_verified",
   "productionTouched": false,
-  "realMailSent": false,
+  "realMailSent": true,
   "localChecks": {
     "signupService": 14,
     "signupHttp": 12,
@@ -11,11 +11,138 @@
     "mailService": 14,
     "mailHttp": 12
   },
-  "preproductionDelivered": false,
+  "preproductionDelivered": true,
   "target": "https://preprod.tclongages.fr",
   "remaining": [
-    "hosted visual and workflow checks",
-    "mail receipt confirmation"
+    "Mobile visual check",
+    "Official Beaujolais details and Google Contacts configuration (outside this increment)"
   ],
-  "contract": "api/participations-courriels.md"
+  "contract": "api/participations-courriels.md",
+  "iterationId": "tcl-v2-recette-20261018",
+  "owner": "jpdandin",
+  "stage": "preproduction",
+  "candidate": {
+    "sourceSha": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+    "artifactSha256": "301ba7199283cc431dfee4b1b27e90fb654ef7b029efff28d7e1fee6164b6b5f"
+  },
+  "manifestCommit": "ee0cead3eeb5f7341cdd0b23f255e3e7e3a04656",
+  "ciRun": "39757966522",
+  "blockers": [],
+  "checks": [
+    {
+      "kind": "local",
+      "status": "passed",
+      "sourceSha": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+      "artifactSha256": "301ba7199283cc431dfee4b1b27e90fb654ef7b029efff28d7e1fee6164b6b5f",
+      "observedAt": "2026-10-22T09:49:50.193706+00:00",
+      "evidence": "14 signup service +12 HTTP; flash 15/28 and mail14/12 passed"
+    },
+    {
+      "kind": "documentation",
+      "status": "passed",
+      "sourceSha": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+      "artifactSha256": "301ba7199283cc431dfee4b1b27e90fb654ef7b029efff28d7e1fee6164b6b5f",
+      "observedAt": "2026-10-22T09:49:50.193706+00:00",
+      "evidence": "Contract, requirements, architecture, roadmap, changelog and resumption updated"
+    },
+    {
+      "kind": "ci",
+      "status": "passed",
+      "sourceSha": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+      "artifactSha256": "301ba7199283cc431dfee4b1b27e90fb654ef7b029efff28d7e1fee6164b6b5f",
+      "observedAt": "2026-10-22T09:52:08.094955+00:00",
+      "evidence": "Six jobs success, CI39757966522 on ee0cead3eeb5f7341cdd0b23f255e3e7e3a04656"
+    }
+  ],
+  "targets": {
+    "preproduction": {
+      "id": "preprod.tclongages.fr",
+      "ready": true,
+      "isolated": true,
+      "observedAt": "2026-10-22T09:49:50.193706+00:00",
+      "evidence": "Same preproduction root confirmed through active cPanel; scoped six-file archive uploaded, Chrome Bureau accessible."
+    }
+  },
+  "approvals": [
+    {
+      "scope": "preproduction",
+      "target": "preprod.tclongages.fr",
+      "status": "approved",
+      "actor": "jpdandin",
+      "source": "user_chat",
+      "sourceSha": "1b01be2d30bc2a9c2b662d1d97e978c03c167731",
+      "artifactSha256": "301ba7199283cc431dfee4b1b27e90fb654ef7b029efff28d7e1fee6164b6b5f",
+      "recordedAt": "2026-10-22T09:49:50.193706+00:00",
+      "evidence": "User requests signup links in emails and homepage news with poster thumbnails, preproduction only."
+    }
+  ],
+  "backups": [
+    {
+      "id": "signup-1b01be2",
+      "target": "preprod.tclongages.fr",
+      "status": "verified",
+      "restoreStatus": "passed",
+      "observedAt": "2026-10-22T09:49:50.193706+00:00",
+      "evidence": "Five existing files backed up and restore copies hash-verified; one new file recorded; transport saved; no schema migration."
+    }
+  ],
+  "packageFiles": [
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php",
+      "sha256": "8a068cfc4f0661425ebb64238fa4d6464d3682c65b42bf3f8b90d7a20b619ec5"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/EventParticipation.php",
+      "sha256": "0b4304f0fac24a813716448a4730e3de559d9f932626533bc80259626191e9fd"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Form/EventParticipationForm.php",
+      "sha256": "797bdb8efe0d84e8073d86cf6d12b8f03cfc79d72094d41dd5d484cfbaa22b50"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/Form/EventSignupForm.php",
+      "sha256": "7d35de1a05ef52f7ecf83d1f7b67711fd0d816cc65e656e7bb06e5f8b7fe67bb"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/src/MemberMail.php",
+      "sha256": "1bffa28a5e2267441148b05bc9d818ec222b885ed440f3aad2e60176dcc2b7ab"
+    },
+    {
+      "path": "web/modules/custom/tcl_bureau/tcl_bureau.routing.yml",
+      "sha256": "d8eccdb053e1ea09c3a6d4584df4387043dbd7e2b04ef944d0f4d0276c36a7f3"
+    }
+  ],
+  "hostedChecks": {
+    "sixHashesMatch": true,
+    "homepageExistingPdfThumbnail": true,
+    "bottomDuplicateAbsent": true,
+    "homepageSignupLink": true,
+    "articleSignupLink": true,
+    "mailPreviewSignupLink": true,
+    "signupFormSubmitted": true,
+    "mailDeliveryCpanel": "Accepted 2026-10-22 11:52:11 Europe/Paris, support sender, authorized family recipe address",
+    "recipientReceiptConfirmed": true,
+    "humanUseOfPersonalLink": true,
+    "newImport": false,
+    "fictitiousPostId": 3,
+    "eventId": "5252aaf9d172c4927c96f57be6c711df",
+    "mobileVisualVerified": false,
+    "anonymousProtectionStatus": 401,
+    "receiptEvidence": "Confirmation explicite du responsable dans le chat le 22 octobre 2026 : Courriel reçu.",
+    "humanResponseObserved": {
+      "answer": "yes",
+      "people": 6,
+      "displayName": "Recette Lien Beaujolais",
+      "bureauTotal": 9,
+      "otherFictitiousPeople": 3,
+      "observedOn": "2026-10-22"
+    }
+  },
+  "documentationChecks": {
+    "canonicalViewsBuildAndCheck": "passed",
+    "v2ViewsBuildAndCheck": "passed",
+    "diffCheck": "passed",
+    "mandatoryStructure": "present",
+    "scope": "New increment documents and receipts; historical sources not globally reaudited"
+  }
 }

@@ -25,7 +25,9 @@ final class MemberMailForm extends FormBase {
       $form['preview'] = ['#type' => 'details', '#title' => 'Aperçu avant envoi', '#open' => TRUE];
       $form['preview']['source'] = ['#plain_text' => $form_state->get('source_label') . ' — Révision ' . $snapshot['revision'] . '. Exclus : ' . $snapshot['excluded'] . '.'];
       $form['preview']['subject'] = ['#type' => 'textfield', '#title' => 'Objet', '#value' => '[RECETTE PRÉPRODUCTION] ' . $snapshot['subject'], '#attributes' => ['readonly' => 'readonly']];
-      $form['preview']['body'] = ['#type' => 'textarea', '#title' => 'Message exact', '#value' => $snapshot['body'], '#attributes' => ['readonly' => 'readonly'], '#rows' => 10];
+      $form['preview']['body'] = ['#type' => 'textarea', '#title' => 'Version texte (liens personnels ajoutés à l’envoi)', '#value' => $snapshot['body'], '#attributes' => ['readonly' => 'readonly'], '#rows' => 10];
+      $form['preview']['visual'] = ['#markup' => \Drupal\Core\Render\Markup::create(MemberMail::html($row))];
+      $form['preview']['personal_help'] = ['#plain_text' => 'Aperçu sans lien personnel : les trois boutons deviennent actifs dans le courriel individuel. Leur ouverture ne modifie aucune réponse.'];
       $labels = ['not_attempted' => 'Non envoyé', 'accepted' => 'Accepté par le serveur', 'failed' => 'Échec — aucune relance automatique', 'pending' => 'Résultat incertain — aucune relance automatique'];
       $rows = [];
       foreach (MemberMail::history($this->currentUser(), $snapshot) as $entry) { $rows[] = [['data' => ['#plain_text' => $entry['email']]], $labels[$entry['status']]]; }

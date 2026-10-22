@@ -15,7 +15,7 @@ final class CommunicationRepository {
   public const CHANNELS = ['site' => 'Site internet', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'email' => 'Envoyer un mail aux adhérents'];
   public const CATEGORIES = ['club' => 'Vie du club', 'competition' => 'Compétitions', 'school' => 'École de tennis', 'event' => 'Événement'];
   public const STATUSES = ['draft' => 'Brouillon', 'validated' => 'Validée', 'published' => 'Publiée', 'archived' => 'Archivée'];
-  public const FIELDS = ['title', 'category', 'body', 'link', 'tenup_visible', 'image_alt', 'channels'];
+  public const FIELDS = ['title', 'category', 'body', 'link', 'tenup_visible', 'image_alt', 'channels', 'channel_texts'];
 
   public function __construct(private Connection $database, private TeamRepository $access) {}
 
@@ -60,12 +60,13 @@ final class CommunicationRepository {
       return $this->load($id, TRUE) ?? [];
     }
     // Never expose private images, authors or drafts in the public listing.
-    return $this->database->select('tcl_bureau_post', 'p')->fields('p', ['id', 'title', 'category', 'body', 'link', 'published_at'])
+    return $this->database->select('tcl_bureau_post', 'p')->fields('p', ['id', 'title', 'category', 'body', 'link', 'published_at', 'channel_texts'])
       ->condition('status', 'published')->condition('channels', '%site%', 'LIKE')->where('approved_revision = revision')->orderBy('published_at', 'DESC')->orderBy('id', 'DESC')->range(0, 100)->execute()->fetchAll(\PDO::FETCH_ASSOC);
   }
 
   public function validate(array $values, bool $hasImage): array {
     $errors = [];
+    try { ChannelContent::decode($values['channel_texts'] ?? '{}'); } catch (\InvalidArgumentException) { $errors['channel_texts'] = 'Textes par canal invalides ou trop longs.'; }
     $channelValue = $values['channels'] ?? 'site,facebook,whatsapp';
     $channels = is_string($channelValue) ? explode(',', $channelValue) : ['invalid'];
     if (!$channels || array_diff($channels, array_keys(self::CHANNELS)) || count($channels) !== count(array_unique($channels))) {
@@ -107,6 +108,7 @@ final class CommunicationRepository {
       throw new ConflictHttpException('Cette actualité n’est plus modifiable.');
     }
     $input['channels'] ??= $old['channels'] ?? 'site,facebook,whatsapp';
+    $input['channel_texts'] ??= $old['channel_texts'] ?? '{}';
     $data = [];
     foreach (self::FIELDS as $field) {
       $data[$field] = is_scalar($input[$field] ?? NULL) ? trim((string) $input[$field]) : '';

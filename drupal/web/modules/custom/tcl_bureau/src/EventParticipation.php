@@ -96,6 +96,21 @@ final class EventParticipation {
     $url = \Drupal\Core\Url::fromRoute('tcl_bureau.event_response', [], ['absolute' => TRUE])->toString() . '#' . $token;
     RecipeMail::send('member_communication', $email, 'Votre lien de participation — ' . $entry['title'], "Bonjour,\n\nVotre lien personnel pour répondre à cet événement de recette :\n" . $url . "\n\nJe participe / Je ne participe pas / Je ne sais pas encore. Si vous participez, indiquez le total, vous compris.\nLien valable sept jours, dans la limite de la clôture. Ne partagez pas ce lien. Si vous ne l’avez pas demandé, ignorez ce message.");
   }
+  /** Personal links are issued only during an explicitly authorized individual send. */
+  public static function mailLinks(AccountInterface $actor, int $post, string $email): array {
+    self::guard();
+    if (!RecipeMail::allowed($email)) { throw new AccessDeniedHttpException(); }
+    $entry = self::entry($post);
+    if (!$entry) { return []; }
+    self::manage($actor, $entry['id']);
+    $row = self::read($actor, $entry['id'], $entry['date']);
+    $name = $row['people'][hash('sha256', strtolower(trim($email)))]['name'] ?? 'Participant de recette';
+    $token = self::issue($entry['id'], $entry['date'], $name, $email);
+    $url = \Drupal\Core\Url::fromRoute('tcl_bureau.event_response', [], ['absolute' => TRUE])->toString();
+    $links = [];
+    foreach (['yes', 'no', 'maybe'] as $answer) { $links[$answer] = $url . '#' . $token . ':' . $answer; }
+    return $links;
+  }
   private static function locate(string $token): array {
     self::guard();
     if (!preg_match('/^[a-f0-9]{64}$/D', $token)) { throw new AccessDeniedHttpException(); }

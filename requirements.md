@@ -621,3 +621,17 @@ Présenter exactement quatre phases selon le skill commun. Regrouper les dossier
 Le responsable souhaite pouvoir créer les événements depuis un compte Bureau, afficher des miniatures des affiches, préparer leur diffusion et gérer les événements récurrents. Prévoir modification d’une occurrence ou de la série, exceptions et fuseau horaire. Fonctionnalités proposées, non implémentées ; source unique et articulation avec le calendrier actuel à déterminer. Préserver les partages manuels et la validation avant diffusion.
 
 La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+Depuis Gestion des comptes, proposer une action explicite de réinitialisation distincte de la première invitation, avec confirmation du destinataire enregistré et sans changer le mot de passe avant l’action personnelle. Connecter Google Contacts du club en lecture seule au libellé confirmé, uniquement en préproduction. Voir [le contrat](api/participations-courriels.md).
+
+
+## Réponse à un événement depuis le courriel — idée du 22 octobre
+
+Besoin exprimé : choix Je participe / Je ne participe pas (conserver aussi Incertain) et nombre de personnes directement dans le corps du mail. Étude uniquement, non implémenté et choix technique non validé. AMP for Email permet des formulaires sur les clients compatibles, avec enregistrement expéditeur Gmail et solution de repli nécessaires. Proposition plus compatible : boutons personnels dans le courriel ouvrant une page de réponse préremplie, nombre de personnes puis confirmation ; aucune mutation par simple ouverture de lien. Source : https://developers.google.com/workspace/gmail/ampemail/register .
+
+
+## Personnalisation des communications — 22 octobre
+
+Choix validé le 22 octobre : implémenter les textes et aperçus distincts par canal, puis le courriel classique HTML avec trois boutons personnels et nombre de personnes sur page de confirmation. Aucun AMP ni procédure d’enregistrement AMP Google. Préproduction seulement ; partage social manuel et liste des adresses de recette conservés.

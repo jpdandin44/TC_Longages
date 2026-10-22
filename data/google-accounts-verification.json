@@ -1,0 +1,288 @@
+{
+  "iterationId": "tcl-v2-recette-20261018",
+  "owner": "jpdandin",
+  "stage": "preproduction",
+  "status": "preproduction_google_send_receipt_confirmed",
+  "productionTouched": false,
+  "realMailSent": true,
+  "siteGoogleConnected": true,
+  "candidate": {
+    "sourceSha": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+    "artifactSha256": "7c072bf2209c76f9a5e3f544137d5b9b519f414ae09e1749fd4b9b495a07d941"
+  },
+  "manifestCommit": "3095317fbc9abe97dbd0d59100463afdb77a2564",
+  "ciRun": "39838253522",
+  "blockers": [],
+  "checks": [
+    {
+      "kind": "local",
+      "status": "passed",
+      "sourceSha": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+      "artifactSha256": "7c072bf2209c76f9a5e3f544137d5b9b519f414ae09e1749fd4b9b495a07d941",
+      "observedAt": "2026-10-22T19:17:20.663891+00:00",
+      "evidence": "28 recipe mail service +19 invitation/reset HTTP +15 mocked Google connection +14 member mail regression"
+    },
+    {
+      "kind": "documentation",
+      "status": "passed",
+      "sourceSha": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+      "artifactSha256": "7c072bf2209c76f9a5e3f544137d5b9b519f414ae09e1749fd4b9b495a07d941",
+      "observedAt": "2026-10-22T19:17:20.663891+00:00",
+      "evidence": "Integration contract, reset workflow, handoff and tracker updated; framework build/check passed"
+    },
+    {
+      "kind": "ci",
+      "status": "passed",
+      "sourceSha": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+      "artifactSha256": "7c072bf2209c76f9a5e3f544137d5b9b519f414ae09e1749fd4b9b495a07d941",
+      "observedAt": "2026-10-22T19:21:19.111318+00:00",
+      "evidence": "All six jobs passed: https://github.com/jpdandin44/TC_Longages/actions/runs/39838253522 on manifest 3095317"
+    }
+  ],
+  "targets": {
+    "preproduction": {
+      "id": "https://preprod.tclongages.fr",
+      "ready": true,
+      "isolated": true,
+      "observedAt": "2026-10-22T19:17:20.663891+00:00",
+      "evidence": "cPanel private release scoped to /home2/daje5127/tcl-preproduction/drupal; production prohibited"
+    }
+  },
+  "approvals": [
+    {
+      "scope": "preproduction",
+      "target": "https://preprod.tclongages.fr",
+      "status": "approved",
+      "actor": "jpdandin",
+      "source": "user_chat",
+      "sourceSha": "8272e9f451f2a55616e57294a8ba9743cee96fb1",
+      "artifactSha256": "7c072bf2209c76f9a5e3f544137d5b9b519f414ae09e1749fd4b9b495a07d941",
+      "recordedAt": "2026-10-22T19:17:20.663891+00:00",
+      "evidence": "User requests continued Contacts connection and explicit reset action, preproduction only; existing scoped delivery authorization retained"
+    }
+  ],
+  "backups": [
+    {
+      "id": "google-reset-8272e9f/backup",
+      "target": "https://preprod.tclongages.fr",
+      "status": "verified",
+      "restoreStatus": "passed",
+      "observedAt": "2026-10-22T19:17:20.663891+00:00",
+      "evidence": "cPanel operator prepare: six existing files backed up and restored into hash-checked copies, four absent files inventoried; sodium prerequisite passed"
+    }
+  ],
+  "preproductionDelivered": true,
+  "initialDelivery": {
+    "fileCount": 10,
+    "hashesMatch": true,
+    "backupFiles": 6,
+    "newFiles": 4,
+    "resetConfirmationLabelIssue": true,
+    "googleMissingCredentialsDenied": true,
+    "observedAt": "2026-10-22T19:24:37.856971+00:00"
+  },
+  "correction": {
+    "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+    "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76",
+    "manifestCommit": "3f69a69598ff9564f3f5cc59ff488d7723cdad0d",
+    "ciRun": "39839326721",
+    "httpChecks": 20,
+    "delivered": true,
+    "hashesMatch": true,
+    "backupFiles": 1,
+    "newFiles": 0,
+    "observedAt": "2026-10-22T19:30:04.050651+00:00"
+  },
+  "correctionGate": {
+    "iterationId": "tcl-v2-recette-20261018",
+    "owner": "jpdandin",
+    "candidate": {
+      "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+      "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76"
+    },
+    "blockers": [],
+    "checks": [
+      {
+        "kind": "local",
+        "status": "passed",
+        "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+        "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76",
+        "observedAt": "2026-10-22T19:27:23.854586+00:00",
+        "evidence": "20 invitation/reset HTTP checks passed, explicit reset button wording asserted"
+      },
+      {
+        "kind": "documentation",
+        "status": "passed",
+        "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+        "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76",
+        "observedAt": "2026-10-22T19:27:23.854586+00:00",
+        "evidence": "Reset confirmation correction recorded in same V2 scope, source and recovery recorded"
+      },
+      {
+        "kind": "ci",
+        "status": "passed",
+        "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+        "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76",
+        "observedAt": "2026-10-22T19:28:32.740507+00:00",
+        "evidence": "All six jobs passed CI 39839326721 on 3f69a69598ff9564f3f5cc59ff488d7723cdad0d"
+      }
+    ],
+    "targets": {
+      "preproduction": {
+        "id": "https://preprod.tclongages.fr",
+        "ready": true,
+        "isolated": true,
+        "observedAt": "2026-10-22T19:17:20.663891+00:00",
+        "evidence": "cPanel private release scoped to /home2/daje5127/tcl-preproduction/drupal; production prohibited"
+      }
+    },
+    "approvals": [
+      {
+        "scope": "preproduction",
+        "target": "https://preprod.tclongages.fr",
+        "status": "approved",
+        "actor": "jpdandin",
+        "source": "user_chat",
+        "sourceSha": "369a2f3fba8b80d98b080ca0f34b07a6bff43cd3",
+        "artifactSha256": "79467a34b0291d917903df0dbce267775bf0ec82f27dcd9232202a4dead8dd76",
+        "recordedAt": "2026-10-22T19:17:20.663891+00:00",
+        "evidence": "User requests continued Contacts connection and explicit reset action, preproduction only; existing scoped delivery authorization retained"
+      }
+    ],
+    "backups": [
+      {
+        "id": "reset-label-369a2f3/backup",
+        "target": "https://preprod.tclongages.fr",
+        "status": "verified",
+        "restoreStatus": "passed",
+        "observedAt": "2026-10-22T19:27:23.854586+00:00",
+        "evidence": "cPanel prepare: one file backed up, hash-verified restored copy, no new file"
+      }
+    ]
+  },
+  "hostedChecks": {
+    "resetActionVisible": true,
+    "resetConfirmationLabelCorrect": true,
+    "resetRecipient": "familledandin@gmail.com",
+    "resetServerAccepted": true,
+    "resetReceiptConfirmed": false,
+    "passwordChangedByAgent": false,
+    "googleScreenVisible": true,
+    "missingGoogleCredentialsBlocked": true,
+    "googleConsentGranted": true,
+    "googleGroupCount": 21,
+    "googleReadPreviewVerified": true,
+    "googlePreviewExcluded": 20,
+    "googlePreviewEligibleRecipients": 1,
+    "googleSendDisabled": true,
+    "googleMailSent": true
+  },
+  "remaining": [
+    "Receipt of reset test email"
+  ],
+  "privateGoogleConfiguration": {
+    "installed": true,
+    "project": "tc-longages-preproduction",
+    "callback": "https://preprod.tclongages.fr/bureau/contacts-google/retour",
+    "backupAndRestoredCopyVerified": true,
+    "secretOutput": false,
+    "testAudienceEmpty": false,
+    "oauthAttempt": "Consent granted by user; callback accepted and 21 group contacts found",
+    "testUserVerified": "tclongages@gmail.com"
+  },
+  "presentationCorrection": {
+    "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+    "manifestCommit": "19dacc1d55333752cc671d9caf67e59792ca034e",
+    "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578",
+    "ciRun": "39840747992",
+    "delivered": true,
+    "hashesMatch": true,
+    "backupFiles": 1,
+    "restoredCopyVerified": true
+  },
+  "presentationGate": {
+    "iterationId": "tcl-v2-recette-20261018",
+    "owner": "jpdandin",
+    "candidate": {
+      "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+      "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578"
+    },
+    "blockers": [],
+    "checks": [
+      {
+        "kind": "local",
+        "status": "passed",
+        "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+        "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578",
+        "observedAt": "2026-10-22T19:37:58.941911+00:00",
+        "evidence": "PHP syntax passed, isolated one-file presentation change"
+      },
+      {
+        "kind": "documentation",
+        "status": "passed",
+        "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+        "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578",
+        "observedAt": "2026-10-22T19:37:58.941911+00:00",
+        "evidence": "Same reset action scope, presentation correction tracked"
+      },
+      {
+        "kind": "ci",
+        "status": "passed",
+        "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+        "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578",
+        "observedAt": "2026-10-22T19:37:58.941911+00:00",
+        "evidence": "All jobs passed CI 39840747992 on 19dacc1d55333752cc671d9caf67e59792ca034e"
+      }
+    ],
+    "targets": {
+      "preproduction": {
+        "id": "https://preprod.tclongages.fr",
+        "ready": true,
+        "isolated": true,
+        "observedAt": "2026-10-22T19:17:20.663891+00:00",
+        "evidence": "cPanel private release scoped to /home2/daje5127/tcl-preproduction/drupal; production prohibited"
+      }
+    },
+    "approvals": [
+      {
+        "scope": "preproduction",
+        "target": "https://preprod.tclongages.fr",
+        "status": "approved",
+        "actor": "jpdandin",
+        "source": "user_chat",
+        "sourceSha": "58a1c6568e08201b6a2a5dc8b89eb4ac595a73c3",
+        "artifactSha256": "3d6ea5bd382df3d17b578743d4fed5d09254f310c5a72f07adecf02710474578",
+        "recordedAt": "2026-10-22T19:17:20.663891+00:00",
+        "evidence": "User requests continued Contacts connection and explicit reset action, preproduction only; existing scoped delivery authorization retained"
+      }
+    ],
+    "backups": [
+      {
+        "id": "reset-style-58a1c65/backup",
+        "target": "https://preprod.tclongages.fr",
+        "status": "verified",
+        "restoreStatus": "passed",
+        "observedAt": "2026-10-22T19:37:58.941911+00:00",
+        "evidence": "Hosted prepare: one file backup and restored copy verified"
+      }
+    ]
+  },
+  "googleMailTest": {
+    "date": "2026-10-22",
+    "contactAddedByExplicitUserRequest": true,
+    "recipient": "familledandin@gmail.com",
+    "groupCountAfter": 22,
+    "source": "google",
+    "post": 3,
+    "revision": 5,
+    "excluded": 20,
+    "selectedRecipients": 1,
+    "serverAccepted": 1,
+    "failed": 0,
+    "receiptConfirmed": true,
+    "signupUrl": "https://preprod.tclongages.fr/actualites/3/inscription",
+    "signupPageVerified": true,
+    "productionTouched": false,
+    "receiptEvidence": "User confirmation in chat on 2026-10-22"
+  }
+}

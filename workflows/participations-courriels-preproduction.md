@@ -35,3 +35,17 @@ Retour arrière préparé, non exécuté : `operator.py rollback` vérifie d'abo
 ## Mise en production
 
 Exclue. PR 24 en brouillon, checklist humaine non cochée. Ni la CI ni la recette fictive ne valent acceptation métier ou autorisation de campagne. Restent notamment la configuration Google du site, les informations officielles Beaujolais, les liens individuels dans les courriels, l'entrée depuis l'accueil et la réception réelle du nouveau canal.
+
+
+## Complément inscription et miniature
+
+Le 22 octobre, `signup-1b01be2.zip` a été vérifié et installé dans le même dossier privé de préproduction, sous `signup-1b01be2`. Source, empreinte du paquet et six fichiers dans [le reçu inscription](../data/event-signup-verification.json). Même opérateur borné, ajusté à six fichiers : cinq sauvegardes/copies restaurées vérifiées, un nouveau formulaire. Aucun nouveau fichier statique ni migration. `verify` confirme les six empreintes ; `rollback` restaure les cinq et retire uniquement le nouveau formulaire sous contrôle d’empreintes. Les associations privées sont conservées. Ce retour arrière n’a pas été exécuté.
+
+La publication de recette n°3 reste visible sur la préproduction protégée, avec une association explicite à l’occurrence fictive du 19 novembre. Aucune affiche n’a été ajoutée à cette publication ; la miniature a été vérifiée sur le PDF Halloween déjà présent. Une demande de lien personnel a été envoyée uniquement à l’adresse de recette famille ; cPanel affiche une remise acceptée à 11 h 52, sans preuve de lecture. Ne pas lancer une campagne réelle ni modifier les informations officielles à partir de ces données fictives.
+
+
+## Livraison des variantes — préparation du 22 octobre
+
+Lot additionnel : colonne nullable `channel_texts` sur `tcl_bureau_post` (mise à jour 11004), classes et formulaire/aperçus, courriel multipart et réponse présélectionnée. Avant installation : sauvegarde des seuls fichiers remplacés, restauration en copies avec empreintes ; sauvegarde privée de la table des communications et de sa définition, copie dans une table temporaire puis comparaison intégrale. Vérifier la CI du candidat exact et la porte préproduction. Ne pas exécuter toutes les mises à jour Drupal : appeler uniquement 11004, idempotente, puis reconstruire les caches.
+
+Retour arrière : restaurer les fichiers exacts sauvegardés et vider les caches. Conserver la colonne additive et ses valeurs (ignorées par l’ancien code) ; ne pas réinjecter une ancienne table au risque d’écraser les brouillons ultérieurs. La sauvegarde de table reste disponible pour récupération ciblée. Aucun changement du transport, des identités, des protections ou du périmètre production. Vérifier les écrans avec une actualité fictive ; aucun envoi Facebook/WhatsApp.
