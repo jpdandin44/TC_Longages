@@ -10,9 +10,14 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Agenda direct — reprise du 25 octobre
+
+Développement local de la grille mensuelle Bureau sur la page Calendrier, liens datés vers le formulaire existant et retour au mois après enregistrement. 36 contrôles HTTP et 13 de présentation réussis ; accès limité au Bureau, aucune écriture Google. Qualification et livraison en préproduction à terminer. Les modifications documentaires du lot précédent sont conservées.
+
+
 ## Reprise du 25 octobre — confort du Bureau
 
-Demande : navigation plus fluide et personnalisation par canal plus lisible. Quatre fichiers applicatifs modifiés dans V2 (deux styles, formulaire, contrôleur) ; aucun changement du stockage, des droits ou de l’envoi des messages. 23 tests HTTP locaux réussis et contrôle visuel ordinateur/téléphone effectué. Préproduction accessible dans Chrome ; cPanel demande une reconnexion. Livraison et contrôle hébergé restent à réaliser ; production exclue. [Guide](communication-bureau.md).
+Demande : navigation plus fluide et personnalisation par canal plus lisible. Quatre fichiers applicatifs modifiés dans V2 (deux styles, formulaire, contrôleur) ; aucun changement du stockage, des droits ou de l’envoi des messages. 23 tests HTTP locaux réussis et contrôle visuel ordinateur/téléphone effectué. Livré et vérifié en préproduction après reconnexion cPanel : source `68842a4`, manifeste `6e0642f`, CI `40217296572` (six contrôles réussis). Quatre fichiers sauvegardés et restauration en copie vérifiée ; empreintes installées conformes. Navigation, onglets et aperçu PDF contrôlés dans Chrome, sur ordinateur et à 390 pixels sans débordement horizontal. Communications, dossiers et catalogue inchangés. [Preuve](../data/bureau-ui-verification.json). Prochaine action : validation humaine du confort et poursuite des réserves de campagne ; aucun envoi, merge ou changement de production. Les preuves et mises à jour documentaires après livraison restent locales. [Guide](communication-bureau.md).
 
 ## Clôture du 22 octobre 2026
 

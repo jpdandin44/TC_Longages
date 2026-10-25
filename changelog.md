@@ -12,9 +12,14 @@ tags:
   - reprise
 ---
 
-## 2026-10-25 — Bureau V2 (local)
+## 2026-10-25 — agenda direct (local)
 
-Navigation en boutons, statut de communication séparé, personnalisation par canal en onglets horizontaux adaptatifs et contrôles de formulaire harmonisés. Recette HTTP locale : 23 contrôles réussis. Préproduction à qualifier, production inchangée.
+Grille mensuelle privée sur Calendrier : ajout par jour, dates préremplies, modification des séries existantes, récurrences et exclusions affichées. Présentation mobile sur deux colonnes ; règles serveur conservées. Préproduction en attente de qualification.
+
+
+## 2026-10-25 — Bureau V2 (préproduction)
+
+Navigation en boutons, statut de communication séparé, personnalisation par canal en onglets horizontaux adaptatifs et contrôles de formulaire harmonisés. Recette HTTP locale : 23 contrôles réussis. Quatre fichiers livrés et vérifiés en préproduction après six contrôles CI réussis ; vues ordinateur et 390 pixels contrôlées, données métier inchangées. Production inchangée. [Preuve](data/bureau-ui-verification.json).
 
 ## 22 octobre — inscription depuis les communications
 

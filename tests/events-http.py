@@ -15,6 +15,12 @@ def run():
     check('Anonymous write denied', anonymous.get(path, {'title':'bad'})[0] == 403)
     check('Bureau OAuth works', bureau.oauth()[0] == 303)
     check('Bureau navigation exposes recipe agenda', 'Agenda de recette' in bureau.get('/bureau')[1])
+    check('Anonymous calendar hides editor', 'id="agenda-bureau"' not in anonymous.get('/calendrier.html')[1])
+    calendar=bureau.get('/calendrier.html?mois=2027-03')[1]
+    check('Bureau calendar offers day creation', 'Ajouter un événement le 21/03/2027' in calendar and 'Mars 2027' in calendar)
+    dated=bureau.get(path+'?date=2027-03-21')[1]
+    check('Calendar date prefills both dates', dated.count('value="2027-03-21"')==2)
+    check('Invalid calendar date ignored', 'value="2027-02-31"' not in bureau.get(path+'?date=2027-02-31')[1])
     values={'title':'Recette agenda '+secrets.token_hex(4),'location':'Court fictif','description':'Données fictives','start_date':'2027-03-21','start_time':'10:00','end_date':'2027-03-21','end_time':'11:30','frequency':'weekly','until':'2027-04-04','excluded':'2027-03-28','category':'lesson','poster_post':'0','status':'scheduled','confirm':'1','save':'Enregistrer l’événement'}
     preview=dict(values); preview.pop('save'); preview['preview']='Vérifier les dates'
     response=bureau.form(path,preview)
@@ -27,6 +33,9 @@ def run():
     edit=oauth.urllib.parse.urlsplit(response[2]['Location']).path
     body=bureau.get(edit)[1]
     check('Stored recurrence and exception appear', '2027-03-28' in body and '2 date(s)' in body)
+    calendar=bureau.get('/calendrier.html?mois=2027-03')[1]
+    check('Month shows recurrence excluding omitted date', calendar.count(values['title'])==1 and edit in calendar)
+    check('Next month shows following recurrence', values['title'] in bureau.get('/calendrier.html?mois=2027-04')[1])
     check('No public event route', anonymous.get(edit)[0] in [302,303,403])
     old=body
     changed=dict(values,title=values['title']+' modifié',excluded='',status='cancelled')
@@ -41,6 +50,7 @@ def run():
     check('Invalid interval rejected', 'La fin doit suivre' in bureau.form(edit,bad)[1])
     captain=oauth.Session(); check('Captain OAuth works',captain.oauth('captain-fixture')[0]==303)
     check('Captain cannot list events',captain.get('/bureau/evenements')[0]==403)
+    check('Captain calendar hides editor', 'id="agenda-bureau"' not in captain.get('/calendrier.html')[1])
     check('Captain cannot modify events',captain.get(edit,values)[0]==403)
     check('Unknown event returns 404',bureau.get('/bureau/evenements/'+'0'*32+'/modifier')[0]==404)
     check('Cancelled title safely listed', changed['title'] in bureau.get('/bureau/evenements')[1])

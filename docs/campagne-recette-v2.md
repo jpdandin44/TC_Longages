@@ -5,10 +5,15 @@ title: Campagne humaine de recette V2 en préproduction
 status: active
 version: git
 created: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags: [v2, recette, preproduction, parcours]
 ---
+
+## Complément du 25 octobre — confort du Bureau
+
+Navigation, personnalisation par canal et aperçu PDF vérifiés en préproduction sur ordinateur et à 390 pixels, sans débordement horizontal. 23 contrôles HTTP locaux et six contrôles CI réussis. Aucun contenu enregistré pendant cette vérification ; empreintes des communications, dossiers et catalogue inchangées. [Preuve](../data/bureau-ui-verification.json). Restent la validation personnelle du confort et les réserves métier ci-dessous ; cet essai ne remplace pas un test sur téléphone physique.
+
 
 # Campagne de tests V2
 

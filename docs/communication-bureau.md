@@ -12,9 +12,9 @@ tags: [communication, drupal, bureau, validation, actualites]
 
 ## Navigation et personnalisation — 25 octobre
 
-Amélioration locale : navigation en boutons, repère actif dans les communications, statut séparé des actions et champs arrondis avec focus clavier visible. L’éditeur conserve les onglets natifs Drupal, présentés horizontalement sur ordinateur et sur deux colonnes sur téléphone. Le contenu de chaque canal et les règles de validation restent identiques ; changer d’onglet n’enregistre ni ne publie rien. Les champs vides reprennent le contenu commun. Liens de retour au Bureau et aux communications ajoutés dans l’éditeur.
+Amélioration livrée en préproduction : navigation en boutons, repère actif dans les communications, statut séparé des actions et champs arrondis avec focus clavier visible. L’éditeur conserve les onglets natifs Drupal, présentés horizontalement sur ordinateur et sur deux colonnes sur téléphone. Le contenu de chaque canal et les règles de validation restent identiques ; changer d’onglet n’enregistre ni ne publie rien. Les champs vides reprennent le contenu commun. Liens de retour au Bureau et aux communications ajoutés dans l’éditeur.
 
-Qualification locale : 23 contrôles HTTP existants réussis ; rendu inspecté sur ordinateur et à 390 pixels, valeur conservée après changement d’onglet. Livraison préproduction encore à effectuer sur ce candidat ; aucun changement de production.
+Qualification locale : 23 contrôles HTTP existants réussis ; rendu inspecté sur ordinateur et à 390 pixels, valeur conservée après changement d’onglet. Préproduction vérifiée sur ordinateur et à 390 pixels : onglets et aperçu PDF fonctionnels, aucun débordement horizontal. Six contrôles CI réussis, quatre fichiers installés et empreintes contrôlées ; communications, dossiers et catalogue inchangés. [Preuve de livraison](../data/bureau-ui-verification.json). Validation humaine globale distincte ; aucun changement de production.
 
 ## Courriel aux adhérents — développement du 22 octobre
 

@@ -8,10 +8,14 @@ use Drupal\Core\Url;
 /** Presentation only: keeps the existing calendar and its access unchanged. */
 final class AgendaPresentation {
   public static function render(string $html): string {
-    if (!SeasonCatalogue::recipeEnabled() || str_contains($html, 'data-agenda-tools')) { return $html; }
+    if (!SeasonCatalogue::recipeEnabled() || str_contains($html, 'data-agenda-tools') || str_contains($html, 'id="agenda-bureau"')) { return $html; }
     $tools = '<div class="tcl-agenda-tools" data-agenda-tools hidden><label>Vue <select data-agenda-view><option value="MONTH">Mois</option><option value="WEEK">Semaine</option><option value="AGENDA">Liste</option></select></label><button type="button" data-agenda-reset>Vue mensuelle</button><p>Vue Mois à chaque ouverture. Changez de vue pour cette visite.</p><p role="status" aria-live="polite" data-agenda-status></p></div>';
     $html = preg_replace_callback('~<iframe\b[^>]*class="club-calendar"[^>]*>.*?</iframe>~s', static fn(array $m): string => '<div class="tcl-agenda-panel" data-agenda-panel>' . $tools . $m[0] . '</div>', $html, 1, $count);
-    if (!$count) { return $html; }
+    $editor = AgendaEditor::render();
+    if (!$count && $editor === '') { return $html; }
+    if ($editor !== '') {
+      $html = $count ? str_replace('<div class="tcl-agenda-panel"', $editor . '<div class="tcl-agenda-panel"', $html) : str_replace('</main>', $editor . '</main>', $html);
+    }
     $cards = '';
     $repository = \Drupal::service('tcl_bureau.communication');
     $shown = 0;

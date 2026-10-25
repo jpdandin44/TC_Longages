@@ -5,10 +5,17 @@ title: Gestion des événements de recette dans le Bureau
 status: active
 version: git
 created: 2026-10-19
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags: [agenda, bureau, recurrence, preproduction]
 ---
+
+## Ajout depuis la page Calendrier — 25 octobre
+
+Une grille mensuelle privée est ajoutée sur `/calendrier.html` pour les membres du Bureau autorisés. Cliquer sur un jour ouvre le formulaire existant avec les deux dates préremplies ; choisir les horaires, la catégorie, l’affiche et la répétition puis confirmer les données fictives. Après enregistrement depuis ce parcours, retour au mois consulté. Les événements de chaque série apparaissent dans les jours concernés, sauf dates exclues ; un clic ouvre la modification de toute la série. Les événements annulés restent identifiés.
+
+Sur téléphone, les jours passent sur deux colonnes. Les visiteurs et Capitaines ne voient pas cette grille. Le calendrier Google reste distinct, en consultation ; aucune écriture ni synchronisation Google. Les règles CSRF, OAuth, révision et droits existantes sont conservées. Qualification locale : 36 contrôles HTTP et 13 de présentation réussis ; livraison préproduction en attente.
+
 
 ## Participations — développement du 22 octobre
 

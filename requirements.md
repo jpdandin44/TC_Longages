@@ -5,13 +5,22 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - exigences
   - validation
   - prototype
 ---
+
+## Ajout depuis le calendrier — 25 octobre
+
+Le Bureau doit pouvoir choisir un jour dans une vue mensuelle sur la page Calendrier pour créer un événement, consulter les occurrences et ouvrir leur modification. Date préremplie, retour au mois après enregistrement, accessibilité clavier et adaptation mobile requis. La grille privée de recette utilise le stockage V2 existant ; elle ne donne aucun droit nouveau et ne modifie pas le calendrier Google partagé.
+
+
+## Confort du Bureau — V2
+
+La navigation et les actions doivent être distinctes et lisibles sur ordinateur et téléphone. La personnalisation des communications présente un panneau par canal, avec un repère actif, des champs confortables et un focus clavier visible. Changer de canal conserve la saisie sans sauvegarde, publication ni envoi automatique ; les valeurs laissées vides reprennent le contenu commun.
 
 ## 22 octobre — inscription depuis les communications
 

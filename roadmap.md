@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - roadmap
@@ -13,6 +13,15 @@ tags:
   - facebook
   - whatsapp
 ---
+
+## Agenda direct — 25 octobre
+
+Grille mensuelle privée développée localement pour créer et modifier depuis la page Calendrier, avec dates préremplies, récurrences affichées, catégories et icônes. 36 contrôles HTTP et 13 de présentation réussis. Livraison préproduction à qualifier ; Google et production exclus.
+
+
+## 25 octobre — confort du Bureau V2
+
+Navigation et personnalisation par canal livrées en préproduction ; 23 contrôles HTTP réussis, vues ordinateur et mobile inspectées localement puis sur le site hébergé. Candidat `68842a4`, manifeste `6e0642f`, six contrôles CI `40217296572` réussis ; sauvegarde/restauration des quatre fichiers et empreintes installées vérifiées. Communications, dossiers et catalogue inchangés. Prochaine action : validation humaine du confort et réserves de campagne. [Preuve](data/bureau-ui-verification.json). Aucun changement de production.
 
 ## Extension V2 demandée le 21 octobre — après clôture
 

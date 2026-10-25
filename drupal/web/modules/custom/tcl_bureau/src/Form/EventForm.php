@@ -25,12 +25,20 @@ final class EventForm extends FormBase {
       $state->set('event_record', $event ? $this->events->get($this->currentUser(), $event) : ['id' => bin2hex(random_bytes(16)), 'revision' => 0, 'status' => 'scheduled', 'frequency' => 'once']);
     }
     $row = $state->get('event_record');
+    if (!$event && !$state->isRebuilding() && !$state->isSubmitted()) {
+      $date = $this->getRequest()->query->get('date', '');
+      $parsed = is_string($date) ? \DateTimeImmutable::createFromFormat('!Y-m-d', $date) : FALSE;
+      if ($parsed && $parsed->format('Y-m-d') === $date) {
+        $row['start_date'] = $row['end_date'] = $date;
+      }
+    }
     $form['#cache']['max-age'] = 0;
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
     $form['revision'] = ['#type' => 'hidden', '#default_value' => $row['revision']];
     $form['submission_id'] = ['#type' => 'hidden', '#default_value' => $row['id']];
     $form['back'] = ['#type' => 'link', '#title' => 'Retour aux événements', '#url' => Url::fromRoute('tcl_bureau.events')];
+    $form['calendar'] = ['#type' => 'link', '#title' => 'Retour au calendrier du site', '#url' => Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])];
     $form['notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette fictive, sans diffusion. Horaires Europe/Paris. Les modifications et le statut Annulé concernent toute la série, y compris ses dates passées. Pour retirer une seule occurrence, renseignez sa date dans Dates exclues.'];
     foreach (['title' => ['Titre', 120], 'location' => ['Lieu', 200]] as $field => [$label, $max]) {
       $form[$field] = ['#type' => 'textfield', '#title' => $label, '#maxlength' => $max, '#required' => $field === 'title', '#default_value' => $row[$field] ?? ''];
