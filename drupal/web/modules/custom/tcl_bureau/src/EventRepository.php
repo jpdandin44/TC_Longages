@@ -48,7 +48,7 @@ final class EventRepository {
   public function save(AccountInterface $actor, string $id, int $revision, array $input): string {
     $this->guard($actor);
     if (!preg_match('/^[a-f0-9]{32}$/D', $id) || EventSchedule::inspect($input)['errors'] || $this->presentationErrors($actor, $input) || !isset(self::STATUSES[$input['status'] ?? ''])) { throw new \InvalidArgumentException('Événement invalide.'); }
-    if (!$this->lock->acquire('tcl_bureau.recipe_events.write', 30)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
+    if (!$this->lock->acquire('tcl_bureau.recipe_events.write', 120)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
     try {
       $store = $this->stores->get('tcl_bureau.recipe_events');
       $old = $store->get($id);
@@ -56,6 +56,7 @@ final class EventRepository {
       if (!$old && count($store->getAll()) >= 100) { throw new ConflictHttpException('La limite de 100 séries de recette est atteinte.'); }
       $row = array_intersect_key($input, array_flip([...EventSchedule::FIELDS, 'status', 'category', 'poster_post']));
       $row += ['id' => $id, 'revision' => $revision + 1, 'created' => $old['created'] ?? time(), 'changed' => time(), 'changed_by' => (int) $actor->id()];
+      if (GoogleCalendarConnection::target()) { $row['google'] = GoogleCalendarEvents::save($row, $old); }
       $store->set($id, $row);
       return $id;
     }

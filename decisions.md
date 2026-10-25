@@ -5,13 +5,18 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - decisions
   - gouvernance
   - architecture
 ---
+
+## 2026-10-25 — cible Google de recette créée par l’application
+
+Contexte : le responsable demande la création/modification depuis le site avec Google, sans affecter le calendrier officiel. Décision : OAuth `calendar.app.created` et calendrier secondaire créé par le site ; autorisation/stockage séparés de Google Contacts mais même client privé et callback aiguillé par état. La cible ne peut pas être sélectionnée arbitrairement. Conséquences : édition depuis le site avec confirmation Google et refus des conflits externes ; anciens événements locaux transmis seulement lors d’un enregistrement explicite. Une création au résultat inconnu exige une réconciliation, sans duplication automatique. L’accord de recette n’autorise aucune production.
+
 
 ## Agenda V2 — 20 octobre 2026
 

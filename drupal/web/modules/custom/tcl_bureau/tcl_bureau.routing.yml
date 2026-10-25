@@ -552,6 +552,14 @@ tcl_bureau.google_contacts:
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\GoogleContactsController::access'
 
+tcl_bureau.google_calendar:
+  path: '/bureau/agenda-google'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\GoogleCalendarForm'
+    _title: 'Google Agenda de recette'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\GoogleContactsController::access'
+
 tcl_bureau.google_contacts_callback:
   path: '/bureau/contacts-google/retour'
   defaults:

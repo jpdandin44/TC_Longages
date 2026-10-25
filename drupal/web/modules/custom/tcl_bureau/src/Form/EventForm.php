@@ -40,6 +40,10 @@ final class EventForm extends FormBase {
     $form['back'] = ['#type' => 'link', '#title' => 'Retour aux événements', '#url' => Url::fromRoute('tcl_bureau.events')];
     $form['calendar'] = ['#type' => 'link', '#title' => 'Retour au calendrier du site', '#url' => Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])];
     $form['notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette fictive, sans diffusion. Horaires Europe/Paris. Les modifications et le statut Annulé concernent toute la série, y compris ses dates passées. Pour retirer une seule occurrence, renseignez sa date dans Dates exclues.'];
+    if (\Drupal\tcl_bureau\GoogleCalendarConnection::target()) {
+      $form['notice']['#value'] = 'Enregistrement dans Google « TC Longages — Recette V2 », sans invitation ni calendrier officiel. Données fictives, horaires Europe/Paris. Modifier agit sur toute la série. Annulé ajoute [ANNULÉ] dans Google et libère le créneau, sans suppression.';
+      $form['google_status'] = ['#plain_text' => !empty($row['google']) ? 'Cet événement est relié au calendrier Google de recette.' : 'Cet événement sera ajouté à Google lors de son prochain enregistrement.'];
+    }
     foreach (['title' => ['Titre', 120], 'location' => ['Lieu', 200]] as $field => [$label, $max]) {
       $form[$field] = ['#type' => 'textfield', '#title' => $label, '#maxlength' => $max, '#required' => $field === 'title', '#default_value' => $row[$field] ?? ''];
     }
@@ -99,7 +103,8 @@ final class EventForm extends FormBase {
     $row = $state->get('event_record');
     try { $id = $this->events->save($this->currentUser(), $row['revision'] > 0 ? $row['id'] : (string) $state->getValue('submission_id'), $row['revision'] > 0 ? (int) $state->getValue('revision') : 0, $input); }
     catch (ConflictHttpException $error) { $this->messenger()->addError($error->getMessage()); $state->setRebuild(); return; }
-    $this->messenger()->addStatus('Événement de recette enregistré. Aucune diffusion effectuée.');
+    catch (\RuntimeException $error) { $this->messenger()->addError($error->getMessage()); $state->setRebuild(); return; }
+    $this->messenger()->addStatus(\Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Événement enregistré dans Google « TC Longages — Recette V2 ». Aucune invitation envoyée.' : 'Événement de recette enregistré. Aucune diffusion effectuée.');
     $state->setRedirect('tcl_bureau.event_edit', ['event' => $id]);
   }
 }

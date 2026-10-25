@@ -58,7 +58,7 @@ final class EventController extends ControllerBase {
       '#type' => 'container', '#attributes' => ['class' => ['tcl-bureau']], '#cache' => ['max-age' => 0],
       '#attached' => ['library' => ['tcl_bureau/events', 'tcl_bureau/poster_preview']],
       'back' => Link::fromTextAndUrl('Retour au Bureau', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
-      'notice' => ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Agenda de recette indépendant — données fictives uniquement. Ces événements restent dans le Bureau de préproduction et ne sont pas diffusés dans Google Agenda ni sur le site public. Horaires : Europe/Paris.'],
+      'notice' => ['#type' => 'html_tag', '#tag' => 'p', '#value' => \Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Google TC Longages — Recette V2 connecté. Les prochains enregistrements sont transmis au calendrier privé de recette, sans invitation. Les anciens événements restent locaux jusqu’à leur prochain enregistrement. Horaires Europe/Paris.' : 'Agenda de recette indépendant — données fictives uniquement. Ces événements restent dans le Bureau de préproduction et ne sont pas diffusés dans Google Agenda ni sur le site public. Horaires : Europe/Paris.'],
       'add' => Link::fromTextAndUrl('Créer un événement', Url::fromRoute('tcl_bureau.event_add'))->toRenderable(),
       'filters' => $filters,
       'cards' => $cards,

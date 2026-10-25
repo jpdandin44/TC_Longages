@@ -10,11 +10,18 @@ owner: jpdandin
 tags: [agenda, bureau, recurrence, preproduction]
 ---
 
+## Google Agenda de recette — 25 octobre
+
+Raccordement développé, qualification en cours. Depuis le calendrier, l’administrateur peut ouvrir « Connexion Google Agenda de recette », autoriser le droit limité puis créer le calendrier privé. Après activation, chaque enregistrement transmet l’événement à Google avant confirmation. La grille distingue « Local — non transmis » et « Relié à Google ». Les événements existants ne sont transmis qu’à leur prochain enregistrement. Les réponses des participants restent sur le site.
+
+Les modifications se font depuis le site. Une modification effectuée directement dans Google provoque un conflit à vérifier, sans écrasement automatique. Annuler conserve une entrée Google marquée `[ANNULÉ]`, libre, réversible. Aucun invité ni rappel envoyé. [Contrat et limites](../api/google-calendar.md#écritures-de-recette-v2--25-octobre). Autorisation Google et recette hébergée encore en attente.
+
+
 ## Ajout depuis la page Calendrier — 25 octobre
 
 Une grille mensuelle privée est ajoutée sur `/calendrier.html` pour les membres du Bureau autorisés. Cliquer sur un jour ouvre le formulaire existant avec les deux dates préremplies ; choisir les horaires, la catégorie, l’affiche et la répétition puis confirmer les données fictives. Après enregistrement depuis ce parcours, retour au mois consulté. Les événements de chaque série apparaissent dans les jours concernés, sauf dates exclues ; un clic ouvre la modification de toute la série. Les événements annulés restent identifiés.
 
-Sur téléphone, les jours passent sur deux colonnes. Les visiteurs et Capitaines ne voient pas cette grille. Le calendrier Google reste distinct, en consultation ; aucune écriture ni synchronisation Google. Les règles CSRF, OAuth, révision et droits existantes sont conservées. Qualification locale : 36 contrôles HTTP et 13 de présentation réussis ; livraison préproduction en attente.
+Sur téléphone, les jours passent sur deux colonnes. Les visiteurs et Capitaines ne voient pas cette grille. Le calendrier Google reste distinct, en consultation ; aucune écriture ni synchronisation Google. Les règles CSRF, OAuth, révision et droits existantes sont conservées. Qualification locale : 36 contrôles HTTP et 13 de présentation réussis ; Livraison préproduction vérifiée : source `30c16e0`, manifeste `0e9cf25`, CI `40219990098` six réussites. Grille de novembre et formulaire prérempli contrôlés, intégration Google identique, données métier inchangées. Aucun événement enregistré en préproduction pendant ce contrôle. Mobile 390 vérifié localement ; essai sur téléphone physique restant. [Preuve](../data/agenda-direct-verification.json).
 
 
 ## Participations — développement du 22 octobre

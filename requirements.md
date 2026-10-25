@@ -13,6 +13,11 @@ tags:
   - prototype
 ---
 
+## Calendrier Google séparé — 25 octobre
+
+Créer depuis le site un calendrier privé « TC Longages — Recette V2 » sur le compte du club, puis y transmettre les créations et modifications d’événements du Bureau. Portée Google limitée aux calendriers créés par cette application, cible fixée à l’ID issu de la création et vérifiée avant chaque écriture. Ne pas utiliser l’agenda officiel ni la production. Pas d’invitation, de partage public ou d’import automatique des séries historiques. Conserver les saisies en cas d’échec et refuser les conflits externes sans écrasement. Consentement Google personnel à obtenir avant qualification réelle.
+
+
 ## Ajout depuis le calendrier — 25 octobre
 
 Le Bureau doit pouvoir choisir un jour dans une vue mensuelle sur la page Calendrier pour créer un événement, consulter les occurrences et ouvrir leur modification. Date préremplie, retour au mois après enregistrement, accessibilité clavier et adaptation mobile requis. La grille privée de recette utilise le stockage V2 existant ; elle ne donne aucun droit nouveau et ne modifie pas le calendrier Google partagé.

@@ -14,9 +14,14 @@ tags:
   - whatsapp
 ---
 
+## Google Calendar de recette — 25 octobre
+
+Raccordement du Bureau à un calendrier privé créé par l’application, avec la portée limitée Google, développé localement. Qualification, consentement et création réelle encore à faire. L’agenda officiel et la production restent exclus. [Contrat](api/google-calendar.md).
+
+
 ## Agenda direct — 25 octobre
 
-Grille mensuelle privée développée localement pour créer et modifier depuis la page Calendrier, avec dates préremplies, récurrences affichées, catégories et icônes. 36 contrôles HTTP et 13 de présentation réussis. Livraison préproduction à qualifier ; Google et production exclus.
+Grille mensuelle privée développée localement pour créer et modifier depuis la page Calendrier, avec dates préremplies, récurrences affichées, catégories et icônes. 36 contrôles HTTP et 13 de présentation réussis. Livré en préproduction après six contrôles CI réussis ; grille, récurrences affichées et préremplissage vérifiés. Données conservées, Google et production inchangés. Validation humaine et téléphone physique restent à faire. [Preuve](data/agenda-direct-verification.json).
 
 
 ## 25 octobre — confort du Bureau V2

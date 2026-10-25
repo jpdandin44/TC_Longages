@@ -11,6 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 final class GoogleContactsController extends ControllerBase {
   public function access(AccountInterface $account) { return AccessResult::allowedIf(GoogleContactsConnection::allowed($account))->setCacheMaxAge(0); }
   public function callback(Request $request): RedirectResponse {
+    if (\Drupal\tcl_bureau\GoogleCalendarConnection::pending((string) $request->query->get('state', ''))) {
+      try { \Drupal\tcl_bureau\GoogleCalendarConnection::finish($this->currentUser(), (string) $request->query->get('state', ''), (string) $request->query->get('code', '')); $this->messenger()->addStatus('Autorisation Google Agenda enregistrée.'); }
+      catch (\RuntimeException $e) { $this->messenger()->addError($e->getMessage()); }
+      $response = new RedirectResponse(Url::fromRoute('tcl_bureau.google_calendar')->toString());
+      $response->headers->set('Cache-Control', 'no-store'); $response->headers->set('Referrer-Policy', 'no-referrer'); return $response;
+    }
     try { $count = GoogleContactsConnection::finish($this->currentUser(), (string) $request->query->get('state', ''), (string) $request->query->get('code', '')); $this->messenger()->addStatus('Google Contacts connecté : ' . $count . ' contacts dans le libellé. Aucun courriel envoyé.'); }
     catch (\RuntimeException $e) { $this->messenger()->addError($e->getMessage()); }
     $response = new RedirectResponse(Url::fromRoute('tcl_bureau.google_contacts')->toString());

@@ -12,9 +12,14 @@ tags:
   - reprise
 ---
 
-## 2026-10-25 — agenda direct (local)
+## 2026-10-25 — raccordement Google Calendar (en qualification)
 
-Grille mensuelle privée sur Calendrier : ajout par jour, dates préremplies, modification des séries existantes, récurrences et exclusions affichées. Présentation mobile sur deux colonnes ; règles serveur conservées. Préproduction en attente de qualification.
+Autorisation agenda séparée des Contacts, création d’un calendrier privé de recette et transmission des séries depuis le Bureau. Identifiants déterministes, contrôle de cible et des conflits, aucune invitation. Qualification réelle en attente du consentement Google.
+
+
+## 2026-10-25 — agenda direct (préproduction)
+
+Grille mensuelle privée sur Calendrier : ajout par jour, dates préremplies, modification des séries existantes, récurrences et exclusions affichées. Présentation mobile sur deux colonnes ; règles serveur conservées. Livré et vérifié en préproduction après six contrôles CI réussis ; données et Google inchangés. [Preuve](data/agenda-direct-verification.json).
 
 
 ## 2026-10-25 — Bureau V2 (préproduction)

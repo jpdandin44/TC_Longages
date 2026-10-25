@@ -39,6 +39,8 @@ try {
   & python -X utf8 tests/registration-recipe-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP inscriptions/catalogue échouée.' }
   & php -c .local/drupal-tools/php.ini tests/google-contacts-connection-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Google Contacts checks failed.' }
+  & php -c .local/drupal-tools/php.ini tests/google-calendar-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Contrôles connexion Google échoués.' }
   & php -c .local/drupal-tools/php.ini tests/recipe-mail-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Recipe mail checks failed.' }

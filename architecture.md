@@ -5,13 +5,18 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - architecture
   - stockage-local
   - publication
 ---
+
+## Raccordement Google Calendar de recette — 25 octobre
+
+Le stockage V2 conserve les séries et leurs relations aux inscriptions. `GoogleCalendarConnection` gère une autorisation distincte de Contacts, limitée aux calendriers créés par l’application, et crée la cible privée. `GoogleCalendarEvents` vérifie la cible, traduit les séries et confirme les écritures Google avant la sauvegarde locale. Une empreinte du contenu et une condition ETag empêchent l’écrasement de changements externes ; les identifiants déterministes évitent les doublons après réponse perdue. Le site est l’interface d’édition ; aucun import automatique des modifications Google. Pas d’écriture en production ni dans l’agenda officiel. [Contrat courant](api/google-calendar.md#écritures-de-recette-v2--25-octobre). Qualification hébergée en attente.
+
 
 ## Extension V2 — participations et courriels (22 octobre)
 

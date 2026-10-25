@@ -10,9 +10,14 @@ owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
 
+## Connexion Google Calendar — 25 octobre
+
+Demande autorisée : calendrier Google privé « TC Longages — Recette V2 », création et modification depuis le Bureau, sans agenda officiel ni production. Implémentation locale : autorisation séparée Contacts, portée `calendar.app.created`, création ciblée, écritures idempotentes et détection des conflits. Google Calendar API activée par le responsable et état « Activé » vérifié dans Google Cloud le 25 octobre, projet TC Longages Preproduction. Consentement OAuth puis création et recette réelle restent à faire. Aucune écriture dans l’agenda officiel. [Contrat](../api/google-calendar.md).
+
+
 ## Agenda direct — reprise du 25 octobre
 
-Développement local de la grille mensuelle Bureau sur la page Calendrier, liens datés vers le formulaire existant et retour au mois après enregistrement. 36 contrôles HTTP et 13 de présentation réussis ; accès limité au Bureau, aucune écriture Google. Qualification et livraison en préproduction à terminer. Les modifications documentaires du lot précédent sont conservées.
+Développement local de la grille mensuelle Bureau sur la page Calendrier, liens datés vers le formulaire existant et retour au mois après enregistrement. 36 contrôles HTTP et 13 de présentation réussis ; accès limité au Bureau, aucune écriture Google. Livraison préproduction terminée : source `30c16e0`, manifeste `0e9cf25`, six contrôles CI `40219990098` réussis. Trois fichiers sauvegardés/restaurés en copie, un nouveau fichier, quatre empreintes installées conformes. Grille et date préremplie vérifiées dans Chrome ; Google et données métier inchangés. Création et retour au mois vérifiés localement ; aucun enregistrement hébergé. Essai sur téléphone physique restant. [Preuve](../data/agenda-direct-verification.json). Prochaine action : validation personnelle du nouveau parcours. Les preuves après livraison restent locales, sans merge ni production. Les modifications documentaires du lot précédent sont conservées.
 
 
 ## Reprise du 25 octobre — confort du Bureau
