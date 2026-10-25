@@ -37,6 +37,11 @@ final class CommunicationForm extends FormBase {
       throw new NotFoundHttpException();
     }
     $form['#attributes']['class'][] = 'tcl-bureau';
+    $form['#attributes']['class'][] = 'tcl-communication-editor';
+    $form['navigation'] = ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => 'Navigation du Bureau'],
+      'home' => ['#type' => 'link', '#title' => 'Accueil du Bureau', '#url' => Url::fromRoute('tcl_bureau.registrations')],
+      'communications' => ['#type' => 'link', '#title' => 'Communications', '#url' => Url::fromRoute('tcl_bureau.communication')],
+    ];
     $form['#attached']['library'][] = 'tcl_bureau/communication';
     $form['#attached']['library'][] = 'tcl_bureau/poster_preview';
     $form['#cache']['max-age'] = 0;
@@ -48,9 +53,10 @@ final class CommunicationForm extends FormBase {
     $form['channels'] = ['#type' => 'checkboxes', '#title' => 'Canaux de publication', '#options' => CommunicationRepository::CHANNELS, '#default_value' => explode(',', $record['channels'] ?? 'site'), '#description' => 'Choisissez au moins un canal. Facebook et WhatsApp : partage manuel après validation. Enregistrer ne publie rien.'];
     $form['body'] = ['#type' => 'textarea', '#title' => 'Texte de l’actualité', '#description' => '5 000 caractères maximum. Facultatif si une affiche est jointe.', '#default_value' => $record['body'] ?? ''];
     $variants = \Drupal\tcl_bureau\ChannelContent::decode($record['channel_texts'] ?? NULL);
+    $form['channel_help'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Choisissez un canal pour adapter son message. Les champs laissés vides reprennent le contenu commun.', '#attributes' => ['class' => ['tcl-note']]];
     $form['channel_copy'] = ['#type' => 'vertical_tabs', '#title' => 'Personnaliser par canal'];
     foreach (CommunicationRepository::CHANNELS as $channel => $label) {
-      $form['copy_' . $channel] = ['#type' => 'details', '#title' => $label, '#group' => 'channel_copy', '#tree' => TRUE];
+      $form['copy_' . $channel] = ['#type' => 'details', '#title' => $label, '#group' => 'channel_copy', '#tree' => TRUE, '#attributes' => ['class' => ['tcl-channel-panel', 'tcl-channel-' . $channel]]];
       $form['copy_' . $channel]['title'] = ['#type' => 'textfield', '#title' => $channel === 'email' ? 'Objet du courriel' : 'Titre — ' . $label, '#maxlength' => 160, '#default_value' => $variants[$channel]['title'] ?? '', '#description' => 'Laissez vide pour reprendre le titre commun.'];
       $form['copy_' . $channel]['body'] = ['#type' => 'textarea', '#title' => 'Texte — ' . $label, '#default_value' => $variants[$channel]['body'] ?? '', '#description' => 'Laissez vide pour reprendre le texte commun. 5 000 caractères maximum. L’affiche et les informations de l’événement restent communes.'];
     }

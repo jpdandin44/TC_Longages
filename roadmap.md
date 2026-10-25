@@ -414,4 +414,4 @@ Variantes de texte par canal et mail HTML à boutons livrés en préproduction ;
 
 ## Rapprochement tarifaire — anomalie confirmée le 22 octobre
 
-V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’accueil conserve l’ancienne ligne cours adultes. Corriger le branchement du rendu sur le catalogue publié, puis recetter sans modifier les dossiers historiques. Audit seul réalisé, correctif restant. [Preuves](data/tariff-consistency-verification.json).
+V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’accueil conserve l’ancienne ligne cours adultes. Corriger le branchement du rendu sur le catalogue publié, puis recetter sans modifier les dossiers historiques. Correctif ensuite livré et vérifié : dix formules conformes, dossiers et catalogue inchangés. [Preuves](data/tariff-consistency-verification.json).

@@ -5,12 +5,16 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
+
+## 2026-10-25 — Bureau V2 (local)
+
+Navigation en boutons, statut de communication séparé, personnalisation par canal en onglets horizontaux adaptatifs et contrôles de formulaire harmonisés. Recette HTTP locale : 23 contrôles réussis. Préproduction à qualifier, production inchangée.
 
 ## 22 octobre — inscription depuis les communications
 
@@ -851,4 +855,4 @@ Demande explicite : dix personnes maximum par réponse, répondant compris. Dév
 
 ## Tableau tarifaire de l’accueil — 22 octobre
 
-V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion et le tableau des tarifs, depuis le seul catalogue publié. Ancienne ligne adulte et note obsolète remplacées. Correction en qualification ; aucune écriture des prix des dossiers ni du catalogue.
+V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion et le tableau des tarifs, depuis le seul catalogue publié. Ancienne ligne adulte et note obsolète remplacées. Livré en préproduction après six contrôles CI réussis ; dix formules vérifiées sur les deux adresses d’accueil. Empreintes identiques des cinq dossiers et du catalogue avant/après : aucune écriture des tarifs historiques.

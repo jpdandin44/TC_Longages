@@ -49,10 +49,10 @@ final class CommunicationController extends ControllerBase {
       throw new NotFoundHttpException();
     }
     $build = $this->shell();
-    $build['state'] = ['#plain_text' => 'État : ' . CommunicationRepository::STATUSES[$row['status']] . ' — Révision ' . $row['revision']];
+    $build['state'] = ['#type' => 'html_tag', '#tag' => 'p', '#attributes' => ['class' => ['tcl-status']], '#value' => 'État : ' . CommunicationRepository::STATUSES[$row['status']] . ' — Révision ' . $row['revision']];
     $build['edit'] = Link::fromTextAndUrl('Modifier le brouillon', Url::fromRoute('tcl_bureau.communication_edit', ['post' => $post]))->toRenderable();
     $selectedChannels = explode(',', $row['channels']);
-    $build['channels'] = ['#plain_text' => 'Canaux choisis : ' . implode(', ', array_intersect_key(CommunicationRepository::CHANNELS, array_flip($selectedChannels)))];
+    $build['channels'] = ['#type' => 'html_tag', '#tag' => 'p', '#attributes' => ['class' => ['tcl-channel-summary']], '#value' => 'Canaux choisis : ' . implode(', ', array_intersect_key(CommunicationRepository::CHANNELS, array_flip($selectedChannels)))];
     $build['preview_help'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Aperçus de contenu : la présentation finale dépend de Facebook ou WhatsApp. Une affiche reste à joindre séparément dans le service choisi.'];
     $build['preview'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-preview-grid']]];
     $build['fft'] = ['#type' => 'details', '#title' => 'Outils FFT complémentaires (saisie manuelle)', '#open' => FALSE];
@@ -218,6 +218,10 @@ final class CommunicationController extends ControllerBase {
     $links = $public ? ['Retour au site' => 'tcl_site.front', 'Toutes les actualités' => 'tcl_bureau.public_news'] : ['Adhérents' => 'tcl_bureau.registrations', 'Communication' => 'tcl_bureau.communication', 'Archives' => 'tcl_bureau.communication_archives', 'Actualités du site' => 'tcl_bureau.public_news', 'Retour au site' => 'tcl_site.front', 'Se déconnecter' => 'user.logout'];
     foreach ($links as $label => $route) {
       $build['navigation'][$route] = Link::fromTextAndUrl($label, Url::fromRoute($route))->toRenderable();
+      $current = \Drupal::routeMatch()->getRouteName();
+      if ($current === $route || ($route === 'tcl_bureau.communication' && in_array($current, ['tcl_bureau.communication_review', 'tcl_bureau.communication_edit', 'tcl_bureau.communication_add'], TRUE))) {
+        $build['navigation'][$route]['#attributes']['aria-current'] = $current === $route ? 'page' : 'location';
+      }
     }
     return $build;
   }

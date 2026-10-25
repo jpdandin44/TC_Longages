@@ -5,16 +5,30 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
+
+## Reprise du 25 octobre — confort du Bureau
+
+Demande : navigation plus fluide et personnalisation par canal plus lisible. Quatre fichiers applicatifs modifiés dans V2 (deux styles, formulaire, contrôleur) ; aucun changement du stockage, des droits ou de l’envoi des messages. 23 tests HTTP locaux réussis et contrôle visuel ordinateur/téléphone effectué. Préproduction accessible dans Chrome ; cPanel demande une reconnexion. Livraison et contrôle hébergé restent à réaliser ; production exclue. [Guide](communication-bureau.md).
+
+## Clôture du 22 octobre 2026
+
+Session close à la demande du responsable. Reprise uniquement sur nouvelle demande, dans `.worktrees/v2-recette`. Dernier candidat livré : source `517d3ac`, manifeste `2934e5f`, CI `39854796840` (six contrôles techniques réussis). PR #24 toujours brouillon au dernier contrôle ; aucune fusion ni intervention en production.
+
+Acquis du jour : réponses aux événements et plafond dix personnes, connexion Google Contacts en lecture seule, courriels avec boutons et variantes par canal, miniature et inscription depuis les actualités, réinitialisation depuis les comptes, tableau de l’accueil aligné sur les dix formules du catalogue publié. Réponse personnelle confirmée et vérifiée : six personnes. Les cinq dossiers et le catalogue sont inchangés après la correction tarifaire.
+
+Reprise : lire la [campagne V2](campagne-recette-v2.md), puis poursuivre les réserves sur téléphone et les validations personnelles. Nouvel import de fichier différé par le responsable ; textes, créneaux et communication officielle à finaliser. Aucun renvoi de courriel, diffusion sociale ou campagne générale implicite. Réautorisation Google éventuellement nécessaire après expiration du mode test. Les modifications documentaires locales restent conservées sans commit de clôture.
+
+Bilan transversal : [22 octobre](C:/Users/examg/.codex/bilans-quotidiens/2026-10-22.md). La clôture ne vaut pas validation globale de V2 ni autorisation de production.
 
 ## Vérification tarifaire — 22 octobre
 
 Audit préproduction en lecture seule : V2-TARIFS-01 confirmé. Tableau FAQ de l’accueil (`/` et `/index.html`) : ancienne ligne cours adultes « 125 € ou 150 € », alors que catalogue et formulaire `/adherer` distinguent 150 € et 170 €. Huit autres formules conformes. Cause identifiée dans le code hébergé dont l’empreinte correspond à la source locale : retour anticipé après ajout de l’entrée adhésion, avant remplacement du tableau. Aucun code, prix, dossier ou catalogue modifié ; aucun envoi, aucune production. [Preuves](../data/tariff-consistency-verification.json), [campagne](campagne-recette-v2.md#rapprochement-tarifaire-du-22-octobre--v2-tarifs-01).
 
-Prochaine action : corriger le rendu de l’accueil depuis le catalogue publié, indépendamment de la présence de l’entrée adhésion, puis qualifier les deux montants et la suppression de la note ancienne. Préserver les tarifs des dossiers historiques.
+Correction livrée et vérifiée : source `517d3ac`, manifeste `2934e5f`, CI `39854796840` six réussites, 18 tests catalogue réussis. Un fichier sauvegardé/restauré en copie ; empreinte installée vérifiée. Dix formules conformes sur / et /index.html ; cours adultes 150 € et compétition 170 € séparés, note ancienne supprimée. Empreintes identiques des cinq dossiers et du catalogue avant/après : tarifs historiques conservés. V2-TARIFS-01 résolu. Prochaine action : poursuivre les autres réserves de recette, notamment le contrôle sur téléphone.
 
 ## Personnalisation par canal — livraison du 22 octobre
 
@@ -26,7 +40,7 @@ Les boutons présélectionnent Oui/Non/Incertain ; le nombre 1–10 et la confir
 
 Plafond de dix personnes livré le 22 octobre : source `5703dae`, manifeste `02c20e9`, CI `39852160517` six réussites, 34 contrôles HTTP et six JS réussis. Deux fichiers sauvegardés/restaurés puis installés et empreintes vérifiées ; choix 1 à 10 observés dans Chrome, réponse famille six personnes inchangée. Aucun nouvel envoi.
 
-Prochaine action : poursuivre les réserves de la campagne V2 (notamment mobile et cohérence tarifaire). Ne pas renvoyer le même courriel sans demande ni publier de communication officielle.
+Prochaine action : poursuivre les réserves de la campagne V2 (notamment mobile ; cohérence tarifaire corrigée et vérifiée). Ne pas renvoyer le même courriel sans demande ni publier de communication officielle.
 
 ## Envoi Google Contacts — 22 octobre, suite autorisée
 

@@ -117,11 +117,32 @@
     "/index.html"
   ],
   "formMatchesCatalogue": true,
-  "status": "mismatch_confirmed",
+  "status": "corrected_verified",
   "issueId": "V2-TARIFS-01",
   "mismatch": "Homepage combines adult lessons at 125 or 150 EUR; published catalogue/form have separate 150 and 170 EUR lessons.",
   "matchingOtherFormulas": 8,
   "codeHash": "e02ceb27c45a10f290972191bf9da9c2a19002bbb3d873a9bf2d1741b78431b8",
   "cause": "SeasonCatalogue::renderHomepage returns after adding the adherer entry, before tariff-grid replacement.",
-  "fixApplied": false
+  "fixApplied": true,
+  "correction": {
+    "status": "delivered_verified",
+    "sourceSha": "517d3acc687816fbbdfb60fae64b4066b2b2736d",
+    "manifestCommit": "2934e5fc6a359c0d24f7a18775fb05e11059af93",
+    "ciRun": "39854796840",
+    "artifactSha256": "b65210a035300b11c716b468633ac435d8c483a15f19b7601e424df5aa2f8460",
+    "localChecks": 18,
+    "backupFiles": 1,
+    "restoreVerified": true,
+    "registrationRowsBefore": 5,
+    "dataProof": "/home2/daje5127/tcl-preproduction/private/tariff-home-517d3ac/backup/data-proof.json",
+    "ciStatus": "success",
+    "ciJobsPassed": 6,
+    "installedFiles": 1,
+    "allHashesMatch": true,
+    "registrationAndCatalogueUnchanged": true,
+    "rootAndIndexMatch": true,
+    "matchingFormulas": 10,
+    "obsoleteAdultNoteRemoved": true,
+    "registrationEntryCount": 1
+  }
 }

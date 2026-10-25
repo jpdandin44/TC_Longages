@@ -5,10 +5,16 @@ title: Communication du Bureau dans la V2
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-22
+updated: 2026-10-25
 owner: jpdandin
 tags: [communication, drupal, bureau, validation, actualites]
 ---
+
+## Navigation et personnalisation — 25 octobre
+
+Amélioration locale : navigation en boutons, repère actif dans les communications, statut séparé des actions et champs arrondis avec focus clavier visible. L’éditeur conserve les onglets natifs Drupal, présentés horizontalement sur ordinateur et sur deux colonnes sur téléphone. Le contenu de chaque canal et les règles de validation restent identiques ; changer d’onglet n’enregistre ni ne publie rien. Les champs vides reprennent le contenu commun. Liens de retour au Bureau et aux communications ajoutés dans l’éditeur.
+
+Qualification locale : 23 contrôles HTTP existants réussis ; rendu inspecté sur ordinateur et à 390 pixels, valeur conservée après changement d’onglet. Livraison préproduction encore à effectuer sur ce candidat ; aucun changement de production.
 
 ## Courriel aux adhérents — développement du 22 octobre
 
