@@ -98,6 +98,7 @@ final class BureauController extends ControllerBase {
     $build = $this->shell();
     $build['explanation'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Le Bureau gère les comptes Capitaine. La création d’un compte Bureau est réservée à l’administrateur. Bloquer un compte retire son accès.'];
     $build['add'] = Link::fromTextAndUrl('Créer un compte', Url::fromRoute('tcl_bureau.account_add'))->toRenderable();
+    if (\Drupal\tcl_bureau\GoogleContactsConnection::allowed($actor)) { $build['google_contacts'] = Link::fromTextAndUrl('Connecter les contacts Google du club', Url::fromRoute('tcl_bureau.google_contacts'))->toRenderable(); }
     $build['accounts'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-table']], 'table' => ['#type' => 'table', '#header' => ['Identifiant', 'Rôle', 'État', 'Action'], '#rows' => $rows, '#empty' => 'Aucun compte à gérer.']];
     return $build;
   }
@@ -108,6 +109,9 @@ final class BureauController extends ControllerBase {
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
+    if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
+      $links['events'] = Link::fromTextAndUrl('Agenda de recette', Url::fromRoute('tcl_bureau.events'))->toRenderable();
+    }
     if ($this->repository->canManageAccount($this->currentUser())) {
       $links['accounts'] = Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable();
     }

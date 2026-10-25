@@ -90,7 +90,9 @@ if ($action === 'seed') {
   checked('Earlier module revision prepared', !$db->schema()->tableExists('tcl_bureau_post'));
 }
 elseif ($action === 'verify') {
-  checked('Native updatedb applied updates through 11002', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11002);
+  checked('Native updatedb applied updates through 11004', Drupal::service('update.update_hook_registry')->getInstalledVersion('tcl_bureau') === 11004);
+  checked('Channel text column created by update', $db->schema()->fieldExists('tcl_bureau_post', 'channel_texts'));
+  checked('Channel column created by update', $db->schema()->fieldExists('tcl_bureau_post', 'channels'));
   checked('Communication table created by update', $db->schema()->tableExists('tcl_bureau_post'));
   checked('Communication permission added', Role::load('tcl_bureau')->hasPermission('manage tcl communication'));
   checked('Existing Bureau and Captain roles gain OAuth consent', Role::load('tcl_bureau')->hasPermission('grant simple_oauth codes') && Role::load('tcl_capitaine')->hasPermission('grant simple_oauth codes'));
@@ -102,6 +104,7 @@ elseif ($action === 'verify') {
   $image = imagecreatetruecolor(16, 16); ob_start(); imagejpeg($image); $binary = ob_get_clean(); imagedestroy($image);
   $key = bin2hex(random_bytes(16));
   $id = $posts->save($bureau, NULL, $values, $key, 0, $binary);
+  checked('Existing channel default retained', $posts->get($bureau, $id)['channels'] === 'site,facebook,whatsapp');
   checked('JPEG bytes conserved in MySQL BLOB', $posts->get($bureau, $id)['image_data'] === $binary);
   checked('News double submission idempotent', $posts->save($bureau, NULL, $values, $key, 0, $binary) === $id);
   checked('Draft absent from public selection', $posts->published($id) === []);
@@ -123,6 +126,8 @@ elseif ($action === 'verify') {
   require_once $project . '/drupal/web/modules/custom/tcl_bureau/tcl_bureau.install';
   $before = retained(); $post = $posts->get($bureau, $id);
   tcl_bureau_update_11001();
+  tcl_bureau_update_11004();
+  tcl_bureau_update_11004();
   checked('Repeated update preserves accounts and registrations', retained() === $before);
   checked('Repeated update preserves draft and JPEG', $posts->get($bureau, $id) === $post);
 }

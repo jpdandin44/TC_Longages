@@ -5,7 +5,7 @@ title: Bureau Drupal et connexion OAuth
 status: active
 version: git
 created: 2026-10-12
-updated: 2026-10-13
+updated: 2026-10-18
 owner: jpdandin
 tags: [bureau, inscriptions, oauth, drupal, v2]
 ---
@@ -196,3 +196,11 @@ association, appels HTTP serveur et sauvegarde/restauration sont qualifiés dans
 les reçus du 12 octobre ; ces constats ne prouvent pas la connexion réelle.
 Le nonce signé
 du fournisseur TC est implémenté et testé localement, sans option de tolérance.
+
+## Invitations de recette — 18 octobre
+
+Depuis une fiche de compte, « Envoyer le lien de création du mot de passe » ouvre une confirmation indiquant le destinataire enregistré. L’envoi est réservé aux gestionnaires OAuth autorisés sur ce compte actif et aux adresses privées de recette. Création et modification du compte ne déclenchent aucun courriel. Une version périmée est refusée ; un délai de cinq minutes sépare deux essais.
+
+Le fournisseur doit être le TC dédié, avec même issuer, client et callback que le Bureau. L’invitation associe explicitement son sujet numérique au compte et à son UUID dans le magasin privé `tcl_bureau.invited_identities`, sans rapprochement par adresse email. Les identités privées statiques restent prioritaires. Le blocage du compte ou une modification incompatible des rôles ferme l’accès. Aucun compte externe inconnu n’est provisionné automatiquement.
+
+Le courriel contient le lien Drupal natif à usage unique, jamais un mot de passe. Après définition personnelle du mot de passe, le passage OAuth demeure nécessaire. Les liens ne doivent pas être copiés dans Git, les journaux ou la conversation. Les destinataires et transports sont définis dans [le contrat de recette](../api/inscription-recette.md).

@@ -8,3 +8,44 @@
 .tcl-communication details a { display: inline-block; margin: .7rem 1rem .7rem 0; }
 .tcl-bureau .form-checkboxes label, .tcl-bureau .form-radios label, .tcl-bureau .form-type-checkbox label { display: inline; }
 @media (max-width: 650px) { .tcl-preview-grid { grid-template-columns: 1fr; } }
+
+.tcl-pdf-preview canvas { display: block; max-width: 100%; height: auto; margin: 1rem auto; border: 1px solid #ddd; }
+.tcl-pdf-preview { min-width: 0; overflow-wrap: anywhere; }
+.tcl-live-preview { margin: 1.5rem 0; }
+.tcl-preview-card article { display: flex; flex-direction: column; gap: .75rem; }
+.tcl-preview-card .tcl-post-image { max-height: 32rem; object-fit: contain; align-self: center; }
+[data-sharing-tools] textarea { width: 100%; min-height: 12rem; }
+[data-copy-message] { padding: .7rem 1rem; background: #801326; color: #fff; border: 0; border-radius: .3rem; cursor: pointer; }
+[data-copy-message]:focus-visible { outline: 3px solid #202124; outline-offset: 4px; }
+[data-copy-status] { min-height: 1.5em; font-weight: 600; }
+
+.tcl-preview-facebook{border-top:4px solid #1877f2}.tcl-preview-whatsapp{border-top:4px solid #147d4c;background:#f1faf5}.tcl-preview-email{border-top:4px solid #a71930}.tcl-preview-site{border-top:4px solid #4a5158}.tcl-preview-card{min-width:0;overflow-wrap:anywhere}
+/* Channel editor: native Drupal behaviour, spacious horizontal navigation. */
+.tcl-communication-editor .vertical-tabs { margin: 1rem 0 2rem; border: 1px solid #dfcdd2; border-radius: 12px; background: #fff; overflow: hidden; }
+.tcl-communication-editor .vertical-tabs__menu { float: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: auto; margin: 0; padding: .5rem; gap: .5rem; border: 0; background: #f8f3f4; }
+.tcl-communication-editor .vertical-tabs__menu-item { min-width: 0; border: 0; background: transparent; border-radius: 8px; }
+.tcl-communication-editor .vertical-tabs__menu-item a { height: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: .8rem; border: 1px solid transparent; border-radius: 8px; text-align: center; color: #741323; line-height: 1.4; }
+.tcl-communication-editor .vertical-tabs__menu-item a:hover { background: #eadde0; outline: none; }
+.tcl-communication-editor .vertical-tabs__menu-item a:focus-visible { outline: 3px solid #225da0; outline-offset: -3px; }
+.tcl-communication-editor .vertical-tabs__menu-item.is-selected { background: #85152b; }
+.tcl-communication-editor .vertical-tabs__menu-item.is-selected a:hover { background: #741323; }
+.tcl-communication-editor .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-item-title { color: #fff; }
+.tcl-communication-editor .vertical-tabs__pane { padding: 1.5rem; border: 0; min-width: 0; }
+.tcl-communication-editor .vertical-tabs__pane .form-item:first-child { margin-top: 0; }
+.tcl-communication-editor .vertical-tabs__pane .form-item:last-child { margin-bottom: 0; }
+.tcl-communication-editor .vertical-tabs__pane :is(input[type=text], textarea) { width: 100%; }
+.tcl-communication-editor .vertical-tabs__pane textarea { min-height: 190px; resize: vertical; }
+.tcl-communication-editor .form-checkboxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.tcl-communication-editor .form-checkboxes .form-item { display: flex; align-items: center; gap: .6rem; margin: 0; padding: .75rem; background: #f8f3f4; border: 1px solid #e2d4d8; border-radius: 8px; }
+.tcl-communication-editor .form-checkboxes .form-item:has(input:checked) { border-color: #85152b; background: #fff4f6; }
+.tcl-communication-editor .form-checkboxes label { flex: 1; cursor: pointer; }
+.tcl-communication-editor input[type=checkbox] { width: 20px; height: 20px; flex: none; accent-color: #85152b; }
+.tcl-status { display: table; margin: 0 0 .75rem; padding: .4rem .8rem; border: 1px solid #d8c4ca; border-radius: 99px; background: #f8f3f4; font-weight: 650; }
+.tcl-channel-summary { padding: .75rem 1rem; border-left: 3px solid #a6192e; background: #faf7f8; }
+.tcl-communication details { border: 1px solid #e2d4d8; border-radius: 10px; }
+.tcl-communication summary { cursor: pointer; font-weight: 650; min-height: 32px; }
+@media (max-width: 650px) {
+  .tcl-communication-editor .vertical-tabs__menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tcl-communication-editor .vertical-tabs__pane { padding: 1rem; }
+  .tcl-communication-editor .form-checkboxes { grid-template-columns: 1fr; }
+}

@@ -8,3 +8,29 @@ communication:
       css/communication.css: {}
   dependencies:
     - tcl_bureau/bureau
+
+poster_preview:
+  js:
+    js/poster-preview.js: { attributes: { type: module }, preprocess: false }
+  dependencies:
+    - tcl_bureau/communication
+
+sharing_tools:
+  js:
+    js/sharing-tools.js: { attributes: { type: module }, preprocess: false }
+  dependencies:
+    - tcl_bureau/communication
+
+events:
+  css:
+    theme:
+      css/events.css: {}
+  dependencies:
+    - tcl_bureau/bureau
+
+account:
+  css:
+    theme:
+      css/account.css: {}
+  dependencies:
+    - tcl_bureau/bureau

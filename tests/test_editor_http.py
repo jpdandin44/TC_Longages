@@ -46,7 +46,7 @@ def main():
     status, body, _ = request(admin, '/admin/content/tcl-pages')
     check(status == 200 and body.count('>Modifier<') == 7, 'Sept pages disponibles dans le répertoire natif')
     check('tcl-support-link' not in body, 'Aucun bouton public de signalement dans l’administration')
-    paths = re.findall(r'href="(/node/\d+/edit[^\"]*)"', body)
+    paths = re.findall(r'href="(/(?:fr/)?node/\d+/edit[^\"]*)"', body)
     path = paths[0].replace('&amp;', '&')
     status, body, _ = request(admin, path)
     edit = EditFields(); edit.feed(body)

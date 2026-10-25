@@ -33,7 +33,7 @@ final class BureauOAuthGuard implements EventSubscriberInterface {
   }
 
   public function onResponse(ResponseEvent $event): void {
-    if (str_starts_with($event->getRequest()->getPathInfo(), '/bureau')) {
+    if (str_starts_with($event->getRequest()->getPathInfo(), '/bureau') || $event->getRequest()->attributes->get('_route') === 'tcl_bureau.registration_recipe') {
       $event->getResponse()->headers->set('Cache-Control', 'private, no-store, max-age=0');
       $event->getResponse()->headers->set('X-Robots-Tag', 'noindex, nofollow, noarchive');
       $event->getResponse()->headers->set('Referrer-Policy', 'no-referrer');

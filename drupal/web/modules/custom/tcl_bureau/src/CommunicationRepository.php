@@ -12,9 +12,10 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 /** Server-side drafts and explicit review/publication of the exact revision. */
 final class CommunicationRepository {
+  public const CHANNELS = ['site' => 'Site internet', 'facebook' => 'Facebook', 'whatsapp' => 'WhatsApp', 'email' => 'Envoyer un mail aux adhérents'];
   public const CATEGORIES = ['club' => 'Vie du club', 'competition' => 'Compétitions', 'school' => 'École de tennis', 'event' => 'Événement'];
   public const STATUSES = ['draft' => 'Brouillon', 'validated' => 'Validée', 'published' => 'Publiée', 'archived' => 'Archivée'];
-  public const FIELDS = ['title', 'category', 'body', 'link', 'tenup_visible', 'image_alt'];
+  public const FIELDS = ['title', 'category', 'body', 'link', 'tenup_visible', 'image_alt', 'channels', 'channel_texts'];
 
   public function __construct(private Connection $database, private TeamRepository $access) {}
 
@@ -42,7 +43,7 @@ final class CommunicationRepository {
   private function load(int $id, bool $public = FALSE): ?array {
     $query = $this->database->select('tcl_bureau_post', 'p')->fields('p')->condition('id', $id);
     if ($public) {
-      $query->condition('status', 'published')->where('approved_revision = revision');
+      $query->condition('status', 'published')->condition('channels', '%site%', 'LIKE')->where('approved_revision = revision');
     }
     $row = $query->execute()->fetchAssoc();
     if (!$row) {
@@ -59,12 +60,18 @@ final class CommunicationRepository {
       return $this->load($id, TRUE) ?? [];
     }
     // Never expose private images, authors or drafts in the public listing.
-    return $this->database->select('tcl_bureau_post', 'p')->fields('p', ['id', 'title', 'category', 'body', 'link', 'published_at'])
-      ->condition('status', 'published')->where('approved_revision = revision')->orderBy('published_at', 'DESC')->orderBy('id', 'DESC')->range(0, 100)->execute()->fetchAll(\PDO::FETCH_ASSOC);
+    return $this->database->select('tcl_bureau_post', 'p')->fields('p', ['id', 'title', 'category', 'body', 'link', 'published_at', 'channel_texts'])
+      ->condition('status', 'published')->condition('channels', '%site%', 'LIKE')->where('approved_revision = revision')->orderBy('published_at', 'DESC')->orderBy('id', 'DESC')->range(0, 100)->execute()->fetchAll(\PDO::FETCH_ASSOC);
   }
 
   public function validate(array $values, bool $hasImage): array {
     $errors = [];
+    try { ChannelContent::decode($values['channel_texts'] ?? '{}'); } catch (\InvalidArgumentException) { $errors['channel_texts'] = 'Textes par canal invalides ou trop longs.'; }
+    $channelValue = $values['channels'] ?? 'site,facebook,whatsapp';
+    $channels = is_string($channelValue) ? explode(',', $channelValue) : ['invalid'];
+    if (!$channels || array_diff($channels, array_keys(self::CHANNELS)) || count($channels) !== count(array_unique($channels))) {
+      $errors['channels'] = 'Choisissez au moins un canal proposé.';
+    }
     foreach (['title' => 160, 'category' => 20, 'body' => 5000, 'link' => 1000, 'tenup_visible' => 3, 'image_alt' => 240] as $field => $maximum) {
       if (!is_scalar($values[$field] ?? NULL) || mb_strlen((string) $values[$field]) > $maximum) {
         $errors[$field] = 'Valeur invalide ou trop longue.';
@@ -100,12 +107,14 @@ final class CommunicationRepository {
     if ($id !== NULL && (!$old || $old['status'] === 'archived')) {
       throw new ConflictHttpException('Cette actualité n’est plus modifiable.');
     }
+    $input['channels'] ??= $old['channels'] ?? 'site,facebook,whatsapp';
+    $input['channel_texts'] ??= $old['channel_texts'] ?? '{}';
     $data = [];
     foreach (self::FIELDS as $field) {
       $data[$field] = is_scalar($input[$field] ?? NULL) ? trim((string) $input[$field]) : '';
     }
     $imageData = $remove ? '' : ($image ?? ($old['image_data'] ?? ''));
-    if ($this->validate($data, $imageData !== '') || strlen($imageData) > 512000 || !preg_match('/^[0-9a-f]{32}$/D', $submission)) {
+    if ($this->validate($data, $imageData !== '') || strlen($imageData) > (CommunicationImage::isPdf($imageData) ? 8 * 1024 * 1024 : 512000) || !preg_match('/^[0-9a-f]{32}$/D', $submission)) {
       throw new \InvalidArgumentException('Actualité invalide.');
     }
     if ($imageData === '') {
@@ -147,7 +156,7 @@ final class CommunicationRepository {
     if ($action === 'validate' && $old['status'] === 'draft') {
       $data += ['status' => 'validated', 'approved_revision' => $revision + 1, 'validated_at' => time(), 'validated_by' => (int) $actor->id()];
     }
-    elseif ($action === 'publish' && $old['status'] === 'validated' && (int) $old['approved_revision'] === $revision) {
+    elseif ($action === 'publish' && $old['status'] === 'validated' && in_array('site', explode(',', $old['channels']), TRUE) && (int) $old['approved_revision'] === $revision) {
       $data += ['status' => 'published', 'approved_revision' => $revision + 1, 'published_at' => time()];
     }
     elseif ($action === 'withdraw' && $old['status'] === 'published') {

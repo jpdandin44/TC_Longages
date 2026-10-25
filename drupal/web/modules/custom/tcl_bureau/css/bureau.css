@@ -23,3 +23,49 @@ main h1 { color: #741323; }
 .tcl-bureau legend { max-width: 100%; white-space: normal; }
 .tcl-bureau input[type=submit] { padding: .8rem 1.2rem; background: #a6192e; color: #fff; border: 0; border-radius: 4px; cursor: pointer; }
 @media (max-width: 600px) { .tcl-bureau { margin: 1rem 0; padding: 1rem; } .tcl-bureau th, .tcl-bureau td { padding: .6rem; } }
+
+.tcl-registration-recipe table { table-layout: fixed; overflow-wrap: anywhere; }
+.tcl-registration-recipe input[type=submit] { max-width: 100%; white-space: normal; }
+
+/* Editable tariffs must fit the card, independently of input size attributes. */
+.tcl-season-catalogue { box-sizing: border-box; min-width: 0; }
+.tcl-season-catalogue .tcl-season-try { display: inline-block; margin-bottom: 1rem; }
+.tcl-season-catalogue table { table-layout: fixed; }
+.tcl-season-catalogue th:nth-child(1) { width: 24%; }
+.tcl-season-catalogue th:nth-child(2) { width: 40%; }
+.tcl-season-catalogue th:nth-child(3) { width: 16%; }
+.tcl-season-catalogue th:nth-child(4) { width: 20%; }
+.tcl-season-catalogue th, .tcl-season-catalogue td { box-sizing: border-box; overflow-wrap: anywhere; }
+.tcl-season-catalogue td .form-item { margin: .35rem 0; min-width: 0; }
+.tcl-season-catalogue td input, .tcl-season-catalogue td select { width: 100%; min-width: 0; font: inherit; padding: .6rem; }
+.tcl-season-catalogue .form-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.tcl-season-catalogue input[type=submit] { white-space: normal; max-width: 100%; }
+@media (max-width: 700px) {
+  .tcl-season-catalogue table, .tcl-season-catalogue tbody, .tcl-season-catalogue tr, .tcl-season-catalogue td { display: block; width: 100%; }
+  .tcl-season-catalogue thead { display: none; }
+  .tcl-season-catalogue tr { margin: 1rem 0; padding: .5rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+  .tcl-season-catalogue td { padding: .35rem; border: 0; }
+  .tcl-season-catalogue td label.visually-hidden { position: static !important; clip: auto; clip-path: none; height: auto; width: auto; overflow: visible; white-space: normal; }
+}
+/* Bureau navigation and controls: shared across the protected workspace. */
+.tcl-bureau { border-radius: 12px; box-shadow: 0 4px 24px #45212b0a; box-sizing: border-box; }
+.tcl-bureau nav { gap: .5rem; padding: .75rem; margin: 0 0 1.5rem; background: #f8f3f4; border: 1px solid #eadde0; border-radius: 10px; }
+.tcl-bureau nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; padding: .5rem .85rem; border-radius: 7px; text-decoration: none; font-weight: 600; line-height: 1.35; }
+.tcl-bureau nav a:hover { background: #eadde0; }
+.tcl-bureau nav a[aria-current], .tcl-bureau nav a.is-active { background: #85152b; color: #fff; }
+.tcl-bureau :is(a, button, input, select, textarea, summary):focus-visible { outline: 3px solid #225da0; outline-offset: 3px; }
+.tcl-bureau .form-item :is(input:not([type=checkbox]):not([type=radio]):not([type=submit]), textarea, select) { border: 1px solid #bcb1b4; border-radius: 7px; background: #fff; color: #272727; padding: .7rem .8rem; font: inherit; min-height: 44px; }
+.tcl-bureau .description { color: #62585b; font-size: .9rem; line-height: 1.5; margin-top: .4rem; }
+.tcl-bureau .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding-top: 1.25rem; margin-top: 1.5rem; border-top: 1px solid #eadde0; }
+.tcl-bureau .form-actions a, .tcl-bureau > a { display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: .65rem 1rem; margin: .4rem .5rem .4rem 0; border: 1px solid #c7a2ab; border-radius: 7px; text-decoration: none; font-weight: 600; }
+.tcl-bureau .form-actions a:hover, .tcl-bureau > a:hover { background: #f8f0f2; }
+.tcl-bureau input[type=submit] { min-height: 44px; border-radius: 7px; font: inherit; font-weight: 650; white-space: normal; }
+.tcl-bureau .tcl-table { margin-top: 1rem; }
+.tcl-bureau th { background: #f8f3f4; font-size: .9rem; }
+.tcl-bureau tbody tr:hover { background: #fcf9fa; }
+@media (max-width: 600px) {
+  .tcl-bureau nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: .5rem; }
+  .tcl-bureau nav a { text-align: center; padding: .6rem .45rem; overflow-wrap: anywhere; }
+  .tcl-bureau .form-actions { align-items: stretch; flex-direction: column; }
+  .tcl-bureau .form-actions a { justify-content: center; margin: 0; }
+}

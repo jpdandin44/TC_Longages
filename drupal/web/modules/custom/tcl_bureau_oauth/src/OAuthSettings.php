@@ -59,6 +59,15 @@ final class OAuthSettings {
         return $identity['uid'];
       }
     }
+    if (ctype_digit($subject) && (int) $subject > 1 && \Drupal::moduleHandler()->moduleExists('tcl_identity')) {
+      try { $provider = \Drupal\tcl_identity\IdentitySettings::load(); }
+      catch (\RuntimeException $error) { return NULL; }
+      foreach (['issuer', 'client_id', 'redirect_uri'] as $key) { if ($provider[$key] !== $settings[$key]) { return NULL; } }
+      $entry = \Drupal::keyValue('tcl_bureau.invited_identities')->get($subject);
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load((int) $subject);
+      if ($entry && $user && $user->isActive() && ($entry['issuer'] ?? '') === $settings['issuer'] && ($entry['client_id'] ?? '') === $settings['client_id'] && ($entry['uuid'] ?? '') === $user->uuid()
+        && count(array_diff($user->getRoles(), ['authenticated'])) === 1 && count(array_intersect($user->getRoles(), ['tcl_bureau', 'tcl_capitaine'])) === 1) { return (int) $subject; }
+    }
     return NULL;
   }
 
