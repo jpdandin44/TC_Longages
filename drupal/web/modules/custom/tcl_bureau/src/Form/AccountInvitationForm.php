@@ -19,7 +19,7 @@ class AccountInvitationForm extends FormBase {
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
     $form['recipient'] = ['#type' => 'item', '#title' => 'Destinataire enregistré', '#plain_text' => $user->getEmail()];
-    $form['notice'] = ['#plain_text' => 'Envoyer un courriel réel de recette contenant un lien personnel pour définir le mot de passe. La connexion restera protégée par OAuth et les droits de ce compte. Aucun mot de passe n’est envoyé.'];
+    $form['notice'] = ['#plain_text' => 'Envoyer à cette adresse enregistrée un courriel contenant un lien personnel pour définir le mot de passe. La connexion restera protégée par OAuth et les droits de ce compte. Aucun mot de passe n’est envoyé.'];
     if ($this->reset) { $form['notice']['#plain_text'] = 'Envoyer à cette adresse enregistrée un lien personnel pour choisir un nouveau mot de passe. Le mot de passe actuel reste valable jusqu’au changement effectué par le destinataire. Aucun mot de passe n’est envoyé. Si vous avez modifié l’adresse du compte, enregistrez-la avant de poursuivre.'; }
     $form['version'] = ['#type' => 'hidden', '#default_value' => AccountInvitation::version($user)];
     $form['actions']['#type'] = 'actions';

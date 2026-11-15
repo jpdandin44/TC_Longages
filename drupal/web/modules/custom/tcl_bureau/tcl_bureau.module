@@ -70,3 +70,32 @@ function tcl_bureau_mail($key, &$message, $params): void {
     $message['body'][] = $params['body'];
   }
 }
+
+/** Makes recovery available on the club's dedicated sign-in form. */
+function tcl_bureau_form_user_login_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  if (\Drupal::routeMatch()->getRouteName() === 'tcl_identity.login') {
+    $form['actions']['recover'] = ['#type' => 'link', '#title' => 'Mot de passe oublié ?', '#url' => \Drupal\Core\Url::fromRoute('user.pass')];
+  }
+}
+
+/** Uses the club sender for the native production password recovery message. */
+function tcl_bureau_mail_alter(array &$message): void {
+  if ($message['id'] !== 'user_password_reset' || \Drupal::request()->getSchemeAndHttpHost() !== 'https://tclongages.fr') {
+    return;
+  }
+  $sender = 'support@tclongages.fr';
+  $message['from'] = $sender;
+  $message['headers']['From'] = 'Tennis Club de Longages <' . $sender . '>';
+  $message['headers']['Sender'] = $sender;
+  $message['headers']['Return-Path'] = $sender;
+  $message['headers']['Reply-to'] = $sender;
+}
+
+/** Keep the native recovery confirmation visible on the club's sign-in page. */
+function tcl_bureau_form_user_pass_alter(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  $form['#submit'][] = 'tcl_bureau_password_requested';
+}
+
+function tcl_bureau_password_requested(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  $state->setRedirect('user.pass');
+}
