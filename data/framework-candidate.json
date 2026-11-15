@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "2130eb8ca9e2c433dcdd13d3f3610435daf82a7b",
+  "sourceCommit": "e573f8703b33143baa3798b7a5d00b4a574eadbe",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -6036,9 +6036,9 @@
     {
       "path": "tests/drupal-bureau-oauth-http.py",
       "mode": "100644",
-      "gitBlob": "e30b9e4fe5fdd6f9c474dad3ce56bd8701831ffc",
-      "size": 9792,
-      "sha256": "31e9c256326d0c5f4cb03fbdbe000b8ddffb661dff43865adb7a1dbe4002e440"
+      "gitBlob": "e52e77354296ecb1df12d0ae25e6487c6cfb7bf7",
+      "size": 9806,
+      "sha256": "8222dda3884fbbdf9665c50b01660931af86bbb42f6556c8e0a987110c19b622"
     },
     {
       "path": "tests/drupal-communication-http.py",
@@ -6092,9 +6092,9 @@
     {
       "path": "tests/drupal-tc-identity-http.py",
       "mode": "100644",
-      "gitBlob": "d099dd241acb712824aeac1c1f700007216eb92e",
-      "size": 9437,
-      "sha256": "8b9f2a9d9007b46eb89517b56e544a5ad5b642b000103d84b56a3d51ce023f34"
+      "gitBlob": "e3e89ef4ca902212e36351e2f3e52cf7639d7b71",
+      "size": 9445,
+      "sha256": "2ee1b38b80ed6b6437d4f97180d53738c6fc3baab4ec1a31374d88ae63833a8d"
     },
     {
       "path": "tests/event-participation-http.py",
@@ -6246,9 +6246,9 @@
     {
       "path": "tests/invitation-http.py",
       "mode": "100644",
-      "gitBlob": "6a5ae114960f5e77e6478afd7a45bf14554e3c1f",
-      "size": 3344,
-      "sha256": "a4597d219f56dd5dd0c110c0bf5e2cb32d98e0d55a40cd0c521598f999ab49b4"
+      "gitBlob": "cb0b6f3fe82ced5ff4ecc7e8b705bfb9d1999125",
+      "size": 3474,
+      "sha256": "5f3a7a7c4cb409fdb96d62652c7eab7b3f97cc80bcc652eb3a4df1ee2af6d46b"
     },
     {
       "path": "tests/logo.test.mjs",
@@ -6706,5 +6706,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "beef0816154cded90cd6a6c82d6cab5678337ebf07f366dfec4dc86066f1db4c"
+  "artifactDigest": "da6a8945cb710031627e47b4d9a99729f3f5da55bde432be81876e5e100f82fc"
 }
