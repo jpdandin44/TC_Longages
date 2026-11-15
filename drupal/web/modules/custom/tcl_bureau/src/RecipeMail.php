@@ -29,10 +29,7 @@ final class RecipeMail {
         // Let Drupal apply the configured sender and mail hooks without sending yet.
         $message = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body], NULL, FALSE);
         if (($message['send'] ?? TRUE) === FALSE) { return FALSE; }
-        $boundary = 'tcl_' . bin2hex(random_bytes(18));
-        $message['headers']['Content-Type'] = 'multipart/alternative; boundary="' . $boundary . '"';
-        $message['headers']['Content-Transfer-Encoding'] = '7bit';
-        $message['body'] = '--' . $boundary . "\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($body), 76, "\r\n") . '--' . $boundary . "\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode('<!doctype html><html lang="fr"><body>' . $html . '</body></html>'), 76, "\r\n") . '--' . $boundary . "--\r\n";
+        $message = MemberMail::multipart($message, $body, $html);
         return $plugin->mail($message);
       }
       $result = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body]);

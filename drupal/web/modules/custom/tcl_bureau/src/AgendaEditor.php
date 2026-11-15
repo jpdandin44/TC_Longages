@@ -32,10 +32,15 @@ final class AgendaEditor {
     $months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
     $label = ucfirst($months[(int) $first->format('n') - 1]) . ' ' . $first->format('Y');
     $page = static fn(string $m): string => Html::escape(Url::fromUserInput('/calendrier.html', ['query' => ['mois' => $m], 'fragment' => 'agenda-bureau'])->toString());
-    $html = '<section id="agenda-bureau" class="tcl-month-editor" aria-labelledby="agenda-bureau-title"><h2 id="agenda-bureau-title">Mon agenda du Bureau</h2><p>Recette privée — cliquez sur un jour pour ajouter un événement, ou sur un rendez-vous pour le modifier. Les événements restent séparés du calendrier Google du club. Horaires : Europe/Paris.</p>';
+    $tabs = '<nav class="tcl-month-toolbar" aria-label="Espace du club"><a href="' . Html::escape(Url::fromRoute('tcl_bureau.home')->toString()) . '" aria-current="page">Agenda</a>';
+    if (\Drupal::service('tcl_bureau.repository')->allowed($account, 'manage tcl communication')) {
+      $tabs .= '<a href="' . Html::escape(Url::fromRoute('tcl_bureau.communication')->toString()) . '">Communication</a>';
+    }
+    $tabs .= '<a href="' . Html::escape(Url::fromRoute('tcl_bureau.members')->toString()) . '">Adhérents <span>— En construction</span></a></nav>';
+    $html = '<section id="agenda-bureau" class="tcl-month-editor" aria-labelledby="agenda-bureau-title">' . $tabs . '<h2 id="agenda-bureau-title">Agenda du club</h2><p>Cliquez sur un jour pour ajouter un événement, ou sur un rendez-vous pour le modifier. La grille présente les événements saisis par le Bureau. Horaires : Europe/Paris.</p>';
     if (GoogleCalendarConnection::target()) { $html .= '<p>Connecté à <strong>Google — TC Longages — Recette V2</strong>. Les prochains enregistrements seront transmis à ce calendrier privé. Les anciens événements restent locaux jusqu’à leur prochain enregistrement.</p>'; }
     if (GoogleCalendarConnection::allowed($account)) { $html .= '<p><a href="' . Html::escape(Url::fromRoute('tcl_bureau.google_calendar')->toString()) . '">Connexion Google Agenda de recette</a></p>'; }
-    $html .= '<nav class="tcl-month-toolbar" aria-label="Navigation par mois"><a href="' . $page($first->modify('-1 month')->format('Y-m')) . '" aria-label="Mois précédent">← Précédent</a><h3>' . $label . '</h3><a href="' . $page($first->modify('+1 month')->format('Y-m')) . '" aria-label="Mois suivant">Suivant →</a><a href="' . $page($today->format('Y-m')) . '">Aujourd’hui</a><a href="' . Html::escape(Url::fromRoute('tcl_bureau.events')->toString()) . '">Toutes les séries et les participants</a></nav>';
+    $html .= '<nav class="tcl-month-toolbar" aria-label="Navigation par mois"><a href="' . $page($first->modify('-1 month')->format('Y-m')) . '" aria-label="Mois précédent">← Précédent</a><h3>' . $label . '</h3><a href="' . $page($first->modify('+1 month')->format('Y-m')) . '" aria-label="Mois suivant">Suivant →</a><a href="' . $page($today->format('Y-m')) . '">Aujourd’hui</a><a href="' . Html::escape(Url::fromRoute('tcl_bureau.events')->toString()) . '">Voir les événements</a></nav>';
     $html .= '<div class="tcl-month-grid">';
     foreach (['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'] as $name) { $html .= '<div class="tcl-month-weekday" aria-hidden="true">' . $name . '</div>'; }
     for ($i = 1; $i < (int) $first->format('N'); $i++) { $html .= '<div class="tcl-month-empty" aria-hidden="true"></div>'; }
@@ -50,7 +55,7 @@ final class AgendaEditor {
         [$categoryLabel, $icon] = EventRepository::CATEGORIES[$category];
         $url = Html::escape(Url::fromRoute('tcl_bureau.event_edit', ['event' => $event['id']], ['query' => ['destination' => $return]])->toString());
         $html .= '<a class="tcl-month-event tcl-event-' . $category . '" href="' . $url . '"><span>' . $icon . ' ' . Html::escape($categoryLabel) . '</span><strong>' . Html::escape($event['title']) . '</strong><span>' . $start->format('H:i') . ($event['status'] === 'cancelled' ? ' · Annulé' : '') . '</span></a>';
-        $html .= '<small>' . (!empty($event['google']) ? 'Relié à Google' : 'Local — non transmis') . '</small>';
+        $html .= '<small>' . (!empty($event['google']) ? 'Relié à Google' : 'Enregistré au Bureau') . '</small>';
       }
       $html .= '</div>';
     }

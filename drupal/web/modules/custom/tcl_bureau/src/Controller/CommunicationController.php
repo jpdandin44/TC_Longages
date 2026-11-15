@@ -33,6 +33,15 @@ final class CommunicationController extends ControllerBase {
   public function overview(bool $archived = FALSE): array {
     $build = $this->shell();
     $build['intro'] = ['#plain_text' => 'Rédigez les actualités du club, validez chaque révision, puis choisissez sa publication sur le site.'];
+    if (!$archived && \Drupal\tcl_bureau\MemberContacts::production()) {
+      try {
+        $directory = \Drupal\tcl_bureau\MemberContacts::deliveryDirectory();
+        $summary = $directory['group'] . ' — ' . count($directory['recipients']) . ' destinataires';
+      } catch (\RuntimeException $e) {
+        $summary = $e->getMessage();
+      }
+      $build['directory'] = ['#type' => 'item', '#title' => 'Courriel aux adhérents', '#plain_text' => $summary];
+    }
     $build['add'] = Link::fromTextAndUrl('Créer une actualité', Url::fromRoute('tcl_bureau.communication_add'))->toRenderable();
     $rows = [];
     foreach ($this->repository->list($this->currentUser(), $archived) as $post) {
@@ -75,7 +84,7 @@ final class CommunicationController extends ControllerBase {
       $build[$action] = Link::fromTextAndUrl($label, Url::fromRoute('tcl_bureau.communication_action', ['post' => $post, 'action' => $action]))->toRenderable();
     }
     if (in_array($row['status'], ['validated', 'published'], TRUE) && (int) $row['approved_revision'] === (int) $row['revision']) {
-      if (in_array('email', $selectedChannels, TRUE) && \Drupal\tcl_bureau\SeasonCatalogue::recipeEnabled()) {
+      if (in_array('email', $selectedChannels, TRUE) && (\Drupal\tcl_bureau\SeasonCatalogue::recipeEnabled() || \Drupal\tcl_bureau\MemberContacts::production())) {
         $build['member_mail'] = Link::fromTextAndUrl('Préparer le courriel aux adhérents', Url::fromRoute('tcl_bureau.member_mail', ['post' => $post]))->toRenderable();
       }
       $build['sharing'] = ['#type' => 'details', '#title' => 'Partager manuellement la révision validée', '#open' => TRUE];
@@ -215,7 +224,7 @@ final class CommunicationController extends ControllerBase {
   private function shell(bool $public = FALSE): array {
     $build = ['#type' => 'container', '#attributes' => ['class' => ['tcl-bureau', 'tcl-communication']], '#cache' => ['max-age' => 0], '#attached' => ['library' => ['tcl_bureau/communication', 'tcl_bureau/poster_preview']]];
     $build['navigation'] = ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => $public ? 'Actualités du club' : 'Bureau']];
-    $links = $public ? ['Retour au site' => 'tcl_site.front', 'Toutes les actualités' => 'tcl_bureau.public_news'] : ['Adhérents' => 'tcl_bureau.registrations', 'Communication' => 'tcl_bureau.communication', 'Archives' => 'tcl_bureau.communication_archives', 'Actualités du site' => 'tcl_bureau.public_news', 'Retour au site' => 'tcl_site.front', 'Se déconnecter' => 'user.logout'];
+    $links = $public ? ['Retour au site' => 'tcl_site.front', 'Toutes les actualités' => 'tcl_bureau.public_news'] : ['Agenda' => 'tcl_bureau.home', 'Adhérents — En construction' => 'tcl_bureau.members', 'Communication' => 'tcl_bureau.communication', 'Archives' => 'tcl_bureau.communication_archives', 'Actualités du site' => 'tcl_bureau.public_news', 'Retour au site' => 'tcl_site.front', 'Se déconnecter' => 'user.logout'];
     foreach ($links as $label => $route) {
       $build['navigation'][$route] = Link::fromTextAndUrl($label, Url::fromRoute($route))->toRenderable();
       $current = \Drupal::routeMatch()->getRouteName();
