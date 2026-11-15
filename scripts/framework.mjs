@@ -12,7 +12,7 @@ export const digest = value => createHash('sha256').update(value).digest('hex');
 // Toute évolution d’un contrôle actif doit être revue avec son empreinte.
 // Ce garde-fou local ne remplace pas la protection de branche ni la revue humaine.
 const approvedWorkflows = Object.freeze({
-  'ci.yml': '6ea4e461fa001ec7a4910bbd5d2c95a9c8a768725d69ce2f201c26435a104f4d',
+  'ci.yml': 'ec144350d66f9f83b93aea55b18f92db8f27c8b637a498ee9a1b8f4da15ae1a1',
   'pr-policy.yml': '6b4e5856e70a06348187f1344893bafda532861eb446ae24387e3e87f6022c4d',
   'preparer-deploiement.yml': 'd51a88be270787e62421d7c93938c6d4590df6bd8a35d4ef6d80fc67967345c3',
   'production-manuelle.yml': '1526b5f677bd1b03190aeee428f8fc71a7526d5eca97baacc0849a8a80b09049'
