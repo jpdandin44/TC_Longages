@@ -121,7 +121,7 @@ def run():
     check('Wrong verifier cannot redeem a real TC code', challenge.get(PROVIDER + '/oauth/token', token_values)[0] in (400, 401))
     token_values['client_secret'] = 'wrong-secret'
     check('Wrong secret cannot redeem a real TC code', challenge.get(PROVIDER + '/oauth/token', token_values)[0] in (400, 401))
-    link = re.search(r'href="([^"]*/user/logout[^\"]*)"', admin.get('/bureau')[1])
+    link = re.search(r'href="([^"]*/user/logout[^\"]*)"', admin.get('/bureau/comptes')[1])
     check('TC Admin can sign out', link is not None)
     admin.get(__import__('html').unescape(link[1]))
     check('Signing out removes TC Bureau access', admin.get('/bureau')[2].get('Location') == '/bureau/connexion')

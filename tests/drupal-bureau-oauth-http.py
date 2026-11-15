@@ -124,7 +124,7 @@ def run():
         check('session deadline enforced ' + action, expired.get('/bureau')[2].get('Location') == '/bureau/connexion')
         check('expired session cannot write ' + action, expired.get(edit, values)[0] == 403)
     logout = Session(); check('prepare logout', logout.oauth()[0] == 303)
-    page = logout.get('/bureau')[1]
+    page = logout.get('/bureau/communication')[1]
     link = re.search(r'href="([^"]*/user/logout[^\"]*)"', page)
     check('native logout link available', link is not None)
     logout.get(html.unescape(link.group(1)))
