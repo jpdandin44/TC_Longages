@@ -12,7 +12,7 @@ final class GoogleContactsForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state): array {
     if (!GoogleContactsConnection::allowed($this->currentUser())) { throw new AccessDeniedHttpException(); }
     $form['#cache']['max-age'] = 0; $form['#attributes']['class'][] = 'tcl-bureau'; $form['#attached']['library'][] = 'tcl_bureau/bureau';
-    $form['notice'] = ['#plain_text' => 'Compte du club : tclongages@gmail.com. Libellé : Adhérents_2026_2027. Google demande la lecture des contacts du compte ; le site utilise uniquement ce libellé. Aucune modification des contacts ni aucun envoi automatique. Les destinataires restent limités aux adresses de recette autorisées.'];
+    $form['notice'] = ['#plain_text' => 'Compte du club : tclongages@gmail.com. Libellé : Adhérents_2026_2027. Google demande la lecture des contacts du compte ; le site utilise uniquement ce libellé. Aucune modification des contacts ni aucun envoi automatique. ' . (MemberContacts::production() ? 'La liste est actualisée à chaque préparation de courriel.' : 'Les destinataires restent limités aux adresses de recette autorisées.')];
     $form['status'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => MemberContacts::configured() ? 'Autorisation enregistrée. La préparation du courriel vérifiera la lecture effective.' : 'À connecter.'];
     $form['actions']['#type'] = 'actions';
     $form['actions']['connect'] = ['#type' => 'submit', '#value' => 'Connecter Google Contacts en lecture seule'];

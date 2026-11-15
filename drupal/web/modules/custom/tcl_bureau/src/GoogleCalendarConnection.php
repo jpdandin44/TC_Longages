@@ -11,7 +11,7 @@ final class GoogleCalendarConnection {
   public const NAME = 'TC Longages — Recette V2';
   public const SCOPE = 'https://www.googleapis.com/auth/calendar.app.created';
   public const STORE = 'tcl_bureau.google_calendar';
-  public static function allowed(AccountInterface $actor): bool { return GoogleContactsConnection::allowed($actor); }
+  public static function allowed(AccountInterface $actor): bool { return SeasonCatalogue::recipeEnabled() && GoogleContactsConnection::allowed($actor); }
   private static function config(): array {
     $s = Settings::get('tcl_member_contacts', []);
     if (!SeasonCatalogue::recipeEnabled() || \Drupal::request()->getSchemeAndHttpHost() !== 'https://preprod.tclongages.fr' || ($s['enabled'] ?? FALSE) !== TRUE || empty($s['client_id']) || empty($s['client_secret']) || ($s['account'] ?? '') !== 'tclongages@gmail.com') { throw new \RuntimeException('Connexion Google réservée à la préproduction configurée du club.'); }

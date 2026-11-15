@@ -15,21 +15,31 @@ final class EventRepository {
   public const CATEGORIES = ['lesson' => ['Cours de tennis', '🎾'], 'festival' => ['Manifestation', '🎉'], 'court' => ['Réservation des terrains', '📅'], 'meal' => ['Repas du club', '🍽️'], 'meeting' => ['Assemblée générale', '👥'], 'competition' => ['Compétition', '🏆'], 'other' => ['Autre rendez-vous', '📌']];
   public const STATUSES = ['scheduled' => 'Programmé', 'cancelled' => 'Annulé'];
   public function __construct(private KeyValueFactoryInterface $stores, private LockBackendInterface $lock, private TeamRepository $access) {}
+  public static function clubEnabled(): bool {
+    return \Drupal\Core\Site\Settings::get('tcl_club_agenda_enabled', FALSE) === TRUE
+      && in_array(\Drupal::request()->getSchemeAndHttpHost(), ['https://tclongages.fr', 'https://www.tclongages.fr', 'https://preprod.tclongages.fr'], TRUE)
+      && !SeasonCatalogue::recipeEnabled();
+  }
+
+  public static function storeName(): string {
+    return self::clubEnabled() ? 'tcl_bureau.club_events' : 'tcl_bureau.recipe_events';
+  }
+
   public function allowed(AccountInterface $actor): bool {
-    return SeasonCatalogue::recipeEnabled() && $this->access->allowed($actor, 'manage tcl communication');
+    return (SeasonCatalogue::recipeEnabled() || self::clubEnabled()) && $this->access->allowed($actor, 'manage tcl communication');
   }
   private function guard(AccountInterface $actor): void {
     if (!$this->allowed($actor)) { throw new AccessDeniedHttpException(); }
   }
   public function all(AccountInterface $actor): array {
     $this->guard($actor);
-    $rows = $this->stores->get('tcl_bureau.recipe_events')->getAll();
+    $rows = $this->stores->get(self::storeName())->getAll();
     uasort($rows, static fn(array $a, array $b): int => [$a['start_date'], $a['start_time'], $a['id']] <=> [$b['start_date'], $b['start_time'], $b['id']]);
     return $rows;
   }
   public function get(AccountInterface $actor, string $id): array {
     $this->guard($actor);
-    $row = $this->stores->get('tcl_bureau.recipe_events')->get($id);
+    $row = $this->stores->get(self::storeName())->get($id);
     if (!$row) { throw new NotFoundHttpException(); }
     return $row;
   }
@@ -48,18 +58,18 @@ final class EventRepository {
   public function save(AccountInterface $actor, string $id, int $revision, array $input): string {
     $this->guard($actor);
     if (!preg_match('/^[a-f0-9]{32}$/D', $id) || EventSchedule::inspect($input)['errors'] || $this->presentationErrors($actor, $input) || !isset(self::STATUSES[$input['status'] ?? ''])) { throw new \InvalidArgumentException('Événement invalide.'); }
-    if (!$this->lock->acquire('tcl_bureau.recipe_events.write', 120)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
+    if (!$this->lock->acquire(self::storeName() . '.write', 120)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
     try {
-      $store = $this->stores->get('tcl_bureau.recipe_events');
+      $store = $this->stores->get(self::storeName());
       $old = $store->get($id);
       if (($old['revision'] ?? 0) !== $revision) { throw new ConflictHttpException('Cet événement a changé. Rechargez sa fiche avant de modifier.'); }
-      if (!$old && count($store->getAll()) >= 100) { throw new ConflictHttpException('La limite de 100 séries de recette est atteinte.'); }
+      if (!$old && count($store->getAll()) >= 100) { throw new ConflictHttpException('La limite de 100 séries est atteinte.'); }
       $row = array_intersect_key($input, array_flip([...EventSchedule::FIELDS, 'status', 'category', 'poster_post']));
       $row += ['id' => $id, 'revision' => $revision + 1, 'created' => $old['created'] ?? time(), 'changed' => time(), 'changed_by' => (int) $actor->id()];
       if (GoogleCalendarConnection::target()) { $row['google'] = GoogleCalendarEvents::save($row, $old); }
       $store->set($id, $row);
       return $id;
     }
-    finally { $this->lock->release('tcl_bureau.recipe_events.write'); }
+    finally { $this->lock->release(self::storeName() . '.write'); }
   }
 }

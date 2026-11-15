@@ -14,9 +14,9 @@ def run():
     path='/bureau/evenements/ajouter'
     check('Anonymous write denied', anonymous.get(path, {'title':'bad'})[0] == 403)
     check('Bureau OAuth works', bureau.oauth()[0] == 303)
-    check('Bureau navigation exposes recipe agenda', 'Agenda de recette' in bureau.get('/bureau')[1])
     check('Anonymous calendar hides editor', 'id="agenda-bureau"' not in anonymous.get('/calendrier.html')[1])
     calendar=bureau.get('/calendrier.html?mois=2027-03')[1]
+    check('Calendar links to club events', '/bureau/evenements' in calendar and 'Voir les événements' in calendar)
     check('Bureau calendar offers day creation', 'Ajouter un événement le 21/03/2027' in calendar and 'Mars 2027' in calendar)
     dated=bureau.get(path+'?date=2027-03-21')[1]
     check('Calendar date prefills both dates', dated.count('value="2027-03-21"')==2)

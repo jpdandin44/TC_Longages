@@ -1,3 +1,10 @@
+recipient_selection:
+  js:
+    js/recipient-selection.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 bureau:
   css:
     theme:

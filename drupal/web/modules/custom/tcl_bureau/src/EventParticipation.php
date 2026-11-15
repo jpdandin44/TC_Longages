@@ -10,13 +10,16 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 final class EventParticipation {
   public const MAX_PARTICIPANTS = 10;
   public const ANSWERS = ['unknown' => 'Sans réponse', 'yes' => 'Je participe', 'no' => 'Je ne participe pas', 'maybe' => 'Je ne sais pas encore'];
+  public static function enabled(): bool {
+    return RecipeMail::communicationEnabled() || (MemberContacts::production() && EventRepository::clubEnabled());
+  }
   private static function guard(): void {
-    if (!SeasonCatalogue::recipeEnabled()) { throw new AccessDeniedHttpException(); }
+    if (!self::enabled()) { throw new AccessDeniedHttpException(); }
   }
   private static function store() { return \Drupal::keyValue('tcl_bureau.event_participation'); }
   private static function event(string $id, string $date): array {
     self::guard();
-    $event = \Drupal::keyValue('tcl_bureau.recipe_events')->get($id);
+    $event = \Drupal::keyValue(EventRepository::storeName())->get($id);
     if (!$event || $event['status'] !== 'scheduled' || !in_array($date, array_column(EventSchedule::inspect($event)['occurrences'], 'date'), TRUE)) { throw new AccessDeniedHttpException('Événement annulé ou date indisponible.'); }
     return $event;
   }
@@ -31,7 +34,7 @@ final class EventParticipation {
     $key = $id . '.' . $date;
     $lock = \Drupal::lock();
     // Event changes and replies cannot interleave.
-    if (!$lock->acquire('tcl_bureau.recipe_events.write', 30)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
+    if (!$lock->acquire(EventRepository::storeName() . '.write', 30)) { throw new ConflictHttpException('Une modification est en cours. Réessayez.'); }
     try {
       $event = self::event($id, $date);
       $row = self::store()->get($key, ['revision' => 0, 'open' => FALSE, 'deadline' => '', 'people' => []]);
@@ -39,16 +42,18 @@ final class EventParticipation {
       $row['revision']++;
       self::store()->set($key, $row);
       return $result;
-    } finally { $lock->release('tcl_bureau.recipe_events.write'); }
+    } finally { $lock->release(EventRepository::storeName() . '.write'); }
   }
   public static function configure(AccountInterface $actor, string $id, string $date, int $revision, bool $open, string $deadline, ?int $registrationPost = NULL): void {
     self::manage($actor, $id);
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/D', $deadline) || (\DateTimeImmutable::createFromFormat('!Y-m-d', $deadline) ?: new \DateTimeImmutable())->format('Y-m-d') !== $deadline || $deadline > $date) { throw new \InvalidArgumentException('La date limite doit être valide et ne pas dépasser la date de l’événement.'); }
-    self::write($id, $date, static function (&$row) use ($revision, $open, $deadline, $registrationPost): void {
+    self::write($id, $date, static function (&$row) use ($actor, $revision, $open, $deadline, $registrationPost): void {
       if ($row['revision'] !== $revision) { throw new ConflictHttpException('Le suivi a changé. Rechargez la page.'); }
       $row['open'] = $open; $row['deadline'] = $deadline;
       if ($registrationPost !== NULL) {
-        if ($registrationPost !== 0 && !\Drupal::service('tcl_bureau.communication')->published($registrationPost)) { throw new \InvalidArgumentException('Choisissez une actualité publiée sur le site.'); }
+        if ($registrationPost && MemberContacts::production()) {
+          MemberMail::post($actor, $registrationPost);
+        } elseif ($registrationPost !== 0 && !\Drupal::service('tcl_bureau.communication')->published($registrationPost)) { throw new \InvalidArgumentException('Choisissez une actualité publiée sur le site.'); }
         $row['registration_post'] = $registrationPost;
       }
     });
@@ -59,7 +64,7 @@ final class EventParticipation {
   }
   private static function issue(string $id, string $date, string $name, string $email): string {
     $name = trim($name); $email = strtolower(trim($email));
-    if ($name === '' || mb_strlen($name) > 100 || !RecipeMail::inputAllowed($email)) { throw new \InvalidArgumentException('Nom fictif et adresse de recette valides requis.'); }
+    if ($name === '' || mb_strlen($name) > 100 || !(MemberContacts::production() ? in_array($email, array_column(MemberContacts::deliveryDirectory()['recipients'], 'email'), TRUE) : RecipeMail::inputAllowed($email))) { throw new \InvalidArgumentException('Nom et adresse autorisée requis.'); }
     return self::write($id, $date, static function (&$row) use ($id, $date, $name, $email): string {
       if (count($row['people']) >= 500 && !isset($row['people'][hash('sha256', $email)])) { throw new \InvalidArgumentException('Limite de 500 réponses de recette atteinte.'); }
       $key = hash('sha256', $email); $token = bin2hex(random_bytes(32));
@@ -72,7 +77,16 @@ final class EventParticipation {
   }
   /** Only explicitly linked, published communications expose an occurrence. */
   public static function entry(int $post): ?array {
-    if (!SeasonCatalogue::recipeEnabled() || !\Drupal::service('tcl_bureau.communication')->published($post)) { return NULL; }
+    if (!RecipeMail::communicationEnabled() || !\Drupal::service('tcl_bureau.communication')->published($post)) { return NULL; }
+    return self::occurrence($post);
+  }
+  public static function mailEntry(AccountInterface $actor, int $post): ?array {
+    if (!MemberContacts::production()) { return self::entry($post); }
+    if (!self::enabled()) { return NULL; }
+    MemberMail::post($actor, $post);
+    return self::occurrence($post);
+  }
+  private static function occurrence(int $post): ?array {
     $matches = [];
     foreach (self::store()->getAll() as $key => $row) {
       if ((int) ($row['registration_post'] ?? 0) !== $post || !self::isOpen($row)) { continue; }
@@ -99,13 +113,13 @@ final class EventParticipation {
   }
   /** Personal links are issued only during an explicitly authorized individual send. */
   public static function mailLinks(AccountInterface $actor, int $post, string $email): array {
-    self::guard();
-    if (!RecipeMail::allowed($email)) { throw new AccessDeniedHttpException(); }
-    $entry = self::entry($post);
+    if (!self::enabled()) { return []; }
+    if (!MemberContacts::production() && !RecipeMail::allowed($email)) { throw new AccessDeniedHttpException(); }
+    $entry = self::mailEntry($actor, $post);
     if (!$entry) { return []; }
     self::manage($actor, $entry['id']);
     $row = self::read($actor, $entry['id'], $entry['date']);
-    $name = $row['people'][hash('sha256', strtolower(trim($email)))]['name'] ?? 'Participant de recette';
+    $name = $row['people'][hash('sha256', strtolower(trim($email)))]['name'] ?? (MemberContacts::production() ? 'Adhérent du club' : 'Participant de recette');
     $token = self::issue($entry['id'], $entry['date'], $name, $email);
     $url = \Drupal\Core\Url::fromRoute('tcl_bureau.event_response', [], ['absolute' => TRUE])->toString();
     $links = [];

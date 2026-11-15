@@ -20,7 +20,8 @@ try:
  check('Invitation submits through protected form',admin.form(path,{'op':'Envoyer le lien de création du mot de passe'})[0]==303)
  fixture('verify');check('One reset invitation captured without actual send',True)
  user=tc.Session();check('Invited user completes real TC OAuth',user.get(user.code(target))[0]==303)
- check('Invited captain reaches Bureau',user.get('/bureau')[0]==200)
+ landing=user.get('/bureau')
+ check('Invited captain reaches club calendar',landing[0]==303 and landing[2].get('Location')=='/calendrier.html#agenda-bureau' and user.get('/calendrier.html')[0]==200)
  check('Captain cannot manage other accounts',user.get('/bureau/comptes')[0]==403)
  check('Repeated invitation rate limited','cinq minutes' in admin.form(path,{'op':'Envoyer le lien de création du mot de passe'})[1])
  reset_path=f"/bureau/comptes/{target['uid']}/reinitialiser-mot-de-passe"

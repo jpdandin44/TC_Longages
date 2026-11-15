@@ -30,7 +30,7 @@ def main():
                 'targetHost': 'preprod.tclongages.fr', 'productionAllowed': False,
                 'privateConfigurationIncluded': False, 'databaseIncluded': False,
                 'editorialTemplatesIncluded': False, 'localFixtureIncluded': False,
-                'dependencyInstallationRequired': False, 'simpleOAuthVersion': '6.1.1',
+                'dependencyInstallationRequired': False, 'simpleOAuthVersion': json.loads(subprocess.check_output(['git', 'show', source + ':drupal/composer.json'], cwd=ROOT))['require']['drupal/simple_oauth'],
                 'hostedCorePreserved': True, 'embeddedPdfJsVersion': '6.4.299',
                 'readyForDirectDeployment': False,
                 'files': {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()} for name, data in sorted(files.items())}}

@@ -80,7 +80,7 @@ function tcl_bureau_form_user_login_form_alter(array &$form, \Drupal\Core\Form\F
 
 /** Uses the club sender for the native production password recovery message. */
 function tcl_bureau_mail_alter(array &$message): void {
-  if ($message['id'] !== 'user_password_reset' || \Drupal::request()->getSchemeAndHttpHost() !== 'https://tclongages.fr') {
+  if (!in_array($message['id'], ['user_password_reset', 'tcl_bureau_member_communication'], TRUE) || \Drupal::request()->getSchemeAndHttpHost() !== 'https://tclongages.fr') {
     return;
   }
   $sender = 'support@tclongages.fr';
