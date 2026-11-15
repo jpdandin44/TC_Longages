@@ -26,7 +26,7 @@ def main():
                 'targetHost': 'preprod.tclongages.fr', 'productionAllowed': False,
                 'privateConfigurationIncluded': False, 'databaseIncluded': False,
                 'editorialTemplatesIncluded': False, 'localFixtureIncluded': False,
-                'dependencyInstallationRequired': True, 'simpleOAuthVersion': '6.1.1',
+                'dependencyInstallationRequired': True, 'simpleOAuthVersion': next(p['version'] for p in json.loads(files['composer.lock'])['packages'] if p['name'] == 'drupal/simple_oauth'),
                 'dependencyCommand': 'composer install --no-dev --no-interaction --prefer-dist --no-progress',
                 'readyForDirectDeployment': False,
                 'files': {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()} for name, data in sorted(files.items())}}

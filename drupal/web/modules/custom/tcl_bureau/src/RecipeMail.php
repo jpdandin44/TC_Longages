@@ -11,6 +11,12 @@ final class RecipeMail {
     return is_array($value) && ($value['enabled'] ?? FALSE) === TRUE
       && in_array(\Drupal::request()->getHost(), ['127.0.0.1', 'localhost', 'preprod.tclongages.fr'], TRUE) ? $value : [];
   }
+  /** Communication trials can run independently of the seasonal enrolment form. */
+  public static function communicationEnabled(): bool {
+    return SeasonCatalogue::recipeEnabled()
+      || (\Drupal::request()->getSchemeAndHttpHost() === 'https://preprod.tclongages.fr'
+        && EventRepository::clubEnabled() && !empty(self::settings()['allowed_recipients']));
+  }
   public static function allowed(string $email): bool {
     return filter_var($email, FILTER_VALIDATE_EMAIL) && in_array(strtolower(trim($email)), array_map('strtolower', self::settings()['allowed_recipients'] ?? []), TRUE);
   }
@@ -29,10 +35,7 @@ final class RecipeMail {
         // Let Drupal apply the configured sender and mail hooks without sending yet.
         $message = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body], NULL, FALSE);
         if (($message['send'] ?? TRUE) === FALSE) { return FALSE; }
-        $boundary = 'tcl_' . bin2hex(random_bytes(18));
-        $message['headers']['Content-Type'] = 'multipart/alternative; boundary="' . $boundary . '"';
-        $message['headers']['Content-Transfer-Encoding'] = '7bit';
-        $message['body'] = '--' . $boundary . "\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($body), 76, "\r\n") . '--' . $boundary . "\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode('<!doctype html><html lang="fr"><body>' . $html . '</body></html>'), 76, "\r\n") . '--' . $boundary . "--\r\n";
+        $message = MemberMail::multipart($message, $body, $html);
         return $plugin->mail($message);
       }
       $result = $manager->mail('tcl_bureau', $key, $to, 'fr', ['subject' => '[RECETTE PRÉPRODUCTION] ' . $subject, 'body' => $body]);

@@ -39,7 +39,7 @@ final class EventForm extends FormBase {
     $form['submission_id'] = ['#type' => 'hidden', '#default_value' => $row['id']];
     $form['back'] = ['#type' => 'link', '#title' => 'Retour aux événements', '#url' => Url::fromRoute('tcl_bureau.events')];
     $form['calendar'] = ['#type' => 'link', '#title' => 'Retour au calendrier du site', '#url' => Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])];
-    $form['notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Recette fictive, sans diffusion. Horaires Europe/Paris. Les modifications et le statut Annulé concernent toute la série, y compris ses dates passées. Pour retirer une seule occurrence, renseignez sa date dans Dates exclues.'];
+    $form['notice'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Agenda privé du Bureau. Horaires Europe/Paris. Les modifications et le statut Annulé concernent toute la série, y compris ses dates passées. Pour retirer une seule occurrence, renseignez sa date dans Dates exclues.'];
     if (\Drupal\tcl_bureau\GoogleCalendarConnection::target()) {
       $form['notice']['#value'] = 'Enregistrement dans Google « TC Longages — Recette V2 », sans invitation ni calendrier officiel. Données fictives, horaires Europe/Paris. Modifier agit sur toute la série. Annulé ajoute [ANNULÉ] dans Google et libère le créneau, sans suppression.';
       $form['google_status'] = ['#plain_text' => !empty($row['google']) ? 'Cet événement est relié au calendrier Google de recette.' : 'Cet événement sera ajouté à Google lors de son prochain enregistrement.'];
@@ -67,7 +67,7 @@ final class EventForm extends FormBase {
     $form['until'] = ['#type' => 'date', '#title' => 'Répéter jusqu’au (inclus)', '#default_value' => $row['until'] ?? '', '#description' => 'Obligatoire si répétition, au maximum un an. Pour le 29, 30 ou 31 mensuel, les mois sans ce jour sont ignorés.'];
     $form['excluded'] = ['#type' => 'textarea', '#title' => 'Dates exclues', '#default_value' => $row['excluded'] ?? '', '#maxlength' => 5000, '#description' => 'Une date de début par ligne, au format AAAA-MM-JJ. Pour déplacer une seule occurrence, excluez sa date puis créez un événement séparé.'];
     $form['status'] = ['#type' => 'select', '#title' => 'État de toute la série', '#options' => EventRepository::STATUSES, '#default_value' => $row['status']];
-    $form['confirm'] = ['#type' => 'checkbox', '#title' => 'Je confirme ces données fictives et la modification de toute la série.'];
+    $form['confirm'] = ['#type' => 'checkbox', '#title' => 'Je confirme les informations de l’événement et leur application à toute la série.'];
     $form['actions']['#type'] = 'actions';
     $form['actions']['preview'] = ['#type' => 'submit', '#value' => 'Vérifier les dates', '#name' => 'preview'];
     $form['actions']['save'] = ['#type' => 'submit', '#value' => 'Enregistrer l’événement', '#name' => 'save'];
@@ -92,7 +92,7 @@ final class EventForm extends FormBase {
     if (!preg_match('/^[a-f0-9]{32}$/D', (string) $state->getValue('submission_id')) || !ctype_digit((string) $state->getValue('revision'))) { $state->setErrorByName('title', 'Rechargez le formulaire avant de réessayer.'); }
     foreach ($this->events->presentationErrors($this->currentUser(), $input) as $field => $error) { $state->setErrorByName($field, $error); }
     foreach (EventSchedule::inspect($input)['errors'] as $field => $error) { $state->setErrorByName($field, $error); }
-    if (($state->getTriggeringElement()['#name'] ?? '') === 'save' && !$state->getValue('confirm')) { $state->setErrorByName('confirm', 'Confirmez les données fictives et la portée de la modification.'); }
+    if (($state->getTriggeringElement()['#name'] ?? '') === 'save' && !$state->getValue('confirm')) { $state->setErrorByName('confirm', 'Confirmez les informations de l’événement et la portée de la modification.'); }
   }
   public function submitForm(array &$form, FormStateInterface $state): void {
     $input = $this->input($state);
@@ -104,7 +104,7 @@ final class EventForm extends FormBase {
     try { $id = $this->events->save($this->currentUser(), $row['revision'] > 0 ? $row['id'] : (string) $state->getValue('submission_id'), $row['revision'] > 0 ? (int) $state->getValue('revision') : 0, $input); }
     catch (ConflictHttpException $error) { $this->messenger()->addError($error->getMessage()); $state->setRebuild(); return; }
     catch (\RuntimeException $error) { $this->messenger()->addError($error->getMessage()); $state->setRebuild(); return; }
-    $this->messenger()->addStatus(\Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Événement enregistré dans Google « TC Longages — Recette V2 ». Aucune invitation envoyée.' : 'Événement de recette enregistré. Aucune diffusion effectuée.');
+    $this->messenger()->addStatus(\Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Événement enregistré dans Google « TC Longages — Recette V2 ». Aucune invitation envoyée.' : 'Événement enregistré dans l’agenda du Bureau.');
     $state->setRedirect('tcl_bureau.event_edit', ['event' => $id]);
   }
 }

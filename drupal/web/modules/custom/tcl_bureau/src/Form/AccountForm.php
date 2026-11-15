@@ -122,7 +122,7 @@ final class AccountForm extends FormBase {
 
     $form['mail'] = ['#type' => 'email', '#title' => 'Adresse de courriel', '#required' => TRUE, '#default_value' => $user?->getEmail() ?? ''];
 
-    $form['connection'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => 'Enregistrez toute modification avant un envoi. Pour un nouveau compte, envoyez le lien de création du mot de passe. Pour un compte déjà invité, envoyez un lien de réinitialisation. Les courriels sont réservés aux adresses autorisées en recette.'];
+    $form['connection'] = ['#type' => 'item', '#title' => 'Connexion', '#plain_text' => 'Enregistrez toute modification avant un envoi. Pour un nouveau compte, envoyez le lien de création du mot de passe. Pour un compte déjà invité, envoyez un lien de réinitialisation. En préproduction, seules les adresses autorisées peuvent recevoir une invitation.'];
 
     if ($admin) {
 

@@ -24,7 +24,10 @@ final class AccountInvitation {
       $user = $storage->load($uid);
       if (!$user || !\Drupal::service('tcl_bureau.repository')->canManageAccount($actor, $user) || !$user->isActive()) { throw new AccessDeniedHttpException(); }
       if (!hash_equals(self::version($user), $version)) { throw new ConflictHttpException('Le compte a changé. Rechargez sa fiche.'); }
-      if (!RecipeMail::allowed($user->getEmail())) { throw new \InvalidArgumentException('Cette adresse n’est pas autorisée pour les courriels de recette.'); }
+      $production = \Drupal::request()->getSchemeAndHttpHost() === 'https://tclongages.fr'
+        && IdentitySettings::load()['issuer'] === 'https://tclongages.fr/';
+      if ($production && !filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) { throw new \InvalidArgumentException('Adresse enregistrée invalide.'); }
+      if (!$production && !RecipeMail::allowed($user->getEmail())) { throw new \InvalidArgumentException('Cette adresse n’est pas autorisée pour les courriels de recette.'); }
       $settings = OAuthSettings::load();
       $provider = IdentitySettings::load();
       foreach (['issuer', 'client_id', 'redirect_uri'] as $key) {
@@ -40,9 +43,18 @@ final class AccountInvitation {
       $flood->register('tcl.account.invitation', 300, (string) $uid);
       \Drupal::moduleHandler()->loadInclude('user', 'module');
       $url = user_pass_reset_url($user);
-      $body = "Bonjour,\n\nVotre compte de recette TC Longages est prêt. Identifiant : " . $user->getAccountName() . "\n\nDéfinissez votre mot de passe avec ce lien personnel à usage unique :\n" . $url . "\n\nPuis ouvrez le Bureau :\n" . \Drupal\Core\Url::fromRoute('tcl_bureau.home', [], ['absolute' => TRUE])->toString() . "\n\nL’accès préproduction reste protégé. Ne partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le.";
-      if ($reset) { $body = "Bonjour,\n\nUne réinitialisation du mot de passe de votre compte TC Longages a été demandée par le Bureau. Identifiant : " . $user->getAccountName() . "\n\nChoisissez un nouveau mot de passe avec ce lien personnel à usage unique :\n" . $url . "\n\nVotre mot de passe actuel reste inchangé tant que vous n’en choisissez pas un nouveau. Ne partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le."; }
-      $accepted = RecipeMail::send('account_invitation', $user->getEmail(), $reset ? 'Réinitialiser votre mot de passe TC Longages' : 'Votre compte TC Longages', $body);
+      $accountLabel = $production ? 'Votre compte TC Longages' : 'Votre compte de recette TC Longages';
+      $timeout = (int) \Drupal::config('user.settings')->get('password_reset_timeout');
+      $validity = $timeout === 86400 ? '24 heures' : $timeout . ' secondes';
+      $instructions = $timeout > 0
+        ? "Ce lien personnel est à usage unique. Utilisez-le dans les " . $validity . " qui suivent sa création. Passé ce délai, demandez un nouveau lien au Bureau."
+        : "Ce lien personnel est à usage unique.";
+      $body = "Bonjour,\n\n" . $accountLabel . " est prêt. Identifiant : " . $user->getAccountName() . "\n\nOuvrez ce lien pour définir votre mot de passe :\n" . $url . "\n\n" . $instructions . "\n\nPuis ouvrez le Bureau :\n" . \Drupal\Core\Url::fromRoute('tcl_bureau.home', [], ['absolute' => TRUE])->toString() . "\n\nNe partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le.";
+      if ($reset) { $body = "Bonjour,\n\nUne réinitialisation du mot de passe de votre compte TC Longages a été demandée par le Bureau. Identifiant : " . $user->getAccountName() . "\n\nChoisissez un nouveau mot de passe avec ce lien personnel à usage unique :\n" . $url . "\n\n" . $instructions . "\n\nVotre mot de passe actuel reste inchangé tant que vous n’en choisissez pas un nouveau. Ne partagez pas ce lien. Si vous n’attendiez pas ce message, ignorez-le."; }
+      if ($production && !str_starts_with($url, 'https://tclongages.fr/user/reset/' . $uid . '/')) { throw new \RuntimeException('Origine du lien invalide.'); }
+      $accepted = $production
+        ? mail($user->getEmail(), $reset ? 'TC Longages - Reinitialisation de votre mot de passe' : 'TC Longages - Creation de votre mot de passe', $body, ['From' => 'Tennis Club de Longages <support@tclongages.fr>', 'MIME-Version' => '1.0', 'Content-Type' => 'text/plain; charset=UTF-8'], '-fsupport@tclongages.fr')
+        : RecipeMail::send('account_invitation', $user->getEmail(), $reset ? 'Réinitialiser votre mot de passe TC Longages' : 'Votre compte TC Longages', $body);
       \Drupal::keyValue('tcl_bureau.recipe_mail')->set(($reset ? 'password_reset.' : 'invitation.') . $uid, ['status' => $accepted ? 'accepted' : 'failed', 'at' => time(), 'actor' => (int) $actor->id()]);
       return $accepted;
     }

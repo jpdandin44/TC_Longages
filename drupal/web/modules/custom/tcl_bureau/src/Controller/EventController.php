@@ -46,10 +46,12 @@ final class EventController extends ControllerBase {
       $card['repeat'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => EventSchedule::FREQUENCIES[$event['frequency']] . ' · ' . count($schedule['occurrences']) . ' date(s)'];
       $card['state'] = ['#type' => 'html_tag', '#tag' => 'strong', '#value' => EventRepository::STATUSES[$event['status']]];
       $card['edit'] = Link::fromTextAndUrl('Ouvrir / modifier', Url::fromRoute('tcl_bureau.event_edit', ['event' => $event['id']]))->toRenderable();
-      $card['participants'] = Link::fromTextAndUrl('Participants et réponses', Url::fromRoute('tcl_bureau.event_participation', ['event' => $event['id']]))->toRenderable();
+      if (\Drupal\tcl_bureau\EventParticipation::enabled()) {
+        $card['participants'] = Link::fromTextAndUrl('Participants et réponses', Url::fromRoute('tcl_bureau.event_participation', ['event' => $event['id']]))->toRenderable();
+      }
       $cards[$event['id']] = $card;
     }
-    if (count($cards) === 2) { $cards['empty'] = ['#plain_text' => 'Aucun événement de recette dans cette catégorie.']; }
+    if (count($cards) === 2) { $cards['empty'] = ['#plain_text' => 'Aucun événement dans cette catégorie.']; }
     $filters = ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => 'Types de rendez-vous', 'class' => ['tcl-event-filters']]];
     foreach (['' => ['Tous', '']] + EventRepository::CATEGORIES as $key => [$label, $icon]) {
       $filters['filter_' . $key] = Link::fromTextAndUrl(trim($icon . ' ' . $label), Url::fromRoute('tcl_bureau.events', [], ['query' => $key === '' ? [] : ['categorie' => $key], 'attributes' => ['aria-current' => $filter === $key ? 'page' : 'false']]))->toRenderable();
@@ -58,7 +60,7 @@ final class EventController extends ControllerBase {
       '#type' => 'container', '#attributes' => ['class' => ['tcl-bureau']], '#cache' => ['max-age' => 0],
       '#attached' => ['library' => ['tcl_bureau/events', 'tcl_bureau/poster_preview']],
       'back' => Link::fromTextAndUrl('Retour au Bureau', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
-      'notice' => ['#type' => 'html_tag', '#tag' => 'p', '#value' => \Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Google TC Longages — Recette V2 connecté. Les prochains enregistrements sont transmis au calendrier privé de recette, sans invitation. Les anciens événements restent locaux jusqu’à leur prochain enregistrement. Horaires Europe/Paris.' : 'Agenda de recette indépendant — données fictives uniquement. Ces événements restent dans le Bureau de préproduction et ne sont pas diffusés dans Google Agenda ni sur le site public. Horaires : Europe/Paris.'],
+      'notice' => ['#type' => 'html_tag', '#tag' => 'p', '#value' => \Drupal\tcl_bureau\GoogleCalendarConnection::target() ? 'Google TC Longages — Recette V2 connecté. Les prochains enregistrements sont transmis au calendrier privé de recette, sans invitation. Les anciens événements restent locaux jusqu’à leur prochain enregistrement. Horaires Europe/Paris.' : 'Les événements de cet agenda sont visibles dans le Bureau. Horaires : Europe/Paris.'],
       'add' => Link::fromTextAndUrl('Créer un événement', Url::fromRoute('tcl_bureau.event_add'))->toRenderable(),
       'filters' => $filters,
       'cards' => $cards,

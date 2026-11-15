@@ -79,7 +79,10 @@ def run():
         check('failed OAuth leaves Bureau closed ' + mode, bad.get('/bureau')[2].get('Location') == '/bureau/connexion')
     check('unknown identity is not provisioned', Session().oauth('unknown-fixture')[0] == 403)
     bureau = Session(); check('approved Bureau OAuth succeeds', bureau.oauth()[0] == 303)
-    result = bureau.get('/bureau'); check('Bureau home usable', result[0] == 200 and 'Enregistrer un nouvel adhérent' in result[1])
+    result = bureau.get('/bureau')
+    check('Authenticated Bureau opens the club calendar', result[0] == 303 and result[2].get('Location') == '/calendrier.html#agenda-bureau')
+    calendar = bureau.get('/calendrier.html')
+    check('Calendar destination loads', calendar[0] == 200 and 'agenda' in calendar[1].lower())
     check('no-store noindex on private page', 'no-store' in result[2].get('Cache-Control', '') and 'noindex' in result[2].get('X-Robots-Tag', ''))
     path = '/bureau/adherents/ajouter'
     form = bureau.get(path)[1]
@@ -121,7 +124,7 @@ def run():
         check('session deadline enforced ' + action, expired.get('/bureau')[2].get('Location') == '/bureau/connexion')
         check('expired session cannot write ' + action, expired.get(edit, values)[0] == 403)
     logout = Session(); check('prepare logout', logout.oauth()[0] == 303)
-    page = logout.get('/bureau')[1]
+    page = logout.get('/bureau/communication')[1]
     link = re.search(r'href="([^"]*/user/logout[^\"]*)"', page)
     check('native logout link available', link is not None)
     logout.get(html.unescape(link.group(1)))

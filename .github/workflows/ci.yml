@@ -32,6 +32,9 @@ jobs:
           set -euo pipefail
           mkdir -p .local/beta-ci
           cp -a config/launch-beta/source/drupal/. .local/beta-ci/
+          cp config/launch-beta-maintenance/composer.lock .local/beta-ci/composer.lock
+          composer --working-dir=.local/beta-ci validate --no-check-publish
+          composer --working-dir=drupal --no-plugins --no-scripts audit --locked --no-dev
           composer --working-dir=.local/beta-ci install --no-dev --prefer-dist --no-progress --no-interaction --no-scripts
           composer --working-dir=.local/beta-ci --no-plugins --no-scripts audit --locked --no-dev
           php -r 'require ".local/beta-ci/vendor/autoload.php"; if (Drupal::VERSION !== "11.4.10") { exit(1); } echo Drupal::VERSION, PHP_EOL;'

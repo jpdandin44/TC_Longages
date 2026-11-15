@@ -6,9 +6,47 @@ use Drupal\Core\Site\Settings;
 
 /** Read only one explicitly configured Google contact group; no directory import. */
 final class MemberContacts {
+  public static function production(): bool {
+    return \Drupal::request()->getSchemeAndHttpHost() === 'https://tclongages.fr'
+      && !SeasonCatalogue::recipeEnabled();
+  }
+
+  public static function imported(): array {
+    if (!self::production()) {
+      throw new \RuntimeException('Annuaire de production indisponible.');
+    }
+    $directory = \Drupal::keyValue('tcl_bureau.member_directory')->get('adherents_2026_2027');
+    if (($directory['label'] ?? '') !== 'Adhérents_2026_2027' || !is_array($directory['contacts_by_email'] ?? NULL)) {
+      throw new \RuntimeException('Annuaire des adhérents indisponible.');
+    }
+    $recipients = [];
+    foreach (array_keys($directory['contacts_by_email']) as $address) {
+      $email = strtolower(trim($address));
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new \RuntimeException('Adresse invalide dans l’annuaire importé.');
+      }
+      $recipients[$email] = ['email' => $email];
+    }
+    return ['group' => $directory['label'], 'recipients' => array_values($recipients), 'excluded' => 0];
+  }
+
+  public static function deliveryDirectory(): array {
+    if (!self::production()) {
+      throw new \RuntimeException('Annuaire de production indisponible.');
+    }
+    if (!\Drupal::keyValue('tcl_bureau.google_contacts')->get('grant')) {
+      return self::imported();
+    }
+    $attributes = \Drupal::request()->attributes;
+    if (!$attributes->has('_tcl_google_recipients')) {
+      $attributes->set('_tcl_google_recipients', self::recipients());
+    }
+    return $attributes->get('_tcl_google_recipients');
+  }
+
   public static function configured(): bool {
     $s = GoogleContactsConnection::settings();
-    return SeasonCatalogue::recipeEnabled() && ($s['enabled'] ?? FALSE) === TRUE
+    return (RecipeMail::communicationEnabled() || self::production()) && ($s['enabled'] ?? FALSE) === TRUE
       && !empty($s['client_id']) && !empty($s['client_secret']) && !empty($s['refresh_token'])
       && preg_match('/^contactGroups\/[a-zA-Z0-9_-]+$/D', $s['group'] ?? '') === 1;
   }
@@ -21,7 +59,7 @@ final class MemberContacts {
       $options = ['timeout' => 15, 'allow_redirects' => FALSE, 'headers' => ['Authorization' => 'Bearer ' . $token['access_token']]];
       $group = json_decode((string) $client->get('https://people.googleapis.com/v1/' . $s['group'] . '?maxMembers=501&groupFields=name,memberCount', $options)->getBody(), TRUE, 32, JSON_THROW_ON_ERROR);
       $resources = $group['memberResourceNames'] ?? [];
-      if (($group['memberCount'] ?? 0) > 500 || count($resources) > 500 || count($resources) !== (int) ($group['memberCount'] ?? 0)) { throw new \RuntimeException(); }
+      if ((self::production() && ($group['name'] ?? '') !== 'Adhérents_2026_2027') || ($group['memberCount'] ?? 0) > 500 || count($resources) > 500 || count($resources) !== (int) ($group['memberCount'] ?? 0)) { throw new \RuntimeException(); }
       $people = [];
       foreach (array_chunk($resources, 200) as $chunk) {
         foreach ($chunk as $resource) { if (!preg_match('/^people\/[a-zA-Z0-9_-]+$/D', $resource)) { throw new \RuntimeException(); } }

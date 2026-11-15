@@ -48,14 +48,9 @@ final class BureauController extends ControllerBase {
     return new RedirectResponse($destination->toString());
   }
 
-  public function home(): array {
+  public function home(): array|RedirectResponse {
     if (!$this->config('tcl_bureau.settings')->get('teams_enabled')) {
-      if ($this->repository->allowed($this->currentUser(), 'manage tcl registrations')) {
-        return \Drupal::service('class_resolver')->getInstanceFromDefinition(RegistrationController::class)->overview();
-      }
-      $build = $this->shell();
-      $build['waiting'] = ['#plain_text' => 'La gestion des équipes sera proposée dans un prochain lot.'];
-      return $build;
+      return new RedirectResponse(Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])->toString(), 303, ['Cache-Control' => 'private, no-store']);
     }
     $actor = $this->currentUser();
     $manager = $this->repository->allowed($actor, 'manage tcl teams');
@@ -76,6 +71,14 @@ final class BureauController extends ControllerBase {
       '#type' => 'table', '#header' => ['Équipe', 'Catégorie', 'Notes', 'Action'], '#rows' => $rows,
       '#empty' => $manager ? 'Aucune équipe créée.' : 'Aucune équipe ne vous est attribuée. Contactez le Bureau.',
     ]];
+    return $build;
+  }
+
+  public function members(): array {
+    $build = $this->shell();
+    $build['heading'] = ['#type' => 'html_tag', '#tag' => 'h1', '#value' => 'Adhérents'];
+    $build['status'] = ['#type' => 'html_tag', '#tag' => 'p', '#attributes' => ['class' => ['tcl-note']], '#value' => 'En construction'];
+    $build['description'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'La gestion des adhérents sera disponible dans une prochaine étape. Pour le moment, retrouvez les communications et les événements du club dans les onglets dédiés.'];
     return $build;
   }
 
@@ -105,12 +108,13 @@ final class BureauController extends ControllerBase {
 
   private function shell(): array {
     $links = [
-      'home' => Link::fromTextAndUrl('Espace du club', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
+      'home' => Link::fromTextAndUrl('Agenda', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
+      'members' => Link::fromTextAndUrl('Adhérents — En construction', Url::fromRoute('tcl_bureau.members'))->toRenderable(),
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
     if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
-      $links['events'] = Link::fromTextAndUrl('Agenda de recette', Url::fromRoute('tcl_bureau.events'))->toRenderable();
+      $links['events'] = Link::fromTextAndUrl('Événements du club', Url::fromRoute('tcl_bureau.events'))->toRenderable();
     }
     if ($this->repository->canManageAccount($this->currentUser())) {
       $links['accounts'] = Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable();

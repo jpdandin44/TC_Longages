@@ -394,7 +394,7 @@ tcl_bureau.events:
 
     _controller: '\Drupal\tcl_bureau\Controller\EventController::overview'
 
-    _title: 'Agenda de recette'
+    _title: 'Agenda du club'
 
   requirements:
 
@@ -410,7 +410,7 @@ tcl_bureau.event_add:
 
     _form: '\Drupal\tcl_bureau\Form\EventForm'
 
-    _title: 'Créer un événement de recette'
+    _title: 'Créer un événement'
 
   requirements:
 
@@ -426,7 +426,7 @@ tcl_bureau.event_edit:
 
     _form: '\Drupal\tcl_bureau\Form\EventForm'
 
-    _title: 'Modifier un événement de recette'
+    _title: 'Modifier un événement'
 
   requirements:
 
@@ -444,7 +444,7 @@ tcl_bureau.member_mail:
 
     _form: '\Drupal\tcl_bureau\Form\MemberMailForm'
 
-    _title: 'Courriel aux adhérents — recette'
+    _title: 'Courriel aux adhérents'
 
   requirements:
 
@@ -568,3 +568,11 @@ tcl_bureau.google_contacts_callback:
     _custom_access: '\Drupal\tcl_bureau\Controller\GoogleContactsController::access'
   options:
     no_cache: TRUE
+
+tcl_bureau.members:
+  path: '/bureau/membres'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\BureauController::members'
+    _title: 'Adhérents — En construction'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
