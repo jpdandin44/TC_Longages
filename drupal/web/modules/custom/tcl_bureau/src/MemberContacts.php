@@ -46,7 +46,7 @@ final class MemberContacts {
 
   public static function configured(): bool {
     $s = GoogleContactsConnection::settings();
-    return (SeasonCatalogue::recipeEnabled() || self::production()) && ($s['enabled'] ?? FALSE) === TRUE
+    return (RecipeMail::communicationEnabled() || self::production()) && ($s['enabled'] ?? FALSE) === TRUE
       && !empty($s['client_id']) && !empty($s['client_secret']) && !empty($s['refresh_token'])
       && preg_match('/^contactGroups\/[a-zA-Z0-9_-]+$/D', $s['group'] ?? '') === 1;
   }

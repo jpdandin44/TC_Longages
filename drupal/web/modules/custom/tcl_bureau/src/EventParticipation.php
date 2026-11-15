@@ -11,7 +11,7 @@ final class EventParticipation {
   public const MAX_PARTICIPANTS = 10;
   public const ANSWERS = ['unknown' => 'Sans réponse', 'yes' => 'Je participe', 'no' => 'Je ne participe pas', 'maybe' => 'Je ne sais pas encore'];
   public static function enabled(): bool {
-    return SeasonCatalogue::recipeEnabled() || (MemberContacts::production() && EventRepository::clubEnabled());
+    return RecipeMail::communicationEnabled() || (MemberContacts::production() && EventRepository::clubEnabled());
   }
   private static function guard(): void {
     if (!self::enabled()) { throw new AccessDeniedHttpException(); }
@@ -77,7 +77,7 @@ final class EventParticipation {
   }
   /** Only explicitly linked, published communications expose an occurrence. */
   public static function entry(int $post): ?array {
-    if (!SeasonCatalogue::recipeEnabled() || !\Drupal::service('tcl_bureau.communication')->published($post)) { return NULL; }
+    if (!RecipeMail::communicationEnabled() || !\Drupal::service('tcl_bureau.communication')->published($post)) { return NULL; }
     return self::occurrence($post);
   }
   public static function mailEntry(AccountInterface $actor, int $post): ?array {

@@ -11,14 +11,14 @@ final class GoogleContactsConnection {
   public const CALLBACK = 'https://preprod.tclongages.fr/bureau/contacts-google/retour';
   private const SCOPE = 'openid email https://www.googleapis.com/auth/contacts.readonly';
   public static function allowed(AccountInterface $actor): bool {
-    return (SeasonCatalogue::recipeEnabled() || (MemberContacts::production() && (Settings::get('tcl_member_contacts', [])['enabled'] ?? FALSE) === TRUE)) && \Drupal::service('tcl_bureau.repository')->allowed($actor, 'administer tcl bureau accounts');
+    return (RecipeMail::communicationEnabled() || (MemberContacts::production() && (Settings::get('tcl_member_contacts', [])['enabled'] ?? FALSE) === TRUE)) && \Drupal::service('tcl_bureau.repository')->allowed($actor, 'administer tcl bureau accounts');
   }
   private static function callbackUrl(): string {
     return MemberContacts::production() ? 'https://tclongages.fr/bureau/contacts-google/retour' : self::CALLBACK;
   }
   private static function config(): array {
     $s = Settings::get('tcl_member_contacts', []);
-    if ((!SeasonCatalogue::recipeEnabled() && !MemberContacts::production()) || ($s['enabled'] ?? FALSE) !== TRUE || empty($s['client_id']) || empty($s['client_secret']) || ($s['account'] ?? '') !== 'tclongages@gmail.com' || ($s['label'] ?? '') !== 'Adhérents_2026_2027') { throw new \RuntimeException('Les identifiants Google privés de cet environnement restent à configurer.'); }
+    if ((!RecipeMail::communicationEnabled() && !MemberContacts::production()) || ($s['enabled'] ?? FALSE) !== TRUE || empty($s['client_id']) || empty($s['client_secret']) || ($s['account'] ?? '') !== 'tclongages@gmail.com' || ($s['label'] ?? '') !== 'Adhérents_2026_2027') { throw new \RuntimeException('Les identifiants Google privés de cet environnement restent à configurer.'); }
     if (MemberContacts::production()) { unset($s['refresh_token'], $s['group']); }
     return $s;
   }
@@ -26,7 +26,7 @@ final class GoogleContactsConnection {
   private static function key(): string { return hash('sha256', Settings::getHashSalt() . ':tcl-google-contacts', TRUE); }
   public static function settings(): array {
     $s = Settings::get('tcl_member_contacts', []);
-    if (!SeasonCatalogue::recipeEnabled() && !MemberContacts::production()) { return []; }
+    if (!RecipeMail::communicationEnabled() && !MemberContacts::production()) { return []; }
     if (MemberContacts::production()) { unset($s['refresh_token'], $s['group']); }
     if (!MemberContacts::production() && !empty($s['refresh_token'])) { return $s; }
     try {

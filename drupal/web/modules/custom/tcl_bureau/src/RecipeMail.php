@@ -11,6 +11,12 @@ final class RecipeMail {
     return is_array($value) && ($value['enabled'] ?? FALSE) === TRUE
       && in_array(\Drupal::request()->getHost(), ['127.0.0.1', 'localhost', 'preprod.tclongages.fr'], TRUE) ? $value : [];
   }
+  /** Communication trials can run independently of the seasonal enrolment form. */
+  public static function communicationEnabled(): bool {
+    return SeasonCatalogue::recipeEnabled()
+      || (\Drupal::request()->getSchemeAndHttpHost() === 'https://preprod.tclongages.fr'
+        && EventRepository::clubEnabled() && !empty(self::settings()['allowed_recipients']));
+  }
   public static function allowed(string $email): bool {
     return filter_var($email, FILTER_VALIDATE_EMAIL) && in_array(strtolower(trim($email)), array_map('strtolower', self::settings()['allowed_recipients'] ?? []), TRUE);
   }

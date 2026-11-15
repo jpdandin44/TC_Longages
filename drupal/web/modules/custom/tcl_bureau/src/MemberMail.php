@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 /** Explicit, individually addressed recipe sends of a reviewed snapshot. */
 final class MemberMail {
   public static function post(AccountInterface $actor, int $id): array {
-    if (!SeasonCatalogue::recipeEnabled() && !MemberContacts::production()) { throw new AccessDeniedHttpException(); }
+    if (!RecipeMail::communicationEnabled() && !MemberContacts::production()) { throw new AccessDeniedHttpException(); }
     $row = \Drupal::service('tcl_bureau.communication')->get($actor, $id);
     if (!$row || !in_array($row['status'], ['validated', 'published'], TRUE) || (int) $row['revision'] !== (int) $row['approved_revision'] || !in_array('email', explode(',', $row['channels']), TRUE)) { throw new ConflictHttpException('Enregistrez le canal courriel et validez cette révision avant de préparer un envoi.'); }
     return $row;
