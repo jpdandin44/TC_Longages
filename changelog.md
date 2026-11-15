@@ -866,3 +866,7 @@ Demande explicite : dix personnes maximum par réponse, répondant compris. Dév
 ## Tableau tarifaire de l’accueil — 22 octobre
 
 V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion et le tableau des tarifs, depuis le seul catalogue publié. Ancienne ligne adulte et note obsolète remplacées. Livré en préproduction après six contrôles CI réussis ; dix formules vérifiées sur les deux adresses d’accueil. Empreintes identiques des cinq dossiers et du catalogue avant/après : aucune écriture des tarifs historiques.
+
+## 15 novembre 2026 — Qualification de la PR 26
+
+La CI vérifie la destination Agenda du Bureau en mode équipes désactivées, puis les pages privées par rôle. Les verrous de maintenance bêta et V2 intègrent les correctifs Symfony. La V2 utilise Simple OAuth 6.1.4. La copie bêta historique reste figée et son intégrité reste contrôlée. La CI installe le verrou de maintenance dans une copie jetable de cette bêta et audite également le verrou V2.

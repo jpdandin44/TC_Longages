@@ -75,7 +75,9 @@ def run():
     response = admin.get(callback)
     check('Complete real Simple OAuth and strict signed nonce validation', response[0] == 303 and urllib.parse.urlsplit(response[2].get('Location', '')).path == '/bureau')
     page = admin.get('/bureau')
-    check('First TC Admin reaches Bureau', page[0] == 200 and 'Enregistrer un nouvel adhérent' in page[1])
+    check('Authenticated Bureau opens the club calendar', page[0] == 303 and page[2].get('Location') == '/calendrier.html#agenda-bureau')
+    calendar = admin.get('/calendrier.html')
+    check('Calendar destination loads', calendar[0] == 200 and 'agenda' in calendar[1].lower())
     check('Admin can manage accounts', admin.get('/bureau/comptes')[0] == 200)
     check('Admin can create Bureau accounts', 'Bureau' in admin.get('/bureau/comptes/ajouter')[1])
     check('Admin can manage registrations', admin.get('/bureau/adherents')[0] == 200)
@@ -84,7 +86,7 @@ def run():
     check('Admin retains native public content editing', pages[0] == 200 and 'Modifier' in pages[1])
     edit = re.search(r'href="(/(?:fr/)?node/\d+/edit[^\"]*)"', pages[1])
     check('Public editing form available', edit is not None and admin.get(__import__('html').unescape(edit[1]))[0] == 200)
-    check('Local recipe is labelled accurately', 'OAuth TC Longages, comptes et données de test' in page[1])
+    check('Local recipe is labelled accurately', 'OAuth TC Longages, comptes et données de test' in admin.get('/bureau/comptes')[1])
     # Reuse the existing native membership flow, now with the real TC provider.
     form = admin.get('/bureau/adherents/ajouter')[1]
     values = {'season': '2026-2027', 'last_name': 'TCProvider' + datetime.datetime.now().strftime('%H%M%S'), 'first_name': 'Recette', 'profile': 'adult', 'birth_date': '1990-01-01', 'email': 'fictif@example.invalid', 'phone': '0600000000', 'city': 'Exemple', 'formula': 'Fiche reçue', 'training': 'unknown', 'previous_licence': 'unknown', 'status': 'received', 'notes': 'Fictif, fournisseur TC local.'}
@@ -125,7 +127,7 @@ def run():
     check('Signing out removes TC Bureau access', admin.get('/bureau')[2].get('Location') == '/bureau/connexion')
 
 if __name__ == '__main__':
-    report = {'checkedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'scope': 'local Drupal Simple OAuth 6.1.1 dedicated TC provider, fictitious accounts only', 'hostedOAuthVerified': False, 'fictitiousDataOnly': True, 'checks': CHECKS}
+    report = {'checkedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'scope': 'local Drupal Simple OAuth 6.1.4 dedicated TC provider, fictitious accounts only', 'hostedOAuthVerified': False, 'fictitiousDataOnly': True, 'checks': CHECKS}
     try:
         run()
         report['passed'] = True
