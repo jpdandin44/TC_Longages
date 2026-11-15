@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "e573f8703b33143baa3798b7a5d00b4a574eadbe",
+  "sourceCommit": "b6cbc9321231c1ec8d2c798791fa63d4a1286f58",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -5343,9 +5343,9 @@
     {
       "path": "scripts/framework.mjs",
       "mode": "100644",
-      "gitBlob": "848be2e29089dd379e93c2ccb6ced3ff45d619e8",
+      "gitBlob": "3891d48faea113f500fb31b52a2c97544d5aa6cd",
       "size": 16751,
-      "sha256": "d283c13c867f120d575d80f9cb7b07970f35688d2a81c7bd235064798d26e6e4"
+      "sha256": "b8bf3a9816993d81a0b89816af9b980abf0ced7232b39f4ea40218f2c2bb090f"
     },
     {
       "path": "scripts/inline-html.mjs",
@@ -6134,9 +6134,9 @@
     {
       "path": "tests/events-http.py",
       "mode": "100644",
-      "gitBlob": "0e8cbfe16423a2eabaa440549f46e3dda6f4f0df",
-      "size": 6959,
-      "sha256": "aed0f160c4ebd5f3abcb1ae655a000827a030baf187f7a866dcbd33c6c64d25f"
+      "gitBlob": "71961ea295a8addfedae0ad8e7592e9127b457a1",
+      "size": 6974,
+      "sha256": "3138723af80c31a986a7573465563602c0549bfc4b2eaf9ba3f9b4ebd2fe9ae0"
     },
     {
       "path": "tests/fixtures/tarifs/README.md",
@@ -6706,5 +6706,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "da6a8945cb710031627e47b4d9a99729f3f5da55bde432be81876e5e100f82fc"
+  "artifactDigest": "8ddb47279d6106c0f1266e72dc5f6ff9deabe5594925f5c260ff446e6580a9f9"
 }
