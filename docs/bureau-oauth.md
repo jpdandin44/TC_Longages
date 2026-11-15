@@ -5,7 +5,7 @@ title: Bureau Drupal et connexion OAuth
 status: active
 version: git
 created: 2026-10-12
-updated: 2026-10-18
+updated: 2026-11-15
 owner: jpdandin
 tags: [bureau, inscriptions, oauth, drupal, v2]
 ---
@@ -204,3 +204,5 @@ Depuis une fiche de compte, « Envoyer le lien de création du mot de passe » o
 Le fournisseur doit être le TC dédié, avec même issuer, client et callback que le Bureau. L’invitation associe explicitement son sujet numérique au compte et à son UUID dans le magasin privé `tcl_bureau.invited_identities`, sans rapprochement par adresse email. Les identités privées statiques restent prioritaires. Le blocage du compte ou une modification incompatible des rôles ferme l’accès. Aucun compte externe inconnu n’est provisionné automatiquement.
 
 Le courriel contient le lien Drupal natif à usage unique, jamais un mot de passe. Après définition personnelle du mot de passe, le passage OAuth demeure nécessaire. Les liens ne doivent pas être copiés dans Git, les journaux ou la conversation. Les destinataires et transports sont définis dans [le contrat de recette](../api/inscription-recette.md).
+
+Avec le fournisseur TC hébergé sur le même site, un visiteur anonyme passe par le formulaire du club avant la création de la transaction OAuth. Après saisie, le retour fixe vers /bureau/connexion démarre une transaction neuve. Le délai de cinq minutes et les contrôles du compte, du rôle et de la réponse signée restent applicables.
