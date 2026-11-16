@@ -62,7 +62,7 @@ def run():
     path = '/bureau/communication/ajouter'
     stamp = secrets.token_hex(4)
     title = 'Actualité fictive — recette ' + stamp
-    values = {'title': title, 'category': 'club', 'body': 'Message fictif <script>window.unwanted=1</script>\nDeuxième ligne.', 'link': 'https://tenup.fft.fr/club/60310230', 'image_alt': '', 'tenup_visible': 'no'}
+    values = {'title': title, 'category': 'club', 'body': 'Message fictif <script>window.unwanted=1</script>\nDeuxième ligne.', 'link': 'https://tenup.fft.fr/club/60310230', 'image_alt': '', 'tenup_visible': 'no', 'channels[site]': 'site', 'channels[facebook]': 'facebook', 'channels[whatsapp]': 'whatsapp'}
     def row(post_id):
         with sqlite3.connect(ROOT / '.local/drupal-runtime/site.sqlite') as db:
             db.row_factory = sqlite3.Row

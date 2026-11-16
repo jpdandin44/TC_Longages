@@ -17,7 +17,7 @@ final class CommunicationActionForm extends ConfirmFormBase {
   private string $action;
   private const LABELS = ['validate' => 'Valider cette actualité', 'publish' => 'Publier sur le site', 'withdraw' => 'Retirer du site', 'archive' => 'Archiver cette actualité', 'restore' => 'Restaurer en brouillon'];
 
-  public function __construct(private CommunicationRepository $repository) {}
+  public function __construct(protected CommunicationRepository $repository) {}
   public static function create(ContainerInterface $container) { return new static($container->get('tcl_bureau.communication')); }
   public function getFormId(): string { return 'tcl_bureau_communication_action'; }
   public function getQuestion() { return self::LABELS[$this->action]; }
@@ -29,6 +29,7 @@ final class CommunicationActionForm extends ConfirmFormBase {
     $this->action = (string) $action;
     $row = $this->repository->get($this->currentUser(), $this->postId);
     if (!$row || !isset(self::LABELS[$this->action]) || ($row['status'] === 'archived' && $action !== 'restore')) { throw new NotFoundHttpException(); }
+    if ($action === 'publish' && !in_array('site', explode(',', $row['channels']), TRUE)) { throw new NotFoundHttpException(); }
     $form = parent::buildForm($form, $form_state);
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/communication';
@@ -38,6 +39,10 @@ final class CommunicationActionForm extends ConfirmFormBase {
     $form['content'] = ['#type' => 'fieldset', '#title' => 'Contenu de cette révision', 'body' => ['#type' => 'container', '#attributes' => ['class' => ['tcl-post-body']], 'text' => ['#plain_text' => $row['body']]], 'link' => ['#plain_text' => $row['link']], 'tenup' => ['#plain_text' => 'Visible sur Ten’Up : ' . ($row['tenup_visible'] === 'yes' ? 'Oui' : 'Non')]];
     if ($row['image_data'] !== '') {
       $form['content']['image'] = ['#theme' => 'image', '#uri' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId], ['query' => ['v' => $row['revision']]])->toString(), '#alt' => $row['image_alt'], '#attributes' => ['class' => ['tcl-post-image']]];
+    }
+    $form['content']['channels'] = ['#plain_text' => 'Canaux choisis : ' . implode(', ', array_intersect_key(CommunicationRepository::CHANNELS, array_flip(explode(',', $row['channels']))))];
+    if (\Drupal\tcl_bureau\CommunicationImage::isPdf($row['image_data'])) {
+      $form['content']['image'] = ['#type' => 'link', '#title' => 'Télécharger l’affiche PDF — ' . $row['image_alt'], '#url' => Url::fromRoute('tcl_bureau.communication_image', ['post' => $this->postId])];
     }
     $form['personal_confirmation'] = ['#type' => 'checkbox', '#title' => 'Je confirme personnellement cette action sur cette révision.', '#required' => TRUE, '#required_error' => 'Votre confirmation personnelle est obligatoire.'];
     return $form;

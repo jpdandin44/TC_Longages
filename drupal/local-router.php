@@ -14,6 +14,11 @@ $real = realpath($publicRoot . $path);
 if ($real !== FALSE && is_file($real)) {
   $ext = strtolower(pathinfo($real, PATHINFO_EXTENSION));
   $inside = str_starts_with(str_replace('\\', '/', $real), str_replace('\\', '/', $publicRoot) . '/');
+  if ($inside && str_starts_with($path, '/modules/custom/tcl_bureau/vendor/pdfjs/') && in_array($ext, ['wasm', 'bcmap', 'pfb', 'otf'], TRUE)) {
+    header('Content-Type: ' . ($ext === 'wasm' ? 'application/wasm' : 'application/octet-stream'));
+    readfile($real);
+    exit;
+  }
   if ($inside && in_array($ext, ['css', 'js', 'svg', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'ico', 'woff', 'woff2', 'ttf'], TRUE)) {
     return FALSE;
   }

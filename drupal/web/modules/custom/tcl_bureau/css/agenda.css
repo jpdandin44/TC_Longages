@@ -1,0 +1,34 @@
+.tcl-agenda-panel { --agenda-bg: #f7f7f7; --agenda-accent: #801326; padding: 1rem; margin-block: 1.5rem; background: var(--agenda-bg); border-top: 4px solid var(--agenda-accent); border-radius: .5rem; }
+.tcl-agenda-tools { display: flex; align-items: end; flex-wrap: wrap; gap: .75rem 1.25rem; margin-bottom: 1rem; color: #202124; }
+.tcl-agenda-tools[hidden] { display: none; }
+.tcl-agenda-tools label { display: grid; gap: .25rem; font-weight: 600; }
+.tcl-agenda-tools select, .tcl-agenda-tools button { min-height: 44px; max-width: 100%; padding: .5rem .75rem; border: 1px solid var(--agenda-accent); border-radius: .25rem; background: #fff; color: #202124; font: inherit; }
+.tcl-agenda-tools p { flex-basis: 100%; margin: 0; font-size: .9rem; }
+.tcl-agenda-tools :focus-visible { outline: 3px solid var(--agenda-accent); outline-offset: 3px; }
+.tcl-agenda-panel iframe { width: 100%; border: 0; background: #fff; }
+.tcl-agenda-announcements { margin-block: 2rem; }
+.tcl-agenda-cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 1rem; margin-top: 1rem; }
+.tcl-agenda-card { padding: 1rem; border: 1px solid #ded5d7; border-radius: .5rem; overflow-wrap: anywhere; }
+.tcl-agenda-card img, .tcl-agenda-card canvas { display: block; max-width: 100%; max-height: 26rem; height: auto; object-fit: contain; margin: 1rem auto; }
+.tcl-agenda-card a { text-decoration: underline; }
+.tcl-month-editor { margin-block: 2rem; padding: clamp(.7rem,2vw,1.5rem); background: #fff; border: 1px solid #e1d6d8; border-top: 5px solid #801326; border-radius: 18px; }
+.tcl-month-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; margin-block: 1rem; }
+.tcl-month-toolbar h3 { margin: 0; flex: 1; text-align: center; }
+.tcl-month-toolbar a,.tcl-month-add { display: block; padding: .65rem; min-height: 44px; border-radius: 9px; background: #faf2f4; color: #741323; font-weight: 700; }
+.tcl-month-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: .4rem; }
+.tcl-month-weekday { padding: .5rem; text-align: center; font-weight: 700; }
+.tcl-month-editor h2 { font-size: clamp(1.4rem,3vw,2rem); }
+.tcl-month-day { min-width: 0; min-height: 120px; max-height: 240px; overflow-y: auto; padding: .3rem; border: 1px solid #dedade; border-radius: 10px; overflow-wrap: anywhere; }
+.tcl-month-day.is-today { border: 2px solid #801326; }
+.tcl-month-add { display: flex; justify-content: space-between; gap: .3rem; background: #f6f6f8; }
+.tcl-month-event { display: grid; gap: .2rem; padding: .5rem; margin-top: .4rem; border-left: 4px solid var(--event-color,#545968); background: var(--event-tint,#f0f1f4); color: #222; border-radius: 6px; text-decoration: none; font-size: .85rem; }
+.tcl-month-event span { font-size: .8rem; }
+.tcl-month-editor a:focus-visible { outline: 3px solid #1d5b93; outline-offset: 2px; }
+.tcl-month-editor .tcl-event-lesson { --event-color:#22683f; --event-tint:#eaf6ec; }
+.tcl-month-editor .tcl-event-festival { --event-color:#8b2676; --event-tint:#f9edf7; }
+.tcl-month-editor .tcl-event-court { --event-color:#1d5b93; --event-tint:#eaf3fc; }
+.tcl-month-editor .tcl-event-meal { --event-color:#965009; --event-tint:#fff3df; }
+.tcl-month-editor .tcl-event-meeting { --event-color:#6241a3; --event-tint:#f1ecfc; }
+.tcl-month-editor .tcl-event-competition { --event-color:#a12635; --event-tint:#fcecef; }
+@media(max-width:750px) { .tcl-month-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .tcl-month-weekday,.tcl-month-empty { display:none; } .tcl-month-toolbar h3 { flex-basis:100%; order:-1; } }
+@media(max-width:650px) { .tcl-agenda-panel { padding: .6rem; } .tcl-agenda-tools label { width: 100%; } }

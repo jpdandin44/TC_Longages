@@ -1,0 +1,46 @@
+{
+  "iterationId": "tcl-v2-recette-20261018",
+  "date": "2026-10-25",
+  "status": "delivered_verified",
+  "sourceSha": "68842a470b1fd4b352786238a48552203ea56eba",
+  "artifactSha256": "c71506d4db53da2d05a58f59de1c06cc977bb4453fdcd37186b0a8cb236e57de",
+  "ciRun": "40217296572",
+  "productionTouched": false,
+  "localChecks": {
+    "phpSyntax": true,
+    "communicationHttp": 23,
+    "documentation": true,
+    "desktopVisual": true,
+    "mobileEditor390": true,
+    "mobileNavigation320": true,
+    "inputPreservedOnTabChange": true,
+    "keyboardEmailBodyFocus": true,
+    "tablet768": true
+  },
+  "backup": {
+    "path": "/home2/daje5127/tcl-preproduction/private/bureau-ui-68842a4/backup",
+    "files": 4,
+    "restoreCopyVerified": true,
+    "baselineMatchesLastDelivery": true
+  },
+  "hostedChecks": {
+    "installedFiles": 4,
+    "allHashesMatch": true,
+    "postsRegistrationsAndCatalogueUnchanged": true,
+    "desktopVisual": true,
+    "mobileViewport": 390,
+    "mobilePageWidth": 375,
+    "channelTabs": true,
+    "pdfPreview": true
+  },
+  "dataWrites": false,
+  "manifestCommit": "6e0642f48ace90667e7838822f0d4f5bb2724821",
+  "ciHistory": [
+    {
+      "run": "40216887794",
+      "failure": "Stale candidate manifest; corrected without changing application files."
+    }
+  ],
+  "ciJobsPassed": 6,
+  "humanAcceptance": "pending"
+}

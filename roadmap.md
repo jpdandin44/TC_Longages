@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - roadmap
@@ -14,7 +14,64 @@ tags:
   - whatsapp
 ---
 
+## Google Calendar de recette — 25 octobre
+
+Raccordement du Bureau à un calendrier privé créé par l’application, avec la portée limitée Google, développé localement. Qualification, consentement et création réelle encore à faire. L’agenda officiel et la production restent exclus. [Contrat](api/google-calendar.md).
+
+
+## Agenda direct — 25 octobre
+
+Grille mensuelle privée développée localement pour créer et modifier depuis la page Calendrier, avec dates préremplies, récurrences affichées, catégories et icônes. 36 contrôles HTTP et 13 de présentation réussis. Livré en préproduction après six contrôles CI réussis ; grille, récurrences affichées et préremplissage vérifiés. Données conservées, Google et production inchangés. Validation humaine et téléphone physique restent à faire. [Preuve](data/agenda-direct-verification.json).
+
+
+## 25 octobre — confort du Bureau V2
+
+Navigation et personnalisation par canal livrées en préproduction ; 23 contrôles HTTP réussis, vues ordinateur et mobile inspectées localement puis sur le site hébergé. Candidat `68842a4`, manifeste `6e0642f`, six contrôles CI `40217296572` réussis ; sauvegarde/restauration des quatre fichiers et empreintes installées vérifiées. Communications, dossiers et catalogue inchangés. Prochaine action : validation humaine du confort et réserves de campagne. [Preuve](data/bureau-ui-verification.json). Aucun changement de production.
+
+## Extension V2 demandée le 21 octobre — après clôture
+
+Ordre confirmé par le responsable : réponses aux événements du club et nombre de personnes pour le Beaujolais nouveau, puis canal courriel aux adhérents issus de Google Contacts. [Exigences et points à qualifier](requirements.md#nouveau-besoin-v2--réponses-aux-événements-et-courriels-adhérents).
+
+| Phase | État |
+| --- | --- |
+| Cadrage | Besoin enregistré ; réemploi ciblé du module équipes identifié, nombre de personnes développé ; dates réelles et libellé Google encore à fournir. |
+| Développement local | Réponses et canal courriel implémentés ; 55 contrôles ciblés réussis ; six contrôles techniques CI réussis. |
+| Préproduction | Lot livré ; réponses et total vérifiés dans Chrome, aperçu mail vérifié. Google réel, réception du nouveau canal et mobile restent à qualifier. |
+| Mise en production | Exclue ; campagne réelle et ouverture restent à autoriser. |
+
+Compléments enregistrés avant clôture définitive : miniature d’affiche et bouton « Je m’inscris à cet événement » dans les actualités hautes, retrait du bloc de liste en bas de l’accueil, diagnostic du tableau tarifaire face au catalogue publié. Voir [les exigences](requirements.md#accueil-et-cohérence-tarifaire--complément-de-clôture-du-21-octobre). Accès inscription, miniatures et retrait du bloc bas livrés et vérifiés en préproduction le 22 octobre ; demande de lien remise selon cPanel, réception et utilisation personnelles à confirmer. Diagnostic tarifaire encore à faire.
+
+La campagne de recette existante reste partielle. Le mot de passe Artemis est désormais défini et confirmé ; les paragraphes datés antérieurs conservent l'historique.
+
+## Agenda V2 — 20 octobre 2026
+
+Agenda Bureau livré et vérifié en préproduction avec miniatures, catégories, icônes et sans Ambiance. Contrôles locaux, six CI, sauvegarde/restauration et recette Chrome ordinateur/mobile réussis. Suite : campagne humaine, textes et créneaux définitifs. Production exclue.
+
+
 # Feuille de route
+
+## Priorité courante — 19 octobre
+
+Communications puis présentation de l’agenda : développement, CI, livraison et contrôles Chrome en préproduction réalisés. La campagne humaine est différée. Le catalogue fictif est publié en préproduction, le parcours depuis l’accueil contrôlé et les deux types de courriel reçus. Création du mot de passe du compte invité encore à vérifier par le responsable.
+
+Suite agenda : création/édition Bureau, récurrences et exceptions développées en local, livraison préproduction à reprendre après la clôture du 19 octobre. Calendrier Google conservé en consultation ; écritures de recette séparées, accord du responsable le 19 octobre. Préférences globales et couleurs par catégorie restent prévues. Voir [le guide](docs/evenements-bureau.md). Les préférences visuelles actuelles restent locales au navigateur. Les paragraphes datés ci-dessous conservent les étapes historiques. [État détaillé](docs/point-session.md).
+
+
+## Complément actif — communication V2
+
+PDF existant et choix Site internet/Facebook/WhatsApp développés localement. Migration et paquet exact livrés en préproduction ; dix contrôles sur restauration privée réussis. Recette du vrai Bureau toujours en attente de connexion ; aucune intervention en production. Voir [la communication](docs/communication-bureau.md).
+
+
+Livraison V2 du 18 octobre : paquet limité installé en préproduction protégée, catalogue en brouillon et recette navigateur en attente de connexion Bureau. Production exclue. Voir [la preuve](data/v2-preproduction-livraison.json) et [la reprise](docs/recette-v2.md).
+
+## V2 — catalogue et formulaire
+
+Catalogue et formulaire de recette implémentés localement ; qualifier tests, candidat, sauvegarde/restauration et installation préproduction. Compléter ensuite textes et créneaux ; aucune collecte réelle ou livraison production. [Contrat](api/inscription-recette.md).
+
+
+## V2 — travail courant
+
+Cadrage : inventaire saisonnier et versions. Développement local : bandeau réalisé, vérification en cours ; catalogue et formulaire à développer. Préproduction : qualifier le candidat et la sauvegarde/restauration avant installation. Mise en production : hors périmètre de cette demande. [Reprise détaillée](docs/recette-v2.md).
 
 ## Preparation de l'action GitHub - 17 octobre
 
@@ -354,3 +411,21 @@ Les dates de livraison, la racine et la configuration Apache distantes ainsi que
 ## État observé le 4 octobre — quatre phases
 
 Le cockpit regroupe les anciens dossiers dans les quatre phases communes. La préproduction principale est configurée ; les fichiers Drupal sont transférés et vérifiés sous fermeture Apache. L’installation attend la connexion SQL applicative, puis la recette hébergée. Sauvegarde/restauration applicative, retour arrière et livraison sur le domaine officiel restent à qualifier.
+
+## Agenda enrichi — demande du 18 octobre
+
+Évolution proposée pour la suite V2, après les invitations et notifications : création/édition avec un compte Bureau, miniature d’affiche et PDF au clic, événements récurrents avec exceptions, préparation de diffusion depuis l’événement. Aucun envoi automatique Facebook/WhatsApp ni changement de production autorisé par cette idée. Le choix de la source unique des événements et le raccordement à l’agenda existant restent à cadrer avant développement.
+
+La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+Complément du 22 octobre livré : connexion Google Contacts administrateur et bouton de réinitialisation. Consentement et lecture Google vérifiés en préproduction ; envoi depuis Google testé uniquement vers l’adresse famille ajoutée sur demande, accepté par le serveur et réception confirmée par le responsable. [État et preuves](data/google-accounts-verification.json).
+
+## Personnalisation des communications — 22 octobre
+
+Variantes de texte par canal et mail HTML à boutons livrés en préproduction ; recette technique et aperçus vérifiés. Réception confirmée ; correctif de cache livré et vérifié sur lien fictif. Réessai personnel confirmé et réponse six personnes vérifiée au Bureau. Plafond de dix personnes livré et vérifié ; contrôle visuel mobile restant. [Preuves courantes](data/channel-rsvp-verification.json). Aucune campagne générale, aucun envoi social ni livraison de production.
+
+## Rapprochement tarifaire — anomalie confirmée le 22 octobre
+
+V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’accueil conserve l’ancienne ligne cours adultes. Corriger le branchement du rendu sur le catalogue publié, puis recetter sans modifier les dossiers historiques. Correctif ensuite livré et vérifié : dix formules conformes, dossiers et catalogue inchangés. [Preuves](data/tariff-consistency-verification.json).

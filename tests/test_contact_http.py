@@ -24,7 +24,7 @@ def main():
     del credentials
     for page in ['index', 'competitions', 'calendrier', 'disponibilites', 'equipes', 'espace', 'contact']:
         status, body, headers = request(admin, '/' + page + '.html')
-        match = re.search(r'href="(/node/\d+/edit\?[^"]*)">Modifier cette page</a>', body)
+        match = re.search(r'href="(/(?:fr/)?node/\d+/edit\?[^"]*)">Modifier cette page</a>', body)
         check(status == 200 and bool(match) and 'Pages du club</a>' in body, 'Commandes d’édition visibles : ' + page)
         path = match.group(1).replace('&amp;', '&')
         check(('destination=' in path and (page + '.html') in path) and request(admin, path)[0] == 200, 'Formulaire natif et retour sur la page : ' + page)

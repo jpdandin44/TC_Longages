@@ -5,11 +5,32 @@ declare(strict_types=1);
 /** Restrict the club skin to the V2 workspace and native account screens. */
 function tcl_bureau_is_workspace(): bool {
   $route = (string) \Drupal::routeMatch()->getRouteName();
-  return str_starts_with($route, 'tcl_bureau.') || in_array($route, ['tcl_identity.login', 'user.login', 'user.pass', 'user.logout', 'user.logout.confirm'], TRUE);
+  return str_starts_with($route, 'tcl_bureau.') || in_array($route, ['tcl_identity.login', 'user.login', 'user.pass', 'user.reset.form', 'entity.user.edit_form', 'user.logout', 'user.logout.confirm'], TRUE);
+}
+
+/** Account presentation only; native permissions, tokens and handlers stay intact. */
+function tcl_bureau_is_account_page(): bool {
+  return in_array(\Drupal::routeMatch()->getRouteName(), ['tcl_identity.login', 'user.login', 'user.pass', 'user.reset.form', 'entity.user.edit_form'], TRUE);
+}
+
+/** Implements hook_preprocess_html(). */
+function tcl_bureau_preprocess_html(array &$variables): void {
+  if (tcl_bureau_is_account_page()) {
+    $variables['attributes']['class'][] = 'tcl-account-page';
+  }
+}
+
+/** Implements hook_form_FORM_ID_alter(). */
+function tcl_bureau_form_user_pass_reset_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state): void {
+  $form['actions']['submit']['#value'] = t('Choisir mon mot de passe');
 }
 
 /** Implements hook_page_attachments(). */
 function tcl_bureau_page_attachments(array &$attachments): void {
+  $attachments['#cache']['contexts'][] = 'route';
+  if (tcl_bureau_is_account_page()) {
+    $attachments['#attached']['library'][] = 'tcl_bureau/account';
+  }
   if (tcl_bureau_is_workspace()) {
     $attachments['#attached']['library'][] = 'tcl_bureau/bureau';
   }
@@ -40,4 +61,41 @@ function tcl_bureau_preprocess_block(array &$variables): void {
     $variables['content']['site_logo']['#uri'] = $logo;
     $variables['site_logo'] = $logo;
   }
+}
+
+/** Implements hook_mail(). */
+function tcl_bureau_mail($key, &$message, $params): void {
+  if (in_array($key, ['account_invitation', 'registration', 'member_communication'], TRUE)) {
+    $message['subject'] = $params['subject'];
+    $message['body'][] = $params['body'];
+  }
+}
+
+/** Makes recovery available on the club's dedicated sign-in form. */
+function tcl_bureau_form_user_login_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  if (\Drupal::routeMatch()->getRouteName() === 'tcl_identity.login') {
+    $form['actions']['recover'] = ['#type' => 'link', '#title' => 'Mot de passe oublié ?', '#url' => \Drupal\Core\Url::fromRoute('user.pass')];
+  }
+}
+
+/** Uses the club sender for the native production password recovery message. */
+function tcl_bureau_mail_alter(array &$message): void {
+  if (!in_array($message['id'], ['user_password_reset', 'tcl_bureau_member_communication'], TRUE) || \Drupal::request()->getSchemeAndHttpHost() !== 'https://tclongages.fr') {
+    return;
+  }
+  $sender = 'support@tclongages.fr';
+  $message['from'] = $sender;
+  $message['headers']['From'] = 'Tennis Club de Longages <' . $sender . '>';
+  $message['headers']['Sender'] = $sender;
+  $message['headers']['Return-Path'] = $sender;
+  $message['headers']['Reply-to'] = $sender;
+}
+
+/** Keep the native recovery confirmation visible on the club's sign-in page. */
+function tcl_bureau_form_user_pass_alter(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  $form['#submit'][] = 'tcl_bureau_password_requested';
+}
+
+function tcl_bureau_password_requested(array &$form, \Drupal\Core\Form\FormStateInterface $state): void {
+  $state->setRedirect('user.pass');
 }

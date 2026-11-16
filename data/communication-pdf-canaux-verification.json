@@ -1,0 +1,140 @@
+{
+  "checkedAt": "2026-10-18T21:12:29.186257+00:00",
+  "scope": "Local HTTP with fictitious OAuth; import PDF only; no hosted proof",
+  "hostedVerified": false,
+  "checks": [
+    {
+      "label": "Bureau OAuth connects",
+      "passed": true
+    },
+    {
+      "label": "Three channel choices shown",
+      "passed": true
+    },
+    {
+      "label": "Empty selection rejected",
+      "passed": true
+    },
+    {
+      "label": "Unknown channel rejected",
+      "passed": true
+    },
+    {
+      "label": "WhatsApp-only draft saved",
+      "passed": true
+    },
+    {
+      "label": "Draft validates",
+      "passed": true
+    },
+    {
+      "label": "Only selected social action offered",
+      "passed": true
+    },
+    {
+      "label": "Direct site publication refused",
+      "passed": true
+    },
+    {
+      "label": "Private article remains absent",
+      "passed": true
+    },
+    {
+      "label": "PNG upload accepted",
+      "passed": true
+    },
+    {
+      "label": "PDF import accepted",
+      "passed": true
+    },
+    {
+      "label": "PDF original preserved with safe download headers",
+      "passed": true
+    },
+    {
+      "label": "PDF represented as a download link",
+      "passed": true
+    },
+    {
+      "label": "Invalid PDF rejected without losing previous file",
+      "passed": true
+    },
+    {
+      "label": "Oversized PDF rejected",
+      "passed": true
+    },
+    {
+      "label": "Channels can be changed",
+      "passed": true
+    },
+    {
+      "label": "Channel change resets approval",
+      "passed": true
+    },
+    {
+      "label": "Selected site can publish PDF",
+      "passed": true
+    },
+    {
+      "label": "Published PDF accessible",
+      "passed": true
+    },
+    {
+      "label": "Removing site withdraws immediately",
+      "passed": true
+    },
+    {
+      "label": "Stale revision cannot restore site",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "userPdf": {
+    "bytes": 2774793,
+    "pages": 1,
+    "localDraftOnly": true,
+    "published": false,
+    "sent": false,
+    "downloadBytesIdentical": true,
+    "sha256": "eab78151d445050ad4191966093f3c400cd4193c03569ac60a3c146778c07e04"
+  },
+  "preproductionInstalled": true,
+  "productionWritten": false,
+  "migration": 11003,
+  "delivery": {
+    "sourceSha": "2c137071e2e43ec38a70885ae34ca5a51b5b989c",
+    "artifactSha256": "72cafd03fed7966c5a70aa8a5884502dd69600b6bb906161d026365a3c1b82b8",
+    "files": 38,
+    "bytes": 85217,
+    "deliveredAt": "2026-10-18T21:23:57.420741+00:00",
+    "coreVersion": "11.4.8",
+    "migration": 11003,
+    "installedFilesVerified": 38,
+    "pagesPreserved": 7,
+    "usersPreserved": 4,
+    "registrationsPreserved": 1,
+    "existingPostsPreserved": true,
+    "cataloguePreserved": true,
+    "basicHttpStatus": 401,
+    "hostedBrowserRecipe": false,
+    "productionWritten": false
+  },
+  "backup": {
+    "id": "20261018T211324Z",
+    "restoration": "restore-b4_west1",
+    "filesVerified": 27447,
+    "tablesCompared": 62,
+    "identityFilesCompared": 5,
+    "privateRehearsalChecks": 10
+  },
+  "ci": {
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39167199514",
+    "technicalJobsPassed": 6,
+    "policy": "Four human attestations remain unchecked"
+  },
+  "documentation": {
+    "documentsChecked": 7,
+    "relativeLinksChecked": 327,
+    "foundationsPresent": true
+  }
+}

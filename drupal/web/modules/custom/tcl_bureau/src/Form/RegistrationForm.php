@@ -36,6 +36,11 @@ final class RegistrationForm extends FormBase {
       throw new NotFoundHttpException();
     }
     $values = $record['values'] ?? [];
+    if (!empty($values['recipe'])) {
+      $snapshot = $values['catalogue_snapshot'];
+      $form['recipe'] = ['#plain_text' => 'DOSSIER FICTIF DE RECETTE — ' . $snapshot['season'] . ' ; tarif au dépôt : ' . $snapshot['formula']['label'] . ' — ' . number_format($snapshot['formula']['amountCents'] / 100, 2, ',', ' ') . ' €. Aucun paiement ni licence.'];
+      $form['availability_snapshot'] = ['#plain_text' => 'Disponibilités au dépôt : ' . (implode(', ', $values['availability'] ?? []) ?: 'À compléter')];
+    }
     $form['#attributes']['class'][] = 'tcl-bureau';
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
     $form['#cache']['max-age'] = 0;
@@ -61,6 +66,9 @@ final class RegistrationForm extends FormBase {
       $form['practice'][$key] = ['#type' => 'select', '#title' => $label, '#options' => ['unknown' => 'À préciser', 'yes' => 'Oui', 'no' => 'Non'], '#default_value' => $values[$key] ?? 'unknown'];
     }
     $form['practice']['licence_number'] = ['#type' => 'textfield', '#title' => 'N° de licence', '#maxlength' => 120, '#default_value' => $values['licence_number'] ?? ''];
+    foreach (['emergency_name' => 'Personne à prévenir', 'emergency_phone' => 'Téléphone de la personne à prévenir', 'last_licence_year' => 'Dernière année de licence', 'practice_years' => 'Années de pratique'] as $key => $label) {
+      $form['practice'][$key] = ['#type' => 'textfield', '#title' => $label, '#maxlength' => 120, '#default_value' => $values[$key] ?? ''];
+    }
     $form['practice']['status'] = ['#type' => 'select', '#title' => 'État du dossier', '#options' => RegistrationRepository::STATUSES, '#default_value' => $values['status'] ?? 'received'];
     $form['practice']['notes'] = ['#type' => 'textarea', '#title' => 'Commentaire interne du Bureau', '#default_value' => $values['notes'] ?? '', '#description' => '1 000 caractères maximum. Ne pas saisir de données médicales ni de données bancaires.'];
     $form['actions'] = ['#type' => 'actions'];

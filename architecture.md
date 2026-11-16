@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - architecture
@@ -13,7 +13,50 @@ tags:
   - publication
 ---
 
+## Raccordement Google Calendar de recette — 25 octobre
+
+Le stockage V2 conserve les séries et leurs relations aux inscriptions. `GoogleCalendarConnection` gère une autorisation distincte de Contacts, limitée aux calendriers créés par l’application, et crée la cible privée. `GoogleCalendarEvents` vérifie la cible, traduit les séries et confirme les écritures Google avant la sauvegarde locale. Une empreinte du contenu et une condition ETag empêchent l’écrasement de changements externes ; les identifiants déterministes évitent les doublons après réponse perdue. Le site est l’interface d’édition ; aucun import automatique des modifications Google. Pas d’écriture en production ni dans l’agenda officiel. [Contrat courant](api/google-calendar.md#écritures-de-recette-v2--25-octobre). Qualification hébergée en attente.
+
+
+## Extension V2 — participations et courriels (22 octobre)
+
+Deux services bornés à la recette sont ajoutés dans tcl_bureau : réponses privées par occurrence et préparation/envoi individuel de communications validées. Le motif fragment/POST du module équipes est repris sans importer la V3. Google Contacts est un lecteur de groupe configuré côté serveur, pas une synchronisation des adhérents. [Stockage, flux et contrat](api/participations-courriels.md). Connexion Google réelle et qualification hébergée à distinguer des tests locaux.
+
+
+## Agenda V2 — 20 octobre 2026
+
+L’agenda Bureau conserve catégorie et identifiant de communication dans chaque série de la collection de recette. Les affiches sont lues par les routes protégées existantes, sans copie ni synchronisation Google.
+
+
+## Complément du 19 octobre — événements de recette
+
+Le service `EventRepository` conserve les séries dans la collection Drupal isolée `tcl_bureau.recipe_events`. `EventSchedule` calcule des occurrences bornées en heure de Paris, sans API distante. Routes et service vérifient OAuth, permission Communication et mode/hôte de recette. Aucun changement de schéma ni synchronisation Google. [Contrat fonctionnel](docs/evenements-bureau.md).
+
 # Architecture
+
+## Présentation de l’agenda et partage manuel
+
+`AgendaPresentation` enrichit uniquement la page calendrier lorsque la recette V2 est activée sur un hôte autorisé. Le calendrier Google et ses paramètres sont conservés ; le navigateur modifie le mode de vue et mémorise une palette locale. Les cartes proviennent des communications publiées via le dépôt existant, limitées à six événements. Aucun nouveau stockage serveur ou service externe. `sharing-tools.js` copie le texte validé ou propose une sélection manuelle si le presse-papiers est indisponible. [État de qualification](docs/communication-bureau.md).
+
+
+## Aperçu PDF — livré en préproduction
+
+La bibliothèque locale PDF.js 6.4.299 et son worker produisent la première page sur canvas dans le Bureau ; les ressources de police, CMaps et WASM sont embarquées. La sélection non enregistrée est lue dans le navigateur. Le téléchargement original reste servi par le contrôleur et ses droits existants. Ce premier complément PDF a été livré en préproduction le 19 octobre ; [état et limites](docs/communication-bureau.md).
+
+
+## Complément communication : PDF et canaux
+
+`tcl_bureau_post.channels` conserve les canaux choisis dans la révision d’actualité ; update additive `11003`, même définition en installation neuve. `image_data` accepte aussi le PDF original (8 Mo), sans table ni stockage public supplémentaire. Le contrôleur distingue le PDF du JPEG préparé et impose son téléchargement. Publication et lecture publique vérifient le canal site, le statut publié et la révision approuvée. Voir [le guide](docs/communication-bureau.md).
+
+
+## Catalogue et inscriptions de recette
+
+Le catalogue saisonnier est conservé en base Drupal avec brouillon, publication et historique ; le dossier conserve un instantané tarifaire. Le formulaire en deux étapes rejoint le dépôt privé existant par une entrée serveur distincte, fermée par défaut. Le tableau d’accueil de recette utilise la même publication. [Contrat et stockage](api/inscription-recette.md).
+
+
+## V2 — dernière publication sur l’accueil
+
+Le contrôleur Communication utilise une seule lecture du dépôt de publications pour le bandeau supérieur et les cinq titres existants. Filtrage publié/révision validée côté serveur, échappement du titre et de l’extrait, réponse non mise en cache. Pas de nouvelle table ni de changement du modèle OAuth. Voir [la recette](docs/recette-v2.md).
 
 ## Livraison manuelle - preparation
 
@@ -547,3 +590,21 @@ Les échanges XLS et CSV demandés passeront par un service réservé au bureau 
 L'utilisateur a confirmé la séparation entre un formulaire adhérent et la gestion privée du bureau. La [proposition du processus d'inscription](docs/processus-inscriptions.md) décrit leur articulation autour d'une future API Node.js et d'un stockage central commun aux saisies web et papier. Le navigateur conserve HTML, CSS et JavaScript sans framework ; le serveur devra contrôler les données, les droits de consultation et de modification et les actions du bureau.
 
 SQLite est une recommandation à confirmer selon l'hébergement, la maintenance et les sauvegardes ; aucun choix de stockage n'est encore adopté. Aucun schéma de base, route API métier, compte adhérent ou traitement réel d'inscription n'est livré. Le formulaire fictif sert à examiner les écrans. L'[exemple JSON fictif](api/inscription-exemple.json) illustre la proposition et n'est pas un contrat exécutable. Les champs, règles de collecte, tarifs et modalités de reprise restent à valider avant leur implémentation réelle. Le contrôle HTTP Basic local existant ne constitue pas l'authentification cible de ces services.
+
+## Complément courriels de recette — 18 octobre
+
+Les invitations Bureau utilisent le fournisseur TC existant et un magasin privé associant issuer/client/sujet/UUID. Le module Bureau envoie les invitations et notifications de recette par deux transports explicitement configurés, avec liste privée de destinataires ; le transport global nul reste inchangé. Les statuts de tentative sont privés, distincts de la réception réelle. Voir [OAuth](docs/bureau-oauth.md) et [le contrat](api/inscription-recette.md).
+
+
+## Entrée événement depuis les communications
+
+L’occurrence privée référence une actualité publiée par `registration_post`. Le rendu public et le corps mail calculent la même URL d’inscription, sans secret. Le formulaire public vérifie session et limites de demandes, puis le transport de recette envoie le lien individuel ; la réponse reste dans le service de participation existant. Aucune migration de schéma ni connexion Google supplémentaire.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+La connexion Google Contacts de recette utilise un formulaire administrateur, un état de session/PKCE et un retour HTTPS fixe. Le jeton est chiffré dans la base privée avec le sel Drupal ; client/secret restent dans les paramètres privés. Voir [le contrat](api/participations-courriels.md).
+
+
+## Personnalisation des communications — 22 octobre
+
+Les variantes textuelles sont conservées dans la colonne JSON texte nullable `tcl_bureau_post.channel_texts`, dans la même révision et la même écriture que le brouillon. Mise à jour additive 11004 ; NULL reprend les textes communs. Courriel multipart texte/HTML via transport autorisé existant, HTML construit uniquement avec textes échappés. Jetons de réponse personnels émis à l’envoi, fragment URL avec présélection ; aucune réponse enregistrée par GET.

@@ -5,10 +5,27 @@ title: Agenda partagé Google sur le site et en aperçu local
 status: active
 version: git
 created: 2026-10-05
-updated: 2026-10-07
+updated: 2026-10-25
 owner: jpdandin
 tags: [agenda, google-calendar, iframe, local]
 ---
+
+## Écritures de recette V2 — 25 octobre
+
+Implémentation en cours de qualification. `GoogleCalendarConnection` réutilise le client privé du club et son URI de retour existante, avec un état/PKCE et une collection de jetons distincts de Google Contacts. Le seul droit métier demandé est `calendar.app.created` : création d’un calendrier secondaire et gestion de ses événements. Aucun droit sur tous les calendriers, aucune ACL publique, aucun accès Gmail. Compte vérifié : tclongages@gmail.com.
+
+L’administrateur ouvre `/bureau/agenda-google`, accorde le droit puis crée « TC Longages — Recette V2 ». L’ID est celui renvoyé par cette création, jamais saisi dans un formulaire. Le site vérifie avant chaque écriture cet ID, le nom, le fuseau Europe/Paris et un marqueur aléatoire privé. Une création dont la réponse est incertaine reste bloquée pour réconciliation manuelle, sans tentative automatique risquant un doublon.
+
+Après création, les prochains enregistrements `EventRepository` transmettent une série Google puis enregistrent la confirmation locale. Les séries anciennes ne sont pas importées automatiquement. Les identifiants déterministes et une comparaison du contenu permettent de reprendre un envoi dont la réponse s’est perdue. Un échec Google conserve la saisie et empêche d’annoncer un succès local. Une modification externe est refusée sans écrasement ; `If-Match` protège la mise à jour entre lecture et écriture. Les changements Google ne sont pas importés automatiquement : édition courante depuis le site uniquement, vue locale du dernier état confirmé. Une suppression ou un conflit externe demande une réconciliation.
+
+Récurrences : RRULE et EXDATE, fuseau Paris, fin inclusive bornée. Annulation réversible : titre Google préfixé `[ANNULÉ]`, transparence libre, sans suppression distante. Sans participants invités, rappels désactivés, `sendUpdates=none`. Les inscriptions de participants et les communications restent distinctes ; aucune donnée d’adhérent transmise à Calendar.
+
+Stockage privé : `tcl_bureau.google_calendar` contient `grant` chiffré avec une clé dérivée du sel Drupal, `calendar` (ID/marqueur) et éventuellement `creation_pending`. Les séries conservent `google` (ID cible/événement, empreinte du contenu confirmé, date). Secrets OAuth existants hors Git dans `tcl_member_contacts`. Aucun nouveau secret demandé dans le chat. Retour partagé aiguillé uniquement par l’état de session propre à Calendar ; jeton Contacts non remplacé.
+
+Tests : `tests/google-calendar-local.php` avec transport Google simulé, raccordé à la recette CI Bureau ; tests Contacts et événements existants conservés. Autorisation, création et recette réelles restent à confirmer. Le mode test OAuth Google peut nécessiter une nouvelle autorisation.
+
+Sources officielles : [portées](https://developers.google.com/workspace/calendar/api/auth), [création de calendrier](https://developers.google.com/workspace/calendar/api/v3/reference/calendars/insert), [événements](https://developers.google.com/workspace/calendar/api/v3/reference/events/insert), [récurrences](https://developers.google.com/workspace/calendar/api/guides/recurringevents).
+
 
 # Agenda partagé Google
 

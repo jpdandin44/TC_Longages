@@ -56,6 +56,9 @@ final class ClubPageController {
       // Contact actions lead to the form and the user's choice of email application.
       $html = preg_replace('~href="mailto:tclongages@gmail\.com(?:\?[^"]*)?"~', 'href="/contact.html"', $html);
     }
+    if ($page === 'calendrier' && \Drupal::moduleHandler()->moduleExists('tcl_bureau')) {
+      $html = \Drupal\tcl_bureau\AgendaPresentation::render($html);
+    }
     // These standalone responses do not render Drupal's toolbar or local tasks.
     // Reuse native entity access checks rather than granting any additional right.
     if ($node && \Drupal::currentUser()->isAuthenticated() && $node->access('update')) {

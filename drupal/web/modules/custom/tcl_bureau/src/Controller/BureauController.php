@@ -48,14 +48,9 @@ final class BureauController extends ControllerBase {
     return new RedirectResponse($destination->toString());
   }
 
-  public function home(): array {
+  public function home(): array|RedirectResponse {
     if (!$this->config('tcl_bureau.settings')->get('teams_enabled')) {
-      if ($this->repository->allowed($this->currentUser(), 'manage tcl registrations')) {
-        return \Drupal::service('class_resolver')->getInstanceFromDefinition(RegistrationController::class)->overview();
-      }
-      $build = $this->shell();
-      $build['waiting'] = ['#plain_text' => 'La gestion des équipes sera proposée dans un prochain lot.'];
-      return $build;
+      return new RedirectResponse(Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])->toString(), 303, ['Cache-Control' => 'private, no-store']);
     }
     $actor = $this->currentUser();
     $manager = $this->repository->allowed($actor, 'manage tcl teams');
@@ -79,6 +74,14 @@ final class BureauController extends ControllerBase {
     return $build;
   }
 
+  public function members(): array {
+    $build = $this->shell();
+    $build['heading'] = ['#type' => 'html_tag', '#tag' => 'h1', '#value' => 'Adhérents'];
+    $build['status'] = ['#type' => 'html_tag', '#tag' => 'p', '#attributes' => ['class' => ['tcl-note']], '#value' => 'En construction'];
+    $build['description'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'La gestion des adhérents sera disponible dans une prochaine étape. Pour le moment, retrouvez les communications et les événements du club dans les onglets dédiés.'];
+    return $build;
+  }
+
   public function accounts(): array {
     $actor = $this->currentUser();
     $storage = $this->entityTypeManager()->getStorage('user');
@@ -98,16 +101,21 @@ final class BureauController extends ControllerBase {
     $build = $this->shell();
     $build['explanation'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Le Bureau gère les comptes Capitaine. La création d’un compte Bureau est réservée à l’administrateur. Bloquer un compte retire son accès.'];
     $build['add'] = Link::fromTextAndUrl('Créer un compte', Url::fromRoute('tcl_bureau.account_add'))->toRenderable();
+    if (\Drupal\tcl_bureau\GoogleContactsConnection::allowed($actor)) { $build['google_contacts'] = Link::fromTextAndUrl('Connecter les contacts Google du club', Url::fromRoute('tcl_bureau.google_contacts'))->toRenderable(); }
     $build['accounts'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-table']], 'table' => ['#type' => 'table', '#header' => ['Identifiant', 'Rôle', 'État', 'Action'], '#rows' => $rows, '#empty' => 'Aucun compte à gérer.']];
     return $build;
   }
 
   private function shell(): array {
     $links = [
-      'home' => Link::fromTextAndUrl('Espace du club', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
+      'home' => Link::fromTextAndUrl('Agenda', Url::fromRoute('tcl_bureau.home'))->toRenderable(),
+      'members' => Link::fromTextAndUrl('Adhérents — En construction', Url::fromRoute('tcl_bureau.members'))->toRenderable(),
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
+    if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
+      $links['events'] = Link::fromTextAndUrl('Événements du club', Url::fromRoute('tcl_bureau.events'))->toRenderable();
+    }
     if ($this->repository->canManageAccount($this->currentUser())) {
       $links['accounts'] = Link::fromTextAndUrl('Gestion des comptes', Url::fromRoute('tcl_bureau.accounts'))->toRenderable();
     }

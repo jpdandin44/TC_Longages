@@ -1,0 +1,95 @@
+{
+  "iterationId": "tcl-v2-account-presentation-20261021",
+  "owner": "jpdandin",
+  "stage": "preproduction",
+  "candidate": {
+    "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+    "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385"
+  },
+  "blockers": [],
+  "checks": [
+    {
+      "kind": "local",
+      "status": "passed",
+      "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+      "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385",
+      "observedAt": "2026-10-21T17:53:22.160670+00:00",
+      "evidence": "20 local password HTTP checks passed; desktop account form visually inspected. Ancillary contact count failed in reused fixture, await clean CI."
+    },
+    {
+      "kind": "documentation",
+      "status": "passed",
+      "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+      "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385",
+      "observedAt": "2026-10-21T17:53:22.160670+00:00",
+      "evidence": "Socle present; framework build/check passed; workflow and campaign updated."
+    },
+    {
+      "kind": "ci",
+      "status": "passed",
+      "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+      "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385",
+      "observedAt": "2026-10-21T17:53:38.083611+00:00",
+      "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/39646909744 : six jobs success, includes clean contact/password tests"
+    },
+    {
+      "kind": "preproduction",
+      "target": "preprod.tclongages.fr",
+      "status": "passed",
+      "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+      "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385",
+      "observedAt": "2026-10-21T17:54:37.086308+00:00",
+      "evidence": "Three installed hashes equal Git source; PHP lint/cache rebuild passed; Chrome profile screen read-only: club skin, empty password/confirmation fields, no horizontal overflow; private screenshot."
+    }
+  ],
+  "targets": {
+    "preproduction": {
+      "id": "preprod.tclongages.fr",
+      "ready": true,
+      "isolated": true,
+      "observedAt": "2026-10-21T17:53:22.160670+00:00",
+      "evidence": "cPanel target /home2/daje5127/tcl-preproduction/drupal; only three presentation files staged; production excluded"
+    }
+  },
+  "approvals": [
+    {
+      "scope": "preproduction",
+      "target": "preprod.tclongages.fr",
+      "status": "approved",
+      "actor": "jpdandin",
+      "source": "user_chat",
+      "sourceSha": "206885b5488154023f175a218e0f98434c7ce046",
+      "artifactSha256": "ccc2119348f9eb8af9052400fa82223c593af896d3912940adf86bfea0e76385",
+      "recordedAt": "2026-10-21T17:53:22.160670+00:00",
+      "evidence": "User requests improvement of password screen within ongoing preproduction V2 scope; production excluded."
+    }
+  ],
+  "backups": [
+    {
+      "id": "account-style-20261021",
+      "target": "preprod.tclongages.fr",
+      "status": "verified",
+      "restoreStatus": "passed",
+      "observedAt": "2026-10-21T17:53:22.160670+00:00",
+      "evidence": "private/account-style-20261021: module/libraries saved and restored to verification copies, byte equal; CSS absent before delivery."
+    }
+  ],
+  "files": {
+    "tcl_bureau.module": "e079b07aa2e672a7a3280e1b25432a3b9056aaacd6e1cbae97a4660f1b4c7a8d",
+    "tcl_bureau.libraries.yml": "a72ed78a441b0297c341ec4757acf8df632136ace8953211d64e419e7c8c8f1b",
+    "css/account.css": "65481a50f48dd57a3073d7f128234ef2483d7dacf328866c3e2641a4fdfa0416"
+  },
+  "installed": true,
+  "productionTouched": false,
+  "passwordSetupHumanConfirmed": true,
+  "ciRun": "39646909744",
+  "manifestCommit": "f20f15c21801437a9e93210c3015b86603387bce",
+  "installedAt": "2026-10-21T17:52:21Z",
+  "receipt": "private/account-style-20261021/receipt.json",
+  "desktopVerified": true,
+  "mobileVisualVerified": false,
+  "visualEvidence": ".local/account-style/preproduction-compte.png",
+  "hostedAccountSubmitted": false,
+  "rollback": "Restore tcl_bureau.module and tcl_bureau.libraries.yml from .before copies; remove newly added css/account.css; rebuild Drupal caches, preproduction only.",
+  "anonymousProtectionHttpStatus": 401
+}

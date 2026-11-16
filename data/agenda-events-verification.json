@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-20",
+  "sourceSha": "02b4112dd95f1d11cf3ea1a23d1142316c15470f",
+  "artifactSha256": "4b03648eec02e9c8ce1def3bef5351b4f5b3a1be6d89dbf3757607f0d9539d68",
+  "files": 13,
+  "local": {
+    "http": 29,
+    "schedule": 19,
+    "javascript": 3,
+    "agendaRendering": 13,
+    "browserPdf": true,
+    "mobileWidth": 390,
+    "filter": true
+  },
+  "preproduction": {
+    "prepared": true,
+    "backupRestore": "passed",
+    "deployed": true,
+    "deliveredAt": "2026-10-20T12:07:23.506605+00:00",
+    "filesVerified": 13,
+    "contentAndProtectionPreserved": true,
+    "databaseMigration": false,
+    "recipeStatus": "passed",
+    "viewTests": {
+      "ambianceAbsent": true,
+      "resetMonth": true,
+      "listView": true,
+      "preferenceAfterReload": true,
+      "calendarIdentityPreserved": true
+    },
+    "communicationObserved": {
+      "id": 1,
+      "status": "validated",
+      "revision": 4,
+      "channels": [
+        "site",
+        "facebook",
+        "whatsapp"
+      ],
+      "publishedByAgent": false
+    },
+    "browserChecks": [
+      "Bureau navigation",
+      "Create single event with existing private PDF poster",
+      "PDF canvas rendered",
+      "Category icons and distinct colours",
+      "Weekly preview with excluded date",
+      "Save rebuilt preview form",
+      "Edit and cancel series",
+      "Filter by category",
+      "Mobile 390 px without horizontal overflow",
+      "Poster link opens communication preparation",
+      "Calendar view reset and persistence without Ambiance"
+    ],
+    "anonymousStatus": 401,
+    "fixtures": "Two explicitly fictitious private events retained for later user tests; no communication published"
+  },
+  "productionWritten": false,
+  "googleCalendarWritten": false,
+  "realMailSent": false,
+  "humanCampaign": "deferred_by_user_confirmed_2026-10-20",
+  "ci": {
+    "status": "passed",
+    "jobs": 6,
+    "head": "e3a67564693ae21c7a723753b254279dedf9ac6e",
+    "url": "https://github.com/jpdandin44/TC_Longages/actions/runs/39419384329"
+  },
+  "correction": {
+    "sourceSha": "14cf8723e4ca811295427f94a1e41e8362246bea",
+    "artifactSha256": "0d56f14dfe93c6600fdecdb9ea520d2e0300f103ffb7e4273e38b6e1efc9ad89",
+    "name": "agenda-fixes-14cf8723e4ca",
+    "files": 2,
+    "status": "deployed_verified",
+    "local": {
+      "httpIncludingPreviewSave": 29,
+      "agendaRendering": 13,
+      "javascript": 3
+    },
+    "defects": [
+      "Old browser script still referenced removed palette field",
+      "Cached preview form lost private injected service"
+    ],
+    "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39420543372",
+    "deliveredAt": "2026-10-20T12:17:28.520849+00:00",
+    "ciStatus": "passed",
+    "filesVerified": 2,
+    "contentAndProtectionPreserved": true
+  },
+  "finalIntegrity": {
+    "files": 13,
+    "fileHashes": "passed",
+    "businessContentsAndProtections": "passed",
+    "eventsChanged": "expected recipe writes",
+    "usersTableHash": "changed during authenticated navigation; full row baseline unavailable; installation before/after comparison passed",
+    "productionWritten": false
+  },
+  "latestBranchCi": {
+    "sha": "3e87b9a2f0a938cb7d32203f4acb7f8d2768d26b",
+    "base": "e7e71addee734317ef2da5706b290767a3b317e8",
+    "mergeable": true,
+    "ci": "passed",
+    "technicalJobsPassed": 6,
+    "ciUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39422131823",
+    "completedAt": "2026-10-20T12:30:05Z",
+    "observedAt": "2026-10-20T13:20:49.029562+00:00",
+    "applicationBlobsIdenticalToTestedAndDeployedSource": true,
+    "policy": "awaiting_four_human_attestations",
+    "policyUrl": "https://github.com/jpdandin44/TC_Longages/actions/runs/39422132007",
+    "draft": true
+  },
+  "monthDefault": {
+    "status": "deployed_verified",
+    "phase": "Préproduction",
+    "candidate": {
+      "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+      "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+      "files": 2
+    },
+    "gate": {
+      "iterationId": "tcl-v2-recette-20261018",
+      "owner": "jpdandin",
+      "stage": "development",
+      "phaseLabels": [
+        "Cadrage",
+        "Développement local",
+        "Préproduction",
+        "Mise en production"
+      ],
+      "candidate": {
+        "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+        "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+        "files": 2
+      },
+      "blockers": [],
+      "checks": [
+        {
+          "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+          "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+          "files": 2,
+          "kind": "local",
+          "status": "passed",
+          "observedAt": "2026-10-20T17:58:45.766141+02:00",
+          "evidence": "3 JavaScript and 13 agenda rendering checks passed; saved WEEK/AGENDA ignored, manual view change remains available"
+        },
+        {
+          "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+          "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+          "files": 2,
+          "kind": "documentation",
+          "status": "passed",
+          "observedAt": "2026-10-20T18:00:10.85159+02:00",
+          "evidence": "Guide, requirements, changelog, handoff and canonical V2 tracker updated; framework build/check passed"
+        },
+        {
+          "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+          "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+          "files": 2,
+          "kind": "ci",
+          "status": "passed",
+          "observedAt": "2026-10-20T18:03:11.979938+02:00",
+          "evidence": "https://github.com/jpdandin44/TC_Longages/actions/runs/39452993198; six technical jobs passed on 13e9283cc0a883ff4b150e8d275529f2f93324dd"
+        }
+      ],
+      "approvals": [
+        {
+          "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+          "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+          "files": 2,
+          "scope": "preproduction",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "approved",
+          "actor": "jpdandin",
+          "source": "user_chat",
+          "recordedAt": "2026-10-20T17:58:45.766141+02:00",
+          "evidence": "User 20 October: Month default for all visitors, set in preproduction without touching production"
+        }
+      ],
+      "targets": {
+        "preproduction": {
+          "id": "https://preprod.tclongages.fr/",
+          "ready": true,
+          "isolated": true,
+          "observedAt": "2026-10-20T17:58:45.766141+02:00",
+          "evidence": "Authenticated cPanel prepare succeeded: exact isolated path, database, Basic, Core and private state checked"
+        }
+      },
+      "backups": [
+        {
+          "id": "agenda-month-d50dca1645fa",
+          "target": "https://preprod.tclongages.fr/",
+          "status": "verified",
+          "restoreStatus": "passed",
+          "observedAt": "2026-10-20T16:06:21.5690682+00:00",
+          "evidence": "Fresh preparation succeeded, two files restored and compared, no active writes; initial preparation retained after users_field_data navigation drift"
+        }
+      ],
+      "github": {
+        "repository": "jpdandin44/TC_Longages",
+        "prUrl": "https://github.com/jpdandin44/TC_Longages/pull/24",
+        "humanAcceptanceVerified": false,
+        "headSha": "13e9283cc0a883ff4b150e8d275529f2f93324dd",
+        "baseSha": "e7e71addee734317ef2da5706b290767a3b317e8",
+        "mergeable": true,
+        "observedAt": "2026-10-20T17:58:45.766141+02:00"
+      }
+    },
+    "receipt": {
+      "sourceSha": "d50dca1645fa4ff3f63bf9a8f4b23442dfa8ba26",
+      "artifactSha256": "b26324d88a761e16a7aedf86179faffbd6cd55946f86cea00e0658b58654f05b",
+      "files": 2,
+      "deliveredAt": "2026-10-20T16:05:05.578293+00:00",
+      "filesVerified": 2,
+      "contentAndProtectionPreserved": true,
+      "databaseMigration": false,
+      "productionWritten": false
+    },
+    "browser": {
+      "oldSavedWeekOverridden": true,
+      "manualList": true,
+      "monthAfterReload": true,
+      "screenshot": ".local/calendrier-mois-global-preprod.png"
+    },
+    "humanCampaign": "deferred",
+    "productionAllowed": false,
+    "nextAction": "Campagne humaine différée ; aucune mise en production autorisée"
+  }
+}

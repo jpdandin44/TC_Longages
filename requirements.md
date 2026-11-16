@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-17
+updated: 2026-10-25
 owner: jpdandin
 tags:
   - exigences
@@ -13,7 +13,82 @@ tags:
   - prototype
 ---
 
+## Calendrier Google séparé — 25 octobre
+
+Créer depuis le site un calendrier privé « TC Longages — Recette V2 » sur le compte du club, puis y transmettre les créations et modifications d’événements du Bureau. Portée Google limitée aux calendriers créés par cette application, cible fixée à l’ID issu de la création et vérifiée avant chaque écriture. Ne pas utiliser l’agenda officiel ni la production. Pas d’invitation, de partage public ou d’import automatique des séries historiques. Conserver les saisies en cas d’échec et refuser les conflits externes sans écrasement. Consentement Google personnel à obtenir avant qualification réelle.
+
+
+## Ajout depuis le calendrier — 25 octobre
+
+Le Bureau doit pouvoir choisir un jour dans une vue mensuelle sur la page Calendrier pour créer un événement, consulter les occurrences et ouvrir leur modification. Date préremplie, retour au mois après enregistrement, accessibilité clavier et adaptation mobile requis. La grille privée de recette utilise le stockage V2 existant ; elle ne donne aucun droit nouveau et ne modifie pas le calendrier Google partagé.
+
+
+## Confort du Bureau — V2
+
+La navigation et les actions doivent être distinctes et lisibles sur ordinateur et téléphone. La personnalisation des communications présente un panneau par canal, avec un repère actif, des champs confortables et un focus clavier visible. Changer de canal conserve la saisie sans sauvegarde, publication ni envoi automatique ; les valeurs laissées vides reprennent le contenu commun.
+
+## 22 octobre — inscription depuis les communications
+
+Le Bureau associe explicitement une actualité publiée à une seule occurrence ouverte. L’accueil et les courriels donnent accès à la demande de lien personnel ; aucun lien secret partagé publiquement. La demande ne compte pas comme réponse. Miniature de l’affiche et retrait du bloc bas ; recette limitée aux destinataires autorisés.
+
+
+## Nouveau besoin V2 — réponses aux événements et courriels adhérents
+
+Demande du 21 octobre après clôture : priorité au futur événement Beaujolais nouveau. Développement repris le 22 octobre : premier parcours individuel et canal de recette implémentés localement ; [contrat et limites](api/participations-courriels.md). Livraison distincte dans les preuves.
+
+- Participation : « Je participe », « Je ne participe pas », « Je ne sais pas ». L'absence de réponse reste un quatrième état distinct.
+- Si participation : nombre de personnes. Convention proposée : total incluant le répondant, entier supérieur ou égal à 1. Un changement vers Non/Incertain exclut ce nombre du total confirmé.
+- Proposition de parcours : lien individuel de réponse modifiable, accès limité à sa propre réponse ; compte Bureau réservé à la gestion. Tableau privé des réponses et total des personnes confirmées. Pour une série, rattacher la réponse à une occurrence précise.
+- Réemploi ciblé à étudier depuis le module local `tcl_competitions` (oui/non/incertain, liens et révisions), sans importer toute la V3. Le nombre de convives y est encore différé : ce besoin demande un développement spécifique.
+- Ajouter le canal « Envoyer un mail aux adhérents » à Communication. Source demandée : contacts du compte Google du club. Proposition : libellé Google Contacts dédié aux adhérents, liste des destinataires à vérifier avant envoi, dédoublonnage des adresses et absence d'exposition entre destinataires.
+- Préparer un courriel avec affiche/lien vers l'événement et accès à la réponse. Le mode de diffusion de l'affiche (pièce jointe ou lien) reste à préciser. Distinguer préparation, validation, envoi et réception ; éviter les renvois en double.
+- À qualifier : compte Google et libellé exacts, lecture des contacts par le site avec droits adaptés, transport d'envoi du site, nombre et qualité des adresses, durée des liens et clôture des réponses. La connexion Google de ce chat ne constitue pas une intégration au site.
+- Développement/recette en préproduction sur contacts fictifs ou destinataires de recette déjà autorisés. Cette idée n'autorise ni import global des contacts réels, ni campagne réelle, ni mise en production.
+
+## Accueil et cohérence tarifaire — complément de clôture du 21 octobre
+
+Demandes enregistrées à partir du message et des deux captures du responsable ; aucune réalisation ni vérification hébergée à cette étape.
+
+- Conserver les actualités en haut de l'accueil, emplacement explicitement apprécié. Ajouter une petite miniature de l'affiche liée à l'actualité (image ou aperçu PDF), avec présentation adaptée au mobile et texte alternatif.
+- Pour une actualité associée à un événement ouvert aux réponses, proposer « Je m’inscris à cet événement » vers le parcours de participation. Une actualité sans événement ne doit pas afficher ce bouton. Le lien public d'entrée ne doit pas exposer un lien personnel de réponse ; identification et articulation avec les liens individuels à qualifier.
+- Retirer de l'accueil la section basse « Actualités du club » montrant une liste à puces (exemple Halloween dans la capture). Cette suppression porte sur le bloc d'accueil, pas sur les événements, l'onglet Calendrier ou la page Toutes les actualités.
+- Vérifier le décalage signalé entre le tableau public des tarifs et le catalogue des services. Anomalie suspectée, non confirmée. Comparer saison, libellés et montants avec la version publiée du catalogue ; distinguer un brouillon non publié d'une erreur. Identifier la source et le cache du tableau avant correction. Conserver les prix historiques des dossiers déjà déposés.
+- Ordre confirmé par le responsable : réponses aux événements et nombre de personnes pour le Beaujolais nouveau d'abord, puis canal mail aux adhérents. Rattacher miniature et lien d'inscription au lot événement ; inclure retrait du bloc bas et diagnostic tarifaire dans la reprise V2.
+- Session close pour aujourd'hui ; enregistrer seulement. Développement à reprendre sur demande, exclusivement en préproduction, production exclue.
+
+## Vue initiale du calendrier — 20 octobre 2026
+
+Demande : Mois pour tous les visiteurs de préproduction à chaque ouverture, indépendamment des anciennes préférences. Semaine et Liste restent sélectionnables pendant la visite. Production exclue. Livré en préproduction le 20 octobre ; ancienne préférence Semaine ignorée et retour Mois après Liste/rechargement vérifiés.
+
+## Agenda V2 — 20 octobre 2026
+
+L’agenda V2 doit proposer miniatures PDF/images, icônes et couleurs par catégorie (cours, manifestation, réservation, repas, AG, compétition, autre). Le sélecteur Ambiance est abandonné à la demande du responsable ; les écritures de recette restent isolées du calendrier Google partagé.
+
+
+## Complément du 19 octobre — agenda Bureau
+
+Créer et modifier les événements fictifs depuis le Bureau ; répétitions bornées avec dates exclues, aperçu avant sauvegarde, annulation réversible de la série. Conserver le calendrier Google de production en consultation sans y écrire. État actuel : développement local contrôlé, hébergement à qualifier. [Règles détaillées](docs/evenements-bureau.md).
+
 # Exigences
+
+## Optimisations autorisées le 19 octobre
+
+Poursuivre les aperçus et la préparation du partage, puis l’agenda sans attendre la campagne humaine. Préserver validation des révisions et partages manuels. Améliorer vues, miniatures et personnalisation ; conserver le calendrier existant jusqu’au choix d’une source unique pour la création et les récurrences. Production exclue. [Périmètre réalisé et limites](docs/communication-bureau.md).
+
+
+## Communication V2 — complément demandé le 18 octobre
+
+Importer une affiche PDF existante, choisir indépendamment Site internet/Facebook/WhatsApp et conserver validation puis action de publication distinctes. Les réseaux restent en partage manuel ; le PDF se joint dans le service choisi. Aucun export d’affiche créée par le Bureau n’est demandé. Une modification des canaux ou du fichier exige une nouvelle validation. Recette privée uniquement, production exclue.
+
+
+## Recette fictive confirmée le 18 octobre
+
+Le responsable demande de poursuivre catalogue et formulaire sans attendre les textes et créneaux définitifs. Utiliser uniquement des données fictives ; ne pas importer les fiches papier fournies pour information, ne pas ouvrir la collecte réelle et ne pas modifier la production. [Critères du lot](api/inscription-recette.md).
+
+
+## V2 — reprise autorisée le 18 octobre
+
+Maintenir V1 en production, V2 en préproduction et V3 en développement séparé. Finaliser Bureau/adhérents/communication, formulaire public, bandeau et administration saisonnière. Préserver tarifs et saison des dossiers antérieurs. Production exclue des écritures ; aucune collecte réelle ni texte juridique inventé. [Critères et inconnues](docs/recette-v2.md).
 
 ## Preparation manuelle de production - 17 octobre
 
@@ -554,3 +629,27 @@ Le [guide de présentation](docs/publier-demo-o2switch.md) décrit les opératio
 ## Suivi commun depuis le 4 octobre
 
 Présenter exactement quatre phases selon le skill commun. Regrouper les dossiers détaillés, conserver les anciens identifiants et critères, ne pas étendre les accords historiques. Les opérations distantes des phases 2 et 3 restent hors des boutons locaux de validation.
+
+## Besoin agenda enrichi — à cadrer
+
+Le responsable souhaite pouvoir créer les événements depuis un compte Bureau, afficher des miniatures des affiches, préparer leur diffusion et gérer les événements récurrents. Prévoir modification d’une occurrence ou de la série, exceptions et fuseau horaire. Fonctionnalités proposées, non implémentées ; source unique et articulation avec le calendrier actuel à déterminer. Préserver les partages manuels et la validation avant diffusion.
+
+La personnalisation demandée complète ce besoin : fond uni, dégradé ou image, palettes du club et couleurs par catégorie, thèmes prédéfinis modifiables depuis le Bureau avec aperçu. Préserver contraste, lisibilité mobile et libellés indépendants de la couleur. Ce complément est au cadrage V2, pas encore développé.
+
+## Complément comptes et Google Contacts — 22 octobre
+
+Depuis Gestion des comptes, proposer une action explicite de réinitialisation distincte de la première invitation, avec confirmation du destinataire enregistré et sans changer le mot de passe avant l’action personnelle. Connecter Google Contacts du club en lecture seule au libellé confirmé, uniquement en préproduction. Voir [le contrat](api/participations-courriels.md).
+
+
+## Réponse à un événement depuis le courriel — idée du 22 octobre
+
+Besoin exprimé : choix Je participe / Je ne participe pas (conserver aussi Incertain) et nombre de personnes directement dans le corps du mail. Étude uniquement, non implémenté et choix technique non validé. AMP for Email permet des formulaires sur les clients compatibles, avec enregistrement expéditeur Gmail et solution de repli nécessaires. Proposition plus compatible : boutons personnels dans le courriel ouvrant une page de réponse préremplie, nombre de personnes puis confirmation ; aucune mutation par simple ouverture de lien. Source : https://developers.google.com/workspace/gmail/ampemail/register .
+
+
+## Personnalisation des communications — 22 octobre
+
+Choix validé le 22 octobre : implémenter les textes et aperçus distincts par canal, puis le courriel classique HTML avec trois boutons personnels et nombre de personnes sur page de confirmation. Aucun AMP ni procédure d’enregistrement AMP Google. Préproduction seulement ; partage social manuel et liste des adresses de recette conservés.
+
+## Plafond de participation — 22 octobre
+
+Chaque réponse Oui est limitée à dix personnes, répondant compris. Liste de choix 1 à 10 et validation serveur obligatoire ; une tentative supérieure est refusée sans modifier la réponse enregistrée. Non/Incertain restent à zéro.

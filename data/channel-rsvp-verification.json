@@ -1,0 +1,137 @@
+{
+  "iterationId": "tcl-v2-recette-20261018",
+  "owner": "jpdandin",
+  "stage": "preproduction",
+  "status": "delivered_verified",
+  "productionTouched": false,
+  "candidate": {
+    "sourceSha": "8cf75c22e7453089b58b41c17a7e34e2874bf7a3",
+    "artifactSha256": "e2f7588eeddbd3f90850a13d4fe4b2c0ee09a6b4449b5e3c7c6dda12fdf42f7d"
+  },
+  "manifestCommit": "54a8ea3b6d6621e5ce9ca85ea3c6debe4a48d2f5",
+  "ciRun": "39846477090",
+  "localChecks": {
+    "memberMail": 21,
+    "eventSignupService": 21,
+    "channelHttp": 23,
+    "signupHttp": 12,
+    "eventReplyHttp": 29,
+    "replyButtonsJs": 3,
+    "fullSuitePassed": false,
+    "fullSuiteLimitation": "Historical contact collector failed on reused local database; clean CI bureau-oauth-runtime passed in full. No purge or test bypass."
+  },
+  "backup": {
+    "files": 12,
+    "newFiles": 1,
+    "fileRestoreVerified": true,
+    "communicationRows": 3,
+    "tableRestoreVerified": true,
+    "tableSha256": "5b2445c4f3f9565fc0832afc849ae2a33b7cc2d46c129b44a2020a5be0643b52"
+  },
+  "hostedVerified": true,
+  "observedAt": "2026-10-22T20:21:28.839631+00:00",
+  "previousCi": {
+    "run": "39845795791",
+    "failure": "MariaDB test expected 11003 instead of new 11004; assertion updated and idempotence checked"
+  },
+  "ciStatus": "success",
+  "ciJobsPassed": 6,
+  "delivery": {
+    "installedFiles": 13,
+    "allHashesMatch": true,
+    "migration": "11004 additive channel_texts",
+    "gate": "passed",
+    "backupDirectory": "/home2/daje5127/tcl-preproduction/private/channel-rsvp-8cf75c2/backup",
+    "rollback": "Scoped operator restores files; additive column and participant data retained."
+  },
+  "hostedChecks": {
+    "communicationId": 3,
+    "revision": 8,
+    "fourDistinctVariants": true,
+    "siteArticleAndHomeVariant": true,
+    "mailHtmlPreview": true,
+    "googleSourceEligible": 1,
+    "googleSourceExcluded": 20,
+    "socialSent": false,
+    "personalReplySubmittedByAgent": false,
+    "priorResponsesPreserved": {
+      "camille": 3,
+      "family": 6,
+      "total": 9
+    }
+  },
+  "mail": {
+    "recipient": "familledandin@gmail.com",
+    "subject": "[RECETTE PRÉPRODUCTION] [RECETTE] Beaujolais — boutons de réponse",
+    "serverAccepted": 1,
+    "failures": 0,
+    "receiptConfirmed": true,
+    "personalLinkValidation": "User confirmed successful reply; Bureau verified yes, six people.",
+    "otherRecipientsSent": 0
+  },
+  "correction": {
+    "sourceSha": "0b6efb871d9c1c41988c83cc3f9ef38f17250f42",
+    "manifestCommit": "9b97d021ecae3a7b5e27d32c6a45232603e73f0d",
+    "ciRun": "39848295978",
+    "artifactSha256": "7aae91d77a5cac6ffbfcd46afeb1e70ab11404f9d0b5b591a6c99ecb8ac88fc7",
+    "localTests": 6,
+    "phpSyntax": "passed",
+    "backupFiles": 2,
+    "restoreVerified": true,
+    "status": "delivered_verified",
+    "reproducedOnHostedFictitiousLink": true,
+    "reproduction": "Valid 64-hex fragment plus :yes shows Lien personnel incomplet on same Chrome with unversioned script.",
+    "ciStatus": "success",
+    "ciJobsPassed": 6,
+    "installedFiles": 2,
+    "allHashesMatch": true,
+    "gate": "passed",
+    "hostedTests": {
+      "noPrefill": true,
+      "maybePrefill": true,
+      "encodedYesPrefill": true,
+      "countPreserved": 3,
+      "fictitiousConfirmationSaved": true,
+      "personalFamilyAnswerTouched": false,
+      "scriptVersion": "360652e81b1ae2c4"
+    }
+  },
+  "participantLimit": {
+    "maximum": 10,
+    "includesRespondent": true,
+    "status": "delivered_verified",
+    "productionTouched": false,
+    "existingFamilyResponseVerified": {
+      "answer": "yes",
+      "count": 6,
+      "eventTotal": 9
+    },
+    "sourceSha": "5703daecd1a0ed55d4515e7214c07ce9d9bdae52",
+    "manifestCommit": "02c20e9e35747cb6a7a8d5aee817a2bacdd31daa",
+    "ciRun": "39852160517",
+    "artifactSha256": "f14b523b3e65944cddd6ae1a039370179be910727cb0030947776e00643c6a37",
+    "httpChecksPassed": 34,
+    "jsChecksPassed": 6,
+    "backupFiles": 2,
+    "restoreVerified": true,
+    "ciStatus": "success",
+    "ciJobsPassed": 6,
+    "installedFiles": 2,
+    "allHashesMatch": true,
+    "gate": "passed",
+    "hostedOptions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "familyResponseAfterDelivery": 6,
+    "newMailSent": false
+  }
+}

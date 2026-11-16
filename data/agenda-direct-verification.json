@@ -1,0 +1,30 @@
+{
+  "sourceSha": "30c16e0cdc8c7b5494950af890a76640820d2b36",
+  "artifactSha256": "48ddcbb782f49f150ca34f33e8bcd0a00f2267a6dbe459fdcc9317bfe771c641",
+  "stage": "/home2/daje5127/tcl-preproduction/private/agenda-direct-30c16e0",
+  "date": "2026-10-25",
+  "status": "delivered_verified",
+  "manifestCommit": "0e9cf25afcd74c89ea1d46376a07a454a5c7faba",
+  "ciRun": "40219990098",
+  "ciJobsPassed": 6,
+  "localHttpChecks": 36,
+  "localPresentationChecks": 13,
+  "localCreationReturnVerified": true,
+  "installedFiles": 4,
+  "backupExistingFiles": 3,
+  "newFiles": 1,
+  "backupRestoreVerified": true,
+  "allHashesMatch": true,
+  "businessDataUnchanged": true,
+  "googleEmbedUnchanged": true,
+  "hostedDayPrefillVerified": true,
+  "productionTouched": false,
+  "hostedWrites": false,
+  "hostedMonthGridVerified": true,
+  "hostedRecurrencesVisible": true,
+  "hostedMobileVerified": false,
+  "limits": [
+    "Creation et retour au mois verifies localement ; formulaire date et grille verifies en preproduction sans enregistrer de donnees.",
+    "Rendu mobile 390 verifie localement ; emulation distante interrompue par le navigateur."
+  ]
+}

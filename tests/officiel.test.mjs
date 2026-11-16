@@ -21,7 +21,7 @@ test('La V1 conserve les visuels exacts et les tarifs actuels tout en appliquant
   assert.equal(sha(Buffer.from(logo[1],'base64')),sha(await readFile(new URL('Images_Photos/Logo.jpeg',root))));
   assert.equal((html.match(/scope="row"/g)||[]).length,10);
   assert.match(html,/<th scope="row">Cours Adultes<\/th><td>150,00 €<\/td>/);
-  assert.match(html,/<th scope="row">Cours adultes compétition<\/th><td>170,00 €<\/td>/);
+  assert.match(html,/<th scope="row">Cours Adultes compétition<\/th><td>170,00 €<\/td>/);
   assert.match(html,/<th scope="row">Adhésion Adulte compétition<\/th><td>100,00 €<\/td>/);
   assert.doesNotMatch(html,/125,00 € ou 150 €|Cours adultes : la fiche indique/);
 });
