@@ -6,6 +6,7 @@ namespace Drupal\tcl_bureau_oauth;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Url;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -48,6 +49,15 @@ final class BureauOAuth {
   public function begin(): string {
     $settings = OAuthSettings::load();
     $this->assertCallback($settings);
+    // For the club's own provider, start PKCE after the native login rotates
+    // the session. Time spent on the password form must not age the transaction.
+    if ($this->account->isAnonymous() && \Drupal::moduleHandler()->moduleExists('tcl_identity')
+      && $settings['authorize_url'] === Url::fromRoute('oauth2_token.authorize', [], ['absolute' => TRUE])->toString()) {
+      return Url::fromRoute('tcl_identity.login', [], [
+        'absolute' => TRUE,
+        'query' => ['destination' => '/bureau/connexion'],
+      ])->toString();
+    }
     $session = $this->session();
     $state = bin2hex(random_bytes(32));
     $nonce = bin2hex(random_bytes(32));

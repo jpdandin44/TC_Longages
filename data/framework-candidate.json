@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "b6cbc9321231c1ec8d2c798791fa63d4a1286f58",
+  "sourceCommit": "82dca4f9fe79e3ff84a07ac8616ff65d46808405",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -1115,9 +1115,9 @@
     {
       "path": "docs/bureau-oauth.md",
       "mode": "100644",
-      "gitBlob": "a98963811ce032fd0f2f1646096766f6cf75aba9",
-      "size": 13633,
-      "sha256": "96aeb8c7c49305bddd0a52c6d603bb51958c8154e771f6f5241cd362a19ecd4d"
+      "gitBlob": "c4f707d650b440162f9c6e1751d11d93c5d812b2",
+      "size": 13978,
+      "sha256": "841320543232325637e7fb9a51e74065d82282548580e02edc6e252af82bcbfd"
     },
     {
       "path": "docs/campagne-recette-v2.md",
@@ -4601,9 +4601,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau_oauth/src/BureauOAuth.php",
       "mode": "100644",
-      "gitBlob": "53aff2cf2b4e2677cb83706de71aa47aa0614002",
-      "size": 6830,
-      "sha256": "67f50de6a52c69fd211a6e6ae8f49aff631c0134b1140d373484d39c1aa30711"
+      "gitBlob": "eddc4dcd5dec037d878abe5bc501dad03ff9cc3d",
+      "size": 7400,
+      "sha256": "734cd01eb755ef2705eabe22a92844ac337f53255dbe4e0978a6f3bc73b461c1"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau_oauth/src/Controller/OAuthController.php",
@@ -6706,5 +6706,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "8ddb47279d6106c0f1266e72dc5f6ff9deabe5594925f5c260ff446e6580a9f9"
+  "artifactDigest": "2fa6040953228082314c5667416e9035d335db11d2797797e5a28277ec43bf4e"
 }
