@@ -5,7 +5,7 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-10-21
+updated: 2026-11-16
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
@@ -108,3 +108,9 @@ Contrôles complémentaires : `python -X utf8 tests/registration-recipe-http.py`
 Le paquet limité V2 est installé le 18 octobre à 22 h 47 (Paris) : catalogue, formulaire fictif et bandeau, 38 fichiers vérifiés (12 différents). Core hébergé 11.4.8 et OAuth 6.1.1 conservés ; local 11.4.10. Sauvegarde/restauration privée vérifiée (27 449 fichiers, 62 tables, démarrage Drupal), puis 11 contrôles sur cette copie réussis. Les sept pages, trois comptes et le dossier existant sont conservés. Basic répond 401, aucune production ni collecte réelle modifiée. Catalogue encore non publié : connexion Bureau/OAuth, publication de recette puis parcours navigateur à réaliser. [Reçu de livraison](../data/v2-preproduction-livraison.json).
 
 Prochaine action : franchir l’accès préproduction puis OAuth sur `/bureau`, ouvrir `/bureau/saison`, publier explicitement le catalogue pour recette, tester `/adherer` avec des identités `Recette…` et des courriels `@example.invalid`. Aucun texte ni créneau définitif exigé pour ces tests. L’accès cPanel ne constitue pas une connexion au Bureau.
+
+## Sélection des destinataires en préproduction — 16 novembre 2026
+
+Dans le Bureau, ouvrir **Communication → Instant Beaujolais → Relire et décider → Préparer le courriel aux adhérents**. Le formulaire présente quatre adresses synthétiques du domaine réservé `example.invalid`. La préparation ne lit ni le carnet Google ni la liste des adresses autorisées. La sélection est temporaire et l’envoi depuis ce formulaire est désactivé côté serveur.
+
+Recette dans Chrome sur le site hébergé : le compteur est passé de 0 à 4 avec « Tout cocher », puis à 3 en retirant une case. Un clic sur « Tout cocher » a rétabli les quatre sélections, le suivant les a effacées. Une sélection individuelle puis son retrait ont donné 1 puis 0 sur 4. Aucune adresse réelle affichée ni aucun courriel envoyé. La livraison a porté sur le seul formulaire de préproduction, sauvegardé avant remplacement.
