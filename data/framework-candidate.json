@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "d2771e6eafab918de2b6ca7b0480f8aa82dd03fa",
+  "sourceCommit": "2fa151abc927a95bd8a3c0fa7a342c17ab2a3a36",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -1360,9 +1360,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "82bf3f1aa862b1d89777349622592a59daf576b2",
-      "size": 13284,
-      "sha256": "45339292f4841a0bde1243c09984c37008212bf93b28f4f5d4ea89d561d8b3a6"
+      "gitBlob": "65e9805a09132e3722a2db349b83726c493e089f",
+      "size": 13780,
+      "sha256": "b308156ace79054a94f861d296abe05f2367a7c436b65e5f21757e9401a08b0e"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -5992,6 +5992,13 @@
       "sha256": "ee914c04e97231016edc108cbce7a09e470b70ed61ca1bf399684ebc2d335fe2"
     },
     {
+      "path": "tests/club-followup-access.php",
+      "mode": "100644",
+      "gitBlob": "d567e57ebc29f7a12eef7c19d0c5627173dd9ae3",
+      "size": 1509,
+      "sha256": "886b6b3919325e56562dee229688ca4c3a6744ea4d54de99d180fc19094411a6"
+    },
+    {
       "path": "tests/communication-adoc.test.mjs",
       "mode": "100644",
       "gitBlob": "a32e694801317f13bd93ae3cf96c21265026e66a",
@@ -6720,5 +6727,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "5ceb1dde8c7ebce58c039525c8fd3c31325a415fc34a92f1842957a6ab7cd557"
+  "artifactDigest": "ff35f9ee491b5fb8702f4d7110817e7ec30f4c8e25c93047a96b68d4c4abb65c"
 }
