@@ -5,12 +5,16 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-25
+updated: 2026-11-17
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
+
+## 2026-11-17 — actualisation manuelle des contacts (préproduction)
+
+Bouton « Mettre à jour les contacts », bilan daté des adresses distinctes, conservation du dernier succès en cas d’erreur. Lecture Google existante réutilisée, sans envoi et sans remplacement des destinataires fictifs de recette. [Recette vérifiée](docs/recette-v2.md#actualisation-manuelle-google-contacts--17-novembre-2026).
 
 ## 2026-10-25 — raccordement Google Calendar (en qualification)
 
