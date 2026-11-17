@@ -9,6 +9,10 @@ use Drupal\tcl_bureau\MemberMail;
 use Drupal\tcl_bureau\RecipeMail;
 
 final class MemberMailForm extends FormBase {
+  private function selectionOnly(): bool {
+    return $this->getRequest()->getHost() === 'preprod.tclongages.fr';
+  }
+
   public function getFormId(): string { return 'tcl_member_mail'; }
   public function buildForm(array $form, FormStateInterface $form_state, ?string $post = NULL): array {
     $row = MemberMail::post($this->currentUser(), (int) $post);
@@ -17,7 +21,15 @@ final class MemberMailForm extends FormBase {
     $form['#attached']['library'][] = 'tcl_bureau/bureau';
     $form['back'] = ['#type' => 'link', '#title' => 'Retour à la communication', '#url' => Url::fromRoute('tcl_bureau.communication_review', ['post' => $post])];
     $production = MemberContacts::production();
-    if ($production) {
+    $selectionOnly = $this->selectionOnly();
+    $snapshot = $form_state->get('snapshot');
+    $source = $form_state->get('source_label');
+    if ($selectionOnly) {
+      $snapshot = MemberMail::snapshot($this->currentUser(), (int) $post, []);
+      $snapshot['recipients'] = ['adherent-01@example.invalid', 'adherent-02@example.invalid', 'adherent-03@example.invalid', 'adherent-04@example.invalid'];
+      $source = 'Adhérents fictifs';
+      $form['help'] = ['#plain_text' => 'Testez la sélection sur quatre adhérents fictifs. L’envoi est désactivé.'];
+    } elseif ($production) {
       try {
         $directory = MemberContacts::deliveryDirectory();
       } catch (\RuntimeException $e) {
@@ -30,11 +42,10 @@ final class MemberMailForm extends FormBase {
       $form['google_state'] = ['#plain_text' => MemberContacts::configured() ? 'Connexion Google configurée ; lecture à vérifier lors de la préparation.' : 'Google Contacts non connecté. Le libellé adhérents et la connexion en lecture seule restent à configurer.'];
       $form['source'] = ['#type' => 'radios', '#title' => 'Source des destinataires', '#options' => ['recipe' => 'Adresses de recette autorisées', 'google' => 'Libellé adhérents dans Google Contacts'], '#default_value' => 'recipe'];
     }
-    $form['prepare'] = ['#type' => 'submit', '#name' => 'prepare', '#value' => 'Préparer l’aperçu'];
-    $snapshot = $form_state->get('snapshot');
+    $form['prepare'] = ['#access' => !$selectionOnly, '#type' => 'submit', '#name' => 'prepare', '#value' => 'Préparer l’aperçu'];
     if ($snapshot) {
       $form['preview'] = ['#type' => 'details', '#title' => 'Aperçu avant envoi', '#open' => TRUE];
-      $form['preview']['source'] = ['#plain_text' => $form_state->get('source_label') . ' — Révision ' . $snapshot['revision'] . '. Exclus : ' . $snapshot['excluded'] . '.'];
+      $form['preview']['source'] = ['#plain_text' => $source . ' — Révision ' . $snapshot['revision'] . '. Exclus : ' . $snapshot['excluded'] . '.'];
       $form['preview']['subject'] = ['#type' => 'textfield', '#title' => 'Objet', '#value' => ($production ? '' : '[RECETTE PRÉPRODUCTION] ') . $snapshot['subject'], '#attributes' => ['readonly' => 'readonly']];
       $form['preview']['body'] = ['#type' => 'textarea', '#title' => 'Version texte (liens personnels ajoutés à l’envoi)', '#value' => $snapshot['body'], '#attributes' => ['readonly' => 'readonly'], '#rows' => 10];
       $responses = (bool) \Drupal\tcl_bureau\EventParticipation::mailEntry($this->currentUser(), (int) $post);
@@ -52,12 +63,14 @@ final class MemberMailForm extends FormBase {
       $form['recipients'] = ['#type' => 'checkboxes', '#title' => $production ? 'Destinataires' : 'Destinataires à tester', '#options' => $options, '#description' => 'Sélectionnez explicitement les adresses à contacter. Aucune case présélectionnée.'];
       $form['recipients']['#prefix'] = '<div data-recipient-list>';
       $form['recipients']['#suffix'] = '</div>';
+      if ($selectionOnly) { return $form; }
       $form['confirm'] = ['#type' => 'checkbox', '#title' => 'J’ai relu le message et les destinataires et je confirme cet envoi.'];
       $form['send'] = ['#type' => 'submit', '#name' => 'send', '#value' => $production ? 'Envoyer aux adhérents sélectionnés' : 'Envoyer les courriels de recette', '#disabled' => !$snapshot['recipients']];
     }
     return $form;
   }
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    if ($this->selectionOnly()) { $form_state->setRebuild(); return; }
     try {
       if (($form_state->getTriggeringElement()['#name'] ?? '') === 'send') {
         $snapshot = $form_state->get('snapshot');
