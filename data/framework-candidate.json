@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "738a5dddf2a03168c549470b765ae4f99742d6a4",
+  "sourceCommit": "dadfd47c74b2b7c248db57b7512e93f4ca1d84ba",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -1360,9 +1360,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "773c34228a50ce9a0e2eeab772e7e16044f15611",
-      "size": 12437,
-      "sha256": "6c3cc004960876896b93ae7078301eaab8671011c946f1f7a7f16ac61dc7ea81"
+      "gitBlob": "887da3cf4b31f92f62b8145fc486f10686b1c82a",
+      "size": 13148,
+      "sha256": "6b2ab9d75bc2d4c28dee4f3c3253c7938691981abca20bed01b197efca674dcf"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -3019,9 +3019,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/GoogleContactsForm.php",
       "mode": "100644",
-      "gitBlob": "af43f78ffbe4848f2136c9ce9a0a1e13dd2a14cc",
-      "size": 2101,
-      "sha256": "4ed0c86c823a4a533789c6ae1fffe7836a74fc723f8347458905004b6dcca465"
+      "gitBlob": "a27e378b6095f097086650a7be58f7a13bc0e0cf",
+      "size": 4173,
+      "sha256": "7646629c0dab5d5e0b93b0b696eda6768dfc9ccb79685e7b8a38f263b4dcc8f2"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/MemberMailForm.php",
@@ -6706,5 +6706,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "adcdc2177c80b6a8169a96183fa72cbe0c6d8aa4520eb9d4bd2b48246598a948"
+  "artifactDigest": "043e17ccb1b700b8731619c80fe3cd624a7cf4a22cdb406799f99ef1ae2b5f36"
 }
