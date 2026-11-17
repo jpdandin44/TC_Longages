@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "dadfd47c74b2b7c248db57b7512e93f4ca1d84ba",
+  "sourceCommit": "e5a3e220e86bd066db84d82f11e6c38778ebe5e8",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "97a61d2a8f8119065de85c13544fc0877c79b15b",
-      "size": 72793,
-      "sha256": "b3f844ba94354b5cc6eca486e9fae2676a6c1b3e41074c0a9290ff483d3061be"
+      "gitBlob": "57213ca2d03bc6e316206689bcc5ab7c9a9a4f7d",
+      "size": 73204,
+      "sha256": "b12a9af82d625a7fc2c5056abe811cfb79caaf89e4d6b959463c9d90e182a1e9"
     },
     {
       "path": "config/agenda-local.json",
@@ -1360,9 +1360,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "887da3cf4b31f92f62b8145fc486f10686b1c82a",
-      "size": 13148,
-      "sha256": "6b2ab9d75bc2d4c28dee4f3c3253c7938691981abca20bed01b197efca674dcf"
+      "gitBlob": "fee1976aa6f7c89188cae67050fce31a5eaadbe1",
+      "size": 13685,
+      "sha256": "e5bd2d80aaac48f28ec5babfb0f5a63dc0b5186c8624f61fe6f03bf013b34be8"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -6706,5 +6706,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "043e17ccb1b700b8731619c80fe3cd624a7cf4a22cdb406799f99ef1ae2b5f36"
+  "artifactDigest": "2245f69735ebae6a87f1b39c416db249bb8f8fbeb644a63b4472d3d6010cc549"
 }
