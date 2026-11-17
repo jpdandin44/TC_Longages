@@ -119,4 +119,6 @@ Recette dans Chrome sur le site hébergé : le compteur est passé de 0 à 4 ave
 
 Cadrage validé pour deux onglets autonomes. Développement local terminé avec les droits des communications et un accès limité au domaine de préproduction. Le Bureau et Communications donnent accès à Suivi des réponses et Historique des envois. Les pages utilisent uniquement leurs données synthétiques embarquées. Aucun formulaire d’envoi ni appel aux contacts ou aux journaux réels. Les liens entre diffusion et événement conservent la sélection. Les erreurs et relances affichées sont simulées.
 
-Préproduction autorisée par le responsable, installation et contrôle hébergé en cours. Mise en production hors du lot. Contrôles locaux réussis à 1 280 et 390 pixels, état sans invitation, erreurs d’envoi, choix d’événement et passage aux réponses.
+Préproduction installée le 17 novembre, candidat d2771e6, cinq fichiers vérifiés par empreinte. Sauvegarde privée bureau-suivi-f61lg2ao, reconstruction du cache réussie. Vérification navigateur hébergée en attente de reconnexion à la protection puis au Bureau dans Chrome. Mise en production hors du lot. Contrôles locaux réussis à 1 280 et 390 pixels, état sans invitation, erreurs d’envoi, choix d’événement et passage aux réponses.
+
+Cinq tests de frontière d’accès réussis avec droits simulés (préproduction HTTPS autorisée avec droit, refus sans droit, HTTP, autre domaine et production). Les parcours de rôle réels dans le navigateur restent à confirmer. PR de revue [29](https://github.com/jpdandin44/TC_Longages/pull/29).
