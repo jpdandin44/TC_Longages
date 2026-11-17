@@ -113,6 +113,10 @@ final class BureauController extends ControllerBase {
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
+    if (ClubFollowupController::enabled($this->currentUser())) {
+      $links['responses'] = Link::fromTextAndUrl('Suivi des réponses', Url::fromRoute('tcl_bureau.responses'))->toRenderable();
+      $links['delivery_history'] = Link::fromTextAndUrl('Historique des envois', Url::fromRoute('tcl_bureau.delivery_history'))->toRenderable();
+    }
     if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
       $links['events'] = Link::fromTextAndUrl('Événements du club', Url::fromRoute('tcl_bureau.events'))->toRenderable();
     }

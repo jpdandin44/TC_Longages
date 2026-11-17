@@ -5,7 +5,7 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-11-16
+updated: 2026-11-17
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
@@ -114,3 +114,9 @@ Prochaine action : franchir l’accès préproduction puis OAuth sur `/bureau`, 
 Dans le Bureau, ouvrir **Communication → Instant Beaujolais → Relire et décider → Préparer le courriel aux adhérents**. Le formulaire présente quatre adresses synthétiques du domaine réservé `example.invalid`. La préparation ne lit ni le carnet Google ni la liste des adresses autorisées. La sélection est temporaire et l’envoi depuis ce formulaire est désactivé côté serveur.
 
 Recette dans Chrome sur le site hébergé : le compteur est passé de 0 à 4 avec « Tout cocher », puis à 3 en retirant une case. Un clic sur « Tout cocher » a rétabli les quatre sélections, le suivant les a effacées. Une sélection individuelle puis son retrait ont donné 1 puis 0 sur 4. Aucune adresse réelle affichée ni aucun courriel envoyé. La livraison a porté sur le seul formulaire de préproduction, sauvegardé avant remplacement.
+
+## Suivi du Bureau sur données fictives — 17 novembre 2026
+
+Cadrage validé pour deux onglets autonomes. Développement local terminé avec les droits des communications et un accès limité au domaine de préproduction. Le Bureau et Communications donnent accès à Suivi des réponses et Historique des envois. Les pages utilisent uniquement leurs données synthétiques embarquées. Aucun formulaire d’envoi ni appel aux contacts ou aux journaux réels. Les liens entre diffusion et événement conservent la sélection. Les erreurs et relances affichées sont simulées.
+
+Préproduction autorisée par le responsable, installation et contrôle hébergé en cours. Mise en production hors du lot. Contrôles locaux réussis à 1 280 et 390 pixels, état sans invitation, erreurs d’envoi, choix d’événement et passage aux réponses.

@@ -576,3 +576,19 @@ tcl_bureau.members:
     _title: 'Adhérents — En construction'
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
+
+tcl_bureau.responses:
+  path: '/bureau/suivi-reponses'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
+  methods: [GET]
+
+tcl_bureau.delivery_history:
+  path: '/bureau/historique-envois'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
+  methods: [GET]
