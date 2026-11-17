@@ -5,7 +5,7 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-11-16
+updated: 2026-11-17
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
@@ -114,3 +114,7 @@ Prochaine action : franchir l’accès préproduction puis OAuth sur `/bureau`, 
 Dans le Bureau, ouvrir **Communication → Instant Beaujolais → Relire et décider → Préparer le courriel aux adhérents**. Le formulaire présente quatre adresses synthétiques du domaine réservé `example.invalid`. La préparation ne lit ni le carnet Google ni la liste des adresses autorisées. La sélection est temporaire et l’envoi depuis ce formulaire est désactivé côté serveur.
 
 Recette dans Chrome sur le site hébergé : le compteur est passé de 0 à 4 avec « Tout cocher », puis à 3 en retirant une case. Un clic sur « Tout cocher » a rétabli les quatre sélections, le suivant les a effacées. Une sélection individuelle puis son retrait ont donné 1 puis 0 sur 4. Aucune adresse réelle affichée ni aucun courriel envoyé. La livraison a porté sur le seul formulaire de préproduction, sauvegardé avant remplacement.
+
+## Actualisation manuelle Google Contacts — 17 novembre 2026
+
+Un bouton « Mettre à jour les contacts » sur la page Contacts Google du club relit le libellé Adhérents_2026_2027 avec les droits administrateur existants. Il affiche le nombre d’adresses distinctes et de contacts sans adresse valide, puis la date de dernière lecture réussie en heure de Paris. Seul ce bilan est conservé. Les préparations de courriels en production relisent déjà Google ; le bouton permet une lecture immédiate. Les aperçus fictifs en préproduction restent indépendants. Une erreur conserve le dernier bilan réussi et propose de vérifier la connexion. Aucun courriel déclenché. Recette hébergée en cours.
