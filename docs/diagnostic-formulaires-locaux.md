@@ -49,3 +49,12 @@ Aucune intervention distante dans cette session locale. Le défaut hébergé res
 ## Mise en production
 
 Exclue. Aucun courriel, publication, fusion, déploiement ou changement de protection distante. La recette PR31 reste non validée ; ces résultats locaux ne lèvent pas les réserves hébergées.
+
+
+## Correctif ciblé après capture réseau hébergée
+
+Une capture en continu a identifié 19 réponses HTTP 307 vers la même URL, émises par `o2switch-PowerBoost-v3` avec l'en-tête `tiger-protect-security`. La requête POST ne comporte pas de Referer et annonce `no-referrer`. Les événements n'étaient pas visibles après la navigation vers l'écran d'erreur : la capture pendant la soumission a été nécessaire. Cette preuve remplace l'hypothèse d'un défaut de pilotage seul.
+
+Le candidat change uniquement la politique Referrer des formulaires `/bureau/contacts-google`, `/bureau/communication/ajouter` et `/bureau/communication/{id}/modifier` en `same-origin`. L'adresse du formulaire peut être transmise au même site, jamais aux origines externes. Les autres pages privées et les retours OAuth restent `no-referrer`. Aucun droit, cookie, jeton CSRF, secret ou réglage Tiger Protect modifié.
+
+Le contrôle HTTP ajouté échoue avant ce changement, puis les 25 contrôles passent avec la protection Basic locale, y compris confidentialité OAuth, refus des écritures anonymes et CSRF. La validation de la correction sur Tiger Protect réel reste nécessaire avant de déclarer l'incident résolu. Documentation de l'hébergeur : https://faq.o2switch.fr/cpanel/o2switch/tiger-protect-waf/ (intervention avant l'application).

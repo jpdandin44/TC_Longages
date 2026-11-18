@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## 2026-11-18 — compatibilité des formulaires avec Tiger Protect (à qualifier)
+
+Politique de provenance `same-origin` limitée aux formulaires Contacts et brouillons ; confidentialité stricte conservée sur les autres routes dont OAuth. Cible : supprimer la boucle HTTP 307 du frontal sans désactiver sa protection. 25 contrôles locaux réussis ; qualification hébergée attendue. [Diagnostic](docs/diagnostic-formulaires-locaux.md).
+
 ## 2026-11-18 — diagnostic local des soumissions
 
 Ajout d'une recette HTTP isolée pour l'actualisation Contacts et la création/modification des brouillons : 20 contrôles réussis, rejoués avec Basic local, et vérification Chrome. Services Google simulés, envois interdits, base neuve. La boucle hébergée n'est pas reproduite ; aucun correctif applicatif ni déploiement annoncé. [Dossier et limites](docs/diagnostic-formulaires-locaux.md).

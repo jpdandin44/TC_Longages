@@ -35,6 +35,7 @@ def run():
     mode.write_text('success')
     page = admin.get(path)
     check('Contacts form is accessible', page[0] == 200 and 'Mettre à jour les contacts' in page[1])
+    check('Contacts form permits same-origin referrer for the hosting WAF', page[2].get('Referrer-Policy') == 'same-origin')
     response = admin.form(path, {'refresh': 'Mettre à jour les contacts'})
     check('Contacts refresh completes without a redirect loop', response[0] == 200 and 'Contacts Google actualisés : 1' in response[1])
     check('Duplicates removed and invalid address excluded', '1 adresses distinctes utilisables ; 1 contacts' in response[1])
@@ -52,6 +53,7 @@ def run():
     check('Anonymous POST is refused', oauth.Session().get(path, {'refresh':'Mettre à jour les contacts'})[0] == 403)
 
     path = '/bureau/communication/ajouter'
+    check('Draft creation permits same-origin referrer', admin.get(path)[2].get('Referrer-Policy') == 'same-origin')
     title = '[LOCAL] Brouillon POST ' + secrets.token_hex(4)
     values = {'title':title, 'category':'club', 'body':'Texte commun fictif', 'link':'',
               'image_alt':'', 'tenup_visible':'no', 'channels[site]':'site', 'channels[whatsapp]':'whatsapp',
@@ -65,6 +67,8 @@ def run():
     check('Review loads and retains common text and variant', review[0] == 200 and title in review[1] and 'Texte commun fictif' in review[1] and 'Variante WhatsApp fictive' in review[1])
     base = review_path.removesuffix('/revue')
     edit = base + '/modifier'
+    check('Draft editing permits same-origin referrer', admin.get(edit)[2].get('Referrer-Policy') == 'same-origin')
+    check('Review keeps strict referrer privacy', admin.get(review_path)[2].get('Referrer-Policy') == 'no-referrer')
     old = admin.get(edit)[1]
     values['body'] = 'Texte commun modifié'
     changed = admin.form(edit, values, old)
@@ -76,6 +80,7 @@ def run():
     check('Invalid CSRF does not overwrite draft', 'CSRF interdit' not in admin.get(review_path)[1])
     check('Draft remains private', oauth.Session().get('/actualites/' + base.rsplit('/',1)[1])[0] == 404)
     check('Anonymous draft POST refused', oauth.Session().get(path, values)[0] == 403)
+    check('OAuth callback keeps strict referrer privacy', admin.get('/bureau/oauth/retour')[2].get('Referrer-Policy') == 'no-referrer')
 
 
 if __name__ == '__main__':
