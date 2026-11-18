@@ -891,3 +891,8 @@ La CI vérifie la destination Agenda du Bureau en mode équipes désactivées, p
 ## 18 novembre 2026 — candidate locale Contacts et Bureau
 
 Navigation commune, rapports en lecture seule et variantes de communication facultatives. Candidate non déployée ; voir [le dossier](docs/bureau-ux-contacts.md).
+
+
+## 18 novembre 2026 — agenda public
+
+Correction de la divergence Bureau/calendrier public : ajout d’une grille mensuelle en lecture seule des événements associés à une actualité publiée. Agenda Google conservé en complément, aucun envoi ni changement des réponses. Voir [le diagnostic et les contrôles](docs/agenda-public.md).

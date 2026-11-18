@@ -12,6 +12,10 @@ final class AgendaPresentation {
     $tools = '<div class="tcl-agenda-tools" data-agenda-tools hidden><label>Vue <select data-agenda-view><option value="MONTH">Mois</option><option value="WEEK">Semaine</option><option value="AGENDA">Liste</option></select></label><button type="button" data-agenda-reset>Vue mensuelle</button><p>Vue Mois à chaque ouverture. Changez de vue pour cette visite.</p><p role="status" aria-live="polite" data-agenda-status></p></div>';
     $html = preg_replace_callback('~<iframe\b[^>]*class="club-calendar"[^>]*>.*?</iframe>~s', static fn(array $m): string => '<div class="tcl-agenda-panel" data-agenda-panel>' . $tools . $m[0] . '</div>', $html, 1, $count);
     $editor = AgendaEditor::render();
+    if ($editor === '' && $count) {
+      $public = PublicAgenda::render();
+      if ($public !== '') { $html = str_replace('<div class="tcl-agenda-panel"', $public . '<h2>Agenda Google du club</h2><p>Agenda complémentaire : les rendez-vous publiés depuis le Bureau figurent ci-dessus.</p><div class="tcl-agenda-panel"', $html); }
+    }
     if (!$count && $editor === '') { return $html; }
     if ($editor !== '') {
       $html = $count ? str_replace('<div class="tcl-agenda-panel"', $editor . '<div class="tcl-agenda-panel"', $html) : str_replace('</main>', $editor . '</main>', $html);
