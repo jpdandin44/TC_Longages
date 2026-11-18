@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 require dirname(__DIR__) . '/drupal/bin/local-bootstrap.php';
+// Drupal's exception renderer must not turn a failed CLI assertion into exit 0.
+set_exception_handler(static function (\Throwable $error): void { fwrite(STDERR, 'Workspace test failed: ' . $error->getMessage() . PHP_EOL); exit(1); });
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Form\FormState;
 use Drupal\tcl_bureau\WorkspaceNavigation;
