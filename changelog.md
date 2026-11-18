@@ -12,9 +12,9 @@ tags:
   - reprise
 ---
 
-## 2026-11-18 — compatibilité des formulaires avec Tiger Protect (à qualifier)
+## 2026-11-18 — diagnostic du frontal et retour arrière
 
-Politique de provenance `same-origin` limitée aux formulaires Contacts et brouillons ; confidentialité stricte conservée sur les autres routes dont OAuth. Cible : supprimer la boucle HTTP 307 du frontal sans désactiver sa protection. 25 contrôles locaux réussis ; qualification hébergée attendue. [Diagnostic](docs/diagnostic-formulaires-locaux.md).
+La capture hébergée révèle 19 redirections 307 signées Tiger Protect. L'essai same-origin n'a pas corrigé le blocage : retour arrière vérifié en préproduction, retrait du changement applicatif de la branche, PR32 conservée en brouillon. Les deux parcours hébergés restent non validés. Aucun courriel ni changement de production. [Diagnostic et prochaine action](docs/diagnostic-formulaires-locaux.md).
 
 ## 2026-11-18 — diagnostic local des soumissions
 

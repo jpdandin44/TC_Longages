@@ -58,3 +58,14 @@ Une capture en continu a identifié 19 réponses HTTP 307 vers la même URL, ém
 Le candidat change uniquement la politique Referrer des formulaires `/bureau/contacts-google`, `/bureau/communication/ajouter` et `/bureau/communication/{id}/modifier` en `same-origin`. L'adresse du formulaire peut être transmise au même site, jamais aux origines externes. Les autres pages privées et les retours OAuth restent `no-referrer`. Aucun droit, cookie, jeton CSRF, secret ou réglage Tiger Protect modifié.
 
 Le contrôle HTTP ajouté échoue avant ce changement, puis les 25 contrôles passent avec la protection Basic locale, y compris confidentialité OAuth, refus des écritures anonymes et CSRF. La validation de la correction sur Tiger Protect réel reste nécessaire avant de déclarer l'incident résolu. Documentation de l'hébergeur : https://faq.o2switch.fr/cpanel/o2switch/tiger-protect-waf/ (intervention avant l'application).
+
+
+## Résultat hébergé du 18 novembre — hypothèse rejetée
+
+Le candidat 428c4c1 a été installé uniquement en préproduction après sauvegarde du fichier et essai de restauration. Les six contrôles techniques CI avaient réussi. La nouvelle soumission Contacts possède bien un Referer same-origin, mais aboutit encore à ERR_TOO_MANY_REDIRECTS. L'absence de Referer n'est donc pas une explication suffisante et le candidat ne corrige pas l'incident.
+
+Retour arrière exécuté et vérifié : fichier d'origine restauré (SHA256 `4e35208078d603902a645bd14fe0b3ab915bfcdfc4978f8a60c2f7f80d7359be`), caches reconstruits, maintenance remise à 0. Le changement applicatif inefficace et ses assertions spécifiques sont également retirés de la branche. Les 25 contrôles restent une preuve historique du candidat rejeté ; la recette de référence reste celle des 20 contrôles.
+
+Lecture seule de Tiger Protect sur preprod.tclongages.fr : sécurité par défaut active, contrôles optionnels visibles non activés. Aucun changement de protection. Les 19 réponses 307 portant la signature Tiger Protect localisent la boucle au frontal, mais ne donnent pas l'identifiant de sa règle. Contacts et brouillons restent non validés en hébergement ; les parcours sont fonctionnels sur la copie locale. Aucun nouvel essai identique, aucun courriel et aucune modification de production.
+
+Suite ciblée : obtenir la règle et la trace Tiger Protect pour POST /bureau/contacts-google du 18 novembre 2026 à 17:21:38 UTC, puis qualifier une correction limitée à la préproduction. Ne pas désactiver globalement le WAF et ne pas fusionner PR32 comme correctif résolu. Aucun signalement envoyé à l'hébergeur.
