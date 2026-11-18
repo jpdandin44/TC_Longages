@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "e4497696930eb16d06dd0e01584829e5d7f1876e",
+  "sourceCommit": "bb6138364f8db0955cd44791ce6a78e5056938db",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "ca5f8532f70c6c79826b21a25b2177b81f49751f",
-      "size": 74326,
-      "sha256": "5a830c39b60be624e95a8365797381f97df8a6811a90a1adcc693b98cb60c33c"
+      "gitBlob": "cc3ce37c1bde67e439229d262e786c742bb43fb0",
+      "size": 74360,
+      "sha256": "773d4401bcf91ecb18b85185b5d885ca16264e1e115da038ab517b4a1427f068"
     },
     {
       "path": "config/agenda-local.json",
@@ -1199,9 +1199,9 @@
     {
       "path": "docs/diagnostic-formulaires-locaux.md",
       "mode": "100644",
-      "gitBlob": "9df2ae654303dd9545a4e79ef1522283d27f9c21",
-      "size": 5680,
-      "sha256": "97dca3b2f5a916d701e5e4945e89181f49cb391e2c3c2b29315585e4661d2b2e"
+      "gitBlob": "0ddbc7d433df0f6caca41f623cce900b0fdbf6de",
+      "size": 7392,
+      "sha256": "4460a1c73dd87e6fa3be014dbecea30c420fedae3d1da3b7388e4f476171d166"
     },
     {
       "path": "docs/evenements-bureau.md",
@@ -4671,9 +4671,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau_oauth/src/EventSubscriber/BureauOAuthGuard.php",
       "mode": "100644",
-      "gitBlob": "1936305a6a4082b95e191a48672201609fecd0bb",
-      "size": 2260,
-      "sha256": "61371867daba33e054cc6f5c1bff28095dced83e504db84782477a3e2dcbd03b"
+      "gitBlob": "e5f5ba5bc203b2e44d65253b2b81935ed310731f",
+      "size": 1837,
+      "sha256": "4e35208078d603902a645bd14fe0b3ab915bfcdfc4978f8a60c2f7f80d7359be"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau_oauth/src/IdTokenVerifier.php",
@@ -6015,9 +6015,9 @@
     {
       "path": "tests/bureau-form-post-http.py",
       "mode": "100644",
-      "gitBlob": "664c150642f81b64e15761dba8a1a7d169deb5d7",
-      "size": 5603,
-      "sha256": "e3c07f4b23cde2af694664eaaac2386a9492f1b3ef08aac8bf425ccb21f94e98"
+      "gitBlob": "1d4df135bfbd3c1483b3203e29b5b35ef528c2fd",
+      "size": 4992,
+      "sha256": "1d77ec17fd37b341631fa1dbcb9c461c55a54b713f387149b0e5b16de7101e79"
     },
     {
       "path": "tests/bureau-oauth-token.php",
@@ -6839,5 +6839,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "c5942989ef75e1a286e2c98341039a37a0e4a0074acc77231c375af8e15e047a"
+  "artifactDigest": "1e7fb5d5d6e40e20ff21ac83bfeafd3d901191547dbbe3390142a3ace322d8b2"
 }
