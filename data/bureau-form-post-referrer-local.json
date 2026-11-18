@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "label": "Fictitious administrator authenticates through OAuth",
+      "passed": true
+    },
+    {
+      "label": "Contacts form is accessible",
+      "passed": true
+    },
+    {
+      "label": "Contacts form permits same-origin referrer for the hosting WAF",
+      "passed": true
+    },
+    {
+      "label": "Contacts refresh completes without a redirect loop",
+      "passed": true
+    },
+    {
+      "label": "Duplicates removed and invalid address excluded",
+      "passed": true
+    },
+    {
+      "label": "Summary persists on a fresh GET",
+      "passed": true
+    },
+    {
+      "label": "unavailable gives a recoverable error without redirect",
+      "passed": true
+    },
+    {
+      "label": "unavailable preserves previous success",
+      "passed": true
+    },
+    {
+      "label": "wrong-group gives a recoverable error without redirect",
+      "passed": true
+    },
+    {
+      "label": "wrong-group preserves previous success",
+      "passed": true
+    },
+    {
+      "label": "Invalid CSRF does not invoke Google",
+      "passed": true
+    },
+    {
+      "label": "Anonymous POST is refused",
+      "passed": true
+    },
+    {
+      "label": "Draft creation permits same-origin referrer",
+      "passed": true
+    },
+    {
+      "label": "New draft redirects once to its review",
+      "passed": true
+    },
+    {
+      "label": "Redirect stays on the isolated local site",
+      "passed": true
+    },
+    {
+      "label": "Review loads and retains common text and variant",
+      "passed": true
+    },
+    {
+      "label": "Draft editing permits same-origin referrer",
+      "passed": true
+    },
+    {
+      "label": "Review keeps strict referrer privacy",
+      "passed": true
+    },
+    {
+      "label": "Draft edit redirects once",
+      "passed": true
+    },
+    {
+      "label": "Draft edit persists after reload",
+      "passed": true
+    },
+    {
+      "label": "Stale revision cannot overwrite current draft",
+      "passed": true
+    },
+    {
+      "label": "Invalid CSRF does not overwrite draft",
+      "passed": true
+    },
+    {
+      "label": "Draft remains private",
+      "passed": true
+    },
+    {
+      "label": "Anonymous draft POST refused",
+      "passed": true
+    },
+    {
+      "label": "OAuth callback keeps strict referrer privacy",
+      "passed": true
+    }
+  ],
+  "scope": "local SQLite + simulated Google + loopback OAuth",
+  "basicBarrier": true,
+  "hostedTouched": false
+}

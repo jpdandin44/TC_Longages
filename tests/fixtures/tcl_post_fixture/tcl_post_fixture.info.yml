@@ -1,0 +1,5 @@
+name: Local POST fixture
+type: module
+description: Test-only isolated HTTP fixtures. Never deploy.
+core_version_requirement: ^11
+package: Testing

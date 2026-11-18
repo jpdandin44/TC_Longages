@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "795a5e44b4f6b337a0177258b34d017c80a7a076",
+  "sourceCommit": "bb6138364f8db0955cd44791ce6a78e5056938db",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -107,9 +107,9 @@
     {
       "path": ".gitignore",
       "mode": "100644",
-      "gitBlob": "8662235b4e05e76201415bd92a053e016f13684b",
-      "size": 833,
-      "sha256": "e96a545e1a40f3736da813af8c546b99e8bb51b3ccb3d390359cb36c4dacbde5"
+      "gitBlob": "b681be3ce8199ca388c9c70efebd094d9f83e1f9",
+      "size": 958,
+      "sha256": "0c7d8f4e777ebc571d61552b1519838f3f3887dc4fb2afadbb5ea8a390b63160"
     },
     {
       "path": "AGENTS.md",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "a496508a82e74b15b2f06981aef154a5bc8cfee6",
-      "size": 73431,
-      "sha256": "cfc3b1a2272bba30e3f15ab8edc7f59b71d68e025996a9680a3b27d078754ee4"
+      "gitBlob": "cc3ce37c1bde67e439229d262e786c742bb43fb0",
+      "size": 74360,
+      "sha256": "773d4401bcf91ecb18b85185b5d885ca16264e1e115da038ab517b4a1427f068"
     },
     {
       "path": "config/agenda-local.json",
@@ -847,6 +847,20 @@
       "sha256": "fa1871d0f27b78881cac0c4623a086a1d663022c8f58ed6d9fd64906665f9129"
     },
     {
+      "path": "data/bureau-form-post-local.json",
+      "mode": "100644",
+      "gitBlob": "c1d3ecfaaf2e7799342075f9861a3e02c6479782",
+      "size": 5422,
+      "sha256": "8522dd9171aa2f6187483ec0583fa63fded990760f4dbc9727c1f5bb199d706f"
+    },
+    {
+      "path": "data/bureau-form-post-referrer-local.json",
+      "mode": "100644",
+      "gitBlob": "612dd84f78814aacf957a97a201f953af33415df",
+      "size": 2452,
+      "sha256": "f42594b896f41a9f5e9043a6be449257d0a081406415e0e441831f5158e9c69a"
+    },
+    {
       "path": "data/bureau-local-verification.json",
       "mode": "100644",
       "gitBlob": "9f7899fca9643d0549566a3078bea751ab883c3f",
@@ -1181,6 +1195,13 @@
       "gitBlob": "9f15db94c29e4a3f0ba255b3a61f167807c77c88",
       "size": 7637,
       "sha256": "52bdd199682873c325bf6518e702e7599073bac289432abb4ccb540d344d4137"
+    },
+    {
+      "path": "docs/diagnostic-formulaires-locaux.md",
+      "mode": "100644",
+      "gitBlob": "0ddbc7d433df0f6caca41f623cce900b0fdbf6de",
+      "size": 7392,
+      "sha256": "4460a1c73dd87e6fa3be014dbecea30c420fedae3d1da3b7388e4f476171d166"
     },
     {
       "path": "docs/evenements-bureau.md",
@@ -5243,6 +5264,13 @@
       "sha256": "e49c1e093b24cbcc1676a311128339733a04530ea7cb01142c1aedda8aeff40d"
     },
     {
+      "path": "scripts/bureau-form-post-recette.ps1",
+      "mode": "100644",
+      "gitBlob": "71fe9e9b08662feeb12f3e8c59b191552f307cf7",
+      "size": 2375,
+      "sha256": "00bbb82f33014b5083cd01b62833b0edc1f2caa5340a454afe7ca8aae1d8767a"
+    },
+    {
       "path": "scripts/bureau-oauth-recette.ps1",
       "mode": "100644",
       "gitBlob": "e13b77580bc1c293bd52aaea1d794043c0d5a3b0",
@@ -5985,6 +6013,13 @@
       "sha256": "2286963e5498a669c223232ec4df3cc692e7a9aa1999dd5b87d868b86615562d"
     },
     {
+      "path": "tests/bureau-form-post-http.py",
+      "mode": "100644",
+      "gitBlob": "1d4df135bfbd3c1483b3203e29b5b35ef528c2fd",
+      "size": 4992,
+      "sha256": "1d77ec17fd37b341631fa1dbcb9c461c55a54b713f387149b0e5b16de7101e79"
+    },
+    {
       "path": "tests/bureau-oauth-token.php",
       "mode": "100644",
       "gitBlob": "f4515dcf881fd0e520186db396640e29a4bd0ddb",
@@ -6209,6 +6244,34 @@
       "sha256": "ae74a0006f7884b281fc4a76c55654312fb072302ee8ae4c949c32052b815a78"
     },
     {
+      "path": "tests/fixtures/tcl_post_fixture/src/LocalClient.php",
+      "mode": "100644",
+      "gitBlob": "22cd1f93c1bb3a4f9f49421dbb66c7db4bb067b6",
+      "size": 2177,
+      "sha256": "b98d450d2795694694a4da1cb07eb2f685b26384793612487b57482470a1125a"
+    },
+    {
+      "path": "tests/fixtures/tcl_post_fixture/src/TclPostFixtureServiceProvider.php",
+      "mode": "100644",
+      "gitBlob": "1e6c8e8d6dcbf8f489245c9e2e5984472462e8e3",
+      "size": 395,
+      "sha256": "6f0d7092049f16ea7e7b569bf2cbe62d4f75eb0fdc3ab033c09888549c656b84"
+    },
+    {
+      "path": "tests/fixtures/tcl_post_fixture/tcl_post_fixture.info.yml",
+      "mode": "100644",
+      "gitBlob": "44d854802ba9df100e801b6efcd499b7564bec69",
+      "size": 146,
+      "sha256": "6db09cf4cb8ae4ab935f6ac07acd391b4ef0598728edb345f87303b1752e216b"
+    },
+    {
+      "path": "tests/fixtures/tcl_post_fixture/tcl_post_fixture.module",
+      "mode": "100644",
+      "gitBlob": "87cb5feac3b171ff9ef9fe674d496303a99b3227",
+      "size": 212,
+      "sha256": "7dce9b7923de09636037ce9ddeb54b4bc31ea6388c780a8e103768e7136eda95"
+    },
+    {
       "path": "tests/flash-news-http.py",
       "mode": "100644",
       "gitBlob": "9e9281897667710d5742b01ff504b24ce8bc3578",
@@ -6354,6 +6417,20 @@
       "gitBlob": "0b4898eb7ffa92bfd1ff1e140539596f2e8011f7",
       "size": 8940,
       "sha256": "2a4f00549117e0b69ddcab6543501f0533cbca31487ce85b2a0a65576f1e3dca"
+    },
+    {
+      "path": "tests/post-fixture-router.php",
+      "mode": "100644",
+      "gitBlob": "758f64b4fe9859f83e8b07ee06a82da6855659c8",
+      "size": 455,
+      "sha256": "d15b714aa185a30cd12419ce0371f45b957580b55aa23980d14820308b52c2af"
+    },
+    {
+      "path": "tests/prepare-post-fixture.php",
+      "mode": "100644",
+      "gitBlob": "8b4960bffb86b29c2dac28cf0779b8779fa9061d",
+      "size": 554,
+      "sha256": "1f7824aa7bde62eda12663a1ecfdaa681b72d1d80f924e55ab1d673c42956fcc"
     },
     {
       "path": "tests/public-page-text.php",
@@ -6762,5 +6839,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "fc25e3c4c3a118b4a7cee934762a26800ffa6bf959dd662002ab3267b1190adc"
+  "artifactDigest": "1e7fb5d5d6e40e20ff21ac83bfeafd3d901191547dbbe3390142a3ace322d8b2"
 }

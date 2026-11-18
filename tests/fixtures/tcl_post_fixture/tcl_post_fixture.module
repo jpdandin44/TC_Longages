@@ -1,0 +1,5 @@
+<?php
+/** Any attempted message makes this no-mail recipe fail. */
+function tcl_post_fixture_mail_alter(array &$message): void {
+  throw new \RuntimeException('Mail is forbidden in the isolated POST recipe.');
+}
