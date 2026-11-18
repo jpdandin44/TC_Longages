@@ -41,3 +41,10 @@ account:
       css/account.css: {}
   dependencies:
     - tcl_bureau/bureau
+
+agenda_workspace:
+  css:
+    theme:
+      css/agenda.css: {}
+  dependencies:
+    - tcl_bureau/bureau

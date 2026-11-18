@@ -7,7 +7,7 @@ use Drupal\Core\Url;
 
 /** Private month view; the shared Google calendar is never mutated. */
 final class AgendaEditor {
-  public static function render(): string {
+  public static function render(bool $workspace = FALSE): string {
     $account = \Drupal::currentUser();
     $repository = \Drupal::service('tcl_bureau.events');
     if (!$repository->allowed($account)) { return ''; }
@@ -31,12 +31,14 @@ final class AgendaEditor {
     }
     $months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
     $label = ucfirst($months[(int) $first->format('n') - 1]) . ' ' . $first->format('Y');
-    $page = static fn(string $m): string => Html::escape(Url::fromUserInput('/calendrier.html', ['query' => ['mois' => $m], 'fragment' => 'agenda-bureau'])->toString());
+    $basePage = $workspace ? '/bureau' : '/calendrier.html';
+    $page = static fn(string $m): string => Html::escape(Url::fromUserInput($basePage, ['query' => ['mois' => $m], 'fragment' => 'agenda-bureau'])->toString());
     $tabs = '<nav class="tcl-month-toolbar" aria-label="Espace du club"><a href="' . Html::escape(Url::fromRoute('tcl_bureau.home')->toString()) . '" aria-current="page">Agenda</a>';
     if (\Drupal::service('tcl_bureau.repository')->allowed($account, 'manage tcl communication')) {
       $tabs .= '<a href="' . Html::escape(Url::fromRoute('tcl_bureau.communication')->toString()) . '">Communication</a>';
     }
     $tabs .= '<a href="' . Html::escape(Url::fromRoute('tcl_bureau.members')->toString()) . '">Adhérents <span>— En construction</span></a></nav>';
+    $tabs = $workspace ? '' : $tabs;
     $html = '<section id="agenda-bureau" class="tcl-month-editor" aria-labelledby="agenda-bureau-title">' . $tabs . '<h2 id="agenda-bureau-title">Agenda du club</h2><p>Cliquez sur un jour pour ajouter un événement, ou sur un rendez-vous pour le modifier. La grille présente les événements saisis par le Bureau. Horaires : Europe/Paris.</p>';
     if (GoogleCalendarConnection::target()) { $html .= '<p>Connecté à <strong>Google — TC Longages — Recette V2</strong>. Les prochains enregistrements seront transmis à ce calendrier privé. Les anciens événements restent locaux jusqu’à leur prochain enregistrement.</p>'; }
     if (GoogleCalendarConnection::allowed($account)) { $html .= '<p><a href="' . Html::escape(Url::fromRoute('tcl_bureau.google_calendar')->toString()) . '">Connexion Google Agenda de recette</a></p>'; }
@@ -46,7 +48,7 @@ final class AgendaEditor {
     for ($i = 1; $i < (int) $first->format('N'); $i++) { $html .= '<div class="tcl-month-empty" aria-hidden="true"></div>'; }
     for ($day = $first; $day <= $last; $day = $day->modify('+1 day')) {
       $date = $day->format('Y-m-d');
-      $return = '/calendrier.html?mois=' . $month . '#agenda-bureau';
+      $return = $basePage . '?mois=' . $month . '#agenda-bureau';
       $options = ['query' => ['date' => $date, 'destination' => $return]];
       $add = Html::escape(Url::fromRoute('tcl_bureau.event_add', [], $options)->toString());
       $html .= '<div class="tcl-month-day' . ($date === $today->format('Y-m-d') ? ' is-today' : '') . '"><a class="tcl-month-add" href="' . $add . '" aria-label="Ajouter un événement le ' . $day->format('d/m/Y') . '"><time datetime="' . $date . '">' . $day->format('d/m') . '</time><span aria-hidden="true"> +</span></a>';

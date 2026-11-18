@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-25
+updated: 2026-11-18
 owner: jpdandin
 tags:
   - roadmap
@@ -429,3 +429,8 @@ Variantes de texte par canal et mail HTML à boutons livrés en préproduction ;
 ## Rapprochement tarifaire — anomalie confirmée le 22 octobre
 
 V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’accueil conserve l’ancienne ligne cours adultes. Corriger le branchement du rendu sur le catalogue publié, puis recetter sans modifier les dossiers historiques. Correctif ensuite livré et vérifié : dix formules conformes, dossiers et catalogue inchangés. [Preuves](data/tariff-consistency-verification.json).
+
+
+## Candidate Contacts + UX du Bureau — 18 novembre 2026
+
+Développement local réalisé ; qualification CI et préproduction à terminer avant toute livraison. PR 30 non fusionnée : le périmètre élargi exige une nouvelle revue. [Dossier](docs/bureau-ux-contacts.md).

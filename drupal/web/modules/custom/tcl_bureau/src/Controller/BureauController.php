@@ -49,6 +49,13 @@ final class BureauController extends ControllerBase {
   }
 
   public function home(): array|RedirectResponse {
+    if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
+      return ['#type' => 'container', '#attributes' => ['class' => ['tcl-bureau', 'tcl-workspace-agenda']], '#cache' => ['max-age' => 0], '#attached' => ['library' => ['tcl_bureau/agenda_workspace']], 'calendar' => ['#markup' => \Drupal\Core\Render\Markup::create(\Drupal\tcl_bureau\AgendaEditor::render(TRUE))]];
+    }
+    return $this->teams();
+  }
+
+  public function teams(): array|RedirectResponse {
     if (!$this->config('tcl_bureau.settings')->get('teams_enabled')) {
       return new RedirectResponse(Url::fromUserInput('/calendrier.html', ['fragment' => 'agenda-bureau'])->toString(), 303, ['Cache-Control' => 'private, no-store']);
     }
@@ -113,10 +120,6 @@ final class BureauController extends ControllerBase {
       'site' => Link::fromTextAndUrl('Retour au site', Url::fromRoute('tcl_site.front'))->toRenderable(),
       'logout' => Link::fromTextAndUrl('Se déconnecter', Url::fromRoute('user.logout'))->toRenderable(),
     ];
-    if (ClubFollowupController::enabled($this->currentUser())) {
-      $links['responses'] = Link::fromTextAndUrl('Suivi des réponses', Url::fromRoute('tcl_bureau.responses'))->toRenderable();
-      $links['delivery_history'] = Link::fromTextAndUrl('Historique des envois', Url::fromRoute('tcl_bureau.delivery_history'))->toRenderable();
-    }
     if (\Drupal::service('tcl_bureau.events')->allowed($this->currentUser())) {
       $links['events'] = Link::fromTextAndUrl('Événements du club', Url::fromRoute('tcl_bureau.events'))->toRenderable();
     }

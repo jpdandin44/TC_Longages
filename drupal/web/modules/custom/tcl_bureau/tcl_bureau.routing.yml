@@ -577,7 +577,31 @@ tcl_bureau.members:
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
 
+tcl_bureau.teams:
+  path: '/bureau/equipes'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\BureauController::teams'
+    _title: 'Équipes du club'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\BureauController::access'
+
 tcl_bureau.responses:
+  path: '/bureau/reponses'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\WorkspaceReportsController::responses'
+    _title: 'Suivi des réponses'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\EventController::access'
+
+tcl_bureau.delivery_history:
+  path: '/bureau/envois'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\WorkspaceReportsController::history'
+    _title: 'Historique des envois'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.responses_recipe:
   path: '/bureau/suivi-reponses'
   defaults:
     _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
@@ -585,10 +609,11 @@ tcl_bureau.responses:
     _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
   methods: [GET]
 
-tcl_bureau.delivery_history:
+tcl_bureau.delivery_history_recipe:
   path: '/bureau/historique-envois'
   defaults:
     _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
   methods: [GET]
+

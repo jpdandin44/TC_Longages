@@ -225,11 +225,6 @@ final class CommunicationController extends ControllerBase {
     $build = ['#type' => 'container', '#attributes' => ['class' => ['tcl-bureau', 'tcl-communication']], '#cache' => ['max-age' => 0], '#attached' => ['library' => ['tcl_bureau/communication', 'tcl_bureau/poster_preview']]];
     $build['navigation'] = ['#type' => 'html_tag', '#tag' => 'nav', '#attributes' => ['aria-label' => $public ? 'Actualités du club' : 'Bureau']];
     $links = $public ? ['Retour au site' => 'tcl_site.front', 'Toutes les actualités' => 'tcl_bureau.public_news'] : ['Agenda' => 'tcl_bureau.home', 'Adhérents — En construction' => 'tcl_bureau.members', 'Communication' => 'tcl_bureau.communication', 'Archives' => 'tcl_bureau.communication_archives', 'Actualités du site' => 'tcl_bureau.public_news', 'Retour au site' => 'tcl_site.front', 'Se déconnecter' => 'user.logout'];
-    if (!$public && ClubFollowupController::enabled($this->currentUser())) {
-      $links['Suivi des réponses'] = 'tcl_bureau.responses';
-      $links['Historique des envois'] = 'tcl_bureau.delivery_history';
-    }
-
     foreach ($links as $label => $route) {
       $build['navigation'][$route] = Link::fromTextAndUrl($label, Url::fromRoute($route))->toRenderable();
       $current = \Drupal::routeMatch()->getRouteName();

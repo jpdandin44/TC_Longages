@@ -69,3 +69,57 @@ main h1 { color: #741323; }
   .tcl-bureau .form-actions { align-items: stretch; flex-direction: column; }
   .tcl-bureau .form-actions a { justify-content: center; margin: 0; }
 }
+/* Shared workspace: scoped so public pages and login retain their presentation. */
+.tcl-workspace { background:#f4f5f8; color:#252b37; }
+.tcl-workspace #block-stark-branding { display:none; }
+.tcl-workspace main { max-width:1440px; margin:0 0 0 264px; padding:32px clamp(20px,3vw,52px); }
+.tcl-workspace main h1 { margin:0 0 24px; font-size:clamp(24px,3vw,34px); letter-spacing:-.03em; color:#252b37; }
+.tcl-workspace .tcl-workspace-nav { position:fixed; inset:0 auto 0 0; width:240px; padding:28px 12px; background:#fff; border-right:1px solid #e4e6ec; overflow:auto; box-sizing:border-box; z-index:10; }
+.tcl-workspace-brand { margin:0 12px 4px; color:#a6192e; font-weight:800; font-size:12px; letter-spacing:.14em; }
+.tcl-workspace-nav h2 { font-size:20px; margin:0 12px 28px; }
+.tcl-workspace-nav nav { display:grid; gap:5px; }
+.tcl-workspace-nav nav a { padding:11px 12px; border-radius:10px; text-decoration:none; font-size:14px; font-weight:600; color:#505665; display:flex; gap:12px; align-items:center; }
+.tcl-workspace-nav nav a::before { content:attr(data-icon); width:20px; font-size:18px; text-align:center; }
+.tcl-workspace-nav nav a:hover { background:#f6f2f3; color:#8b1830; }
+.tcl-workspace-nav nav a[aria-current=page] { background:#faeaf0; color:#89172d; box-shadow:inset 3px 0 #a6192e; }
+.tcl-workspace-user { margin:30px 12px 0; padding-top:18px; border-top:1px solid #e4e6ec; font-size:13px; overflow-wrap:anywhere; }
+.tcl-workspace-user a { display:block; margin-top:12px; color:#626979; }
+.tcl-workspace .tcl-bureau { max-width:none; margin:0; padding:clamp(18px,3vw,32px); border:1px solid #e4e6ec; border-radius:16px; box-shadow:0 6px 22px #25304706; }
+/* Keep contextual actions such as Create team and Archives. */
+.tcl-workspace .tcl-bureau nav a:is([href="/bureau"],[href="/bureau/membres"],[href="/bureau/communication"],[href="/bureau/comptes"],[href="/bureau/evenements"],[href="/club"],[href="/"],[href^="/user/logout"]) { display:none; }
+.tcl-workspace .tcl-bureau nav { gap:12px; margin:0 0 20px; }
+.tcl-workspace .tcl-bureau nav a { padding:8px 12px; border:1px solid #e4e6ec; border-radius:8px; text-decoration:none; }
+.tcl-workspace .tcl-bureau nav:not(:has(a:not([href="/bureau"]):not([href="/bureau/membres"]):not([href="/bureau/communication"]):not([href="/bureau/comptes"]):not([href="/bureau/evenements"]):not([href="/club"]):not([href="/"]):not([href^="/user/logout"]))) { display:none; }
+.tcl-workspace :is(input,select,textarea,button) { font:inherit; }
+.tcl-workspace .form-item :is(input:not([type=checkbox]):not([type=radio]),textarea,select), .tcl-report-filters select { border:1px solid #cbd0db; border-radius:8px; background:#fff; padding:10px 12px; max-width:100%; }
+.tcl-workspace .form-item .description { color:#656b78; font-size:13px; margin-top:6px; }
+.tcl-workspace :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #347bb9; outline-offset:3px; }
+.tcl-workspace .form-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; padding-top:20px; border-top:1px solid #eceef2; }
+.tcl-workspace .form-actions input, .tcl-report-filters button { border-radius:9px; padding:11px 18px; background:#a6192e; color:#fff; border:0; cursor:pointer; }
+.tcl-workspace input:disabled { opacity:.5; cursor:not-allowed; }
+.tcl-workspace th { background:#f5f6f9; font-size:13px; color:#545d6d; }
+.tcl-workspace td { font-size:14px; }
+.tcl-report-filters { display:flex; flex-wrap:wrap; align-items:end; gap:16px; padding:18px; background:#f7f8fa; border-radius:12px; margin:22px 0; }
+.tcl-report-filters label { display:grid; gap:7px; font-size:13px; font-weight:600; flex:1 1 160px; }
+.tcl-report-filters select { width:100%; min-width:0; }
+.tcl-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:24px 0; }
+.tcl-stat { padding:18px; border:1px solid #e4e6ec; border-radius:12px; font-size:13px; color:#626979; }
+.tcl-stat strong { display:block; font-size:30px; color:#252b37; line-height:1.3; }
+.tcl-stat:first-child { background:#edf7f1; border-color:#cde6d7; }
+.tcl-report > a { display:inline-block; margin:20px 20px 0 0; font-weight:600; }
+.tcl-workspace .tcl-channel-options { border:1px solid #e4e6ec; border-radius:12px; padding:16px; background:#fafbfc; margin:24px 0; }
+.tcl-workspace .tcl-channel-options > summary { font-weight:700; cursor:pointer; }
+.tcl-workspace .tcl-channel-panel { border:1px solid #e4e6ec; border-radius:10px; background:#fff; margin:12px 0; padding:14px; }
+.tcl-workspace .tcl-channel-panel > summary { cursor:pointer; font-weight:600; color:#8b1830; }
+.tcl-workspace .tcl-channel-panel .form-item { padding:0; }
+.tcl-workspace .tcl-channel-panel input { width:100%; }
+@media(max-width:900px) {
+ .tcl-workspace .tcl-workspace-nav { position:static; width:auto; padding:18px; border-right:0; border-bottom:1px solid #e4e6ec; }
+ .tcl-workspace-nav h2 { margin-bottom:14px; }
+ .tcl-workspace-nav nav { display:flex; flex-wrap:wrap; gap:5px; }
+ .tcl-workspace-nav nav a { padding:9px; font-size:13px; }
+ .tcl-workspace-user { margin:12px 0 0; padding-top:10px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+ .tcl-workspace-user a { margin:0; }
+ .tcl-workspace main { margin:0; padding:22px 16px; }
+}
+@media(max-width:520px) { .tcl-stats { grid-template-columns:repeat(2,minmax(0,1fr)); } .tcl-workspace .tcl-bureau { padding:16px; } }
