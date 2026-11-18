@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## 2026-11-18 — dépendances Drupal corrigées
+
+Verrous V2 et maintenance bêta de CI actualisés vers Drupal 11.4.13 pour les alertes SA-CORE-2026-017 et SA-CORE-2026-018 ; dépendance HTML5 mise à jour vers 2.12.0. Audits sans alerte. Snapshot bêta historique préservé. Aucun déploiement hébergé, mail ou signalement. [Périmètre et preuves](docs/lancement-beta.md#maintenance-des-dépendances--18-novembre-2026).
+
 ## 2026-11-18 — diagnostic du frontal et retour arrière
 
 La capture hébergée révèle 19 redirections 307 signées Tiger Protect. L'essai same-origin n'a pas corrigé le blocage : retour arrière vérifié en préproduction, retrait du changement applicatif de la branche, PR32 conservée en brouillon. Les deux parcours hébergés restent non validés. Aucun courriel ni changement de production. [Diagnostic et prochaine action](docs/diagnostic-formulaires-locaux.md).
