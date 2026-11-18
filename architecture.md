@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-25
+updated: 2026-11-18
 owner: jpdandin
 tags:
   - architecture
@@ -608,3 +608,8 @@ La connexion Google Contacts de recette utilise un formulaire administrateur, un
 ## Personnalisation des communications — 22 octobre
 
 Les variantes textuelles sont conservées dans la colonne JSON texte nullable `tcl_bureau_post.channel_texts`, dans la même révision et la même écriture que le brouillon. Mise à jour additive 11004 ; NULL reprend les textes communs. Courriel multipart texte/HTML via transport autorisé existant, HTML construit uniquement avec textes échappés. Jetons de réponse personnels émis à l’envoi, fragment URL avec présélection ; aucune réponse enregistrée par GET.
+
+
+## Navigation et rapports Bureau — candidate locale du 18 novembre 2026
+
+`WorkspaceNavigation` rend les liens selon les permissions existantes et OAuth, sans accorder de droit. `WorkspaceReportsController` lit les événements, réponses et traces de transport existants ; aucun appel Google ni envoi. Les traces historiques ne constituent pas un journal complet des tentatives. [Périmètre et limites](docs/bureau-ux-contacts.md).

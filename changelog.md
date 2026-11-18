@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-17
+updated: 2026-11-18
 owner: jpdandin
 tags:
   - changelog
@@ -874,3 +874,8 @@ V2-TARIFS-01 : le rendu traite désormais indépendamment le lien d’adhésion 
 ## 15 novembre 2026 — Qualification de la PR 26
 
 La CI vérifie la destination Agenda du Bureau en mode équipes désactivées, puis les pages privées par rôle. Les verrous de maintenance bêta et V2 intègrent les correctifs Symfony. La V2 utilise Simple OAuth 6.1.4. La copie bêta historique reste figée et son intégrité reste contrôlée. La CI installe le verrou de maintenance dans une copie jetable de cette bêta et audite également le verrou V2.
+
+
+## 18 novembre 2026 — candidate locale Contacts et Bureau
+
+Navigation commune, rapports en lecture seule et variantes de communication facultatives. Candidate non déployée ; voir [le dossier](docs/bureau-ux-contacts.md).

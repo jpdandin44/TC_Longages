@@ -20,7 +20,7 @@ final class GoogleContactsForm extends FormBase {
       $form['last_refresh'] = ['#type' => 'item', '#title' => 'Dernière lecture réussie',
         '#plain_text' => $date . ' (Paris) — ' . $last['count'] . ' adresses distinctes utilisables ; ' . $last['excluded'] . ' contacts sans adresse valide.'];
     }
-    $form['refresh_help'] = ['#plain_text' => 'Actualisez la liste depuis le libellé Google du club. Les doublons d’adresse sont regroupés. En préproduction, les aperçus de communication utilisent toujours les destinataires fictifs.'];
+    $form['refresh_help'] = ['#plain_text' => 'Actualisez la liste depuis le libellé Google du club. Les doublons d’adresse sont regroupés.' . (MemberContacts::production() ? ' Aucun courriel ne sera envoyé.' : ' Les aperçus de recette conservent leurs destinataires fictifs.')];
     $form['actions']['#type'] = 'actions';
     $form['actions']['refresh'] = ['#type' => 'submit', '#name' => 'refresh', '#value' => 'Mettre à jour les contacts', '#disabled' => !MemberContacts::configured()];
     $form['actions']['connect'] = ['#type' => 'submit', '#name' => 'connect', '#value' => 'Connecter Google Contacts en lecture seule'];

@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-25
+updated: 2026-11-18
 owner: jpdandin
 tags:
   - exigences
@@ -653,3 +653,8 @@ Choix validé le 22 octobre : implémenter les textes et aperçus distincts par 
 ## Plafond de participation — 22 octobre
 
 Chaque réponse Oui est limitée à dix personnes, répondant compris. Liste de choix 1 à 10 et validation serveur obligatoire ; une tentative supérieure est refusée sans modifier la réponse enregistrée. Non/Incertain restent à zéro.
+
+
+## Confort du Bureau — 18 novembre 2026
+
+Navigation cohérente par rôle, entrée mensuelle pour les gestionnaires, suivi séparant réponses et personnes, historique honnête sur les données disponibles et personnalisation des communications facultative. Aucun élargissement de permissions ou envoi implicite. [Critères de recette](docs/bureau-ux-contacts.md).
