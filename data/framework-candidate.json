@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "e5a3e220e86bd066db84d82f11e6c38778ebe5e8",
+  "sourceCommit": "482e5a80d8bbb329afe1e08438f0075b7cca23e4",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -1360,9 +1360,9 @@
     {
       "path": "docs/recette-v2.md",
       "mode": "100644",
-      "gitBlob": "fee1976aa6f7c89188cae67050fce31a5eaadbe1",
-      "size": 13685,
-      "sha256": "e5bd2d80aaac48f28ec5babfb0f5a63dc0b5186c8624f61fe6f03bf013b34be8"
+      "gitBlob": "180f3a05f3d444508880cf8e5b8dea7ef36785d4",
+      "size": 15931,
+      "sha256": "fde8ef8e6b70ea750a6bf2dd97b602cad8cdbcdce0215d770d6006b71cd699ba"
     },
     {
       "path": "docs/recette-vitrine-o2switch.md",
@@ -2893,16 +2893,23 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/BureauController.php",
       "mode": "100644",
-      "gitBlob": "5eb239c43f2cde34412002561dc365ce18e76819",
-      "size": 7574,
-      "sha256": "732c8f14f0cd5079798499d66420a0083a89baac831b8af5f3d00ed72f19f8cd"
+      "gitBlob": "9301ba7638984b11d2015f59db1d2e74081c9340",
+      "size": 7919,
+      "sha256": "e3cba089b701a5887e40d3e1174dd1d9b09e641516673cb3a3349683d863e888"
+    },
+    {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/ClubFollowupController.php",
+      "mode": "100644",
+      "gitBlob": "ba5a098984bb3dca7458190df41b1cb3d4b3ac04",
+      "size": 1372,
+      "sha256": "e1c35fe864384910e9aec6835f9f5f8ed624d38f9950ea6cc8b25b2bf5fd2631"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/CommunicationController.php",
       "mode": "100644",
-      "gitBlob": "e1e5f9acc08a706a9eb6b502f3ebd52bf86ed68d",
-      "size": 18946,
-      "sha256": "3be6e18b1e7c695ff67cb819692a80f39aac44987d618e3c0ca28263bd89884c"
+      "gitBlob": "0af16b9017da4e2dea8fb462ba526c7a68b5da9f",
+      "size": 19163,
+      "sha256": "010c5af75ca8de0532e18631d3094e8fa0caad98970af8c26079b5370fae7e82"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/EventController.php",
@@ -3173,9 +3180,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml",
       "mode": "100644",
-      "gitBlob": "3cc8d6982fce697057d7571b7c444338ce1b7800",
-      "size": 10146,
-      "sha256": "92b8124f772efb36920f1d93e55bfd635ce403f5b6bc58d62ab0f30e412a1e15"
+      "gitBlob": "2ea2db57ba365843d016bd97b9dbec8dfb6a9918",
+      "size": 10680,
+      "sha256": "3d48562409ede8e94edba89d01337ce6f98d40251aa5b944c2ad90b9b7ed5b93"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/tcl_bureau.services.yml",
@@ -3183,6 +3190,13 @@
       "gitBlob": "481bea2657a2f3ab4e33e2aedae664bc526ccbf7",
       "size": 800,
       "sha256": "a01cca3fcc4764e01fe1114810519375ea9816f8ca0b63e1e9b22efa685d2a7f"
+    },
+    {
+      "path": "drupal/web/modules/custom/tcl_bureau/templates/club-followup-recipe.html",
+      "mode": "100644",
+      "gitBlob": "cc489401e9d06a34389c86d2b2bc8dc7cf19e224",
+      "size": 16500,
+      "sha256": "5879083a344d4b32929f9f771da3a89ab11f93cb64c4d44797d1bcc0ea8e9f4c"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/vendor/pdfjs/LICENSE",
@@ -5978,6 +5992,13 @@
       "sha256": "ee914c04e97231016edc108cbce7a09e470b70ed61ca1bf399684ebc2d335fe2"
     },
     {
+      "path": "tests/club-followup-access.php",
+      "mode": "100644",
+      "gitBlob": "d567e57ebc29f7a12eef7c19d0c5627173dd9ae3",
+      "size": 1509,
+      "sha256": "886b6b3919325e56562dee229688ca4c3a6744ea4d54de99d180fc19094411a6"
+    },
+    {
       "path": "tests/communication-adoc.test.mjs",
       "mode": "100644",
       "gitBlob": "a32e694801317f13bd93ae3cf96c21265026e66a",
@@ -6706,5 +6727,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "2245f69735ebae6a87f1b39c416db249bb8f8fbeb644a63b4472d3d6010cc549"
+  "artifactDigest": "ece7f55d8dde608210b6565d5c8b27827219d92fae1560dd2492f2cfd4ec84ca"
 }

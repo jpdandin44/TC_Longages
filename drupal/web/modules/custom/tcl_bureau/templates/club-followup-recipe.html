@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suivi du club · TC Longages</title>
+<style>
+:root{--wine:#741f38;--ink:#272821;--soft:#726e65;--line:#dedbd3;--sand:#f6f4ee;--green:#335b47}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--sand);font:16px/1.45 "Segoe UI",Arial,sans-serif}a{color:var(--wine);text-underline-offset:4px}a:focus-visible,select:focus-visible{outline:3px solid #166fa1;outline-offset:3px}header{background:#fff;border-bottom:1px solid var(--line);padding:14px max(5vw,18px);display:flex;align-items:center;gap:14px}header b{font-size:1.15rem}header small{margin-left:auto;color:var(--soft)}.mark{background:var(--wine);color:white;border-radius:50%;padding:11px 8px;font:bold 16px Georgia}main{max-width:1150px;margin:30px auto 70px;padding:0 4%}nav{color:var(--soft);margin-bottom:22px;font-size:.9rem}nav span{margin:0 8px}.subtitle,dt,small{color:var(--soft)}h1,h2,p{margin:0}h1{font:500 clamp(2.5rem,5vw,4.6rem)/1.05 Georgia,serif;letter-spacing:-.045em;margin:8px 0 18px}h2{font:500 1.65rem Georgia,serif}.layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:22px;align-items:start}.panel,aside{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden}.inside,.toolbar{padding:20px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px}.month{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.dow,.day{padding:9px 7px}.dow{text-align:center;font-size:.8rem;color:var(--soft);background:#f8f7f4}.day{border-top:1px solid var(--line);min-height:57px;font-size:.87rem}.day:nth-child(7n){background:#faf9f6}.eventday{background:#f6e7eb}.eventday a{display:block;font-weight:700}.photo{display:block;width:100%;height:135px;object-fit:cover}.date{display:inline-block;color:var(--wine);font-weight:700;font-size:.86rem}.inside h2{margin:9px 0}.action{display:inline-block;background:var(--wine);border-radius:8px;color:white;text-decoration:none;padding:11px 17px;font-weight:650;margin-top:18px}.action:hover{background:#57142a}dl{display:grid;grid-template-columns:auto 1fr;gap:12px 22px}dd{margin:0;font-weight:600}.metrics{padding:22px;background:#e4eee4;color:var(--green);border-radius:12px;margin:12px 0 22px}.big{font:500 3.5rem/1 Georgia;display:block}.filter{display:flex;align-items:center;gap:10px}select{padding:8px;background:white;border:1px solid var(--line);border-radius:6px;font:inherit}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px 20px;border-top:1px solid var(--line)}th{font-size:.85rem;color:var(--soft)}.counts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.pill{border:1px solid var(--line);border-radius:24px;padding:5px 12px;background:white}.mini{display:none}[hidden]{display:none!important}@media(max-width:760px){main{margin-top:20px}.layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:1fr 2fr}.photo{height:100%;min-height:150px}.day{min-height:44px}.eventday a{padding:2px;background:var(--wine);color:white;text-align:center;border-radius:6px}.long{display:none}.mini{display:inline}.toolbar{flex-wrap:wrap}th,td{padding:10px 8px}header small{max-width:100px;text-align:right}}
+
+.bureau-tabs{display:flex;gap:8px;padding:0 max(5vw,18px);background:white;border-bottom:1px solid var(--line);margin:0}
+.bureau-tabs a{padding:12px 10px;text-decoration:none;font-weight:650;border-bottom:3px solid transparent}
+.bureau-tabs a[aria-current]{border-color:var(--wine);background:#fbf3f5}
+#overview{margin-bottom:26px}#overview caption{text-align:left;font:500 1.5rem Georgia;padding:18px}
+#overview td:nth-child(n+2),#overview th:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums}
+#overview tr.selected{background:#f9eef1}
+.event-choice{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:10px 0 20px;font-weight:600}
+.event-choice select{max-width:100%}.stat{font-variant-numeric:tabular-nums;color:var(--wine);font-size:1.15rem}
+@media(max-width:540px){#overview th,#overview td{padding:9px 6px}#overview th{font-size:.78rem}.event-choice{display:grid}}
+
+.bureau-tabs{flex-wrap:wrap}.history-list{display:grid;gap:14px;margin:20px 0}.history-card{padding:20px;display:flex;justify-content:space-between;align-items:center;gap:16px}.history-card p{margin-top:7px}.history-card a{white-space:nowrap}.delivery-error{color:#9e243c;font-weight:650}.delivery-ok{color:var(--green)}.table-scroll{overflow-x:auto}.recipient-address{display:block;font-size:.84rem;color:var(--soft);overflow-wrap:anywhere}.history-note{margin:12px 0 20px}.history-detail{margin-top:25px}.history-detail h2{margin:8px 0}.history-meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin:14px 0}.history-card.selected{border-color:var(--wine);background:#fff8fa}@media(max-width:540px){.history-card{align-items:start;flex-direction:column}.bureau-tabs a{font-size:.9rem}.history-detail td{max-width:160px;overflow-wrap:anywhere}}
+</style>
+<header><span class="mark">TCL</span><b>Longages <span style="font-weight:400">/ Bureau</span></b><small>Préproduction · Données fictives</small></header><nav class="bureau-tabs" aria-label="Rubriques du Bureau"><a id="tab-agenda" href="/bureau">Retour au Bureau</a><a id="tab-reponses" href="#reponses">Suivi des réponses</a><a id="tab-historique" href="#historique">Historique des envois</a></nav>
+<main><nav id="trail" aria-label="Fil d’Ariane"></nav>
+<section id="reponses" hidden><h1 tabindex="-1">Suivi des réponses</h1>
+<div class="panel" id="overview"><table><caption>Participation par événement</caption><thead><tr><th scope="col">Événement</th><th scope="col">Oui / invitations</th><th scope="col">Personnes confirmées</th></tr></thead><tbody id="ranking"></tbody></table></div>
+<label class="event-choice">Choisir un événement <select id="event-select"></select></label>
+<h2 id="event-title"></h2><div class="metrics"><strong class="big" data-total></strong>personnes confirmées, accompagnants compris</div><div id="counts" class="counts"></div><article class="panel"><div class="toolbar"><h2>Participants et réponses</h2><label class="filter">Réponse <select id="filter"><option>Toutes</option><option>Oui</option><option>Non</option><option>Peut-être</option><option>Sans réponse</option></select></label></div><table><thead><tr><th>Invitation</th><th>Réponse</th><th>Personnes</th></tr></thead><tbody id="rows"></tbody></table></article></section>
+<section id="historique" hidden>
+<h1 tabindex="-1">Historique des envois</h1>
+<p class="subtitle">Courriels de démonstration · Horaires de Paris</p>
+<div class="history-list" id="send-list"></div>
+<article class="panel inside history-detail">
+<h2 id="send-title"></h2><p id="send-subject"></p>
+<div class="history-meta" id="send-meta"></div>
+<div class="counts" id="send-counts" role="status"></div>
+<a id="send-responses" class="action" href="#reponses">Voir les participants et les réponses →</a>
+<p class="history-note subtitle">« Accepté par le serveur » confirme la prise en charge du courriel. La réception et la lecture restent inconnues.</p>
+<div class="toolbar"><h2>Destinataires</h2><label class="filter">Résultat <select id="delivery-filter"><option value="all">Tous</option><option value="accepted">Acceptés par le serveur</option><option value="failed">Erreurs</option></select></label></div>
+<div class="table-scroll"><table><thead><tr><th scope="col">Destinataire</th><th scope="col">Heure</th><th scope="col">Résultat et détail</th></tr></thead><tbody id="delivery-rows"></tbody></table></div>
+</article></section></main>
+<script>
+const invites=[['Famille A','Oui',4],['Famille B','Oui',2],['Invité C','Oui',1],['Invitée D','Peut-être',0],['Invité E','Non',0],['Famille F','Sans réponse',0]];
+const byId=id=>document.getElementById(id);
+const events = [
+  {id:'beaujolais', title:'Instant Beaujolais', date:'20 novembre', invitations:invites},
+  {id:'doubles', title:'Rencontre de doubles', date:'28 novembre', invitations:[
+    ['Invitée G','Oui',1], ['Invité H','Oui',1], ['Invitée I','Oui',2], ['Invité J','Oui',1], ['Invitée K','Peut-être',0]
+  ]},
+  {id:'assemblee', title:'Assemblée du club', date:'5 décembre', invitations:[]}
+];
+const positive = event => event.invitations.filter(([,reply]) => reply === 'Oui');
+const confirmed = event => positive(event).reduce((sum,[,,count]) => sum + count, 0);
+const first = events[0];
+let selected = first;
+
+for (const event of events) {
+  byId('event-select').add(new Option(event.title+' · '+event.date,event.id));
+}
+for (const event of [...events].sort((a,b) => positive(b).length-positive(a).length || confirmed(b)-confirmed(a))) {
+  const row = byId('ranking').insertRow();
+  row.dataset.event = event.id;
+  const link = document.createElement('a');
+  link.href = '#reponses/'+event.id;
+  link.textContent = event.title;
+  row.insertCell().append(link);
+  row.insertCell().textContent = positive(event).length+' / '+event.invitations.length;
+  row.insertCell().textContent = confirmed(event);
+  row.lastElementChild.className = 'stat';
+}
+function renderRows(){
+  const rows = byId('rows');
+  rows.replaceChildren();
+  for(const [name,reply,count] of selected.invitations){
+    if(byId('filter').value!=='Toutes' && byId('filter').value!==reply) continue;
+    const row=rows.insertRow();
+    for(const value of [name,reply,count||'—']) row.insertCell().textContent=value;
+  }
+  if (!rows.rows.length) {
+    const cell = rows.insertRow().insertCell();
+    cell.colSpan = 3;
+    cell.textContent = selected.invitations.length ? 'Aucune invitation pour cette réponse.' : 'Aucune invitation pour cet événement.';
+  }
+}
+function renderSelection(){
+  byId('event-title').textContent = selected.title;
+  byId('event-select').value = selected.id;
+  document.querySelector('#reponses [data-total]').textContent = confirmed(selected);
+  for (const row of byId('ranking').rows) row.classList.toggle('selected', row.dataset.event === selected.id);
+  byId('counts').replaceChildren();
+  for (const reply of ['Oui','Non','Peut-être','Sans réponse']) {
+    const el = document.createElement('span');
+    el.className='pill';
+    el.textContent=reply+' · '+selected.invitations.filter(row=>row[1]===reply).length;
+    byId('counts').append(el);
+  }
+  renderRows();
+}
+byId('filter').addEventListener('change',renderRows);
+byId('event-select').addEventListener('change',()=>{location.hash='reponses/'+byId('event-select').value;});
+
+// Independent fictitious deliveries demonstrate successes, errors and a later retry.
+const deliveries = [
+  {id:'relance', event:'beaujolais', subject:'Votre invitation au Beaujolais', revision:2, date:'17 novembre 2026', start:'09:10:00', end:'09:10:01', actor:'Bureau Démo', label:'Relance après correction', recipients:[
+    {name:'Famille F', email:'famille-f@example.invalid', at:'09:10:01', status:'accepted', detail:'Accepté après correction de l’adresse.'}
+  ]},
+  {id:'invitation', event:'beaujolais', subject:'Votre invitation au Beaujolais', revision:2, date:'16 novembre 2026', start:'18:30:00', end:'18:30:05', actor:'Bureau Démo', label:'Invitation initiale', recipients:invites.map(([name],index)=>({
+    name, email:'adherent-'+(index+1)+'@example.invalid', at:'18:30:0'+index,
+    status:index===5?'failed':'accepted',
+    detail:index===5?'550 — adresse refusée par le serveur destinataire.':''
+  }))},
+  {id:'doubles', event:'doubles', subject:'Rencontre de doubles du club', revision:1, date:'16 novembre 2026', start:'10:00:00', end:'10:00:04', actor:'Bureau Démo', label:'Invitation initiale', recipients:events[1].invitations.map(([name],index)=>({
+    name, email:'joueur-'+(index+1)+'@example.invalid', at:'10:00:0'+index, status:'accepted', detail:''
+  }))}
+];
+let selectedDelivery = deliveries[0];
+for(const delivery of deliveries){
+  const event = events.find(event=>event.id===delivery.event);
+  const card=document.createElement('article');
+  card.className='panel history-card';card.dataset.delivery=delivery.id;
+  const description=document.createElement('div');
+  const title=document.createElement('h2');title.textContent=event.title;
+  const info=document.createElement('p');
+  const failures=delivery.recipients.filter(recipient=>recipient.status==='failed').length;
+  info.textContent=delivery.date+' à '+delivery.start+' · '+delivery.label+' · '+delivery.recipients.length+' destinataire(s) · '+failures+' erreur(s)';
+  description.append(title,info);
+  const link=document.createElement('a');link.href='#historique/'+delivery.id;link.textContent='Voir le détail';link.setAttribute('aria-label','Voir le détail — '+event.title+' — '+delivery.label);
+  card.append(description,link);byId('send-list').append(card);
+}
+function renderDeliveryRows(){
+  byId('delivery-rows').replaceChildren();
+  for(const recipient of selectedDelivery.recipients){
+    if(byId('delivery-filter').value!=='all' && byId('delivery-filter').value!==recipient.status)continue;
+    const row=byId('delivery-rows').insertRow();
+    const identity=row.insertCell();identity.textContent=recipient.name;
+    const address=document.createElement('span');address.className='recipient-address';address.textContent=recipient.email;identity.append(address);
+    row.insertCell().textContent=recipient.at;
+    const result=row.insertCell();result.className=recipient.status==='failed'?'delivery-error':'delivery-ok';
+    result.textContent=recipient.status==='failed'?'Échec':'Accepté par le serveur';
+    if(recipient.detail){const detail=document.createElement('p');detail.textContent=recipient.detail;result.append(detail);}
+  }
+  if(!byId('delivery-rows').rows.length){const cell=byId('delivery-rows').insertRow().insertCell();cell.colSpan=3;cell.textContent='Aucun destinataire pour ce résultat.';}
+}
+function renderDelivery(){
+  const event=events.find(event=>event.id===selectedDelivery.event);
+  byId('send-title').textContent=event.title+' · '+selectedDelivery.label;
+  byId('send-subject').textContent='Objet du courriel : '+selectedDelivery.subject;
+  byId('send-meta').textContent=selectedDelivery.date+' · '+selectedDelivery.start+' – '+selectedDelivery.end+' · '+selectedDelivery.actor+' · Révision '+selectedDelivery.revision;
+  byId('send-counts').replaceChildren();
+  const errors=selectedDelivery.recipients.filter(recipient=>recipient.status==='failed').length;
+  for(const text of [selectedDelivery.recipients.length+' destinataire(s)',(selectedDelivery.recipients.length-errors)+' accepté(s)',errors+' erreur(s)']){
+    const pill=document.createElement('span');pill.className='pill';pill.textContent=text;byId('send-counts').append(pill);
+  }
+  byId('send-responses').href='#reponses/'+selectedDelivery.event;
+  for(const card of document.querySelectorAll('[data-delivery]'))card.classList.toggle('selected',card.dataset.delivery===selectedDelivery.id);
+  byId('delivery-filter').value='all';renderDeliveryRows();
+}
+byId('delivery-filter').addEventListener('change',renderDeliveryRows);
+const pages={reponses:'Suivi des réponses',historique:'Historique des envois'};
+function navigate(){
+  const [page,id] = location.hash.slice(1).split('/');
+  const active = Object.hasOwn(pages,page) ? page : (location.pathname.endsWith('historique-envois') ? 'historique' : 'reponses');
+  const changePage = byId(active).hidden;
+  for(const key of Object.keys(pages)) byId(key).hidden=key!==active;
+  if(active==='reponses'){
+    selected=events.find(event=>event.id===id)||first;
+    byId('filter').value='Toutes';
+    renderSelection();
+  }
+  if(active==='historique'){selectedDelivery=deliveries.find(delivery=>delivery.id===id)||deliveries[0];renderDelivery();}
+  const agendaTab = active==='agenda'||active==='evenement';
+  for(const [tab,current] of [[byId('tab-agenda'),agendaTab],[byId('tab-reponses'),active==='reponses'],[byId('tab-historique'),active==='historique']]){
+    if(current) tab.setAttribute('aria-current','page'); else tab.removeAttribute('aria-current');
+  }
+  byId('trail').innerHTML='Bureau<span aria-hidden="true">/</span>'+(active==='evenement'?'<a href="/bureau">Retour au Bureau</a><span aria-hidden="true">/</span>':'')+'<strong>'+pages[active]+'</strong>';
+  document.title=pages[active]+' · Bureau TC Longages';
+  if(changePage){byId(active).querySelector('h1').focus({preventScroll:true});window.scrollTo(0,0);}
+}
+window.addEventListener('hashchange',navigate);navigate();
+</script></html>
