@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "1150f337fdb032e9a61073ceefc15f16166ac7b6",
+  "sourceCommit": "b6cbb6e3575697602ddb78fc08f9f65465325d42",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -926,9 +926,9 @@
     {
       "path": "data/drupal-security-local.json",
       "mode": "100644",
-      "gitBlob": "83af261acb8e2eb6878e3eb3ceb4f20468bd7f1e",
-      "size": 1160,
-      "sha256": "9762107b4ce0cd74009cd985c43b8cabd5a387725099dc72a3a996ce8291c147"
+      "gitBlob": "ce6c42da13dfbb333cee8404ab8c3387b125b97f",
+      "size": 1519,
+      "sha256": "3eb60f7fc1b70c1859f3c9fd61f1750263b9e1d60b326a4fd1e5dbadffddba3f"
     },
     {
       "path": "data/edition-contact-verification.json",
@@ -1248,9 +1248,9 @@
     {
       "path": "docs/lancement-beta.md",
       "mode": "100644",
-      "gitBlob": "4aa79c6ba81d766a160cfd67d6e2454b605ee3b1",
-      "size": 7690,
-      "sha256": "7b129cdc087f4484ce658156bfa23d056dad030cb067a696916b685505d9a86a"
+      "gitBlob": "57466388e69269fcd308075779f444f1fac95484",
+      "size": 8058,
+      "sha256": "be567fea2794a4822dacf65bdbfbb6ea87588f933e1836998415c891051b73b5"
     },
     {
       "path": "docs/modifier-textes-drupal.md",
@@ -5413,9 +5413,9 @@
     {
       "path": "scripts/framework.mjs",
       "mode": "100644",
-      "gitBlob": "3891d48faea113f500fb31b52a2c97544d5aa6cd",
+      "gitBlob": "702b81be8bd40a34749fc597d8eabee6b52abf63",
       "size": 16751,
-      "sha256": "b8bf3a9816993d81a0b89816af9b980abf0ced7232b39f4ea40218f2c2bb090f"
+      "sha256": "7ba0d148042fe5367e6ae2c2c5afa7d11705d5615d644294e09cd049d88cfcf7"
     },
     {
       "path": "scripts/inline-html.mjs",
@@ -6050,9 +6050,9 @@
     {
       "path": "tests/ci-workflows.test.mjs",
       "mode": "100644",
-      "gitBlob": "441cc99455fc6ef5f551ab89bad5de9554e8b220",
+      "gitBlob": "d12fad8fc0146592d8b726929b57c33ab02a976c",
       "size": 12004,
-      "sha256": "ee914c04e97231016edc108cbce7a09e470b70ed61ca1bf399684ebc2d335fe2"
+      "sha256": "6ecdd5778977ed9c6302b13017636c8903ed053577db6370310a97a0e4e41e83"
     },
     {
       "path": "tests/club-followup-access.php",
@@ -6846,5 +6846,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "469b83c5652b56f600848d4d91c93cc6a03e90260c6d06755f73ad0e8f85078d"
+  "artifactDigest": "8e6c6c0dc8cb7b7f3a1f548308296bb8a711375d5254bfd231e3ee501267963c"
 }
