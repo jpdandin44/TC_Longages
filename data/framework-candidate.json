@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "aeae47c80b19850c0a077bac5081fc6fde3318f2",
+  "sourceCommit": "795a5e44b4f6b337a0177258b34d017c80a7a076",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -6519,9 +6519,9 @@
     {
       "path": "tests/workspace-ux-local.php",
       "mode": "100644",
-      "gitBlob": "eca8f16f64abbcab133483dc47748e9471e060fc",
-      "size": 6662,
-      "sha256": "57c358255bb71be9cc0b2970fab56a2ac914503e11b21fe70507f088b603631e"
+      "gitBlob": "a9ba86e383c01cf2f99e24d2d6d5fa24387abc73",
+      "size": 6898,
+      "sha256": "97385ba64cd8a76578d69576d4e00a6f67801875562ff0d5f6b08675802730e0"
     },
     {
       "path": "workflows/agenda-events-preproduction/README.md",
@@ -6762,5 +6762,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "2e151242b1b37da8dc3dcd58cef9776344de08a1d2f98c0ab9b75c970bda9b2d"
+  "artifactDigest": "fc25e3c4c3a118b4a7cee934762a26800ffa6bf959dd662002ab3267b1190adc"
 }
