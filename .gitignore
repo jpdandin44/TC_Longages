@@ -38,3 +38,6 @@ __pycache__/
 # Multisite jetable réservé à la recette locale MariaDB
 /drupal/web/sites/tcl-mysql-recette/
 /drupal/web/sites/sites.php
+
+# Copie d'exécution du module de test, source dans tests/fixtures uniquement.
+/drupal/web/modules/custom/tcl_post_fixture/
