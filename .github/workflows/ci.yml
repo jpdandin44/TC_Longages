@@ -37,7 +37,7 @@ jobs:
           composer --working-dir=drupal --no-plugins --no-scripts audit --locked --no-dev
           composer --working-dir=.local/beta-ci install --no-dev --prefer-dist --no-progress --no-interaction --no-scripts
           composer --working-dir=.local/beta-ci --no-plugins --no-scripts audit --locked --no-dev
-          php -r 'require ".local/beta-ci/vendor/autoload.php"; if (Drupal::VERSION !== "11.4.10") { exit(1); } echo Drupal::VERSION, PHP_EOL;'
+          php -r 'require ".local/beta-ci/vendor/autoload.php"; if (Drupal::VERSION !== "11.4.13") { exit(1); } echo Drupal::VERSION, PHP_EOL;'
           python3 scripts/verify_beta_release.py verify
   bureau-oauth-runtime:
     runs-on: windows-2025

@@ -5,7 +5,7 @@ title: Sources de revue du candidat de lancement beta
 status: in_progress
 version: git
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-18
 owner: jpdandin
 tags: [lancement, beta, securite, recette]
 ---
@@ -116,3 +116,12 @@ les controles propres aux sources et leurs references, pas un second suivi.
 TBD : recette Apache/HTTPS et retour de bascule, livraison de courriel reel,
 acceptation humaine du candidat corrige et mise en production. La remise a jour
 de preproduction avec les travaux recents vient apres lancement autorise.
+
+
+## Maintenance des dépendances — 18 novembre 2026
+
+La CI de main après PR32 a signalé SA-CORE-2026-017 et SA-CORE-2026-018 sur Drupal. Les deux verrous actifs de recette, `drupal/composer.lock` (V2) et `config/launch-beta-maintenance/composer.lock` (copie bêta de CI), passent à Drupal 11.4.13. Composer met également à jour `masterminds/html5` de 2.10.1 à 2.12.0, dépendance requise par le coeur. Simple OAuth et Drush restent inchangés. Les audits des deux verrous ne signalent plus de vulnérabilité au moment du contrôle.
+
+Le contrôle de version du job beta-release attend désormais 11.4.13 pour la copie jetable. Le snapshot `config/launch-beta/source/`, le contrat et le vérificateur du ZIP historique restent intacts et continuent d'attester 11.4.10. Ce snapshot ancien ne doit pas être utilisé comme paquet de livraison corrigé.
+
+Cadrage : correction des dépendances uniquement. Développement local : verrous actualisés et audits effectués. Préproduction : aucun déploiement de ce lot ; la boucle Tiger Protect reste une réserve distincte. Mise en production : exclue de cette demande. Aucun mail ni signalement o2switch envoyé. Les résultats CI du candidat sont conservés dans le suivi canonique, distincts des preuves locales [ci-dessous](../data/drupal-security-local.json).
