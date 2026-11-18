@@ -5,7 +5,7 @@ title: Reprise V2 pour la préproduction
 status: active
 version: git
 created: 2026-10-18
-updated: 2026-11-17
+updated: 2026-11-18
 owner: jpdandin
 tags: [v2, recette, saisons]
 ---
@@ -122,3 +122,13 @@ Cadrage validé pour deux onglets autonomes. Développement local terminé avec 
 Préproduction installée le 17 novembre, candidat d2771e6, cinq fichiers vérifiés par empreinte. Sauvegarde privée bureau-suivi-f61lg2ao, reconstruction du cache réussie. Vérification navigateur hébergée en attente de reconnexion à la protection puis au Bureau dans Chrome. Mise en production hors du lot. Contrôles locaux réussis à 1 280 et 390 pixels, état sans invitation, erreurs d’envoi, choix d’événement et passage aux réponses.
 
 Cinq tests de frontière d’accès réussis avec droits simulés (préproduction HTTPS autorisée avec droit, refus sans droit, HTTP, autre domaine et production). Les parcours de rôle réels dans le navigateur restent à confirmer. PR de revue [29](https://github.com/jpdandin44/TC_Longages/pull/29).
+
+## Actualisation manuelle Google Contacts — 17 novembre 2026
+
+Un bouton « Mettre à jour les contacts » sur la page Contacts Google du club relit le libellé Adhérents_2026_2027 avec les droits administrateur existants. Il affiche le nombre d’adresses distinctes et de contacts sans adresse valide, puis la date de dernière lecture réussie en heure de Paris. Seul ce bilan est conservé. Les préparations de courriels en production relisent déjà Google ; le bouton permet une lecture immédiate. Les aperçus fictifs en préproduction restent indépendants. Une erreur conserve le dernier bilan réussi et propose de vérifier la connexion. Aucun courriel déclenché. Recette hébergée réussie le 17 novembre à 22:13:17 (Paris), avec Admin_TC_Longages : connexion Google existante renouvelée en lecture seule, 42 contacts dans le libellé, 34 adresses distinctes utilisables et 0 contact sans adresse valide. Le scénario d’erreur a également été observé avant reconnexion. Production inchangée. Livraison limitée au formulaire, sauvegardé dans le répertoire privé contacts-refresh-2wivfdhd ; invalidation ciblée du cache PHP effectuée et outil temporaire supprimé. PR 30 en brouillon, validation humaine distincte.
+
+## Réconciliation de la PR 29 — 18 novembre 2026
+
+Cadrage : la fusion de PR 30 dans main (`a1fc87e`) provoquait deux conflits, dans ce guide et le manifeste généré. Développement local : notes des deux lots conservées, main intégré à la branche de PR 29 et manifeste régénéré. Aucun changement du code des écrans fictifs de PR 29 ; contrôles de frontière d’accès réexécutés. Préproduction : aucun redéploiement durant cette réconciliation, preuves de recette précédentes conservées. Mise en production : hors périmètre ; les écrans fictifs restent interdits en production.
+
+La PR 31 reste un lot distinct : navigation générale et rapports sur les données existantes. La résolution de PR 29 ne fusionne pas PR 31 et n’étend pas ses autorisations. Les résultats CI actualisés sont consultables dans [la PR 29](https://github.com/jpdandin44/TC_Longages/pull/29).
