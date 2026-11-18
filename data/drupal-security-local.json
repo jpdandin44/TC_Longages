@@ -40,5 +40,16 @@
   "limits": [
     "CI must qualify published candidate",
     "Tiger Protect redirects remain unresolved and unrelated"
-  ]
+  ],
+  "ciFirstAttempt": {
+    "run": "44372090326",
+    "passed": [
+      "beta-release",
+      "bureau-oauth-runtime",
+      "drupal-mysql",
+      "support-runtime",
+      "delivery-safety"
+    ],
+    "technicalFailure": "Expected version assertion and workflow fingerprint still referenced old CI; both aligned after review of version-only workflow diff."
+  }
 }
