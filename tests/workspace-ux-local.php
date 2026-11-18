@@ -9,7 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 $checks=[];
+$routes=Symfony\Component\Yaml\Yaml::parseFile(dirname(__DIR__).'/drupal/web/modules/custom/tcl_bureau/tcl_bureau.routing.yml');
+
 function uxcheck($label,$ok){global $checks;$checks[]=['label'=>$label,'passed'=>(bool)$ok];if(!$ok)throw new RuntimeException($label);}
+foreach (['responses'=>'/bureau/reponses','delivery_history'=>'/bureau/envois','responses_recipe'=>'/bureau/suivi-reponses','delivery_history_recipe'=>'/bureau/historique-envois'] as $name=>$path) {
+ uxcheck('Distinct route preserved: '.$name, $routes['tcl_bureau.'.$name]['path']===$path);
+}
+uxcheck('Synthetic routes retain preproduction guard',str_contains($routes['tcl_bureau.responses_recipe']['requirements']['_custom_access'],'ClubFollowupController::access') && str_contains($routes['tcl_bureau.delivery_history_recipe']['requirements']['_custom_access'],'ClubFollowupController::access'));
 $settings=Settings::getAll();$s=$settings;$s['tcl_registration_recipe_enabled']=TRUE;new Settings($s);
 $connection=Drupal::service('tcl_bureau_oauth.connection');$actorBefore=Drupal::currentUser()->getAccount();
 $tx=Drupal::database()->startTransaction();
@@ -23,13 +29,14 @@ try{
  Drupal::service('tcl_bureau.events')->save($actor,$id,0,['title'=>'Instant Beaujolais · démonstration','location'=>'Club house','description'=>'Données fictives uniquement','start_date'=>$date,'end_date'=>$date,'start_time'=>'18:30','end_time'=>'23:30','frequency'=>'once','until'=>'','excluded'=>'','category'=>'meal','poster_post'=>'0','status'=>'scheduled']);
  $people=[];foreach(['yes','no','maybe','unknown','yes'] as $i=>$answer){$people[]=['name'=>'Essai '.$i,'email'=>'essai'.$i.'@example.invalid','answer'=>$answer,'count'=>$answer==='yes'?4:0,'event_revision'=>$i===4?0:1];}
  Drupal::keyValue('tcl_bureau.event_participation')->set($id.'.'.$date,['revision'=>1,'people'=>$people,'registration_post'=>$post]);
+ $request->query->set('event',$id);$request->query->set('date',$date);
  $controller=WorkspaceReportsController::create(Drupal::getContainer());$build=$controller->responses();
  uxcheck('Confirmed people exclude stale answers',$build['stats']['people']['value']['#value']==='4');
  uxcheck('Stale answers separately identified',$build['stats']['reconfirm']['value']['#value']==='1');
  uxcheck('Preproduction addresses masked',$build['table']['data']['#rows'][0][1]['data']['#plain_text']==='participant1@example.invalid');
  $request->query->set('answer','no');$filtered=$controller->responses();uxcheck('Answer filter selects absences',count($filtered['table']['data']['#rows'])===1);$request->query->remove('answer');
  Drupal::keyValue('tcl_bureau.member_mail')->set($post.'.1.'.hash('sha256','essai@example.invalid'),['status'=>'accepted','at'=>time()]);
- $history=$controller->history();uxcheck('History reads actual trace',count($history['table']['data']['#rows'])===1);uxcheck('Acceptance is not delivery',$history['table']['data']['#rows'][0][4]==='Accepté par le serveur');
+ $request->query->set('post',$post);$history=$controller->history();uxcheck('History reads actual trace',count($history['table']['data']['#rows'])===1);uxcheck('Acceptance is not delivery',$history['table']['data']['#rows'][0][4]==='Accepté par le serveur');
  $form=Drupal::formBuilder()->getForm(Drupal\tcl_bureau\Form\CommunicationForm::class);
  uxcheck('Nested variants retain submitted value paths',$form['channel_copy']['copy_email']['title']['#parents']===['copy_email','title']);
  uxcheck('Channel adaptation optional',$form['channel_copy']['#open']===FALSE);

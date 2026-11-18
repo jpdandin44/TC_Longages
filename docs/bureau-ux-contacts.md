@@ -14,7 +14,7 @@ tags: [bureau, ux, contacts, candidate]
 
 ## Cadrage
 
-Demande du 18 novembre : intégrer les améliorations UX/UI avant de livrer Contacts en production. PR 30 non fusionnée ; sa CI verte concerne uniquement les contacts. Branche `feat/bureau-ux-contacts` issue de `5866756`. Cette candidate élargie ne reprend aucune validation humaine de la PR 30. L'ancien paquet Contacts seul reste historique et ne doit pas être déployé à la place du nouveau lot.
+Demande du 18 novembre : intégrer les améliorations UX/UI avant de livrer Contacts en production. Au cadrage initial, PR 30 était non fusionnée ; les PR 30 et 29 sont désormais fusionnées dans main au 18 novembre. Branche `feat/bureau-ux-contacts` issue de `5866756`. Cette candidate élargie ne reprend aucune validation humaine de la PR 30. L'ancien paquet Contacts seul reste historique et ne doit pas être déployé à la place du nouveau lot.
 
 ## Développement local
 
@@ -30,7 +30,7 @@ Contrôles du 18 novembre : syntaxe PHP ; 12 contrôles Drupal/SQLite des rappor
 
 Commandes : `php -c .local/drupal-tools/php.ini tests/workspace-ux-local.php`, `php -c .local/drupal-tools/php.ini tests/contacts-refresh-unit.php`. Ces tests sont ajoutés à la recette OAuth de CI. Le premier refuse toute base autre que la SQLite privée de ce checkout et annule ses données de test.
 
-Aperçu local : http://127.0.0.1:4197/reponses.html et http://127.0.0.1:4197/communication.html. Données fictives, export de rendu sans enregistrement fonctionnel ; ne pas soumettre les formulaires de cet aperçu. Les routes applicatives sont `/bureau/reponses` et `/bureau/envois`. Les routes synthétiques de la PR 29 ne sont pas reprises dans cette candidate.
+Aperçu local : http://127.0.0.1:4197/reponses.html et http://127.0.0.1:4197/communication.html. Données fictives, export de rendu sans enregistrement fonctionnel ; ne pas soumettre les formulaires de cet aperçu. Les routes applicatives sont `/bureau/reponses` et `/bureau/envois`. Les URL synthétiques de PR 29 sont préservées sous des noms de routes distincts, toujours réservées à la préproduction. Le menu commun utilise les rapports sur données enregistrées.
 
 ## Préproduction
 
@@ -43,3 +43,9 @@ Non autorisée par la demande d'intégration. Attendre la recette préproduction
 ## Réserves
 
 CI de la branche élargie et recette HTTP complète : à qualifier. Connexion Google réelle et dernière liste de production : pas relues dans ce lot UX. Historique détaillé des futures tentatives (destinataires, initiateur, erreurs) : lot de stockage séparé, non implémenté ici. Préproduction et production inchangées.
+
+## Réconciliation avec main après PR 29 — 18 novembre 2026
+
+Base main `ca134dc`, comprenant PR 29 et PR 30. Les deux routes de maquette conservent leurs URL `/bureau/suivi-reponses` et `/bureau/historique-envois`, leur contrôleur et leur garde préproduction ; leurs noms internes portent le suffixe `_recipe`. Les rapports de PR 31 conservent `/bureau/reponses` et `/bureau/envois`. Les liens ajoutés dans les anciens menus par PR 29 ne sont pas dupliqués : la navigation commune de PR 31 les remplace. Aucun changement de droits, données ou transport. Cinq assertions de coexistence des routes s’ajoutent aux douze contrôles UX ; les cinq frontières d’accès de PR 29 sont aussi réexécutées.
+
+Cadrage et Développement local : réconciliation et contrôles du nouveau candidat. Préproduction : aucune nouvelle installation dans cette intervention. Mise en production : exclue. La CI précédente reste historique ; consulter la PR 31 pour les contrôles du commit réconcilié. Les quatre validations humaines demeurent non cochées.

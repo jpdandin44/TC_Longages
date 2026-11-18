@@ -600,3 +600,20 @@ tcl_bureau.delivery_history:
     _title: 'Historique des envois'
   requirements:
     _custom_access: '\Drupal\tcl_bureau\Controller\CommunicationController::access'
+
+tcl_bureau.responses_recipe:
+  path: '/bureau/suivi-reponses'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
+  methods: [GET]
+
+tcl_bureau.delivery_history_recipe:
+  path: '/bureau/historique-envois'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\ClubFollowupController::view'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
+  methods: [GET]
+
