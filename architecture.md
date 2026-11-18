@@ -613,3 +613,8 @@ Les variantes textuelles sont conservées dans la colonne JSON texte nullable `t
 ## Navigation et rapports Bureau — candidate locale du 18 novembre 2026
 
 `WorkspaceNavigation` rend les liens selon les permissions existantes et OAuth, sans accorder de droit. `WorkspaceReportsController` lit les événements, réponses et traces de transport existants ; aucun appel Google ni envoi. Les traces historiques ne constituent pas un journal complet des tentatives. [Périmètre et limites](docs/bureau-ux-contacts.md).
+
+
+## Agenda public — 18 novembre 2026
+
+PublicAgenda ajoute une projection anonyme en lecture seule des événements associés à une communication publiée. La grille de gestion reste protégée ; le calendrier Google externe demeure complémentaire. Voir [le contrat de projection publique](docs/agenda-public.md).
