@@ -8,6 +8,10 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 /** Explicit, individually addressed recipe sends of a reviewed snapshot. */
 final class MemberMail {
+  public static function simulation(): bool {
+    return \Drupal::request()->getHost() === 'preprod.tclongages.fr'
+      && (\Drupal\Core\Site\Settings::get('tcl_member_mail', [])['simulation_only'] ?? FALSE) === TRUE;
+  }
   public static function post(AccountInterface $actor, int $id): array {
     if (!RecipeMail::communicationEnabled() && !MemberContacts::production()) { throw new AccessDeniedHttpException(); }
     $row = \Drupal::service('tcl_bureau.communication')->get($actor, $id);
@@ -77,6 +81,15 @@ final class MemberMail {
     $row = self::post($actor, $snapshot['post']);
     if ((int) $row['revision'] !== $snapshot['revision'] || self::body($row) !== $snapshot['body'] || ChannelContent::forChannel($row, 'email')['title'] !== $snapshot['subject'] || $snapshot['prepared'] < time() - 900 || (!MemberContacts::production() && count($snapshot['recipients']) > 20)) { throw new ConflictHttpException('L’aperçu a changé ou expiré. Préparez-le à nouveau.'); }
     $result = ['accepted' => 0, 'failed' => 0, 'skipped' => 0, 'pending' => 0];
+    if (self::simulation()) {
+      $result['simulated'] = 0;
+      foreach (array_unique($snapshot['recipients']) as $to) {
+        if (!preg_match('/^adherent-0[1-4]@example\.invalid$/D', $to)) { $result['skipped']++; continue; }
+        $record = \Drupal::keyValue('tcl_bureau.member_mail')->get($snapshot['post'] . '.' . $snapshot['revision'] . '.' . hash('sha256', $to));
+        if ($retryFailed ? MailHistory::retryable($record) : !$record) { $result['simulated']++; } else { $result['skipped']++; }
+      }
+      return $result; // Before token, directory, links, transport, or receipt mutation.
+    }
     $gmail = GmailConnection::enabled();
     $gmailToken = $gmail ? GmailConnection::token() : '';
     $store = \Drupal::keyValue('tcl_bureau.member_mail'); $lock = \Drupal::lock();
@@ -91,10 +104,10 @@ final class MemberMail {
       if (!$lock->acquire('tcl.member.mail.' . $key, 120)) { $result['skipped']++; continue; }
       try {
         $previous = $store->get($key);
-        if ($previous && (!$retryFailed || !in_array($previous['status'], ['failed', 'bounced'], TRUE))) { $result['skipped']++; continue; }
+        if ($retryFailed ? !MailHistory::retryable($previous) : (bool) $previous) { $result['skipped']++; continue; }
         // Recheck before each irreversible send. Pending is never automatically retried.
         if ((int) self::post($actor, $snapshot['post'])['revision'] !== $snapshot['revision']) { throw new ConflictHttpException('La communication a changé. Envoi interrompu ; consulter le suivi.'); }
-        $attempt = ['status' => 'pending', 'at' => time(), 'transport' => $gmail ? 'gmail' : 'legacy'];
+        $attempt = ['recipient' => $to, 'actor_uid' => (int) $actor->id(), 'status' => 'pending', 'at' => time(), 'transport' => $gmail ? 'gmail' : 'legacy'];
         if ($previous) { $attempt['previous'] = $previous; }
         $store->set($key, $attempt);
         $links = EventParticipation::mailLinks($actor, (int) $row['id'], $to);

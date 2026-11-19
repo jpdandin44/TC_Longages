@@ -10,7 +10,7 @@ use Drupal\tcl_bureau\RecipeMail;
 
 final class MemberMailForm extends FormBase {
   private function selectionOnly(): bool {
-    return $this->getRequest()->getHost() === 'preprod.tclongages.fr'
+    return MemberMail::simulation() || $this->getRequest()->getHost() === 'preprod.tclongages.fr'
       && !(\Drupal\tcl_bureau\GmailConnection::enabled() && (\Drupal\Core\Site\Settings::get('tcl_gmail', [])['recipe_send_enabled'] ?? FALSE) === TRUE);
   }
 
@@ -30,6 +30,7 @@ final class MemberMailForm extends FormBase {
       $snapshot = MemberMail::snapshot($this->currentUser(), (int) $post, []);
       $snapshot['recipients'] = ['adherent-01@example.invalid', 'adherent-02@example.invalid', 'adherent-03@example.invalid', 'adherent-04@example.invalid'];
       $source = 'Adhérents fictifs';
+      $form_state->set('snapshot', $snapshot);
       $form['help'] = ['#plain_text' => 'Testez la sélection sur quatre adhérents fictifs. L’envoi est désactivé.'];
     } elseif ($production) {
       try {
@@ -65,21 +66,23 @@ final class MemberMailForm extends FormBase {
       $form['recipients'] = ['#type' => 'checkboxes', '#title' => $production ? 'Destinataires' : 'Destinataires à tester', '#options' => $options, '#description' => 'Sélectionnez explicitement les adresses à contacter. Aucune case présélectionnée.'];
       $form['recipients']['#prefix'] = '<div data-recipient-list>';
       $form['recipients']['#suffix'] = '</div>';
-      if ($selectionOnly) { return $form; }
+      $form['retry'] = ['#type' => 'checkbox', '#title' => 'Relancer uniquement les échecs et rejets confirmés', '#default_value' => $this->getRequest()->query->get('retry') === '1', '#description' => 'Les envois acceptés, incertains et les adresses jamais contactées sont exclus de cette relance.'];
+      if ($selectionOnly && !MemberMail::simulation()) { return $form; }
       $form['confirm'] = ['#type' => 'checkbox', '#title' => 'J’ai relu le message et les destinataires et je confirme cet envoi.'];
-      $form['send'] = ['#type' => 'submit', '#name' => 'send', '#value' => $production ? 'Envoyer aux adhérents sélectionnés' : 'Envoyer les courriels de recette', '#disabled' => !$snapshot['recipients']];
+      $form['send'] = ['#type' => 'submit', '#name' => 'send', '#value' => MemberMail::simulation() ? 'Simuler la sélection — aucun courriel envoyé' : ($production ? 'Envoyer aux adhérents sélectionnés' : 'Envoyer les courriels de recette'), '#disabled' => !$snapshot['recipients']];
     }
     return $form;
   }
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    if ($this->selectionOnly()) { $form_state->setRebuild(); return; }
+    if ($this->selectionOnly() && !MemberMail::simulation()) { $form_state->setRebuild(); return; }
     try {
       if (($form_state->getTriggeringElement()['#name'] ?? '') === 'send') {
         $snapshot = $form_state->get('snapshot');
         $selected = array_values(array_filter($form_state->getValue('recipients', [])));
         if (!$snapshot || !$selected || !$form_state->getValue('confirm') || array_diff($selected, $snapshot['recipients'])) { throw new \InvalidArgumentException('Choisissez les destinataires et confirmez la relecture.'); }
         $snapshot['recipients'] = $selected;
-        $r = MemberMail::send($this->currentUser(), $snapshot);
+        $r = MemberMail::send($this->currentUser(), $snapshot, (bool) $form_state->getValue('retry'));
+        if (isset($r['simulated'])) { $this->messenger()->addStatus('Simulation : ' . $r['simulated'] . ' destinataire(s) éligible(s), ' . $r['skipped'] . ' exclu(s). Aucun courriel envoyé ; historique inchangé.'); $form_state->setRebuild(); return; }
         $this->messenger()->addStatus('Acceptés par le serveur : ' . $r['accepted'] . '. Échecs : ' . $r['failed'] . '. Non relancés : ' . $r['skipped'] . '. Résultats incertains : ' . ($r['pending'] ?? 0) . '. La réception doit être vérifiée dans la boîte mail.');
         $form_state->set('snapshot', NULL);
       } else {
@@ -89,7 +92,7 @@ final class MemberMailForm extends FormBase {
         $snapshot = MemberMail::snapshot($this->currentUser(), $form_state->get('post'), $contacts['recipients']);
         $snapshot['excluded'] += $contacts['excluded'];
         $form_state->set('snapshot', $snapshot); $form_state->set('source_label', $contacts['group']);
-        $input = $form_state->getUserInput(); unset($input['confirm'], $input['recipients']); $form_state->setUserInput($input);
+        $input = $form_state->getUserInput(); unset($input['confirm'], $input['recipients'], $input['retry']); $form_state->setUserInput($input);
       }
     } catch (\InvalidArgumentException | \RuntimeException $e) { $this->messenger()->addError($e->getMessage()); }
     $form_state->setRebuild();
