@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "ff69516cde479315b931921a56eb568119de439b",
+  "sourceCommit": "6655840db9887ef0f70a309b065e919a9be96f32",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -268,9 +268,9 @@
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "3ad3507490a6a62c46c7b9f14cc445eb4139aea5",
-      "size": 75129,
-      "sha256": "4b6c20bda3a046d2fd6c949956d7cd7f10786e4ffd1b2684d8da69d93540711d"
+      "gitBlob": "bfa9a9908f5c22686ce8d6cba5d695d00f93a257",
+      "size": 75427,
+      "sha256": "5afa682fed5470955a1e6851408319643c7d28af9078bda1cc2aa4920d598c38"
     },
     {
       "path": "config/agenda-local.json",
@@ -1227,9 +1227,9 @@
     {
       "path": "docs/gmail-communications.md",
       "mode": "100644",
-      "gitBlob": "1f48c90d774944a49acdce05e271350f17c2e8fb",
-      "size": 3696,
-      "sha256": "291d62e147d519a6b177f024642998bae6ed5472b52f7fe86ff345020e38dd72"
+      "gitBlob": "8f8271b95a36688e1ea78ea1034d510436f6980e",
+      "size": 4132,
+      "sha256": "9c83f613518d70e2d352ba90cf6f3a2faaea2c579e37f68a41449ed6447a3a12"
     },
     {
       "path": "docs/installation-drupal.md",
@@ -2816,9 +2816,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/css/bureau.css",
       "mode": "100644",
-      "gitBlob": "636af17e24f2f718968f965eec01c06194b966d7",
-      "size": 11562,
-      "sha256": "814383f29a960d0f1a16633bf8df4fdee03317cfd1fa2a01fe63cd356e00a6bc"
+      "gitBlob": "501330b52ca5c866f74f89cfbb15222318f2fb88",
+      "size": 12310,
+      "sha256": "8878cf66ad1fc17f5912f8313cf437e94347a8c5d3c8fec65fbb56e0254492ed"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/css/communication.css",
@@ -6881,5 +6881,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "63f554fa73f55ae772ef04441e8dc6bffdd751b36d585cd9d7cc4ddd69b70010"
+  "artifactDigest": "35645605266671420ebe84d08b44484582a4a102a11099548dbb797d9f3d5628"
 }
