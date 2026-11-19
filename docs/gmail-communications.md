@@ -39,3 +39,7 @@ Le 19 novembre 2026, constat en lecture seule dans Chrome : le projet **TC Longa
 Aucun déploiement Gmail ni envoi effectué à ce stade. Restent : recette préalable, sauvegarde et plan de retour arrière, livraison ciblée sous maintenance sans écraser le correctif d'agenda public, accord Google d'envoi, relance limitée aux deux destinataires autorisés et contrôle de remise. Ne pas marquer les anciens envois acceptés comme livrés. Revenir en arrière ne doit pas déclencher de nouvelle tentative automatique.
 
 Suivi canonique : `../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`, depuis la racine de ce worktree. Les observations hébergées doivent être datées et distinguées des tests simulés.
+
+## Correction du chargement de la réponse — 19 novembre
+
+La réception Gmail est confirmée par le responsable. Son profil Chrome reçoit une réponse Drupal 404 HTML pour le script et du HTML pour la feuille de style, malgré les fichiers présents ; la réponse reste `unknown`, nombre zéro. Le contrôleur inclut maintenant les deux petites ressources fixes dans la réponse HTML, avec des empreintes CSP SHA-256 exactes, sans `unsafe-inline`. Les sources JS/CSS restent uniques. Origin, CSRF, lien personnel, absence de mutation à l’ouverture et plafond dix sont conservés. Trois contrôles du rendu PHP et six tests des boutons réussissent localement ; la preuve de confirmation hébergée est conservée dans le suivi opérationnel. Aucun envoi supplémentaire ni changement de production autorisé par cette correction.

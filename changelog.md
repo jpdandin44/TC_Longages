@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## 2026-11-19 — chargement du formulaire de réponse
+
+Ressources fixes incluses dans la page avec CSP par empreintes pour supprimer la dépendance aux requêtes statiques renvoyant 404 dans le profil du destinataire. Contrôles du rendu et des réponses ajoutés/conservés. Livraison préproduction uniquement.
+
 ## 2026-11-19 — messages de confirmation du Bureau
 
 Les messages Drupal sont alignés avec le contenu du Bureau et ne passent plus sous le menu latéral fixe. Adaptation mobile conservée, styles limités au Bureau. Recette hébergée en cours dans le lot [Gmail](docs/gmail-communications.md).
