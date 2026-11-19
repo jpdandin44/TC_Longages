@@ -1,7 +1,7 @@
 {
   "format": "tcl-git-candidate-v1",
   "project": "tclongages",
-  "sourceCommit": "65b6ce112a53037637726bf8ee1ec5cbb10e64ed",
+  "sourceCommit": "f403c7749bb5f7e9149b15506c0a3d3461eb086c",
   "excludedPaths": [
     "data/framework-candidate.json",
     "data/framework-revue-verification.json",
@@ -261,16 +261,16 @@
     {
       "path": "architecture.md",
       "mode": "100644",
-      "gitBlob": "cccdc24fb33120c5e4151cb061c0135ab72f41e6",
-      "size": 68831,
-      "sha256": "27feaf3c8220a31cb93f879b2e60e14a4421bc049477121782248fb806af04c6"
+      "gitBlob": "446d1ec0c11b1d7b7ca67c91e043f241c52c22ef",
+      "size": 69286,
+      "sha256": "43ac16408d754711c9e2f9996b60231a54168e45e1bf42a233f6144f7c9a1768"
     },
     {
       "path": "changelog.md",
       "mode": "100644",
-      "gitBlob": "0108310d3119ba1721aff5e4627869e5952026fe",
-      "size": 76084,
-      "sha256": "e375509629b351f4484ee2cb1305b501ec9fef49cbdc7407e134ce49a57bebbb"
+      "gitBlob": "6a3ff430ca0db4f17f33677bc4e7d5fb8e155724",
+      "size": 76352,
+      "sha256": "10f8909ef60b401a8dc56f490b8d5b4a99b9d516ed992a4bccea951145cf681b"
     },
     {
       "path": "config/agenda-local.json",
@@ -1237,6 +1237,13 @@
       "gitBlob": "cfab50507d88cf07bb0a763ff19121eac398215c",
       "size": 5646,
       "sha256": "15765284499c661b39ea219dff371c0a86f55a5f212da9bef1c939efe8e29360"
+    },
+    {
+      "path": "docs/historique-relances.md",
+      "mode": "100644",
+      "gitBlob": "463a6455731b3c99af7a6f6afad7f802d0eeca7c",
+      "size": 3633,
+      "sha256": "b5d4e11b45a2ba6b2a84cde187425c199f9010ea4fad76567225ada2f85cad5b"
     },
     {
       "path": "docs/installation-drupal.md",
@@ -2991,9 +2998,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Controller/WorkspaceReportsController.php",
       "mode": "100644",
-      "gitBlob": "5f53ee84accbc31ba7ed7efb4d88319e7304d548",
-      "size": 9421,
-      "sha256": "96a7d45a0499f5acd43df24d45d8cb84c593a2c3519b6411fd8c4c68a9d8b746"
+      "gitBlob": "54e3c13e4e4fa61e9bdc91f1a1b013fbe0090226",
+      "size": 10376,
+      "sha256": "798b23bc2fdd502e60ce7641afcd68cd958757ac5e2628cc461a1b03dff1d51b"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/EventParticipation.php",
@@ -3096,9 +3103,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/MemberMailForm.php",
       "mode": "100644",
-      "gitBlob": "3ed1f832cf444f139e1074a151354a2ad42d7b9f",
-      "size": 8232,
-      "sha256": "dba63e713a7b7b4de03911a50a8cf5be431c6c1781480aeec39e2c15b0079856"
+      "gitBlob": "70ac4f4429cf8528cc52e573a61f119b9a82bc4d",
+      "size": 9063,
+      "sha256": "9fc86051a03c3c5cebd1b7549ae578d777c59a91ff527f6a7ff641fe83753dec"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Form/PublicRegistrationForm.php",
@@ -3164,6 +3171,13 @@
       "sha256": "d5dcfb8e53c6a29f3bffc3669c5e618fd2a2cde3cf9b4a8d1d238d80725e8842"
     },
     {
+      "path": "drupal/web/modules/custom/tcl_bureau/src/MailHistory.php",
+      "mode": "100644",
+      "gitBlob": "50c331b50d3c675bb9b7c276e3ea00c9f5489235",
+      "size": 2263,
+      "sha256": "cd2ed1391d90ec84376cdc2d2b980c95f1d1a6118506a251152cb755a5e0ad93"
+    },
+    {
       "path": "drupal/web/modules/custom/tcl_bureau/src/MemberContacts.php",
       "mode": "100644",
       "gitBlob": "8653725be63a6eeb7a659dc7b10b35ef97b61c9d",
@@ -3173,9 +3187,9 @@
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/MemberMail.php",
       "mode": "100644",
-      "gitBlob": "98e23a791c68941969d01aedbd268ca659c8d2a8",
-      "size": 10627,
-      "sha256": "5cf77c2253fc65a10511de04600a93c3fd47f3b8706d6edcd5d0fa83906f8e5e"
+      "gitBlob": "495e5b7e937e2e332030ef31f95855b180c77515",
+      "size": 11492,
+      "sha256": "3b73b57b6ba3dab51d7652d44d2b488d4d697208708aed225ca5db6647386c18"
     },
     {
       "path": "drupal/web/modules/custom/tcl_bureau/src/Plugin/Mail/RecipePasswordMail.php",
@@ -5217,16 +5231,16 @@
     {
       "path": "requirements.md",
       "mode": "100644",
-      "gitBlob": "537e342cd29e0346a186a0f2817576f52f72a461",
-      "size": 67488,
-      "sha256": "102e83b580abb85783117e57ed25926d064279d75d4e238fa497996a55baf0fb"
+      "gitBlob": "9931cca7f585f4960c8ba3a0fdf9119467e3c0c1",
+      "size": 67756,
+      "sha256": "cd5d9275bab60eb6eb5ea7b1e3035b735d5b59107a83ea353814579f32033991"
     },
     {
       "path": "roadmap.md",
       "mode": "100644",
-      "gitBlob": "7b216732287b6d6b7aa1567aa168a0c11ecededc",
-      "size": 43324,
-      "sha256": "402b3309383ee9504291271d8d77e1b20fdbb5f674d921376566003b3fe19797"
+      "gitBlob": "bae192cd58f26a0a45d6afeea7e5f3ea18b8d541",
+      "size": 43502,
+      "sha256": "3eb9e63923c036712cc8326bb5270a7b7ca9f9d90322bd796b96795301d6d3d1"
     },
     {
       "path": "scripts/adult-tariffs.mjs",
@@ -6379,9 +6393,9 @@
     {
       "path": "tests/gmail-communications.php",
       "mode": "100644",
-      "gitBlob": "32ed5d4ad06a20db6b4c76d080a66078ae9ad509",
-      "size": 9625,
-      "sha256": "6434d8d12900d84ecc392d8d50b190f80ea3be52bf562a3ec172a32964b32c81"
+      "gitBlob": "76c326b5511855b87a1cecc408c6927283affd25",
+      "size": 12627,
+      "sha256": "3881b83cf944a462fe16615c1c4328dd8e0a59ef8be51798feeda40f4d868a4c"
     },
     {
       "path": "tests/google-calendar-local.php",
@@ -6666,9 +6680,9 @@
     {
       "path": "tests/workspace-ux-local.php",
       "mode": "100644",
-      "gitBlob": "a9ba86e383c01cf2f99e24d2d6d5fa24387abc73",
+      "gitBlob": "805848459fabeaa542ee7d4f634ee388c99b183d",
       "size": 6898,
-      "sha256": "97385ba64cd8a76578d69576d4e00a6f67801875562ff0d5f6b08675802730e0"
+      "sha256": "72c71b3e3b2d180765fa70207f770e1325c288bcf32d4babff4a2ce82859eb99"
     },
     {
       "path": "workflows/agenda-events-preproduction/README.md",
@@ -6909,5 +6923,5 @@
       "sha256": "80c431bc8793ec4b2a4f924211d90cc8a617312c71a4664e3b2091eccc8b6b89"
     }
   ],
-  "artifactDigest": "9186e9c777e1eea5011bc1ce25007b3f9722534e7e6e756950b53e086d96531d"
+  "artifactDigest": "59634bf92d188699c454c7306e4d7a07bb3a142c761525afaa828e0f2ea9b053"
 }

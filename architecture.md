@@ -13,6 +13,11 @@ tags:
   - publication
 ---
 
+## Historique des communications — 19 novembre
+
+`MailHistory` projette en lecture seule les reçus imbriqués de `tcl_bureau.member_mail`. Les nouveaux reçus conservent `recipient` et `actor_uid` ; les anciennes adresses sont rapprochées par empreinte du carnet en cache sans requête Google. La simulation de préproduction retourne avant toute lecture de jeton, génération de lien ou mutation. [Contrat et recette](docs/historique-relances.md).
+
+
 ## Raccordement Google Calendar de recette — 25 octobre
 
 Le stockage V2 conserve les séries et leurs relations aux inscriptions. `GoogleCalendarConnection` gère une autorisation distincte de Contacts, limitée aux calendriers créés par l’application, et crée la cible privée. `GoogleCalendarEvents` vérifie la cible, traduit les séries et confirme les écritures Google avant la sauvegarde locale. Une empreinte du contenu et une condition ETag empêchent l’écrasement de changements externes ; les identifiants déterministes évitent les doublons après réponse perdue. Le site est l’interface d’édition ; aucun import automatique des modifications Google. Pas d’écriture en production ni dans l’agenda officiel. [Contrat courant](api/google-calendar.md#écritures-de-recette-v2--25-octobre). Qualification hébergée en attente.

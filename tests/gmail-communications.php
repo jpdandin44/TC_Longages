@@ -75,6 +75,7 @@ $row += ['revision'=>6, 'approved_revision'=>6];
 $container->set('tcl_bureau.communication', new class($row) {
   public function __construct(public array $row) {}
   public function get($actor, $id): array { return $this->row; }
+  public function published($id): ?array { return NULL; }
 });
 $container->set('lock', new class {
   public function acquire($name, $timeout): bool { return TRUE; }
@@ -88,6 +89,9 @@ $key='1.6.'.hash('sha256','one@example.invalid'); $store=Drupal::keyValue('tcl_b
 check('Send pipeline records Gmail receipt for selected recipient only', $r['accepted']===1 && count($store->getAll())===1 && $store->get($key)['message_id']==='first');
 $r=MemberMail::send($actor,$snapshot,TRUE);
 check('Accepted receipt prevents duplicate even with retry requested',$r['skipped']===1 && $r['accepted']===0);
+$newRecipient=$snapshot; $newRecipient['recipients']=['two@example.invalid'];
+[$client]=google([new Response(200,[],json_encode($token))]); $container->set('http_client',$client);
+check('Retry excludes addresses never contacted',MemberMail::send($actor,$newRecipient,TRUE)['skipped']===1);
 $old=$store->get($key); $old['status']='bounced'; $store->set($key,$old);
 [$client]=google([new Response(200,[],json_encode($token)),new Response(200,[],'{"id":"retry"}')]); $container->set('http_client',$client);
 $r=MemberMail::send($actor,$snapshot,TRUE);
@@ -97,4 +101,27 @@ $store->set($key,['status'=>'pending']);
 check('Uncertain send cannot be retried',MemberMail::send($actor,$snapshot,TRUE)['skipped']===1);
 [$client]=google([new Response(400,[],'{"error":"invalid_grant"}')]); $container->set('http_client',$client);
 check('Pipeline blocks expired Gmail without legacy transport',rejects(fn()=>MemberMail::send($actor,$snapshot)));
+// History projection and strict retry selection, with no real transport.
+use Drupal\tcl_bureau\MailHistory;
+$legacy=['status'=>'bounced','at'=>100,'http_status'=>550];
+$entry=['recipient'=>'one@example.invalid','status'=>'accepted','at'=>200,'transport'=>'gmail','previous'=>$legacy];
+$history=MailHistory::rows([$key=>$entry],[],TRUE);
+check('Both attempts visible in reverse chronological order',count($history)===2 && $history[0]['attempt']===2 && $history[1]['attempt']===1);
+check('Recipient retained across attempts',$history[0]['email']==='one@example.invalid' && $history[1]['email']==='one@example.invalid');
+$oldKey='1.6.'.hash('sha256','private@example.org');
+$oldRows=MailHistory::rows([$oldKey=>$legacy],['private@example.org'],TRUE);
+check('Old recipient resolved from cached address hash',$oldRows[0]['email']==='private@example.org');
+check('Missing old recipient is explicit',MailHistory::rows([$oldKey=>$legacy],[],TRUE)[0]['email']==='Adresse non retrouvée');
+$redacted=MailHistory::rows([$oldKey=>['recipient'=>'private@example.org','bounce_reason'=>'secret-token','status'=>'bounced']],[],FALSE);
+check('Recipe never exposes private email or provider text',!str_contains(json_encode($redacted),'private@example.org') && !str_contains(json_encode($redacted),'secret-token'));
+check('Only failed or bounced eligible',MailHistory::retryable(['status'=>'failed']) && MailHistory::retryable($legacy) && !MailHistory::retryable(NULL) && !MailHistory::retryable(['status'=>'pending']) && !MailHistory::retryable(['status'=>'accepted']));
+$stack->push($preprod); $settings['tcl_member_mail']['simulation_only']=TRUE; $settings['tcl_registration_recipe_enabled']=TRUE; new Settings($settings);
+$mock=new MockHandler([]); $container->set('http_client',new Client(['handler'=>HandlerStack::create($mock)]));
+$sim=MemberMail::snapshot($actor,1,[]); $sim['recipients']=['adherent-01@example.invalid','adherent-02@example.invalid','adherent-03@example.invalid','adherent-04@example.invalid'];
+foreach(['failed','bounced','accepted','pending'] as $i=>$status){$store->set('1.6.'.hash('sha256',$sim['recipients'][$i]),['status'=>$status,'at'=>100]);}
+$before=$store->getAll(); $res=MemberMail::send($actor,$sim,TRUE);
+check('Simulation selects only two failures, no transport',$res['simulated']===2 && $res['skipped']===2 && $res['accepted']===0);
+check('Simulation preserves all receipts',$before===$store->getAll());
+$sim['recipients']=['private@example.org']; check('Simulation rejects real address',MemberMail::send($actor,$sim,TRUE)['skipped']===1);
+$stack->pop(); check('Simulation cannot activate in production',!MemberMail::simulation());
 echo json_encode(['passed'=>$checks,'network'=>'mocked','mail_sent'=>FALSE]).PHP_EOL;

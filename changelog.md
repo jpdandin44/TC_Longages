@@ -12,6 +12,12 @@ tags:
   - reprise
 ---
 
+## Historique des envois et relance ciblée — 19 novembre
+
+Destinataire conservé, anciennes tentatives visibles, relance limitée aux échecs/rejets et simulation sans transport en préproduction. Voir [le guide](docs/historique-relances.md). Production exclue.
+
+
+
 ## 2026-11-19 — chargement du formulaire de réponse
 
 Ressources fixes incluses dans la page avec CSP par empreintes pour supprimer la dépendance aux requêtes statiques renvoyant 404 dans le profil du destinataire. Contrôles du rendu et des réponses ajoutés/conservés. Livraison préproduction uniquement.

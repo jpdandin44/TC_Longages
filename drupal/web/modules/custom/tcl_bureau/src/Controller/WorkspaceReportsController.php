@@ -8,6 +8,8 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\tcl_bureau\EventParticipation;
 use Drupal\tcl_bureau\EventSchedule;
+use Drupal\tcl_bureau\MailHistory;
+use Drupal\tcl_bureau\MemberContacts;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /** Read-only views of existing records. No fixture and no mail or Google call. */
@@ -72,27 +74,32 @@ final class WorkspaceReportsController extends ControllerBase {
     foreach (array_merge($repo->list($actor), $repo->list($actor, TRUE)) as $p) { $posts[(int) $p['id']] = $p; }
     $query = \Drupal::request()->query; $post = (int) $query->get('post', 0);
     $status = (string) $query->get('status', 'all');
-    $labels = ['accepted' => 'Accepté par le serveur', 'failed' => 'Échec', 'pending' => 'Résultat à vérifier'];
+    $labels = MailHistory::LABELS;
     if (!isset($labels[$status])) { $status = 'all'; }
     $options = [0 => 'Toutes les communications']; foreach ($posts as $id => $p) { $options[$id] = $p['title']; }
     if (!isset($options[$post])) { $post = 0; }
     $build = $this->shell('Consultez les traces d’envoi disponibles. Un courriel accepté par le serveur ne prouve pas sa réception.');
     $build['filters'] = $this->selector('tcl_bureau.delivery_history', ['post' => ['Communication', $options, $post], 'status' => ['Résultat', ['all' => 'Tous les résultats'] + $labels, $status]]);
-    $records = [];
-    foreach (\Drupal::keyValue('tcl_bureau.member_mail')->getAll() as $key => $record) {
-      if (!preg_match('/^(\d+)\.(\d+)\.[a-f0-9]{64}$/D', (string) $key, $m) || !isset($posts[(int) $m[1]])) { continue; }
-      if (($post && (int) $m[1] !== $post) || ($status !== 'all' && ($record['status'] ?? '') !== $status)) { continue; }
-      $records[] = $record + ['post' => (int) $m[1], 'revision' => (int) $m[2]];
-    }
-    usort($records, static fn($a, $b) => ($b['at'] ?? 0) <=> ($a['at'] ?? 0));
+    $production = MemberContacts::production();
+    $cached = \Drupal::keyValue('tcl_bureau.member_directory')->get('adherents_2026_2027', []);
+    $addresses = $production ? array_keys($cached['contacts_by_email'] ?? []) : [];
+    $records = MailHistory::rows(\Drupal::keyValue('tcl_bureau.member_mail')->getAll(), $addresses, $production);
     $rows = [];
     foreach ($records as $r) {
-      $date = isset($r['at']) ? (new \DateTimeImmutable('@' . $r['at']))->setTimezone(new \DateTimeZone('Europe/Paris'))->format('d/m/Y H:i') : 'Date non conservée';
-      $rows[] = [$date, ['data' => ['#plain_text' => $posts[$r['post']]['title']]], $r['revision'], 'Adresse non conservée', $labels[$r['status']] ?? 'Résultat inconnu'];
+      if (!isset($posts[$r['post']]) || ($post && $r['post'] !== $post) || ($status !== 'all' && $r['status'] !== $status)) { continue; }
+      $date = $r['at'] ? (new \DateTimeImmutable('@' . $r['at']))->setTimezone(new \DateTimeZone('Europe/Paris'))->format('d/m/Y H:i:s') : 'Date non conservée';
+      $action = ['#plain_text' => $r['latest'] ? 'Pas de relance automatique' : 'Tentative précédente'];
+      $p = $posts[$r['post']];
+      if ($r['retryable']) { $p = $repo->get($actor, $r['post']) ?? $p; }
+      if ($r['retryable'] && in_array($p['status'], ['validated', 'published'], TRUE) && (int) $p['revision'] === $r['revision'] && (int) $p['approved_revision'] === $r['revision'] && in_array('email', explode(',', $p['channels']), TRUE)) {
+        $action = Link::fromTextAndUrl('Préparer une relance ciblée', Url::fromRoute('tcl_bureau.member_mail', ['post' => $r['post']], ['query' => ['retry' => '1']]))->toRenderable();
+      }
+      $rows[] = [$date, ['data' => ['#plain_text' => $p['title']]], $r['revision'], ['data' => ['#plain_text' => $r['email']]], $r['attempt'], $labels[$r['status']] ?? 'Résultat inconnu', ['data' => ['#plain_text' => $r['transport'] . ($r['detail'] ? ' · ' . $r['detail'] : '')]], ['data' => $action]];
     }
-    $build['count'] = ['#type' => 'html_tag', '#tag' => 'h2', '#value' => count($rows) . ' trace(s) d’envoi'];
-    $build['limitations'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Les anciennes traces conservent la date, la révision et le résultat par destinataire, mais pas son adresse, l’auteur de l’envoi ni le détail des erreurs. Elles ne constituent pas un journal complet des tentatives.'];
-    $build['table'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-table']], 'data' => ['#type' => 'table', '#header' => ['Date · Paris', 'Communication', 'Révision', 'Destinataire', 'Résultat'], '#rows' => $rows, '#empty' => 'Aucune trace d’envoi pour cette sélection.']];
+    $build['count'] = ['#type' => 'html_tag', '#tag' => 'h2', '#value' => count($rows) . ' tentative(s) d’envoi'];
+    $build['limitations'] = ['#type' => 'html_tag', '#tag' => 'p', '#value' => 'Chaque tentative conservée est affichée. Les anciennes adresses sont rapprochées du carnet déjà enregistré, sans appeler Google ; une adresse absente reste non retrouvée. Les acceptations et résultats incertains ne sont pas relancés.'];
+    if (!$production) { $build['privacy'] = ['#plain_text' => 'Recette : adresses fictives uniquement. Les messages techniques privés ne sont pas affichés.']; }
+    $build['table'] = ['#type' => 'container', '#attributes' => ['class' => ['tcl-table']], 'data' => ['#type' => 'table', '#header' => ['Date · Paris', 'Communication', 'Révision', 'Destinataire', 'Tentative', 'Résultat', 'Transport / détail', 'Action'], '#rows' => $rows, '#empty' => 'Aucune tentative pour cette sélection.']];
     if (EventParticipation::enabled() && \Drupal::service('tcl_bureau.events')->allowed($actor)) {
       foreach (\Drupal::service('tcl_bureau.events')->all($actor) as $event) {
         foreach (EventSchedule::inspect($event)['occurrences'] as $occurrence) {

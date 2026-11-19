@@ -13,6 +13,12 @@ tags:
   - prototype
 ---
 
+## Historique et relances ciblées
+
+Conserver les destinataires et tentatives ; réserver la relance aux échecs/rejets confirmés avec sélection et confirmation. Recette sans courriel ni adresse réelle. Voir [le contrat de recette](docs/historique-relances.md).
+
+
+
 ## Calendrier Google séparé — 25 octobre
 
 Créer depuis le site un calendrier privé « TC Longages — Recette V2 » sur le compte du club, puis y transmettre les créations et modifications d’événements du Bureau. Portée Google limitée aux calendriers créés par cette application, cible fixée à l’ID issu de la création et vérifiée avant chaque écriture. Ne pas utiliser l’agenda officiel ni la production. Pas d’invitation, de partage public ou d’import automatique des séries historiques. Conserver les saisies en cas d’échec et refuser les conflits externes sans écrasement. Consentement Google personnel à obtenir avant qualification réelle.
