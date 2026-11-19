@@ -663,3 +663,7 @@ Navigation cohérente par rôle, entrée mensuelle pour les gestionnaires, suivi
 ## Expéditeur des communications
 
 Les communications doivent partir de tclongages@gmail.com ; les comptes et le support de support@tclongages.fr. Conserver les boutons de réponse et le plafond de dix personnes. Bloquer les relances automatiques en cas de résultat incertain. Voir [la qualification Gmail](docs/gmail-communications.md).
+
+## Agenda public — 18 novembre 2026
+
+Un rendez-vous associé à une actualité publiée doit être visible sans compte dans le calendrier du site, avec ses horaires. Retirer cette actualité masque le rendez-vous public ; aucune note privée, réponse ou identité ne doit être publiée. Voir [les contrôles](docs/agenda-public.md).

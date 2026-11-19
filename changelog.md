@@ -904,3 +904,7 @@ Navigation commune, rapports en lecture seule et variantes de communication facu
 ## 19 novembre 2026 — préparation Gmail
 
 Candidat local : transport Gmail pour les communications, accord distinct des contacts, protection contre les doublons et conservation des liens personnels. 32 contrôles simulés réussis ; recette hébergée et livraison non encore réalisées. Voir [le dossier](docs/gmail-communications.md).
+
+## 18 novembre 2026 — agenda public
+
+Correction de la divergence Bureau/calendrier public : ajout d’une grille mensuelle en lecture seule des événements associés à une actualité publiée. Agenda Google conservé en complément, aucun envoi ni changement des réponses. Voir [le diagnostic et les contrôles](docs/agenda-public.md).

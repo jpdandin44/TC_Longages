@@ -618,3 +618,7 @@ Les variantes textuelles sont conservées dans la colonne JSON texte nullable `t
 ## Communications Gmail — candidat local
 
 Le transport Gmail est isolé dans GmailConnection et GmailDelivery : accord chiffré propre à chaque environnement, droit gmail.send, message individuel texte/HTML. Le chemin technique support reste inchangé. Le raccordement hébergé reste à qualifier. Voir [le dossier Gmail](docs/gmail-communications.md).
+
+## Agenda public — 18 novembre 2026
+
+PublicAgenda ajoute une projection anonyme en lecture seule des événements associés à une communication publiée. La grille de gestion reste protégée ; le calendrier Google externe demeure complémentaire. Voir [le contrat de projection publique](docs/agenda-public.md).
