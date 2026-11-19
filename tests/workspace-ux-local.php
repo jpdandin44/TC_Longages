@@ -38,7 +38,7 @@ try{
  uxcheck('Preproduction addresses masked',$build['table']['data']['#rows'][0][1]['data']['#plain_text']==='participant1@example.invalid');
  $request->query->set('answer','no');$filtered=$controller->responses();uxcheck('Answer filter selects absences',count($filtered['table']['data']['#rows'])===1);$request->query->remove('answer');
  Drupal::keyValue('tcl_bureau.member_mail')->set($post.'.1.'.hash('sha256','essai@example.invalid'),['status'=>'accepted','at'=>time()]);
- $request->query->set('post',$post);$history=$controller->history();uxcheck('History reads actual trace',count($history['table']['data']['#rows'])===1);uxcheck('Acceptance is not delivery',$history['table']['data']['#rows'][0][4]==='Accepté par le serveur');
+ $request->query->set('post',$post);$history=$controller->history();uxcheck('History reads actual trace',count($history['table']['data']['#rows'])===1);uxcheck('Acceptance is not delivery',$history['table']['data']['#rows'][0][5]==='Accepté par le serveur');
  $form=Drupal::formBuilder()->getForm(Drupal\tcl_bureau\Form\CommunicationForm::class);
  uxcheck('Nested variants retain submitted value paths',$form['channel_copy']['copy_email']['title']['#parents']===['copy_email','title']);
  uxcheck('Channel adaptation optional',$form['channel_copy']['#open']===FALSE);
