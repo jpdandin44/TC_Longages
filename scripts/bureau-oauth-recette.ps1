@@ -56,6 +56,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Catalogue failed.' }
   & php -c .local/drupal-tools/php.ini tests/agenda-presentation-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Agenda presentation failed.' }
+  & php -c .local/drupal-tools/php.ini tests/public-agenda.php
+  if ($LASTEXITCODE -ne 0) { throw "Public agenda checks failed." }
   & php -c .local/drupal-tools/php.ini tests/event-schedule-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Récurrences invalides.' }
   & python -X utf8 tests/events-http.py

@@ -658,3 +658,8 @@ Chaque réponse Oui est limitée à dix personnes, répondant compris. Liste de 
 ## Confort du Bureau — 18 novembre 2026
 
 Navigation cohérente par rôle, entrée mensuelle pour les gestionnaires, suivi séparant réponses et personnes, historique honnête sur les données disponibles et personnalisation des communications facultative. Aucun élargissement de permissions ou envoi implicite. [Critères de recette](docs/bureau-ux-contacts.md).
+
+
+## Agenda public — 18 novembre 2026
+
+Un rendez-vous associé à une actualité publiée doit être visible sans compte dans le calendrier du site, avec ses horaires. Retirer cette actualité masque le rendez-vous public ; aucune note privée, réponse ou identité ne doit être publiée. Voir [les contrôles](docs/agenda-public.md).
