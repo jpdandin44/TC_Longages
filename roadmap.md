@@ -5,7 +5,7 @@ title: Feuille de route du prototype et de la diffusion
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-18
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - roadmap
@@ -434,3 +434,8 @@ V2-TARIFS-01 : formulaire conforme aux dix formules, mais tableau FAQ de l’acc
 ## Candidate Contacts + UX du Bureau — 18 novembre 2026
 
 Développement local réalisé ; qualification CI et préproduction à terminer avant toute livraison. PR 30 non fusionnée : le périmètre élargi exige une nouvelle revue. [Dossier](docs/bureau-ux-contacts.md).
+
+
+## Lot Gmail — 19 novembre 2026
+
+Cadrage confirmé ; Développement local en cours avec 32 tests simulés réussis ; Préproduction à qualifier avec accord Google ; Mise en production autorisée sous maintenance après qualification, relance limitée aux deux destinataires explicitement désignés. Voir [le dossier](docs/gmail-communications.md).

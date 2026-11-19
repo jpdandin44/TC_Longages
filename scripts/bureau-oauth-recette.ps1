@@ -68,6 +68,10 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP inscription événement échouée.' }
   & php -c .local/drupal-tools/php.ini tests/event-signup-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Recette inscription événement échouée.' }
+  & php -c .local/drupal-tools/php.ini tests/event-response-page.php
+  if ($LASTEXITCODE -ne 0) { throw "Event response page failed" }
+  & php -c .local/drupal-tools/php.ini tests/gmail-communications.php
+  if ($LASTEXITCODE -ne 0) { throw 'Recette Gmail simulée échouée.' }
   & php -c .local/drupal-tools/php.ini tests/member-mail-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Recette courriel adhérents échouée.' }
   & python -X utf8 tests/member-mail-http.py

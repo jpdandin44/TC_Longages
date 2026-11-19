@@ -5,12 +5,20 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-18
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
+
+## 2026-11-19 — chargement du formulaire de réponse
+
+Ressources fixes incluses dans la page avec CSP par empreintes pour supprimer la dépendance aux requêtes statiques renvoyant 404 dans le profil du destinataire. Contrôles du rendu et des réponses ajoutés/conservés. Livraison préproduction uniquement.
+
+## 2026-11-19 — messages de confirmation du Bureau
+
+Les messages Drupal sont alignés avec le contenu du Bureau et ne passent plus sous le menu latéral fixe. Adaptation mobile conservée, styles limités au Bureau. Recette hébergée en cours dans le lot [Gmail](docs/gmail-communications.md).
 
 ## 2026-11-18 — dépendances Drupal corrigées
 
@@ -892,6 +900,10 @@ La CI vérifie la destination Agenda du Bureau en mode équipes désactivées, p
 
 Navigation commune, rapports en lecture seule et variantes de communication facultatives. Candidate non déployée ; voir [le dossier](docs/bureau-ux-contacts.md).
 
+
+## 19 novembre 2026 — préparation Gmail
+
+Candidat local : transport Gmail pour les communications, accord distinct des contacts, protection contre les doublons et conservation des liens personnels. 32 contrôles simulés réussis ; recette hébergée et livraison non encore réalisées. Voir [le dossier](docs/gmail-communications.md).
 
 ## 18 novembre 2026 — agenda public
 

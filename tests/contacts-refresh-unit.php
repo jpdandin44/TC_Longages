@@ -4,8 +4,10 @@ namespace Drupal\Core\Form {
  class FormBase { public static bool $allowed=true; public function currentUser(){return self::$allowed;} public function messenger(){return \Drupal::$messages;} }
 }
 namespace Drupal\Core\Site { class Settings {} }
+namespace Drupal\Core { class Url { public static function fromRoute($route) { return $route; } } }
 namespace Symfony\Component\HttpKernel\Exception { class AccessDeniedHttpException extends \RuntimeException {} }
 namespace Drupal\tcl_bureau {
+ class GmailConnection { public static function enabled(){return false;} }
  class GoogleContactsConnection { public static bool $enabled=true; public static function allowed($u){return $u;} public static function settings(){return ['enabled'=>self::$enabled,'client_id'=>'fixture','client_secret'=>'fixture','refresh_token'=>'fixture','group'=>'contactGroups/fixture'];} }
  class SeasonCatalogue {public static function recipeEnabled(){return false;}}
  class RecipeMail {public static function communicationEnabled(){return false;}}

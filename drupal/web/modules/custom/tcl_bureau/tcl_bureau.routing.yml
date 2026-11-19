@@ -617,3 +617,13 @@ tcl_bureau.delivery_history_recipe:
     _custom_access: '\Drupal\tcl_bureau\Controller\ClubFollowupController::access'
   methods: [GET]
 
+
+tcl_bureau.gmail:
+  path: '/bureau/gmail'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\GmailForm'
+    _title: 'Gmail — Communications du club'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\GoogleContactsController::access'
+  options:
+    no_cache: TRUE
