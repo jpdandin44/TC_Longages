@@ -12,6 +12,10 @@ tags:
   - reprise
 ---
 
+## 2026-11-19 — messages de confirmation du Bureau
+
+Les messages Drupal sont alignés avec le contenu du Bureau et ne passent plus sous le menu latéral fixe. Adaptation mobile conservée, styles limités au Bureau. Recette hébergée en cours dans le lot [Gmail](docs/gmail-communications.md).
+
 ## 2026-11-18 — dépendances Drupal corrigées
 
 Verrous V2 et maintenance bêta de CI actualisés vers Drupal 11.4.13 pour les alertes SA-CORE-2026-017 et SA-CORE-2026-018 ; dépendance HTML5 mise à jour vers 2.12.0. Audits sans alerte. Snapshot bêta historique préservé. Aucun déploiement hébergé, mail ou signalement. [Périmètre et preuves](docs/lancement-beta.md#maintenance-des-dépendances--18-novembre-2026).

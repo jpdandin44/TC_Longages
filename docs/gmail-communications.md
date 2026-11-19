@@ -28,7 +28,9 @@ Un identifiant de message Gmail prouve l'acceptation par Gmail, pas la réceptio
 
 ## Préproduction
 
-Installation et autorisation Google d'envoi encore à effectuer. Vérifier séparément l'activation de l'API dans le projet de préproduction, l'adresse de recette autorisée, les liens de réponse et le plafond de dix participants. Ne pas importer de destinataires réels pour la recette générale.
+Installation ciblée effectuée le 19 novembre, après sauvegarde des fichiers et comparaison de leur restauration. Les six contrôles techniques de CI ont réussi sur le premier candidat. Le responsable a accordé l'envoi Gmail ; le Bureau confirme « Autorisation enregistrée ». La recette d'envoi sur jpdandin@gmail.com et des réponses reste à effectuer ; cette confirmation ne prouve pas un envoi.
+
+Le message de confirmation Drupal était masqué par le menu latéral, car il est rendu hors de `main`. Le correctif réserve aux messages le même décalage que le contenu sur ordinateur, et supprime ce décalage sur mobile. Il reste limité aux pages du Bureau. Vérifier le rendu hébergé avant promotion du candidat corrigé.
 
 ## Mise en production
 
