@@ -5,7 +5,7 @@ title: Exigences du site et de la communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-18
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - exigences
@@ -658,3 +658,8 @@ Chaque réponse Oui est limitée à dix personnes, répondant compris. Liste de 
 ## Confort du Bureau — 18 novembre 2026
 
 Navigation cohérente par rôle, entrée mensuelle pour les gestionnaires, suivi séparant réponses et personnes, historique honnête sur les données disponibles et personnalisation des communications facultative. Aucun élargissement de permissions ou envoi implicite. [Critères de recette](docs/bureau-ux-contacts.md).
+
+
+## Expéditeur des communications
+
+Les communications doivent partir de tclongages@gmail.com ; les comptes et le support de support@tclongages.fr. Conserver les boutons de réponse et le plafond de dix personnes. Bloquer les relances automatiques en cas de résultat incertain. Voir [la qualification Gmail](docs/gmail-communications.md).

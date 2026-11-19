@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-20
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - site-internet
@@ -536,3 +536,8 @@ La [recette de la présentation o2switch](docs/recette-demo-o2switch.md) traite 
 La [recette OIDC](docs/recette-oidc.md) suit séparément les contrôles de la nouvelle connexion. Les résultats des prototypes précédents ne valent pas qualification d'un fournisseur réel ni d'une installation publique.
 
 Git est initialisé dans ce dossier et rattaché à l’historique du dépôt du club. Les décisions humaines restent distinctes des commits et des contrôles automatiques.
+
+
+## Raccordement Gmail en préparation
+
+Configuration privée, périmètre de l’autorisation et état réel de livraison : [communications Gmail](docs/gmail-communications.md). API activée en production ; le transport du site n’est pas encore basculé.

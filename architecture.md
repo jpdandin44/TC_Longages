@@ -5,7 +5,7 @@ title: Architecture du prototype web et communication
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-18
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - architecture
@@ -613,3 +613,8 @@ Les variantes textuelles sont conservées dans la colonne JSON texte nullable `t
 ## Navigation et rapports Bureau — candidate locale du 18 novembre 2026
 
 `WorkspaceNavigation` rend les liens selon les permissions existantes et OAuth, sans accorder de droit. `WorkspaceReportsController` lit les événements, réponses et traces de transport existants ; aucun appel Google ni envoi. Les traces historiques ne constituent pas un journal complet des tentatives. [Périmètre et limites](docs/bureau-ux-contacts.md).
+
+
+## Communications Gmail — candidat local
+
+Le transport Gmail est isolé dans GmailConnection et GmailDelivery : accord chiffré propre à chaque environnement, droit gmail.send, message individuel texte/HTML. Le chemin technique support reste inchangé. Le raccordement hébergé reste à qualifier. Voir [le dossier Gmail](docs/gmail-communications.md).

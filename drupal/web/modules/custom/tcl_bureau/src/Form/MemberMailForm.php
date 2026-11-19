@@ -10,7 +10,8 @@ use Drupal\tcl_bureau\RecipeMail;
 
 final class MemberMailForm extends FormBase {
   private function selectionOnly(): bool {
-    return $this->getRequest()->getHost() === 'preprod.tclongages.fr';
+    return $this->getRequest()->getHost() === 'preprod.tclongages.fr'
+      && !(\Drupal\tcl_bureau\GmailConnection::enabled() && (\Drupal\Core\Site\Settings::get('tcl_gmail', [])['recipe_send_enabled'] ?? FALSE) === TRUE);
   }
 
   public function getFormId(): string { return 'tcl_member_mail'; }
@@ -22,6 +23,7 @@ final class MemberMailForm extends FormBase {
     $form['back'] = ['#type' => 'link', '#title' => 'Retour à la communication', '#url' => Url::fromRoute('tcl_bureau.communication_review', ['post' => $post])];
     $production = MemberContacts::production();
     $selectionOnly = $this->selectionOnly();
+    if (\Drupal\tcl_bureau\GmailConnection::enabled()) { $form['sender'] = ['#type' => 'item', '#title' => 'Expéditeur des communications', '#plain_text' => 'Tennis Club de Longages <tclongages@gmail.com> — Gmail']; }
     $snapshot = $form_state->get('snapshot');
     $source = $form_state->get('source_label');
     if ($selectionOnly) {
@@ -51,7 +53,7 @@ final class MemberMailForm extends FormBase {
       $responses = (bool) \Drupal\tcl_bureau\EventParticipation::mailEntry($this->currentUser(), (int) $post);
       $form['preview']['visual'] = ['#markup' => \Drupal\Core\Render\Markup::create(MemberMail::html($row, [], $responses))];
       $form['preview']['personal_help'] = ['#access' => $responses, '#plain_text' => 'Aperçu sans lien personnel : les trois boutons deviennent actifs dans le courriel individuel. Leur ouverture ne modifie aucune réponse.'];
-      $labels = ['not_attempted' => 'Non envoyé', 'accepted' => 'Accepté par le serveur', 'failed' => 'Échec — aucune relance automatique', 'pending' => 'Résultat incertain — aucune relance automatique'];
+      $labels = ['not_attempted' => 'Non envoyé', 'accepted' => 'Accepté par le serveur', 'failed' => 'Échec — aucune relance automatique', 'pending' => 'Résultat incertain — aucune relance automatique', 'bounced' => 'Rejet confirmé après acceptation'];
       $rows = [];
       foreach (MemberMail::history($this->currentUser(), $snapshot) as $entry) { $rows[] = [['data' => ['#plain_text' => $entry['email']]], $labels[$entry['status']]]; }
       $form['preview']['history'] = ['#type' => 'table', '#header' => ['Adresse', 'Suivi de cette révision'], '#rows' => $rows];
@@ -78,7 +80,7 @@ final class MemberMailForm extends FormBase {
         if (!$snapshot || !$selected || !$form_state->getValue('confirm') || array_diff($selected, $snapshot['recipients'])) { throw new \InvalidArgumentException('Choisissez les destinataires et confirmez la relecture.'); }
         $snapshot['recipients'] = $selected;
         $r = MemberMail::send($this->currentUser(), $snapshot);
-        $this->messenger()->addStatus('Acceptés par le serveur : ' . $r['accepted'] . '. Échecs : ' . $r['failed'] . '. Non relancés : ' . $r['skipped'] . '. La réception doit être vérifiée dans la boîte mail.');
+        $this->messenger()->addStatus('Acceptés par le serveur : ' . $r['accepted'] . '. Échecs : ' . $r['failed'] . '. Non relancés : ' . $r['skipped'] . '. Résultats incertains : ' . ($r['pending'] ?? 0) . '. La réception doit être vérifiée dans la boîte mail.');
         $form_state->set('snapshot', NULL);
       } else {
         $form_state->set('snapshot', NULL);

@@ -5,7 +5,7 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-18
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - changelog
@@ -891,3 +891,8 @@ La CI vérifie la destination Agenda du Bureau en mode équipes désactivées, p
 ## 18 novembre 2026 — candidate locale Contacts et Bureau
 
 Navigation commune, rapports en lecture seule et variantes de communication facultatives. Candidate non déployée ; voir [le dossier](docs/bureau-ux-contacts.md).
+
+
+## 19 novembre 2026 — préparation Gmail
+
+Candidat local : transport Gmail pour les communications, accord distinct des contacts, protection contre les doublons et conservation des liens personnels. 32 contrôles simulés réussis ; recette hébergée et livraison non encore réalisées. Voir [le dossier](docs/gmail-communications.md).

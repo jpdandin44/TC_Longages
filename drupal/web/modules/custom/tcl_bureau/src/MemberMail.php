@@ -73,14 +73,16 @@ final class MemberMail {
     }
     return $rows;
   }
-  public static function send(AccountInterface $actor, array $snapshot): array {
+  public static function send(AccountInterface $actor, array $snapshot, bool $retryFailed = FALSE): array {
     $row = self::post($actor, $snapshot['post']);
     if ((int) $row['revision'] !== $snapshot['revision'] || self::body($row) !== $snapshot['body'] || ChannelContent::forChannel($row, 'email')['title'] !== $snapshot['subject'] || $snapshot['prepared'] < time() - 900 || (!MemberContacts::production() && count($snapshot['recipients']) > 20)) { throw new ConflictHttpException('L’aperçu a changé ou expiré. Préparez-le à nouveau.'); }
-    $result = ['accepted' => 0, 'failed' => 0, 'skipped' => 0];
+    $result = ['accepted' => 0, 'failed' => 0, 'skipped' => 0, 'pending' => 0];
+    $gmail = GmailConnection::enabled();
+    $gmailToken = $gmail ? GmailConnection::token() : '';
     $store = \Drupal::keyValue('tcl_bureau.member_mail'); $lock = \Drupal::lock();
     $production = MemberContacts::production();
     $directory = $production ? array_column(MemberContacts::deliveryDirectory()['recipients'], 'email') : [];
-    if ($production && \Drupal::service('plugin.manager.mail')->getInstance(['module' => 'tcl_bureau', 'key' => 'member_communication']) instanceof \Drupal\tcl_site\Plugin\Mail\NullMail) {
+    if (!$gmail && $production && \Drupal::service('plugin.manager.mail')->getInstance(['module' => 'tcl_bureau', 'key' => 'member_communication']) instanceof \Drupal\tcl_site\Plugin\Mail\NullMail) {
       throw new \RuntimeException('Le transport des courriels adhérents est désactivé. Aucun envoi effectué.');
     }
     foreach ($snapshot['recipients'] as $to) {
@@ -88,10 +90,13 @@ final class MemberMail {
       $key = $snapshot['post'] . '.' . $snapshot['revision'] . '.' . hash('sha256', $to);
       if (!$lock->acquire('tcl.member.mail.' . $key, 120)) { $result['skipped']++; continue; }
       try {
-        if ($store->get($key)) { $result['skipped']++; continue; }
+        $previous = $store->get($key);
+        if ($previous && (!$retryFailed || !in_array($previous['status'], ['failed', 'bounced'], TRUE))) { $result['skipped']++; continue; }
         // Recheck before each irreversible send. Pending is never automatically retried.
         if ((int) self::post($actor, $snapshot['post'])['revision'] !== $snapshot['revision']) { throw new ConflictHttpException('La communication a changé. Envoi interrompu ; consulter le suivi.'); }
-        $store->set($key, ['status' => 'pending', 'at' => time()]);
+        $attempt = ['status' => 'pending', 'at' => time(), 'transport' => $gmail ? 'gmail' : 'legacy'];
+        if ($previous) { $attempt['previous'] = $previous; }
+        $store->set($key, $attempt);
         $links = EventParticipation::mailLinks($actor, (int) $row['id'], $to);
         $text = $snapshot['body'];
         if ($links) {
@@ -100,7 +105,11 @@ final class MemberMail {
           foreach ($links as $answer => $url) { $text .= "\n\n" . EventParticipation::ANSWERS[$answer] . ' : ' . $url; }
           $text .= "\n\nLien personnel valable sept jours au maximum, jusqu’à la clôture. Ne le transférez pas. Une nouvelle invitation remplace l’ancien lien sans effacer votre réponse.";
         }
-        if ($production && $links) {
+        $delivery = [];
+        if ($gmail) {
+          $delivery = GmailDelivery::send($to, $snapshot['subject'], $text, self::html($row, $links), $gmailToken);
+          $status = $delivery['status'];
+        } elseif ($production && $links) {
           $manager = \Drupal::service('plugin.manager.mail');
           $message = $manager->mail('tcl_bureau', 'member_communication', $to, 'fr', ['subject' => $snapshot['subject'], 'body' => $text], NULL, FALSE);
           $plugin = $manager->getInstance(['module' => 'tcl_bureau', 'key' => 'member_communication']);
@@ -111,7 +120,7 @@ final class MemberMail {
         } else {
           $status = RecipeMail::send('member_communication', $to, $snapshot['subject'], $text, self::html($row, $links)) ? 'accepted' : 'failed';
           }
-        $store->set($key, ['status' => $status, 'at' => time()]); $result[$status]++;
+        $store->set($key, array_merge($attempt, $delivery, ['status' => $status, 'at' => time()])); $result[$status]++;
       } finally { $lock->release('tcl.member.mail.' . $key); }
     }
     return $result;

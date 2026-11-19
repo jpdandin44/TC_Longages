@@ -5,7 +5,7 @@ title: Décisions structurantes du projet web
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-10-25
+updated: 2026-11-19
 owner: jpdandin
 tags:
   - decisions
@@ -745,3 +745,8 @@ Le 18 octobre, autoriser les courriels réels de recette uniquement pour les des
 ## Personnalisation des communications — 22 octobre
 
 22 octobre — Courriels de participation : retenir HTML classique avec alternative texte et confirmation web personnelle, pour éviter la dépendance aux clients AMP et à leur enregistrement expéditeur. Réutiliser les jetons existants, remplacer leur génération uniquement au nouvel envoi, conserver toute réponse préalable ; aucun enregistrement par ouverture de lien.
+
+
+## 19 novembre 2026 — séparer communications et messages techniques
+
+Décision du responsable : utiliser Gmail pour les communications du club et conserver support@tclongages.fr pour les comptes et le support. L’accord d’envoi est séparé de la lecture Contacts, chiffré et lié à l’environnement. Aucun repli automatique sur le relais historique si Gmail échoue. Voir [le dossier](docs/gmail-communications.md).
