@@ -14,6 +14,12 @@ tags:
   - whatsapp
 ---
 
+## Lot courant — historique et relances
+
+Développement et recette préproduction sans envoi. Production non autorisée. [Parcours et limites](docs/historique-relances.md).
+
+
+
 ## Google Calendar de recette — 25 octobre
 
 Raccordement du Bureau à un calendrier privé créé par l’application, avec la portée limitée Google, développé localement. Qualification, consentement et création réelle encore à faire. L’agenda officiel et la production restent exclus. [Contrat](api/google-calendar.md).
