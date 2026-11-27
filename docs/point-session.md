@@ -12,6 +12,42 @@ tags: [session, reprise, framework, drupal, git]
 
 ## Suivi des cours de tennis — 27 novembre
 
+### Reprise des contrôles de la PR 37
+
+Le contrôle initial `beta-release` a signalé 18 alertes sur sept composants
+du verrou courant. Les verrous principal et de maintenance bêta passent à
+Drupal 11.4.14, avec Symfony et Twig corrigés (Twig 3.31.1). Les sources
+historiques figées dans `config/launch-beta/source/` restent intactes.
+Les deux audits Composer ne signalent plus d'alerte ; le paquet bêta
+s'installe avec Drupal 11.4.14. Les fichiers de configuration générés par
+Drupal sont alignés sur cette version.
+
+Le second échec initial concerne `tests/lessons-http.py`, à la création
+d'un groupe. Cause reproduite : erreur HTTP 500 à l'ouverture de
+`LessonGroupForm`, car `buildForm` nommait son argument `$state` au lieu
+de `$form_state`, requis par le résolveur de contrôleur Drupal. Les deux
+formulaires `LessonGroupForm` et `LessonActionForm` utilisent désormais
+le nom attendu. Le test vérifie explicitement l'ouverture du formulaire
+avant sa soumission, puis conserve les contrôles de création, droits,
+rejeu, annulation, rattrapage, clôture et réouverture.
+La recette complète et son diagnostic sont repris sur une base
+SQLite isolée, avec identités fictives et envoi de courriels neutralisé.
+Les anciennes données locales sont conservées séparément. Aucun accès à
+la production ni déploiement en préproduction dans cette intervention.
+
+Après correction, les **27 contrôles HTTP des cours** passent sur Drupal
+11.4.14, ainsi que les 20 contrôles métier et les sept tests du paquet bêta.
+Les contrôles HTTP précédents ont aussi réussi sur la copie : connexion
+OAuth (67), bandeau (28), PDF/canaux (23) et inscriptions/catalogue (38).
+La CI GitHub du nouveau candidat reste la preuve de la suite complète ;
+son résultat est consigné dans le suivi canonique après exécution.
+
+Phases : **Cadrage** (deux échecs identifiés), **Développement local**
+(correction et CI), **Préproduction** (qualification hébergée restant à
+faire), **Mise en production** (exclue). Le suivi canonique est
+`../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`, rubrique
+`pr37CorrectionProgress`.
+
 Dans le Bureau V2, ouvrir **Cours de tennis** et créer un groupe pour une
 saison de septembre à août. Renseigner l’objectif, le créneau hebdomadaire,
 les dates exclues, puis reprendre le bilan initial confirmé avec l’enseignant

@@ -23,7 +23,7 @@ final class LessonGroupForm extends FormBase {
     return 'tcl_lesson_group';
   }
 
-  public function buildForm(array $form, FormStateInterface $state): array {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $now = (new \DateTimeImmutable('@' . $this->lessons->now()))->setTimezone(new \DateTimeZone('Europe/Paris'));
     $form['#cache']['max-age'] = 0;
     $form['#attributes']['class'] = ['tcl-bureau'];
@@ -53,34 +53,34 @@ final class LessonGroupForm extends FormBase {
     return $form;
   }
 
-  private function input(FormStateInterface $state): array {
+  private function input(FormStateInterface $form_state): array {
     $values = [];
     foreach (['name', 'coach', 'court', 'season', 'goal', 'date', 'until', 'start', 'end', 'excluded', 'baseline', 'prior_cancelled'] as $field) {
-      $values[$field] = trim((string) $state->getValue($field, ''));
+      $values[$field] = trim((string) $form_state->getValue($field, ''));
     }
     $values['baseline'] = $values['baseline'] === '' ? '0' : $values['baseline'];
     return $values;
   }
 
-  public function validateForm(array &$form, FormStateInterface $state): void {
-    $prepared = LessonSchedule::creation($this->input($state), $this->lessons->now(), (int) $this->currentUser()->id());
+  public function validateForm(array &$form, FormStateInterface $form_state): void {
+    $prepared = LessonSchedule::creation($this->input($form_state), $this->lessons->now(), (int) $this->currentUser()->id());
     foreach ($prepared['errors'] as $field => $error) {
-      $state->setErrorByName($field, $error);
+      $form_state->setErrorByName($field, $error);
     }
   }
 
-  public function submitForm(array &$form, FormStateInterface $state): void {
-    $id = (string) $state->getValue('submission_id');
+  public function submitForm(array &$form, FormStateInterface $form_state): void {
+    $id = (string) $form_state->getValue('submission_id');
     try {
-      $this->lessons->create($this->currentUser(), $id, $this->input($state));
+      $this->lessons->create($this->currentUser(), $id, $this->input($form_state));
     }
     catch (ConflictHttpException | \InvalidArgumentException $error) {
       $this->messenger()->addError($error->getMessage());
-      $state->setRebuild();
+      $form_state->setRebuild();
       return;
     }
     $this->messenger()->addStatus('Le groupe et ses séances ont été enregistrés.');
-    $state->setRedirect('tcl_bureau.lesson_group', ['group' => $id]);
+    $form_state->setRedirect('tcl_bureau.lesson_group', ['group' => $id]);
   }
 
 }

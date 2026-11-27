@@ -24,7 +24,7 @@ final class LessonActionForm extends FormBase {
     return 'tcl_lesson_action';
   }
 
-  public function buildForm(array $form, FormStateInterface $state, string $group = '', string $date = '', string $action = ''): array {
+  public function buildForm(array $form, FormStateInterface $form_state, string $group = '', string $date = '', string $action = ''): array {
     $row = $this->lessons->get($this->currentUser(), $group);
     $session = $row['sessions'][$date] ?? throw new NotFoundHttpException();
     $form['#cache']['max-age'] = 0;
@@ -37,7 +37,7 @@ final class LessonActionForm extends FormBase {
       $form['notice'] = ['#plain_text' => 'Cette action n’est plus disponible pour la séance.'];
       return $form;
     }
-    $state->set('lesson_action', [$group, $date, $action]);
+    $form_state->set('lesson_action', [$group, $date, $action]);
     $form['revision'] = ['#type' => 'hidden', '#default_value' => $row['revision']];
     if ($action === 'reschedule') {
       $form['new_date'] = ['#type' => 'date', '#title' => 'Date de rattrapage', '#required' => TRUE, '#attributes' => ['max' => $row['season_end']]];
@@ -57,22 +57,22 @@ final class LessonActionForm extends FormBase {
     return $form;
   }
 
-  public function submitForm(array &$form, FormStateInterface $state): void {
-    [$group, $date, $action] = $state->get('lesson_action');
-    $input = ['date' => trim((string) $state->getValue('new_date', ''))];
+  public function submitForm(array &$form, FormStateInterface $form_state): void {
+    [$group, $date, $action] = $form_state->get('lesson_action');
+    $input = ['date' => trim((string) $form_state->getValue('new_date', ''))];
     foreach (['start', 'end', 'court', 'reason'] as $field) {
-      $input[$field] = trim((string) $state->getValue($field, ''));
+      $input[$field] = trim((string) $form_state->getValue($field, ''));
     }
     try {
-      $this->lessons->change($this->currentUser(), $group, $date, (int) $state->getValue('revision'), $action, $input);
+      $this->lessons->change($this->currentUser(), $group, $date, (int) $form_state->getValue('revision'), $action, $input);
     }
     catch (ConflictHttpException | \InvalidArgumentException $error) {
       $this->messenger()->addError($error->getMessage());
-      $state->setRebuild();
+      $form_state->setRebuild();
       return;
     }
     $this->messenger()->addStatus('Le suivi de la séance a été mis à jour.');
-    $state->setRedirect('tcl_bureau.lesson_session', ['group' => $group, 'date' => $date]);
+    $form_state->setRedirect('tcl_bureau.lesson_session', ['group' => $group, 'date' => $date]);
   }
 
 }

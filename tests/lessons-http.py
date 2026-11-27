@@ -32,7 +32,9 @@ def run():
               "season": str(season - 1), "goal": "24", "baseline": "8", "date": historical.isoformat(),
               "until": (historical + dt.timedelta(days=14)).isoformat(), "start": "10:00", "end": "11:00",
               "excluded": excluded.isoformat(), "prior_cancelled": (historical - dt.timedelta(days=7)).isoformat()}
-    original_form = bureau.get(create)[1]
+    form_response = bureau.get(create)
+    check("Group form opens", form_response[0] == 200 and 'tcl_lesson_group' in form_response[1])
+    original_form = form_response[1]
     response = bureau.form(create, values, original_form)
     check("Group created", response[0] == 303 and path_of(response).startswith(listing + "/"))
     group = path_of(response)

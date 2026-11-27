@@ -5,12 +5,21 @@ title: Journal des évolutions du site
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-19
+updated: 2026-11-27
 owner: jpdandin
 tags:
   - changelog
   - reprise
 ---
+
+## 2026-11-27 — sécurité des dépendances de la candidate PR 37
+
+Actualisation des verrous Drupal courant et bêta vers 11.4.14 et des
+dépendances Symfony/Twig corrigées. Les sources bêta historiques sont
+préservées. Correction du nom du paramètre attendu par Drupal dans les
+formulaires de création et de suivi des cours (erreur HTTP 500), avec
+vérification HTTP de leur ouverture et du parcours complet.
+Voir [la reprise de recette](docs/point-session.md#reprise-des-contrôles-de-la-pr-37).
 
 ## Historique des envois et relance ciblée — 19 novembre
 
