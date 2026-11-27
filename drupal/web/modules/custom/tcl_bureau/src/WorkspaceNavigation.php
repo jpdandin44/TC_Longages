@@ -20,6 +20,7 @@ final class WorkspaceNavigation {
     $items = ['tcl_bureau.home' => [\Drupal::service('tcl_bureau.events')->allowed($actor) ? 'Agenda' : 'Accueil du club', '▦']];
     if (\Drupal::service('tcl_bureau.events')->allowed($actor)) {
       $items['tcl_bureau.events'] = ['Événements', '◷'];
+      $items['tcl_bureau.lessons'] = ['Cours de tennis', '🎾'];
       if (EventParticipation::enabled()) { $items['tcl_bureau.responses'] = ['Suivi des réponses', '✓']; }
     }
     if ($repo->allowed($actor, 'manage tcl communication')) {
@@ -30,7 +31,7 @@ final class WorkspaceNavigation {
     if (\Drupal::config('tcl_bureau.settings')->get('teams_enabled')) { $items['tcl_bureau.teams'] = [$repo->allowed($actor, 'manage tcl teams') ? 'Équipes du club' : 'Mes équipes', '♧']; }
     if ($repo->canManageAccount($actor)) { $items['tcl_bureau.accounts'] = ['Comptes et accès', '⚙']; }
     $items['tcl_bureau.members'] = ['Adhérents · bientôt', '◌'];
-    $active = $current;
+    $active = str_starts_with($current, 'tcl_bureau.lesson_') ? 'tcl_bureau.lessons' : $current;
     if (str_starts_with($current, 'tcl_bureau.communication_') || $current === 'tcl_bureau.member_mail') { $active = 'tcl_bureau.communication'; }
     if (str_starts_with($current, 'tcl_bureau.account_')) { $active = 'tcl_bureau.accounts'; }
     if (str_starts_with($current, 'tcl_bureau.team_')) { $active = 'tcl_bureau.teams'; }

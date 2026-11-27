@@ -60,6 +60,10 @@ try {
   if ($LASTEXITCODE -ne 0) { throw "Public agenda checks failed." }
   & php -c .local/drupal-tools/php.ini tests/event-schedule-local.php
   if ($LASTEXITCODE -ne 0) { throw 'Récurrences invalides.' }
+  & php -c .local/drupal-tools/php.ini tests/lesson-schedule-local.php
+  if ($LASTEXITCODE -ne 0) { throw 'Décompte des cours invalide.' }
+  & python -X utf8 tests/lessons-http.py
+  if ($LASTEXITCODE -ne 0) { throw 'Recette HTTP des cours échouée.' }
   & python -X utf8 tests/events-http.py
   if ($LASTEXITCODE -ne 0) { throw 'Recette événements échouée.' }
   & python -X utf8 tests/event-participation-http.py

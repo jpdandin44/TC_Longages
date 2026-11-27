@@ -627,3 +627,49 @@ tcl_bureau.gmail:
     _custom_access: '\Drupal\tcl_bureau\Controller\GoogleContactsController::access'
   options:
     no_cache: TRUE
+
+tcl_bureau.lessons:
+  path: '/bureau/cours'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\LessonController::overview'
+    _title: 'Cours de tennis'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\LessonController::access'
+
+tcl_bureau.lesson_add:
+  path: '/bureau/cours/ajouter'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\LessonGroupForm'
+    _title: 'Créer un groupe de cours'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\LessonController::access'
+
+tcl_bureau.lesson_group:
+  path: '/bureau/cours/{group}'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\LessonController::group'
+    _title: 'Groupe de cours'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\LessonController::access'
+    group: '[a-f0-9]{32}'
+
+tcl_bureau.lesson_session:
+  path: '/bureau/cours/{group}/seances/{date}'
+  defaults:
+    _controller: '\Drupal\tcl_bureau\Controller\LessonController::session'
+    _title: 'Suivi de la séance'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\LessonController::access'
+    group: '[a-f0-9]{32}'
+    date: '20[0-9]{2}-[0-9]{2}-[0-9]{2}'
+
+tcl_bureau.lesson_action:
+  path: '/bureau/cours/{group}/seances/{date}/{action}'
+  defaults:
+    _form: '\Drupal\tcl_bureau\Form\LessonActionForm'
+    _title: 'Modifier le suivi de la séance'
+  requirements:
+    _custom_access: '\Drupal\tcl_bureau\Controller\LessonController::access'
+    group: '[a-f0-9]{32}'
+    date: '20[0-9]{2}-[0-9]{2}-[0-9]{2}'
+    action: 'hold|cancel|reschedule|close|reopen'
