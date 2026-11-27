@@ -5,10 +5,81 @@ title: Point de session et reprise du site
 status: active
 version: git
 created: 2026-09-29
-updated: 2026-10-25
+updated: 2026-11-27
 owner: jpdandin
 tags: [session, reprise, framework, drupal, git]
 ---
+
+## Suivi des cours de tennis — 27 novembre
+
+### Reprise des contrôles de la PR 37
+
+Le contrôle initial `beta-release` a signalé 18 alertes sur sept composants
+du verrou courant. Les verrous principal et de maintenance bêta passent à
+Drupal 11.4.14, avec Symfony et Twig corrigés (Twig 3.31.1). Les sources
+historiques figées dans `config/launch-beta/source/` restent intactes.
+Les deux audits Composer ne signalent plus d'alerte ; le paquet bêta
+s'installe avec Drupal 11.4.14. Les fichiers de configuration générés par
+Drupal sont alignés sur cette version.
+Le test du workflow attend également 11.4.14 et son empreinte est
+requalifiée après revue du seul changement de version ; les droits,
+audits et garde-fous de livraison sont conservés. Les cinq contrôles
+locaux des workflows réussissent.
+
+Le second échec initial concerne `tests/lessons-http.py`, à la création
+d'un groupe. Cause reproduite : erreur HTTP 500 à l'ouverture de
+`LessonGroupForm`, car `buildForm` nommait son argument `$state` au lieu
+de `$form_state`, requis par le résolveur de contrôleur Drupal. Les deux
+formulaires `LessonGroupForm` et `LessonActionForm` utilisent désormais
+le nom attendu. Le test vérifie explicitement l'ouverture du formulaire
+avant sa soumission, puis conserve les contrôles de création, droits,
+rejeu, annulation, rattrapage, clôture et réouverture.
+La recette complète et son diagnostic sont repris sur une base
+SQLite isolée, avec identités fictives et envoi de courriels neutralisé.
+Les anciennes données locales sont conservées séparément. Aucun accès à
+la production ni déploiement en préproduction dans cette intervention.
+
+Après correction, les **27 contrôles HTTP des cours** passent sur Drupal
+11.4.14, ainsi que les 20 contrôles métier et les sept tests du paquet bêta.
+Les contrôles HTTP précédents ont aussi réussi sur la copie : connexion
+OAuth (67), bandeau (28), PDF/canaux (23) et inscriptions/catalogue (38).
+La CI GitHub du nouveau candidat reste la preuve de la suite complète ;
+son résultat est consigné dans le suivi canonique après exécution.
+
+Phases : **Cadrage** (deux échecs identifiés), **Développement local**
+(correction et CI), **Préproduction** (qualification hébergée restant à
+faire), **Mise en production** (exclue). Le suivi canonique est
+`../competitions-capitaines/docs/suivi-chantier/suivi-chantier.json`, rubrique
+`pr37CorrectionProgress`.
+
+Dans le Bureau V2, ouvrir **Cours de tennis** et créer un groupe pour une
+saison de septembre à août. Renseigner l’objectif, le créneau hebdomadaire,
+les dates exclues, puis reprendre le bilan initial confirmé avec l’enseignant
+si la saison a déjà commencé. Les dates annulées précédemment rejoignent la
+liste des rattrapages à traiter. La fiche du groupe et l’agenda privé ouvrent
+chacun le suivi d’une séance.
+
+Chaque date initiale peut avoir plusieurs tentatives historiques, avec un
+seul créneau actif à la fois. Le décompte augmente d’une unité après
+confirmation d’une séance terminée. Annuler un rattrapage remet la séance
+dans la liste à programmer. Clôturer exige un motif et conserve l’écart à
+l’objectif. Les dates prévues sont saisies en heure de Paris. Le contrôle de
+chevauchement couvre les séances du même groupe. Le texte d’avis est
+copiable vers le canal choisi par le Bureau.
+
+Le stockage des groupes est distinct des rendez-vous ordinaires et suit le
+même choix de contexte (recette ou agenda du club). Les accès utilisent le
+contrôle OAuth et les droits de l’agenda Bureau. Les fiches restent privées
+et le rendu se superpose uniquement à la grille privée. Aucun groupe
+existant n’est importé. Les tests métier et HTTP utilisent des données de
+recette et sont appelés par `scripts/bureau-oauth-recette.ps1`.
+
+Recette locale avec SQLite et identité fictive : 20 contrôles de décompte
+et d’historique, 14 contrôles Drupal des routes, formulaires, droits et agenda,
+et 13 contrôles de présentation de l’agenda réussis. L’intégration locale a
+utilisé Drupal 11.4.10, version disponible sur le poste. La recette HTTP,
+bloquée par les connexions à la boucle locale dans cet environnement, est
+à rejouer avec Drupal 11.4.13, la version prévue par le dépôt.
 
 ## Connexion Google Calendar — 25 octobre
 

@@ -19,3 +19,7 @@ services:
   tcl_bureau.events:
     class: Drupal\tcl_bureau\EventRepository
     arguments: ['@keyvalue', '@lock', '@tcl_bureau.repository']
+
+  tcl_bureau.lessons:
+    class: Drupal\tcl_bureau\LessonRepository
+    arguments: ['@keyvalue', '@lock', '@tcl_bureau.events', '@datetime.time']

@@ -29,6 +29,7 @@ final class AgendaEditor {
         }
       }
     }
+    $lessons = self::lessons($account, $month);
     $months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
     $label = ucfirst($months[(int) $first->format('n') - 1]) . ' ' . $first->format('Y');
     $basePage = $workspace ? '/bureau' : '/calendrier.html';
@@ -42,7 +43,7 @@ final class AgendaEditor {
     $html = '<section id="agenda-bureau" class="tcl-month-editor" aria-labelledby="agenda-bureau-title">' . $tabs . '<h2 id="agenda-bureau-title">Agenda du club</h2><p>Cliquez sur un jour pour ajouter un événement, ou sur un rendez-vous pour le modifier. La grille présente les événements saisis par le Bureau. Horaires : Europe/Paris.</p>';
     if (GoogleCalendarConnection::target()) { $html .= '<p>Connecté à <strong>Google — TC Longages — Recette V2</strong>. Les prochains enregistrements seront transmis à ce calendrier privé. Les anciens événements restent locaux jusqu’à leur prochain enregistrement.</p>'; }
     if (GoogleCalendarConnection::allowed($account)) { $html .= '<p><a href="' . Html::escape(Url::fromRoute('tcl_bureau.google_calendar')->toString()) . '">Connexion Google Agenda de recette</a></p>'; }
-    $html .= '<nav class="tcl-month-toolbar" aria-label="Navigation par mois"><a href="' . $page($first->modify('-1 month')->format('Y-m')) . '" aria-label="Mois précédent">← Précédent</a><h3>' . $label . '</h3><a href="' . $page($first->modify('+1 month')->format('Y-m')) . '" aria-label="Mois suivant">Suivant →</a><a href="' . $page($today->format('Y-m')) . '">Aujourd’hui</a><a href="' . Html::escape(Url::fromRoute('tcl_bureau.events')->toString()) . '">Voir les événements</a></nav>';
+    $html .= '<nav class="tcl-month-toolbar" aria-label="Navigation par mois"><a href="' . $page($first->modify('-1 month')->format('Y-m')) . '" aria-label="Mois précédent">← Précédent</a><h3>' . $label . '</h3><a href="' . $page($first->modify('+1 month')->format('Y-m')) . '" aria-label="Mois suivant">Suivant →</a><a href="' . $page($today->format('Y-m')) . '">Aujourd’hui</a><a href="' . Html::escape(Url::fromRoute('tcl_bureau.events')->toString()) . '">Voir les événements</a><a href="' . Html::escape(Url::fromRoute('tcl_bureau.lessons')->toString()) . '">Cours de tennis</a></nav>';
     $html .= '<div class="tcl-month-grid">';
     foreach (['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'] as $name) { $html .= '<div class="tcl-month-weekday" aria-hidden="true">' . $name . '</div>'; }
     for ($i = 1; $i < (int) $first->format('N'); $i++) { $html .= '<div class="tcl-month-empty" aria-hidden="true"></div>'; }
@@ -59,8 +60,34 @@ final class AgendaEditor {
         $html .= '<a class="tcl-month-event tcl-event-' . $category . '" href="' . $url . '"><span>' . $icon . ' ' . Html::escape($categoryLabel) . '</span><strong>' . Html::escape($event['title']) . '</strong><span>' . $start->format('H:i') . ($event['status'] === 'cancelled' ? ' · Annulé' : '') . '</span></a>';
         $html .= '<small>' . (!empty($event['google']) ? 'Relié à Google' : 'Enregistré au Bureau') . '</small>';
       }
+      foreach ($lessons[$date] ?? [] as [$groupId, $groupName, $original, $attempt, $label]) {
+        $url = Html::escape(Url::fromRoute('tcl_bureau.lesson_session', ['group' => $groupId, 'date' => $original])->toString());
+        $time = $attempt['start'] === NULL ? '' : (new \DateTimeImmutable($attempt['start']))->format('H:i') . ' · ';
+        $html .= '<a class="tcl-month-event tcl-event-lesson" href="' . $url . '"><span>Cours de tennis</span><strong>'
+          . Html::escape($groupName) . '</strong><span>' . Html::escape($time . $label) . '</span></a>';
+      }
       $html .= '</div>';
     }
     return $html . '</div></section>';
   }
+
+  private static function lessons(\Drupal\Core\Session\AccountInterface $account, string $month): array {
+    $repository = \Drupal::service('tcl_bureau.lessons');
+    $now = $repository->now();
+    $entries = [];
+    foreach ($repository->all($account) as $group) {
+      foreach ($group['sessions'] as $original => $session) {
+        $last = array_key_last($session['attempts']);
+        foreach ($session['attempts'] as $index => $attempt) {
+          if (!str_starts_with($attempt['date'], $month . '-')) {
+            continue;
+          }
+          $label = $index === $last ? LessonSchedule::label($session, $now) : 'Annulé';
+          $entries[$attempt['date']][] = [$group['id'], $group['name'], $original, $attempt, $label];
+        }
+      }
+    }
+    return $entries;
+  }
+
 }

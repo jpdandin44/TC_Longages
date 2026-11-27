@@ -5,7 +5,7 @@ title: Site et communication du Tennis Club de Longages
 status: active
 version: git
 created: 2026-09-16
-updated: 2026-11-19
+updated: 2026-11-27
 owner: jpdandin
 tags:
   - site-internet
@@ -14,6 +14,11 @@ tags:
 ---
 
 # Tennis Club de Longages
+
+Candidate PR 37 du 27 novembre : dépendances Drupal 11.4.14 et suivi des cours
+en qualification locale/CI. Les mentions de versions hébergées ci-dessous
+sont historiques et ne constituent pas un constat actuel. Voir le
+[point de reprise](docs/point-session.md#reprise-des-contrôles-de-la-pr-37).
 
 ## Agenda Bureau V2 — préproduction
 
