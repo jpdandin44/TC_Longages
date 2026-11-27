@@ -21,6 +21,10 @@ historiques figées dans `config/launch-beta/source/` restent intactes.
 Les deux audits Composer ne signalent plus d'alerte ; le paquet bêta
 s'installe avec Drupal 11.4.14. Les fichiers de configuration générés par
 Drupal sont alignés sur cette version.
+Le test du workflow attend également 11.4.14 et son empreinte est
+requalifiée après revue du seul changement de version ; les droits,
+audits et garde-fous de livraison sont conservés. Les cinq contrôles
+locaux des workflows réussissent.
 
 Le second échec initial concerne `tests/lessons-http.py`, à la création
 d'un groupe. Cause reproduite : erreur HTTP 500 à l'ouverture de

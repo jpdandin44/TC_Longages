@@ -102,7 +102,7 @@ test('Le YAML exécutable limite les droits et ne confond pas test, approbation 
   assert.match(betaRun,/cp -a config\/launch-beta\/source\/drupal\/\. \.local\/beta-ci\//);
   assert.match(betaRun,/composer --working-dir=\.local\/beta-ci install --no-dev/);
   assert.match(betaRun,/audit --locked --no-dev/);
-  assert.match(betaRun,/Drupal::VERSION !== "11\.4\.13"/);
+  assert.match(betaRun,/Drupal::VERSION !== "11\.4\.14"/);
   assert.ok(betaRun.trim().endsWith('python3 scripts/verify_beta_release.py verify'));
   const safety=ci.jobs['delivery-safety'];
   assert.equal(safety.steps[0].with['fetch-depth'],0);
